@@ -227,17 +227,23 @@
         </button>
       </div>
       <div class="flex-1 flex flex-col items-center justify-center gap-8 p-6 overflow-y-auto">
-        <a href="#how" class="text-xl font-bold text-gray-800">How It Works</a>
+        
+        <a href="#how" onclick="closeMobileMenu()" class="text-xl font-bold text-gray-800">How It Works</a>
+        
         <a href="#pricing" onclick="closeMobileMenu()" class="text-xl font-bold text-gray-800">Pricing</a>
+        
         <button onclick="closeMobileMenu(); openPilotModal();" class="text-xl font-bold text-brand-blue">Pilot Process</button>
-        <a href="#mobile-demo" class="text-xl font-bold text-gray-800">Mobile Tool</a>
+        
+        <a href="#mobile-demo" onclick="closeMobileMenu()" class="text-xl font-bold text-gray-800">Mobile Tool</a>
+        
         <button onclick="closeMobileMenu(); openTrustModal();" class="text-xl font-bold text-gray-800">Trust & Vision</button>
-       <button onclick="closeMobileMenu(); selectPlan('One Term Pilot')" class="w-full btn py-4 text-center text-lg mt-4 shadow-xl">
-  Join the Pilot
-</button>
+        
+        <button onclick="closeMobileMenu(); selectPlan('One Term Pilot')" class="w-full btn py-4 text-center text-lg mt-4 shadow-xl">
+          Join the Pilot
+        </button>
       </div>
     </div>
-  </div>
+</div>
 </header>
 
 <section class="relative pt-4 pb-12 lg:pt-20 lg:pb-28 hero-mesh overflow-hidden">
