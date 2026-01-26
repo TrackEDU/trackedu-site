@@ -302,8 +302,14 @@
       <div class="order-2 lg:order-none w-full relative mb-1 lg:mb-0" data-aos="fade-left">
         <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white ring-1 ring-gray-100 transform hover:scale-[1.01] transition duration-500">
           <div class="aspect-video bg-black relative group">
-            <iframe id="hero-video" class="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/lNbZ6-j2GCM?autoplay=1&mute=1&loop=1&playlist=lNbZ6-j2GCM&controls=0&modestbranding=1&rel=0&playsinline=1&enablejsapi=1" title="TrackEDU" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
-            
+           <iframe id="hero-video" 
+  class="absolute inset-0 w-full h-full" 
+  src="https://www.youtube.com/embed/lNbZ6-j2GCM?autoplay=1&loop=1&playlist=lNbZ6-j2GCM&controls=0&modestbranding=1&rel=0&playsinline=1&enablejsapi=1" 
+  title="TrackEDU" 
+  frameborder="0" 
+  allow="autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" 
+  allowfullscreen>
+</iframe>
             <div class="absolute bottom-4 right-4 flex gap-2 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <button id="toggleMute" class="w-8 h-8 rounded-full bg-black/60 hover:bg-black/80 flex items-center justify-center text-white transition"><i id="muteIcon" class="fas fa-volume-mute text-xs"></i></button>
               <button id="toggleFullscreen" class="w-8 h-8 rounded-full bg-black/60 hover:bg-black/80 flex items-center justify-center text-white transition"><i class="fas fa-expand text-xs"></i></button>
@@ -1301,6 +1307,71 @@
       }
     }, 2000);
   });
+
+
+
+
+
+
+// YouTube IFrame API Logic
+var player;
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('hero-video', {
+    events: {
+      'onReady': onPlayerReady
+    }
+  });
+}
+
+function onPlayerReady(event) {
+  const muteBtn = document.getElementById('toggleMute');
+  const muteIcon = document.getElementById('muteIcon');
+  const fullscreenBtn = document.getElementById('toggleFullscreen');
+
+  // Load YouTube API script if not already present
+  if (!window.YT) {
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  }
+
+  // Handle Mute/Unmute
+  muteBtn.addEventListener('click', () => {
+    if (player.isMuted()) {
+      player.unMute();
+      muteIcon.classList.remove('fa-volume-mute');
+      muteIcon.classList.add('fa-volume-up');
+    } else {
+      player.mute();
+      muteIcon.classList.remove('fa-volume-up');
+      muteIcon.classList.add('fa-volume-mute');
+    }
+  });
+
+  // Handle Fullscreen
+  fullscreenBtn.addEventListener('click', () => {
+    const iframe = document.getElementById('hero-video');
+    if (iframe.requestFullscreen) {
+      iframe.requestFullscreen();
+    } else if (iframe.webkitRequestFullscreen) { /* Safari */
+      iframe.webkitRequestFullscreen();
+    } else if (iframe.msRequestFullscreen) { /* IE11 */
+      iframe.msRequestFullscreen();
+    }
+  });
+}
+
+// Initial call to load the API
+if (!window.YT) {
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+}
+
+
+  
 </script>
 
 <script type="text/javascript">
