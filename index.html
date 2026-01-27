@@ -212,7 +212,7 @@
 
       <div class="hidden md:flex items-center gap-6 font-medium text-sm text-gray-600">
         <a href="#how" class="hover:text-brand-blue transition">How It Works</a>
-        <a href="#pricing" class="hover:text-brand-blue transition">Pricing</a>
+        <a href="#pricing" class="hover:text-brand-blue transition">The Pilot</a>
         <button onclick="openPilotModal()" class="hover:text-brand-blue transition font-semibold text-brand-blue">Pilot Process</button>
         <a href="#mobile-demo" class="hover:text-brand-blue transition">Live Mobile Tool</a>
         <button onclick="openTrustModal()" class="hover:text-brand-blue transition">Trust & Data</button>
@@ -240,7 +240,7 @@
         
         <a href="#how" onclick="closeMobileMenu()" class="text-xl font-bold text-gray-800">How It Works</a>
         
-        <a href="#pricing" onclick="closeMobileMenu()" class="text-xl font-bold text-gray-800">Pricing</a>
+        <a href="#pricing" onclick="closeMobileMenu()" class="text-xl font-bold text-gray-800">The Pilot</a>
         
         <button onclick="closeMobileMenu(); openPilotModal();" class="text-xl font-bold text-brand-blue">Pilot Process</button>
         
@@ -483,38 +483,52 @@
 
   <section id="pricing" class="py-20 bg-brand-light">
   <div class="max-w-4xl mx-auto px-6 text-center">
-    <span class="bg-brand-green text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Research Phase</span>
-    <h2 class="font-display text-4xl font-black text-brand-dark mt-4 mb-6">Join the 2026 Innovation Cohort</h2>
-    <p class="text-xl text-gray-600 mb-10">
-      TrackEDU is currently in a <strong>closed research beta</strong>. We are accepting 20 schools to use the full system for free in exchange for feedback on our "Digital Culture" whitepaper.
+    
+    <div class="inline-flex items-center gap-2 bg-brand-green/10 text-brand-green px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6 border border-brand-green/20">
+      <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-green"></span>
+      </span>
+      Open for 2026 Intake
+    </div>
+
+    <h2 class="font-display text-4xl font-black text-brand-dark mb-6">Join the Pilot Program</h2>
+    <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
+      TrackEDU is currently in a <strong>closed research beta</strong>. Get full access to the system for free in exchange for user feedback.
     </p>
 
-    <div class="bg-white rounded-3xl p-8 shadow-card border border-gray-200">
-      <div class="grid md:grid-cols-2 gap-8 text-left">
+    <div class="bg-white rounded-3xl p-8 md:p-10 shadow-card border border-gray-200 relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-64 h-64 bg-brand-green/5 rounded-full blur-3xl -mr-20 -mt-20"></div>
+
+      <div class="grid md:grid-cols-2 gap-8 text-left relative z-10">
         <div>
-          <h3 class="font-bold text-xl mb-4">What you get:</h3>
-          <ul class="space-y-3">
-            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-brand-green"></i> Full System Access (Unlimited)</li>
-            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-brand-green"></i> Setup Support</li>
-            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-brand-green"></i> "Innovation Partner" Badge</li>
+          <h3 class="font-bold text-xl mb-4 text-brand-dark">You Get:</h3>
+          <ul class="space-y-4">
+            <li class="flex items-center gap-3 text-gray-700"><i class="fas fa-check-circle text-brand-green text-lg"></i> <span class="font-medium">Full System Access (Unlimited)</span></li>
+            <li class="flex items-center gap-3 text-gray-700"><i class="fas fa-check-circle text-brand-green text-lg"></i> <span class="font-medium">Personal Setup Support</span></li>
+            <li class="flex items-center gap-3 text-gray-700"><i class="fas fa-check-circle text-brand-green text-lg"></i> <span class="font-medium">Data Benchmarking Report</span></li>
           </ul>
         </div>
-        <div>
-          <h3 class="font-bold text-xl mb-4">What we need:</h3>
-          <ul class="space-y-3">
-            <li class="flex items-center gap-3"><i class="fas fa-clipboard-list text-brand-blue"></i> 1 Feedback Survey per Term</li>
-            <li class="flex items-center gap-3"><i class="fas fa-comment text-brand-blue"></i> A short testimonial (if you love it)</li>
-            <li class="flex items-center gap-3"><i class="fas fa-lightbulb text-brand-blue"></i> Feature suggestions</li>
+        <div class="md:border-l md:border-gray-100 md:pl-8">
+          <h3 class="font-bold text-xl mb-4 text-brand-dark">We Ask For:</h3>
+          <ul class="space-y-4">
+            <li class="flex items-center gap-3 text-gray-700"><i class="fas fa-comment-alt text-brand-blue text-lg"></i> <span class="font-medium">1 Feedback Survey per Term</span></li>
+            <li class="flex items-center gap-3 text-gray-700"><i class="fas fa-bug text-brand-blue text-lg"></i> <span class="font-medium">Report any bugs you find</span></li>
+            <li class="flex items-center gap-3 text-gray-700"><i class="fas fa-thumbs-up text-brand-blue text-lg"></i> <span class="font-medium">A testimonial (if you love it)</span></li>
           </ul>
         </div>
       </div>
-      <div class="mt-8 pt-8 border-t border-gray-100 text-center">
-        <button onclick="selectPlan('Research Cohort')" class="btn px-10 py-4 text-xl shadow-xl w-full md:w-auto">
-          Apply for the Research Cohort
+      
+      <div class="mt-10 pt-8 border-t border-gray-100 text-center">
+        <button onclick="selectPlan('Research Pilot')" class="btn px-12 py-4 text-xl shadow-xl w-full md:w-auto hover:scale-[1.02] transform transition">
+          Join the Pilot
         </button>
-        <p class="mt-4 text-xs text-gray-400">Limited spots available for the 2026 academic year.</p>
+        <p class="mt-4 text-xs text-gray-400 font-medium">
+          <i class="fas fa-lock mr-1"></i> No credit card required. No commitment.
+        </p>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -845,7 +859,7 @@
     
     <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-8 text-sm font-medium text-gray-600">
       <a href="#how" class="hover:text-brand-green">How it Works</a>
-      <a href="#pricing" class="hover:text-brand-green">Pricing</a>
+      <a href="#pricing" class="hover:text-brand-green">The Pilot</a>
       <button onclick="openTrustModal()" class="hover:text-brand-green font-semibold">Trust & Vision</button>
       <a href="/privacy.html" class="hover:text-brand-green">Privacy Policy</a>
       
