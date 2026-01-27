@@ -482,69 +482,38 @@
 
 
   <section id="pricing" class="py-20 bg-brand-light">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="text-center mb-16">
-      <h2 class="font-display text-3xl font-black text-brand-dark mb-4">House Point Plans</h2>
-      <p class="text-gray-600">Simple annual licenses. No hidden setup fees.</p>
-    </div>
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <span class="bg-brand-green text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Research Phase</span>
+    <h2 class="font-display text-4xl font-black text-brand-dark mt-4 mb-6">Join the 2026 Innovation Cohort</h2>
+    <p class="text-xl text-gray-600 mb-10">
+      TrackEDU is currently in a <strong>closed research beta</strong>. We are accepting 20 schools to use the full system for free in exchange for feedback on our "Digital Culture" whitepaper.
+    </p>
 
-    <div class="grid md:grid-cols-3 gap-8 items-start">
-      
-      <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition relative">
-        <h3 class="font-bold text-xl text-brand-dark mb-2">The Pilot</h3>
-        <p class="text-sm text-gray-500 mb-6">Test the full system risk-free.</p>
-        <div class="text-3xl font-black text-gray-900 mb-2">Free<span class="text-base font-normal text-gray-400"> / Up to 1 Term</span></div>
-        <div class="text-xs text-brand-green font-bold uppercase tracking-wide mb-6">Duration based on school size</div>
-        
-        <ul class="space-y-4 text-sm text-gray-600 mb-8">
-          <li class="flex gap-2"><i class="fas fa-school text-brand-green"></i> <strong>Schools Only</strong></li>
-          <li class="flex gap-2"><i class="fas fa-check text-brand-green"></i> <strong>Up to 8 Houses</strong></li>
-          <li class="flex gap-2"><i class="fas fa-check text-brand-green"></i> Full Admin Control</li>
-          <li class="flex gap-2"><i class="fas fa-check text-brand-green"></i> Live Leaderboards</li>
-          <li class="flex gap-2"><i class="fas fa-check text-brand-green"></i> Unlimited Teachers</li>
-        </ul>
-        <button onclick="selectPlan('One Term Pilot')" class="block w-full py-3 text-center border-2 border-brand-dark text-brand-dark font-bold rounded-xl hover:bg-brand-dark hover:text-white transition">
-          Start Pilot
-        </button>
+    <div class="bg-white rounded-3xl p-8 shadow-card border border-gray-200">
+      <div class="grid md:grid-cols-2 gap-8 text-left">
+        <div>
+          <h3 class="font-bold text-xl mb-4">What you get:</h3>
+          <ul class="space-y-3">
+            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-brand-green"></i> Full System Access (Unlimited)</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-brand-green"></i> Setup Support</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-brand-green"></i> "Innovation Partner" Badge</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold text-xl mb-4">What we need:</h3>
+          <ul class="space-y-3">
+            <li class="flex items-center gap-3"><i class="fas fa-clipboard-list text-brand-blue"></i> 1 Feedback Survey per Term</li>
+            <li class="flex items-center gap-3"><i class="fas fa-comment text-brand-blue"></i> A short testimonial (if you love it)</li>
+            <li class="flex items-center gap-3"><i class="fas fa-lightbulb text-brand-blue"></i> Feature suggestions</li>
+          </ul>
+        </div>
       </div>
-
-      <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition relative">
-        <h3 class="font-bold text-xl text-brand-dark mb-2">Core System</h3>
-        <p class="text-sm text-gray-500 mb-6">For smaller schools or simple setups.</p>
-        <div class="text-3xl font-black text-gray-900 mb-6">Standard<span class="text-base font-normal text-gray-400"> / License</span></div>
-        
-        <ul class="space-y-4 text-sm text-gray-600 mb-8">
-          <li class="flex gap-2 items-center"><i class="fas fa-desktop text-gray-400"></i> <span class="text-gray-900 font-bold">Desktop Only</span> <span class="text-xs bg-gray-100 px-2 py-0.5 rounded text-gray-500">No Mobile</span></li>
-          <li class="flex gap-2"><i class="fas fa-check text-brand-green"></i> Up to 4 Houses</li>
-          <li class="flex gap-2"><i class="fas fa-tv text-brand-green"></i> TV/Assembly Display Mode</li>
-          <li class="flex gap-2"><i class="fas fa-check text-brand-green"></i> House Leader Dashboard</li>
-          <li class="flex gap-2"><i class="fas fa-video text-brand-green"></i> Video Training Library</li>
-          <li class="flex gap-2"><i class="fas fa-envelope text-brand-green"></i> Email Support</li>
-        </ul>
-        <button onclick="selectPlan('Core System License')" class="block w-full py-3 text-center border-2 border-gray-200 text-gray-600 font-bold rounded-xl hover:border-brand-dark hover:text-brand-dark transition">
-          Get Quote
+      <div class="mt-8 pt-8 border-t border-gray-100 text-center">
+        <button onclick="selectPlan('Research Cohort')" class="btn px-10 py-4 text-xl shadow-xl w-full md:w-auto">
+          Apply for the Research Cohort
         </button>
-      </div> <div class="bg-brand-dark rounded-2xl p-8 shadow-xl border border-brand-dark relative transform md:-translate-y-4">
-        <div class="absolute top-0 right-0 bg-brand-green text-white text-xs font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl">RECOMMENDED</div>
-        <h3 class="font-bold text-xl text-white mb-2">Full Experience</h3>
-        <p class="text-sm text-gray-400 mb-6">The complete culture platform.</p>
-        <div class="text-3xl font-black text-white mb-6">Pro<span class="text-base font-normal text-gray-400"> / License</span></div>
-        
-        <ul class="space-y-4 text-sm text-gray-300 mb-8">
-          <li class="flex gap-2 items-center"><i class="fas fa-mobile-alt text-brand-green"></i> <strong class="text-white">Mobile App Access</strong></li>
-          <li class="flex gap-2"><i class="fas fa-check text-brand-green"></i> <strong>Up to 8 Houses</strong></li>
-          <li class="flex gap-2"><i class="fas fa-tv text-brand-green"></i> <strong>TV/Assembly Display Mode</strong></li>
-          <li class="flex gap-2"><i class="fas fa-users-viewfinder text-brand-green"></i> Parent/Student Community Link</li>
-          <li class="flex gap-2"><i class="fas fa-certificate text-brand-green"></i> Automated Certificates</li>
-          <li class="flex gap-2"><i class="fas fa-trophy text-brand-green"></i> Custom Milestones & Challenges</li>
-          <li class="flex gap-2"><i class="fas fa-chalkboard-teacher text-brand-green"></i> 1-Hour Live Onboarding</li>
-          <li class="flex gap-2"><i class="fas fa-phone text-brand-green"></i> Dedicated Strategy Calls (x3)</li>
-        </ul>
-        <button onclick="selectPlan('Full Experience Pro License')" class="block w-full py-3 text-center bg-brand-green text-white font-bold rounded-xl hover:bg-white hover:text-brand-green transition">
-          Get Quote
-        </button>
+        <p class="mt-4 text-xs text-gray-400">Limited spots available for the 2026 academic year.</p>
       </div>
-
     </div>
   </div>
 </section>
@@ -885,7 +854,7 @@
 
     <div class="text-xs text-gray-400">
       <p class="mb-2">TrackEDU is currently shared as part of school-based pilots and professional learning.</p>
-      <p>&copy; 2026 TrackEDU. All rights reserved.</p> </div>
+      <p>&copy; 2026 TrackEDU. Project currently operating as an educational research initiative. Not yet a registered commercial entity.</p> </div>
   </div>
 </footer>
 
