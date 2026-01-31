@@ -14,7 +14,7 @@
   
   <link rel="canonical" href="https://www.trackedu.net">
   <link rel="icon" type="image/png" href="https://i.imgur.com/3PR3SiC.png">
-   
+    
   <title>House Point Tracker & Digital School Tools | TrackEDU</title>
   <meta name="description" content="The smart house point tracker for schools. Replace spreadsheets with a digital house app to track points, manage rewards, and build culture. The essential digital tool for schools.">
   <meta name="keywords" content="house point tracker, house system for schools, house point tool, digital house app, smart house point, house point app for school, house point tracker app, house point tool for schools, school house point system, digital tool for schools">
@@ -171,7 +171,7 @@
       border-radius: 36px;
       transition: all 0.3s ease;
     }
-     
+      
     /* Ensure phone fits on small screens without scrolling */
     @media (max-width: 640px) {
       .phone-frame {
@@ -634,25 +634,34 @@
 
     <div class="grid md:grid-cols-3 gap-8 mb-8">
       
-      <div class="bg-white rounded-3xl p-8 shadow-card border border-transparent hover:border-brand-green/30 transition group flex flex-col relative overflow-hidden">
+      <div onclick="openCarousel('fixtureModal')" class="bg-white rounded-3xl p-8 shadow-card border border-transparent hover:border-brand-green hover:shadow-glow hover:-translate-y-1 cursor-pointer transition-all duration-300 group flex flex-col relative overflow-hidden">
         <div class="absolute top-4 right-4 bg-brand-blue/10 text-brand-blue text-[10px] font-bold px-2 py-1 rounded-full uppercase">Beta Module</div>
         <div class="text-5xl mb-6 group-hover:scale-110 transition duration-300">⚽</div>
-        <h3 class="text-xl font-bold mb-2 text-brand-dark">Fixture Manager</h3>
+        <h3 class="text-xl font-bold mb-2 text-brand-dark group-hover:text-brand-blue transition">Fixture Manager</h3>
         <p class="text-gray-600 text-sm mb-6 flex-grow">One live calendar for all sports. Solves the "missed bus" communication gap.</p>
+        <div class="text-brand-blue font-bold text-xs uppercase tracking-wider flex items-center gap-2">
+          View Slides <i class="fas fa-arrow-right group-hover:translate-x-1 transition"></i>
+        </div>
       </div>
 
-      <div class="bg-white rounded-3xl p-8 shadow-card border border-transparent hover:border-brand-green/30 transition group flex flex-col relative overflow-hidden">
+      <div onclick="openCarousel('facilityModal')" class="bg-white rounded-3xl p-8 shadow-card border border-transparent hover:border-brand-green hover:shadow-glow hover:-translate-y-1 cursor-pointer transition-all duration-300 group flex flex-col relative overflow-hidden">
         <div class="absolute top-4 right-4 bg-brand-blue/10 text-brand-blue text-[10px] font-bold px-2 py-1 rounded-full uppercase">Beta Module</div>
         <div class="text-5xl mb-6 group-hover:scale-110 transition duration-300">📅</div>
-        <h3 class="text-xl font-bold mb-2 text-brand-dark">Facility Scheduler</h3>
+        <h3 class="text-xl font-bold mb-2 text-brand-dark group-hover:text-brand-blue transition">Facility Scheduler</h3>
         <p class="text-gray-600 text-sm mb-6 flex-grow">Real-time visibility for labs and halls. No more double-booking arguments.</p>
+        <div class="text-brand-blue font-bold text-xs uppercase tracking-wider flex items-center gap-2">
+          View Slides <i class="fas fa-arrow-right group-hover:translate-x-1 transition"></i>
+        </div>
       </div>
 
-      <div class="bg-white rounded-3xl p-8 shadow-card border border-transparent hover:border-brand-green/30 transition group flex flex-col relative overflow-hidden">
+      <div onclick="openCarousel('behaviorModal')" class="bg-white rounded-3xl p-8 shadow-card border border-transparent hover:border-brand-green hover:shadow-glow hover:-translate-y-1 cursor-pointer transition-all duration-300 group flex flex-col relative overflow-hidden">
         <div class="absolute top-4 right-4 bg-brand-blue/10 text-brand-blue text-[10px] font-bold px-2 py-1 rounded-full uppercase">Beta Module</div>
         <div class="text-5xl mb-6 group-hover:scale-110 transition duration-300">🛡️</div>
-        <h3 class="text-xl font-bold mb-2 text-brand-dark">Behaviour Tracker</h3>
+        <h3 class="text-xl font-bold mb-2 text-brand-dark group-hover:text-brand-blue transition">Behaviour Tracker</h3>
         <p class="text-gray-600 text-sm mb-6 flex-grow">Secure logging for pastoral care. Helps identify patterns early.</p>
+        <div class="text-brand-blue font-bold text-xs uppercase tracking-wider flex items-center gap-2">
+          View Slides <i class="fas fa-arrow-right group-hover:translate-x-1 transition"></i>
+        </div>
       </div>
 
     </div>
@@ -1307,11 +1316,6 @@
     }, 2000);
   });
 
-
-
-
-
-
 // YouTube IFrame API Logic
 var player;
 function onYouTubeIframeAPIReady() {
@@ -1398,6 +1402,153 @@ if (!window.YT) {
     // 4. (Optional) Flash the message box green so they see it changed
     messageField.style.borderColor = '#87C232';
     setTimeout(() => { messageField.style.borderColor = ''; }, 2000);
+  }
+</script>
+
+<div id="fixtureModal" class="fixed inset-0 z-[99999] hidden tool-modal">
+  <div class="absolute inset-0 bg-gray-900/95 backdrop-blur-sm" onclick="closeCarousel('fixtureModal')"></div>
+  
+  <div class="relative w-full h-full flex flex-col items-center justify-center p-4">
+    
+    <button onclick="closeCarousel('fixtureModal')" class="absolute top-4 right-4 z-50 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white text-2xl backdrop-blur-md transition">
+      <i class="fas fa-times"></i>
+    </button>
+    
+    <div class="relative w-full max-w-sm aspect-[9/19] bg-gray-900 rounded-3xl shadow-2xl overflow-hidden border-4 border-gray-800">
+       <img src="https://trackedu.github.io/common-assets/fixture1.jpg" class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-300" data-index="0">
+       <img src="https://trackedu.github.io/common-assets/fixture2.jpg" class="slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300" data-index="1">
+       <img src="https://trackedu.github.io/common-assets/fixture3.jpg" class="slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300" data-index="2">
+       <img src="https://trackedu.github.io/common-assets/fixture4.jpg" class="slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300" data-index="3">
+      
+       
+       <button onclick="changeSlide('fixtureModal', -1)" class="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/80 rounded-full text-white flex items-center justify-center backdrop-blur-md z-10"><i class="fas fa-chevron-left"></i></button>
+       <button onclick="changeSlide('fixtureModal', 1)" class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/80 rounded-full text-white flex items-center justify-center backdrop-blur-md z-10"><i class="fas fa-chevron-right"></i></button>
+       
+       <div class="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10">
+         <div class="dot w-2 h-2 rounded-full bg-white transition-all"></div>
+         <div class="dot w-2 h-2 rounded-full bg-white/40 transition-all"></div>
+         <div class="dot w-2 h-2 rounded-full bg-white/40 transition-all"></div>
+         <div class="dot w-2 h-2 rounded-full bg-white/40 transition-all"></div>
+         <div class="dot w-2 h-2 rounded-full bg-white/40 transition-all"></div>
+       </div>
+    </div>
+    <p class="text-white/60 mt-4 text-sm font-medium animate-pulse">Swipe or click arrows to view tour</p>
+  </div>
+</div>
+
+<div id="facilityModal" class="fixed inset-0 z-[99999] hidden tool-modal">
+  <div class="absolute inset-0 bg-gray-900/95 backdrop-blur-sm" onclick="closeCarousel('facilityModal')"></div>
+  <div class="relative w-full h-full flex flex-col items-center justify-center p-4">
+    
+    <button onclick="closeCarousel('facilityModal')" class="absolute top-4 right-4 z-50 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white text-2xl backdrop-blur-md transition">
+      <i class="fas fa-times"></i>
+    </button>
+    
+    <div class="relative w-full max-w-sm aspect-[9/19] bg-gray-900 rounded-3xl shadow-2xl overflow-hidden border-4 border-gray-800">
+       <img src="https://trackedu.github.io/common-assets/facility1.jpg" class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-300" data-index="0">
+       <img src="https://trackedu.github.io/common-assets/facility2.jpg" class="slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300" data-index="1">
+       <img src="https://trackedu.github.io/common-assets/facility3.jpg" class="slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300" data-index="2">
+       <img src="https://trackedu.github.io/common-assets/facility4.jpg" class="slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300" data-index="3">
+
+       <button onclick="changeSlide('facilityModal', -1)" class="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/80 rounded-full text-white flex items-center justify-center backdrop-blur-md z-10"><i class="fas fa-chevron-left"></i></button>
+       <button onclick="changeSlide('facilityModal', 1)" class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/80 rounded-full text-white flex items-center justify-center backdrop-blur-md z-10"><i class="fas fa-chevron-right"></i></button>
+       
+       <div class="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10">
+         <div class="dot w-2 h-2 rounded-full bg-white transition-all"></div>
+         <div class="dot w-2 h-2 rounded-full bg-white/40 transition-all"></div>
+         <div class="dot w-2 h-2 rounded-full bg-white/40 transition-all"></div>
+         <div class="dot w-2 h-2 rounded-full bg-white/40 transition-all"></div>
+       </div>
+    </div>
+  </div>
+</div>
+
+<div id="behaviorModal" class="fixed inset-0 z-[99999] hidden tool-modal">
+  <div class="absolute inset-0 bg-gray-900/95 backdrop-blur-sm" onclick="closeCarousel('behaviorModal')"></div>
+  <div class="relative w-full h-full flex flex-col items-center justify-center p-4">
+    
+    <button onclick="closeCarousel('behaviorModal')" class="absolute top-4 right-4 z-50 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white text-2xl backdrop-blur-md transition">
+      <i class="fas fa-times"></i>
+    </button>
+    
+    <div class="relative w-full max-w-sm aspect-[9/19] bg-gray-900 rounded-3xl shadow-2xl overflow-hidden border-4 border-gray-800">
+       <img src="https://trackedu.github.io/common-assets/behavior1.jpg" class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-300" data-index="0">
+       <img src="https://trackedu.github.io/common-assets/behavior2.jpg" class="slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300" data-index="1">
+       <img src="https://trackedu.github.io/common-assets/behavior3.jpg" class="slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300" data-index="2">
+       <img src="https://trackedu.github.io/common-assets/behavior4.jpg" class="slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300" data-index="3">
+
+       <button onclick="changeSlide('behaviorModal', -1)" class="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/80 rounded-full text-white flex items-center justify-center backdrop-blur-md z-10"><i class="fas fa-chevron-left"></i></button>
+       <button onclick="changeSlide('behaviorModal', 1)" class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/80 rounded-full text-white flex items-center justify-center backdrop-blur-md z-10"><i class="fas fa-chevron-right"></i></button>
+
+       <div class="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10">
+         <div class="dot w-2 h-2 rounded-full bg-white transition-all"></div>
+         <div class="dot w-2 h-2 rounded-full bg-white/40 transition-all"></div>
+         <div class="dot w-2 h-2 rounded-full bg-white/40 transition-all"></div>
+         <div class="dot w-2 h-2 rounded-full bg-white/40 transition-all"></div>
+       </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Simple Logic for the Tool Carousels
+  const carouselState = {};
+
+  function openCarousel(modalId) {
+    document.getElementById(modalId).classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    // Reset to first slide
+    carouselState[modalId] = 0;
+    updateCarousel(modalId);
+  }
+
+  function closeCarousel(modalId) {
+    document.getElementById(modalId).classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  function changeSlide(modalId, direction) {
+    const modal = document.getElementById(modalId);
+    const slides = modal.querySelectorAll('.slide');
+    let currentIndex = carouselState[modalId] || 0;
+
+    currentIndex += direction;
+
+    // Loop
+    if (currentIndex >= slides.length) currentIndex = 0;
+    if (currentIndex < 0) currentIndex = slides.length - 1;
+
+    carouselState[modalId] = currentIndex;
+    updateCarousel(modalId);
+  }
+
+  function updateCarousel(modalId) {
+    const modal = document.getElementById(modalId);
+    const slides = modal.querySelectorAll('.slide');
+    const dots = modal.querySelectorAll('.dot');
+    const currentIndex = carouselState[modalId] || 0;
+
+    slides.forEach((slide, index) => {
+      if (index === currentIndex) {
+        slide.style.opacity = '1';
+        slide.style.zIndex = '1';
+      } else {
+        slide.style.opacity = '0';
+        slide.style.zIndex = '0';
+      }
+    });
+
+    if(dots.length) {
+      dots.forEach((dot, index) => {
+        if(index === currentIndex) {
+           dot.classList.remove('bg-white/40');
+           dot.classList.add('bg-white');
+        } else {
+           dot.classList.add('bg-white/40');
+           dot.classList.remove('bg-white');
+        }
+      });
+    }
   }
 </script>
 
