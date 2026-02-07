@@ -1,8 +1,8 @@
-const CACHE_NAME = 'trackedu-v11'; 
+const CACHE_NAME = 'trackedu-v12'; 
 const ASSETS = [
   '/app/',
-  '/studentapp.png',
-  '/teacherapp.png'
+  'https://trackedu.github.io/common-assets/studentapp.png',
+  'https://trackedu.github.io/common-assets/teacherapp.png'
 ];
 
 self.addEventListener('install', (e) => {
