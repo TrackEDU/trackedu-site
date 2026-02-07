@@ -2,8 +2,30 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>TrackEDU | Loading App...</title>
+  <title>TrackEDU | Loading...</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  
+  <link rel="preconnect" href="https://script.google.com">
+  <link rel="apple-touch-icon" href="https://trackedu.github.io/common-assets/Housetoolwithtrackedu.png">
+  <link rel="icon" type="image/png" href="https://trackedu.github.io/common-assets/Housetoolwithtrackedu.png">
+
+  <script>
+    // --- 1. DYNAMIC PWA CONFIGURATION ---
+    const params = new URLSearchParams(window.location.search);
+    const isPublic = params.get('view') === 'public';
+    
+    // Inject the correct manifest based on the URL
+    const manifestLink = document.createElement('link');
+    manifestLink.rel = 'manifest';
+    manifestLink.href = isPublic ? '/public-manifest.json' : '/manifest.json';
+    document.head.appendChild(manifestLink);
+
+    // Register Service Worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js');
+    }
+  </script>
+
   <style>
     body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: #020617; }
     #loadingScreen {
@@ -16,6 +38,12 @@
     }
     @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: none; z-index: 1; opacity: 0; transition: opacity 0.5s; }
+    
+    #installBtn {
+      display: none; position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+      background-color: #fbbf24; color: #020617; border: none; padding: 12px 24px;
+      border-radius: 25px; font-weight: bold; z-index: 10000; cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -27,38 +55,49 @@
 
   <iframe id="appFrame" allow="fullscreen"></iframe>
 
-  <script>
-    // --- THE REGISTRY ---
-    // Every time you get a NEW school, add them to this list below:
-    const schoolRegistry = {
-      "owis": "https://script.google.com/macros/s/AKfycbwz5xOd2n-YR7tzQ0NCvXEBSwaQzErW0-e6PZHZIP1hLByl1qUM6G2EKi192Iyqs6bG/exec",
+  <button id="installBtn">🏆 Install App</button>
 
-      "demo": "https://script.google.com/macros/s/AKfycbwz5xOd2n-YR7tzQ0NCvXEBSwaQzErW0-e6PZHZIP1hLByl1qUM6G2EKi192Iyqs6bG/exec"
+  <script>
+    // --- 2. THE REGISTRY ---
+    const schoolRegistry = {
+      "demo": "https://script.google.com/macros/s/AKfycbwzXxRygeHMxLIDR_xbhtaQR1OC4bTknwKTHyTq49H4j/dev", // Your Demo Link
+      "bis": "https://script.google.com/macros/s/AKfycbwz5xOd2n-YR7tzQ0NCvXEBSwaQzErW0-e6PZHZIP1hLByl1qUM6G2EKi192Iyqs6bG/exec"
     };
 
-    const params = new URLSearchParams(window.location.search);
     const schoolId = params.get('id');
     const viewMode = params.get('view') || ''; 
 
     if (schoolId && schoolRegistry[schoolId]) {
       let finalUrl = schoolRegistry[schoolId];
-      
-      // Handle public view parameter
       if (viewMode === 'public') {
          finalUrl += (finalUrl.includes('?') ? '&' : '?') + "view=house-students";
       }
       
       const frame = document.getElementById('appFrame');
       frame.src = finalUrl;
-      
       frame.onload = function() {
          document.getElementById('loadingScreen').style.opacity = '0';
          frame.style.opacity = '1';
          setTimeout(() => { document.getElementById('loadingScreen').style.display = 'none'; }, 500);
       };
     } else {
-      document.getElementById('loadingScreen').innerHTML = '<h2 style="color:white; font-family:sans-serif;">School Link Not Found</h2>';
+      document.getElementById('loadingScreen').innerHTML = '<h2 style="color:white; font-family:sans-serif;">School Not Found</h2>';
     }
+
+    // --- 3. INSTALL LOGIC ---
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault(); deferredPrompt = e;
+      document.getElementById('installBtn').style.display = 'block';
+    });
+    document.getElementById('installBtn').addEventListener('click', async () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === 'accepted') document.getElementById('installBtn').style.display = 'none';
+        deferredPrompt = null;
+      }
+    });
   </script>
 </body>
 </html>
