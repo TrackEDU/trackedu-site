@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>TrackEDU | Loading App...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <style>
+    body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: #020617; }
+    #loadingScreen {
+      position: fixed; inset: 0; background: #020617; z-index: 9999;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+    }
+    .spinner {
+      width: 50px; height: 50px; border: 5px solid rgba(255,255,255,0.1);
+      border-top: 5px solid #3b82f6; border-radius: 50%; animation: spin 1s linear infinite;
+    }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: none; z-index: 1; opacity: 0; transition: opacity 0.5s; }
+  </style>
+</head>
+<body>
+
+  <div id="loadingScreen">
+    <div class="spinner"></div>
+    <p style="color: white; font-family: sans-serif; margin-top: 20px;">Securing Connection...</p>
+  </div>
+
+  <iframe id="appFrame" allow="fullscreen"></iframe>
+
+  <script>
+    // --- THE REGISTRY ---
+    // Every time you get a NEW school, add them to this list below:
+    const schoolRegistry = {
+      "owis": "https://script.google.com/macros/s/AKfycbwz5xOd2n-YR7tzQ0NCvXEBSwaQzErW0-e6PZHZIP1hLByl1qUM6G2EKi192Iyqs6bG/exec",
+
+      "demo": "https://script.google.com/macros/s/AKfycbwz5xOd2n-YR7tzQ0NCvXEBSwaQzErW0-e6PZHZIP1hLByl1qUM6G2EKi192Iyqs6bG/exec"
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const schoolId = params.get('id');
+    const viewMode = params.get('view') || ''; 
+
+    if (schoolId && schoolRegistry[schoolId]) {
+      let finalUrl = schoolRegistry[schoolId];
+      
+      // Handle public view parameter
+      if (viewMode === 'public') {
+         finalUrl += (finalUrl.includes('?') ? '&' : '?') + "view=house-students";
+      }
+      
+      const frame = document.getElementById('appFrame');
+      frame.src = finalUrl;
+      
+      frame.onload = function() {
+         document.getElementById('loadingScreen').style.opacity = '0';
+         frame.style.opacity = '1';
+         setTimeout(() => { document.getElementById('loadingScreen').style.display = 'none'; }, 500);
+      };
+    } else {
+      document.getElementById('loadingScreen').innerHTML = '<h2 style="color:white; font-family:sans-serif;">School Link Not Found</h2>';
+    }
+  </script>
+</body>
+</html>
