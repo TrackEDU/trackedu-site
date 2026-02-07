@@ -1,15 +1,15 @@
-const CACHE_NAME = 'trackedu-v8'; // Increment this whenever you update the registry
+const CACHE_NAME = 'trackedu-v9'; 
 const ASSETS = [
   '/app/',
-  'https://trackedu.github.io/common-assets/studentapp.png',
-  'https://trackedu.github.io/common-assets/teacherapp.png'
+  '/studentapp.png',
+  '/teacherapp.png'
 ];
 
 self.addEventListener('install', (e) => {
   e.waitUntil(
     caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS))
   );
-  self.skipWaiting(); // Forces the new service worker to become active immediately
+  self.skipWaiting();
 });
 
 self.addEventListener('activate', (event) => {
@@ -18,7 +18,7 @@ self.addEventListener('activate', (event) => {
       return Promise.all(
         cacheNames.map((cacheName) => {
           if (cacheName !== CACHE_NAME) {
-            return caches.delete(cacheName); // Deletes old versions to save space
+            return caches.delete(cacheName);
           }
         })
       );
