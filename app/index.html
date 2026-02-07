@@ -5,48 +5,64 @@
   <title>TrackEDU | Loading...</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   
+  <link rel="preconnect" href="https://script.google.com">
+  <link rel="apple-touch-icon" href="/app-icon.png">
+  <link rel="icon" type="image/png" href="/app-icon.png">
+
   <script>
-  // --- 1. DYNAMIC PWA CONFIGURATION ---
-  const params = new URLSearchParams(window.location.search);
-  const schoolId = params.get('id') || 'demo'; 
-  const isPublic = params.get('view') === 'public';
-  
-  // Choose the correct branded icon URL based on the view
-  const appIcon = isPublic 
-    ? 'https://trackedu.github.io/common-assets/studentapp.png' 
-    : 'https://trackedu.github.io/common-assets/teacherapp.png';
+    // --- 1. DYNAMIC PWA CONFIGURATION ---
+    const params = new URLSearchParams(window.location.search);
+    const schoolId = params.get('id') || 'demo'; 
+    const isPublic = params.get('view') === 'public';
+    
+    // Create the Dynamic Manifest Object
+    const baseManifest = {
+      "name": isPublic ? "Student Dashboard" : "TrackEDU House Points",
+      "short_name": isPublic ? "Dashboard" : "Teacher App",
+      // THE FIX: This locks the specific school ID into the installed app
+      "start_url": isPublic ? `/app/?id=${schoolId}&view=public` : `/app/?id=${schoolId}`,
+      "display": "fullscreen",
+      "background_color": isPublic ? "#020617" : "#ffffff",
+      "theme_color": isPublic ? "#020617" : "#1e40af",
+      "orientation": "portrait",
+      "icons": [
+        {
+          "src": "/app-icon.png",
+          "sizes": "192x192",
+          "type": "image/png",
+          "purpose": "any maskable"
+        },
+        {
+          "src": "/app-icon.png",
+          "sizes": "512x512",
+          "type": "image/png",
+          "purpose": "any maskable"
+        }
+      ]
+    };
 
-  const baseManifest = {
-    "name": isPublic ? "Student Dashboard" : "TrackEDU House Points",
-    "short_name": isPublic ? "Dashboard" : "Teacher App",
-    "start_url": isPublic ? `/app/?id=${schoolId}&view=public` : `/app/?id=${schoolId}`,
-    "display": "fullscreen",
-    "background_color": isPublic ? "#020617" : "#ffffff",
-    "theme_color": isPublic ? "#020617" : "#1e40af",
-    "orientation": "portrait",
-    "icons": [
-      { "src": appIcon, "sizes": "192x192", "type": "image/png", "purpose": "any" },
-      { "src": appIcon, "sizes": "512x512", "type": "image/png", "purpose": "any" }
-    ]
-  };
+    // Convert manifest object to a Blob URL and inject it
+    const stringManifest = JSON.stringify(baseManifest);
+    const blob = new Blob([stringManifest], {type: 'application/json'});
+    const manifestURL = URL.createObjectURL(blob);
+    
+    const manifestLink = document.createElement('link');
+    manifestLink.rel = 'manifest';
+    manifestLink.href = manifestURL;
+    document.head.appendChild(manifestLink);
 
-  const blob = new Blob([JSON.stringify(baseManifest)], {type: 'application/json'});
-  const manifestURL = URL.createObjectURL(blob);
-  const manifestLink = document.createElement('link');
-  manifestLink.rel = 'manifest';
-  manifestLink.href = manifestURL;
-  document.head.appendChild(manifestLink);
-
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js');
-  }
-</script>
+    // Register Service Worker from the root
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js');
+    }
+  </script>
 
   <style>
     body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: #020617; }
     #loadingScreen {
       position: fixed; inset: 0; background: #020617; z-index: 9999;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
+      transition: opacity 0.5s ease;
     }
     .spinner {
       width: 50px; height: 50px; border: 5px solid rgba(255,255,255,0.1);
@@ -55,7 +71,13 @@
     @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: none; z-index: 1; opacity: 0; transition: opacity 0.5s; }
     
-    .loading-text { margin-top: 25px; font-family: sans-serif; font-size: 18px; font-weight: 600; text-align: center; }
+    .loading-text {
+      margin-top: 25px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      text-align: center;
+    }
     .text-white { color: #ffffff; }
     .text-green { color: #22c55e; }
     .text-gray { color: #94a3b8; font-weight: 400; font-size: 14px; display: block; margin-top: 5px; }
@@ -63,41 +85,55 @@
     #installBtn {
       display: none; position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
       background-color: #fbbf24; color: #020617; border: none; padding: 12px 24px;
-      border-radius: 25px; font-weight: bold; z-index: 10000;
+      border-radius: 25px; font-weight: bold; z-index: 10000; cursor: pointer;
     }
   </style>
 </head>
 <body>
+
   <div id="loadingScreen">
     <div class="spinner"></div>
     <div id="statusText" class="loading-text"></div>
   </div>
+
   <iframe id="appFrame" allow="fullscreen"></iframe>
   <button id="installBtn">🏆 Install App</button>
 
   <script>
-    const statusDiv = document.getElementById('statusText');
-    statusDiv.innerHTML = isPublic ? 
-      '<span class="text-white">Loading Track</span><span class="text-green">EDU</span><span class="text-gray">Students Dashboard</span>' : 
-      '<span class="text-white">Loading Track</span><span class="text-green">EDU</span><span class="text-gray">House Points System</span>';
+    // --- 1. DYNAMIC PWA CONFIGURATION ---
+    const params = new URLSearchParams(window.location.search);
+    const schoolId = params.get('id') || 'demo'; 
+    const isPublic = params.get('view') === 'public';
+    
+    // THE FIX: Point to your new professional edge-to-edge icons
+    const appIcon = isPublic 
+      ? 'https://trackedu.github.io/common-assets/studentapp.png' 
+      : 'https://trackedu.github.io/common-assets/teacherapp.png';
 
-    const schoolRegistry = {
-      "demo": "https://script.google.com/a/macros/globalschools.com/s/AKfycbwz5xOd2n-YR7tzQ0NCvXEBSwaQzErW0-e6PZHZIP1hLByl1qUM6G2EKi192Iyqs6bG/exec"
+    const baseManifest = {
+      "name": isPublic ? "Student Dashboard" : "TrackEDU House Points",
+      "short_name": isPublic ? "Dashboard" : "Teacher App",
+      "start_url": isPublic ? `/app/?id=${schoolId}&view=public` : `/app/?id=${schoolId}`,
+      "display": "fullscreen",
+      "background_color": isPublic ? "#020617" : "#ffffff",
+      "theme_color": isPublic ? "#020617" : "#1e40af",
+      "orientation": "portrait",
+      "icons": [
+        { "src": appIcon, "sizes": "192x192", "type": "image/png", "purpose": "any" },
+        { "src": appIcon, "sizes": "512x512", "type": "image/png", "purpose": "any" }
+      ]
     };
 
-    if (schoolId && schoolRegistry[schoolId]) {
-      let finalUrl = schoolRegistry[schoolId];
-      if (isPublic) finalUrl += (finalUrl.includes('?') ? '&' : '?') + "view=house-students";
-      
-      const frame = document.getElementById('appFrame');
-      frame.src = finalUrl;
-      frame.onload = () => {
-         document.getElementById('loadingScreen').style.opacity = '0';
-         frame.style.opacity = '1';
-         setTimeout(() => { document.getElementById('loadingScreen').style.display = 'none'; }, 500);
-      };
+    const blob = new Blob([JSON.stringify(baseManifest)], {type: 'application/json'});
+    const manifestURL = URL.createObjectURL(blob);
+    const manifestLink = document.createElement('link');
+    manifestLink.rel = 'manifest';
+    manifestLink.href = manifestURL;
+    document.head.appendChild(manifestLink);
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js');
     }
-    // Install logic remains the same...
   </script>
 </body>
 </html>
