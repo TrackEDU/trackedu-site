@@ -12,25 +12,25 @@
     const schoolId = params.get('id') || 'demo'; 
     const isPublic = params.get('view') === 'public';
     
-    // --- 1. SET BRANDING BASED ON ROLE ---
-    // Make sure you upload your new square icons with these exact names
-    const appIcon = isPublic 
-      ? '/studentapp.png'   // The new "House Arena" star icon
-      : '/teacherapp.png';  // The new "House Control" shield icon
-
+    // --- 1. EXACT APP NAMES & ICONS ---
+    // This sets the name that appears UNDER the icon on the home screen
     const appName = isPublic ? "TrackEDU Student" : "TrackEDU Teacher";
-    const shortName = isPublic ? "Student" : "Teacher";
-    const themeColor = isPublic ? "#020617" : "#1e40af";
-    const bgColor = isPublic ? "#020617" : "#ffffff";
+    
+    // Update the browser title so iOS 'Add to Home Screen' picks up the right name
+    document.title = appName;
+
+    const appIcon = isPublic 
+      ? '/studentapp.png'   // House Arena Icon
+      : '/teacherapp.png';  // House Control Icon
 
     // --- 2. GENERATE DYNAMIC MANIFEST ---
     const baseManifest = {
-      "name": appName,
-      "short_name": shortName,
+      "name": appName,        // Splash screen name
+      "short_name": appName,  // Home screen icon name (Forced to full name)
       "start_url": isPublic ? `/app/?id=${schoolId}&view=public` : `/app/?id=${schoolId}`,
       "display": "fullscreen",
-      "background_color": bgColor,
-      "theme_color": themeColor,
+      "background_color": isPublic ? "#020617" : "#ffffff",
+      "theme_color": isPublic ? "#020617" : "#1e40af",
       "orientation": "portrait",
       "icons": [
         { "src": appIcon, "sizes": "192x192", "type": "image/png", "purpose": "any" },
@@ -113,10 +113,10 @@
   <script>
     // --- DISPLAY LOADING TEXT ---
     const statusDiv = document.getElementById('statusText');
-    // Shows "TrackEDU Student" or "TrackEDU Teacher" in green/white
+    // Using the full names in the loading screen as well
     statusDiv.innerHTML = isPublic 
-      ? '<span class="text-white">Loading... </span><br><span class="text-white">Track</span><span class="text-green">EDU</span> <span class="text-gray">Student</span>' 
-      : '<span class="text-white">Loading... </span><br><span class="text-white">Track</span><span class="text-green">EDU</span> <span class="text-gray">Teacher</span>';
+      ? '<span class="text-white">Loading... </span><br><span class="text-green">TrackEDU Student</span>' 
+      : '<span class="text-white">Loading... </span><br><span class="text-green">TrackEDU Teacher</span>';
 
     // --- SCHOOL REGISTRY ---
     const schoolRegistry = {
