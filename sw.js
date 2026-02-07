@@ -1,4 +1,4 @@
-const CACHE_NAME = 'trackedu-v12'; 
+const CACHE_NAME = 'trackedu-v13'; 
 const ASSETS = [
   '/app/',
   'https://trackedu.github.io/common-assets/studentapp.png',
