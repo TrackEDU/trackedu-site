@@ -1,4 +1,0 @@
-<script>
-  // Redirects the user to the universal loader with the ID pre-filled
-  window.location.href = "https://www.trackedu.net/app/?id=demo";
-</script>
