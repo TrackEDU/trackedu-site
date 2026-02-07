@@ -1,0 +1,23 @@
+{
+  "name": "TrackEDU House Points",
+  "short_name": "Admin App",
+  "start_url": "/app/",
+  "display": "fullscreen",
+  "background_color": "#ffffff",
+  "theme_color": "#1e40af",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://trackedu.github.io/common-assets/Housetoolwithtrackedu.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://trackedu.github.io/common-assets/Housetoolwithtrackedu.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
