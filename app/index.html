@@ -6,24 +6,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   
   <link rel="preconnect" href="https://script.google.com">
+  
   <script>
     const params = new URLSearchParams(window.location.search);
     const schoolId = params.get('id') || 'demo'; 
     const isPublic = params.get('view') === 'public';
     
-    // Use the professional edge-to-edge icons
+    // --- 1. SET BRANDING BASED ON ROLE ---
+    // Make sure you upload your new square icons with these exact names
     const appIcon = isPublic 
-      ? 'https://trackedu.github.io/common-assets/studentapp.png' 
-      : 'https://trackedu.github.io/common-assets/teacherapp.png';
+      ? '/studentapp.png'   // The new "House Arena" star icon
+      : '/teacherapp.png';  // The new "House Control" shield icon
 
-    // Generate Dynamic Manifest to lock the schoolId into the PWA
+    const appName = isPublic ? "TrackEDU Student" : "TrackEDU Teacher";
+    const shortName = isPublic ? "Student" : "Teacher";
+    const themeColor = isPublic ? "#020617" : "#1e40af";
+    const bgColor = isPublic ? "#020617" : "#ffffff";
+
+    // --- 2. GENERATE DYNAMIC MANIFEST ---
     const baseManifest = {
-      "name": isPublic ? "Student Dashboard" : "TrackEDU House Points",
-      "short_name": isPublic ? "Dashboard" : "Teacher App",
+      "name": appName,
+      "short_name": shortName,
       "start_url": isPublic ? `/app/?id=${schoolId}&view=public` : `/app/?id=${schoolId}`,
       "display": "fullscreen",
-      "background_color": isPublic ? "#020617" : "#ffffff",
-      "theme_color": isPublic ? "#020617" : "#1e40af",
+      "background_color": bgColor,
+      "theme_color": themeColor,
       "orientation": "portrait",
       "icons": [
         { "src": appIcon, "sizes": "192x192", "type": "image/png", "purpose": "any" },
@@ -38,14 +45,13 @@
     manifestLink.href = manifestURL;
     document.head.appendChild(manifestLink);
 
-    // Register Service Worker with Update Notification
+    // Register Service Worker
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js').then(reg => {
         reg.addEventListener('updatefound', () => {
           const newWorker = reg.installing;
           newWorker.addEventListener('statechange', () => {
             if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-              // New content is available; show the toast!
               document.getElementById('updateToast').style.display = 'block';
             }
           });
@@ -69,11 +75,8 @@
     iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: none; z-index: 1; opacity: 0; transition: opacity 0.5s; }
     
     .loading-text {
-      margin-top: 25px;
-      font-family: 'Poppins', sans-serif;
-      font-size: 18px;
-      font-weight: 600;
-      text-align: center;
+      margin-top: 25px; font-family: 'Poppins', sans-serif;
+      font-size: 18px; font-weight: 600; text-align: center;
     }
     .text-white { color: #ffffff; }
     .text-green { color: #22c55e; }
@@ -83,6 +86,7 @@
       display: none; position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
       background-color: #fbbf24; color: #020617; border: none; padding: 12px 24px;
       border-radius: 25px; font-weight: bold; z-index: 10000; cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     }
 
     #updateToast {
@@ -107,17 +111,14 @@
   <button id="installBtn">🏆 Install App</button>
 
   <script>
-    // --- SET DYNAMIC TEXT IMMEDIATELY ---
+    // --- DISPLAY LOADING TEXT ---
     const statusDiv = document.getElementById('statusText');
-    if (isPublic) {
-      statusDiv.innerHTML = '<span class="text-white">Loading Track</span><span class="text-green">EDU</span>' + 
-                            '<span class="text-gray">Students Dashboard</span>';
-    } else {
-      statusDiv.innerHTML = '<span class="text-white">Loading Track</span><span class="text-green">EDU</span>' + 
-                            '<span class="text-gray">House Points System</span>';
-    }
+    // Shows "TrackEDU Student" or "TrackEDU Teacher" in green/white
+    statusDiv.innerHTML = isPublic 
+      ? '<span class="text-white">Loading... </span><br><span class="text-white">Track</span><span class="text-green">EDU</span> <span class="text-gray">Student</span>' 
+      : '<span class="text-white">Loading... </span><br><span class="text-white">Track</span><span class="text-green">EDU</span> <span class="text-gray">Teacher</span>';
 
-    // --- 2. THE REGISTRY ---
+    // --- SCHOOL REGISTRY ---
     const schoolRegistry = {
       "demo": "https://script.google.com/a/macros/globalschools.com/s/AKfycbwz5xOd2n-YR7tzQ0NCvXEBSwaQzErW0-e6PZHZIP1hLByl1qUM6G2EKi192Iyqs6bG/exec",
       "bis": "",
@@ -145,7 +146,7 @@
         </div>`;
     }
 
-    // --- 3. INSTALL LOGIC ---
+    // --- INSTALL BUTTON LOGIC ---
     let deferredPrompt;
     window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault(); deferredPrompt = e;
