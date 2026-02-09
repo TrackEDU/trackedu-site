@@ -35,8 +35,9 @@ start_url: isStudentApp
 ? `/app/?id=${schoolId}&view=public`
 : `/app/?id=${schoolId}`,
 display: "fullscreen",
-background_color: isStudentApp ? "#020617" : "#ffffff",
-theme_color: isStudentApp ? "#020617" : "#1e40af",
+background_color: "#ffffff",
+theme_color: "#ffffff",
+
 orientation: "portrait",
 icons: [
 { src: appIcon, sizes: "192x192", type: "image/png" },
@@ -71,17 +72,17 @@ document.getElementById('updateToast').style.display = 'block';
 
 <style>
 body, html {
-margin: 0;
-padding: 0;
-height: 100%;
-overflow: hidden;
-background-color: #020617;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background-color: #ffffff;
 }
 
 #loadingScreen {
-position: fixed;
-inset: 0;
-background: #020617;
+  position: fixed;
+  inset: 0;
+  background: #ffffff;
 z-index: 9999;
 display: flex;
 flex-direction: column;
@@ -94,7 +95,7 @@ transition: opacity 0.5s ease;
 width: 50px;
 height: 50px;
 border: 5px solid rgba(255,255,255,0.1);
-border-top: 5px solid #3b82f6;
+border-top: 5px solid #22c55e;
 border-radius: 50%;
 animation: spin 1s linear infinite;
 }
@@ -194,10 +195,14 @@ to { top: 20px; }
 const statusDiv = document.getElementById('statusText');
 
 statusDiv.innerHTML = `
-<span class="text-gray">Loading</span>
-<span class="text-white">Track</span><span class="text-green">EDU</span>
+<span class="text-gray">Loading</span><br/>
+<strong>
+  <span style="color:#000000;">Track</span><span style="color:#22c55e;">EDU</span>
+</strong>
+<br/>
 <span class="text-gray">${isStudentApp ? 'Student' : 'Teacher'}</span>
 `;
+
 
 // --- FIND THIS SECTION IN YOUR GITHUB INDEX.HTML ---
 const schoolRegistry = {
