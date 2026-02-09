@@ -197,12 +197,15 @@
       <span class="text-gray">${isStudentApp ? 'Student' : 'Teacher'}</span>
     `;
 
-    const schoolRegistry = {
-      demo: "https://script.google.com/macros/s/AKfycbx69Dsx_lHOhzPlUF1qf8083m_vFziDHeYDyBUyqz9wvWBaieQRsssyC4de8hpFVpBAZQ/exec",
-      tanglin: "https://script.google.com/macros/s/AKfycbz5Dn9RZnRpD7-cl3gWQZeWHEueudIfNkYcqFxiqzb41YlpJQqmd_oDl_E0JIsvqle3NQ/exec",
-      hisb: "https://script.google.com/macros/s/AKfycbxmmCApY9eapjWxEKhfTW6XXD0CMD93XcEkDQNOpqAIW12Pg9qnZV3yybLBQQlL9lhi/exec",
-      owis: "https://script.google.com/macros/s/AKfycbzOB8CReA-ZPz8LkkKc-GERQCcAXXD4Q1qfjTDFhibD27FGeGfqWsdVdI2x6E2LkutRxQ/exec"
-    };
+    // --- FIND THIS SECTION IN YOUR GITHUB INDEX.HTML ---
+const schoolRegistry = {
+  demo: "https://script.google.com/macros/s/AKfycbx69Dsx_lHOhzPlUF1qf8083m_vFziDHeYDyBUyqz9wvWBaieQRsssyC4de8hpFVpBAZQ/exec",
+  tanglin: "https://script.google.com/macros/s/AKfycbz5Dn9RZnRpD7-cl3gWQZeWHEueudIfNkYcqFxiqzb41YlpJQqmd_oDl_E0JIsvqle3NQ/exec",
+  hisb: "https://script.google.com/macros/s/AKfycbxmmCApY9eapjWxEKhfTW6XXD0CMD93XcEkDQNOpqAIW12Pg9qnZV3yybLBQQlL9lhi/exec",
+  
+  // UPDATED OWIS URL BELOW:
+  owis: "https://script.google.com/a/globalschools.com/macros/s/AKfycbzOB8CReA-ZPz8LkkKc-GERQCcAXXD4Q1qfjTDFhibD27FGeGfqWsdVdI2x6E2LkutRxQ/exec"
+};
 
     if (schoolRegistry[schoolId]) {
       let finalUrl = schoolRegistry[schoolId];
