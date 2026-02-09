@@ -1,7 +1,8 @@
-const CACHE_NAME = 'trackedu-v14'; // I bumped this to v14 for you
+const CACHE_NAME = 'trackedu-v15'; // Bumped to v15 to force update
 const ASSETS = [
   'https://trackedu.github.io/common-assets/studentapp.png',
-  'https://trackedu.github.io/common-assets/teacherapp.png'
+  'https://trackedu.github.io/common-assets/teacherapp.png',
+  'https://trackedu.github.io/common-assets/teloading.png' // Added new loading image
 ];
 
 self.addEventListener('install', (e) => {
@@ -27,22 +28,13 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  // 1. FOR THE HTML FILE (The App Itself) -> NETWORK FIRST
-  // This ensures users always get the latest School Registry
   if (event.request.mode === 'navigate') {
     event.respondWith(
-      fetch(event.request)
-        .catch(() => {
-          return caches.match(event.request);
-        })
+      fetch(event.request).catch(() => caches.match(event.request))
     );
-  } 
-  // 2. FOR IMAGES & ASSETS -> CACHE FIRST (Fast loading)
-  else {
+  } else {
     event.respondWith(
-      caches.match(event.request).then((response) => {
-        return response || fetch(event.request);
-      })
+      caches.match(event.request).then((response) => response || fetch(event.request))
     );
   }
 });
