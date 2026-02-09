@@ -36,10 +36,10 @@
       background_color: isStudentApp ? "#020617" : "#ffffff",
       theme_color: isStudentApp ? "#020617" : "#1e40af",
       orientation: "portrait",
-      icons: [
-        { src: appIcon, sizes: "192x192", type: "image/png" },
-        { src: appIcon, sizes: "512x512", type: "image/png" }
-      ]
+     icons: [
+  { src: appIcon, sizes: "192x192", type: "image/png" },
+  { src: "https://trackedu.github.io/common-assets/teloading.png", sizes: "512x512", type: "image/png" }
+]
     };
 
     const manifestBlob = new Blob(
@@ -77,16 +77,18 @@
     }
 
     #loadingScreen {
-      position: fixed;
-      inset: 0;
-      background: #020617;
-      z-index: 9999;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      transition: opacity 0.5s ease;
-    }
+  position: fixed; inset: 0; background: #020617; z-index: 9999;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  transition: opacity 0.5s ease;
+}
+
+/* NEW LOGO STYLE */
+#loadingLogo {
+  width: 150px; height: 150px;
+  margin-bottom: 25px;
+  object-fit: contain;
+  border-radius: 20px;
+}
 
     .spinner {
       width: 50px;
@@ -180,9 +182,11 @@
   </div>
 
   <div id="loadingScreen">
-    <div class="spinner"></div>
-    <div id="statusText" class="loading-text"></div>
-  </div>
+  <img src="https://trackedu.github.io/common-assets/teloading.png" id="loadingLogo" alt="TrackEDU">
+  
+  <div class="spinner"></div>
+  <div id="statusText" class="loading-text"></div>
+</div>
 
   <iframe id="appFrame" allow="fullscreen"></iframe>
 
