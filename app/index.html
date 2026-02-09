@@ -28,21 +28,40 @@ const appIcon = isStudentApp
 : 'https://trackedu.github.io/common-assets/teacherapp.png';
 
 // --- MANIFEST ---
-const baseManifest = {
-name: appName,
-short_name: "TrackEDU",
-start_url: isStudentApp
-? `/app/?id=${schoolId}&view=public`
-: `/app/?id=${schoolId}`,
-display: "fullscreen",
-background_color: "#ffffff",
-theme_color: "#ffffff",
+// --- APP THEME COLOR ---
+const themeColor = "#ffffff";
 
-orientation: "portrait",
-icons: [
-{ src: appIcon, sizes: "192x192", type: "image/png" },
-{ src: appIcon, sizes: "512x512", type: "image/png" }
-]
+// Add physical meta tag for browser UI
+const metaThemeColor = document.createElement('meta');
+metaThemeColor.name = "theme-color";
+metaThemeColor.content = themeColor;
+document.head.appendChild(metaThemeColor);
+
+// --- MANIFEST ---
+const baseManifest = {
+  name: appName,
+  short_name: "TrackEDU",
+  start_url: isStudentApp 
+    ? window.location.origin + window.location.pathname + `?id=${schoolId}&view=public` 
+    : window.location.origin + window.location.pathname + `?id=${schoolId}`,
+  display: "standalone", // Changed to standalone for better compatibility than fullscreen
+  background_color: themeColor,
+  theme_color: themeColor,
+  orientation: "portrait",
+  icons: [
+    { 
+      src: appIcon, 
+      sizes: "192x192", 
+      type: "image/png",
+      purpose: "any maskable" 
+    },
+    { 
+      src: appIcon, 
+      sizes: "512x512", 
+      type: "image/png",
+      purpose: "any maskable"
+    }
+  ]
 };
 
 const manifestBlob = new Blob(
