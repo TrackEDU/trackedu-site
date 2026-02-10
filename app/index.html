@@ -110,18 +110,17 @@ justify-content: center;
 transition: opacity 0.5s ease;
 }
 
-.spinner {
- width: 50px;
-  height: 50px;
-  border: 5px solid rgba(0,0,0,0.08);
-  border-top: 5px solid #22c55e;
-border-radius: 50%;
-animation: spin 1s linear infinite;
+.loading-logo-img {
+  width: 180px; /* Adjust size as needed */
+  height: auto;
+  margin-bottom: 10px;
+  /* Optional: adds a gentle breathing effect to the logo while loading */
+  animation: breathe 2s ease-in-out infinite;
 }
 
-@keyframes spin {
-from { transform: rotate(0deg); }
-to { transform: rotate(360deg); }
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.9; }
 }
 
 iframe {
@@ -202,8 +201,8 @@ to { top: 20px; }
 </div>
 
 <div id="loadingScreen">
-<div class="spinner"></div>
-<div id="statusText" class="loading-text"></div>
+  <img src="https://trackedu.github.io/common-assets/tsloading.png" class="loading-logo-img" alt="TrackEDU Logo">
+  <div id="statusText" class="loading-text"></div>
 </div>
 
 <iframe id="appFrame" allow="fullscreen"></iframe>
@@ -214,12 +213,9 @@ to { top: 20px; }
 const statusDiv = document.getElementById('statusText');
 
 statusDiv.innerHTML = `
-<span class="text-gray">Loading</span><br/>
-<strong>
-  <span style="color:#000000;">Track</span><span style="color:#22c55e;">EDU</span>
-</strong>
-<br/>
-<span class="text-gray">${isStudentApp ? 'Student' : 'Teacher'}</span>
+  <span class="text-gray" style="font-size: 20px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">
+    ${isStudentApp ? 'Student' : 'Teacher'} App
+  </span>
 `;
 
 
