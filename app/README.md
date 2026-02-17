@@ -87,3 +87,75 @@ If a mobile user sees "School Not Found" but it works on desktop:
 * **`GLOBAL_SCHOOL_ID`**: This variable is injected into the `<head>` of the HTML by Google Apps Script.
 * **Usage:** It allows buttons (like "Install App" or "Open Student View") to automatically generate links for the *current* school without manual code changes.
 * *Code:* `window.open('...id=' + GLOBAL_SCHOOL_ID ...)`
+
+
+
+
+
+
+
+Here’s a clean, concise README note you can paste into your repo 👇
+
+---
+
+## 🔁 PWA Icon / Manifest Update Rule (IMPORTANT)
+
+If app icon changes are not appearing after install, it is a cache issue.
+
+### ✅ Always do the following when updating icons:
+
+1. **Rename icon files**
+
+   * Do NOT overwrite existing icons.
+   * Example:
+
+     ```
+     icon-192-v1.png
+     icon-512-v1.png
+     ```
+
+     Next update:
+
+     ```
+     icon-192-v2.png
+     icon-512-v2.png
+     ```
+
+2. **Update manifest version**
+
+   ```html
+   <link rel="manifest" href="/manifest.json?v=2">
+   ```
+
+   Increment `v` every time icons or manifest change.
+
+3. **Update service worker cache name**
+
+   ```js
+   const CACHE_NAME = "trackedu-v2";
+   ```
+
+   Increment version to force cache refresh.
+
+---
+
+### ⚠️ Why?
+
+Chrome aggressively caches:
+
+* manifest
+* icons
+* service worker
+
+If filenames + version stay the same, old icons will continue to appear — even after uninstalling.
+
+---
+
+### 🔥 Golden Rule
+
+**Never overwrite icon files. Always version them.**
+
+---
+
+That’s it. Clean, future-proof, founder-proof.
+
