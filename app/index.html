@@ -220,9 +220,9 @@ fetch(`${GATEKEEPER_URL}?id=${schoolId}`)
   let finalUrl = data.url;
   
   // Pass the expiry date into the app so the House Control can see it
-  if (data.expiry) {
-    finalUrl += (finalUrl.includes('?') ? '&' : '?') + "expiry=" + encodeURIComponent(data.expiry);
-  }
+  if (data.tier) {
+  finalUrl += (finalUrl.includes('?') ? '&' : '?') + "tier=" + encodeURIComponent(data.tier);
+}
       if (isStudentApp) {
         finalUrl += (finalUrl.includes('?') ? '&' : '?') + "view=house-students";
       }
