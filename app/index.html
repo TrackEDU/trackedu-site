@@ -1,11 +1,8 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 
-<!-- App title (dynamic) -->
 <title>TrackEDU House Points</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -217,45 +214,52 @@ statusDiv.innerHTML = `
   </span>
 `;
 
+// --- CENTRALIZED LICENSING GATEKEEPER ---
+const GATEKEEPER_URL = "https://script.google.com/macros/s/AKfycbzqrrKj_6yEG_F7C032K1yvMxk9cLv2n-bFsRx6I0zuCUpkQo5pzzBPx7j4zmhxuBO73g/exec"; 
 
+fetch(`${GATEKEEPER_URL}?id=${schoolId}`)
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {
+      let finalUrl = data.url;
+      
+      if (isStudentApp) {
+        finalUrl += (finalUrl.includes('?') ? '&' : '?') + "view=house-students";
+      }
 
-// --- FIND THIS SECTION IN YOUR GITHUB INDEX.HTML ---
-const schoolRegistry = {
-demo: "https://script.google.com/macros/s/AKfycbyWtQODM_ZiuXfA39bk4p_-nlriwLW5zXnU_HxArBE76ad9xZesBGcHg-G6K0GEmUu8jw/exec",
-tanglin: "https://script.google.com/macros/s/AKfycbz5Dn9RZnRpD7-cl3gWQZeWHEueudIfNkYcqFxiqzb41YlpJQqmd_oDl_E0JIsvqle3NQ/exec",
-hisb: "https://script.google.com/macros/s/AKfycbxmmCApY9eapjWxEKhfTW6XXD0CMD93XcEkDQNOpqAIW12Pg9qnZV3yybLBQQlL9lhi/exec",
-// UPDATED OWIS URL BELOW:
-owis: "https://script.google.com/a/globalschools.com/macros/s/AKfycbzOB8CReA-ZPz8LkkKc-GERQCcAXXD4Q1qfjTDFhibD27FGeGfqWsdVdI2x6E2LkutRxQ/exec"
-};
-
-if (schoolRegistry[schoolId]) {
-let finalUrl = schoolRegistry[schoolId];
-if (isStudentApp) {
-finalUrl += (finalUrl.includes('?') ? '&' : '?') + "view=house-students";
-}
-
-const frame = document.getElementById('appFrame');
-frame.src = finalUrl;
-frame.onload = () => {
-  setTimeout(() => {
-    document.getElementById('loadingScreen').style.opacity = '0';
-    frame.style.opacity = '1';
-    setTimeout(() => {
-      document.getElementById('loadingScreen').style.display = 'none';
-    }, 500);
-  }, 200); // slight delay so TrackEDU branding lands first
-};
-
-} else {
-document.getElementById('loadingScreen').innerHTML = `
-<div style="text-align:center;">
-<h2 style="color:white; font-family:sans-serif;">School not found</h2>
-<p style="color:#94a3b8; font-family:sans-serif;">
-Please check the link or contact your school administrator.
-</p>
-</div>
-`;
-}
+      const frame = document.getElementById('appFrame');
+      frame.src = finalUrl;
+      frame.onload = () => {
+        setTimeout(() => {
+          document.getElementById('loadingScreen').style.opacity = '0';
+          frame.style.opacity = '1';
+          setTimeout(() => {
+            document.getElementById('loadingScreen').style.display = 'none';
+          }, 500);
+        }, 200); 
+      };
+      
+    } else {
+      document.getElementById('loadingScreen').innerHTML = `
+        <div style="text-align:center; padding: 20px;">
+          <h2 style="color:white; font-family:sans-serif;">Access Restricted</h2>
+          <p style="color:#94a3b8; font-family:sans-serif; max-width: 300px; margin: 0 auto; line-height: 1.5;">
+            ${data.reason}
+          </p>
+        </div>
+      `;
+    }
+  })
+  .catch(error => {
+    document.getElementById('loadingScreen').innerHTML = `
+      <div style="text-align:center;">
+        <h2 style="color:white; font-family:sans-serif;">Connection Error</h2>
+        <p style="color:#94a3b8; font-family:sans-serif;">
+          Please check your internet connection and refresh the page.
+        </p>
+      </div>
+    `;
+  });
 
 // --- INSTALL PROMPT ---
 let deferredPrompt;
