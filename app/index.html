@@ -25,7 +25,6 @@ const appIcon = isStudentApp
 : 'https://trackedu.github.io/common-assets/teacherapp.png';
 
 // --- MANIFEST ---
-// --- APP THEME COLOR ---
 const themeColor = "#ffffff";
 
 // Add physical meta tag for browser UI
@@ -34,14 +33,13 @@ metaThemeColor.name = "theme-color";
 metaThemeColor.content = themeColor;
 document.head.appendChild(metaThemeColor);
 
-// --- MANIFEST ---
 const baseManifest = {
   name: appName,
   short_name: "TrackEDU",
   start_url: isStudentApp 
     ? window.location.origin + window.location.pathname + `?id=${schoolId}&view=public` 
     : window.location.origin + window.location.pathname + `?id=${schoolId}`,
-  display: "standalone", // Changed to standalone for better compatibility than fullscreen
+  display: "standalone", 
   background_color: themeColor,
   theme_color: themeColor,
   orientation: "portrait",
@@ -100,15 +98,15 @@ body, html {
   inset: 0;
   background: #ffffff;
   z-index: 9999;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-transition: opacity 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease;
 }
 
 .loading-logo-img {
-  width: 300px; /* Increased size */
+  width: 300px; 
   height: auto;
   margin-bottom: 15px;
   animation: breathe 2s ease-in-out infinite;
@@ -134,12 +132,10 @@ transition: opacity 0.5s;
 margin-top: 25px;
 font-family: 'Poppins', sans-serif;
 font-size: 18px;
-font-weight: 400; /* Changed from 600 to 400 (Normal) */
+font-weight: 400; 
 text-align: center;
 }
 
-.text-white { color: #ffffff; }
-.text-green { color: #22c55e; }
 .text-gray {
 color: #94a3b8;
 font-weight: 400;
@@ -215,31 +211,20 @@ statusDiv.innerHTML = `
 `;
 
 // --- CENTRALIZED LICENSING GATEKEEPER (WORLD-CLASS UI) ---
-// Replace this URL with your actual deployed Gatekeeper Web App URL
 const GATEKEEPER_URL = "https://script.google.com/macros/s/AKfycbzqrrKj_6yEG_F7C032K1yvMxk9cLv2n-bFsRx6I0zuCUpkQo5pzzBPx7j4zmhxuBO73g/exec"; 
 
-// Extract school ID from URL parameters
-const urlParams = new URLSearchParams(window.location.search);
-const schoolId = urlParams.get('id');
-const isStudentApp = urlParams.has('student');
-
-// Check access permission
 fetch(`${GATEKEEPER_URL}?id=${schoolId}`)
   .then(response => response.json())
   .then(data => {
     if (data.success) {
       // --- ACCESS GRANTED ---
       let finalUrl = data.url;
-      // Append student view parameter if necessary
       if (isStudentApp) {
         finalUrl += (finalUrl.includes('?') ? '&' : '?') + "view=house-students";
       }
 
-      // Load the Google Apps Script Web App into the iframe
       const frame = document.getElementById('appFrame');
       frame.src = finalUrl;
-
-      // Smooth transition upon load
       frame.onload = () => {
         setTimeout(() => {
           document.getElementById('loadingScreen').style.opacity = '0';
@@ -278,13 +263,11 @@ fetch(`${GATEKEEPER_URL}?id=${schoolId}`)
               Direct Email: <a href="mailto:hello@trackedu.net" style="color: #1a1a1a; text-decoration: none; font-weight: 700; border-bottom: 2px solid rgba(16, 185, 129, 0.3);">hello@trackedu.net</a>
             </p>
           </div>
-
         </div>
       `;
     }
   })
   .catch(error => {
-    // Connection Error State (Matching White/Green Theme)
     document.getElementById('loadingScreen').innerHTML = `
       <div style="background-color: #ffffff; color: #1a1a1a; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: sans-serif; text-align: center; padding: 20px;">
         <h2 style="font-size: 28px; font-weight: 700; margin-bottom: 15px; color: #000000;">Connection Error</h2>
@@ -293,11 +276,6 @@ fetch(`${GATEKEEPER_URL}?id=${schoolId}`)
       </div>
     `;
   });
-
-
-
-
-  
 
 // --- INSTALL PROMPT ---
 let deferredPrompt;
