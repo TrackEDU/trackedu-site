@@ -216,9 +216,13 @@ const GATEKEEPER_URL = "https://script.google.com/macros/s/AKfycbzqrrKj_6yEG_F7C
 fetch(`${GATEKEEPER_URL}?id=${schoolId}`)
   .then(response => response.json())
   .then(data => {
-    if (data.success) {
-      // --- ACCESS GRANTED ---
-      let finalUrl = data.url;
+  if (data.success) {
+  let finalUrl = data.url;
+  
+  // Pass the expiry date into the app so the House Control can see it
+  if (data.expiry) {
+    finalUrl += (finalUrl.includes('?') ? '&' : '?') + "expiry=" + encodeURIComponent(data.expiry);
+  }
       if (isStudentApp) {
         finalUrl += (finalUrl.includes('?') ? '&' : '?') + "view=house-students";
       }
