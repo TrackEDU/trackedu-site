@@ -34,29 +34,29 @@ metaThemeColor.content = themeColor;
 document.head.appendChild(metaThemeColor);
 
 const baseManifest = {
-  name: appName,
-  short_name: "TrackEDU",
-  start_url: isStudentApp 
-    ? window.location.origin + window.location.pathname + `?id=${schoolId}&view=public` 
-    : window.location.origin + window.location.pathname + `?id=${schoolId}`,
-  display: "standalone", 
-  background_color: themeColor,
-  theme_color: themeColor,
-  orientation: "portrait",
-  icons: [
-    { 
-      src: appIcon, 
-      sizes: "192x192", 
-      type: "image/png",
-      purpose: "any maskable" 
-    },
-    { 
-      src: appIcon, 
-      sizes: "512x512", 
-      type: "image/png",
-      purpose: "any maskable"
-    }
-  ]
+  name: appName,
+  short_name: "TrackEDU",
+  start_url: isStudentApp 
+    ? window.location.origin + window.location.pathname + `?id=${schoolId}&view=public` 
+    : window.location.origin + window.location.pathname + `?id=${schoolId}`,
+  display: "standalone", 
+  background_color: themeColor,
+  theme_color: themeColor,
+  orientation: "portrait",
+  icons: [
+    { 
+      src: appIcon, 
+      sizes: "192x192", 
+      type: "image/png",
+      purpose: "any maskable" 
+    },
+    { 
+      src: appIcon, 
+      sizes: "512x512", 
+      type: "image/png",
+      purpose: "any maskable"
+    }
+  ]
 };
 
 const manifestBlob = new Blob(
@@ -86,35 +86,35 @@ document.getElementById('updateToast').style.display = 'block';
 
 <style>
 body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow: hidden;
-  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background-color: #ffffff;
 }
 
 #loadingScreen {
-  position: fixed;
-  inset: 0;
-  background: #ffffff;
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.4s ease; /* Faster transition */
+  position: fixed;
+  inset: 0;
+  background: #ffffff;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s ease; /* Faster transition */
 }
 
 .loading-logo-img {
-  width: 300px; 
-  height: auto;
-  margin-bottom: 15px;
-  animation: breathe 2s ease-in-out infinite;
+  width: 300px; 
+  height: auto;
+  margin-bottom: 15px;
+  animation: breathe 2s ease-in-out infinite;
 }
 
 @keyframes breathe {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.05); opacity: 0.9; }
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.9; }
 }
 
 iframe {
@@ -132,7 +132,7 @@ transition: opacity 0.5s;
 margin-top: 25px;
 font-family: 'Poppins', sans-serif;
 font-size: 18px;
-font-weight: 400; 
+font-weight: 400; 
 text-align: center;
 }
 
@@ -193,8 +193,8 @@ to { top: 20px; }
 </div>
 
 <div id="loadingScreen">
-  <img src="https://trackedu.github.io/common-assets/tsloading.png" class="loading-logo-img" alt="TrackEDU Logo">
-  <div id="statusText" class="loading-text"></div>
+  <img src="https://trackedu.github.io/common-assets/tsloading.png" class="loading-logo-img" alt="TrackEDU Logo">
+  <div id="statusText" class="loading-text"></div>
 </div>
 
 <iframe id="appFrame" allow="fullscreen"></iframe>
@@ -206,93 +206,90 @@ const statusText = document.getElementById('statusText');
 
 // --- PHASE 1: INITIAL FEEDBACK ---
 statusText.innerHTML = `
-  <span class="text-gray" style="font-size: 14px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">
-    🔒 Verifying License...
-  </span>
+  <span class="text-gray" style="font-size: 14px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">
+    🔒 Verifying License...
+  </span>
 `;
 
 // --- CENTRALIZED LICENSING GATEKEEPER (OPTIMIZED) ---
-const GATEKEEPER_URL = "https://script.google.com/macros/s/AKfycbzqrrKj_6yEG_F7C032K1yvMxk9cLv2n-bFsRx6I0zuCUpkQo5pzzBPx7j4zmhxuBO73g/exec"; 
+const GATEKEEPER_URL = "https://script.google.com/macros/s/AKfycbzqrrKj_6yEG_F7C032K1yvMxk9cLv2n-bFsRx6I0zuCUpkQo5pzzBPx7j4zmhxuBO73g/exec"; 
 
 fetch(`${GATEKEEPER_URL}?id=${schoolId}`)
-  .then(response => response.json())
-  .then(data => {
-    if (data.success) {
-      // --- PHASE 2: SECURITY VERIFIED ---
-      statusText.innerHTML = `
-        <span style="color: #10b981; font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">
-          ✅ Security Verified. Launching...
-        </span>
-      `;
-      
-      let finalUrl = data.url;
-      
-      // Pass the parameters into the tool for the internal license bar
-      if (data.expiry) finalUrl += (finalUrl.includes('?') ? '&' : '?') + "expiry=" + encodeURIComponent(data.expiry);
-      if (data.tier) finalUrl += (finalUrl.includes('?') ? '&' : '?') + "tier=" + encodeURIComponent(data.tier);
-      
-      // PASS THE SOFT LOCK FLAG (Triggers Read-Only Mode)
-      if (data.softExpired) finalUrl += (finalUrl.includes('?') ? '&' : '?') + "softLock=true";
-      
-      if (isStudentApp) {
-        finalUrl += (finalUrl.includes('?') ? '&' : '?') + "view=house-students";
-      }
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {
+      // --- PHASE 2: SECURITY VERIFIED ---
+      statusText.innerHTML = `
+        <span style="color: #10b981; font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">
+          ✅ Security Verified. Launching...
+        </span>
+      `;
+      
+      let finalUrl = data.url;
+      
+      // Pass the parameters into the tool for the internal license bar
+      if (data.expiry) finalUrl += (finalUrl.includes('?') ? '&' : '?') + "expiry=" + encodeURIComponent(data.expiry);
+      if (data.tier) finalUrl += (finalUrl.includes('?') ? '&' : '?') + "tier=" + encodeURIComponent(data.tier);
+      
+      if (isStudentApp) {
+        finalUrl += (finalUrl.includes('?') ? '&' : '?') + "view=house-students";
+      }
 
-      const frame = document.getElementById('appFrame');
-      frame.src = finalUrl;
-      
-      frame.onload = () => {
-        // Optimized transition speed
-        setTimeout(() => {
-          document.getElementById('loadingScreen').style.opacity = '0';
-          frame.style.opacity = '1';
-          setTimeout(() => {
-            document.getElementById('loadingScreen').style.display = 'none';
-          }, 400);
-        }, 100); 
-      };
-      
-    } else {
-       // --- HARD LOCK UI (Level 2 Lockdown) ---
-      document.getElementById('loadingScreen').innerHTML = `
-        <div style="background-color: #ffffff; color: #1a1a1a; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif; padding: 40px; box-sizing: border-box; text-align: center;">
-          
-          <div style="width: 150px; height: 150px; border-radius: 50%; background: #ffffff; border: 4px solid #ef4444; display: flex; align-items: center; justify-content: center; margin-bottom: 35px; box-shadow: 0 12px 30px -10px rgba(239, 68, 68, 0.3); overflow: hidden;">
-            <i class="fas fa-user-lock" style="font-size: 60px; color: #ef4444;"></i>
-          </div>
-          
-          <h1 style="font-size: 36px; font-weight: 800; margin: 0 0 15px 0; color: #000000; letter-spacing: -1px;">Access Suspended</h1>
+      const frame = document.getElementById('appFrame');
+      frame.src = finalUrl;
+      
+      frame.onload = () => {
+        // Optimized transition speed
+        setTimeout(() => {
+          document.getElementById('loadingScreen').style.opacity = '0';
+          frame.style.opacity = '1';
+          setTimeout(() => {
+            document.getElementById('loadingScreen').style.display = 'none';
+          }, 400);
+        }, 100); 
+      };
+      
+    } else {
+       // --- ACCESS RESTRICTED (WORLD-CLASS WHITE UI) ---
+      document.getElementById('loadingScreen').innerHTML = `
+        <div style="background-color: #ffffff; color: #1a1a1a; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif; padding: 40px; box-sizing: border-box; text-align: center;">
+          
+          <div style="width: 150px; height: 150px; border-radius: 50%; background: #ffffff; border: 4px solid #10b981; display: flex; align-items: center; justify-content: center; margin-bottom: 35px; box-shadow: 0 12px 30px -10px rgba(16, 185, 129, 0.3); overflow: hidden;">
+            <img src="https://trackedu.github.io/common-assets/tsloading.png" style="width: 130px; height: 130px; object-fit: contain;" alt="TrackEDU Logo">
+          </div>
+          
+          <h1 style="font-size: 36px; font-weight: 800; margin: 0 0 15px 0; color: #000000; letter-spacing: -1px;">Account Status Update</h1>
 
-          <p style="font-size: 18px; color: #4b5563; max-width: 480px; margin: 0 auto 35px auto; line-height: 1.5; font-weight: 500;">
-            ${data.reason || "This school's access has been revoked. Please reach out to your administrator or the TrackEDU team to continue."}
-          </p>
-          
-          <div style="height: 4px; width: 80px; background: #10b981; border-radius: 2px; margin-bottom: 45px;"></div>
-          
-          <div>
-             <p style="font-weight: 700; color: #10b981; letter-spacing: 1px; margin-bottom: 12px; text-transform: uppercase; font-size: 14px;">TrackEDU.net</p>
-            
-            <a href="mailto:hello@trackedu.net" style="text-decoration: none; background: #10b981; color: #ffffff; padding: 16px 45px; border-radius: 60px; font-weight: 700; font-size: 18px; transition: all 0.2s ease; box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4); display: inline-block; border: 2px solid #10b981;">
-              Contact TrackEDU
-            </a>
-            
-            <p style="margin-top: 20px; font-size: 15px; color: #6b7280; font-weight: 500;">
-              Direct Email: <a href="mailto:hello@trackedu.net" style="color: #1a1a1a; text-decoration: none; font-weight: 700; border-bottom: 2px solid rgba(16, 185, 129, 0.3);">hello@trackedu.net</a>
-            </p>
-          </div>
-        </div>
-      `;
-    }
-  })
-  .catch(error => {
-    document.getElementById('loadingScreen').innerHTML = `
-      <div style="background-color: #ffffff; color: #1a1a1a; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: sans-serif; text-align: center; padding: 20px;">
-        <h2 style="font-size: 28px; font-weight: 700; margin-bottom: 15px; color: #000000;">Connection Error</h2>
-        <p style="font-size: 16px; color: #4b5563; margin-bottom: 30px;">Unable to verify license. Please check your internet connection.</p>
-         <button onclick="window.location.reload()" style="background: #10b981; color: white; border: none; padding: 12px 30px; border-radius: 50px; font-weight: 700; font-size: 16px; cursor: pointer; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);">Try Again</button>
-      </div>
-    `;
-  });
+          <p style="font-size: 18px; color: #4b5563; max-width: 480px; margin: 0 auto 35px auto; line-height: 1.5; font-weight: 500;">
+            ${data.reason || "It looks like this school's access needs a quick update or renewal. Please reach out to your administrator or the TrackEDU team to continue."}
+          </p>
+          
+          <div style="height: 4px; width: 80px; background: #10b981; border-radius: 2px; margin-bottom: 45px;"></div>
+          
+          <div>
+             <p style="font-weight: 700; color: #10b981; letter-spacing: 1px; margin-bottom: 12px; text-transform: uppercase; font-size: 14px;">TrackEDU.net</p>
+            
+            <a href="mailto:hello@trackedu.net" style="text-decoration: none; background: #10b981; color: #ffffff; padding: 16px 45px; border-radius: 60px; font-weight: 700; font-size: 18px; transition: all 0.2s ease; box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4); display: inline-block; border: 2px solid #10b981;">
+              Contact TrackEDU
+            </a>
+            
+            <p style="margin-top: 20px; font-size: 15px; color: #6b7280; font-weight: 500;">
+              Direct Email: <a href="mailto:hello@trackedu.net" style="color: #1a1a1a; text-decoration: none; font-weight: 700; border-bottom: 2px solid rgba(16, 185, 129, 0.3);">hello@trackedu.net</a>
+            </p>
+          </div>
+        </div>
+      `;
+    }
+  })
+  .catch(error => {
+    document.getElementById('loadingScreen').innerHTML = `
+      <div style="background-color: #ffffff; color: #1a1a1a; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: sans-serif; text-align: center; padding: 20px;">
+        <h2 style="font-size: 28px; font-weight: 700; margin-bottom: 15px; color: #000000;">Connection Error</h2>
+        <p style="font-size: 16px; color: #4b5563; margin-bottom: 30px;">Unable to verify license. Please check your internet connection.</p>
+         <button onclick="window.location.reload()" style="background: #10b981; color: white; border: none; padding: 12px 30px; border-radius: 50px; font-weight: 700; font-size: 16px; cursor: pointer; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);">Try Again</button>
+      </div>
+    `;
+  });
 
 // --- INSTALL PROMPT ---
 let deferredPrompt;
@@ -315,3 +312,5 @@ deferredPrompt = null;
 
 </body>
 </html>
+
+
