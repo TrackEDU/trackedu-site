@@ -27,7 +27,6 @@ const appIcon = isStudentApp
 // --- MANIFEST ---
 const themeColor = "#ffffff";
 
-// Add physical meta tag for browser UI
 const metaThemeColor = document.createElement('meta');
 metaThemeColor.name = "theme-color";
 metaThemeColor.content = themeColor;
@@ -59,10 +58,7 @@ const baseManifest = {
   ]
 };
 
-const manifestBlob = new Blob(
-[JSON.stringify(baseManifest)],
-{ type: 'application/json' }
-);
+const manifestBlob = new Blob([JSON.stringify(baseManifest)], { type: 'application/json' });
 const manifestURL = URL.createObjectURL(manifestBlob);
 const manifestLink = document.createElement('link');
 manifestLink.rel = 'manifest';
@@ -71,16 +67,16 @@ document.head.appendChild(manifestLink);
 
 // --- SERVICE WORKER ---
 if ('serviceWorker' in navigator) {
-navigator.serviceWorker.register('/sw.js').then(reg => {
-reg.addEventListener('updatefound', () => {
-const newWorker = reg.installing;
-newWorker.addEventListener('statechange', () => {
-if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-document.getElementById('updateToast').style.display = 'block';
-}
-});
-});
-});
+  navigator.serviceWorker.register('/sw.js').then(reg => {
+    reg.addEventListener('updatefound', () => {
+      const newWorker = reg.installing;
+      newWorker.addEventListener('statechange', () => {
+        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+          document.getElementById('updateToast').style.display = 'block';
+        }
+      });
+    });
+  });
 }
 </script>
 
@@ -102,7 +98,7 @@ body, html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.4s ease; /* Faster transition */
+  transition: opacity 0.4s ease;
 }
 
 .loading-logo-img {
@@ -118,69 +114,53 @@ body, html {
 }
 
 iframe {
-position: fixed;
-inset: 0;
-width: 100%;
-height: 100%;
-border: none;
-z-index: 1;
-background-color: #ffffff; /* Forces a white background to prevent black flashes */
-}
-
-.loading-text {
-margin-top: 25px;
-font-family: 'Poppins', sans-serif;
-font-size: 18px;
-font-weight: 400; 
-text-align: center;
-}
-
-.text-gray {
-color: #94a3b8;
-font-weight: 400;
-font-size: 14px;
-display: block;
-margin-top: 6px;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  z-index: 1;
+  background-color: #ffffff;
 }
 
 #installBtn {
-display: none;
-position: fixed;
-bottom: 30px;
-left: 50%;
-transform: translateX(-50%);
-background-color: #fbbf24;
-color: #020617;
-border: none;
-padding: 12px 24px;
-border-radius: 25px;
-font-weight: 700;
-z-index: 10000;
-cursor: pointer;
-box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fbbf24;
+  color: #020617;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: 700;
+  z-index: 10000;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 #updateToast {
-display: none;
-position: fixed;
-top: 20px;
-left: 50%;
-transform: translateX(-50%);
-background: #22c55e;
-color: white;
-padding: 12px 20px;
-border-radius: 50px;
-font-family: sans-serif;
-font-weight: 700;
-z-index: 10001;
-cursor: pointer;
-box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-animation: slideDown 0.5s ease;
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #22c55e;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 50px;
+  font-family: sans-serif;
+  font-weight: 700;
+  z-index: 10001;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  animation: slideDown 0.5s ease;
 }
 
 @keyframes slideDown {
-from { top: -60px; }
-to { top: 20px; }
+  from { top: -60px; }
+  to { top: 20px; }
 }
 </style>
 </head>
@@ -204,7 +184,6 @@ const GATEKEEPER_URL = "https://script.google.com/macros/s/AKfycbzqrrKj_6yEG_F7C
 const CACHE_KEY = `trackedu_license_${schoolId}`;
 
 // --- iOS DUAL-STORAGE CACHE FIX ---
-// Prevents iPad from wiping the license verification when app is closed
 function getSavedLicense() {
   let data = localStorage.getItem(CACHE_KEY);
   if (!data) {
@@ -223,11 +202,10 @@ function getSavedLicense() {
 function saveLicense(dataObj) {
   const dataStr = JSON.stringify({ timestamp: new Date().getTime(), data: dataObj });
   localStorage.setItem(CACHE_KEY, dataStr);
-  const expiry = new Date(new Date().getTime() + 86400000).toUTCString(); // 24 hours
+  const expiry = new Date(new Date().getTime() + 86400000).toUTCString(); 
   document.cookie = `${CACHE_KEY}=${encodeURIComponent(dataStr)};expires=${expiry};path=/;SameSite=None;Secure`;
 }
 
-// Helper function to launch the internal app
 function launchIframe(data) {
   let finalUrl = data.url;
   if (data.expiry) finalUrl += (finalUrl.includes('?') ? '&' : '?') + "expiry=" + encodeURIComponent(data.expiry);
@@ -237,47 +215,40 @@ function launchIframe(data) {
   const frame = document.getElementById('appFrame');
   frame.src = finalUrl;
   
-  // ⚡ SPEED FIX: Drop the loading screen immediately when Google says the DOM is ready
   frame.onload = () => {
     const loader = document.getElementById('loadingScreen');
     loader.style.opacity = '0';
     setTimeout(() => loader.style.display = 'none', 300);
   };
   
-  // 🛡️ iOS FAILSAFE: Safari sometimes fails to fire 'onload' for iframes. 
-  // If it's still showing after 5 seconds, force hide it so the user isn't stuck!
+  // iOS FAILSAFE: Force hide loader after 5s if Safari hangs
   setTimeout(() => {
     const loader = document.getElementById('loadingScreen');
-    if (loader.style.display !== 'none') {
+    if (loader && loader.style.display !== 'none') {
        loader.style.opacity = '0';
        setTimeout(() => loader.style.display = 'none', 300);
     }
   }, 5000);
 }
 
-// Helper function to show errors
 function showHardLock(reason) {
   document.getElementById('loadingScreen').innerHTML = `
-    <div style="background-color: #ffffff; color: #1a1a1a; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif; padding: 40px; box-sizing: border-box; text-align: center;">
+    <div style="background-color: #ffffff; color: #1a1a1a; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: 'Poppins', sans-serif; padding: 40px; box-sizing: border-box; text-align: center;">
       <div style="width: 150px; height: 150px; border-radius: 50%; background: #ffffff; border: 4px solid #10b981; display: flex; align-items: center; justify-content: center; margin-bottom: 35px; box-shadow: 0 12px 30px -10px rgba(16, 185, 129, 0.3); overflow: hidden;">
         <img src="https://trackedu.github.io/common-assets/tsloading.png" style="width: 130px; height: 130px; object-fit: contain;" alt="TrackEDU Logo">
       </div>
-      <h1 style="font-size: 36px; font-weight: 800; margin: 0 0 15px 0; color: #000000; letter-spacing: -1px;">Account Status Update</h1>
-      <p style="font-size: 18px; color: #4b5563; max-width: 480px; margin: 0 auto 35px auto; line-height: 1.5; font-weight: 500;">
-        ${reason || "It looks like this school's access needs a quick update or renewal. Please reach out to your administrator or the TrackEDU team to continue."}
+      <h1 style="font-size: 32px; font-weight: 800; margin-bottom: 15px;">Account Status Update</h1>
+      <p style="font-size: 18px; color: #4b5563; max-width: 480px; margin-bottom: 35px; line-height: 1.5;">
+        ${reason || "It looks like this school's access needs a quick update or renewal."}
       </p>
-      <div style="height: 4px; width: 80px; background: #10b981; border-radius: 2px; margin-bottom: 45px;"></div>
-      <div>
-         <p style="font-weight: 700; color: #10b981; letter-spacing: 1px; margin-bottom: 12px; text-transform: uppercase; font-size: 14px;">TrackEDU.net</p>
-        <a href="mailto:hello@trackedu.net" style="text-decoration: none; background: #10b981; color: #ffffff; padding: 16px 45px; border-radius: 60px; font-weight: 700; font-size: 18px; transition: all 0.2s ease; box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4); display: inline-block; border: 2px solid #10b981;">
-          Contact TrackEDU
-        </a>
-      </div>
+      <a href="mailto:hello@trackedu.net" style="text-decoration: none; background: #10b981; color: #ffffff; padding: 16px 45px; border-radius: 60px; font-weight: 700;">
+        Contact TrackEDU
+      </a>
     </div>
   `;
 }
 
-// --- 1. CHECK LOCAL BROWSER CACHE FIRST ---
+// --- MAIN EXECUTION ---
 const cachedLicenseStr = getSavedLicense();
 let useCache = false;
 
@@ -285,25 +256,19 @@ if (cachedLicenseStr) {
   try {
     const parsedData = JSON.parse(cachedLicenseStr);
     const now = new Date().getTime();
-    
-    // If the cache is less than 24 hours old, bypass the gatekeeper instantly!
     if (now - parsedData.timestamp < 86400000) {
       useCache = true;
       launchIframe(parsedData.data);
     }
-  } catch (e) {
-    console.warn("Cache parse error");
-  }
+  } catch (e) { console.warn("Cache parse error"); }
 }
 
-// --- 2. FETCH FROM GATEKEEPER IF NO VALID CACHE ---
 if (!useCache) {
-  // Added cache: 'no-store' to stop iOS Service Worker from hanging the fetch request
   fetch(`${GATEKEEPER_URL}?id=${schoolId}`, { cache: 'no-store' })
     .then(response => response.json())
     .then(data => {
       if (data.success) {
-        saveLicense(data); // Save to LocalStorage AND Cookies
+        saveLicense(data);
         launchIframe(data);
       } else {
         showHardLock(data.reason);
@@ -311,10 +276,9 @@ if (!useCache) {
     })
     .catch(error => {
       document.getElementById('loadingScreen').innerHTML = `
-        <div style="background-color: #ffffff; color: #1a1a1a; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: sans-serif; text-align: center; padding: 20px;">
-          <h2 style="font-size: 28px; font-weight: 700; margin-bottom: 15px; color: #000000;">Connection Error</h2>
-          <p style="font-size: 16px; color: #4b5563; margin-bottom: 30px;">Unable to verify license. Please check your internet connection.</p>
-          <button onclick="window.location.reload()" style="background: #10b981; color: white; border: none; padding: 12px 30px; border-radius: 50px; font-weight: 700; font-size: 16px; cursor: pointer; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);">Try Again</button>
+        <div style="background-color: #ffffff; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px;">
+          <h2 style="font-size: 24px; font-weight: 700; margin-bottom: 15px;">Connection Error</h2>
+          <button onclick="window.location.reload()" style="background: #10b981; color: white; border: none; padding: 12px 30px; border-radius: 50px; font-weight: 700;">Try Again</button>
         </div>
       `;
     });
@@ -332,9 +296,7 @@ document.getElementById('installBtn').addEventListener('click', async () => {
   if (!deferredPrompt) return;
   deferredPrompt.prompt();
   const { outcome } = await deferredPrompt.userChoice;
-  if (outcome === 'accepted') {
-    document.getElementById('installBtn').style.display = 'none';
-  }
+  if (outcome === 'accepted') document.getElementById('installBtn').style.display = 'none';
   deferredPrompt = null;
 });
 </script>
