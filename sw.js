@@ -27,22 +27,21 @@ self.clients.claim();
 });
 
 self.addEventListener('fetch', (event) => {
-// 1. FOR THE HTML FILE (The App Itself) -> NETWORK FIRST
-// This ensures users always get the latest School Registry
-if (event.request.mode === 'navigate') {
-event.respondWith(
-fetch(event.request)
-.catch(() => {
-return caches.match(event.request);
-})
-);
-}
-// 2. FOR IMAGES & ASSETS -> CACHE FIRST (Fast loading)
-else {
-event.respondWith(
-caches.match(event.request).then((response) => {
-return response || fetch(event.request);
-})
-);
-}
+  const url = event.request.url;
+
+  // ⚡ IPAD SPEED FIX: Do not intercept Google Script redirects.
+  // Intercepting these in PWA mode causes a massive 5-8 second hang on iOS.
+  if (url.includes('google.com/macros') || url.includes('googleusercontent.com')) {
+    return; // Let the browser handle these natively and fast
+  }
+
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request).catch(() => caches.match(event.request))
+    );
+  } else {
+    event.respondWith(
+      caches.match(event.request).then((res) => res || fetch(event.request))
+    );
+  }
 });
