@@ -15,10 +15,17 @@ const isStudentApp = params.get('view') === 'public';
 
 // --- APP IDENTITY ---
 // Check if running as an installed PWA
-const isPWA = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+// --- APP IDENTITY ---
+// Broader detection for PWAs on MacBook and Chrome
+const isPWA = window.matchMedia('(display-mode: standalone)').matches 
+              || window.navigator.standalone 
+              || window.matchMedia('(display-mode: window-controls-overlay)').matches;
 
-// Use a clean brand name for the PWA window bar, but keep specific titles for browser tabs
-const appName = isPWA ? "TrackEDU" : (isStudentApp ? "TrackEDU Student" : "TrackEDU Teacher");
+// This is the text that will show in your MacBook's top window bar
+const pwaTitle = "TrackEDU Digital House Points";
+
+// If it's the app, use the professional name. If it's a browser tab, keep the specific app name.
+const appName = isPWA ? pwaTitle : (isStudentApp ? "TrackEDU Student" : "TrackEDU Teacher");
 
 document.title = appName;
 
