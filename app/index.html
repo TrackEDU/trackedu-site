@@ -2,9 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
 <title>TrackEDU House Points</title>
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <link rel="preconnect" href="https://script.google.com">
@@ -19,14 +17,11 @@ const isStudentApp = params.get('view') === 'public';
 const appName = isStudentApp ? "TrackEDU Student" : "TrackEDU Teacher";
 document.title = appName;
 
-// --- APP ICON ---
 const appIcon = isStudentApp
 ? 'https://trackedu.github.io/common-assets/studentapp.png'
 : 'https://trackedu.github.io/common-assets/teacherapp.png';
 
-// --- MANIFEST ---
 const themeColor = "#ffffff";
-
 const metaThemeColor = document.createElement('meta');
 metaThemeColor.name = "theme-color";
 metaThemeColor.content = themeColor;
@@ -43,18 +38,8 @@ const baseManifest = {
   theme_color: themeColor,
   orientation: "portrait",
   icons: [
-    { 
-      src: appIcon, 
-      sizes: "192x192", 
-      type: "image/png",
-      purpose: "any maskable" 
-    },
-    { 
-      src: appIcon, 
-      sizes: "512x512", 
-      type: "image/png",
-      purpose: "any maskable"
-    }
+    { src: appIcon, sizes: "192x192", type: "image/png", purpose: "any maskable" },
+    { src: appIcon, sizes: "512x512", type: "image/png", purpose: "any maskable" }
   ]
 };
 
@@ -65,130 +50,46 @@ manifestLink.rel = 'manifest';
 manifestLink.href = manifestURL;
 document.head.appendChild(manifestLink);
 
-// --- SERVICE WORKER ---
-// --- SERVICE WORKER (ASYNCHRONOUS LOAD) ---
+// --- SERVICE WORKER (IPAD OPTIMIZED: ASYNCHRONOUS LOAD) ---
 if ('serviceWorker' in navigator) {
-  // Load SW in background so it doesn't block the main Iframe thread
+  // We delay registration by 2 seconds to ensure the iframe gets 100% bandwidth first
   setTimeout(() => {
-    navigator.serviceWorker.register('/sw.js');
-  }, 2000); 
-}
-    reg.addEventListener('updatefound', () => {
-      const newWorker = reg.installing;
-      newWorker.addEventListener('statechange', () => {
-        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-          document.getElementById('updateToast').style.display = 'block';
-        }
+    navigator.serviceWorker.register('/sw.js').then(reg => {
+      reg.addEventListener('updatefound', () => {
+        const newWorker = reg.installing;
+        newWorker.addEventListener('statechange', () => {
+          if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+            document.getElementById('updateToast').style.display = 'block';
+          }
+        });
       });
     });
-  });
+  }, 2000);
 }
 </script>
 
 <style>
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow: hidden;
-  background-color: #ffffff;
-}
-
-#loadingScreen {
-  position: fixed;
-  inset: 0;
-  background: #ffffff;
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.4s ease;
-}
-
-.loading-logo-img {
-  width: 300px; 
-  height: auto;
-  margin-bottom: 15px;
-  animation: breathe 2s ease-in-out infinite;
-}
-
-@keyframes breathe {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.05); opacity: 0.9; }
-}
-
-iframe {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-  z-index: 1;
-  background-color: #ffffff;
-}
-
-#installBtn {
-  display: none;
-  position: fixed;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #fbbf24;
-  color: #020617;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 25px;
-  font-weight: 700;
-  z-index: 10000;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
-
-#updateToast {
-  display: none;
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #22c55e;
-  color: white;
-  padding: 12px 20px;
-  border-radius: 50px;
-  font-family: sans-serif;
-  font-weight: 700;
-  z-index: 10001;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-  animation: slideDown 0.5s ease;
-}
-
-@keyframes slideDown {
-  from { top: -60px; }
-  to { top: 20px; }
-}
+body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: #ffffff; }
+#loadingScreen { position: fixed; inset: 0; background: #ffffff; z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.4s ease; }
+.loading-logo-img { width: 300px; height: auto; margin-bottom: 15px; animation: breathe 2s ease-in-out infinite; }
+@keyframes breathe { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.05); opacity: 0.9; } }
+iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: none; z-index: 1; background-color: #ffffff; }
+#installBtn { display: none; position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background-color: #fbbf24; color: #020617; border: none; padding: 12px 24px; border-radius: 25px; font-weight: 700; z-index: 10000; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+#updateToast { display: none; position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #22c55e; color: white; padding: 12px 20px; border-radius: 50px; font-family: sans-serif; font-weight: 700; z-index: 10001; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); animation: slideDown 0.5s ease; }
+@keyframes slideDown { from { top: -60px; } to { top: 20px; } }
 </style>
 </head>
 
 <body>
-
-<div id="updateToast" onclick="window.location.reload()">
-✨ Update available — tap to refresh
-</div>
-
-<div id="loadingScreen">
-  <img src="https://trackedu.github.io/common-assets/tsloading.png" class="loading-logo-img" alt="TrackEDU Logo">
-</div>
-
+<div id="updateToast" onclick="window.location.reload()">✨ Update available — tap to refresh</div>
+<div id="loadingScreen"><img src="https://trackedu.github.io/common-assets/tsloading.png" class="loading-logo-img" alt="TrackEDU Logo"></div>
 <iframe id="appFrame" allow="fullscreen"></iframe>
-
 <button id="installBtn">📲 Install TrackEDU</button>
 
 <script>
 const GATEKEEPER_URL = "https://script.google.com/macros/s/AKfycbzqrrKj_6yEG_F7C032K1yvMxk9cLv2n-bFsRx6I0zuCUpkQo5pzzBPx7j4zmhxuBO73g/exec";
 const CACHE_KEY = `trackedu_license_${schoolId}`;
 
-// --- iOS DUAL-STORAGE CACHE FIX ---
 function getSavedLicense() {
   let data = localStorage.getItem(CACHE_KEY);
   if (!data) {
@@ -226,7 +127,6 @@ function launchIframe(data) {
     setTimeout(() => loader.style.display = 'none', 300);
   };
   
-  // iOS FAILSAFE: Force hide loader after 5s if Safari hangs
   setTimeout(() => {
     const loader = document.getElementById('loadingScreen');
     if (loader && loader.style.display !== 'none') {
@@ -237,23 +137,9 @@ function launchIframe(data) {
 }
 
 function showHardLock(reason) {
-  document.getElementById('loadingScreen').innerHTML = `
-    <div style="background-color: #ffffff; color: #1a1a1a; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: 'Poppins', sans-serif; padding: 40px; box-sizing: border-box; text-align: center;">
-      <div style="width: 150px; height: 150px; border-radius: 50%; background: #ffffff; border: 4px solid #10b981; display: flex; align-items: center; justify-content: center; margin-bottom: 35px; box-shadow: 0 12px 30px -10px rgba(16, 185, 129, 0.3); overflow: hidden;">
-        <img src="https://trackedu.github.io/common-assets/tsloading.png" style="width: 130px; height: 130px; object-fit: contain;" alt="TrackEDU Logo">
-      </div>
-      <h1 style="font-size: 32px; font-weight: 800; margin-bottom: 15px;">Account Status Update</h1>
-      <p style="font-size: 18px; color: #4b5563; max-width: 480px; margin-bottom: 35px; line-height: 1.5;">
-        ${reason || "It looks like this school's access needs a quick update or renewal."}
-      </p>
-      <a href="mailto:hello@trackedu.net" style="text-decoration: none; background: #10b981; color: #ffffff; padding: 16px 45px; border-radius: 60px; font-weight: 700;">
-        Contact TrackEDU
-      </a>
-    </div>
-  `;
+  document.getElementById('loadingScreen').innerHTML = `<div style="background-color: #ffffff; color: #1a1a1a; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: 'Poppins', sans-serif; padding: 40px; box-sizing: border-box; text-align: center;"><div style="width: 150px; height: 150px; border-radius: 50%; background: #ffffff; border: 4px solid #10b981; display: flex; align-items: center; justify-content: center; margin-bottom: 35px; box-shadow: 0 12px 30px -10px rgba(16, 185, 129, 0.3); overflow: hidden;"><img src="https://trackedu.github.io/common-assets/tsloading.png" style="width: 130px; height: 130px; object-fit: contain;" alt="TrackEDU Logo"></div><h1 style="font-size: 32px; font-weight: 800; margin-bottom: 15px;">Account Status Update</h1><p style="font-size: 18px; color: #4b5563; max-width: 480px; margin-bottom: 35px; line-height: 1.5;">${reason || "It looks like this school's access needs a quick update or renewal."}</p><a href="mailto:hello@trackedu.net" style="text-decoration: none; background: #10b981; color: #ffffff; padding: 16px 45px; border-radius: 60px; font-weight: 700;">Contact TrackEDU</a></div>`;
 }
 
-// --- MAIN EXECUTION ---
 const cachedLicenseStr = getSavedLicense();
 let useCache = false;
 
@@ -269,8 +155,7 @@ if (cachedLicenseStr) {
 }
 
 if (!useCache) {
-  // ⚡ IPAD STANDALONE BYPASS: Start the iframe load in parallel with the fetch
-  // We don't wait for the fetch to finish before preparing the UI
+  // ⚡ IPAD SPEED FIX: Parallel priority fetch
   fetch(`${GATEKEEPER_URL}?id=${schoolId}`, { cache: 'no-store', priority: 'high' })
     .then(response => response.json())
     .then(data => {
@@ -282,23 +167,16 @@ if (!useCache) {
       }
     })
     .catch(error => {
-      document.getElementById('loadingScreen').innerHTML = `
-        <div style="background-color: #ffffff; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px;">
-          <h2 style="font-size: 24px; font-weight: 700; margin-bottom: 15px;">Connection Error</h2>
-          <button onclick="window.location.reload()" style="background: #10b981; color: white; border: none; padding: 12px 30px; border-radius: 50px; font-weight: 700;">Try Again</button>
-        </div>
-      `;
+      document.getElementById('loadingScreen').innerHTML = `<div style="background-color: #ffffff; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px;"><h2 style="font-size: 24px; font-weight: 700; margin-bottom: 15px;">Connection Error</h2><button onclick="window.location.reload()" style="background: #10b981; color: white; border: none; padding: 12px 30px; border-radius: 50px; font-weight: 700;">Try Again</button></div>`;
     });
 }
 
-// --- INSTALL PROMPT ---
 let deferredPrompt;
 window.addEventListener('beforeinstallprompt', e => {
   e.preventDefault();
   deferredPrompt = e;
   document.getElementById('installBtn').style.display = 'block';
 });
-
 document.getElementById('installBtn').addEventListener('click', async () => {
   if (!deferredPrompt) return;
   deferredPrompt.prompt();
@@ -307,6 +185,5 @@ document.getElementById('installBtn').addEventListener('click', async () => {
   deferredPrompt = null;
 });
 </script>
-
 </body>
 </html>
