@@ -124,8 +124,7 @@ width: 100%;
 height: 100%;
 border: none;
 z-index: 1;
-opacity: 0;
-transition: opacity 0.5s;
+background-color: #ffffff; /* Forces a white background to prevent black flashes */
 }
 
 .loading-text {
@@ -239,14 +238,8 @@ fetch(`${GATEKEEPER_URL}?id=${schoolId}`)
       frame.src = finalUrl;
       
       frame.onload = () => {
-        // Optimized transition speed for a "snappy" feel
-        setTimeout(() => {
-          document.getElementById('loadingScreen').style.opacity = '0';
-          frame.style.opacity = '1';
-          setTimeout(() => {
-            document.getElementById('loadingScreen').style.display = 'none';
-          }, 400);
-        }, 100); 
+        // Instant swap to prevent mobile browser black screen flashing
+        document.getElementById('loadingScreen').style.display = 'none';
       };
       
     } else {
