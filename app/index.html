@@ -66,8 +66,13 @@ manifestLink.href = manifestURL;
 document.head.appendChild(manifestLink);
 
 // --- SERVICE WORKER ---
+// --- SERVICE WORKER (ASYNCHRONOUS LOAD) ---
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js').then(reg => {
+  // Load SW in background so it doesn't block the main Iframe thread
+  setTimeout(() => {
+    navigator.serviceWorker.register('/sw.js');
+  }, 2000); 
+}
     reg.addEventListener('updatefound', () => {
       const newWorker = reg.installing;
       newWorker.addEventListener('statechange', () => {
