@@ -147,8 +147,11 @@ if (cachedLicenseStr) {
   try {
     const parsedData = JSON.parse(cachedLicenseStr);
     const now = new Date().getTime();
-    if (now - parsedData.timestamp < 86400000) {
+   // 🛡️ SECURITY UPDATE: Cache reduced to 10 minutes (600,000 ms)
+    // This ensures inactive licenses are caught quickly while keeping the app fast.
+    if (now - parsedData.timestamp < 600000) {
       useCache = true;
+      console.log("🛡️ License verified via 10-min soft-cache.");
       launchIframe(parsedData.data);
     }
   } catch (e) { console.warn("Cache parse error"); }
