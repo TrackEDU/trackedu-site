@@ -193,7 +193,6 @@ to { top: 20px; }
 
 <div id="loadingScreen">
   <img src="https://trackedu.github.io/common-assets/tsloading.png" class="loading-logo-img" alt="TrackEDU Logo">
-  <div id="statusText" class="loading-text"></div>
 </div>
 
 <iframe id="appFrame" allow="fullscreen"></iframe>
@@ -201,8 +200,7 @@ to { top: 20px; }
 <button id="installBtn">📲 Install TrackEDU</button>
 
 <script>
-const statusText = document.getElementById('statusText');
-const GATEKEEPER_URL = "https://script.google.com/macros/s/AKfycbzqrrKj_6yEG_F7C032K1yvMxk9cLv2n-bFsRx6I0zuCUpkQo5pzzBPx7j4zmhxuBO73g/exec"; 
+const GATEKEEPER_URL = "https://script.google.com/macros/s/AKfycbzqrrKj_6yEG_F7C032K1yvMxk9cLv2n-bFsRx6I0zuCUpkQo5pzzBPx7j4zmhxuBO73g/exec";
 const CACHE_KEY = `trackedu_license_${schoolId}`;
 
 // --- iOS DUAL-STORAGE CACHE FIX ---
@@ -231,12 +229,6 @@ function saveLicense(dataObj) {
 
 // Helper function to launch the internal app
 function launchIframe(data) {
-  statusText.innerHTML = `
-    <span style="color: #10b981; font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">
-      ✅ Security Verified. Launching...
-    </span>
-  `;
-  
   let finalUrl = data.url;
   if (data.expiry) finalUrl += (finalUrl.includes('?') ? '&' : '?') + "expiry=" + encodeURIComponent(data.expiry);
   if (data.tier) finalUrl += (finalUrl.includes('?') ? '&' : '?') + "tier=" + encodeURIComponent(data.tier);
@@ -297,11 +289,6 @@ if (cachedLicenseStr) {
     // If the cache is less than 24 hours old, bypass the gatekeeper instantly!
     if (now - parsedData.timestamp < 86400000) {
       useCache = true;
-      statusText.innerHTML = `
-        <span class="text-gray" style="font-size: 14px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">
-          ⚡ Resuming Session...
-        </span>
-      `;
       launchIframe(parsedData.data);
     }
   } catch (e) {
@@ -311,12 +298,6 @@ if (cachedLicenseStr) {
 
 // --- 2. FETCH FROM GATEKEEPER IF NO VALID CACHE ---
 if (!useCache) {
-  statusText.innerHTML = `
-    <span class="text-gray" style="font-size: 14px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">
-      🔒 Verifying License...
-    </span>
-  `;
-
   // Added cache: 'no-store' to stop iOS Service Worker from hanging the fetch request
   fetch(`${GATEKEEPER_URL}?id=${schoolId}`, { cache: 'no-store' })
     .then(response => response.json())
