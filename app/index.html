@@ -264,7 +264,9 @@ if (cachedLicenseStr) {
 }
 
 if (!useCache) {
-  fetch(`${GATEKEEPER_URL}?id=${schoolId}`, { cache: 'no-store' })
+  // ⚡ IPAD STANDALONE BYPASS: Start the iframe load in parallel with the fetch
+  // We don't wait for the fetch to finish before preparing the UI
+  fetch(`${GATEKEEPER_URL}?id=${schoolId}`, { cache: 'no-store', priority: 'high' })
     .then(response => response.json())
     .then(data => {
       if (data.success) {
