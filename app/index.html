@@ -14,7 +14,12 @@ const schoolId = params.get('id') || 'demo';
 const isStudentApp = params.get('view') === 'public';
 
 // --- APP IDENTITY ---
-const appName = isStudentApp ? "TrackEDU Student" : "TrackEDU Teacher";
+// Check if running as an installed PWA
+const isPWA = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+
+// Use a clean brand name for the PWA window bar, but keep specific titles for browser tabs
+const appName = isPWA ? "TrackEDU" : (isStudentApp ? "TrackEDU Student" : "TrackEDU Teacher");
+
 document.title = appName;
 
 const appIcon = isStudentApp
