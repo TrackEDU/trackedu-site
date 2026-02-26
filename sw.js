@@ -1,4 +1,4 @@
-const CACHE_NAME = 'trackedu-v21'; // Bumped version to force devices to update
+const CACHE_NAME = 'trackedu-v22'; // Bumped version to force devices to update
 const ASSETS = [
   // Base App Images
   'https://trackedu.github.io/common-assets/studentapp.png',
