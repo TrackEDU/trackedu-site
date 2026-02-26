@@ -201,29 +201,35 @@ function startTipCarousel() {
 const GATEKEEPER_URL = "https://script.google.com/macros/s/AKfycbzqrrKj_6yEG_F7C032K1yvMxk9cLv2n-bFsRx6I0zuCUpkQo5pzzBPx7j4zmhxuBO73g/exec";
 const CACHE_KEY = `trackedu_license_${schoolId}`;
 
-// Trigger the connection immediately, don't wait for 'load'
-(function fastInit() {
-  // 1. Check local cache for license first (Instant Load)
-  const cached = localStorage.getItem(CACHE_KEY);
-  if (cached) {
-    const cacheData = JSON.parse(cached);
-    if (Date.now() - cacheData.time < 3600000) { // 1 hour valid
-      loadIframeSilently(cacheData.data); 
-    }
-  }
-  // 2. Refresh license in background
-  initiateGatekeeperBackground();
-})();
-
+// ⚡ INSTANT GHOST LOAD: Fire immediately, do not wait for window load
+(function instantGatekeeper() {
+  const cachedData = localStorage.getItem(CACHE_KEY);
   
-function initiateGatekeeperBackground() {
-  fetch(`${GATEKEEPER_URL}?id=${schoolId}&cb=${new Date().getTime()}`, { cache: 'no-store' })
-    .then(r => r.json())
-    .then(data => {
-      if (data.success) loadIframeSilently(data);
-      else showHardLock(data.reason);
-    }).catch(() => showHardLock("Connection Error. Please check your internet."));
-}
+  if (cachedData) {
+    // Returning user: Start loading the heavy Google iframe INSTANTLY
+    const data = JSON.parse(cachedData);
+    loadIframeSilently(data);
+    
+    // Check gatekeeper silently in the background just to verify license
+    fetch(`${GATEKEEPER_URL}?id=${schoolId}`)
+      .then(r => r.json())
+      .then(newData => {
+        if (!newData.success) showHardLock(newData.reason);
+      });
+  } else {
+    // First time ever: Fetch gatekeeper
+    fetch(`${GATEKEEPER_URL}?id=${schoolId}`)
+      .then(r => r.json())
+      .then(data => {
+        if (data.success) {
+          localStorage.setItem(CACHE_KEY, JSON.stringify(data));
+          loadIframeSilently(data);
+        } else {
+          showHardLock(data.reason);
+        }
+      }).catch(() => showHardLock("Connection Error. Please check your internet."));
+  }
+})();
 
 function loadIframeSilently(data) {
   let url = data.url;
@@ -233,15 +239,14 @@ function loadIframeSilently(data) {
   const frame = document.getElementById('appFrame');
   frame.src = url;
   
-  // Google Apps Script requires two 'onload' events to finish its secure redirect
-  let count = 0;
+  // Modern browsers and cached GAS apps often only fire onload ONCE.
+  // We accept the first load, but give a tiny buffer for Google's redirect to paint.
   frame.onload = () => { 
-    if (++count >= 2) { 
+    setTimeout(() => {
       appReady = true; 
       if (userWaiting) revealApp(); 
-    }
+    }, 800); 
   };
-}
 
 function handleLaunchClick() {
   if (appReady) {
