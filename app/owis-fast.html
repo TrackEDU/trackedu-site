@@ -5,15 +5,17 @@
 <title>TrackEDU Digital House Points</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
 <link rel="preconnect" href="https://script.google.com">
 <link rel="preconnect" href="https://script.googleusercontent.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
 <script>
-// --- RESTORE PWA MANIFEST SO THE IPAD RECOGNIZES IT AS AN APP ---
 const appName = "TrackEDU";
 const appIcon = 'https://trackedu.github.io/common-assets/teacherapp.png';
-const themeColor = "#f8fafc"; // Soft slate background
+const themeColor = "#f8fafc"; 
 
 const metaThemeColor = document.createElement('meta');
 metaThemeColor.name = "theme-color";
@@ -47,11 +49,6 @@ body, html {
   background-color: #f8fafc; font-family: 'Inter', sans-serif;
 }
 
-iframe { 
-  position: fixed; inset: 0; width: 100%; height: 100%; border: none; 
-  z-index: 1; background-color: #ffffff; opacity: 0; transition: opacity 0.4s ease; 
-}
-
 /* --- PRO-TIP LOADING SCREEN STYLES --- */
 #loadingScreen { 
   position: fixed; inset: 0; background: #f8fafc; z-index: 9999; 
@@ -60,7 +57,7 @@ iframe {
 }
 
 .loading-logo-img { 
-  width: 180px; height: auto; margin-bottom: 40px; 
+  width: 150px; height: auto; margin-bottom: 40px; 
   filter: drop-shadow(0 4px 6px rgba(0,0,0,0.05));
 }
 
@@ -82,8 +79,8 @@ iframe {
 }
 
 .tip-text {
-  font-size: 16px; color: #334155; line-height: 1.5; font-weight: 600;
-  min-height: 72px; /* Prevents card height from jumping */
+  font-size: 15px; color: #334155; line-height: 1.5; font-weight: 600;
+  min-height: 72px; 
   display: flex; align-items: center; justify-content: center;
   transition: opacity 0.3s ease;
 }
@@ -93,7 +90,6 @@ iframe {
   color: #64748b; font-weight: 600; font-size: 14px;
 }
 
-/* Clean CSS Spinner */
 .spinner {
   width: 20px; height: 20px;
   border: 3px solid #cbd5e1; border-top-color: #3b82f6;
@@ -122,8 +118,6 @@ iframe {
   </div>
 </div>
 
-<iframe id="appFrame" allow="fullscreen"></iframe>
-
 <script>
 // --- PRO TIP CAROUSEL LOGIC ---
 const tips = [
@@ -136,51 +130,47 @@ const tips = [
 ];
 
 const tipTextEl = document.getElementById('tipText');
-
-// 1. Pick a random tip immediately
 let currentTipIndex = Math.floor(Math.random() * tips.length);
 tipTextEl.innerText = tips[currentTipIndex];
 
-// 2. Cycle tips every 4 seconds
 const tipInterval = setInterval(() => {
-  tipTextEl.style.opacity = '0'; // Fade out
+  tipTextEl.style.opacity = '0'; 
   setTimeout(() => {
     currentTipIndex = (currentTipIndex + 1) % tips.length;
     tipTextEl.innerText = tips[currentTipIndex];
-    tipTextEl.style.opacity = '1'; // Fade in
+    tipTextEl.style.opacity = '1'; 
   }, 300);
 }, 4000);
 
-// --- APP LOADING LOGIC ---
+
+// --- 🚀 DYNAMIC IFRAME INJECTION (THE SPEED FIX) ---
 const DIRECT_APP_URL = "https://script.google.com/a/globalschools.com/macros/s/AKfycbzOB8CReA-ZPz8LkkKc-GERQCcAXXD4Q1qfjTDFhibD27FGeGfqWsdVdI2x6E2LkutRxQ/exec?id=owis&tier=Global%20Schools%20Tier&expiry=2099-12-31"; 
 
-// ⚡ UI THREAD UNLOCKER
-window.addEventListener('load', () => {
-  window.requestAnimationFrame(() => {
-    window.requestAnimationFrame(() => {
-      // Let the iPad draw the beautiful tip card first, then lock up the CPU fetching Google
-      setTimeout(() => {
-        const frame = document.getElementById('appFrame');
-        frame.src = DIRECT_APP_URL;
+// Wait a full 800ms after the page opens before we even attempt to load Google
+setTimeout(() => {
+  const iframe = document.createElement('iframe');
+  iframe.style.cssText = "position: fixed; inset: 0; width: 100%; height: 100%; border: none; z-index: 1; background-color: #ffffff; opacity: 0; transition: opacity 0.5s ease;";
+  iframe.allow = "fullscreen";
+  iframe.src = DIRECT_APP_URL;
+  
+  document.body.appendChild(iframe);
 
-        frame.onload = () => {
-          clearInterval(tipInterval); // Stop cycling tips
-          frame.style.opacity = '1';
-          const loader = document.getElementById('loadingScreen');
-          loader.style.opacity = '0';
-          setTimeout(() => loader.style.display = 'none', 500);
-        };
-      }, 300); 
-    });
-  });
-});
+  iframe.onload = () => {
+    clearInterval(tipInterval);
+    iframe.style.opacity = '1';
+    const loader = document.getElementById('loadingScreen');
+    loader.style.opacity = '0';
+    setTimeout(() => loader.style.display = 'none', 500);
+  };
+}, 800); // 800ms delay guarantees the iPad paints the Tip screen first
 
-// Failsafe: Hide loader after 15 seconds
+// Failsafe
 setTimeout(() => {
   clearInterval(tipInterval);
   const loader = document.getElementById('loadingScreen');
   if (loader && loader.style.display !== 'none') {
-     document.getElementById('appFrame').style.opacity = '1';
+     const iframe = document.querySelector('iframe');
+     if(iframe) iframe.style.opacity = '1';
      loader.style.opacity = '0';
      setTimeout(() => loader.style.display = 'none', 500);
   }
