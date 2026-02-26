@@ -2,15 +2,50 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>TrackEDU - OWIS Admin (Fast Load)</title>
+<title>TrackEDU Digital House Points</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<link rel="preconnect" href="https://script.google.com">
+<link rel="preconnect" href="https://script.googleusercontent.com">
+
+<script>
+// --- RESTORE PWA MANIFEST SO THE IPAD RECOGNIZES IT AS AN APP ---
+const appName = "TrackEDU";
+const appIcon = 'https://trackedu.github.io/common-assets/teacherapp.png';
+const themeColor = "#ffffff";
+
+const metaThemeColor = document.createElement('meta');
+metaThemeColor.name = "theme-color";
+metaThemeColor.content = themeColor;
+document.head.appendChild(metaThemeColor);
+
+const baseManifest = {
+  name: appName,
+  short_name: "TrackEDU",
+  start_url: window.location.href,
+  display: "standalone", 
+  background_color: themeColor,
+  theme_color: themeColor,
+  orientation: "portrait",
+  icons: [
+    { src: appIcon, sizes: "192x192", type: "image/png", purpose: "any maskable" },
+    { src: appIcon, sizes: "512x512", type: "image/png", purpose: "any maskable" }
+  ]
+};
+
+const manifestBlob = new Blob([JSON.stringify(baseManifest)], { type: 'application/json' });
+const manifestLink = document.createElement('link');
+manifestLink.rel = 'manifest';
+manifestLink.href = URL.createObjectURL(manifestBlob);
+document.head.appendChild(manifestLink);
+</script>
 
 <style>
 body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: #ffffff; }
 #loadingScreen { position: fixed; inset: 0; background: #ffffff; z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.4s ease; }
 .loading-logo-img { width: 300px; height: auto; margin-bottom: 15px; animation: breathe 2s ease-in-out infinite; }
 @keyframes breathe { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.05); opacity: 0.9; } }
-iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: none; z-index: 1; background-color: #ffffff; }
+iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: none; z-index: 1; background-color: #ffffff; opacity: 0; transition: opacity 0.3s ease; }
 </style>
 </head>
 
@@ -23,31 +58,42 @@ iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: none; z-i
 
 <script>
 // 🚀 DIRECT BYPASS - NO GATEKEEPER
-// Hardcoded specifically to the OWIS deployment URL
-const DIRECT_APP_URL = "https://script.google.com/a/globalschools.com/macros/s/AKfycbzOB8CReA-ZPz8LkkKc-GERQCcAXXD4Q1qfjTDFhibD27FGeGfqWsdVdI2x6E2LkutRxQ/exec"; 
+const DIRECT_APP_URL = "https://script.google.com/a/globalschools.com/macros/s/AKfycbzOB8CReA-ZPz8LkkKc-GERQCcAXXD4Q1qfjTDFhibD27FGeGfqWsdVdI2x6E2LkutRxQ/exec?id=owis&tier=Global%20Schools%20Tier&expiry=2099-12-31"; 
 
-// Instantly launch the iframe without waiting for verification
-const frame = document.getElementById('appFrame');
+// ⚡ UI THREAD UNLOCKER
+// We must force the iPad to render the logo animation BEFORE we lock the CPU with the iframe.
+window.addEventListener('load', () => {
+  // Step 1: Tell the browser we want to paint the screen
+  window.requestAnimationFrame(() => {
+    window.requestAnimationFrame(() => {
+      // Step 2: Now wait 300ms to ensure the animation is actually running smoothly
+      setTimeout(() => {
+        const frame = document.getElementById('appFrame');
+        
+        // Step 3: Trigger the heavy Google load
+        frame.src = DIRECT_APP_URL;
 
-// Append the ID and Tier so the backend still knows exactly how to format the tool
-// Bypasses the network check, but tells the inner tool the license is valid until 2099
-frame.src = DIRECT_APP_URL + "?id=owis&tier=Global%20Schools%20Tier&expiry=2099-12-31";
+        // Step 4: When it finishes, swap the screens smoothly
+        frame.onload = () => {
+          frame.style.opacity = '1';
+          const loader = document.getElementById('loadingScreen');
+          loader.style.opacity = '0';
+          setTimeout(() => loader.style.display = 'none', 300);
+        };
+      }, 300); 
+    });
+  });
+});
 
-// Hide the loading screen exactly when the iframe finishes loading
-frame.onload = () => {
-  const loader = document.getElementById('loadingScreen');
-  loader.style.opacity = '0';
-  setTimeout(() => loader.style.display = 'none', 300);
-};
-
-// Failsafe: Hide loader after 5 seconds just in case
+// Failsafe: Hide loader after 15 seconds if Apple's quarantine takes too long
 setTimeout(() => {
   const loader = document.getElementById('loadingScreen');
   if (loader && loader.style.display !== 'none') {
+     document.getElementById('appFrame').style.opacity = '1';
      loader.style.opacity = '0';
      setTimeout(() => loader.style.display = 'none', 300);
   }
-}, 5000);
+}, 15000);
 </script>
 </body>
 </html>
