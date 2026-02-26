@@ -14,9 +14,13 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <script>
-// --- PWA MANIFEST ---
-const appName = "TrackEDU";
-const appIcon = 'https://trackedu.github.io/common-assets/teacherapp.png';
+// --- APP IDENTITY (PWA) ---
+const params = new URLSearchParams(window.location.search);
+const schoolId = params.get('id') || 'demo';
+const isStudentApp = params.get('view') === 'public';
+
+const appName = isStudentApp ? "TrackEDU Student" : "TrackEDU Teacher";
+const appIcon = isStudentApp ? 'https://trackedu.github.io/common-assets/studentapp.png' : 'https://trackedu.github.io/common-assets/teacherapp.png';
 const themeColor = "#f8fafc"; 
 
 const metaThemeColor = document.createElement('meta');
@@ -51,7 +55,7 @@ body, html {
   background-color: #f8fafc; font-family: 'Inter', sans-serif;
 }
 
-/* --- THE WELCOME SCREEN --- */
+/* --- THE LOBBY SCREEN --- */
 #welcomeScreen { 
   position: fixed; inset: 0; background: #f8fafc; z-index: 9999; 
   display: flex; flex-direction: column; align-items: center; justify-content: center; 
@@ -64,23 +68,28 @@ body, html {
   border-radius: 24px;
   padding: 40px 30px;
   width: 100%;
-  max-width: 420px;
+  max-width: 450px;
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
   display: flex; flex-direction: column; align-items: center;
 }
 
 .logo-img { 
-  width: 120px; height: 120px; margin-bottom: 20px; 
+  width: 100px; height: 100px; margin-bottom: 20px; 
   border-radius: 50%; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 .welcome-title {
-  font-size: 24px; font-weight: 800; color: #1e293b; margin: 0 0 10px 0;
+  font-size: 22px; font-weight: 800; color: #1e293b; margin: 0 0 15px 0;
 }
 
-.welcome-subtitle {
-  font-size: 15px; color: #64748b; margin: 0 0 30px 0; line-height: 1.5;
+/* Ant Lore Section */
+.lore-box {
+  background: #f0fdf4; border-left: 4px solid #10b981;
+  padding: 15px; border-radius: 8px; margin-bottom: 30px;
+  text-align: left;
 }
+.lore-box strong { color: #065f46; display: block; margin-bottom: 4px; font-size: 14px;}
+.lore-box p { color: #166534; font-size: 13px; margin: 0; line-height: 1.5; font-weight: 500;}
 
 .btn-launch {
   background: linear-gradient(135deg, #3b82f6, #2563eb);
@@ -96,8 +105,16 @@ body, html {
   transform: translateY(2px); box-shadow: 0 2px 5px rgba(59, 130, 246, 0.3);
 }
 
+/* Loading State */
 #loadingState {
-  display: none; flex-direction: column; align-items: center; gap: 15px;
+  display: none; flex-direction: column; align-items: center; width: 100%;
+}
+
+.tip-container {
+  width: 100%; min-height: 80px; margin-top: 20px;
+  display: flex; align-items: center; justify-content: center;
+  color: #334155; font-size: 15px; font-weight: 600; line-height: 1.5;
+  transition: opacity 0.4s ease;
 }
 
 .spinner {
@@ -122,18 +139,24 @@ iframe {
     <img src="https://trackedu.github.io/common-assets/teacherapp.png" class="logo-img" alt="TrackEDU Logo">
     
     <div id="initialState">
-      <h1 class="welcome-title">Welcome Back</h1>
-      <p class="welcome-subtitle">Ready to award some points and engage your classroom?</p>
+      <h1 class="welcome-title">TrackEDU Portal</h1>
       
-      <button class="btn-launch" onclick="launchApp()">
-        Launch Dashboard <i class="fas fa-arrow-right"></i>
+      <div class="lore-box">
+        <strong>🐜 Why the Ant?</strong>
+        <p>An ant can lift 50x its body weight, but a colony can move mountains. True strength is found in community, resilience, and teamwork.</p>
+      </div>
+      
+      <button class="btn-launch" onclick="initiateGatekeeper()">
+        Launch System <i class="fas fa-arrow-right"></i>
       </button>
     </div>
 
     <div id="loadingState">
       <div class="spinner"></div>
-      <p style="color: #3b82f6; font-weight: 700; margin: 0;">Connecting securely...</p>
-      <p style="color: #64748b; font-size: 13px; margin: 5px 0 0 0;">This may take a few seconds.</p>
+      <p style="color: #3b82f6; font-weight: 700; margin: 15px 0 5px 0;">Verifying Access...</p>
+      
+      <div class="tip-container" id="tipText">
+        </div>
     </div>
 
   </div>
@@ -142,41 +165,151 @@ iframe {
 <iframe id="appFrame" allow="fullscreen"></iframe>
 
 <script>
-const DIRECT_APP_URL = "https://script.google.com/a/globalschools.com/macros/s/AKfycbzOB8CReA-ZPz8LkkKc-GERQCcAXXD4Q1qfjTDFhibD27FGeGfqWsdVdI2x6E2LkutRxQ/exec?id=owis&tier=Global%20Schools%20Tier&expiry=2099-12-31"; 
+// --- 20 DYNAMIC PRO TIPS ---
+const tips = [
+  "💡 Tap the 'Magic Hat' in the Toolkit to pick random students for cold-calling.",
+  "💡 Students who log in to the Student App 5 days in a row earn a streak reward.",
+  "💡 Create a 'Secret Code' in Loot Drops and hide it on the whiteboard for early finishers.",
+  "💡 Use Duo Mode to show a countdown timer and pick random students at the same time.",
+  "💡 Every milestone a student hits unlocks a holographic collectible card in their binder.",
+  "💡 You can award points to an entire class at once using the 'Award House Points' button.",
+  "💡 Need to undo a mistake? Check the 'Award History' tab to reverse any transaction.",
+  "💡 Tap a student's avatar icon in the list to instantly give them +1 point.",
+  "💡 Long-press a student's avatar icon to instantly remove 1 point.",
+  "💡 Use the 'Squad Builder' to instantly generate randomized groups for projects.",
+  "💡 Launch a 'Voice Poll' to let students vote on school themes. Voting earns them +1 point!",
+  "💡 Set custom Point Reasons in Settings so your teachers don't have to type them out.",
+  "💡 The Top 3 Contributing Classes get special highlights on the main dashboard.",
+  "💡 Print the 'Engagement Posters' so students can easily scan the QR code to log in.",
+  "💡 The 'Mystery Word' mission forces students from different classes to collaborate.",
+  "💡 Check the 'House of Fortune' wheel to give out a daily lucky draw point.",
+  "💡 'Remember Me' on the login screen keeps you signed in for 30 days.",
+  "💡 Tapping the 'Select' button lets you choose specific students for a bulk point drop.",
+  "💡 Ants are the ultimate team players. Encourage your house to work together today!",
+  "💡 A student's rank badge automatically upgrades as they earn more points."
+];
 
-function launchApp() {
+let tipInterval;
+
+function startTipCarousel() {
+  const tipTextEl = document.getElementById('tipText');
+  let currentTipIndex = Math.floor(Math.random() * tips.length);
+  tipTextEl.innerHTML = tips[currentTipIndex];
+
+  tipInterval = setInterval(() => {
+    tipTextEl.style.opacity = '0'; 
+    setTimeout(() => {
+      currentTipIndex = (currentTipIndex + 1) % tips.length;
+      tipTextEl.innerHTML = tips[currentTipIndex];
+      tipTextEl.style.opacity = '1'; 
+    }, 400);
+  }, 4500); // 4.5 seconds per tip
+}
+
+
+// --- SECURE GATEKEEPER LOGIC ---
+const GATEKEEPER_URL = "https://script.google.com/macros/s/AKfycbzqrrKj_6yEG_F7C032K1yvMxk9cLv2n-bFsRx6I0zuCUpkQo5pzzBPx7j4zmhxuBO73g/exec";
+const CACHE_KEY = `trackedu_license_${schoolId}`;
+
+function getSavedLicense() {
+  let data = localStorage.getItem(CACHE_KEY);
+  if (!data) {
+    const cookies = document.cookie.split(';');
+    for (let c of cookies) {
+      c = c.trim();
+      if (c.startsWith(CACHE_KEY + "=")) {
+        data = decodeURIComponent(c.substring(CACHE_KEY.length + 1));
+        break;
+      }
+    }
+  }
+  return data;
+}
+
+function saveLicense(dataObj) {
+  const dataStr = JSON.stringify({ timestamp: new Date().getTime(), data: dataObj });
+  localStorage.setItem(CACHE_KEY, dataStr);
+  const expiry = new Date(new Date().getTime() + 86400000).toUTCString(); 
+  document.cookie = `${CACHE_KEY}=${encodeURIComponent(dataStr)};expires=${expiry};path=/;SameSite=None;Secure`;
+}
+
+function initiateGatekeeper() {
+  // 1. Swap UI to Loading & Start Tips
   document.getElementById('initialState').style.display = 'none';
   document.getElementById('loadingState').style.display = 'flex';
+  startTipCarousel();
 
-  setTimeout(() => {
-    const frame = document.getElementById('appFrame');
-    frame.src = DIRECT_APP_URL;
+  // 2. Check 10-minute soft cache first
+  const cachedLicenseStr = getSavedLicense();
+  let useCache = false;
 
-    // We count onloads because Google Apps Script does a sneaky "302 Redirect"
-    // The first onload is often a blank white page, the second is the real tool.
-    let loadCount = 0;
-    
-    frame.onload = () => {
-      loadCount++;
-      // Reveal the app if it loaded twice (redirect finished) OR if it's been at least 4 seconds
-      if (loadCount >= 2) {
-        revealApp();
+  if (cachedLicenseStr) {
+    try {
+      const parsedData = JSON.parse(cachedLicenseStr);
+      const now = new Date().getTime();
+      if (now - parsedData.timestamp < 600000) { // 10 minutes
+        useCache = true;
+        launchIframe(parsedData.data);
       }
-    };
+    } catch (e) { 
+      localStorage.removeItem(CACHE_KEY);
+    }
+  }
 
-    // Backup reveal: Force reveal after 6 seconds of spinning no matter what.
-    // This entirely hides the white screen phase.
-    setTimeout(revealApp, 6000);
+  // 3. If no cache, fetch from GitHub Gatekeeper
+  if (!useCache) {
+    fetch(`${GATEKEEPER_URL}?id=${schoolId}&cb=${new Date().getTime()}`, { 
+      cache: 'no-store', 
+      priority: 'high' 
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          saveLicense(data);
+          launchIframe(data);
+        } else {
+          showHardLock(data.reason);
+        }
+      })
+      .catch(error => {
+        showHardLock("Unable to reach the security server. Please check your internet connection.");
+      });
+  }
 
-  }, 100); 
-
-  // THE FIX: Failsafe is now safely INSIDE the function, starting ONLY when the button is clicked.
+  // Failsafe: Hide loader after 15 seconds
   setTimeout(() => {
-    revealApp();
+    clearInterval(tipInterval);
+    const loader = document.getElementById('welcomeScreen');
+    if (loader && loader.style.display !== 'none' && document.getElementById('appFrame').src) {
+       document.getElementById('appFrame').style.opacity = '1';
+       loader.style.opacity = '0';
+       setTimeout(() => loader.style.display = 'none', 500);
+    }
   }, 15000);
 }
 
+function launchIframe(data) {
+  setTimeout(() => {
+    let finalUrl = data.url;
+    if (data.expiry) finalUrl += (finalUrl.includes('?') ? '&' : '?') + "expiry=" + encodeURIComponent(data.expiry);
+    if (data.tier) finalUrl += (finalUrl.includes('?') ? '&' : '?') + "tier=" + encodeURIComponent(data.tier);
+    if (typeof isStudentApp !== 'undefined' && isStudentApp) finalUrl += (finalUrl.includes('?') ? '&' : '?') + "view=house-students";
+
+    const frame = document.getElementById('appFrame');
+    frame.src = finalUrl;
+
+    let loadCount = 0;
+    frame.onload = () => {
+      loadCount++;
+      if (loadCount >= 2) revealApp();
+    };
+
+    setTimeout(revealApp, 6000);
+  }, 400); 
+}
+
 function revealApp() {
+  clearInterval(tipInterval);
   const loader = document.getElementById('welcomeScreen');
   const frame = document.getElementById('appFrame');
   
@@ -185,6 +318,27 @@ function revealApp() {
     loader.style.opacity = '0';
     setTimeout(() => loader.style.display = 'none', 500);
   }
+}
+
+function showHardLock(reason) {
+  clearInterval(tipInterval);
+  localStorage.removeItem(CACHE_KEY);
+  document.cookie = `${CACHE_KEY}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+  
+  document.getElementById('welcomeScreen').innerHTML = `
+    <div class="welcome-card" style="border-color: #ef4444; box-shadow: 0 10px 30px rgba(239, 68, 68, 0.15);">
+      <div style="width: 80px; height: 80px; border-radius: 50%; background: #fee2e2; color: #ef4444; display: flex; align-items: center; justify-content: center; font-size: 40px; margin-bottom: 20px;">
+        <i class="fas fa-lock"></i>
+      </div>
+      <h1 class="welcome-title" style="color: #b91c1c;">Access Restricted</h1>
+      <p style="font-size: 15px; color: #475569; margin-bottom: 30px; line-height: 1.5;">${reason}</p>
+      
+      <div style="display: flex; gap: 10px; width: 100%;">
+        <button onclick="window.location.reload()" style="flex: 1; padding: 14px; background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 12px; font-weight: 700; color: #475569; cursor: pointer;">Retry</button>
+        <a href="mailto:hello@trackedu.net" style="flex: 1; padding: 14px; background: #1e293b; color: white; text-decoration: none; border-radius: 12px; font-weight: 700; cursor: pointer;">Support</a>
+      </div>
+    </div>
+  `;
 }
 </script>
 </body>
