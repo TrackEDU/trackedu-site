@@ -8,9 +8,10 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-<link rel="preconnect" href="https://script.google.com">
-<link rel="preconnect" href="https://script.googleusercontent.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+> <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <script>
@@ -63,8 +64,12 @@ body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-c
 /* --- SCHOOL-FRIENDLY LOBBY SCREEN --- */
 #welcomeScreen { 
   position: fixed; inset: 0; background: #ffffff; 
-  z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; 
-  transition: opacity 0.6s ease, transform 0.6s ease; padding: 20px; text-align: center;
+  z-index: 9999; display: flex; flex-direction: column; 
+  align-items: center; justify-content: center; 
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+  padding: 20px; text-align: center;
+  will-change: opacity; /* Forces GPU acceleration */
+  contain: strict; /* Critical for old device performance */
 }
 
 .executive-card {
@@ -196,11 +201,21 @@ function startTipCarousel() {
 const GATEKEEPER_URL = "https://script.google.com/macros/s/AKfycbzqrrKj_6yEG_F7C032K1yvMxk9cLv2n-bFsRx6I0zuCUpkQo5pzzBPx7j4zmhxuBO73g/exec";
 const CACHE_KEY = `trackedu_license_${schoolId}`;
 
-// ⚡ GHOST LOAD: Start loading the tool the moment the app opens
-window.addEventListener('load', () => { 
-  setTimeout(initiateGatekeeperBackground, 300); 
-});
+// Trigger the connection immediately, don't wait for 'load'
+(function fastInit() {
+  // 1. Check local cache for license first (Instant Load)
+  const cached = localStorage.getItem(CACHE_KEY);
+  if (cached) {
+    const cacheData = JSON.parse(cached);
+    if (Date.now() - cacheData.time < 3600000) { // 1 hour valid
+      loadIframeSilently(cacheData.data); 
+    }
+  }
+  // 2. Refresh license in background
+  initiateGatekeeperBackground();
+})();
 
+  
 function initiateGatekeeperBackground() {
   fetch(`${GATEKEEPER_URL}?id=${schoolId}&cb=${new Date().getTime()}`, { cache: 'no-store' })
     .then(r => r.json())
