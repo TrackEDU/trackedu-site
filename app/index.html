@@ -208,47 +208,41 @@ const CACHE_KEY = `trackedu_license_${schoolId}`;
 // ⚡ INSTANT GHOST LOAD: Fire immediately, do not wait for window load
 (function instantGatekeeper() {
   const cachedData = localStorage.getItem(CACHE_KEY);
+  let loadedUrl = null;
   
-  function fetchGatekeeper() {
-    fetch(`${GATEKEEPER_URL}?id=${schoolId}`)
-      .then(r => r.json())
-      .then(data => {
-        if (data.success) {
-          localStorage.setItem(CACHE_KEY, JSON.stringify(data));
-          loadIframeSilently(data);
-        } else {
-          showHardLock(data.reason);
-        }
-      }).catch(() => showHardLock("Connection Error. Please check your internet."));
-  }
-
   if (cachedData) {
-    let data = JSON.parse(cachedData);
-    
-    // ⚡ SELF-HEALING CACHE: Fixes the desktop "blank white screen" bug
-    if (data.data && data.timestamp) {
-      data = data.data; // Extract the correct URL from the old nested format
-      localStorage.setItem(CACHE_KEY, JSON.stringify(data)); // Repair the cache
-    }
-    
-    // Safety check: Make sure a valid URL actually exists
-    if (data && data.url) {
+    try {
+      // Returning user: Start loading the heavy Google iframe INSTANTLY
+      const data = JSON.parse(cachedData);
+      loadedUrl = data.url; 
       loadIframeSilently(data);
-      
-      // Verify license silently
-      fetch(`${GATEKEEPER_URL}?id=${schoolId}`)
-        .then(r => r.json())
-        .then(newData => {
-          if (!newData.success) showHardLock(newData.reason);
-        });
-    } else {
-      // Cache is completely corrupted, wipe it and start fresh
-      localStorage.removeItem(CACHE_KEY);
-      fetchGatekeeper();
+    } catch(e) {
+      localStorage.removeItem(CACHE_KEY); // Failsafe if cache gets corrupted
     }
-  } else {
-    fetchGatekeeper();
   }
+  
+  // ALWAYS check gatekeeper silently in the background to verify license AND URL changes
+  fetch(`${GATEKEEPER_URL}?id=${schoolId}`)
+    .then(r => r.json())
+    .then(newData => {
+      if (!newData.success) {
+        showHardLock(newData.reason);
+      } else {
+        // Save the absolute freshest data to cache
+        localStorage.setItem(CACHE_KEY, JSON.stringify(newData));
+        
+        // ⚡ THE FIX: If you deployed a new backend URL, reload the iframe!
+        if (cachedData && loadedUrl !== newData.url) {
+          console.log("Backend URL updated, reloading iframe...");
+          loadIframeSilently(newData);
+        } else if (!cachedData) {
+          // First time ever
+          loadIframeSilently(newData);
+        }
+      }
+    }).catch(() => {
+      if (!cachedData) showHardLock("Connection Error. Please check your internet.");
+    });
 })();
 
 function loadIframeSilently(data) {
