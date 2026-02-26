@@ -61,21 +61,11 @@ body, html {
   overflow: hidden; 
 }
 
-/* TEACHER LOBBY SCREEN */
 #welcomeScreen { 
   position: fixed; inset: 0; background: #ffffff; 
   z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; 
   transition: opacity 0.6s ease; padding: 20px; text-align: center;
 }
-
-/* STUDENT SILENT LOADER */
-#studentLoader {
-  position: fixed; inset: 0; background: #ffffff; z-index: 9998;
-  display: none; flex-direction: column; align-items: center; justify-content: center;
-  transition: opacity 0.6s ease;
-}
-.pulse-logo { width: 120px; height: auto; animation: pulse 2s infinite ease-in-out; }
-@keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.1); opacity: 1; } }
 
 .executive-card {
   background: #ffffff; border-radius: 24px; padding: 45px 35px; width: 100%; max-width: 460px;
@@ -118,11 +108,10 @@ iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: none; z-i
 </head>
 
 <body>
-
 <div id="welcomeScreen">
   <div class="executive-card">
     <div class="system-status"><div class="status-dot"></div> School Connection Active</div>
-    <img src="https://trackedu.github.io/common-assets/teacherapp.png" class="logo-img" alt="TrackEDU Logo">
+    <img src="https://trackedu.github.io/common-assets/tsloading.png" class="logo-img" alt="TrackEDU Logo">
     
     <div id="initialState" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
       <h1 class="welcome-title">House Spirit Portal</h1>
@@ -140,14 +129,10 @@ iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: none; z-i
   </div>
 </div>
 
-<div id="studentLoader">
-  <img src="https://trackedu.github.io/common-assets/tsloading.png" class="pulse-logo" alt="TrackEDU Logo">
-</div>
-
 <iframe id="appFrame" allow="fullscreen"></iframe>
 
 <script>
-// --- SCHOOL-FRIENDLY MISSION & ANT ETHOS ---
+// --- FULL 20 SCHOOL-FRIENDLY MISSION & ANT ETHOS ---
 const ethosStatements = [
   "The Ant was chosen because a single worker is small, but a colony is an unstoppable force of nature.",
   "Every House Point awarded is a positive behavior reinforced. You are building school culture.",
@@ -158,9 +143,20 @@ const ethosStatements = [
   "In nature, the ant is the ultimate architect. In school, you are the architect of student character.",
   "Teamwork is the silent language of the colony. One goal, many hands, infinite impact.",
   "Like the ant, high-performing students show up every day with discipline, drive, and dedication.",
-  "A House is not just a group; it is a community fueled by the spirit of its members."
+  "A House is not just a group; it is a community fueled by the spirit of its members.",
+  "When we lift each other up, the whole school rises. Every point is a step forward.",
+  "Consistency is key. Small, daily recognitions build a foundation of lifelong habits.",
+  "The strength of the House is the student; the strength of the student is the House.",
+  "Positive reinforcement doesn't just change behavior for a day—it shapes character for a lifetime.",
+  "Ant colonies adapt to any obstacle. We teach our students to meet challenges with the same adaptability.",
+  "A culture of encouragement creates a safe space for students to take academic risks.",
+  "Every time you award a point, you remind a student that their efforts are seen and valued.",
+  "Great schools are built on great habits. Thank you for championing positive choices today.",
+  "The Ant reminds us that true leadership is often found in humble, hard work behind the scenes.",
+  "We track points not to create competition, but to celebrate the collective growth of our students."
 ];
 
+// --- FULL 20 SCHOOL-FRIENDLY TIPS ---
 const tips = [
   "💡 High-performing schools are built on consistent recognition, not just high points.",
   "💡 Use the 'Magic Hat' in the Toolkit to ensure every student has a fair chance to participate.",
@@ -210,11 +206,6 @@ const CACHE_KEY = `trackedu_license_${schoolId}`;
 
 // Start Ghost-Load as soon as the DOM is interactive
 document.addEventListener('DOMContentLoaded', () => {
-  // If Student App, swap the visible UI immediately
-  if (isStudentApp) {
-    document.getElementById('welcomeScreen').style.display = 'none';
-    document.getElementById('studentLoader').style.display = 'flex';
-  }
   initiateGatekeeperBackground();
 });
 
@@ -239,8 +230,7 @@ function loadIframeSilently(data) {
   frame.onload = () => { 
     if (++count >= 2) { 
       appReady = true; 
-      // If the teacher clicked the button OR if it's a student (who doesn't have a button), reveal the app.
-      if (userWaiting || isStudentApp) revealApp(); 
+      if (userWaiting) revealApp(); 
     }
   };
 }
@@ -253,12 +243,13 @@ function handleLaunchClick() {
     document.getElementById('initialState').style.display = 'none';
     document.getElementById('loadingState').style.display = 'flex';
     startTipCarousel();
+    setTimeout(revealApp, 8000); 
   }
 }
 
 function revealApp() {
   if (tipInterval) clearInterval(tipInterval);
-  const loader = isStudentApp ? document.getElementById('studentLoader') : document.getElementById('welcomeScreen');
+  const loader = document.getElementById('welcomeScreen');
   const frame = document.getElementById('appFrame');
   if (loader && loader.style.display !== 'none') {
     frame.style.opacity = '1';
@@ -267,26 +258,25 @@ function revealApp() {
   }
 }
 
+// PREMIUM RESTRICTED SCREEN RESTORED
 function showHardLock(reason) {
   if (tipInterval) clearInterval(tipInterval);
   localStorage.removeItem(CACHE_KEY);
-  
-  const lockHTML = `
-    <div class="executive-card" style="border-top: 6px solid #b91c1c; margin: auto;">
+  document.getElementById('welcomeScreen').innerHTML = `
+    <div class="executive-card" style="border-top: 6px solid #b91c1c;">
       <div style="width: 60px; height: 60px; border-radius: 50%; background: #fef2f2; color: #b91c1c; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 20px;">
         <i class="fas fa-lock"></i>
       </div>
-      <h1 class="welcome-title">Verification Required</h1>
-      <p style="font-size:13px; line-height:1.5; color:#475569; margin-bottom:25px;">${reason}</p>
-      <button onclick="window.location.reload()" class="btn-launch" style="background:#f1f5f9; color:#475569; border:1px solid #cbd5e1;">Retry</button>
+      <h1 class="welcome-title" style="color:#0f172a;">Access Update Required</h1>
+      <p style="font-size:13px; line-height:1.5; color:#475569; margin-bottom:25px;">
+        The system requires an account verification or the license has ended.<br><br>
+        <strong>Status:</strong> ${reason || "Verification required."}
+      </p>
+      <div style="display:flex; gap:10px; width:100%;">
+        <button onclick="window.location.reload()" class="btn-launch" style="background:#f1f5f9; color:#475569; box-shadow:none; border:1px solid #cbd5e1;">Retry</button>
+        <a href="mailto:hello@trackedu.net" style="flex:1; background:#1e40af; color:#fff; text-decoration:none; padding:18px; border-radius:12px; font-weight:700; display:flex; align-items:center; justify-content:center; font-size:14px;">Contact Admin</a>
+      </div>
     </div>`;
-    
-  if (isStudentApp) {
-    document.getElementById('studentLoader').innerHTML = lockHTML;
-    document.getElementById('studentLoader').style.backgroundColor = "#ffffff";
-  } else {
-    document.getElementById('welcomeScreen').innerHTML = lockHTML;
-  }
 }
 </script>
 </body>
