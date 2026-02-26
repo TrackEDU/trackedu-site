@@ -214,12 +214,36 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initiateGatekeeperBackground() {
+  const cachedData = localStorage.getItem(CACHE_KEY);
+  
+  // 1. FAST START: If we have the URL cached, load the app immediately!
+  if (cachedData) {
+    try {
+      loadIframeSilently(JSON.parse(cachedData));
+    } catch(e) {
+      localStorage.removeItem(CACHE_KEY);
+    }
+  }
+
+  // 2. BACKGROUND CHECK: Verify the license with Gatekeeper quietly
   fetch(`${GATEKEEPER_URL}?id=${schoolId}&cb=${new Date().getTime()}`, { cache: 'no-store' })
     .then(r => r.json())
     .then(data => {
-      if (data.success) loadIframeSilently(data);
-      else showHardLock(data.reason);
-    }).catch(() => showHardLock("Connection Error. Please check your network."));
+      if (data.success) {
+        // Save the valid data for the next visit
+        localStorage.setItem(CACHE_KEY, JSON.stringify(data));
+        
+        // Only load the iframe here if this is their very first visit
+        if (!cachedData) {
+          loadIframeSilently(data);
+        }
+      } else {
+        // If license is revoked, lock them out immediately
+        showHardLock(data.reason);
+      }
+    }).catch(() => {
+      if (!cachedData) showHardLock("Connection Error. Please check your network.");
+    });
 }
 
 function loadIframeSilently(data) {
