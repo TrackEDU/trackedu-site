@@ -61,11 +61,21 @@ body, html {
   overflow: hidden; 
 }
 
+/* TEACHER LOBBY SCREEN */
 #welcomeScreen { 
   position: fixed; inset: 0; background: #ffffff; 
   z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; 
   transition: opacity 0.6s ease; padding: 20px; text-align: center;
 }
+
+/* STUDENT SILENT LOADER */
+#studentLoader {
+  position: fixed; inset: 0; background: #ffffff; z-index: 9998;
+  display: none; flex-direction: column; align-items: center; justify-content: center;
+  transition: opacity 0.6s ease;
+}
+.pulse-logo { width: 120px; height: auto; animation: pulse 2s infinite ease-in-out; }
+@keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.1); opacity: 1; } }
 
 .executive-card {
   background: #ffffff; border-radius: 24px; padding: 45px 35px; width: 100%; max-width: 460px;
@@ -86,7 +96,7 @@ body, html {
 
 .status-dot { width: 8px; height: 8px; background: #10b981; border-radius: 50%; box-shadow: 0 0 8px #10b981; }
 
-.logo-img { width: 80px; height: 80px; margin-bottom: 20px; border-radius: 50%; border: 1px solid #f1f5f9; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+.logo-img { width: 80px; height: 80px; margin-bottom: 20px; border-radius: 50%; border: 1px solid #f1f5f9; }
 
 .welcome-title { font-size: 24px; font-weight: 800; color: #0f172a; margin: 0 0 8px 0; }
 
@@ -97,7 +107,6 @@ body, html {
   background: #1e40af; color: white; border: none; border-radius: 12px; padding: 18px 24px; font-size: 16px;
   font-weight: 700; width: 100%; cursor: pointer; box-shadow: 0 8px 20px rgba(30, 64, 175, 0.2); transition: all 0.2s ease;
 }
-.btn-launch:active { transform: scale(0.98); opacity: 0.9; }
 
 #loadingState { display: none; flex-direction: column; align-items: center; width: 100%; }
 .tip-container { width: 100%; min-height: 80px; margin-top: 20px; display: flex; align-items: center; justify-content: center; color: #475569; font-size: 14px; font-weight: 600; line-height: 1.5; transition: opacity 0.4s ease; }
@@ -109,20 +118,18 @@ iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: none; z-i
 </head>
 
 <body>
+
 <div id="welcomeScreen">
   <div class="executive-card">
     <div class="system-status"><div class="status-dot"></div> School Connection Active</div>
-    
-    <img id="dynamicLogo" src="https://trackedu.github.io/common-assets/teacherapp.png" class="logo-img" alt="TrackEDU Logo">
+    <img src="https://trackedu.github.io/common-assets/teacherapp.png" class="logo-img" alt="TrackEDU Logo">
     
     <div id="initialState" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
-      <h1 class="welcome-title" id="welcomeTitle">House Spirit Portal</h1>
+      <h1 class="welcome-title">House Spirit Portal</h1>
       <div class="ethos-box">
         <p id="ethosText">Connecting to your House system...</p>
       </div>
-      <button class="btn-launch" id="btnLaunch" onclick="handleLaunchClick()">
-        Enter Portal <i class="fas fa-school" style="margin-left:8px; font-size:13px;"></i>
-      </button>
+      <button class="btn-launch" id="btnLaunch" onclick="handleLaunchClick()">Enter Portal <i class="fas fa-school" style="margin-left:8px; font-size:13px;"></i></button>
     </div>
 
     <div id="loadingState">
@@ -133,11 +140,15 @@ iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: none; z-i
   </div>
 </div>
 
+<div id="studentLoader">
+  <img src="https://trackedu.github.io/common-assets/tsloading.png" class="pulse-logo" alt="TrackEDU Logo">
+</div>
+
 <iframe id="appFrame" allow="fullscreen"></iframe>
 
 <script>
-// --- TEACHER DATA ---
-const teacherEthos = [
+// --- SCHOOL-FRIENDLY MISSION & ANT ETHOS ---
+const ethosStatements = [
   "The Ant was chosen because a single worker is small, but a colony is an unstoppable force of nature.",
   "Every House Point awarded is a positive behavior reinforced. You are building school culture.",
   "Ants communicate constantly, ensuring no member is left behind. Success is found in connection.",
@@ -150,7 +161,7 @@ const teacherEthos = [
   "A House is not just a group; it is a community fueled by the spirit of its members."
 ];
 
-const teacherTips = [
+const tips = [
   "💡 High-performing schools are built on consistent recognition, not just high points.",
   "💡 Use the 'Magic Hat' in the Toolkit to ensure every student has a fair chance to participate.",
   "💡 Fairness First: Use the 'Award History' log to review and maintain point consistency.",
@@ -173,55 +184,22 @@ const teacherTips = [
   "💡 Remember: One point is a small step; a colony moves mountains."
 ];
 
-// --- STUDENT DATA ---
-const studentEthos = [
-  "Every point you earn helps your House climb the leaderboard. Keep pushing!",
-  "An ant can lift 50x its own weight. What amazing things will you achieve today?",
-  "Log in daily to keep your streak alive and earn bonus points for your House!",
-  "Check your digital binder regularly to see which rare cards you've unlocked.",
-  "Teamwork makes the dream work. Support your Housemates to win the cup!"
-];
-
-const studentTips = [
-  "💡 Check the 'Milestones' tab to see what holographic card you unlock next.",
-  "💡 You get a bonus point automatically for a 5-day login streak!",
-  "💡 Keep an eye out for a 'Mystery Word' from your teachers to earn extra points.",
-  "💡 Your rank badge upgrades automatically as you earn more House Points.",
-  "💡 Every single point counts! Help your House secure the lead."
-];
-
 let tipInterval;
 let appReady = false; 
 let userWaiting = false; 
 
-// --- DYNAMIC UI ADJUSTMENT ---
-document.addEventListener('DOMContentLoaded', () => {
-  // Swap UI elements if it's the Student App
-  if (isStudentApp) {
-    document.getElementById('welcomeTitle').innerText = "Student Dashboard";
-    document.getElementById('btnLaunch').innerHTML = 'Let's Go! <i class="fas fa-arrow-right" style="margin-left:8px; font-size:13px;"></i>';
-    document.getElementById('dynamicLogo').src = 'https://trackedu.github.io/common-assets/studentapp.png';
-  }
-
-  // Load the correct random Ethos text
-  const activeEthos = isStudentApp ? studentEthos : teacherEthos;
-  document.getElementById('ethosText').innerText = activeEthos[Math.floor(Math.random() * activeEthos.length)];
-
-  // Start checking license and downloading Google behind the scenes
-  initiateGatekeeperBackground();
-});
+// Initial render of Ethos
+document.getElementById('ethosText').innerText = ethosStatements[Math.floor(Math.random() * ethosStatements.length)];
 
 function startTipCarousel() {
-  const activeTips = isStudentApp ? studentTips : teacherTips;
   const tipTextEl = document.getElementById('tipText');
-  let currentTipIndex = Math.floor(Math.random() * activeTips.length);
-  
-  tipTextEl.innerHTML = activeTips[currentTipIndex];
+  let currentTipIndex = Math.floor(Math.random() * tips.length);
+  tipTextEl.innerHTML = tips[currentTipIndex];
   tipInterval = setInterval(() => {
     tipTextEl.style.opacity = '0'; 
     setTimeout(() => {
-      currentTipIndex = (currentTipIndex + 1) % activeTips.length;
-      tipTextEl.innerHTML = activeTips[currentTipIndex];
+      currentTipIndex = (currentTipIndex + 1) % tips.length;
+      tipTextEl.innerHTML = tips[currentTipIndex];
       tipTextEl.style.opacity = '1'; 
     }, 400);
   }, 4000);
@@ -229,6 +207,16 @@ function startTipCarousel() {
 
 const GATEKEEPER_URL = "https://script.google.com/macros/s/AKfycbzqrrKj_6yEG_F7C032K1yvMxk9cLv2n-bFsRx6I0zuCUpkQo5pzzBPx7j4zmhxuBO73g/exec";
 const CACHE_KEY = `trackedu_license_${schoolId}`;
+
+// Start Ghost-Load as soon as the DOM is interactive
+document.addEventListener('DOMContentLoaded', () => {
+  // If Student App, swap the visible UI immediately
+  if (isStudentApp) {
+    document.getElementById('welcomeScreen').style.display = 'none';
+    document.getElementById('studentLoader').style.display = 'flex';
+  }
+  initiateGatekeeperBackground();
+});
 
 function initiateGatekeeperBackground() {
   fetch(`${GATEKEEPER_URL}?id=${schoolId}&cb=${new Date().getTime()}`, { cache: 'no-store' })
@@ -251,38 +239,26 @@ function loadIframeSilently(data) {
   frame.onload = () => { 
     if (++count >= 2) { 
       appReady = true; 
-      if (userWaiting) revealApp(); 
+      // If the teacher clicked the button OR if it's a student (who doesn't have a button), reveal the app.
+      if (userWaiting || isStudentApp) revealApp(); 
     }
   };
-
-  // ⚡ BULLETPROOF FAILSAFE: If Google is slow, force the state to ready after 6 seconds.
-  setTimeout(() => {
-    if (!appReady) {
-      appReady = true;
-      if (userWaiting) revealApp();
-    }
-  }, 6000);
 }
 
 function handleLaunchClick() {
-  // ⚡ CRITICAL BUG FIX: Always show the spinner immediately to confirm the button was clicked.
-  document.getElementById('initialState').style.display = 'none';
-  document.getElementById('loadingState').style.display = 'flex';
-  
   if (appReady) {
-    // If Google is already loaded, show the spinner for a split second (200ms) then enter.
-    setTimeout(revealApp, 200); 
+    revealApp();
   } else {
-    // If Google is still loading, start the tip carousel and wait.
     userWaiting = true;
+    document.getElementById('initialState').style.display = 'none';
+    document.getElementById('loadingState').style.display = 'flex';
     startTipCarousel();
-    setTimeout(revealApp, 8000); // Failsafe absolute maximum wait
   }
 }
 
 function revealApp() {
   if (tipInterval) clearInterval(tipInterval);
-  const loader = document.getElementById('welcomeScreen');
+  const loader = isStudentApp ? document.getElementById('studentLoader') : document.getElementById('welcomeScreen');
   const frame = document.getElementById('appFrame');
   if (loader && loader.style.display !== 'none') {
     frame.style.opacity = '1';
@@ -294,21 +270,23 @@ function revealApp() {
 function showHardLock(reason) {
   if (tipInterval) clearInterval(tipInterval);
   localStorage.removeItem(CACHE_KEY);
-  document.getElementById('welcomeScreen').innerHTML = `
-    <div class="executive-card" style="border-top: 6px solid #b91c1c;">
+  
+  const lockHTML = `
+    <div class="executive-card" style="border-top: 6px solid #b91c1c; margin: auto;">
       <div style="width: 60px; height: 60px; border-radius: 50%; background: #fef2f2; color: #b91c1c; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 20px;">
         <i class="fas fa-lock"></i>
       </div>
       <h1 class="welcome-title">Verification Required</h1>
-      <p style="font-size:13px; line-height:1.5; color:#475569; margin-bottom:25px;">
-        The system requires an account verification or the license has ended.<br><br>
-        <strong>Status:</strong> ${reason || "Verification required."}
-      </p>
-      <div style="display:flex; gap:10px; width:100%;">
-        <button onclick="window.location.reload()" class="btn-launch" style="background:#f1f5f9; color:#475569; box-shadow:none; border:1px solid #cbd5e1;">Retry</button>
-        <a href="mailto:hello@trackedu.net" style="flex:1; background:#1e40af; color:#fff; text-decoration:none; padding:18px; border-radius:12px; font-weight:700; display:flex; align-items:center; justify-content:center; font-size:14px;">Contact Admin</a>
-      </div>
+      <p style="font-size:13px; line-height:1.5; color:#475569; margin-bottom:25px;">${reason}</p>
+      <button onclick="window.location.reload()" class="btn-launch" style="background:#f1f5f9; color:#475569; border:1px solid #cbd5e1;">Retry</button>
     </div>`;
+    
+  if (isStudentApp) {
+    document.getElementById('studentLoader').innerHTML = lockHTML;
+    document.getElementById('studentLoader').style.backgroundColor = "#ffffff";
+  } else {
+    document.getElementById('welcomeScreen').innerHTML = lockHTML;
+  }
 }
 </script>
 </body>
