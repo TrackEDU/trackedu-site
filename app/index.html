@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <title>TrackEDU House Points</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-<link rel="preload" as="image" href="https://trackedu.github.io/common-assets/tsloading.png">
-
 <link rel="preconnect" href="https://script.google.com">
 <link rel="preconnect" href="https://script.googleusercontent.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <script>
 // --- APP IDENTITY & PARAMS ---
@@ -21,15 +21,20 @@ const isStudentApp = params.get('view') === 'public';
 
 const appName = isStudentApp ? "TrackEDU Student" : "TrackEDU Teacher";
 const appIcon = isStudentApp ? 'https://trackedu.github.io/common-assets/studentapp.png' : 'https://trackedu.github.io/common-assets/teacherapp.png';
+const themeColor = "#ffffff"; 
 
-// Manifest setup - matching background_color to body prevents the white flash
+const metaThemeColor = document.createElement('meta');
+metaThemeColor.name = "theme-color";
+metaThemeColor.content = themeColor;
+document.head.appendChild(metaThemeColor);
+
 const baseManifest = {
   name: appName,
   short_name: "TrackEDU",
   start_url: window.location.origin + window.location.pathname + window.location.search,
   display: "standalone", 
   background_color: "#ffffff",
-  theme_color: "#ffffff",
+  theme_color: themeColor,
   orientation: "portrait",
   icons: [
     { src: appIcon, sizes: "192x192", type: "image/png", purpose: "any maskable" },
@@ -38,33 +43,28 @@ const baseManifest = {
 };
 
 const manifestBlob = new Blob([JSON.stringify(baseManifest)], { type: 'application/json' });
+const manifestURL = URL.createObjectURL(manifestBlob);
 const manifestLink = document.createElement('link');
 manifestLink.rel = 'manifest';
-manifestLink.href = URL.createObjectURL(manifestBlob);
+manifestLink.href = manifestURL;
 document.head.appendChild(manifestLink);
 
-// Service Worker: Register immediately but keep it secondary to UI paint
+// --- SERVICE WORKER ---
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js');
+  setTimeout(() => {
+    navigator.serviceWorker.register('/sw.js');
+  }, 2000);
 }
 </script>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-
 <style>
-/* ⚡ CRITICAL UI - Inlined and using system fonts for instant iPad paint */
-body, html { 
-  margin: 0; padding: 0; height: 100%; width: 100%; 
-  background-color: #ffffff; 
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-  overflow: hidden; 
-}
+body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: #ffffff; font-family: 'Inter', sans-serif; }
 
+/* --- SCHOOL-FRIENDLY LOBBY SCREEN --- */
 #welcomeScreen { 
   position: fixed; inset: 0; background: #ffffff; 
   z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; 
-  transition: opacity 0.6s ease; padding: 20px; text-align: center;
+  transition: opacity 0.6s ease, transform 0.6s ease; padding: 20px; text-align: center;
 }
 
 .executive-card {
@@ -86,7 +86,7 @@ body, html {
 
 .status-dot { width: 8px; height: 8px; background: #10b981; border-radius: 50%; box-shadow: 0 0 8px #10b981; }
 
-.logo-img { width: 80px; height: 80px; margin-bottom: 20px; border-radius: 50%; border: 1px solid #f1f5f9; }
+.logo-img { width: 80px; height: 80px; margin-bottom: 20px; border-radius: 50%; border: 1px solid #f1f5f9; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
 
 .welcome-title { font-size: 24px; font-weight: 800; color: #0f172a; margin: 0 0 8px 0; }
 
@@ -97,6 +97,7 @@ body, html {
   background: #1e40af; color: white; border: none; border-radius: 12px; padding: 18px 24px; font-size: 16px;
   font-weight: 700; width: 100%; cursor: pointer; box-shadow: 0 8px 20px rgba(30, 64, 175, 0.2); transition: all 0.2s ease;
 }
+.btn-launch:active { transform: scale(0.98); opacity: 0.9; }
 
 #loadingState { display: none; flex-direction: column; align-items: center; width: 100%; }
 .tip-container { width: 100%; min-height: 80px; margin-top: 20px; display: flex; align-items: center; justify-content: center; color: #475569; font-size: 14px; font-weight: 600; line-height: 1.5; transition: opacity 0.4s ease; }
@@ -132,7 +133,7 @@ iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: none; z-i
 <iframe id="appFrame" allow="fullscreen"></iframe>
 
 <script>
-// --- FULL 20 SCHOOL-FRIENDLY MISSION & ANT ETHOS ---
+// --- SCHOOL-FRIENDLY MISSION & ANT ETHOS ---
 const ethosStatements = [
   "The Ant was chosen because a single worker is small, but a colony is an unstoppable force of nature.",
   "Every House Point awarded is a positive behavior reinforced. You are building school culture.",
@@ -143,20 +144,10 @@ const ethosStatements = [
   "In nature, the ant is the ultimate architect. In school, you are the architect of student character.",
   "Teamwork is the silent language of the colony. One goal, many hands, infinite impact.",
   "Like the ant, high-performing students show up every day with discipline, drive, and dedication.",
-  "A House is not just a group; it is a community fueled by the spirit of its members.",
-  "When we lift each other up, the whole school rises. Every point is a step forward.",
-  "Consistency is key. Small, daily recognitions build a foundation of lifelong habits.",
-  "The strength of the House is the student; the strength of the student is the House.",
-  "Positive reinforcement doesn't just change behavior for a day—it shapes character for a lifetime.",
-  "Ant colonies adapt to any obstacle. We teach our students to meet challenges with the same adaptability.",
-  "A culture of encouragement creates a safe space for students to take academic risks.",
-  "Every time you award a point, you remind a student that their efforts are seen and valued.",
-  "Great schools are built on great habits. Thank you for championing positive choices today.",
-  "The Ant reminds us that true leadership is often found in humble, hard work behind the scenes.",
-  "We track points not to create competition, but to celebrate the collective growth of our students."
+  "A House is not just a group; it is a community fueled by the spirit of its members."
 ];
 
-// --- FULL 20 SCHOOL-FRIENDLY TIPS ---
+// --- SCHOOL-FRIENDLY TIPS ---
 const tips = [
   "💡 High-performing schools are built on consistent recognition, not just high points.",
   "💡 Use the 'Magic Hat' in the Toolkit to ensure every student has a fair chance to participate.",
@@ -184,7 +175,7 @@ let tipInterval;
 let appReady = false; 
 let userWaiting = false; 
 
-// Initial render of Ethos
+// Initialize Ethos Statement
 document.getElementById('ethosText').innerText = ethosStatements[Math.floor(Math.random() * ethosStatements.length)];
 
 function startTipCarousel() {
@@ -201,49 +192,22 @@ function startTipCarousel() {
   }, 4000);
 }
 
+// --- SECURE SILENT LOADING ENGINE ---
 const GATEKEEPER_URL = "https://script.google.com/macros/s/AKfycbzqrrKj_6yEG_F7C032K1yvMxk9cLv2n-bFsRx6I0zuCUpkQo5pzzBPx7j4zmhxuBO73g/exec";
 const CACHE_KEY = `trackedu_license_${schoolId}`;
 
-// Start Ghost-Load as soon as the DOM is interactive
-document.addEventListener('DOMContentLoaded', () => {
-  if (isStudentApp) {
-    document.getElementById('welcomeScreen').style.display = 'none';
-    document.getElementById('appFrame').style.opacity = '1';
-  }
-  initiateGatekeeperBackground();
+// ⚡ GHOST LOAD: Start loading the tool the moment the app opens
+window.addEventListener('load', () => { 
+  setTimeout(initiateGatekeeperBackground, 300); 
 });
 
 function initiateGatekeeperBackground() {
-  const cachedData = localStorage.getItem(CACHE_KEY);
-  
-  // 1. FAST START: If we have the URL cached, load the app immediately!
-  if (cachedData) {
-    try {
-      loadIframeSilently(JSON.parse(cachedData));
-    } catch(e) {
-      localStorage.removeItem(CACHE_KEY);
-    }
-  }
-
-  // 2. BACKGROUND CHECK: Verify the license with Gatekeeper quietly
   fetch(`${GATEKEEPER_URL}?id=${schoolId}&cb=${new Date().getTime()}`, { cache: 'no-store' })
     .then(r => r.json())
     .then(data => {
-      if (data.success) {
-        // Save the valid data for the next visit
-        localStorage.setItem(CACHE_KEY, JSON.stringify(data));
-        
-        // Only load the iframe here if this is their very first visit
-        if (!cachedData) {
-          loadIframeSilently(data);
-        }
-      } else {
-        // If license is revoked, lock them out immediately
-        showHardLock(data.reason);
-      }
-    }).catch(() => {
-      if (!cachedData) showHardLock("Connection Error. Please check your network.");
-    });
+      if (data.success) loadIframeSilently(data);
+      else showHardLock(data.reason);
+    }).catch(() => showHardLock("Connection Error. Please check your internet."));
 }
 
 function loadIframeSilently(data) {
@@ -254,6 +218,7 @@ function loadIframeSilently(data) {
   const frame = document.getElementById('appFrame');
   frame.src = url;
   
+  // Google Apps Script requires two 'onload' events to finish its secure redirect
   let count = 0;
   frame.onload = () => { 
     if (++count >= 2) { 
@@ -265,13 +230,13 @@ function loadIframeSilently(data) {
 
 function handleLaunchClick() {
   if (appReady) {
-    revealApp();
+    revealApp(); // Instant transition if loaded in background
   } else {
-    userWaiting = true;
+    userWaiting = true; // Still loading? Show tips until ready.
     document.getElementById('initialState').style.display = 'none';
     document.getElementById('loadingState').style.display = 'flex';
     startTipCarousel();
-    setTimeout(revealApp, 8000); 
+    setTimeout(revealApp, 8000); // Safety reveal
   }
 }
 
@@ -279,24 +244,19 @@ function revealApp() {
   if (tipInterval) clearInterval(tipInterval);
   const loader = document.getElementById('welcomeScreen');
   const frame = document.getElementById('appFrame');
-  
-  frame.style.opacity = '1';
-  
   if (loader && loader.style.display !== 'none') {
+    frame.style.opacity = '1';
     loader.style.opacity = '0';
     setTimeout(() => loader.style.display = 'none', 600);
   }
 }
 
-// PREMIUM RESTRICTED SCREEN RESTORED
 function showHardLock(reason) {
   if (tipInterval) clearInterval(tipInterval);
   localStorage.removeItem(CACHE_KEY);
-  
-  const loader = document.getElementById('welcomeScreen');
-  loader.style.display = 'flex'; 
-  loader.style.opacity = '1';
-  loader.innerHTML = `
+  document.cookie = `${CACHE_KEY}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+
+  document.getElementById('welcomeScreen').innerHTML = `
     <div class="executive-card" style="border-top: 6px solid #b91c1c;">
       <div style="width: 60px; height: 60px; border-radius: 50%; background: #fef2f2; color: #b91c1c; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 20px;">
         <i class="fas fa-lock"></i>
@@ -308,7 +268,7 @@ function showHardLock(reason) {
       </p>
       <div style="display:flex; gap:10px; width:100%;">
         <button onclick="window.location.reload()" class="btn-launch" style="background:#f1f5f9; color:#475569; box-shadow:none; border:1px solid #cbd5e1;">Retry</button>
-        <a href="mailto:hello@trackedu.net" style="flex:1; background:#1e40af; color:#fff; text-decoration:none; padding:18px; border-radius:12px; font-weight:700; display:flex; align-items:center; justify-content:center; font-size:14px;">Contact Admin</a>
+        <a href="mailto:support@trackedu.net" style="flex:1; background:#1e40af; color:#fff; text-decoration:none; padding:18px; border-radius:12px; font-weight:700; display:flex; align-items:center; justify-content:center; font-size:14px;">Contact Admin</a>
       </div>
     </div>`;
 }
