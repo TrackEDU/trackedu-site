@@ -11,8 +11,10 @@
 <link rel="preconnect" href="https://script.google.com">
 <link rel="preconnect" href="https://script.googleusercontent.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <script>
+// --- PWA MANIFEST ---
 const appName = "TrackEDU";
 const appIcon = 'https://trackedu.github.io/common-assets/teacherapp.png';
 const themeColor = "#f8fafc"; 
@@ -49,128 +51,130 @@ body, html {
   background-color: #f8fafc; font-family: 'Inter', sans-serif;
 }
 
-/* --- PRO-TIP LOADING SCREEN STYLES --- */
-#loadingScreen { 
+/* --- THE WELCOME SCREEN --- */
+#welcomeScreen { 
   position: fixed; inset: 0; background: #f8fafc; z-index: 9999; 
   display: flex; flex-direction: column; align-items: center; justify-content: center; 
   transition: opacity 0.5s ease; padding: 20px; text-align: center;
 }
 
-.loading-logo-img { 
-  width: 150px; height: auto; margin-bottom: 40px; 
-  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.05));
-}
-
-.tip-card {
+.welcome-card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 20px;
-  padding: 30px 25px;
+  border-radius: 24px;
+  padding: 40px 30px;
   width: 100%;
-  max-width: 400px;
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
-  margin-bottom: 40px;
+  max-width: 420px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  display: flex; flex-direction: column; align-items: center;
 }
 
-.tip-header {
-  display: flex; align-items: center; justify-content: center; gap: 8px;
-  color: #3b82f6; font-weight: 800; font-size: 14px; text-transform: uppercase;
-  letter-spacing: 1px; margin-bottom: 12px;
+.logo-img { 
+  width: 120px; height: 120px; margin-bottom: 20px; 
+  border-radius: 50%; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-.tip-text {
-  font-size: 15px; color: #334155; line-height: 1.5; font-weight: 600;
-  min-height: 72px; 
-  display: flex; align-items: center; justify-content: center;
-  transition: opacity 0.3s ease;
+.welcome-title {
+  font-size: 24px; font-weight: 800; color: #1e293b; margin: 0 0 10px 0;
 }
 
-.loading-status {
-  display: flex; align-items: center; gap: 12px;
-  color: #64748b; font-weight: 600; font-size: 14px;
+.welcome-subtitle {
+  font-size: 15px; color: #64748b; margin: 0 0 30px 0; line-height: 1.5;
+}
+
+/* Big friendly button */
+.btn-launch {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white; border: none; border-radius: 14px;
+  padding: 16px 24px; font-size: 18px; font-weight: 700;
+  width: 100%; cursor: pointer;
+  box-shadow: 0 6px 15px rgba(59, 130, 246, 0.3);
+  transition: transform 0.1s, box-shadow 0.1s;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+
+.btn-launch:active {
+  transform: translateY(2px); box-shadow: 0 2px 5px rgba(59, 130, 246, 0.3);
+}
+
+/* Loading state hidden initially */
+#loadingState {
+  display: none; flex-direction: column; align-items: center; gap: 15px;
 }
 
 .spinner {
-  width: 20px; height: 20px;
-  border: 3px solid #cbd5e1; border-top-color: #3b82f6;
+  width: 30px; height: 30px;
+  border: 4px solid #e2e8f0; border-top-color: #3b82f6;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
+
+/* Iframe hidden initially */
+iframe { 
+  position: fixed; inset: 0; width: 100%; height: 100%; border: none; 
+  z-index: 1; background-color: #ffffff; opacity: 0; transition: opacity 0.4s ease; 
+}
 </style>
 </head>
 
 <body>
 
-<div id="loadingScreen">
-  <img src="https://trackedu.github.io/common-assets/tsloading.png" class="loading-logo-img" alt="TrackEDU Logo">
-  
-  <div class="tip-card">
-    <div class="tip-header">
-      <span style="font-size: 18px;">💡</span> Pro Tip
+<div id="welcomeScreen">
+  <div class="welcome-card">
+    <img src="https://trackedu.github.io/common-assets/teacherapp.png" class="logo-img" alt="TrackEDU Logo">
+    
+    <div id="initialState">
+      <h1 class="welcome-title">Welcome Back</h1>
+      <p class="welcome-subtitle">Ready to award some points and engage your classroom?</p>
+      
+      <button class="btn-launch" onclick="launchApp()">
+        Launch Dashboard <i class="fas fa-arrow-right"></i>
+      </button>
     </div>
-    <div class="tip-text" id="tipText">Loading tips...</div>
-  </div>
 
-  <div class="loading-status">
-    <div class="spinner"></div>
-    <span>Connecting to classroom...</span>
+    <div id="loadingState">
+      <div class="spinner"></div>
+      <p style="color: #3b82f6; font-weight: 700; margin: 0;">Connecting securely...</p>
+      <p style="color: #64748b; font-size: 13px; margin: 5px 0 0 0;">This may take a few seconds.</p>
+    </div>
+
   </div>
 </div>
 
+<iframe id="appFrame" allow="fullscreen"></iframe>
+
 <script>
-// --- PRO TIP CAROUSEL LOGIC ---
-const tips = [
-  "Use the Magic Hat in the Teacher Toolkit to pick random students for cold-calling!",
-  "Create a 'Secret Code' in Loot Drops and hide it on the whiteboard for early finishers.",
-  "Students who log in to the Student App 5 days in a row get a bonus point streak reward.",
-  "You can award points to an entire class at once using the 'Award House Points' button.",
-  "Use Duo Mode to show a countdown timer and pick random students at the same time.",
-  "Every milestone a student hits unlocks a holographic collectible card in their binder."
-];
-
-const tipTextEl = document.getElementById('tipText');
-let currentTipIndex = Math.floor(Math.random() * tips.length);
-tipTextEl.innerText = tips[currentTipIndex];
-
-const tipInterval = setInterval(() => {
-  tipTextEl.style.opacity = '0'; 
-  setTimeout(() => {
-    currentTipIndex = (currentTipIndex + 1) % tips.length;
-    tipTextEl.innerText = tips[currentTipIndex];
-    tipTextEl.style.opacity = '1'; 
-  }, 300);
-}, 4000);
-
-
-// --- 🚀 DYNAMIC IFRAME INJECTION (THE SPEED FIX) ---
+// 🚀 DIRECT BYPASS - NO GATEKEEPER
 const DIRECT_APP_URL = "https://script.google.com/a/globalschools.com/macros/s/AKfycbzOB8CReA-ZPz8LkkKc-GERQCcAXXD4Q1qfjTDFhibD27FGeGfqWsdVdI2x6E2LkutRxQ/exec?id=owis&tier=Global%20Schools%20Tier&expiry=2099-12-31"; 
 
-// Wait a full 800ms after the page opens before we even attempt to load Google
-setTimeout(() => {
-  const iframe = document.createElement('iframe');
-  iframe.style.cssText = "position: fixed; inset: 0; width: 100%; height: 100%; border: none; z-index: 1; background-color: #ffffff; opacity: 0; transition: opacity 0.5s ease;";
-  iframe.allow = "fullscreen";
-  iframe.src = DIRECT_APP_URL;
-  
-  document.body.appendChild(iframe);
+function launchApp() {
+  // 1. Swap the UI to show it's loading
+  document.getElementById('initialState').style.display = 'none';
+  document.getElementById('loadingState').style.display = 'flex';
 
-  iframe.onload = () => {
-    clearInterval(tipInterval);
-    iframe.style.opacity = '1';
-    const loader = document.getElementById('loadingScreen');
-    loader.style.opacity = '0';
-    setTimeout(() => loader.style.display = 'none', 500);
-  };
-}, 800); // 800ms delay guarantees the iPad paints the Tip screen first
+  // 2. We use setTimeout to ensure the browser has time to render the spinner BEFORE Apple locks the thread
+  setTimeout(() => {
+    const frame = document.getElementById('appFrame');
+    
+    // 3. Inject the URL. Because the user physically tapped a button, iOS allows this to proceed much smoother!
+    frame.src = DIRECT_APP_URL;
 
-// Failsafe
+    // 4. When it finishes loading behind the scenes, reveal the tool
+    frame.onload = () => {
+      frame.style.opacity = '1';
+      const loader = document.getElementById('welcomeScreen');
+      loader.style.opacity = '0';
+      setTimeout(() => loader.style.display = 'none', 500);
+    };
+  }, 100); 
+}
+
+// Failsafe: Hide loader after 15 seconds if it takes too long
 setTimeout(() => {
-  clearInterval(tipInterval);
-  const loader = document.getElementById('loadingScreen');
-  if (loader && loader.style.display !== 'none') {
-     const iframe = document.querySelector('iframe');
-     if(iframe) iframe.style.opacity = '1';
+  const loader = document.getElementById('welcomeScreen');
+  if (loader && loader.style.display !== 'none' && document.getElementById('appFrame').src) {
+     document.getElementById('appFrame').style.opacity = '1';
      loader.style.opacity = '0';
      setTimeout(() => loader.style.display = 'none', 500);
   }
