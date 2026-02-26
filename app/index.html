@@ -9,20 +9,21 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
 <link rel="preload" as="image" href="https://trackedu.github.io/common-assets/tsloading.png">
-
 <link rel="preconnect" href="https://script.google.com">
 <link rel="preconnect" href="https://script.googleusercontent.com">
 
 <script>
-// --- APP IDENTITY & PARAMS ---
+// --- DEVICE DETECTION ---
+const isIPad = /Macintosh/i.test(navigator.userAgent) && navigator.maxTouchPoints > 1;
+
 const params = new URLSearchParams(window.location.search);
 const schoolId = params.get('id') || 'demo';
 const isStudentApp = params.get('view') === 'public';
 
+// --- MANIFEST SETUP ---
 const appName = isStudentApp ? "TrackEDU Student" : "TrackEDU Teacher";
 const appIcon = isStudentApp ? 'https://trackedu.github.io/common-assets/studentapp.png' : 'https://trackedu.github.io/common-assets/teacherapp.png';
 
-// Manifest setup - matching background_color to body prevents the white flash
 const baseManifest = {
   name: appName,
   short_name: "TrackEDU",
@@ -43,7 +44,6 @@ manifestLink.rel = 'manifest';
 manifestLink.href = URL.createObjectURL(manifestBlob);
 document.head.appendChild(manifestLink);
 
-// Service Worker: Register immediately but keep it secondary to UI paint
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/sw.js');
 }
@@ -53,53 +53,42 @@ if ('serviceWorker' in navigator) {
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 
 <style>
-/* ⚡ CRITICAL UI - Inlined and using system fonts for instant iPad paint */
-body, html { 
-  margin: 0; padding: 0; height: 100%; width: 100%; 
-  background-color: #ffffff; 
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-  overflow: hidden; 
-}
+body, html { margin: 0; padding: 0; height: 100%; width: 100%; background-color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, sans-serif; overflow: hidden; }
 
+/* LOBBY SCREEN (iPad Only) */
 #welcomeScreen { 
-  position: fixed; inset: 0; background: #ffffff; 
-  z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; 
+  position: fixed; inset: 0; background: #ffffff; z-index: 9999; 
+  display: none; /* Hidden by default, JS reveals for iPad */
+  flex-direction: column; align-items: center; justify-content: center; 
   transition: opacity 0.6s ease; padding: 20px; text-align: center;
 }
+
+/* CLASSIC LOADER (Mobile/Desktop) */
+#classicLoader {
+  position: fixed; inset: 0; background: #ffffff; z-index: 9998;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.pulse-logo { width: 120px; height: auto; animation: pulse 2s infinite ease-in-out; }
+@keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.1); opacity: 1; } }
 
 .executive-card {
   background: #ffffff; border-radius: 24px; padding: 45px 35px; width: 100%; max-width: 460px;
   box-shadow: 0 15px 40px rgba(0,0,0,0.08); display: flex; flex-direction: column; align-items: center;
   position: relative; overflow: hidden; border: 1px solid #f1f5f9;
 }
-
-.executive-card::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
-  background: linear-gradient(90deg, #10b981, #3b82f6);
-}
-
-.system-status {
-  display: flex; align-items: center; gap: 8px; background: #f0fdf4; border: 1px solid #bbf7d0; 
-  color: #166534; padding: 6px 14px; border-radius: 50px; font-size: 11px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 1px; margin-bottom: 25px;
-}
-
-.status-dot { width: 8px; height: 8px; background: #10b981; border-radius: 50%; box-shadow: 0 0 8px #10b981; }
-
-.logo-img { width: 80px; height: 80px; margin-bottom: 20px; border-radius: 50%; border: 1px solid #f1f5f9; }
+.executive-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #10b981, #3b82f6); }
 
 .welcome-title { font-size: 24px; font-weight: 800; color: #0f172a; margin: 0 0 8px 0; }
-
 .ethos-box { background: #f8fafc; border: 1px solid #e2e8f0; padding: 22px; border-radius: 14px; margin-bottom: 30px; width: 100%; box-sizing: border-box; }
 .ethos-box p { color: #334155; font-size: 14px; margin: 0; line-height: 1.6; font-weight: 500; font-style: italic; }
 
 .btn-launch {
   background: #1e40af; color: white; border: none; border-radius: 12px; padding: 18px 24px; font-size: 16px;
-  font-weight: 700; width: 100%; cursor: pointer; box-shadow: 0 8px 20px rgba(30, 64, 175, 0.2); transition: all 0.2s ease;
+  font-weight: 700; width: 100%; cursor: pointer;
 }
 
 #loadingState { display: none; flex-direction: column; align-items: center; width: 100%; }
-.tip-container { width: 100%; min-height: 80px; margin-top: 20px; display: flex; align-items: center; justify-content: center; color: #475569; font-size: 14px; font-weight: 600; line-height: 1.5; transition: opacity 0.4s ease; }
+.tip-container { width: 100%; min-height: 80px; margin-top: 20px; display: flex; align-items: center; justify-content: center; color: #475569; font-size: 14px; font-weight: 600; line-height: 1.5; }
 .spinner { width: 24px; height: 24px; border: 3px solid #e2e8f0; border-top-color: #3b82f6; border-radius: 50%; animation: spin 1s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
@@ -108,95 +97,51 @@ iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: none; z-i
 </head>
 
 <body>
+
 <div id="welcomeScreen">
   <div class="executive-card">
-    <div class="system-status"><div class="status-dot"></div> School Connection Active</div>
-    <img src="https://trackedu.github.io/common-assets/tsloading.png" class="logo-img" alt="TrackEDU Logo">
-    
-    <div id="initialState" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+    <img src="https://trackedu.github.io/common-assets/teacherapp.png" style="width:70px; margin-bottom:15px; border-radius:50%;" alt="Logo">
+    <div id="initialState" style="width: 100%;">
       <h1 class="welcome-title">House Spirit Portal</h1>
-      <div class="ethos-box">
-        <p id="ethosText">Connecting to your House system...</p>
-      </div>
-      <button class="btn-launch" id="btnLaunch" onclick="handleLaunchClick()">Enter Portal <i class="fas fa-school" style="margin-left:8px; font-size:13px;"></i></button>
+      <div class="ethos-box"><p id="ethosText"></p></div>
+      <button class="btn-launch" onclick="handleLaunchClick()">Enter Portal <i class="fas fa-school" style="margin-left:8px;"></i></button>
     </div>
-
     <div id="loadingState">
       <div class="spinner"></div>
-      <p style="color: #0f172a; font-weight: 700; margin: 15px 0 5px 0; font-size: 13px;">Preparing Dashboard...</p>
+      <p style="color: #0f172a; font-weight: 700; margin-top:10px; font-size: 13px;">Preparing Dashboard...</p>
       <div class="tip-container" id="tipText"></div>
     </div>
   </div>
 </div>
 
+<div id="classicLoader">
+  <img src="https://trackedu.github.io/common-assets/tsloading.png" class="pulse-logo" alt="TrackEDU">
+</div>
+
 <iframe id="appFrame" allow="fullscreen"></iframe>
 
 <script>
-// --- SCHOOL-FRIENDLY MISSION & ANT ETHOS ---
-const ethosStatements = [
-  "The Ant was chosen because a single worker is small, but a colony is an unstoppable force of nature.",
-  "Every House Point awarded is a positive behavior reinforced. You are building school culture.",
-  "Ants communicate constantly, ensuring no member is left behind. Success is found in connection.",
-  "An ant can lift 50x its weight, proving that with purpose, students are capable of more than they imagine.",
-  "House success isn't found in individual glory, but in the collective momentum of the team.",
-  "The colony thrives on resilience. Every challenge is an opportunity to strengthen our community.",
-  "In nature, the ant is the ultimate architect. In school, you are the architect of student character.",
-  "Teamwork is the silent language of the colony. One goal, many hands, infinite impact.",
-  "Like the ant, high-performing students show up every day with discipline, drive, and dedication.",
-  "A House is not just a group; it is a community fueled by the spirit of its members."
-];
-
-const tips = [
-  "💡 High-performing schools are built on consistent recognition, not just high points.",
-  "💡 Use the 'Magic Hat' in the Toolkit to ensure every student has a fair chance to participate.",
-  "💡 Fairness First: Use the 'Award History' log to review and maintain point consistency.",
-  "💡 Support Your Values: Set custom Point Reasons to align rewards with your school’s pillars.",
-  "💡 Students who maintain a 5-day login streak earn automated resilience bonuses.",
-  "💡 Use 'Duo Mode' to manage lesson time while keeping student selection randomized.",
-  "💡 Celebrate Success: Print 'Engagement Posters' to help students access their binders easily.",
-  "💡 The 'Loot Drop' feature is perfect for creating fun scavenger hunts in your classroom.",
-  "💡 Leadership in Action: House Captains can send weekly messages to inspire their team.",
-  "💡 Collaboration: Launch 'Mystery Word' missions that require students to work together.",
-  "💡 Student Voice: Use Polls to involve your students in fun school-wide choices.",
-  "💡 Every milestone reached unlocks a unique trading card in the student's digital binder.",
-  "💡 Time Saver: Use 'Bulk Assignment' to award House Points to entire classes at once.",
-  "💡 Instant Rewards: Tap any student's icon for a quick +1 House Point award.",
-  "💡 To correct a mistake, a long-press on a student's icon allows for rapid point removal.",
-  "💡 Peer Mentorship: Monitor Top Contributing Classes to identify positive role models.",
-  "💡 System Security: The 'Remember Me' toggle keeps you signed in safely for 30 days.",
-  "💡 Your House Identity: Customize colors and mottos to match your school's unique history.",
-  "💡 The 'House of Fortune' is a fun way to do lucky draws during morning assemblies.",
-  "💡 Remember: One point is a small step; a colony moves mountains."
-];
+const ethosStatements = ["The Ant was chosen because a single worker is small, but a colony is an unstoppable force of nature.", "Success isn't found in individual glory, but in the collective momentum of the team.", "One point is a small step; a colony moves mountains."];
+const tips = ["💡 Tap the 'Magic Hat' for random student selection.", "💡 Use Duo Mode for timers and student picks.", "💡 Awards build culture."];
 
 let tipInterval;
 let appReady = false; 
 let userWaiting = false; 
 
-// Initial render of Ethos
-document.getElementById('ethosText').innerText = ethosStatements[Math.floor(Math.random() * ethosStatements.length)];
-
-function startTipCarousel() {
-  const tipTextEl = document.getElementById('tipText');
-  let currentTipIndex = Math.floor(Math.random() * tips.length);
-  tipTextEl.innerHTML = tips[currentTipIndex];
-  tipInterval = setInterval(() => {
-    tipTextEl.style.opacity = '0'; 
-    setTimeout(() => {
-      currentTipIndex = (currentTipIndex + 1) % tips.length;
-      tipTextEl.innerHTML = tips[currentTipIndex];
-      tipTextEl.style.opacity = '1'; 
-    }, 400);
-  }, 4000);
+// --- ROUTING LOGIC ---
+if (isIPad) {
+  document.getElementById('welcomeScreen').style.display = 'flex';
+  document.getElementById('classicLoader').style.display = 'none';
+  document.getElementById('ethosText').innerText = ethosStatements[Math.floor(Math.random() * ethosStatements.length)];
+} else {
+  // Mobile/Desktop: Start loading immediately
+  userWaiting = true; 
 }
 
 const GATEKEEPER_URL = "https://script.google.com/macros/s/AKfycbzqrrKj_6yEG_F7C032K1yvMxk9cLv2n-bFsRx6I0zuCUpkQo5pzzBPx7j4zmhxuBO73g/exec";
 const CACHE_KEY = `trackedu_license_${schoolId}`;
 
-// Start Ghost-Load as soon as the DOM is interactive
-document.addEventListener('DOMContentLoaded', () => {
-  initiateGatekeeperBackground();
-});
+document.addEventListener('DOMContentLoaded', initiateGatekeeperBackground);
 
 function initiateGatekeeperBackground() {
   fetch(`${GATEKEEPER_URL}?id=${schoolId}&cb=${new Date().getTime()}`, { cache: 'no-store' })
@@ -204,17 +149,14 @@ function initiateGatekeeperBackground() {
     .then(data => {
       if (data.success) loadIframeSilently(data);
       else showHardLock(data.reason);
-    }).catch(() => showHardLock("Connection Error. Please check your network."));
+    }).catch(() => showHardLock("Connection Error."));
 }
 
 function loadIframeSilently(data) {
-  let url = data.url;
-  url += (url.includes('?') ? '&' : '?') + "expiry=" + encodeURIComponent(data.expiry) + "&tier=" + encodeURIComponent(data.tier);
+  let url = data.url + (data.url.includes('?') ? '&' : '?') + "expiry=" + encodeURIComponent(data.expiry) + "&tier=" + encodeURIComponent(data.tier);
   if (isStudentApp) url += "&view=house-students";
-
   const frame = document.getElementById('appFrame');
   frame.src = url;
-  
   let count = 0;
   frame.onload = () => { 
     if (++count >= 2) { 
@@ -225,9 +167,8 @@ function loadIframeSilently(data) {
 }
 
 function handleLaunchClick() {
-  if (appReady) {
-    revealApp();
-  } else {
+  if (appReady) revealApp();
+  else {
     userWaiting = true;
     document.getElementById('initialState').style.display = 'none';
     document.getElementById('loadingState').style.display = 'flex';
@@ -236,29 +177,27 @@ function handleLaunchClick() {
   }
 }
 
+function startTipCarousel() {
+  const tipTextEl = document.getElementById('tipText');
+  let currentTipIndex = Math.floor(Math.random() * tips.length);
+  tipTextEl.innerHTML = tips[currentTipIndex];
+  tipInterval = setInterval(() => {
+    currentTipIndex = (currentTipIndex + 1) % tips.length;
+    tipTextEl.innerHTML = tips[currentTipIndex];
+  }, 4000);
+}
+
 function revealApp() {
   if (tipInterval) clearInterval(tipInterval);
-  const loader = document.getElementById('welcomeScreen');
+  const loader = isIPad ? document.getElementById('welcomeScreen') : document.getElementById('classicLoader');
   const frame = document.getElementById('appFrame');
-  if (loader && loader.style.display !== 'none') {
-    frame.style.opacity = '1';
-    loader.style.opacity = '0';
-    setTimeout(() => loader.style.display = 'none', 600);
-  }
+  frame.style.opacity = '1';
+  loader.style.opacity = '0';
+  setTimeout(() => loader.style.display = 'none', 600);
 }
 
 function showHardLock(reason) {
-  if (tipInterval) clearInterval(tipInterval);
-  localStorage.removeItem(CACHE_KEY);
-  document.getElementById('welcomeScreen').innerHTML = `
-    <div class="executive-card" style="border-top: 6px solid #b91c1c;">
-      <div style="width: 60px; height: 60px; border-radius: 50%; background: #fef2f2; color: #b91c1c; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 20px;">
-        <i class="fas fa-lock"></i>
-      </div>
-      <h1 class="welcome-title">Verification Required</h1>
-      <p style="font-size:13px; line-height:1.5; color:#475569; margin-bottom:25px;">${reason}</p>
-      <button onclick="window.location.reload()" class="btn-launch" style="background:#f1f5f9; color:#475569; border:1px solid #cbd5e1;">Retry</button>
-    </div>`;
+  document.body.innerHTML = `<div style="padding:50px; text-align:center;"><h1>Access Restricted</h1><p>${reason}</p></div>`;
 }
 </script>
 </body>
