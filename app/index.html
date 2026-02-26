@@ -2,38 +2,27 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>TrackEDU House Points</title>
+<title>TrackEDU House Command</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
 <link rel="preconnect" href="https://script.google.com">
-<link rel="preconnect" href="https://trackedu.github.io">
+<link rel="preconnect" href="https://script.googleusercontent.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <script>
+// --- APP IDENTITY & PARAMS ---
 const params = new URLSearchParams(window.location.search);
 const schoolId = params.get('id') || 'demo';
 const isStudentApp = params.get('view') === 'public';
 
-// --- APP IDENTITY ---
-// Check if running as an installed PWA
-// --- APP IDENTITY ---
-// Broader detection for PWAs on MacBook and Chrome
-const isPWA = window.matchMedia('(display-mode: standalone)').matches 
-              || window.navigator.standalone 
-              || window.matchMedia('(display-mode: window-controls-overlay)').matches;
+const appName = isStudentApp ? "TrackEDU Student" : "TrackEDU Teacher";
+const appIcon = isStudentApp ? 'https://trackedu.github.io/common-assets/studentapp.png' : 'https://trackedu.github.io/common-assets/teacherapp.png';
+const themeColor = "#0f172a"; 
 
-// This is the text that will show in your MacBook's top window bar
-const pwaTitle = "TrackEDU Digital House Points";
-
-// If it's the app, use the professional name. If it's a browser tab, keep the specific app name.
-const appName = isPWA ? pwaTitle : (isStudentApp ? "TrackEDU Student" : "TrackEDU Teacher");
-
-document.title = appName;
-
-const appIcon = isStudentApp
-? 'https://trackedu.github.io/common-assets/studentapp.png'
-: 'https://trackedu.github.io/common-assets/teacherapp.png';
-
-const themeColor = "#ffffff";
 const metaThemeColor = document.createElement('meta');
 metaThemeColor.name = "theme-color";
 metaThemeColor.content = themeColor;
@@ -42,9 +31,7 @@ document.head.appendChild(metaThemeColor);
 const baseManifest = {
   name: appName,
   short_name: "TrackEDU",
-  start_url: isStudentApp 
-    ? window.location.origin + window.location.pathname + `?id=${schoolId}&view=public` 
-    : window.location.origin + window.location.pathname + `?id=${schoolId}`,
+  start_url: window.location.origin + window.location.pathname + window.location.search,
   display: "standalone", 
   background_color: themeColor,
   theme_color: themeColor,
@@ -62,186 +49,171 @@ manifestLink.rel = 'manifest';
 manifestLink.href = manifestURL;
 document.head.appendChild(manifestLink);
 
-// --- SERVICE WORKER (IPAD OPTIMIZED: ASYNCHRONOUS LOAD) ---
+// --- SERVICE WORKER ---
 if ('serviceWorker' in navigator) {
-  // We delay registration by 2 seconds to ensure the iframe gets 100% bandwidth first
   setTimeout(() => {
-    navigator.serviceWorker.register('/sw.js').then(reg => {
-      reg.addEventListener('updatefound', () => {
-        const newWorker = reg.installing;
-        newWorker.addEventListener('statechange', () => {
-          if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-            document.getElementById('updateToast').style.display = 'block';
-          }
-        });
-      });
-    });
+    navigator.serviceWorker.register('/sw.js');
   }, 2000);
 }
 </script>
 
 <style>
-body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: #ffffff; }
-#loadingScreen { position: fixed; inset: 0; background: #ffffff; z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.4s ease; }
-.loading-logo-img { width: 300px; height: auto; margin-bottom: 15px; animation: breathe 2s ease-in-out infinite; }
-@keyframes breathe { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.05); opacity: 0.9; } }
-iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: none; z-index: 1; background-color: #ffffff; }
-#installBtn { display: none; position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background-color: #fbbf24; color: #020617; border: none; padding: 12px 24px; border-radius: 25px; font-weight: 700; z-index: 10000; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
-#updateToast { display: none; position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #22c55e; color: white; padding: 12px 20px; border-radius: 50px; font-family: sans-serif; font-weight: 700; z-index: 10001; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); animation: slideDown 0.5s ease; }
-@keyframes slideDown { from { top: -60px; } to { top: 20px; } }
+body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: #0f172a; font-family: 'Inter', sans-serif; }
+
+/* --- EXECUTIVE LOBBY SCREEN --- */
+#welcomeScreen { 
+  position: fixed; inset: 0; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); 
+  z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; 
+  transition: opacity 0.6s ease, transform 0.6s ease; padding: 20px; text-align: center;
+}
+
+.executive-card {
+  background: #ffffff; border-radius: 20px; padding: 40px 35px; width: 100%; max-width: 480px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4); display: flex; flex-direction: column; align-items: center;
+  position: relative; overflow: hidden;
+}
+
+.executive-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px;
+  background: linear-gradient(90deg, #10b981, #3b82f6);
+}
+
+.system-status {
+  display: flex; align-items: center; gap: 8px; background: #f0fdf4; border: 1px solid #bbf7d0; 
+  color: #166534; padding: 6px 14px; border-radius: 50px; font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1px; margin-bottom: 25px;
+}
+
+.status-dot { width: 8px; height: 8px; background: #10b981; border-radius: 50%; box-shadow: 0 0 8px #10b981; }
+
+.logo-img { width: 90px; height: 90px; margin-bottom: 20px; border-radius: 50%; border: 2px solid #f1f5f9; }
+
+.welcome-title { font-size: 26px; font-weight: 800; color: #0f172a; margin: 0 0 10px 0; }
+
+.ethos-box { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px; border-radius: 12px; margin-bottom: 30px; width: 100%; box-sizing: border-box; }
+.ethos-box p { color: #334155; font-size: 14px; margin: 0; line-height: 1.6; font-weight: 500; font-style: italic; }
+
+.btn-launch {
+  background: #0f172a; color: white; border: none; border-radius: 12px; padding: 16px 24px; font-size: 16px;
+  font-weight: 700; width: 100%; cursor: pointer; box-shadow: 0 8px 20px rgba(15, 23, 42, 0.25);
+}
+
+#loadingState { display: none; flex-direction: column; align-items: center; width: 100%; }
+.tip-container { width: 100%; min-height: 80px; margin-top: 20px; display: flex; align-items: center; justify-content: center; color: #334155; font-size: 14px; font-weight: 600; line-height: 1.5; transition: opacity 0.4s ease; }
+.spinner { width: 26px; height: 26px; border: 3px solid #e2e8f0; border-top-color: #3b82f6; border-radius: 50%; animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: none; z-index: 1; background-color: #ffffff; opacity: 0; transition: opacity 0.4s ease; }
 </style>
 </head>
 
 <body>
-<div id="updateToast" onclick="window.location.reload()">✨ Update available — tap to refresh</div>
-<div id="loadingScreen"><img src="https://trackedu.github.io/common-assets/tsloading.png" class="loading-logo-img" alt="TrackEDU Logo"></div>
+<div id="welcomeScreen">
+  <div class="executive-card">
+    <div class="system-status"><div class="status-dot"></div> Secure Connection</div>
+    <img src="https://trackedu.github.io/common-assets/tsloading.png" class="logo-img" alt="TrackEDU Logo">
+    
+    <div id="initialState" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+      <h1 class="welcome-title">House Command</h1>
+      <div class="ethos-box">
+        <p>"Every point awarded is a behavior reinforced.<br>Welcome to the cultural heartbeat of your school."</p>
+      </div>
+      <button class="btn-launch" id="btnLaunch" onclick="handleLaunchClick()">Enter Portal <i class="fas fa-lock-open"></i></button>
+    </div>
+
+    <div id="loadingState">
+      <div class="spinner"></div>
+      <p style="color: #0f172a; font-weight: 700; margin: 15px 0 5px 0;">Establishing Secure Link...</p>
+      <div class="tip-container" id="tipText"></div>
+    </div>
+  </div>
+</div>
+
 <iframe id="appFrame" allow="fullscreen"></iframe>
-<button id="installBtn">📲 Install TrackEDU</button>
 
 <script>
+const tips = [
+  "💡 Tap the 'Magic Hat' in the Toolkit to pick random students.",
+  "💡 Create a 'Secret Code' in Loot Drops for early finishers.",
+  "💡 Every milestone a student hits unlocks a card in their binder.",
+  "💡 Tap a student's avatar icon in the list to give them +1 point.",
+  "💡 Use Duo Mode to show a timer and pick students at the same time."
+];
+
+let tipInterval;
+let appReady = false; 
+let userWaiting = false; 
+
+function startTipCarousel() {
+  const tipTextEl = document.getElementById('tipText');
+  let currentTipIndex = Math.floor(Math.random() * tips.length);
+  tipTextEl.innerHTML = tips[currentTipIndex];
+  tipInterval = setInterval(() => {
+    tipTextEl.style.opacity = '0'; 
+    setTimeout(() => {
+      currentTipIndex = (currentTipIndex + 1) % tips.length;
+      tipTextEl.innerHTML = tips[currentTipIndex];
+      tipTextEl.style.opacity = '1'; 
+    }, 400);
+  }, 4000);
+}
+
+// --- GHOST LOAD ENGINE ---
 const GATEKEEPER_URL = "https://script.google.com/macros/s/AKfycbzqrrKj_6yEG_F7C032K1yvMxk9cLv2n-bFsRx6I0zuCUpkQo5pzzBPx7j4zmhxuBO73g/exec";
 const CACHE_KEY = `trackedu_license_${schoolId}`;
 
-function getSavedLicense() {
-  let data = localStorage.getItem(CACHE_KEY);
-  if (!data) {
-    const cookies = document.cookie.split(';');
-    for (let c of cookies) {
-      c = c.trim();
-      if (c.startsWith(CACHE_KEY + "=")) {
-        data = decodeURIComponent(c.substring(CACHE_KEY.length + 1));
-        break;
-      }
-    }
-  }
-  return data;
+window.addEventListener('load', () => { setTimeout(initiateGatekeeperBackground, 800); });
+
+function initiateGatekeeperBackground() {
+  fetch(`${GATEKEEPER_URL}?id=${schoolId}&cb=${new Date().getTime()}`, { cache: 'no-store' })
+    .then(r => r.json())
+    .then(data => {
+      if (data.success) loadIframeSilently(data);
+      else showHardLock(data.reason);
+    }).catch(() => showHardLock("Connection Error. Check internet."));
 }
 
-function saveLicense(dataObj) {
-  const dataStr = JSON.stringify({ timestamp: new Date().getTime(), data: dataObj });
-  localStorage.setItem(CACHE_KEY, dataStr);
-  const expiry = new Date(new Date().getTime() + 86400000).toUTCString(); 
-  document.cookie = `${CACHE_KEY}=${encodeURIComponent(dataStr)};expires=${expiry};path=/;SameSite=None;Secure`;
-}
-
-function launchIframe(data) {
-  let finalUrl = data.url;
-  if (data.expiry) finalUrl += (finalUrl.includes('?') ? '&' : '?') + "expiry=" + encodeURIComponent(data.expiry);
-  if (data.tier) finalUrl += (finalUrl.includes('?') ? '&' : '?') + "tier=" + encodeURIComponent(data.tier);
-  if (typeof isStudentApp !== 'undefined' && isStudentApp) finalUrl += (finalUrl.includes('?') ? '&' : '?') + "view=house-students";
+function loadIframeSilently(data) {
+  let url = data.url;
+  url += (url.includes('?') ? '&' : '?') + "expiry=" + encodeURIComponent(data.expiry) + "&tier=" + encodeURIComponent(data.tier);
+  if (isStudentApp) url += "&view=house-students";
 
   const frame = document.getElementById('appFrame');
-  frame.src = finalUrl;
-  
-  frame.onload = () => {
-    const loader = document.getElementById('loadingScreen');
-    loader.style.opacity = '0';
-    setTimeout(() => loader.style.display = 'none', 300);
-  };
-  
-  setTimeout(() => {
-    const loader = document.getElementById('loadingScreen');
-    if (loader && loader.style.display !== 'none') {
-       loader.style.opacity = '0';
-       setTimeout(() => loader.style.display = 'none', 300);
-    }
-  }, 5000);
+  frame.src = url;
+  let count = 0;
+  frame.onload = () => { if (++count >= 2) { appReady = true; if (userWaiting) revealApp(); }};
 }
 
-/**
- * 🛡️ SECURITY UPDATE: showHardLock now performs a "Clean Kill"
- * It wipes the local session memory so the device cannot auto-resume.
- */
-function showHardLock(reason) {
-  // 1. Wipe local data immediately
-  localStorage.removeItem(CACHE_KEY);
-  document.cookie = `${CACHE_KEY}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-  
-  // 2. Render the Lock Screen with a Red "Restricted" theme
-  document.getElementById('loadingScreen').innerHTML = `
-    <div style="background-color: #ffffff; color: #1a1a1a; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: 'Poppins', sans-serif; padding: 40px; box-sizing: border-box; text-align: center;">
-      <div style="width: 150px; height: 150px; border-radius: 50%; background: #ffffff; border: 4px solid #ef4444; display: flex; align-items: center; justify-content: center; margin-bottom: 35px; box-shadow: 0 12px 30px -10px rgba(239, 68, 68, 0.3); overflow: hidden;">
-        <img src="https://trackedu.github.io/common-assets/tsloading.png" style="width: 130px; height: 130px; object-fit: contain;" alt="TrackEDU Logo">
-      </div>
-      <h1 style="font-size: 32px; font-weight: 800; margin-bottom: 15px; color: #b91c1c;">Access Restricted</h1>
-      <p style="font-size: 18px; color: #4b5563; max-width: 480px; margin-bottom: 35px; line-height: 1.5;">
-        ${reason || "Your school's access has been deactivated. Please contact your administrator."}
-      </p>
-      <div style="display: flex; gap: 15px;">
-        <a href="mailto:hello@trackedu.net" style="text-decoration: none; background: #1e293b; color: #ffffff; padding: 16px 45px; border-radius: 60px; font-weight: 700; transition: all 0.2s ease;">
-          Support
-        </a>
-        <button onclick="window.location.reload()" style="background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; padding: 16px 35px; border-radius: 60px; font-weight: 700; cursor: pointer;">
-          Retry
-        </button>
-      </div>
-    </div>
-  `;
-}
-
-// --- MAIN EXECUTION FLOW ---
-
-const cachedLicenseStr = getSavedLicense();
-let useCache = false;
-
-if (cachedLicenseStr) {
-  try {
-    const parsedData = JSON.parse(cachedLicenseStr);
-    const now = new Date().getTime();
-    
-    // 🛡️ SECURITY UPDATE: Cache reduced to 10 minutes (600,000 ms)
-    // This ensures inactive licenses are caught quickly while keeping the app fast.
-    if (now - parsedData.timestamp < 600000) {
-      useCache = true;
-      console.log("🛡️ License verified via 10-min soft-cache.");
-      launchIframe(parsedData.data);
-    }
-  } catch (e) { 
-    console.warn("Cache parse error, clearing session."); 
-    localStorage.removeItem(CACHE_KEY);
+function handleLaunchClick() {
+  if (appReady) revealApp();
+  else {
+    userWaiting = true;
+    document.getElementById('initialState').style.display = 'none';
+    document.getElementById('loadingState').style.display = 'flex';
+    startTipCarousel();
+    setTimeout(revealApp, 8000);
   }
 }
 
-if (!useCache) {
-  // ⚡ CACHE BUSTER FIX: cb parameter prevents MacBook browsers from using old cached responses
-  fetch(`${GATEKEEPER_URL}?id=${schoolId}&cb=${new Date().getTime()}`, { 
-    cache: 'no-store', 
-    priority: 'high' 
-  })
-    .then(response => response.json())
-    .then(data => {
-      if (data.success) {
-        saveLicense(data);
-        launchIframe(data);
-      } else {
-        // This will now wipe the MacBook's local session
-        showHardLock(data.reason);
-      }
-    })
-    .catch(error => {
-      document.getElementById('loadingScreen').innerHTML = `
-        <div style="background-color: #ffffff; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px;">
-          <h2 style="font-size: 24px; font-weight: 700; margin-bottom: 15px;">Connection Error</h2>
-          <p style="margin-bottom: 20px; color: #666;">Unable to reach the security gatekeeper.</p>
-          <button onclick="window.location.reload()" style="background: #10b981; color: white; border: none; padding: 12px 30px; border-radius: 50px; font-weight: 700; cursor: pointer;">Try Again</button>
-        </div>
-      `;
-    });
+function revealApp() {
+  clearInterval(tipInterval);
+  const loader = document.getElementById('welcomeScreen');
+  const frame = document.getElementById('appFrame');
+  if (loader && loader.style.display !== 'none') {
+    frame.style.opacity = '1';
+    loader.style.opacity = '0';
+    setTimeout(() => loader.style.display = 'none', 600);
+  }
 }
 
-let deferredPrompt;
-window.addEventListener('beforeinstallprompt', e => {
-  e.preventDefault();
-  deferredPrompt = e;
-  document.getElementById('installBtn').style.display = 'block';
-});
-document.getElementById('installBtn').addEventListener('click', async () => {
-  if (!deferredPrompt) return;
-  deferredPrompt.prompt();
-  const { outcome } = await deferredPrompt.userChoice;
-  if (outcome === 'accepted') document.getElementById('installBtn').style.display = 'none';
-  deferredPrompt = null;
-});
+function showHardLock(reason) {
+  document.getElementById('welcomeScreen').innerHTML = `
+    <div class="executive-card" style="border-top: 6px solid #ef4444;">
+      <h1 class="welcome-title" style="color:#b91c1c;">Access Restricted</h1>
+      <p>${reason}</p>
+      <button onclick="window.location.reload()" class="btn-launch">Retry</button>
+    </div>`;
+}
 </script>
 </body>
 </html>
