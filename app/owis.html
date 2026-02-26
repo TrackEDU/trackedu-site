@@ -82,7 +82,6 @@ body, html {
   font-size: 15px; color: #64748b; margin: 0 0 30px 0; line-height: 1.5;
 }
 
-/* Big friendly button */
 .btn-launch {
   background: linear-gradient(135deg, #3b82f6, #2563eb);
   color: white; border: none; border-radius: 14px;
@@ -97,7 +96,6 @@ body, html {
   transform: translateY(2px); box-shadow: 0 2px 5px rgba(59, 130, 246, 0.3);
 }
 
-/* Loading state hidden initially */
 #loadingState {
   display: none; flex-direction: column; align-items: center; gap: 15px;
 }
@@ -110,7 +108,6 @@ body, html {
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* Iframe hidden initially */
 iframe { 
   position: fixed; inset: 0; width: 100%; height: 100%; border: none; 
   z-index: 1; background-color: #ffffff; opacity: 0; transition: opacity 0.4s ease; 
@@ -145,40 +142,50 @@ iframe {
 <iframe id="appFrame" allow="fullscreen"></iframe>
 
 <script>
-// 🚀 DIRECT BYPASS - NO GATEKEEPER
 const DIRECT_APP_URL = "https://script.google.com/a/globalschools.com/macros/s/AKfycbzOB8CReA-ZPz8LkkKc-GERQCcAXXD4Q1qfjTDFhibD27FGeGfqWsdVdI2x6E2LkutRxQ/exec?id=owis&tier=Global%20Schools%20Tier&expiry=2099-12-31"; 
 
 function launchApp() {
-  // 1. Swap the UI to show it's loading
   document.getElementById('initialState').style.display = 'none';
   document.getElementById('loadingState').style.display = 'flex';
 
-  // 2. We use setTimeout to ensure the browser has time to render the spinner BEFORE Apple locks the thread
   setTimeout(() => {
     const frame = document.getElementById('appFrame');
-    
-    // 3. Inject the URL. Because the user physically tapped a button, iOS allows this to proceed much smoother!
     frame.src = DIRECT_APP_URL;
 
-    // 4. When it finishes loading behind the scenes, reveal the tool
+    // We count onloads because Google Apps Script does a sneaky "302 Redirect"
+    // The first onload is often a blank white page, the second is the real tool.
+    let loadCount = 0;
+    
     frame.onload = () => {
-      frame.style.opacity = '1';
-      const loader = document.getElementById('welcomeScreen');
-      loader.style.opacity = '0';
-      setTimeout(() => loader.style.display = 'none', 500);
+      loadCount++;
+      // Reveal the app if it loaded twice (redirect finished) OR if it's been at least 4 seconds
+      if (loadCount >= 2) {
+        revealApp();
+      }
     };
+
+    // Backup reveal: Force reveal after 6 seconds of spinning no matter what.
+    // This entirely hides the white screen phase.
+    setTimeout(revealApp, 6000);
+
   }, 100); 
+
+  // THE FIX: Failsafe is now safely INSIDE the function, starting ONLY when the button is clicked.
+  setTimeout(() => {
+    revealApp();
+  }, 15000);
 }
 
-// Failsafe: Hide loader after 15 seconds if it takes too long
-setTimeout(() => {
+function revealApp() {
   const loader = document.getElementById('welcomeScreen');
-  if (loader && loader.style.display !== 'none' && document.getElementById('appFrame').src) {
-     document.getElementById('appFrame').style.opacity = '1';
-     loader.style.opacity = '0';
-     setTimeout(() => loader.style.display = 'none', 500);
+  const frame = document.getElementById('appFrame');
+  
+  if (loader && loader.style.display !== 'none') {
+    frame.style.opacity = '1';
+    loader.style.opacity = '0';
+    setTimeout(() => loader.style.display = 'none', 500);
   }
-}, 15000);
+}
 </script>
 </body>
 </html>
