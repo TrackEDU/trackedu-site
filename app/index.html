@@ -13,8 +13,9 @@
 <link rel="preconnect" href="https://script.googleusercontent.com">
 
 <script>
-// --- DEVICE DETECTION ---
-const isIPad = /Macintosh/i.test(navigator.userAgent) && navigator.maxTouchPoints > 1;
+// --- CRITICAL DEVICE DETECTION ---
+// Catches both older iPads (iPadOS) and modern iPads (Macintosh with touch)
+const isIPad = (/iPad/i.test(navigator.userAgent)) || (/Macintosh/i.test(navigator.userAgent) && navigator.maxTouchPoints > 1);
 
 const params = new URLSearchParams(window.location.search);
 const schoolId = params.get('id') || 'demo';
@@ -53,7 +54,7 @@ if ('serviceWorker' in navigator) {
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 
 <style>
-body, html { margin: 0; padding: 0; height: 100%; width: 100%; background-color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, sans-serif; overflow: hidden; }
+body, html { margin: 0; padding: 0; height: 100%; width: 100%; background-color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif; overflow: hidden; }
 
 /* LOBBY SCREEN (iPad Only) */
 #welcomeScreen { 
@@ -67,6 +68,7 @@ body, html { margin: 0; padding: 0; height: 100%; width: 100%; background-color:
 #classicLoader {
   position: fixed; inset: 0; background: #ffffff; z-index: 9998;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
+  transition: opacity 0.6s ease;
 }
 .pulse-logo { width: 120px; height: auto; animation: pulse 2s infinite ease-in-out; }
 @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.1); opacity: 1; } }
@@ -84,8 +86,9 @@ body, html { margin: 0; padding: 0; height: 100%; width: 100%; background-color:
 
 .btn-launch {
   background: #1e40af; color: white; border: none; border-radius: 12px; padding: 18px 24px; font-size: 16px;
-  font-weight: 700; width: 100%; cursor: pointer;
+  font-weight: 700; width: 100%; cursor: pointer; transition: transform 0.2s ease;
 }
+.btn-launch:active { transform: scale(0.98); }
 
 #loadingState { display: none; flex-direction: column; align-items: center; width: 100%; }
 .tip-container { width: 100%; min-height: 80px; margin-top: 20px; display: flex; align-items: center; justify-content: center; color: #475569; font-size: 14px; font-weight: 600; line-height: 1.5; }
@@ -121,8 +124,52 @@ iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: none; z-i
 <iframe id="appFrame" allow="fullscreen"></iframe>
 
 <script>
-const ethosStatements = ["The Ant was chosen because a single worker is small, but a colony is an unstoppable force of nature.", "Success isn't found in individual glory, but in the collective momentum of the team.", "One point is a small step; a colony moves mountains."];
-const tips = ["💡 Tap the 'Magic Hat' for random student selection.", "💡 Use Duo Mode for timers and student picks.", "💡 Awards build culture."];
+// --- FULL 20/20 DATA ARRAYS ---
+const ethosStatements = [
+  "The Ant was chosen because a single worker is small, but a colony is an unstoppable force of nature.",
+  "Every House Point awarded is a positive behavior reinforced. You are building school culture.",
+  "Ants communicate constantly, ensuring no member is left behind. Success is found in connection.",
+  "An ant can lift 50x its weight, proving that with purpose, students are capable of more than they imagine.",
+  "House success isn't found in individual glory, but in the collective momentum of the team.",
+  "The colony thrives on resilience. Every challenge is an opportunity to strengthen our community.",
+  "In nature, the ant is the ultimate architect. In school, you are the architect of student character.",
+  "Teamwork is the silent language of the colony. One goal, many hands, infinite impact.",
+  "Like the ant, high-performing students show up every day with discipline, drive, and dedication.",
+  "A House is not just a group; it is a community fueled by the spirit of its members.",
+  "When we lift each other up, the whole school rises. Every point is a step forward.",
+  "Consistency is key. Small, daily recognitions build a foundation of lifelong habits.",
+  "The strength of the House is the student; the strength of the student is the House.",
+  "Positive reinforcement doesn't just change behavior for a day—it shapes character for a lifetime.",
+  "Ant colonies adapt to any obstacle. We teach our students to meet challenges with the same adaptability.",
+  "A culture of encouragement creates a safe space for students to take academic risks.",
+  "Every time you award a point, you remind a student that their efforts are seen and valued.",
+  "Great schools are built on great habits. Thank you for championing positive choices today.",
+  "The Ant reminds us that true leadership is often found in humble, hard work behind the scenes.",
+  "We track points not to create competition, but to celebrate the collective growth of our students."
+];
+
+const tips = [
+  "💡 High-performing schools are built on consistent recognition, not just high points.",
+  "💡 Use the 'Magic Hat' in the Toolkit to ensure every student has a fair chance to participate.",
+  "💡 Fairness First: Use the 'Award History' log to review and maintain point consistency.",
+  "💡 Support Your Values: Set custom Point Reasons to align rewards with your school’s pillars.",
+  "💡 Students who maintain a 5-day login streak earn automated resilience bonuses.",
+  "💡 Use 'Duo Mode' to manage lesson time while keeping student selection randomized.",
+  "💡 Celebrate Success: Print 'Engagement Posters' to help students access their binders easily.",
+  "💡 The 'Loot Drop' feature is perfect for creating fun scavenger hunts in your classroom.",
+  "💡 Leadership in Action: House Captains can send weekly messages to inspire their team.",
+  "💡 Collaboration: Launch 'Mystery Word' missions that require students to work together.",
+  "💡 Student Voice: Use Polls to involve your students in fun school-wide choices.",
+  "💡 Every milestone reached unlocks a unique trading card in the student's digital binder.",
+  "💡 Time Saver: Use 'Bulk Assignment' to award House Points to entire classes at once.",
+  "💡 Instant Rewards: Tap any student's icon for a quick +1 House Point award.",
+  "💡 To correct a mistake, a long-press on a student's icon allows for rapid point removal.",
+  "💡 Peer Mentorship: Monitor Top Contributing Classes to identify positive role models.",
+  "💡 System Security: The 'Remember Me' toggle keeps you signed in safely for 30 days.",
+  "💡 Your House Identity: Customize colors and mottos to match your school's unique history.",
+  "💡 The 'House of Fortune' is a fun way to do lucky draws during morning assemblies.",
+  "💡 Remember: One point is a small step; a colony moves mountains."
+];
 
 let tipInterval;
 let appReady = false; 
@@ -149,14 +196,16 @@ function initiateGatekeeperBackground() {
     .then(data => {
       if (data.success) loadIframeSilently(data);
       else showHardLock(data.reason);
-    }).catch(() => showHardLock("Connection Error."));
+    }).catch(() => showHardLock("Connection Error. Please verify your internet."));
 }
 
 function loadIframeSilently(data) {
   let url = data.url + (data.url.includes('?') ? '&' : '?') + "expiry=" + encodeURIComponent(data.expiry) + "&tier=" + encodeURIComponent(data.tier);
   if (isStudentApp) url += "&view=house-students";
+  
   const frame = document.getElementById('appFrame');
   frame.src = url;
+  
   let count = 0;
   frame.onload = () => { 
     if (++count >= 2) { 
@@ -196,8 +245,35 @@ function revealApp() {
   setTimeout(() => loader.style.display = 'none', 600);
 }
 
+// PREMIUM HARD LOCK SCREEN RESTORED
 function showHardLock(reason) {
-  document.body.innerHTML = `<div style="padding:50px; text-align:center;"><h1>Access Restricted</h1><p>${reason}</p></div>`;
+  if (tipInterval) clearInterval(tipInterval);
+  localStorage.removeItem(CACHE_KEY);
+  
+  const lockHTML = `
+    <div style="position:fixed; inset:0; background:#ffffff; z-index:10000; display:flex; align-items:center; justify-content:center; padding:20px;">
+      <div class="executive-card" style="border-top: 6px solid #b91c1c; max-width:400px; text-align:center;">
+        <div style="width: 60px; height: 60px; border-radius: 50%; background: #fef2f2; color: #b91c1c; display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 20px auto;">
+          <i class="fas fa-lock"></i>
+        </div>
+        <h1 class="welcome-title" style="color:#0f172a; font-size: 22px;">Access Update Required</h1>
+        <p style="font-size:14px; line-height:1.6; color:#475569; margin-bottom:25px;">
+          The system requires an account verification or the license has ended.<br><br>
+          <strong>Status:</strong> ${reason || "Verification required."}
+        </p>
+        <div style="display:flex; gap:10px; width:100%;">
+          <button onclick="window.location.reload()" class="btn-launch" style="background:#f1f5f9; color:#475569; box-shadow:none; border:1px solid #cbd5e1; width:auto; flex:1;">Retry</button>
+          <a href="mailto:hello@trackedu.net" style="flex:1; background:#1e40af; color:#fff; text-decoration:none; padding:16px; border-radius:12px; font-weight:700; display:flex; align-items:center; justify-content:center; font-size:14px;">Contact Admin</a>
+        </div>
+      </div>
+    </div>`;
+    
+  // Override whichever loader is currently visible
+  if (isIPad) {
+    document.getElementById('welcomeScreen').innerHTML = lockHTML;
+  } else {
+    document.getElementById('classicLoader').innerHTML = lockHTML;
+  }
 }
 </script>
 </body>
