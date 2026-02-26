@@ -209,19 +209,7 @@ const CACHE_KEY = `trackedu_license_${schoolId}`;
 (function instantGatekeeper() {
   const cachedData = localStorage.getItem(CACHE_KEY);
   
-  if (cachedData) {
-    // Returning user: Start loading the heavy Google iframe INSTANTLY
-    const data = JSON.parse(cachedData);
-    loadIframeSilently(data);
-    
-    // Check gatekeeper silently in the background just to verify license
-    fetch(`${GATEKEEPER_URL}?id=${schoolId}`)
-      .then(r => r.json())
-      .then(newData => {
-        if (!newData.success) showHardLock(newData.reason);
-      });
-  } else {
-    // First time ever: Fetch gatekeeper
+  function fetchGatekeeper() {
     fetch(`${GATEKEEPER_URL}?id=${schoolId}`)
       .then(r => r.json())
       .then(data => {
@@ -232,6 +220,34 @@ const CACHE_KEY = `trackedu_license_${schoolId}`;
           showHardLock(data.reason);
         }
       }).catch(() => showHardLock("Connection Error. Please check your internet."));
+  }
+
+  if (cachedData) {
+    let data = JSON.parse(cachedData);
+    
+    // ⚡ SELF-HEALING CACHE: Fixes the desktop "blank white screen" bug
+    if (data.data && data.timestamp) {
+      data = data.data; // Extract the correct URL from the old nested format
+      localStorage.setItem(CACHE_KEY, JSON.stringify(data)); // Repair the cache
+    }
+    
+    // Safety check: Make sure a valid URL actually exists
+    if (data && data.url) {
+      loadIframeSilently(data);
+      
+      // Verify license silently
+      fetch(`${GATEKEEPER_URL}?id=${schoolId}`)
+        .then(r => r.json())
+        .then(newData => {
+          if (!newData.success) showHardLock(newData.reason);
+        });
+    } else {
+      // Cache is completely corrupted, wipe it and start fresh
+      localStorage.removeItem(CACHE_KEY);
+      fetchGatekeeper();
+    }
+  } else {
+    fetchGatekeeper();
   }
 })();
 
