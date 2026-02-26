@@ -213,6 +213,15 @@ function loadIframeSilently(data) {
       if (userWaiting) revealApp(); 
     }
   };
+
+  // ⚡ THE CRITICAL FIX: The Bulletproof Failsafe
+  // No matter what device or cache state, if 6 seconds pass, force the app open.
+  setTimeout(() => {
+    if (!appReady) {
+      appReady = true;
+      if (userWaiting) revealApp();
+    }
+  }, 6000); 
 }
 
 function handleLaunchClick() {
@@ -222,7 +231,7 @@ function handleLaunchClick() {
     document.getElementById('initialState').style.display = 'none';
     document.getElementById('loadingState').style.display = 'flex';
     startTipCarousel();
-    setTimeout(revealApp, 8000); 
+    setTimeout(revealApp, 8000); // Secondary iPad button failsafe
   }
 }
 
