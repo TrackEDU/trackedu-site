@@ -111,14 +111,17 @@ iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: none; z-i
 <div id="welcomeScreen">
   <div class="executive-card">
     <div class="system-status"><div class="status-dot"></div> School Connection Active</div>
-    <img src="https://trackedu.github.io/common-assets/teacherapp.png" class="logo-img" alt="TrackEDU Logo">
+    
+    <img id="dynamicLogo" src="https://trackedu.github.io/common-assets/teacherapp.png" class="logo-img" alt="TrackEDU Logo">
     
     <div id="initialState" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
-      <h1 class="welcome-title">House Spirit Portal</h1>
+      <h1 class="welcome-title" id="welcomeTitle">House Spirit Portal</h1>
       <div class="ethos-box">
         <p id="ethosText">Connecting to your House system...</p>
       </div>
-      <button class="btn-launch" id="btnLaunch" onclick="handleLaunchClick()">Enter Portal <i class="fas fa-school" style="margin-left:8px; font-size:13px;"></i></button>
+      <button class="btn-launch" id="btnLaunch" onclick="handleLaunchClick()">
+        Enter Portal <i class="fas fa-school" style="margin-left:8px; font-size:13px;"></i>
+      </button>
     </div>
 
     <div id="loadingState">
@@ -132,8 +135,9 @@ iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: none; z-i
 <iframe id="appFrame" allow="fullscreen"></iframe>
 
 <script>
-// --- SCHOOL-FRIENDLY MISSION & ANT ETHOS ---
-const ethosStatements = [
+// --- DATA SEPARATION: TEACHER VS STUDENT ---
+
+const teacherEthos = [
   "The Ant was chosen because a single worker is small, but a colony is an unstoppable force of nature.",
   "Every House Point awarded is a positive behavior reinforced. You are building school culture.",
   "Ants communicate constantly, ensuring no member is left behind. Success is found in connection.",
@@ -146,7 +150,7 @@ const ethosStatements = [
   "A House is not just a group; it is a community fueled by the spirit of its members."
 ];
 
-const tips = [
+const teacherTips = [
   "💡 High-performing schools are built on consistent recognition, not just high points.",
   "💡 Use the 'Magic Hat' in the Toolkit to ensure every student has a fair chance to participate.",
   "💡 Fairness First: Use the 'Award History' log to review and maintain point consistency.",
@@ -169,22 +173,53 @@ const tips = [
   "💡 Remember: One point is a small step; a colony moves mountains."
 ];
 
+const studentEthos = [
+  "Every point you earn helps your House climb the leaderboard. Keep pushing!",
+  "An ant can lift 50x its own weight. What amazing things will you achieve today?",
+  "Log in daily to keep your streak alive and earn bonus points for your House!",
+  "Check your digital binder regularly to see which rare cards you've unlocked.",
+  "Teamwork makes the dream work. Support your Housemates to win the cup!"
+];
+
+const studentTips = [
+  "💡 Check the 'Milestones' tab to see what holographic card you unlock next.",
+  "💡 You get a bonus point automatically for a 5-day login streak!",
+  "💡 Keep an eye out for a 'Mystery Word' from your teachers to earn extra points.",
+  "💡 Your rank badge upgrades automatically as you earn more House Points.",
+  "💡 Every single point counts! Help your House secure the lead."
+];
+
 let tipInterval;
 let appReady = false; 
 let userWaiting = false; 
 
-// Initial render of Ethos
-document.getElementById('ethosText').innerText = ethosStatements[Math.floor(Math.random() * ethosStatements.length)];
+// --- DYNAMIC UI ADJUSTMENT ---
+document.addEventListener('DOMContentLoaded', () => {
+  // If it's a student, swap the UI text and arrays
+  if (isStudentApp) {
+    document.getElementById('welcomeTitle').innerText = "Student Dashboard";
+    document.getElementById('btnLaunch').innerHTML = 'View My Binder <i class="fas fa-arrow-right" style="margin-left:8px; font-size:13px;"></i>';
+    document.getElementById('dynamicLogo').src = 'https://trackedu.github.io/common-assets/studentapp.png';
+  }
+
+  // Load appropriate Ethos
+  const activeEthos = isStudentApp ? studentEthos : teacherEthos;
+  document.getElementById('ethosText').innerText = activeEthos[Math.floor(Math.random() * activeEthos.length)];
+
+  initiateGatekeeperBackground();
+});
 
 function startTipCarousel() {
+  const activeTips = isStudentApp ? studentTips : teacherTips;
   const tipTextEl = document.getElementById('tipText');
-  let currentTipIndex = Math.floor(Math.random() * tips.length);
-  tipTextEl.innerHTML = tips[currentTipIndex];
+  let currentTipIndex = Math.floor(Math.random() * activeTips.length);
+  
+  tipTextEl.innerHTML = activeTips[currentTipIndex];
   tipInterval = setInterval(() => {
     tipTextEl.style.opacity = '0'; 
     setTimeout(() => {
-      currentTipIndex = (currentTipIndex + 1) % tips.length;
-      tipTextEl.innerHTML = tips[currentTipIndex];
+      currentTipIndex = (currentTipIndex + 1) % activeTips.length;
+      tipTextEl.innerHTML = activeTips[currentTipIndex];
       tipTextEl.style.opacity = '1'; 
     }, 400);
   }, 4000);
@@ -192,11 +227,6 @@ function startTipCarousel() {
 
 const GATEKEEPER_URL = "https://script.google.com/macros/s/AKfycbzqrrKj_6yEG_F7C032K1yvMxk9cLv2n-bFsRx6I0zuCUpkQo5pzzBPx7j4zmhxuBO73g/exec";
 const CACHE_KEY = `trackedu_license_${schoolId}`;
-
-// Start Ghost-Load as soon as the DOM is interactive
-document.addEventListener('DOMContentLoaded', () => {
-  initiateGatekeeperBackground();
-});
 
 function initiateGatekeeperBackground() {
   fetch(`${GATEKEEPER_URL}?id=${schoolId}&cb=${new Date().getTime()}`, { cache: 'no-store' })
