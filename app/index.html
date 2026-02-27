@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-> <link rel="dns-prefetch" href="https://script.google.com">
+<link rel="dns-prefetch" href="https://script.google.com">
 <link rel="preconnect" href="https://script.google.com" crossorigin>
 <link rel="dns-prefetch" href="https://script.googleusercontent.com">
 <link rel="preconnect" href="https://script.googleusercontent.com" crossorigin>
@@ -63,6 +63,12 @@ if ('serviceWorker' in navigator) {
 </script>
 
 <style>
+:root {
+  --brand-primary: #1e40af; /* Default Teacher Blue */
+  --brand-success: #10b981;
+  --bg-soft: #f8fafc;
+}
+
 body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: #ffffff; font-family: 'Inter', sans-serif; }
 
 /* --- SCHOOL-FRIENDLY LOBBY SCREEN --- */
@@ -70,21 +76,28 @@ body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-c
   position: fixed; inset: 0; background: #ffffff; 
   z-index: 9999; display: flex; flex-direction: column; 
   align-items: center; justify-content: center; 
-  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
   padding: 20px; text-align: center;
-  will-change: opacity; /* Forces GPU acceleration */
-  contain: strict; /* Critical for old device performance */
+  will-change: clip-path, opacity; 
+  contain: strict; 
+  transition: clip-path 0.8s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.4s ease;
+}
+
+/* The Premium Unzip Animation */
+#welcomeScreen.expanding {
+  clip-path: circle(0% at 50% 50%);
+  opacity: 0;
+  pointer-events: none;
 }
 
 .executive-card {
-  background: #ffffff; border-radius: 24px; padding: 45px 35px; width: 100%; max-width: 460px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.08); display: flex; flex-direction: column; align-items: center;
+  background: #ffffff; border-radius: 28px; padding: 45px 35px; width: 100%; max-width: 460px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1); display: flex; flex-direction: column; align-items: center;
   position: relative; overflow: hidden; border: 1px solid #f1f5f9;
 }
 
 .executive-card::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
-  background: linear-gradient(90deg, #10b981, #3b82f6);
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px;
+  background: var(--brand-primary);
 }
 
 .system-status {
@@ -93,7 +106,16 @@ body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-c
   text-transform: uppercase; letter-spacing: 1px; margin-bottom: 25px;
 }
 
-.status-dot { width: 8px; height: 8px; background: #10b981; border-radius: 50%; box-shadow: 0 0 8px #10b981; }
+.status-dot { 
+  width: 8px; height: 8px; background: var(--brand-success); border-radius: 50%; 
+  animation: pulse-glow 2s infinite; 
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
 
 .logo-img { width: 80px; height: 80px; margin-bottom: 20px; border-radius: 50%; border: 1px solid #f1f5f9; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
 
@@ -103,17 +125,36 @@ body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-c
 .ethos-box p { color: #334155; font-size: 14px; margin: 0; line-height: 1.6; font-weight: 500; font-style: italic; }
 
 .btn-launch {
-  background: #1e40af; color: white; border: none; border-radius: 12px; padding: 18px 24px; font-size: 16px;
-  font-weight: 700; width: 100%; cursor: pointer; box-shadow: 0 8px 20px rgba(30, 64, 175, 0.2); transition: all 0.2s ease;
+  background: var(--brand-primary); color: white; border: none; border-radius: 14px; padding: 18px 24px; font-size: 16px;
+  font-weight: 700; width: 100%; cursor: pointer; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: all 0.2s ease;
 }
 .btn-launch:active { transform: scale(0.98); opacity: 0.9; }
 
 #loadingState { display: none; flex-direction: column; align-items: center; width: 100%; }
 .tip-container { width: 100%; min-height: 80px; margin-top: 20px; display: flex; align-items: center; justify-content: center; color: #475569; font-size: 14px; font-weight: 600; line-height: 1.5; transition: opacity 0.4s ease; }
-.spinner { width: 24px; height: 24px; border: 3px solid #e2e8f0; border-top-color: #3b82f6; border-radius: 50%; animation: spin 1s linear infinite; }
+.spinner { width: 24px; height: 24px; border: 3px solid #e2e8f0; border-top-color: var(--brand-primary); border-radius: 50%; animation: spin 1s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: none; z-index: 1; background-color: #ffffff; opacity: 0; transition: opacity 0.5s ease; }
+/* --- ADAPTIVE SKELETON UI --- */
+.skeleton-container { width: 100%; margin-top: 20px; display: none; flex-direction: column; gap: 12px; }
+#loadingState.flex .skeleton-container { display: flex; }
+
+.skeleton-bar {
+  height: 18px;
+  background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 6px;
+}
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+iframe { 
+  position: absolute; inset: 0; width: 100%; height: 100%; border: none; z-index: 1; background-color: #ffffff; opacity: 0; transition: opacity 0.5s ease; 
+  -webkit-overflow-scrolling: touch; /* Prevents rubber-band bounce on iOS */
+}
 </style>
 </head>
 
@@ -121,27 +162,54 @@ iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: none; z-i
 <div id="welcomeScreen">
   <div class="executive-card">
     <div class="system-status"><div class="status-dot"></div> School Connection Active</div>
-    <img src="https://trackedu.github.io/common-assets/teacherapp.png" class="logo-img" alt="TrackEDU Logo">
+    
+    <img id="welcomeLogo" src="" class="logo-img" alt="TrackEDU Logo" style="opacity: 0; transition: opacity 0.3s;" onload="this.style.opacity='1'">
     
     <div id="initialState" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
-      <h1 class="welcome-title">House Spirit Portal</h1>
+      <h1 class="welcome-title">House Points Portal</h1>
       <div class="ethos-box">
         <p id="ethosText">Connecting to your House system...</p>
       </div>
-      <button class="btn-launch" id="btnLaunch" onclick="handleLaunchClick()">Enter Portal <i class="fas fa-school" style="margin-left:8px; font-size:13px;"></i></button>
+      <button class="btn-launch" id="btnLaunch" onclick="handleLaunchClick()"></button>
     </div>
 
     <div id="loadingState">
       <div class="spinner"></div>
-      <p style="color: #0f172a; font-weight: 700; margin: 15px 0 5px 0; font-size: 13px;">Preparing Dashboard...</p>
+      <p style="color: #0f172a; font-weight: 700; margin: 15px 0 5px 0; font-size: 13px;">Syncing with School Server...</p>
+      
+      <div class="skeleton-container">
+        <div class="skeleton-bar" style="width: 80%;"></div>
+        <div class="skeleton-bar" style="width: 100%;"></div>
+        <div class="skeleton-bar" style="width: 60%;"></div>
+      </div>
+
       <div class="tip-container" id="tipText"></div>
     </div>
   </div>
 </div>
 
-> <iframe id="appFrame" allow="fullscreen" fetchpriority="high"></iframe>
+<iframe id="appFrame" allow="fullscreen" fetchpriority="high"></iframe>
 
 <script>
+// ⚡ ADAPTIVE THEME LOGIC
+const root = document.documentElement;
+const launchBtn = document.getElementById('btnLaunch');
+const welcomeLogo = document.getElementById('welcomeLogo');
+
+if (isStudentApp) {
+  // Student Brand: Emerald Green
+  root.style.setProperty('--brand-primary', '#10b981');
+  document.title = "TrackEDU | Student Portal";
+  welcomeLogo.src = "https://trackedu.github.io/common-assets/studentapp.png";
+  if (launchBtn) launchBtn.innerHTML = 'View My Hero <i class="fas fa-mask" style="margin-left:8px;"></i>';
+} else {
+  // Teacher Brand: Royal Blue
+  root.style.setProperty('--brand-primary', '#1e40af');
+  document.title = "TrackEDU | Teacher Admin";
+  welcomeLogo.src = "https://trackedu.github.io/common-assets/teacherapp.png";
+  if (launchBtn) launchBtn.innerHTML = 'Go to Class <i class="fas fa-chalkboard-teacher" style="margin-left:8px;"></i>';
+}
+
 // --- SCHOOL-FRIENDLY MISSION & ANT ETHOS ---
 const ethosStatements = [
   "The Ant was chosen because a single worker is small, but a colony is an unstoppable force of nature.",
@@ -249,13 +317,11 @@ const CACHE_KEY = `trackedu_license_${schoolId}`;
 function loadIframeSilently(data) {
   let url = data.url;
   url += (url.includes('?') ? '&' : '?') + "expiry=" + encodeURIComponent(data.expiry) + "&tier=" + encodeURIComponent(data.tier);
-  if (isStudentApp) url += "&view=house-students";
+  if (isStudentApp) url += "&view=public"; // Updated to map to your new URL routing parameter
 
   const frame = document.getElementById('appFrame');
   frame.src = url;
   
-  // Modern browsers and cached GAS apps often only fire onload ONCE.
-  // We accept the first load, but give a tiny buffer for Google's redirect to paint.
   frame.onload = () => { 
     setTimeout(() => {
       appReady = true; 
@@ -265,49 +331,69 @@ function loadIframeSilently(data) {
 }
 
 function handleLaunchClick() {
+  // Haptic feedback for mobile (Feels snappy and responsive)
+  if (window.navigator && window.navigator.vibrate) {
+    window.navigator.vibrate([10, 30, 10]);
+  }
+
   if (appReady) {
     revealApp(); // Instant transition if loaded in background
   } else {
-    userWaiting = true; // Still loading? Show tips until ready.
+    userWaiting = true; 
     document.getElementById('initialState').style.display = 'none';
-    document.getElementById('loadingState').style.display = 'flex';
+    const loadingState = document.getElementById('loadingState');
+    loadingState.style.display = 'flex';
+    loadingState.classList.add('flex'); // Triggers the skeleton UI
     startTipCarousel();
-    setTimeout(revealApp, 8000); // Safety reveal
+
+    // ⚡ 10-Second Troubleshoot Failsafe for Safari cookie blocks
+    setTimeout(() => {
+      if (!appReady) {
+        const frame = document.getElementById('appFrame');
+        document.getElementById('loadingState').innerHTML += `
+          <p style="font-size:11px; margin-top:15px; color:#94a3b8;">
+            Taking too long? <a href="${frame.src}" target="_blank" style="color:var(--brand-primary); font-weight:bold;">Open Direct Link</a>
+          </p>`;
+      }
+    }, 10000);
   }
 }
 
 function revealApp() {
-  if (authFailed) return; // ⚡ THE FIX: Stop the reveal if they are locked out!
+  if (authFailed) return; // Stop the reveal if they are locked out!
   
   if (tipInterval) clearInterval(tipInterval);
   const loader = document.getElementById('welcomeScreen');
   const frame = document.getElementById('appFrame');
+  
   if (loader && loader.style.display !== 'none') {
+    // ⚡ PREMIUM REVEAL: Unzip from center
     frame.style.opacity = '1';
-    loader.style.opacity = '0';
+    loader.classList.add('expanding');
+
     setTimeout(() => {
       loader.style.display = 'none';
-      // ⚡ RAM CLEANUP: Destroy DOM elements and arrays to free up memory on old devices
       loader.remove(); 
       tips.length = 0; 
       ethosStatements.length = 0;
-    }, 600);
+    }, 800);
   }
 }
 
 function showHardLock(reason) {
-  authFailed = true; // ⚡ THE FIX: Flip the kill switch immediately
+  authFailed = true; 
   
   if (tipInterval) clearInterval(tipInterval);
   localStorage.removeItem(CACHE_KEY);
   document.cookie = `${CACHE_KEY}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
   
-  // ⚡ THE FIX: Destroy the iframe so it can't continue doing background tasks
   const frame = document.getElementById('appFrame');
   if (frame) frame.remove(); 
 
   const welcomeScreen = document.getElementById('welcomeScreen');
-  welcomeScreen.style.opacity = '1'; // Ensure it forces full visibility
+  welcomeScreen.style.opacity = '1'; 
+  welcomeScreen.classList.remove('expanding');
+  
   welcomeScreen.innerHTML = `
     <div class="executive-card" style="border-top: 6px solid #ef4444; padding: 40px 30px;">
       
