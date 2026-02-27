@@ -183,7 +183,6 @@ const tips = [
 let tipInterval;
 let appReady = false; 
 let userWaiting = false; 
-let authFailed = false; // ⚡ THE FIX: Global kill switch
 
 // Initialize Ethos Statement
 document.getElementById('ethosText').innerText = ethosStatements[Math.floor(Math.random() * ethosStatements.length)];
@@ -277,8 +276,6 @@ function handleLaunchClick() {
 }
 
 function revealApp() {
-  if (authFailed) return; // ⚡ THE FIX: Stop the reveal if they are locked out!
-  
   if (tipInterval) clearInterval(tipInterval);
   const loader = document.getElementById('welcomeScreen');
   const frame = document.getElementById('appFrame');
@@ -296,21 +293,11 @@ function revealApp() {
 }
 
 function showHardLock(reason) {
-  authFailed = true; // ⚡ THE FIX: Flip the kill switch immediately
-  
   if (tipInterval) clearInterval(tipInterval);
   localStorage.removeItem(CACHE_KEY);
   document.cookie = `${CACHE_KEY}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-  
-  // ⚡ THE FIX: Destroy the iframe so it can't continue doing background tasks
-  const frame = document.getElementById('appFrame');
-  if (frame) frame.remove(); 
 
-  const welcomeScreen = document.getElementById('welcomeScreen');
-  welcomeScreen.style.opacity = '1'; // Ensure it forces full visibility
-  
-  // 🎨 3X BETTER UI: Branded, clear, and actionable
-  welcomeScreen.innerHTML = `
+  document.getElementById('welcomeScreen').innerHTML = `
     <div class="executive-card" style="border-top: 6px solid #ef4444; padding: 40px 30px;">
       
       <div style="width: 64px; height: 64px; border-radius: 50%; background: #fef2f2; color: #ef4444; display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(239, 68, 68, 0.15);">
