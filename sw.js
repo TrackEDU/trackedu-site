@@ -1,5 +1,9 @@
-const CACHE_NAME = 'trackedu-v22'; // Bumped version to force devices to update
+const CACHE_NAME = 'trackedu-v24'; // Bumped version to force devices to update
 const ASSETS = [
+  // ⚡ NEW: Cache the actual wrapper HTML so the PWA opens instantly offline
+  './',
+  '?view=public',
+  
   // Base App Images
   'https://trackedu.github.io/common-assets/studentapp.png',
   'https://trackedu.github.io/common-assets/teacherapp.png',
@@ -12,7 +16,10 @@ const ASSETS = [
 
 self.addEventListener('install', (e) => {
   e.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS))
+    caches.open(CACHE_NAME).then(cache => {
+      console.log('[Service Worker] Caching App Shell');
+      return cache.addAll(ASSETS);
+    })
   );
   self.skipWaiting();
 });
@@ -23,6 +30,7 @@ self.addEventListener('activate', (event) => {
       return Promise.all(
         cacheNames.map((cacheName) => {
           if (cacheName !== CACHE_NAME) {
+            console.log('[Service Worker] Removing old cache:', cacheName);
             return caches.delete(cacheName);
           }
         })
@@ -37,7 +45,7 @@ self.addEventListener('fetch', (event) => {
 
   // ⚡ IPAD STANDALONE BYPASS:
   // STANDALONE iOS PWAs get stuck "waiting" on the Service Worker.
-  // We do not intercept Google system URLs. This stops the 8-second hang.
+  // We strictly do NOT intercept Google system URLs. This stops the 8-second hang.
   if (url.includes('google.com/macros') || url.includes('googleusercontent.com')) {
     return; 
   }
@@ -69,12 +77,15 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Default behavior for other requests
+  // ⚡ DEFAULT NAVIGATION STRATEGY
   if (event.request.mode === 'navigate') {
+    // For HTML page requests: Try the network first to get the freshest gatekeeper logic.
+    // If offline, fallback to the instant cached wrapper.
     event.respondWith(
       fetch(event.request).catch(() => caches.match(event.request))
     );
   } else {
+    // For general assets (images, css): Try Cache first for instant speed, then Network.
     event.respondWith(
       caches.match(event.request).then((res) => res || fetch(event.request))
     );
