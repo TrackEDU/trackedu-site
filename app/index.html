@@ -317,7 +317,7 @@ const CACHE_KEY = `trackedu_license_${schoolId}`;
 function loadIframeSilently(data) {
   let url = data.url;
   url += (url.includes('?') ? '&' : '?') + "expiry=" + encodeURIComponent(data.expiry) + "&tier=" + encodeURIComponent(data.tier);
-  if (isStudentApp) url += "&view=public"; // Updated to map to your new URL routing parameter
+ if (isStudentApp) url += "&view=house-students"; // Tells Google to send the Student UI
 
   const frame = document.getElementById('appFrame');
   frame.src = url;
