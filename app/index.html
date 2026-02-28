@@ -155,61 +155,6 @@ iframe {
   position: absolute; inset: 0; width: 100%; height: 100%; border: none; z-index: 1; background-color: #ffffff; opacity: 0; transition: opacity 0.5s ease; 
   -webkit-overflow-scrolling: touch; /* Prevents rubber-band bounce on iOS */
 }
-
-/* --- 🎮 STUDENT GAMIFIED THEME OVERRIDES --- */
-.student-mode-card {
-  background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%); /* Deep Navy/Slate */
-  border: 1px solid #334155;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-}
-
-.student-mode-card::before {
-  background: linear-gradient(90deg, #10b981, #059669); /* Glowing Emerald Top Border */
-}
-
-.student-mode-card .welcome-title {
-  color: #ffffff;
-  font-size: 28px;
-  font-weight: 900;
-  letter-spacing: 0.5px;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-}
-
-.student-mode-card .system-status {
-  background: rgba(16, 185, 129, 0.15);
-  border: 1px solid rgba(16, 185, 129, 0.3);
-  color: #34d399; /* Bright mint text */
-}
-
-.student-mode-card .ethos-box {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px dashed rgba(255, 255, 255, 0.15);
-}
-
-.student-mode-card .ethos-box p {
-  color: #cbd5e1; /* Light slate */
-  font-style: normal; /* Remove the italic corporate feel */
-  font-size: 15px;
-  font-weight: 600;
-}
-
-.student-mode-card .logo-img {
-  border: 3px solid #10b981;
-  box-shadow: 0 0 25px rgba(16, 185, 129, 0.4); /* Green glow effect */
-  transform: scale(1.15); /* Make the avatar slightly bigger for students */
-  margin-bottom: 25px;
-}
-
-.student-mode-card .btn-launch {
-  background: linear-gradient(135deg, #10b981, #059669);
-  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
-}
-
-/* Make loading text visible on dark background */
-.student-mode-card ~ #loadingState p, 
-.student-mode-card ~ #loadingState .tip-container {
-  color: #f8fafc !important; 
-}
 </style>
 </head>
 
@@ -250,30 +195,19 @@ iframe {
 const root = document.documentElement;
 const launchBtn = document.getElementById('btnLaunch');
 const welcomeLogo = document.getElementById('welcomeLogo');
-const executiveCard = document.querySelector('.executive-card');
 
 if (isStudentApp) {
-  // --- 🎮 STUDENT BRANDING (Dark/Gamified) ---
+  // Student Brand: Emerald Green
   root.style.setProperty('--brand-primary', '#10b981');
-  document.title = "TrackEDU | Student App";
+  document.title = "TrackEDU | Student Portal";
   welcomeLogo.src = "https://trackedu.github.io/common-assets/studentapp.png";
-  
-  // Apply the dark gamer theme
-  if (executiveCard) executiveCard.classList.add('student-mode-card');
-  
-  // Change the text to speak directly to the student
-  document.querySelector('.welcome-title').innerText = "Hero Dashboard";
-  document.getElementById('ethosText').innerText = "Ready to boost your House to victory? Log in to check your stats, claim rewards, and dominate the leaderboard.";
-  
-  if (launchBtn) launchBtn.innerHTML = 'Open My Dashboard <i class="fas fa-arrow-right" style="margin-left:8px;"></i>';
-
+  if (launchBtn) launchBtn.innerHTML = 'View My Hero <i class="fas fa-mask" style="margin-left:8px;"></i>';
 } else {
-  // --- 👔 TEACHER BRANDING (Clean/Corporate) ---
+  // Teacher Brand: Royal Blue
   root.style.setProperty('--brand-primary', '#1e40af');
-  document.title = "TrackEDU | Teacher App";
+  document.title = "TrackEDU | Teacher Admin";
   welcomeLogo.src = "https://trackedu.github.io/common-assets/teacherapp.png";
-  
-  if (launchBtn) launchBtn.innerHTML = 'Open Teacher Portal <i class="fas fa-arrow-right" style="margin-left:8px;"></i>';
+  if (launchBtn) launchBtn.innerHTML = 'Go to Class <i class="fas fa-chalkboard-teacher" style="margin-left:8px;"></i>';
 }
 
 // --- SCHOOL-FRIENDLY MISSION & ANT ETHOS ---
@@ -319,10 +253,8 @@ let appReady = false;
 let userWaiting = false; 
 let authFailed = false; // ⚡ THE FIX: Global kill switch
 
-// Initialize Ethos Statement (Only if Teacher)
-if (!isStudentApp) {
-  document.getElementById('ethosText').innerText = ethosStatements[Math.floor(Math.random() * ethosStatements.length)];
-}
+// Initialize Ethos Statement
+document.getElementById('ethosText').innerText = ethosStatements[Math.floor(Math.random() * ethosStatements.length)];
 
 function startTipCarousel() {
   const tipTextEl = document.getElementById('tipText');
@@ -414,24 +346,14 @@ function handleLaunchClick() {
     loadingState.classList.add('flex'); // Triggers the skeleton UI
     startTipCarousel();
 
-    // ⚡ 10-Second Troubleshoot Failsafe for Strict School Firewalls
+    // ⚡ 10-Second Troubleshoot Failsafe for Safari cookie blocks
     setTimeout(() => {
       if (!appReady) {
         const frame = document.getElementById('appFrame');
-        const loadingState = document.getElementById('loadingState');
-        
-        // Clear the spinner and show a prominent "Bypass Firewall" button
-        loadingState.innerHTML = `
-          <div style="background: #fef2f2; border: 1px solid #fecaca; padding: 20px; border-radius: 12px; margin-top: 20px; width: 100%; box-sizing: border-box;">
-            <h3 style="color: #ef4444; margin: 0 0 10px 0; font-size: 16px;"><i class="fas fa-shield-alt"></i> Firewall Block Detected</h3>
-            <p style="color: #475569; font-size: 13px; line-height: 1.5; margin: 0 0 15px 0;">
-              Your school's Wi-Fi is preventing the portal from connecting to Google servers. Click below to use the direct, secure connection.
-            </p>
-            <a href="${frame.src}" target="_top" style="display: block; width: 100%; background: #ef4444; color: white; padding: 14px; border-radius: 8px; font-weight: bold; text-decoration: none; text-align: center; font-size: 15px;">
-              Launch Direct Connection
-            </a>
-          </div>
-        `;
+        document.getElementById('loadingState').innerHTML += `
+          <p style="font-size:11px; margin-top:15px; color:#94a3b8;">
+            Taking too long? <a href="${frame.src}" target="_blank" style="color:var(--brand-primary); font-weight:bold;">Open Direct Link</a>
+          </p>`;
       }
     }, 10000);
   }
