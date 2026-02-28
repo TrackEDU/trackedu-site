@@ -22,7 +22,7 @@
 // --- APP IDENTITY & PARAMS ---
 const params = new URLSearchParams(window.location.search);
 const schoolId = params.get('id') || 'demo';
-const isStudentApp = params.get('view') === 'public';
+const isStudentApp = params.get('') === 'public';
 
 const appName = isStudentApp ? "TrackEDU Student" : "TrackEDU Teacher";
 const appIcon = isStudentApp ? 'https://trackedu.github.io/common-assets/studentapp.png' : 'https://trackedu.github.io/common-assets/teacherapp.png';
@@ -201,13 +201,13 @@ if (isStudentApp) {
   root.style.setProperty('--brand-primary', '#10b981');
   document.title = "TrackEDU | Student Portal";
   welcomeLogo.src = "https://trackedu.github.io/common-assets/studentapp.png";
-  if (launchBtn) launchBtn.innerHTML = 'View My Hero <i class="fas fa-mask" style="margin-left:8px;"></i>';
+  if (launchBtn) launchBtn.innerHTML = 'Open Student App <i class="fas fa-mask" style="margin-left:8px;"></i>';
 } else {
   // Teacher Brand: Royal Blue
   root.style.setProperty('--brand-primary', '#1e40af');
   document.title = "TrackEDU | Teacher Admin";
   welcomeLogo.src = "https://trackedu.github.io/common-assets/teacherapp.png";
-  if (launchBtn) launchBtn.innerHTML = 'Go to Class <i class="fas fa-chalkboard-teacher" style="margin-left:8px;"></i>';
+  if (launchBtn) launchBtn.innerHTML = 'Open Teacher App <i class="fas fa-chalkboard-teacher" style="margin-left:8px;"></i>';
 }
 
 // --- SCHOOL-FRIENDLY MISSION & ANT ETHOS ---
