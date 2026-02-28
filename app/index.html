@@ -180,12 +180,14 @@ if (isStudentApp) {
   root.style.setProperty('--brand-primary', '#10b981');
   document.title = "TrackEDU | Student Portal";
   welcomeLogo.src = "https://trackedu.github.io/common-assets/studentapp.png";
-  if (launchBtn) launchBtn.innerHTML = 'View My Hero <i class="fas fa-mask" style="margin-left:8px;"></i>';
+  // Updated text to "Open Student App"
+  if (launchBtn) launchBtn.innerHTML = 'Open Student App <i class="fas fa-user-graduate" style="margin-left:8px;"></i>';
 } else {
   root.style.setProperty('--brand-primary', '#1e40af');
   document.title = "TrackEDU | Teacher Admin";
   welcomeLogo.src = "https://trackedu.github.io/common-assets/teacherapp.png";
-  if (launchBtn) launchBtn.innerHTML = 'Go to Class <i class="fas fa-chalkboard-teacher" style="margin-left:8px;"></i>';
+  // Updated text to "Open Teacher App"
+  if (launchBtn) launchBtn.innerHTML = 'Open Teacher App <i class="fas fa-chalkboard-teacher" style="margin-left:8px;"></i>';
 }
 
 const ethosStatements = [
