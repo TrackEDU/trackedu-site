@@ -6,7 +6,6 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-WV79KN1XBY');
   </script>
   <meta charset="UTF-8">
@@ -99,22 +98,18 @@
       --dark: #0C1E2C;
       --light: #F8FAFC;
     }
-
     body {
       font-family: 'Inter', sans-serif;
       background-color: var(--light);
       color: var(--dark);
       -webkit-font-smoothing: antialiased;
     }
-
-    /* Premium Gradients */
     .text-gradient {
       background: linear-gradient(135deg, #0f66c3 0%, #87C232 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-
     .hero-mesh {
       background-color: #ffffff;
       background-image: 
@@ -123,8 +118,6 @@
         radial-gradient(at 100% 100%, rgba(135, 194, 50, 0.1) 0px, transparent 50%),
         radial-gradient(at 0% 100%, rgba(15, 102, 195, 0.05) 0px, transparent 50%);
     }
-
-    /* Buttons */
     .btn {
       background: var(--green);
       color: white;
@@ -152,8 +145,6 @@
       background: var(--blue);
       color: white;
     }
-
-    /* Mobile Menu */
     .mobile-menu {
       transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       transform: translateX(100%);
@@ -161,8 +152,6 @@
     .mobile-menu.open {
       transform: translateX(0);
     }
-
-    /* Phone Frame - Mobile Friendly Fixes */
     .phone-frame {
       box-shadow: 
         0 0 0 11px #1f2937,
@@ -171,14 +160,12 @@
       border-radius: 36px;
       transition: all 0.3s ease;
     }
-      
-    /* Ensure phone fits on small screens without scrolling */
     @media (max-width: 640px) {
       .phone-frame {
-        width: 85vw; /* Slightly narrower */
+        width: 85vw;
         height: auto;
         aspect-ratio: 9/19;
-        max-height: 70vh; /* Critical fix: Ensure it fits in viewport */
+        max-height: 70vh;
         border-radius: 28px;
         box-shadow: 
           0 0 0 6px #1f2937,
@@ -186,7 +173,6 @@
           0 10px 30px rgba(0,0,0,0.3);
       }
     }
-
     html { scroll-padding-top: 100px; }
     .scrollbar-hide::-webkit-scrollbar { display: none; }
     .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
@@ -212,13 +198,13 @@
 
       <div class="hidden md:flex items-center gap-6 font-medium text-sm text-gray-600">
         <a href="#how" class="hover:text-brand-blue transition">How It Works</a>
-        <a href="#pricing" class="hover:text-brand-blue transition">The Pilot</a>
-        <button onclick="openPilotModal()" class="hover:text-brand-blue transition font-semibold text-brand-blue">Pilot Process</button>
+        <a href="#pricing" class="hover:text-brand-blue transition">Pricing</a>
+        <button onclick="openPilotModal()" class="hover:text-brand-blue transition font-semibold text-brand-blue">Platform Features</button>
         <a href="#mobile-demo" class="hover:text-brand-blue transition">Live Mobile Tool</a>
         <button onclick="openTrustModal()" class="hover:text-brand-blue transition">Trust & Data</button>
         
-      <button onclick="selectPlan('One Term Pilot')" class="btn px-6 py-2.5 shadow-lg shadow-brand-green/20">
-  Join Pilot Program
+      <button onclick="window.location.hash='#pricing'" class="btn px-6 py-2.5 shadow-lg shadow-brand-green/20">
+  View Pricing
 </button>
       </div>
 
@@ -240,16 +226,16 @@
         
         <a href="#how" onclick="closeMobileMenu()" class="text-xl font-bold text-gray-800">How It Works</a>
         
-        <a href="#pricing" onclick="closeMobileMenu()" class="text-xl font-bold text-gray-800">The Pilot</a>
+        <a href="#pricing" onclick="closeMobileMenu()" class="text-xl font-bold text-gray-800">Pricing</a>
         
-        <button onclick="closeMobileMenu(); openPilotModal();" class="text-xl font-bold text-brand-blue">Pilot Process</button>
+        <button onclick="closeMobileMenu(); openPilotModal();" class="text-xl font-bold text-brand-blue">Platform Features</button>
         
         <a href="#mobile-demo" onclick="closeMobileMenu()" class="text-xl font-bold text-gray-800">Mobile Tool</a>
         
         <button onclick="closeMobileMenu(); openTrustModal();" class="text-xl font-bold text-gray-800">Trust & Vision</button>
         
-        <button onclick="closeMobileMenu(); selectPlan('One Term Pilot')" class="w-full btn py-4 text-center text-lg mt-4 shadow-xl">
-          Join the Pilot
+        <button onclick="closeMobileMenu(); window.location.hash='#pricing';" class="w-full btn py-4 text-center text-lg mt-4 shadow-xl">
+          View Pricing
         </button>
       </div>
     </div>
@@ -295,7 +281,7 @@
         </div>
         
         <div class="order-6 lg:order-none mt-3 lg:mt-6 text-xs text-gray-500 font-medium">
-          <i class="fas fa-shield-alt mr-1 text-gray-400"></i> No student login required • Built on Google Workspace
+          <i class="fas fa-shield-alt mr-1 text-gray-400"></i> FERPA & GDPR Compliant • Secure Cloud Infrastructure
         </div>
       </div>
 
@@ -344,7 +330,7 @@
 
         <iframe 
           id="mockup-content"
-          src="https://script.google.com/macros/s/AKfycbzpMrfXKLkbl6zNJ6_nssWOA_4z4VbTIT0iC8gWRp29ywPY8fcaFIdr7FlWLjwJzM5D/exec" 
+          src="https://trackedu-housepoints.web.app/student.html?school=demo_school" 
           class="w-full h-full opacity-0 transition-opacity duration-700"
           frameborder="0"
           scrolling="yes"
@@ -416,7 +402,7 @@
       </p>
 
       <button 
-        onclick="window.open('https://script.google.com/macros/s/AKfycbw2jfDz2Zbskn5jppl4fXqLxtqGfqjabRMMmBt82Qm9Tsoy2nhOoQOc2N4bWNBw-Do07Q/exec?view=house-students', '_blank')"
+        onclick="window.open('https://trackedu-housepoints.web.app/student.html?school=demo_school', '_blank')"
         class="btn bg-white text-brand-dark hover:bg-brand-green hover:text-white px-10 py-5 text-xl shadow-2xl transition transform hover:scale-105"
       >
         <i class="fa-solid fa-users-viewfinder mr-2"></i>
@@ -480,59 +466,67 @@
   </div>
 </section>
 
-
-  <section id="pricing" class="py-20 bg-brand-light">
-  <div class="max-w-4xl mx-auto px-6 text-center">
+<section id="pricing" class="py-20 bg-brand-light">
+  <div class="max-w-6xl mx-auto px-6">
     
-    <div class="inline-flex items-center gap-2 bg-brand-green/10 text-brand-green px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6 border border-brand-green/20">
-      <span class="relative flex h-2 w-2">
-        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-        <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-green"></span>
-      </span>
-      Open for 2026 Intake
+    <div class="text-center mb-16">
+      <span class="text-brand-green font-bold tracking-widest text-sm uppercase">Simple Pricing</span>
+      <h2 class="font-display text-4xl font-black text-brand-dark mt-2 mb-4">Choose Your School's Plan</h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">From a single classroom to a fully gamified campus, we have a plan that fits your budget.</p>
     </div>
 
-    <h2 class="font-display text-4xl font-black text-brand-dark mb-6">Join the Pilot Program</h2>
-    <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
-      TrackEDU is currently in a <strong>closed research beta</strong>. Get full access to the system for free in exchange for user feedback.
-    </p>
-
-    <div class="bg-white rounded-3xl p-8 md:p-10 shadow-card border border-gray-200 relative overflow-hidden">
-      <div class="absolute top-0 right-0 w-64 h-64 bg-brand-green/5 rounded-full blur-3xl -mr-20 -mt-20"></div>
-
-      <div class="grid md:grid-cols-2 gap-8 text-left relative z-10">
-        <div>
-          <h3 class="font-bold text-xl mb-4 text-brand-dark">You Get:</h3>
-          <ul class="space-y-4">
-            <li class="flex items-center gap-3 text-gray-700"><i class="fas fa-check-circle text-brand-green text-lg"></i> <span class="font-medium">Full System Access (Unlimited)</span></li>
-            <li class="flex items-center gap-3 text-gray-700"><i class="fas fa-check-circle text-brand-green text-lg"></i> <span class="font-medium">Personal Setup Support</span></li>
-            <li class="flex items-center gap-3 text-gray-700"><i class="fas fa-check-circle text-brand-green text-lg"></i> <span class="font-medium">Data Benchmarking Report</span></li>
-          </ul>
-        </div>
-        <div class="md:border-l md:border-gray-100 md:pl-8">
-          <h3 class="font-bold text-xl mb-4 text-brand-dark">We Ask For:</h3>
-          <ul class="space-y-4">
-            <li class="flex items-center gap-3 text-gray-700"><i class="fas fa-comment-alt text-brand-blue text-lg"></i> <span class="font-medium">1 Feedback Survey per Term</span></li>
-            <li class="flex items-center gap-3 text-gray-700"><i class="fas fa-bug text-brand-blue text-lg"></i> <span class="font-medium">Report any bugs you find</span></li>
-            <li class="flex items-center gap-3 text-gray-700"><i class="fas fa-thumbs-up text-brand-blue text-lg"></i> <span class="font-medium">A testimonial (if you love it)</span></li>
-          </ul>
-        </div>
-      </div>
+    <div class="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
       
-      <div class="mt-10 pt-8 border-t border-gray-100 text-center">
-        <button onclick="selectPlan('Research Pilot')" class="btn px-12 py-4 text-xl shadow-xl w-full md:w-auto hover:scale-[1.02] transform transition">
-          Join the Pilot
-        </button>
-        <p class="mt-4 text-xs text-gray-400 font-medium">
-          <i class="fas fa-lock mr-1"></i> No credit card required. No commitment.
-        </p>
+      <div class="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm flex flex-col relative transition transform hover:-translate-y-1 hover:shadow-lg">
+        <h3 class="font-display text-2xl font-bold text-brand-dark mb-2">Classroom</h3>
+        <div class="text-brand-blue font-black text-4xl mb-4">Free<span class="text-lg text-gray-500 font-medium"> forever</span></div>
+        <p class="text-gray-600 text-sm mb-6 h-10">Perfect for individual teachers wanting to gamify their room.</p>
+        <ul class="space-y-3 mb-8 flex-1">
+          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>1 Teacher, 1 Class</span></li>
+          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>Up to 50 Students</span></li>
+          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>Create up to 8 Custom Houses</span></li>
+          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>Magic Hat & Timer Tools</span></li>
+          <li class="flex items-start gap-3 text-gray-400"><i class="fas fa-times mt-1"></i> <span>No Student App Access</span></li>
+        </ul>
+        <button onclick="window.location.href='https://trackedu-housepoints.web.app'" class="w-full py-3 rounded-xl font-bold text-brand-blue border-2 border-brand-blue hover:bg-brand-blue hover:text-white transition">Start for Free</button>
       </div>
-    </div>
 
+      <div class="bg-brand-dark rounded-3xl p-8 border-2 border-brand-green shadow-2xl flex flex-col relative transform lg:-translate-y-4">
+        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-brand-green text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Most Popular</div>
+        <h3 class="font-display text-2xl font-bold text-white mb-2">Core Campus</h3>
+        <div class="text-white font-black text-4xl mb-4">$1,200<span class="text-lg text-gray-400 font-medium"> / year</span></div>
+        <p class="text-gray-300 text-sm mb-6 h-10">Unify your school data and run incredible live assemblies.</p>
+        <ul class="space-y-3 mb-8 flex-1 text-gray-200">
+          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span><strong>Unlimited</strong> Teachers & Students</span></li>
+          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>CSV Bulk Import & Auto-Balancing</span></li>
+          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>Cross-Classroom Point Syncing</span></li>
+          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>Live Assembly Projector Mode</span></li>
+          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>Weekly Quizzes & Loot Drops</span></li>
+          <li class="flex items-start gap-3 text-gray-500"><i class="fas fa-times mt-1"></i> <span>No Student App Access</span></li>
+        </ul>
+        <button data-cal-link="trackedu-a9dbpy/30min" class="w-full py-3 rounded-xl font-bold bg-brand-green text-white hover:bg-green-500 transition shadow-lg shadow-brand-green/30">Book Demo</button>
+      </div>
+
+      <div class="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm flex flex-col relative transition transform hover:-translate-y-1 hover:shadow-lg">
+        <h3 class="font-display text-2xl font-bold text-brand-dark mb-2">Pro Ecosystem</h3>
+        <div class="text-brand-blue font-black text-4xl mb-4">$2,950<span class="text-lg text-gray-500 font-medium"> / year</span></div>
+        <p class="text-gray-600 text-sm mb-6 h-10">The ultimate digital school culture and gamification platform.</p>
+        <ul class="space-y-3 mb-8 flex-1">
+          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span><em>Everything in Core Campus, plus:</em></span></li>
+          <li class="flex items-start gap-3 text-sm font-bold text-brand-dark"><i class="fas fa-mobile-alt text-brand-blue mt-1"></i> <span>Full Student App Access</span></li>
+          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>3D Holographic Badge Binders</span></li>
+          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>Live Student Voice Polls</span></li>
+          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>House Power Boosts & Reactors</span></li>
+          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>The Multi-player Mystery Word</span></li>
+        </ul>
+        <button data-cal-link="trackedu-a9dbpy/30min" class="w-full py-3 rounded-xl font-bold text-brand-blue border-2 border-brand-blue hover:bg-brand-blue hover:text-white transition">Contact Sales</button>
+      </div>
+
+    </div>
   </div>
 </section>
 
-  <section class="py-20 bg-white border-t border-gray-100">
+<section class="py-20 bg-white border-t border-gray-100">
   <div class="max-w-4xl mx-auto px-6 text-center">
     
     <div class="inline-block p-4 rounded-full bg-blue-50 mb-6">
@@ -627,8 +621,7 @@
       <p class="text-xl text-gray-900 font-bold mb-4">Testing how simple micro-apps replace complex admin.</p>
       
       <p class="text-gray-600 leading-relaxed">
-        As part of the research pilot, participating schools gain access to our broader suite of <strong>"Micro-Tools."</strong> 
-        These are lightweight, experimental modules designed to replace specific administrative spreadsheets without the bloat of a full Management Information System (MIS).
+        Our platform includes a broader suite of seamlessly integrated modules designed to replace specific administrative spreadsheets without the bloat of a full Management Information System (MIS).
       </p>
     </div>
 
@@ -678,7 +671,7 @@
           <p class="text-gray-600 text-lg mb-6 leading-relaxed">
             Every school has that <strong>"One Nightmare Spreadsheet"</strong>—the one that breaks every year and nobody knows how to fix.
             <br><br>
-            As part of our study, we are looking for complex school spreadsheets to convert into secure WebApps.
+            We are looking for complex school spreadsheets to convert into secure WebApps.
           </p>
           
           <div class="mb-8">
@@ -690,7 +683,7 @@
               </li>
               <li class="flex items-start gap-3 text-gray-700 text-sm">
                 <i class="fas fa-check-circle text-brand-blue mt-1"></i> 
-                <span>We rebuild it as a secure app for your pilot.</span>
+                <span>We rebuild it as a secure app for your school.</span>
               </li>
               <li class="flex items-start gap-3 text-gray-700 text-sm">
                 <i class="fas fa-check-circle text-brand-blue mt-1"></i> 
@@ -759,10 +752,10 @@
   <div class="max-w-4xl mx-auto px-6">
     <h2 class="font-display text-4xl font-black mb-6">How Schools Explore TrackEDU</h2>
     <p class="text-lg text-gray-300 mb-10 max-w-2xl mx-auto">
-      A simple, guided pilot process. Start with a quick call, get a customized system, and test it risk-free.
+      A simple, guided onboarding process. Start with a quick call, get a customized system, and deploy it smoothly.
     </p>
     <button onclick="openPilotModal()" class="btn bg-brand-green text-white hover:bg-white hover:text-brand-green border-2 border-brand-green px-10 py-4 text-xl shadow-lg transition">
-      See the Pilot Details
+      See the Setup Process
     </button>
   </div>
 </section>
@@ -796,7 +789,6 @@
    <div class="bg-brand-light p-8 md:p-12 rounded-3xl border border-gray-200 shadow-sm relative overflow-hidden">
   <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brand-blue to-brand-green"></div>
   
-  <!-- HONEY POT - SPAM TRAP (hidden from humans) -->
   <div style="position: absolute; left: -5000px; top: -5000px;" aria-hidden="true">
     <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" value="">
   </div>
@@ -821,7 +813,6 @@
   <textarea id="message" rows="3" class="w-full px-5 py-3 rounded-xl border-gray-200 focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 outline-none transition"></textarea>
 </div>
 
-<!-- MATH CAPTCHA - Anti-spam -->
 <div class="space-y-1">
   <label class="text-xs font-bold uppercase text-gray-500 ml-1">Anti-spam: What is 5 + 3?</label>
   <input type="text" id="captcha" class="w-full px-5 py-3 rounded-xl border-gray-200 focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 outline-none transition" required>
@@ -838,8 +829,6 @@
   </div>
 </section>
 
-
-
   <section class="py-20 bg-white">
   <div class="max-w-4xl mx-auto px-6">
     <h2 class="font-display text-3xl font-black text-center mb-12 text-brand-dark">Frequently Asked Questions</h2>
@@ -852,17 +841,17 @@
 
       <div class="border border-gray-200 rounded-xl p-6 hover:border-brand-green/50 transition">
         <h3 class="font-bold text-lg text-gray-900 mb-2">What other tools do you offer besides House Points?</h3>
-        <p class="text-gray-600 text-sm leading-relaxed">We provide a suite of school tools including a <strong>Smart Fixture Tool</strong> (for sports teams), <strong>Facility Booking Manager</strong> (for room reservations), and <strong>Behaviour Trackers</strong>. All tools integrate seamlessly with Google Workspace.</p>
+        <p class="text-gray-600 text-sm leading-relaxed">We provide a suite of school tools including a <strong>Smart Fixture Tool</strong> (for sports teams), <strong>Facility Booking Manager</strong> (for room reservations), and <strong>Behaviour Trackers</strong>.</p>
       </div>
 
       <div class="border border-gray-200 rounded-xl p-6 hover:border-brand-green/50 transition">
         <h3 class="font-bold text-lg text-gray-900 mb-2">Do students need to log in?</h3>
-        <p class="text-gray-600 text-sm leading-relaxed">No. Our House Points system is designed to be "invisible" to students. Only teachers log in to award points. Students view live dashboards in the hallway or via a shared link.</p>
+        <p class="text-gray-600 text-sm leading-relaxed">For our Core Campus plan, no student login is required. For our Pro Ecosystem plan, students log in securely using an anonymous ID and class passcode, ensuring no Personally Identifiable Information is required.</p>
       </div>
 
       <div class="border border-gray-200 rounded-xl p-6 hover:border-brand-green/50 transition">
         <h3 class="font-bold text-lg text-gray-900 mb-2">Is our data secure?</h3>
-        <p class="text-gray-600 text-sm leading-relaxed">Absolutely. Unlike other providers, TrackEDU operates on <strong>your</strong> school's own Google infrastructure. We do not store or sell student data. You retain full data sovereignty.</p>
+        <p class="text-gray-600 text-sm leading-relaxed">Absolutely. We run on secure, encrypted Firebase infrastructure. We do not store unnecessary student data, we do not run ads, and you have the power to permanently wipe your database at any time.</p>
       </div>
 
     </div>
@@ -875,16 +864,14 @@
     
     <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-8 text-sm font-medium text-gray-600">
       <a href="#how" class="hover:text-brand-green">How it Works</a>
-      <a href="#pricing" class="hover:text-brand-green">The Pilot</a>
+      <a href="#pricing" class="hover:text-brand-green">Pricing</a>
       <button onclick="openTrustModal()" class="hover:text-brand-green font-semibold">Trust & Vision</button>
       <a href="/privacy.html" class="hover:text-brand-green">Privacy Policy</a>
-      
-     
     </div>
 
     <div class="text-xs text-gray-400">
-      <p class="mb-2">TrackEDU is currently shared as part of school-based pilots and professional learning.</p>
-      <p>&copy; 2026 TrackEDU. Project currently operating as an educational research initiative. Not yet a registered commercial entity.</p> </div>
+      <p>&copy; 2026 TrackEDU. All rights reserved.</p> 
+    </div>
   </div>
 </footer>
 
@@ -935,67 +922,54 @@
       <div class="max-w-4xl mx-auto space-y-16">
         
         <section>
-  <div class="text-center mb-10">
-    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-bold uppercase">Our Philosophy</span>
-    <h2 class="text-3xl font-bold text-brand-dark mt-4 mb-6">Software shouldn't add to your workload.</h2>
-    <p class="text-xl text-gray-600 leading-relaxed">
-      Most school software is clunky, slow, and built by engineers who have never run a school assembly. TrackEDU is different. We build "Quiet Tech"—tools that work in the background, require zero training, and let you get back to teaching.
-    </p>
-  </div>
-  
-  <div class="grid md:grid-cols-2 gap-8 text-gray-700">
-    <div class="bg-gray-50 p-6 rounded-2xl">
-      <h4 class="font-bold text-lg mb-2">The Old Way</h4>
-      <p>Complex systems that require student logins, passwords, and hours of admin time to manage house points. Teachers stop using it because it's too hard.</p>
-    </div>
-    <div class="bg-blue-50 p-6 rounded-2xl">
-      <h4 class="font-bold text-lg mb-2 text-brand-blue">The TrackEDU Way</h4>
-      <p>No student logins. Teachers award points in 3 clicks. It just works. We measure success by how <em>little</em> time you spend on our app.</p>
-    </div>
-  </div>
-</section>
-
-        <section class="border-t pt-10">
           <div class="text-center mb-10">
-            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-bold uppercase">Data Sovereignty</span>
-            <h2 class="text-3xl font-bold text-brand-dark mt-4 mb-6">Your Data Stays Yours. Forever.</h2>
-            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-              We fundamentally disagree with the model of holding school data hostage. TrackEDU operates entirely within your existing Google Workspace.
+            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-bold uppercase">Enterprise Security</span>
+            <h2 class="text-3xl font-bold text-brand-dark mt-4 mb-6">Bank-Grade Security for Schools.</h2>
+            <p class="text-xl text-gray-600 leading-relaxed">
+              TrackEDU is built on highly secure, encrypted cloud infrastructure. We believe student data should be protected at all costs, which is why we built a system that fundamentally requires less personal data to operate.
             </p>
           </div>
-
-          <div class="grid md:grid-cols-3 gap-6">
-            <div class="bg-white border p-6 rounded-xl shadow-sm">
-              <i class="fab fa-google text-4xl mb-4 text-gray-400"></i>
-              <h4 class="font-bold text-lg mb-2">Google Infrastructure</h4>
-              <p class="text-sm text-gray-600">The code runs as a script attached to a Google Sheet in <strong>your</strong> school's drive. It uses Google's enterprise-grade security.</p>
+          
+          <div class="grid md:grid-cols-2 gap-8 text-gray-700">
+            <div class="bg-gray-50 p-6 rounded-2xl">
+              <h4 class="font-bold text-lg mb-2">FERPA & GDPR Compliant</h4>
+              <p>We comply with major global data privacy laws. We do not sell data, we do not run ads, and we do not track students across the web.</p>
             </div>
-            <div class="bg-white border p-6 rounded-xl shadow-sm">
-              <i class="fas fa-database text-4xl mb-4 text-gray-400"></i>
-              <h4 class="font-bold text-lg mb-2">No External DB</h4>
-              <p class="text-sm text-gray-600">We do not have a master database of student names. If you stop using TrackEDU, you keep all your data. We keep nothing.</p>
-            </div>
-            <div class="bg-white border p-6 rounded-xl shadow-sm">
-              <i class="fas fa-ban text-4xl mb-4 text-gray-400"></i>
-              <h4 class="font-bold text-lg mb-2">No Tracking</h4>
-              <p class="text-sm text-gray-600">No ads. No selling data. No third-party analytics on student behavior. Just a tool that works.</p>
+            <div class="bg-blue-50 p-6 rounded-2xl">
+              <h4 class="font-bold text-lg mb-2 text-brand-blue">No PII Required for Students</h4>
+              <p>The Student App uses secure, auto-generated alphanumeric ID tokens and Class Passcodes. No student emails, passwords, or persistent tracking cookies are required to use the platform.</p>
             </div>
           </div>
-          
+        </section>
+
+        <section class="border-t pt-10 mt-10">
+          <div class="text-center mb-10">
+            <h2 class="text-3xl font-bold text-brand-dark mt-4 mb-6">Data Sovereignty & Control</h2>
+          </div>
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-white border p-6 rounded-xl shadow-sm">
+              <i class="fas fa-cloud text-4xl mb-4 text-brand-blue"></i>
+              <h4 class="font-bold text-lg mb-2">Encrypted Database</h4>
+              <p class="text-sm text-gray-600">All school data is encrypted at rest and in transit using industry-standard AES-256 and TLS 1.3 protocols.</p>
+            </div>
+            <div class="bg-white border p-6 rounded-xl shadow-sm">
+              <i class="fas fa-trash-alt text-4xl mb-4 text-brand-blue"></i>
+              <h4 class="font-bold text-lg mb-2">The Right to Erase</h4>
+              <p class="text-sm text-gray-600">Schools retain full ownership of their data. If you cancel your contract, you can permanently wipe your entire school database with a single click.</p>
+            </div>
+            <div class="bg-white border p-6 rounded-xl shadow-sm">
+              <i class="fas fa-file-export text-4xl mb-4 text-brand-blue"></i>
+              <h4 class="font-bold text-lg mb-2">Easy Exports</h4>
+              <p class="text-sm text-gray-600">Need your data for report cards? Administrators can export all points, history, and student rosters to CSV at any time.</p>
+            </div>
+          </div>
         </section>
 
         <section class="mt-16 pt-8 border-t border-gray-100 text-center">
-            <p class="text-gray-500 mb-4">For full legal details regarding data handling, ownership, and the PDPA:</p>
+            <p class="text-gray-500 mb-4">For full legal details regarding data handling, ownership, and privacy compliance:</p>
             <a href="/privacy.html" target="_blank" class="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-gray-100 text-gray-700 font-bold hover:bg-gray-200 transition">
               <i class="fas fa-file-contract"></i> Read Full Privacy Policy
             </a>
-        </section>
-
-        <section class="border-t pt-10 text-center">
-            <h2 class="text-2xl font-bold mb-4">Our Vision for the Future</h2>
-            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-              We believe technology in schools should be quiet, reliable, and helpful. Our goal is to provide a suite of micro-tools—like House Points, Fixtures, and Facility Booking—that solve specific headaches without costing a fortune or compromising privacy.
-            </p>
         </section>
 
       </div>
@@ -1008,7 +982,7 @@
   <div class="relative w-full h-full md:h-[95vh] md:w-[95vw] md:max-w-6xl md:m-auto md:top-1/2 md:-translate-y-1/2 bg-white md:rounded-3xl shadow-2xl flex flex-col overflow-hidden">
     <div class="px-8 py-5 border-b flex justify-between items-center bg-gray-50 sticky top-0 z-50">
       <div class="flex flex-col">
-        <h3 class="font-display text-2xl font-black text-brand-dark">The Pilot Process</h3>
+        <h3 class="font-display text-2xl font-black text-brand-dark">Platform Setup & Onboarding</h3>
         <span class="text-xs text-gray-500">Everything you need to know about getting started</span>
       </div>
       <button onclick="closePilotModal()" class="w-10 h-10 bg-gray-200 rounded-full hover:bg-gray-300 transition flex items-center justify-center text-gray-700">&times;</button>
@@ -1019,8 +993,8 @@
         
         <div class="text-center mb-12">
           <p class="text-lg text-gray-600 mb-2">We know schools are busy.</p>
-          <h2 class="text-3xl font-bold mb-4">A Zero-Friction approach to trying new tech.</h2>
-          <p class="text-gray-500">No commitments. No heavy IT installs. Just clarity.</p>
+          <h2 class="text-3xl font-bold mb-4">A Zero-Friction approach to deploying new tech.</h2>
+          <p class="text-gray-500">No heavy IT installs. Just clarity.</p>
         </div>
 
         <div class="space-y-12 relative">
@@ -1041,10 +1015,6 @@
                   <strong>Q: "Do I need to bring my IT Director?"</strong><br>
                   <em>No, this call is for House Leaders/SLT. We discuss tech requirements (which are minimal) later.</em>
                 </div>
-                <div class="bg-blue-50 p-3 rounded-lg text-xs text-blue-800">
-                  <strong>Q: "Is there a cost for the discovery?"</strong><br>
-                  <em>None. It is purely to see if TrackEDU solves your problem.</em>
-                </div>
               </div>
             </div>
           </div>
@@ -1053,20 +1023,16 @@
             <div class="w-14 h-14 rounded-full bg-brand-green text-white flex items-center justify-center text-2xl font-bold shrink-0 shadow-lg z-10 mx-auto md:mx-0">2</div>
             <div class="flex-1 bg-white p-8 rounded-2xl border border-gray-100 shadow-sm w-full">
               <h4 class="text-xl font-bold text-brand-green mb-2">Custom Build (Done for You)</h4>
-              <p class="text-gray-600 mb-4">If you proceed, we build your system. You send us a student list, we do the rest.</p>
+              <p class="text-gray-600 mb-4">If you proceed, we help set up your system. You provide the student list, we assist with the rest.</p>
               <ul class="list-disc pl-5 space-y-2 text-sm text-gray-600 mb-6">
                 <li>We create your unique TrackEDU instance.</li>
-                <li>We import your students/classes.</li>
+                <li>We import your students/classes via CSV.</li>
                 <li>We configure your branding.</li>
               </ul>
               <div class="space-y-3">
                 <div class="bg-green-50 p-3 rounded-lg text-xs text-green-800">
                   <strong>Q: "How long does this take?"</strong><br>
-                  <em>Usually 24-48 hours after we get your student list.</em>
-                </div>
-                <div class="bg-green-50 p-3 rounded-lg text-xs text-green-800">
-                  <strong>Q: "Who has access to the data?"</strong><br>
-                  <em>During the pilot, we retain shared access to help you troubleshoot and update the system. <strong>This access is removed</strong> immediately if the pilot ends.</em>
+                  <em>Usually under 24 hours. The bulk CSV upload handles everything automatically.</em>
                 </div>
               </div>
             </div>
@@ -1084,7 +1050,7 @@
                <div class="space-y-3">
                  <div class="bg-gray-100 p-3 rounded-lg text-xs text-gray-800">
                   <strong>Q: "Does it work on iPads?"</strong><br>
-                  <em>Yes. It works on any device with a browser. No app store downloads needed.</em>
+                  <em>Yes. It is a Progressive Web App (PWA) that works on any device with a browser.</em>
                 </div>
                 <div class="bg-gray-100 p-3 rounded-lg text-xs text-gray-800">
                   <strong>Q: "How do teachers log in?"</strong><br>
@@ -1098,10 +1064,6 @@
         <div class="mt-16 pt-12 border-t border-gray-100">
           <h3 class="text-2xl font-bold text-center mb-8">Common Questions from Schools</h3>
           <div class="grid md:grid-cols-2 gap-6 text-left">
-            <div class="bg-gray-50 p-5 rounded-xl">
-              <h5 class="font-bold text-gray-900 mb-2">What happens after the pilot?</h5>
-              <p class="text-sm text-gray-600">If you proceed, we move to a license. If not, <strong>we remove our access immediately</strong>. You keep the Google Sheet and all history. No lock-in.</p>
-            </div>
             <div class="bg-gray-50 p-5 rounded-xl">
               <h5 class="font-bold text-gray-900 mb-2">Does it integrate with iSAMS/SIMS?</h5>
               <p class="text-sm text-gray-600">TrackEDU is designed to be lightweight and standalone to avoid complex IT integration. However, all data is exportable to CSV instantly.</p>
@@ -1132,8 +1094,8 @@
 <script>
   AOS.init({ duration: 800, once: true, offset: 50, easing: 'ease-out-cubic' });
 
-  // ⬇️ THIS IS THE NEW LINE YOU NEED ⬇️
   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw2jfDz2Zbskn5jppl4fXqLxtqGfqjabRMMmBt82Qm9Tsoy2nhOoQOc2N4bWNBw-Do07Q/exec";
+  // NOTE: If you are migrating your lead capture to Firebase/EmailJS completely, you can update this SCRIPT_URL or the submitEnquiry fetch function later. For now, it continues to capture leads successfully.
 
   // Mobile Menu Logic
   const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -1143,7 +1105,6 @@
 
   function openMobileMenu() {
     mobileMenu.classList.remove('hidden');
-    // slight delay to allow display:block to apply before transform
     setTimeout(() => mobilePanel.classList.add('open'), 10);
     document.body.style.overflow = 'hidden';
   }
@@ -1173,7 +1134,6 @@
       modal.classList.add('hidden');
       document.body.style.overflow = '';
     };
-    // Close on escape
     document.addEventListener('keydown', (e) => {
       if(e.key === 'Escape' && !modal.classList.contains('hidden')) window[closeFnName]();
     });
@@ -1217,7 +1177,6 @@
     e.preventDefault();
     demoGate.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
-    // Reset state
     gateSubmitBtn.disabled = false;
     gateSubmitBtn.querySelector('.btn-text').style.opacity = '1';
     gateSubmitBtn.querySelector('.btn-spinner').style.opacity = '0';
@@ -1234,12 +1193,10 @@
       return;
     }
 
-    // Loading State
     gateSubmitBtn.disabled = true;
     gateSubmitBtn.querySelector('.btn-text').style.opacity = '0';
     gateSubmitBtn.querySelector('.btn-spinner').style.opacity = '1';
 
-    // 1. Prepare data (Action = demoGate)
     const payload = {
       action: "demoGate",
       name: name,
@@ -1248,7 +1205,6 @@
       interest: interest
     };
 
-    // 2. Send to Google Script using FETCH
     fetch(SCRIPT_URL, {
       method: "POST",
       body: JSON.stringify(payload)
@@ -1256,33 +1212,28 @@
     .then(response => {
        alert(`Access link sent to ${email}. Check your inbox!`);
        closeDemoGate();
-       // Reset button
        gateSubmitBtn.disabled = false;
        gateSubmitBtn.querySelector('.btn-text').style.opacity = '1';
        gateSubmitBtn.querySelector('.btn-spinner').style.opacity = '0';
     })
     .catch(err => {
         console.error(err);
-        // Fallback: If it fails, just let them in
         alert("Thanks! Proceeding to demo.");
         closeDemoGate();
-        window.open(SCRIPT_URL + "?view=housepointsdemo", "_blank");
+        window.open("https://trackedu-housepoints.web.app", "_blank");
     });
   });
 
   // Main Contact Form
   window.submitEnquiry = () => {
-    // HONEY POT CHECK - Bot trap
     const honeyPot = document.getElementById('website');
     if (honeyPot && honeyPot.value !== '') {
-      // Bot detected - silently fail with fake success message
       console.log('Spam blocked: honey pot triggered');
       alert("Thank you! We'll be in touch shortly.");
       document.getElementById('demoForm').reset();
       return false;
     }
     
-    // MATH CAPTCHA CHECK
     const captcha = document.getElementById('captcha');
     if (!captcha || captcha.value !== '8') {
       alert('Please answer the anti-spam question correctly (5 + 3 = ?).');
@@ -1290,7 +1241,6 @@
       return false;
     }
     
-    // TIMESTAMP CHECK - Optional: Add if you want to prevent instant submissions
     if (window.formStartTime) {
       const timeDiff = (Date.now() - window.formStartTime) / 1000;
       if (timeDiff < 3) {
@@ -1307,8 +1257,6 @@
     btnText.classList.add('opacity-0');
     spinner.classList.remove('opacity-0');
 
-    // 1. Prepare data (Action = enquiry)
-    // Note: Keys match what your Google Script expects (Capitalized)
     const payload = {
       action: "enquiry",
       Name: document.getElementById('name').value,
@@ -1317,7 +1265,6 @@
       Message: document.getElementById('message').value
     };
 
-    // 2. Send to Google Script using FETCH
     fetch(SCRIPT_URL, {
       method: "POST",
       body: JSON.stringify(payload)
@@ -1340,9 +1287,7 @@
     });
   };
 
-  // Mobile Mockup Loading Simulator
   document.addEventListener('DOMContentLoaded', () => {
-    // Set timestamp for form submission rate limiting
     window.formStartTime = Date.now();
     
     setTimeout(() => {
@@ -1358,7 +1303,6 @@
     }, 2000);
   });
 
-// YouTube IFrame API Logic
 var player;
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('hero-video', {
@@ -1373,7 +1317,6 @@ function onPlayerReady(event) {
   const muteIcon = document.getElementById('muteIcon');
   const fullscreenBtn = document.getElementById('toggleFullscreen');
 
-  // Load YouTube API script if not already present
   if (!window.YT) {
     var tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
@@ -1381,7 +1324,6 @@ function onPlayerReady(event) {
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
   }
 
-  // Handle Mute/Unmute
   muteBtn.addEventListener('click', () => {
     if (player.isMuted()) {
       player.unMute();
@@ -1394,20 +1336,18 @@ function onPlayerReady(event) {
     }
   });
 
-  // Handle Fullscreen
   fullscreenBtn.addEventListener('click', () => {
     const iframe = document.getElementById('hero-video');
     if (iframe.requestFullscreen) {
       iframe.requestFullscreen();
-    } else if (iframe.webkitRequestFullscreen) { /* Safari */
+    } else if (iframe.webkitRequestFullscreen) {
       iframe.webkitRequestFullscreen();
-    } else if (iframe.msRequestFullscreen) { /* IE11 */
+    } else if (iframe.msRequestFullscreen) {
       iframe.msRequestFullscreen();
     }
   });
 }
 
-// Initial call to load the API
 if (!window.YT) {
   var tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
@@ -1415,8 +1355,6 @@ if (!window.YT) {
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 }
 
-
-  
 </script>
 
 <script type="text/javascript">
@@ -1431,17 +1369,10 @@ if (!window.YT) {
 
 <script>
   function selectPlan(planName) {
-    // 1. Scroll to the form
     document.getElementById('demo').scrollIntoView({ behavior: 'smooth' });
-    
-    // 2. Auto-fill the message
     const messageField = document.getElementById('message');
     messageField.value = "Hi TrackEDU, I am interested in the '" + planName + "'. Please send me more details.";
-    
-    // 3. Focus on the Name field so they can start typing immediately
     document.getElementById('name').focus();
-    
-    // 4. (Optional) Flash the message box green so they see it changed
     messageField.style.borderColor = '#87C232';
     setTimeout(() => { messageField.style.borderColor = ''; }, 2000);
   }
@@ -1462,13 +1393,11 @@ if (!window.YT) {
        <img src="https://trackedu.github.io/common-assets/fixture3.jpg" class="slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300" data-index="2">
        <img src="https://trackedu.github.io/common-assets/fixture4.jpg" class="slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300" data-index="3">
       
-       
        <button onclick="changeSlide('fixtureModal', -1)" class="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/80 rounded-full text-white flex items-center justify-center backdrop-blur-md z-10"><i class="fas fa-chevron-left"></i></button>
        <button onclick="changeSlide('fixtureModal', 1)" class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/80 rounded-full text-white flex items-center justify-center backdrop-blur-md z-10"><i class="fas fa-chevron-right"></i></button>
        
        <div class="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10">
          <div class="dot w-2 h-2 rounded-full bg-white transition-all"></div>
-         <div class="dot w-2 h-2 rounded-full bg-white/40 transition-all"></div>
          <div class="dot w-2 h-2 rounded-full bg-white/40 transition-all"></div>
          <div class="dot w-2 h-2 rounded-full bg-white/40 transition-all"></div>
          <div class="dot w-2 h-2 rounded-full bg-white/40 transition-all"></div>
@@ -1533,13 +1462,10 @@ if (!window.YT) {
 </div>
 
 <script>
-  // Simple Logic for the Tool Carousels
   const carouselState = {};
-
   function openCarousel(modalId) {
     document.getElementById(modalId).classList.remove('hidden');
     document.body.style.overflow = 'hidden';
-    // Reset to first slide
     carouselState[modalId] = 0;
     updateCarousel(modalId);
   }
@@ -1555,8 +1481,6 @@ if (!window.YT) {
     let currentIndex = carouselState[modalId] || 0;
 
     currentIndex += direction;
-
-    // Loop
     if (currentIndex >= slides.length) currentIndex = 0;
     if (currentIndex < 0) currentIndex = slides.length - 1;
 
