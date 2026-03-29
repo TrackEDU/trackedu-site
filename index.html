@@ -218,6 +218,24 @@ html { scroll-padding-top: 100px; }
       text-transform: uppercase;
       letter-spacing: 1px;
     }
+    /* Comparison Table Styling */
+    .compare-table {
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+    .compare-table th, .compare-table td {
+      border-bottom: 1px solid #f1f5f9;
+      padding: 1.25rem 1rem;
+    }
+    .compare-table tr:last-child td {
+      border-bottom: none;
+    }
+    .sticky-col {
+      position: sticky;
+      left: 0;
+      background: white;
+      z-index: 10;
+    }
 
 
     
@@ -325,8 +343,32 @@ html { scroll-padding-top: 100px; }
 </button>
         </div>
         
-        <div class="order-6 lg:order-none mt-3 lg:mt-6 text-xs text-gray-500 font-medium">
-          <i class="fas fa-shield-alt mr-1 text-gray-400"></i> FERPA & GDPR Compliant • Secure Cloud Infrastructure
+       <div class="order-6 lg:order-none mt-8 pt-6 border-t border-gray-100">
+          <p class="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-4 text-center lg:text-left">Privacy & Security Standards</p>
+          <div class="flex flex-wrap justify-center lg:justify-start gap-x-8 gap-y-4 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+            
+            <div class="flex items-center gap-2" title="Family Educational Rights and Privacy Act">
+              <i class="fas fa-user-shield text-brand-blue text-lg"></i>
+              <span class="text-[11px] font-bold text-gray-600">FERPA COMPLIANT</span>
+            </div>
+
+            <div class="flex items-center gap-2" title="Children's Online Privacy Protection Act">
+              <i class="fas fa-child text-brand-blue text-lg"></i>
+              <span class="text-[11px] font-bold text-gray-600">COPPA READY</span>
+            </div>
+
+            <div class="flex items-center gap-2" title="General Data Protection Regulation">
+              <i class="fas fa-eu-sign text-brand-blue text-lg"></i>
+              <span class="text-[11px] font-bold text-gray-600">GDPR ALIGNED</span>
+            </div>
+
+            <div class="flex items-center gap-2" title="Google Firebase Encryption">
+              <i class="fas fa-lock text-brand-blue text-lg"></i>
+              <span class="text-[11px] font-bold text-gray-600">AES-256 ENCRYPTED</span>
+            </div>
+
+          </div>
+          <p class="mt-4 text-[10px] text-gray-400 italic text-center lg:text-left">*System utilizes anonymous student tokens. No student PII required.</p>
         </div>
       </div>
 
@@ -582,7 +624,127 @@ html { scroll-padding-top: 100px; }
         <button onclick="window.location.href='https://trackedu-housepoints.web.app'" class="w-full py-3 rounded-xl font-bold text-brand-blue border-2 border-brand-blue hover:bg-brand-blue hover:text-white transition">Start Free Trial</button>
       </div>
 
+  </div>
+
+    <div class="mt-20 overflow-x-auto scrollbar-hide">
+      <div class="text-center mb-10">
+        <h3 class="font-display text-2xl font-bold text-brand-dark">Detailed Feature Comparison</h3>
+        <p class="text-gray-500 text-sm">Everything you need to transform your school culture</p>
+      </div>
+
+      <table class="w-full min-w-[800px] compare-table text-left bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100">
+        <thead>
+          <tr class="bg-gray-50/50">
+            <th class="w-1/3 text-sm font-bold uppercase tracking-widest text-gray-400 p-6">Feature</th>
+            <th class="text-center text-brand-blue font-bold p-6">Classroom</th>
+            <th class="text-center text-brand-green font-bold p-6 bg-green-50/30">Core Campus</th>
+            <th class="text-center text-brand-blue font-bold p-6">Pro Ecosystem</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="4" class="bg-gray-50/30 py-3 px-6 text-[10px] font-black uppercase tracking-widest text-gray-500">Core Management</td></tr>
+          <tr>
+            <td class="font-medium text-gray-700">Teacher Accounts</td>
+            <td class="text-center text-sm text-gray-500">1 Solo Teacher</td>
+            <td class="text-center text-sm text-gray-900 font-bold">Unlimited</td>
+            <td class="text-center text-sm text-gray-900 font-bold">Unlimited</td>
+          </tr>
+          <tr>
+            <td class="font-medium text-gray-700">Student Capacity</td>
+            <td class="text-center text-sm text-gray-500">Up to 50</td>
+            <td class="text-center text-sm text-gray-900 font-bold">Unlimited</td>
+            <td class="text-center text-sm text-gray-900 font-bold">Unlimited</td>
+          </tr>
+          <tr>
+            <td class="font-medium text-gray-700">Unified School Syncing</td>
+            <td class="text-center text-gray-300"><i class="fas fa-times"></i></td>
+            <td class="text-center text-brand-green"><i class="fas fa-check-circle"></i></td>
+            <td class="text-center text-brand-green"><i class="fas fa-check-circle"></i></td>
+          </tr>
+
+          <tr><td colspan="4" class="bg-gray-50/30 py-3 px-6 text-[10px] font-black uppercase tracking-widest text-gray-500">Teacher Toolkit</td></tr>
+          <tr>
+            <td class="font-medium text-gray-700">Basic Tools (Hat & Timer)</td>
+            <td class="text-center text-brand-green"><i class="fas fa-check-circle"></i></td>
+            <td class="text-center text-brand-green"><i class="fas fa-check-circle"></i></td>
+            <td class="text-center text-brand-green"><i class="fas fa-check-circle"></i></td>
+          </tr>
+          <tr>
+            <td class="font-medium text-gray-700">Full 8+ Tool Suite (Snakes, Squads, etc.)</td>
+            <td class="text-center text-gray-300"><i class="fas fa-times"></i></td>
+            <td class="text-center text-brand-green"><i class="fas fa-check-circle"></i></td>
+            <td class="text-center text-brand-green"><i class="fas fa-check-circle"></i></td>
+          </tr>
+          <tr>
+            <td class="font-medium text-gray-700">CSV Bulk Import & Auto-Balance</td>
+            <td class="text-center text-gray-300"><i class="fas fa-times"></i></td>
+            <td class="text-center text-brand-green"><i class="fas fa-check-circle"></i></td>
+            <td class="text-center text-brand-green"><i class="fas fa-check-circle"></i></td>
+          </tr>
+
+          <tr><td colspan="4" class="bg-gray-50/30 py-3 px-6 text-[10px] font-black uppercase tracking-widest text-gray-500">School-Wide Experience</td></tr>
+          <tr>
+            <td class="font-medium text-gray-700">Assembly Projector Mode (4K)</td>
+            <td class="text-center text-gray-300"><i class="fas fa-times"></i></td>
+            <td class="text-center text-brand-green"><i class="fas fa-check-circle"></i></td>
+            <td class="text-center text-brand-green"><i class="fas fa-check-circle"></i></td>
+          </tr>
+          <tr>
+            <td class="font-medium text-gray-700">House Engagement Posters (QR)</td>
+            <td class="text-center text-gray-300"><i class="fas fa-times"></i></td>
+            <td class="text-center text-brand-green"><i class="fas fa-check-circle"></i></td>
+            <td class="text-center text-brand-green"><i class="fas fa-check-circle"></i></td>
+          </tr>
+
+          <tr class="bg-blue-50/20"><td colspan="4" class="bg-brand-blue/10 py-3 px-6 text-[10px] font-black uppercase tracking-widest text-brand-blue">Interactive Gamification (Pro Features)</td></tr>
+          <tr>
+            <td class="font-bold text-brand-dark">Full Student Hero App Access</td>
+            <td class="text-center text-gray-300"><i class="fas fa-times"></i></td>
+            <td class="text-center text-gray-300"><i class="fas fa-times"></i></td>
+            <td class="text-center text-brand-blue"><i class="fas fa-check-circle"></i></td>
+          </tr>
+          <tr>
+            <td class="font-medium text-gray-700">3D Holographic Card Binders</td>
+            <td class="text-center text-gray-300"><i class="fas fa-times"></i></td>
+            <td class="text-center text-gray-300"><i class="fas fa-times"></i></td>
+            <td class="text-center text-brand-blue"><i class="fas fa-check-circle"></i></td>
+          </tr>
+          <tr>
+            <td class="font-medium text-gray-700">House Reactors & Blasts</td>
+            <td class="text-center text-gray-300"><i class="fas fa-times"></i></td>
+            <td class="text-center text-gray-300"><i class="fas fa-times"></i></td>
+            <td class="text-center text-brand-blue"><i class="fas fa-check-circle"></i></td>
+          </tr>
+          <tr>
+            <td class="font-medium text-gray-700">Live Student Voice Polls</td>
+            <td class="text-center text-gray-300"><i class="fas fa-times"></i></td>
+            <td class="text-center text-gray-300"><i class="fas fa-times"></i></td>
+            <td class="text-center text-brand-blue"><i class="fas fa-check-circle"></i></td>
+          </tr>
+          <tr>
+            <td class="font-medium text-gray-700">Loot Drops & Secret Codes</td>
+            <td class="text-center text-gray-300"><i class="fas fa-times"></i></td>
+            <td class="text-center text-gray-300"><i class="fas fa-times"></i></td>
+            <td class="text-center text-brand-blue"><i class="fas fa-check-circle"></i></td>
+          </tr>
+
+          <tr><td colspan="4" class="bg-gray-50/30 py-3 px-6 text-[10px] font-black uppercase tracking-widest text-gray-500">Security & Support</td></tr>
+          <tr>
+            <td class="font-medium text-gray-700">FERPA & GDPR Compliance</td>
+            <td class="text-center text-brand-green"><i class="fas fa-check-circle"></i></td>
+            <td class="text-center text-brand-green"><i class="fas fa-check-circle"></i></td>
+            <td class="text-center text-brand-green"><i class="fas fa-check-circle"></i></td>
+          </tr>
+          <tr>
+            <td class="font-medium text-gray-700">Customer Support</td>
+            <td class="text-center text-sm text-gray-400">Knowledge Base</td>
+            <td class="text-center text-sm text-gray-600 font-bold">Standard (24h)</td>
+            <td class="text-center text-sm text-brand-blue font-bold">Priority (WhatsApp/Instant)</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+
   </div>
 </section>
 
