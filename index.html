@@ -364,12 +364,24 @@ html { scroll-padding-top: 100px; }
 <section id="mobile-demo" class="py-16 bg-gradient-to-b from-white to-gray-50">
   <div class="max-w-6xl mx-auto px-4 text-center">
     <span class="text-brand-blue font-bold tracking-wider text-sm uppercase mb-2 block">Interactive Preview</span>
-    <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-black text-brand-dark mb-4">Experience the Dashboard</h2>
-    <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-      Whether you use an iPad in the classroom or a phone on the sports field, TrackEDU adapts to your device.
+    <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-black text-brand-dark mb-4">Experience Both Apps</h2>
+    
+    <div class="flex justify-center mb-10">
+      <div class="inline-flex p-1 bg-gray-200 rounded-2xl shadow-inner">
+        <button id="toggleTeacher" onclick="switchPreview('teacher')" class="px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm">
+          <i class="fas fa-chalkboard-teacher mr-2"></i> Teacher App
+        </button>
+        <button id="toggleStudent" onclick="switchPreview('student')" class="px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue">
+          <i class="fas fa-user-graduate mr-2"></i> Student App
+        </button>
+      </div>
+    </div>
+
+    <p id="previewSubtitle" class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+      The <strong>Teacher App</strong> is the command center for awarding points and managing tools.
     </p>
 
-    <div class="phone-frame relative" data-aos="zoom-in-up">
+    <div id="demoFrame" class="phone-frame relative" data-aos="zoom-in-up">
       <div class="bg-white w-full h-full rounded-[18px] sm:rounded-[24px] overflow-hidden relative">
         
         <div id="mockup-loading" class="absolute inset-0 bg-brand-dark flex flex-col items-center justify-center z-10 transition-opacity duration-700">
@@ -1169,20 +1181,60 @@ html { scroll-padding-top: 100px; }
     });
   };
 
+  function switchPreview(type) {
+    const frame = document.getElementById('demoFrame');
+    const iframe = document.getElementById('mockup-content');
+    const loader = document.getElementById('mockup-loading');
+    const subtitle = document.getElementById('previewSubtitle');
+    const btnTeacher = document.getElementById('toggleTeacher');
+    const btnStudent = document.getElementById('toggleStudent');
+
+    // 1. Trigger Loading State
+    loader.style.display = 'flex';
+    loader.style.opacity = '1';
+    iframe.style.opacity = '0';
+
+    // 2. Handle Logic based on selection
+    if (type === 'teacher') {
+      // Button Styles
+      btnTeacher.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm";
+      btnStudent.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue";
+      
+      subtitle.innerHTML = "The <strong>Teacher App</strong> is optimized for classroom iPads and laptops.";
+      iframe.src = "https://trackedu-housepoints.web.app";
+      
+      // Desktop: Switch to iPad aspect ratio (4:3)
+      if (window.innerWidth >= 1024) {
+        frame.style.width = '850px';
+        frame.style.aspectRatio = '4/3';
+      }
+    } else {
+      // Button Styles
+      btnStudent.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm";
+      btnTeacher.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue";
+      
+      subtitle.innerHTML = "The <strong>Student App</strong> is built for engagement on any mobile device.";
+      iframe.src = "https://trackedu-housepoints.web.app/student.html?school=demo_school";
+      
+      // Force Phone aspect ratio (9:19) for both mobile and desktop
+      frame.style.width = '280px';
+      frame.style.aspectRatio = '9/19';
+    }
+
+    // 3. Fake a small delay to make the transition feel "real"
+    setTimeout(() => {
+      loader.style.opacity = '0';
+      setTimeout(() => {
+        loader.style.display = 'none';
+        iframe.style.opacity = '1';
+      }, 700);
+    }, 1200);
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     window.formStartTime = Date.now();
-    
-    setTimeout(() => {
-      const loader = document.getElementById('mockup-loading');
-      const content = document.getElementById('mockup-content');
-      if(loader && content) {
-        loader.style.opacity = '0';
-        setTimeout(() => {
-          loader.style.display = 'none';
-          content.style.opacity = '1';
-        }, 700);
-      }
-    }, 2000);
+    // Default to teacher app on load
+    switchPreview('teacher');
   });
 
 var player;
