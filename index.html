@@ -152,46 +152,40 @@
     .mobile-menu.open {
       transform: translateX(0);
     }
-   /* Base Device Frame logic */
+  /* Base Device Frame logic - Default to Mobile Frame (Phone look) */
 .phone-frame {
   margin: 0 auto;
   background: #1f2937;
-  border: 12px solid #1f2937; /* The physical bezel */
-  outline: 2px solid #374151; /* The outer rim */
+  border: 10px solid #1f2937; 
+  outline: 2px solid #374151; 
   box-shadow: 0 20px 50px rgba(0,0,0,0.3);
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
   position: relative;
+  /* Default Mobile Ratio */
+  width: 280px; 
+  aspect-ratio: 9 / 19;
+  max-height: 75vh;
+  border-radius: 36px;
 }
 
-/* 💻 DESKTOP: iPad Landscape Mode (4:3 Aspect Ratio) */
-@media (min-width: 1024px) {
+/* 💻 DESKTOP ONLY: Switch to iPad Landscape Mode (4:3 Aspect Ratio) */
+/* We set this at 1025px to ensure actual iPads (usually 1024px) stay in Mobile Frame mode per your request */
+@media (min-width: 1025px) {
   .phone-frame {
     width: 850px; 
     aspect-ratio: 4 / 3;
     border-radius: 32px;
-    border-width: 18px; /* Thicker iPad bezel */
+    border-width: 18px; 
+    max-height: none;
   }
 }
 
-/* 📱 MOBILE & TABLET PORTRAIT: Standard Phone Mode (9:19 Aspect Ratio) */
-@media (max-width: 1023px) {
-  .phone-frame {
-    width: 280px; 
-    aspect-ratio: 9 / 19;
-    max-height: 75vh;
-    border-radius: 36px;
-    border-width: 10px; /* Thinner phone bezel */
-  }
-}
-
-/* ⚡ EXTRA SMALL MOBILE FIXES */
+/* ⚡ SMALL MOBILE TWEAK */
 @media (max-width: 640px) {
   .phone-frame {
-    width: 75vw; /* Slightly smaller for tight screens */
+    width: 75vw;
     border-radius: 28px;
-    outline-width: 1px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
   }
 }
 
@@ -1182,7 +1176,6 @@ html { scroll-padding-top: 100px; }
   };
 
   function switchPreview(type) {
-    const frame = document.getElementById('demoFrame');
     const iframe = document.getElementById('mockup-content');
     const loader = document.getElementById('mockup-loading');
     const subtitle = document.getElementById('previewSubtitle');
@@ -1194,41 +1187,29 @@ html { scroll-padding-top: 100px; }
     loader.style.opacity = '1';
     iframe.style.opacity = '0';
 
-    // 2. Handle Logic based on selection
+    // 2. Handle Logic based on selection (Frame size is handled by CSS Media Queries)
     if (type === 'teacher') {
-      // Button Styles
       btnTeacher.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm";
       btnStudent.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue";
       
-      subtitle.innerHTML = "The <strong>Teacher App</strong> is optimized for classroom iPads and laptops.";
+      subtitle.innerHTML = "The <strong>Teacher App</strong> is the command center for awarding points and managing tools.";
       iframe.src = "https://trackedu-housepoints.web.app";
-      
-      // Desktop: Switch to iPad aspect ratio (4:3)
-      if (window.innerWidth >= 1024) {
-        frame.style.width = '850px';
-        frame.style.aspectRatio = '4/3';
-      }
     } else {
-      // Button Styles
       btnStudent.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm";
       btnTeacher.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue";
       
       subtitle.innerHTML = "The <strong>Student App</strong> is built for engagement on any mobile device.";
       iframe.src = "https://trackedu-housepoints.web.app/student.html?school=demo_school";
-      
-      // Force Phone aspect ratio (9:19) for both mobile and desktop
-      frame.style.width = '280px';
-      frame.style.aspectRatio = '9/19';
     }
 
-    // 3. Fake a small delay to make the transition feel "real"
+    // 3. Simple transition delay
     setTimeout(() => {
       loader.style.opacity = '0';
       setTimeout(() => {
         loader.style.display = 'none';
         iframe.style.opacity = '1';
       }, 700);
-    }, 1200);
+    }, 1000);
   }
 
   document.addEventListener('DOMContentLoaded', () => {
