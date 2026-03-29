@@ -176,6 +176,35 @@
     html { scroll-padding-top: 100px; }
     .scrollbar-hide::-webkit-scrollbar { display: none; }
     .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+
+/* Pricing Modal Specifics */
+    .pricing-modal-overlay {
+      background: rgba(2, 6, 23, 0.9);
+      backdrop-filter: blur(8px);
+    }
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(15, 102, 195, 0.1);
+      color: var(--blue);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .plan-badge {
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+
+    
   </style>
 </head>
 <body class="antialiased text-gray-800">
@@ -466,7 +495,8 @@
   </div>
 </section>
 
-<section id="pricing" class="py-20 bg-brand-light">
+
+  <section id="pricing" class="py-20 bg-brand-light">
   <div class="max-w-6xl mx-auto px-6">
     
     <div class="text-center mb-16">
@@ -481,13 +511,12 @@
         <h3 class="font-display text-2xl font-bold text-brand-dark mb-2">Classroom</h3>
         <div class="text-brand-blue font-black text-4xl mb-4">Free<span class="text-lg text-gray-500 font-medium"> forever</span></div>
         <p class="text-gray-600 text-sm mb-6 h-10">Perfect for individual teachers wanting to gamify their room.</p>
-        <ul class="space-y-3 mb-8 flex-1">
+        <ul class="space-y-3 mb-6 flex-1">
           <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>1 Teacher, 1 Class</span></li>
           <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>Up to 50 Students</span></li>
           <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>Create up to 8 Custom Houses</span></li>
-          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>Magic Hat & Timer Tools</span></li>
-          <li class="flex items-start gap-3 text-gray-400"><i class="fas fa-times mt-1"></i> <span>No Student App Access</span></li>
         </ul>
+        <button onclick="openPlanDetails('classroom')" class="text-brand-blue text-xs font-bold uppercase tracking-widest mb-6 hover:underline cursor-pointer">Learn More <i class="fas fa-chevron-right ml-1"></i></button>
         <button onclick="window.location.href='https://trackedu-housepoints.web.app'" class="w-full py-3 rounded-xl font-bold text-brand-blue border-2 border-brand-blue hover:bg-brand-blue hover:text-white transition">Start for Free</button>
       </div>
 
@@ -496,30 +525,26 @@
         <h3 class="font-display text-2xl font-bold text-white mb-2">Core Campus</h3>
         <div class="text-white font-black text-4xl mb-4">$1,200<span class="text-lg text-gray-400 font-medium"> / year</span></div>
         <p class="text-gray-300 text-sm mb-6 h-10">Unify your school data and run incredible live assemblies.</p>
-        <ul class="space-y-3 mb-8 flex-1 text-gray-200">
-          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span><strong>Unlimited</strong> Teachers & Students</span></li>
-          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>CSV Bulk Import & Auto-Balancing</span></li>
-          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>Cross-Classroom Point Syncing</span></li>
+        <ul class="space-y-3 mb-6 flex-1 text-gray-200">
+          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>Unlimited Teachers & Students</span></li>
           <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>Live Assembly Projector Mode</span></li>
           <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>Weekly Quizzes & Loot Drops</span></li>
-          <li class="flex items-start gap-3 text-gray-500"><i class="fas fa-times mt-1"></i> <span>No Student App Access</span></li>
         </ul>
-        <button onclick="window.location.href='https://trackedu-housepoints.web.app'" class="w-full py-3 rounded-xl font-bold bg-brand-green text-white hover:bg-green-500 transition shadow-lg shadow-brand-green/30">Start 30-Day Free Trial</button>
+        <button onclick="openPlanDetails('core')" class="text-brand-green text-xs font-bold uppercase tracking-widest mb-6 hover:underline cursor-pointer">Learn More <i class="fas fa-chevron-right ml-1"></i></button>
+        <button onclick="window.location.href='https://trackedu-housepoints.web.app'" class="w-full py-3 rounded-xl font-bold bg-brand-green text-white hover:bg-green-500 transition shadow-lg shadow-brand-green/30">Start Free Trial</button>
       </div>
 
       <div class="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm flex flex-col relative transition transform hover:-translate-y-1 hover:shadow-lg">
         <h3 class="font-display text-2xl font-bold text-brand-dark mb-2">Pro Ecosystem</h3>
         <div class="text-brand-blue font-black text-4xl mb-4">$2,950<span class="text-lg text-gray-500 font-medium"> / year</span></div>
         <p class="text-gray-600 text-sm mb-6 h-10">The ultimate digital school culture and gamification platform.</p>
-        <ul class="space-y-3 mb-8 flex-1">
-          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span><em>Everything in Core Campus, plus:</em></span></li>
+        <ul class="space-y-3 mb-6 flex-1">
           <li class="flex items-start gap-3 text-sm font-bold text-brand-dark"><i class="fas fa-mobile-alt text-brand-blue mt-1"></i> <span>Full Student App Access</span></li>
           <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>3D Holographic Badge Binders</span></li>
-          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>Live Student Voice Polls</span></li>
           <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>House Power Boosts & Reactors</span></li>
-          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>The Multi-player Mystery Word</span></li>
         </ul>
-        <button onclick="window.location.href='https://trackedu-housepoints.web.app'" class="w-full py-3 rounded-xl font-bold text-brand-blue border-2 border-brand-blue hover:bg-brand-blue hover:text-white transition">Start 30-Day Free Trial</button>
+        <button onclick="openPlanDetails('pro')" class="text-brand-blue text-xs font-bold uppercase tracking-widest mb-6 hover:underline cursor-pointer">Learn More <i class="fas fa-chevron-right ml-1"></i></button>
+        <button onclick="window.location.href='https://trackedu-housepoints.web.app'" class="w-full py-3 rounded-xl font-bold text-brand-blue border-2 border-brand-blue hover:bg-brand-blue hover:text-white transition">Start Free Trial</button>
       </div>
 
     </div>
@@ -885,6 +910,39 @@
   </div>
 </div>
 
+
+
+
+
+  <div id="pricingInfoModal" class="fixed inset-0 z-[10000] hidden flex items-center justify-center p-4">
+  <div class="absolute inset-0 pricing-modal-overlay" onclick="closePricingModal()"></div>
+  
+  <div class="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl overflow-hidden transform transition-all">
+    <div id="modalThemeBar" class="h-2 w-full bg-brand-blue"></div>
+    <div class="p-6 md:p-8 flex justify-between items-start border-b border-gray-100">
+      <div>
+        <span id="modalPlanBadge" class="plan-badge bg-blue-100 text-blue-700 mb-2 inline-block">Plan Details</span>
+        <h3 id="modalPlanTitle" class="font-display text-3xl font-black text-brand-dark">Plan Features</h3>
+      </div>
+      <button onclick="closePricingModal()" class="w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 transition">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <div class="p-6 md:p-8 max-h-[60vh] overflow-y-auto" id="modalFeatureList">
+      </div>
+
+    <div class="p-6 bg-gray-50 flex flex-col sm:flex-row gap-4 justify-between items-center">
+      <div class="text-sm text-gray-500 font-medium">
+        <i class="fas fa-shield-halved mr-1"></i> Data secure & isolated
+      </div>
+      <button id="modalCTA" onclick="window.location.href='https://trackedu-housepoints.web.app'" class="btn px-8 py-3 w-full sm:w-auto">
+        Start Free Trial
+      </button>
+    </div>
+  </div>
+</div>
+
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init({ duration: 800, once: true, offset: 50, easing: 'ease-out-cubic' });
@@ -1149,6 +1207,70 @@ if (!window.YT) {
   var firstScriptTag = document.getElementsByTagName('script')[0];
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 }
+
+
+
+
+  const planInfo = {
+    classroom: {
+      title: "Classroom Plan",
+      badge: "Individual Teacher",
+      color: "#0f66c3",
+      features: [
+        { icon: "fa-lock", label: "Private Roster", desc: "Your data is isolated. Other teachers can't see your class unless you join a school-wide plan." },
+        { icon: "fa-bolt", label: "Instant Setup", desc: "No IT tickets or spreadsheet headaches. Manually add students and go live in minutes." },
+        { icon: "fa-hat-wizard", label: "Engagement Tools", desc: "Includes the Magic Hat for cold-calling and the Class Timer to manage transitions." }
+      ]
+    },
+    core: {
+      title: "Core Campus",
+      badge: "The Professional Standard",
+      color: "#87C232",
+      features: [
+        { icon: "fa-file-csv", label: "Bulk Admin Tools", desc: "Upload thousands of students via CSV and use Auto-Balance to sort houses instantly." },
+        { icon: "fa-sync", label: "Unified Syncing", desc: "Points awarded in Math appear in English. Real-time data consistency across the whole school." },
+        { icon: "fa-desktop", label: "Projector Mode", desc: "Transform assemblies with the 4K-ready Leaderboard view. Rotates top houses and class MVPs." },
+        { icon: "fa-brain", label: "School-Wide Quizzes", desc: "Launch academic brain-teasers that every teacher can project to their classroom." }
+      ]
+    },
+    pro: {
+      title: "Pro Ecosystem",
+      badge: "Ultimate Gamification",
+      color: "#0f66c3",
+      features: [
+        { icon: "fa-user-astronaut", label: "The Student App", desc: "Students get private, anonymous logins to track their growth, streak points, and badges." },
+        { icon: "fa-clone", label: "Holographic Binders", desc: "An RPG-style evolution system. Students unlock 30 tiers of unique 3D trading cards." },
+        { icon: "fa-battery-full", label: "House Reactors", desc: "Collective efficacy in action. Students must work together to charge their house core." },
+        { icon: "fa-user-secret", label: "Mystery Word Mission", desc: "A school-wide collaboration puzzle. Students find letters and solve codes together." }
+      ]
+    }
+  };
+
+  function openPlanDetails(planKey) {
+    const data = planInfo[planKey];
+    document.getElementById('modalPlanTitle').innerText = data.title;
+    document.getElementById('modalPlanBadge').innerText = data.badge;
+    document.getElementById('modalThemeBar').style.backgroundColor = data.color;
+    
+    const listHtml = data.features.map(f => `
+      <div class="flex gap-4 mb-8 items-start">
+        <div class="feature-icon"><i class="fas ${f.icon}"></i></div>
+        <div>
+          <h4 class="font-bold text-gray-900">${f.label}</h4>
+          <p class="text-sm text-gray-600 leading-relaxed">${f.desc}</p>
+        </div>
+      </div>
+    `).join('');
+    
+    document.getElementById('modalFeatureList').innerHTML = listHtml;
+    document.getElementById('pricingInfoModal').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePricingModal() {
+    document.getElementById('pricingInfoModal').classList.add('hidden');
+    document.body.style.overflow = '';
+  }
 
 </script>
 
