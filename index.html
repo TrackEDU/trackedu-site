@@ -504,7 +504,7 @@
           <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>Weekly Quizzes & Loot Drops</span></li>
           <li class="flex items-start gap-3 text-gray-500"><i class="fas fa-times mt-1"></i> <span>No Student App Access</span></li>
         </ul>
-        <button data-cal-link="trackedu-a9dbpy/30min" class="w-full py-3 rounded-xl font-bold bg-brand-green text-white hover:bg-green-500 transition shadow-lg shadow-brand-green/30">Book Demo</button>
+        <button onclick="window.location.href='https://trackedu-housepoints.web.app'" class="w-full py-3 rounded-xl font-bold bg-brand-green text-white hover:bg-green-500 transition shadow-lg shadow-brand-green/30">Start 30-Day Free Trial</button>
       </div>
 
       <div class="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm flex flex-col relative transition transform hover:-translate-y-1 hover:shadow-lg">
@@ -519,7 +519,7 @@
           <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>House Power Boosts & Reactors</span></li>
           <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>The Multi-player Mystery Word</span></li>
         </ul>
-        <button data-cal-link="trackedu-a9dbpy/30min" class="w-full py-3 rounded-xl font-bold text-brand-blue border-2 border-brand-blue hover:bg-brand-blue hover:text-white transition">Contact Sales</button>
+        <button onclick="window.location.href='https://trackedu-housepoints.web.app'" class="w-full py-3 rounded-xl font-bold text-brand-blue border-2 border-brand-blue hover:bg-brand-blue hover:text-white transition">Start 30-Day Free Trial</button>
       </div>
 
     </div>
@@ -613,85 +613,49 @@
 </section>
 
 
-
 <section class="py-20 bg-brand-dark text-white text-center">
   <div class="max-w-4xl mx-auto px-6">
-    <h2 class="font-display text-4xl font-black mb-6">How Schools Explore TrackEDU</h2>
+    <h2 class="font-display text-4xl font-black mb-6">Zero-Friction Onboarding</h2>
     <p class="text-lg text-gray-300 mb-10 max-w-2xl mx-auto">
-      A simple, guided onboarding process. Start with a quick call, get a customized system, and deploy it smoothly.
+      Don't wait for a sales rep. Authenticate with your school Google account, upload your students, and go live in 10 minutes.
     </p>
     <button onclick="openPilotModal()" class="btn bg-brand-green text-white hover:bg-white hover:text-brand-green border-2 border-brand-green px-10 py-4 text-xl shadow-lg transition">
-      See the Setup Process
+      See How Easy Setup Is
     </button>
   </div>
 </section>
 
 <section id="demo" class="py-24 bg-white">
-  <div class="max-w-3xl mx-auto px-6">
+  <div class="max-w-4xl mx-auto px-6">
     <div class="text-center mb-12">
       <h2 class="font-display text-4xl font-black text-brand-dark mb-4">Start Your Journey</h2>
-      <p class="text-gray-600">Choose how you'd like to explore TrackEDU.</p>
+      <p class="text-gray-600 text-lg">Choose how you'd like to get started today.</p>
     </div>
 
     <div class="grid md:grid-cols-2 gap-6 mb-12">
-      <button data-cal-link="trackedu-a9dbpy/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view"}' class="p-6 rounded-2xl border-2 border-gray-100 hover:border-brand-blue/30 hover:bg-blue-50/50 transition text-left group">
-        <div class="flex items-center justify-between mb-4">
-          <i class="fas fa-video text-2xl text-brand-blue"></i>
-          <span class="text-sm font-bold text-brand-blue opacity-0 group-hover:opacity-100 transition">Best Start</span>
-        </div>
-        <h3 class="font-bold text-lg mb-1">Book a Call</h3>
-        <p class="text-sm text-gray-500">30-min live walkthrough & Q&A.</p>
-      </button>
-
-      <button onclick="document.getElementById('name').focus()" class="p-6 rounded-2xl border-2 border-gray-100 hover:border-brand-green/30 hover:bg-green-50/50 transition text-left">
-        <div class="flex items-center justify-between mb-4">
-          <i class="fas fa-envelope text-2xl text-brand-green"></i>
-        </div>
-        <h3 class="font-bold text-lg mb-1">Send Enquiry</h3>
-        <p class="text-sm text-gray-500">Get info via email.</p>
-      </button>
-    </div>
-
-   <div class="bg-brand-light p-8 md:p-12 rounded-3xl border border-gray-200 shadow-sm relative overflow-hidden">
-  <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brand-blue to-brand-green"></div>
-  
-  <div style="position: absolute; left: -5000px; top: -5000px;" aria-hidden="true">
-    <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" value="">
-  </div>
-  
-  <form id="demoForm" onsubmit="submitEnquiry(); return false;" class="space-y-5">
-    <div class="grid md:grid-cols-2 gap-5">
-      <div class="space-y-1">
-        <label for="name" class="text-xs font-bold uppercase text-gray-500 ml-1">Name</label>
-        <input type="text" id="name" class="w-full px-5 py-3 rounded-xl border-gray-200 focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 outline-none transition" required>
-      </div>
-      <div class="space-y-1">
-        <label for="email" class="text-xs font-bold uppercase text-gray-500 ml-1">School Email</label>
-        <input type="email" id="email" class="w-full px-5 py-3 rounded-xl border-gray-200 focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 outline-none transition" required>
-      </div>
-    </div>
-        <div class="space-y-1">
-          <label for="school" class="text-xs font-bold uppercase text-gray-500 ml-1">School Name</label>
-          <input type="text" id="school" class="w-full px-5 py-3 rounded-xl border-gray-200 focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 outline-none transition" required>
-        </div>
-       <div class="space-y-1">
-  <label for="message" class="text-xs font-bold uppercase text-gray-500 ml-1">Message (Optional)</label>
-  <textarea id="message" rows="3" class="w-full px-5 py-3 rounded-xl border-gray-200 focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 outline-none transition"></textarea>
-</div>
-
-<div class="space-y-1">
-  <label class="text-xs font-bold uppercase text-gray-500 ml-1">Anti-spam: What is 5 + 3?</label>
-  <input type="text" id="captcha" class="w-full px-5 py-3 rounded-xl border-gray-200 focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 outline-none transition" required>
-</div>
-
-<button type="submit" id="submitBtn" class="w-full btn py-4 text-lg font-bold mt-4">
-          <span id="btnText">Submit Enquiry</span>
-          <span id="spinner" class="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity">
-            <i class="fas fa-circle-notch fa-spin"></i>
-          </span>
+      <div class="p-8 rounded-3xl border-2 border-brand-green bg-green-50/30 flex flex-col text-center shadow-lg transform transition hover:-translate-y-1">
+        <div class="w-16 h-16 bg-brand-green/20 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">🚀</div>
+        <h3 class="font-display text-2xl font-bold mb-3 text-brand-dark">Start Instantly</h3>
+        <p class="text-gray-600 mb-8 flex-1">Jump right in. Create your free account, access the 30-day trial, and set up your school immediately.</p>
+        <button onclick="window.location.href='https://trackedu-housepoints.web.app'" class="w-full btn py-4 text-lg font-bold shadow-md">
+          Go to App
         </button>
-      </form>
+      </div>
+
+      <div class="p-8 rounded-3xl border border-gray-200 bg-white flex flex-col text-center shadow-sm transform transition hover:-translate-y-1">
+        <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-3xl mx-auto mb-6 text-brand-blue"><i class="fas fa-video"></i></div>
+        <h3 class="font-display text-2xl font-bold mb-3 text-brand-dark">Talk to an Expert</h3>
+        <p class="text-gray-600 mb-8 flex-1">Have a massive district or specific security questions? Book a 30-minute live walkthrough.</p>
+        <button data-cal-link="trackedu-a9dbpy/30min" class="w-full py-4 text-lg font-bold text-brand-blue border-2 border-brand-blue rounded-xl hover:bg-brand-blue hover:text-white transition">
+          Book a Call
+        </button>
+      </div>
     </div>
+    
+    <div class="text-center mt-8">
+      <p class="text-gray-500 text-sm">Have a quick question? Email us at <a href="mailto:hello@trackedu.net" class="font-bold text-brand-blue hover:underline">hello@trackedu.net</a></p>
+    </div>
+
   </div>
 </section>
 
@@ -843,13 +807,13 @@
   </div>
 </div>
 
-<div id="pilotModal" class="fixed inset-0 z-[9999] hidden">
+  <div id="pilotModal" class="fixed inset-0 z-[9999] hidden">
   <div class="absolute inset-0 bg-gray-900/80 backdrop-blur-sm" onclick="closePilotModal()"></div>
   <div class="relative w-full h-full md:h-[95vh] md:w-[95vw] md:max-w-6xl md:m-auto md:top-1/2 md:-translate-y-1/2 bg-white md:rounded-3xl shadow-2xl flex flex-col overflow-hidden">
     <div class="px-8 py-5 border-b flex justify-between items-center bg-gray-50 sticky top-0 z-50">
       <div class="flex flex-col">
         <h3 class="font-display text-2xl font-black text-brand-dark">Platform Setup & Onboarding</h3>
-        <span class="text-xs text-gray-500">Everything you need to know about getting started</span>
+        <span class="text-xs text-gray-500">Get up and running in under 10 minutes</span>
       </div>
       <button onclick="closePilotModal()" class="w-10 h-10 bg-gray-200 rounded-full hover:bg-gray-300 transition flex items-center justify-center text-gray-700">&times;</button>
     </div>
@@ -858,9 +822,9 @@
       <div class="max-w-4xl mx-auto">
         
         <div class="text-center mb-12">
-          <p class="text-lg text-gray-600 mb-2">We know schools are busy.</p>
-          <h2 class="text-3xl font-bold mb-4">A Zero-Friction approach to deploying new tech.</h2>
-          <p class="text-gray-500">No heavy IT installs. Just clarity.</p>
+          <p class="text-lg text-gray-600 mb-2">No sales calls. No waiting for IT.</p>
+          <h2 class="text-3xl font-bold mb-4">A fully automated, self-serve setup process.</h2>
+          <p class="text-gray-500">Test the entire platform risk-free for 30 days.</p>
         </div>
 
         <div class="space-y-12 relative">
@@ -869,87 +833,52 @@
           <div class="flex flex-col md:flex-row gap-8">
             <div class="w-14 h-14 rounded-full bg-brand-blue text-white flex items-center justify-center text-2xl font-bold shrink-0 shadow-lg z-10 mx-auto md:mx-0">1</div>
             <div class="flex-1 bg-white p-8 rounded-2xl border border-gray-100 shadow-sm w-full">
-              <h4 class="text-xl font-bold text-brand-blue mb-2">Discovery Call (30 mins)</h4>
-              <p class="text-gray-600 mb-4">A quick chat to see if we fit. We will cover:</p>
+              <h4 class="text-xl font-bold text-brand-blue mb-2">Instant Authentication</h4>
+              <p class="text-gray-600 mb-4">Click "Start for Free" and log in using your official school Google account.</p>
               <ul class="list-disc pl-5 space-y-2 text-sm text-gray-600 mb-6">
-                <li>Your current house structure (names, colors, milestones).</li>
-                <li>Your pain points (manual counting, lack of engagement).</li>
-                <li><strong>Demo:</strong> We show you the admin backend live.</li>
+                <li>Our system instantly verifies your school domain.</li>
+                <li>Your secure, isolated school database is generated immediately.</li>
+                <li>A 30-Day unlimited free trial is automatically applied.</li>
               </ul>
-              <div class="space-y-3">
-                <div class="bg-blue-50 p-3 rounded-lg text-xs text-blue-800">
-                  <strong>Q: "Do I need to bring my IT Director?"</strong><br>
-                  <em>No, this call is for House Leaders/SLT. We discuss tech requirements (which are minimal) later.</em>
-                </div>
-              </div>
             </div>
           </div>
 
           <div class="flex flex-col md:flex-row gap-8 md:flex-row-reverse">
             <div class="w-14 h-14 rounded-full bg-brand-green text-white flex items-center justify-center text-2xl font-bold shrink-0 shadow-lg z-10 mx-auto md:mx-0">2</div>
             <div class="flex-1 bg-white p-8 rounded-2xl border border-gray-100 shadow-sm w-full">
-              <h4 class="text-xl font-bold text-brand-green mb-2">Custom Build (Done for You)</h4>
-              <p class="text-gray-600 mb-4">If you proceed, we help set up your system. You provide the student list, we assist with the rest.</p>
+              <h4 class="text-xl font-bold text-brand-green mb-2">Self-Serve Setup Wizard</h4>
+              <p class="text-gray-600 mb-4">Follow the on-screen prompts to configure your school in minutes.</p>
               <ul class="list-disc pl-5 space-y-2 text-sm text-gray-600 mb-6">
-                <li>We create your unique TrackEDU instance.</li>
-                <li>We import your students/classes via CSV.</li>
-                <li>We configure your branding.</li>
+                <li>Upload your school logo and name your houses.</li>
+                <li>Download our CSV template, paste your student list, and upload.</li>
+                <li>Click "Auto-Balance" to evenly distribute students into houses.</li>
               </ul>
-              <div class="space-y-3">
-                <div class="bg-green-50 p-3 rounded-lg text-xs text-green-800">
-                  <strong>Q: "How long does this take?"</strong><br>
-                  <em>Usually under 24 hours. The bulk CSV upload handles everything automatically.</em>
-                </div>
-              </div>
             </div>
           </div>
 
           <div class="flex flex-col md:flex-row gap-8">
              <div class="w-14 h-14 rounded-full bg-brand-dark text-white flex items-center justify-center text-2xl font-bold shrink-0 shadow-lg z-10 mx-auto md:mx-0">3</div>
              <div class="flex-1 bg-white p-8 rounded-2xl border border-gray-100 shadow-sm w-full">
-               <h4 class="text-xl font-bold text-brand-dark mb-2">Launch & Support</h4>
-               <p class="text-gray-600 mb-4">We hand over the keys. You get a training video to share with staff (it takes 3 minutes to learn).</p>
+               <h4 class="text-xl font-bold text-brand-dark mb-2">Launch & Subscribe</h4>
+               <p class="text-gray-600 mb-4">Start awarding points immediately. If you love it, you can upgrade right inside the app.</p>
                <ul class="list-disc pl-5 space-y-2 text-sm text-gray-600 mb-6">
-                <li>Direct WhatsApp/Email support for the lead teacher.</li>
-                <li>We help monitor the first week to ensure smooth running.</li>
+                <li>When other teachers log in with your school domain, they instantly sync to your database.</li>
+                <li>When your 30-day trial ends, simply enter a credit card in the billing portal to keep your data active.</li>
                </ul>
-               <div class="space-y-3">
-                 <div class="bg-gray-100 p-3 rounded-lg text-xs text-gray-800">
-                  <strong>Q: "Does it work on iPads?"</strong><br>
-                  <em>Yes. It is a Progressive Web App (PWA) that works on any device with a browser.</em>
-                </div>
-                <div class="bg-gray-100 p-3 rounded-lg text-xs text-gray-800">
-                  <strong>Q: "How do teachers log in?"</strong><br>
-                  <em>They use their existing School Google Accounts. Single Sign-On (SSO) is built-in.</em>
-                </div>
-               </div>
              </div>
           </div>
         </div>
 
-        <div class="mt-16 pt-12 border-t border-gray-100">
-          <h3 class="text-2xl font-bold text-center mb-8">Common Questions from Schools</h3>
-          <div class="grid md:grid-cols-2 gap-6 text-left">
-            <div class="bg-gray-50 p-5 rounded-xl">
-              <h5 class="font-bold text-gray-900 mb-2">Does it integrate with iSAMS/SIMS?</h5>
-              <p class="text-sm text-gray-600">TrackEDU is designed to be lightweight and standalone to avoid complex IT integration. However, all data is exportable to CSV instantly.</p>
-            </div>
-            <div class="bg-gray-50 p-5 rounded-xl">
-              <h5 class="font-bold text-gray-900 mb-2">Can parents see it?</h5>
-              <p class="text-sm text-gray-600">Yes! We provide a secure, read-only "Community Link" that shows live scores and milestones without revealing sensitive student data.</p>
-            </div>
-            <div class="bg-gray-50 p-5 rounded-xl">
-              <h5 class="font-bold text-gray-900 mb-2">Is it customizable?</h5>
-              <p class="text-sm text-gray-600">100%. You define the House names, the Point categories (e.g., "Resilience", "Service"), and the Milestone awards.</p>
-            </div>
-          </div>
-        </div>
-
         <div class="mt-16 text-center">
-          <p class="text-lg font-bold mb-4">Ready to fix your House System?</p>
-          <button data-cal-link="trackedu-a9dbpy/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view"}' class="btn px-10 py-4 text-xl shadow-xl">
-            Book Discovery Call
-          </button>
+          <p class="text-lg font-bold mb-4">Ready to transform your school culture?</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <button onclick="window.location.href='https://trackedu-housepoints.web.app'" class="btn px-10 py-4 text-xl shadow-xl">
+              Start Free Trial Now
+            </button>
+            <button data-cal-link="trackedu-a9dbpy/30min" class="btn-secondary px-6 py-4 font-bold">
+              I need to talk to Sales first
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -1244,145 +1173,7 @@ if (!window.YT) {
   }
 </script>
 
-<div id="fixtureModal" class="fixed inset-0 z-[99999] hidden tool-modal">
-  <div class="absolute inset-0 bg-gray-900/95 backdrop-blur-sm" onclick="closeCarousel('fixtureModal')"></div>
   
-  <div class="relative w-full h-full flex flex-col items-center justify-center p-4">
-    
-    <button onclick="closeCarousel('fixtureModal')" class="absolute top-4 right-4 z-50 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white text-2xl backdrop-blur-md transition">
-      <i class="fas fa-times"></i>
-    </button>
-    
-    <div class="relative w-full max-w-sm aspect-[9/19] bg-gray-900 rounded-3xl shadow-2xl overflow-hidden border-4 border-gray-800">
-       <img src="https://trackedu.github.io/common-assets/fixture1.jpg" class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-300" data-index="0">
-       <img src="https://trackedu.github.io/common-assets/fixture2.jpg" class="slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300" data-index="1">
-       <img src="https://trackedu.github.io/common-assets/fixture3.jpg" class="slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300" data-index="2">
-       <img src="https://trackedu.github.io/common-assets/fixture4.jpg" class="slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300" data-index="3">
-      
-       <button onclick="changeSlide('fixtureModal', -1)" class="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/80 rounded-full text-white flex items-center justify-center backdrop-blur-md z-10"><i class="fas fa-chevron-left"></i></button>
-       <button onclick="changeSlide('fixtureModal', 1)" class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/80 rounded-full text-white flex items-center justify-center backdrop-blur-md z-10"><i class="fas fa-chevron-right"></i></button>
-       
-       <div class="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10">
-         <div class="dot w-2 h-2 rounded-full bg-white transition-all"></div>
-         <div class="dot w-2 h-2 rounded-full bg-white/40 transition-all"></div>
-         <div class="dot w-2 h-2 rounded-full bg-white/40 transition-all"></div>
-         <div class="dot w-2 h-2 rounded-full bg-white/40 transition-all"></div>
-       </div>
-    </div>
-    <p class="text-white/60 mt-4 text-sm font-medium animate-pulse">Swipe or click arrows to view tour</p>
-  </div>
-</div>
-
-<div id="facilityModal" class="fixed inset-0 z-[99999] hidden tool-modal">
-  <div class="absolute inset-0 bg-gray-900/95 backdrop-blur-sm" onclick="closeCarousel('facilityModal')"></div>
-  <div class="relative w-full h-full flex flex-col items-center justify-center p-4">
-    
-    <button onclick="closeCarousel('facilityModal')" class="absolute top-4 right-4 z-50 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white text-2xl backdrop-blur-md transition">
-      <i class="fas fa-times"></i>
-    </button>
-    
-    <div class="relative w-full max-w-sm aspect-[9/19] bg-gray-900 rounded-3xl shadow-2xl overflow-hidden border-4 border-gray-800">
-       <img src="https://trackedu.github.io/common-assets/facility1.jpg" class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-300" data-index="0">
-       <img src="https://trackedu.github.io/common-assets/facility2.jpg" class="slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300" data-index="1">
-       <img src="https://trackedu.github.io/common-assets/facility3.jpg" class="slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300" data-index="2">
-       <img src="https://trackedu.github.io/common-assets/facility4.jpg" class="slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300" data-index="3">
-
-       <button onclick="changeSlide('facilityModal', -1)" class="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/80 rounded-full text-white flex items-center justify-center backdrop-blur-md z-10"><i class="fas fa-chevron-left"></i></button>
-       <button onclick="changeSlide('facilityModal', 1)" class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/80 rounded-full text-white flex items-center justify-center backdrop-blur-md z-10"><i class="fas fa-chevron-right"></i></button>
-       
-       <div class="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10">
-         <div class="dot w-2 h-2 rounded-full bg-white transition-all"></div>
-         <div class="dot w-2 h-2 rounded-full bg-white/40 transition-all"></div>
-         <div class="dot w-2 h-2 rounded-full bg-white/40 transition-all"></div>
-         <div class="dot w-2 h-2 rounded-full bg-white/40 transition-all"></div>
-       </div>
-    </div>
-  </div>
-</div>
-
-<div id="behaviorModal" class="fixed inset-0 z-[99999] hidden tool-modal">
-  <div class="absolute inset-0 bg-gray-900/95 backdrop-blur-sm" onclick="closeCarousel('behaviorModal')"></div>
-  <div class="relative w-full h-full flex flex-col items-center justify-center p-4">
-    
-    <button onclick="closeCarousel('behaviorModal')" class="absolute top-4 right-4 z-50 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white text-2xl backdrop-blur-md transition">
-      <i class="fas fa-times"></i>
-    </button>
-    
-    <div class="relative w-full max-w-sm aspect-[9/19] bg-gray-900 rounded-3xl shadow-2xl overflow-hidden border-4 border-gray-800">
-       <img src="https://trackedu.github.io/common-assets/behavior1.jpg" class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-300" data-index="0">
-       <img src="https://trackedu.github.io/common-assets/behavior2.jpg" class="slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300" data-index="1">
-       <img src="https://trackedu.github.io/common-assets/behavior3.jpg" class="slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300" data-index="2">
-       <img src="https://trackedu.github.io/common-assets/behavior4.jpg" class="slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300" data-index="3">
-
-       <button onclick="changeSlide('behaviorModal', -1)" class="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/80 rounded-full text-white flex items-center justify-center backdrop-blur-md z-10"><i class="fas fa-chevron-left"></i></button>
-       <button onclick="changeSlide('behaviorModal', 1)" class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/80 rounded-full text-white flex items-center justify-center backdrop-blur-md z-10"><i class="fas fa-chevron-right"></i></button>
-
-       <div class="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10">
-         <div class="dot w-2 h-2 rounded-full bg-white transition-all"></div>
-         <div class="dot w-2 h-2 rounded-full bg-white/40 transition-all"></div>
-         <div class="dot w-2 h-2 rounded-full bg-white/40 transition-all"></div>
-         <div class="dot w-2 h-2 rounded-full bg-white/40 transition-all"></div>
-       </div>
-    </div>
-  </div>
-</div>
-
-<script>
-  const carouselState = {};
-  function openCarousel(modalId) {
-    document.getElementById(modalId).classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
-    carouselState[modalId] = 0;
-    updateCarousel(modalId);
-  }
-
-  function closeCarousel(modalId) {
-    document.getElementById(modalId).classList.add('hidden');
-    document.body.style.overflow = '';
-  }
-
-  function changeSlide(modalId, direction) {
-    const modal = document.getElementById(modalId);
-    const slides = modal.querySelectorAll('.slide');
-    let currentIndex = carouselState[modalId] || 0;
-
-    currentIndex += direction;
-    if (currentIndex >= slides.length) currentIndex = 0;
-    if (currentIndex < 0) currentIndex = slides.length - 1;
-
-    carouselState[modalId] = currentIndex;
-    updateCarousel(modalId);
-  }
-
-  function updateCarousel(modalId) {
-    const modal = document.getElementById(modalId);
-    const slides = modal.querySelectorAll('.slide');
-    const dots = modal.querySelectorAll('.dot');
-    const currentIndex = carouselState[modalId] || 0;
-
-    slides.forEach((slide, index) => {
-      if (index === currentIndex) {
-        slide.style.opacity = '1';
-        slide.style.zIndex = '1';
-      } else {
-        slide.style.opacity = '0';
-        slide.style.zIndex = '0';
-      }
-    });
-
-    if(dots.length) {
-      dots.forEach((dot, index) => {
-        if(index === currentIndex) {
-           dot.classList.remove('bg-white/40');
-           dot.classList.add('bg-white');
-        } else {
-           dot.classList.add('bg-white/40');
-           dot.classList.remove('bg-white');
-        }
-      });
-    }
-  }
-</script>
 
 </body>
 </html>
