@@ -876,10 +876,10 @@ html { scroll-padding-top: 100px; }
     
    <div class="mt-12 flex flex-col items-center gap-6">
       <div class="flex flex-wrap justify-center gap-4">
-        <a href="https://your-storage-link.com/trackedu-pitch-deck.pdf" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gray-100 text-gray-700 font-bold hover:bg-gray-200 transition border border-gray-200">
-          <i class="fas fa-file-pdf text-red-500"></i>
-          Download Principal's Pitch Deck (PDF)
-        </a>
+     <button onclick="openPitchDeck()" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gray-100 text-gray-700 font-bold hover:bg-gray-200 transition border border-gray-200">
+          <i class="fas fa-presentation text-brand-blue"></i>
+          Launch Principal's Pitch Deck
+        </button>
         
         <a href="mailto:hello@trackedu.net" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-50 text-brand-blue font-bold hover:bg-blue-100 transition border border-blue-100">
           <i class="fas fa-envelope"></i>
@@ -1504,8 +1504,18 @@ if (!window.YT) {
     document.body.style.overflow = 'hidden';
   }
 
-  function closePricingModal() {
+ function closePricingModal() {
     document.getElementById('pricingInfoModal').classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  function openPitchDeck() {
+    document.getElementById('pitchDeckModal').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePitchDeck() {
+    document.getElementById('pitchDeckModal').classList.add('hidden');
     document.body.style.overflow = '';
   }
 
@@ -1532,7 +1542,125 @@ if (!window.YT) {
   }
 </script>
 
+
+
+
+  <div id="pitchDeckModal" class="fixed inset-0 z-[100000] hidden flex items-center justify-center p-0 md:p-4">
+  <div class="absolute inset-0 bg-brand-dark/95 backdrop-blur-md" onclick="closePitchDeck()"></div>
   
+  <div class="relative w-full max-w-5xl h-full md:h-[90vh] bg-white md:rounded-3xl overflow-hidden flex flex-col shadow-2xl print:m-0 print:rounded-none">
+    
+    <div class="flex justify-between items-center px-8 py-4 border-b border-gray-100 print:hidden bg-white">
+      <div class="flex items-center gap-2">
+        <span class="font-display text-xl font-black text-brand-dark">Track<span class="text-brand-green">EDU</span></span>
+        <span class="text-xs font-bold bg-gray-100 text-gray-500 px-2 py-1 rounded">OFFICIAL PROPOSAL</span>
+      </div>
+      <div class="flex gap-3">
+        <button onclick="window.print()" class="btn px-4 py-2 text-sm flex items-center gap-2">
+          <i class="fas fa-print"></i> Save as PDF
+        </button>
+        <button onclick="closePitchDeck()" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 hover:bg-gray-200">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="flex-1 overflow-y-auto bg-gray-50 p-4 md:p-12 print:p-0 print:bg-white print:overflow-visible">
+      <div class="max-w-4xl mx-auto space-y-12 print:space-y-0">
+        
+        <div class="bg-white p-12 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-center min-h-[500px] print:h-[297mm] print:shadow-none print:border-none print:break-after-page">
+          <span class="text-brand-blue font-black tracking-widest text-sm uppercase mb-4 block">The Proposal</span>
+          <h1 class="text-5xl font-black text-brand-dark leading-tight mb-8">Transforming School Culture <br><span class="text-brand-green">Beyond the Spreadsheet</span></h1>
+          <p class="text-xl text-gray-600 leading-relaxed max-w-2xl">Traditional house point systems fail because they are administratively heavy and visually static. TrackEDU turns school spirit into a high-engagement digital ecosystem.</p>
+          <div class="mt-12 grid grid-cols-3 gap-6">
+            <div class="p-6 bg-blue-50 rounded-2xl"><div class="text-2xl mb-2">⚡</div><div class="font-bold text-brand-blue">Instant</div><div class="text-xs text-gray-500">Points awarded in 3 seconds.</div></div>
+            <div class="p-6 bg-green-50 rounded-2xl"><div class="text-2xl mb-2">💎</div><div class="font-bold text-brand-green">Engaged</div><div class="text-xs text-gray-500">RPG-style student journey.</div></div>
+            <div class="p-6 bg-brand-dark rounded-2xl"><div class="text-2xl mb-2">📊</div><div class="font-bold text-white">Unified</div><div class="text-xs text-gray-400">Total school data sync.</div></div>
+          </div>
+        </div>
+
+        <div class="bg-brand-dark text-white p-12 rounded-3xl shadow-sm flex flex-col justify-center min-h-[500px] print:h-[297mm] print:shadow-none print:break-after-page">
+          <h2 class="text-4xl font-black mb-10">The Dual-App Advantage</h2>
+          <div class="grid grid-cols-2 gap-10">
+            <div class="space-y-6">
+              <div class="w-12 h-12 bg-brand-green rounded-xl flex items-center justify-center text-xl text-brand-dark font-bold">01</div>
+              <h3 class="text-2xl font-bold">Teacher Command Center</h3>
+              <p class="text-gray-400 text-sm leading-relaxed">Centralized management with a suite of 8+ classroom utilities. From automated house-balancing to assembly projector modes, we reduce admin time by 90%.</p>
+            </div>
+            <div class="space-y-6">
+              <div class="w-12 h-12 bg-brand-blue rounded-xl flex items-center justify-center text-xl font-bold">02</div>
+              <h3 class="text-2xl font-bold">Student Hero Portal</h3>
+              <p class="text-gray-400 text-sm leading-relaxed">Students take ownership of their journey. Featuring holographic card collection, daily streaks, and house "reactors" that reward collective effort.</p>
+            </div>
+          </div>
+          <div class="mt-10 p-6 bg-white/5 border border-white/10 rounded-2xl text-center font-medium">
+             "It's not a tracker. It's a game students play by being their best selves."
+          </div>
+        </div>
+
+        <div class="bg-white p-12 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-center min-h-[500px] print:h-[297mm] print:shadow-none print:break-after-page">
+          <h2 class="text-4xl font-black text-brand-dark mb-10">Privacy by Design</h2>
+          <div class="grid md:grid-cols-2 gap-12">
+            <div class="space-y-8">
+              <div class="flex gap-4">
+                <i class="fas fa-user-secret text-3xl text-brand-blue"></i>
+                <div>
+                  <h4 class="font-bold text-lg">No PII Required</h4>
+                  <p class="text-sm text-gray-500">We do not store student emails, location data, or demographic records. System access is token-based.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <i class="fas fa-shield-halved text-3xl text-brand-blue"></i>
+                <div>
+                  <h4 class="font-bold text-lg">Compliance Standards</h4>
+                  <p class="text-sm text-gray-500">Fully compliant with FERPA and GDPR. All data is encrypted using AES-256 and TLS 1.3 standards.</p>
+                </div>
+              </div>
+            </div>
+            <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100">
+               <h4 class="font-black text-xs uppercase tracking-widest text-gray-400 mb-4">Infrastructure</h4>
+               <ul class="space-y-3">
+                 <li class="flex items-center gap-3 text-sm font-bold text-gray-700"><i class="fas fa-check text-brand-green"></i> Secure Firebase Backend</li>
+                 <li class="flex items-center gap-3 text-sm font-bold text-gray-700"><i class="fas fa-check text-brand-green"></i> School Data Sovereignty</li>
+                 <li class="flex items-center gap-3 text-sm font-bold text-gray-700"><i class="fas fa-check text-brand-green"></i> 1-Click System Wipe</li>
+               </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-brand-green p-12 rounded-3xl shadow-sm flex flex-col justify-center items-center text-center min-h-[500px] print:h-[297mm] print:shadow-none print:bg-white print:border-4 print:border-brand-green">
+          <h2 class="text-5xl font-black text-white print:text-brand-green mb-6 leading-tight">Ready for Deployment</h2>
+          <p class="text-brand-dark text-xl font-medium mb-12 max-w-xl">Standardize behavior tracking, empower staff, and delight students with a modern digital house system.</p>
+          
+          <div class="bg-white p-8 rounded-3xl w-full max-w-md shadow-xl">
+            <h4 class="font-bold text-brand-dark mb-4">Investment Tiers</h4>
+            <div class="flex justify-between border-b py-3 text-left">
+              <span class="font-bold">Core Campus</span>
+              <span class="font-black">$1,200/yr</span>
+            </div>
+            <div class="flex justify-between py-3 text-left">
+              <span class="font-bold">Pro Ecosystem</span>
+              <span class="font-black text-brand-blue">$2,950/yr</span>
+            </div>
+            <div class="mt-6 text-xs text-gray-400 italic">No setup fees. Unlimited users. Personal onboarding.</div>
+          </div>
+          
+          <div class="mt-12 text-sm font-bold text-white print:text-brand-green uppercase tracking-widest">www.trackedu.net • hello@trackedu.net</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+@media print {
+  @page { size: landscape; margin: 0; }
+  body * { visibility: hidden; }
+  #pitchDeckModal, #pitchDeckModal * { visibility: visible; }
+  #pitchDeckModal { position: absolute; left: 0; top: 0; width: 100%; }
+}
+</style>
 
 </body>
 </html>
