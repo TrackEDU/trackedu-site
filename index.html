@@ -556,14 +556,21 @@ html { scroll-padding-top: 100px; }
         <button onclick="window.location.href='https://trackedu-housepoints.web.app'" class="w-full py-3 rounded-xl font-bold bg-brand-green text-white hover:bg-green-500 transition shadow-lg shadow-brand-green/30">Start Free Trial</button>
       </div>
 
-      <div class="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm flex flex-col relative transition transform hover:-translate-y-1 hover:shadow-lg">
+     <div class="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm flex flex-col relative transition transform hover:-translate-y-1 hover:shadow-lg">
         <h3 class="font-display text-2xl font-bold text-brand-dark mb-2">Pro Ecosystem</h3>
         <div class="text-brand-blue font-black text-4xl mb-4">$2,950<span class="text-lg text-gray-500 font-medium"> / year</span></div>
-        <p class="text-gray-600 text-sm mb-6 h-10">Full interactive gamification for every student device.</p>
+        <p class="text-gray-600 text-sm mb-6 h-10">The complete school culture suite with dual-app integration.</p>
+        
+        <div class="bg-blue-50 border border-blue-100 rounded-xl p-3 mb-6 text-center">
+            <p class="text-brand-blue font-bold text-xs uppercase tracking-widest">Included:</p>
+            <p class="text-brand-dark font-black text-sm">Teacher App + Student App</p>
+        </div>
+
         <ul class="space-y-3 mb-8 flex-1">
-          <li class="flex items-start gap-3 text-sm font-bold text-brand-dark"><i class="fas fa-mobile-alt text-brand-blue mt-1"></i> <span><strong>Student App Access</strong> (Loot Drops, Streaks, 3D Binders)</span></li>
-          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span><strong>Master Toolkit</strong> (Mystery Word, Student Polls, Power Boosts)</span></li>
-          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>House Reactors & Blasts</span></li>
+          <li class="flex items-start gap-3 text-sm font-bold text-brand-dark"><i class="fas fa-mobile-alt text-brand-blue mt-1"></i> <span><strong>Full Student App Access</strong></span></li>
+          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>3D Holographic Badge Binders</span></li>
+          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>House Power Boosts & Reactors</span></li>
+          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>The Multi-player Mystery Word</span></li>
         </ul>
         <button onclick="openPlanDetails('pro')" class="text-brand-blue text-xs font-bold uppercase tracking-widest mb-6 hover:underline cursor-pointer">View Pro Features <i class="fas fa-chevron-right ml-1"></i></button>
         <button onclick="window.location.href='https://trackedu-housepoints.web.app'" class="w-full py-3 rounded-xl font-bold text-brand-blue border-2 border-brand-blue hover:bg-brand-blue hover:text-white transition">Start Free Trial</button>
@@ -1257,14 +1264,14 @@ if (!window.YT) {
     },
     pro: {
       title: "Pro Ecosystem",
-      badge: "The Ultimate Experience",
+      badge: "The Full Digital Suite",
       color: "#0f66c3",
       features: [
-        { icon: "fa-mobile-screen", label: "Full Student App", desc: "Students log in to track points, maintain Daily Streaks, and claim Loot Drops from teachers." },
-        { icon: "fa-clone", label: "3D Badge Binders", desc: "A digital collection system where students unlock and flip holographic 3D trading cards." },
-        { icon: "fa-user-secret", label: "Mystery Word Mission", desc: "A school-wide collaborative game where students find letters and solve codes together." },
-        { icon: "fa-bolt", label: "House Power Boosts", desc: "Students work together to charge their House Reactor. Hits 100% to trigger a 'House Blast' bonus." },
-        { icon: "fa-vote-yea", label: "Student Voice Polls", desc: "Gather real-time student feedback on school events or house rewards via live digital voting." }
+        { icon: "fa-layer-group", label: "Dual-App System", desc: "You get two specialized platforms: The **Teacher Command Center** for management and the **Student Hero Portal** for engagement." },
+        { icon: "fa-mobile-screen", label: "Full Student App", desc: "A dedicated mobile experience where students track points, maintain Daily Streaks, and claim Loot Drops. 100% PII-free login." },
+        { icon: "fa-clone", label: "3D Badge Binders", desc: "Activated inside the Student App. An RPG-style system where students unlock and flip holographic 3D trading cards." },
+        { icon: "fa-bolt", label: "House Power Boosts", desc: "Multi-player gamification. Students use their app to charge the House Reactor and trigger school-wide House Blasts." },
+        { icon: "fa-vote-yea", label: "Student Voice Polls", desc: "Turn the Student App into a democratic tool. Launch live polls and let students vote on rewards and school events." }
       ]
     }
   };
