@@ -1290,30 +1290,24 @@ html { scroll-padding-top: 100px; }
     const btnTeacher = document.getElementById('toggleTeacher');
     const btnStudent = document.getElementById('toggleStudent');
 
-    // 1. Trigger Loading State
     loader.style.display = 'flex';
     loader.style.opacity = '1';
     iframe.style.opacity = '0';
 
-    // 2. Handle Logic based on selection
     if (type === 'teacher') {
         btnTeacher.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm";
         btnStudent.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue";
-        
         subtitle.innerHTML = "The <strong>Teacher App</strong> is the command center for awarding points and managing tools.";
-        // 🔥 UPDATED: Now uses the dedicated demo.html file
-        iframe.src = "demo.html?view=teacher";
-        
+        // 🔥 UPDATED: Points to Firebase Hosting
+        iframe.src = "https://trackedu-housepoints.web.app/demo.html?view=teacher";
     } else {
         btnStudent.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm";
         btnTeacher.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue";
-        
         subtitle.innerHTML = "The <strong>Student App</strong> is built for engagement on any mobile device.";
-        // 🔥 UPDATED: Now uses the dedicated demo.html file with student view
-        iframe.src = "demo.html?view=student";
+        // 🔥 UPDATED: Points to Firebase Hosting
+        iframe.src = "https://trackedu-housepoints.web.app/demo.html?view=student";
     }
 
-    // 3. Simple transition delay
     setTimeout(() => {
         loader.style.opacity = '0';
         setTimeout(() => {
