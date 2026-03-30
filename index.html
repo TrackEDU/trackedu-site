@@ -328,15 +328,14 @@ html { scroll-padding-top: 100px; }
         </div>
       </div>
 
-      <div class="hidden md:flex items-center gap-6 font-medium text-sm text-gray-600">
+     <div class="hidden md:flex items-center gap-6 font-medium text-sm text-gray-600">
         <a href="#how" class="hover:text-brand-blue transition">How It Works</a>
-        <a href="#pricing" class="hover:text-brand-blue transition">Pricing</a>
-        <button onclick="openPilotModal()" class="hover:text-brand-blue transition font-semibold text-brand-blue">Platform Features</button>
-        <a href="#mobile-demo" class="hover:text-brand-blue transition">Live Mobile Tool</a>
+        <a href="#mobile-demo" class="hover:text-brand-blue transition">Interactive Preview</a>
         <button onclick="openTrustModal()" class="hover:text-brand-blue transition">Trust & Data</button>
+        <a href="#pricing" class="hover:text-brand-blue transition font-semibold">Pricing</a>
         
-      <button onclick="window.location.hash='#pricing'" class="btn px-6 py-2.5 shadow-lg shadow-brand-green/20">
-  View Pricing
+      <button onclick="openPilotModal()" class="btn px-6 py-2.5 shadow-lg shadow-brand-green/20">
+  Start Free Pilot
 </button>
       </div>
 
@@ -403,9 +402,9 @@ html { scroll-padding-top: 100px; }
 
        <div class="order-5 lg:order-none flex flex-col gap-3 justify-center lg:justify-start w-full sm:w-auto">
           <div class="flex flex-col sm:flex-row gap-3">
-            <button onclick="window.open('https://housepoint.trackedu.net/', '_blank')" class="btn text-lg px-8 py-3.5 flex items-center justify-center gap-3 group bg-brand-dark hover:bg-gray-800 border-2 border-brand-dark text-white shadow-xl">
-              <i class="fas fa-play text-brand-green text-sm group-hover:scale-110 transition"></i>
-              Try Live Demo
+            <button onclick="openPilotModal()" class="btn text-lg px-8 py-3.5 flex items-center justify-center gap-3 group bg-brand-dark hover:bg-gray-800 border-2 border-brand-dark text-white shadow-xl">
+              <i class="fas fa-rocket text-brand-green text-sm group-hover:translate-y-[-2px] transition"></i>
+              Create School Account
             </button>
               
             <button id="bookWalkthrough" data-cal-link="trackedu-a9dbpy/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view"}' class="btn text-lg px-8 py-3.5 bg-brand-green hover:bg-green-600 text-white border-2 border-brand-green shadow-xl flex flex-col items-center justify-center leading-tight">
@@ -502,14 +501,14 @@ html { scroll-padding-top: 100px; }
         </div>
 
         <!-- CTA Overlay Inside Frame - ONLY visible when Teacher App is active -->
-        <div id="frameCtaOverlay" class="absolute inset-0 bg-gradient-to-br from-brand-blue/95 to-brand-dark/95 backdrop-blur-sm z-20 flex flex-col items-center justify-center text-center p-6 transition-all duration-500 hover:opacity-90 hidden">
+       <div id="frameCtaOverlay" class="absolute inset-0 bg-gradient-to-br from-brand-blue/95 to-brand-dark/95 backdrop-blur-sm z-20 flex flex-col items-center justify-center text-center p-6 transition-all duration-500 hover:opacity-90 hidden">
           <i class="fas fa-chalkboard-teacher text-5xl text-brand-green mb-4"></i>
           <h3 class="text-white text-2xl font-bold mb-3">Ready to Transform Your School?</h3>
-          <p class="text-gray-200 text-sm mb-6 max-w-xs">Get full access to the Teacher App. No credit card required.</p>
-         <button onclick="window.open('https://housepoint.trackedu.net/', '_blank')" class="btn px-8 py-3 text-lg font-bold shadow-lg bg-white text-brand-dark hover:bg-brand-green hover:text-white transition">
-  <i class="fas fa-rocket mr-2"></i> Start Free Demo
+          <p class="text-gray-200 text-sm mb-6 max-w-xs">Stop playing with fake data. Set up your real school in 3 minutes. No credit card required.</p>
+         <button onclick="openPilotModal()" class="btn px-8 py-3 text-lg font-bold shadow-lg bg-white text-brand-dark hover:bg-brand-green hover:text-white transition">
+  <i class="fas fa-bolt text-brand-green mr-2 group-hover:text-white"></i> Start 30-Day Pilot
 </button>
-          <p class="text-xs text-gray-300 mt-4">30-day trial • Cancel anytime</p>
+          <p class="text-xs text-gray-300 mt-4">Invite unlimited teachers for free during the pilot.</p>
         </div>
 
         <iframe 
