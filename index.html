@@ -238,6 +238,61 @@ html { scroll-padding-top: 100px; }
     }
 
 
+
+
+    /* Device-aware frame styling - Adaptive to screen size */
+.device-frame {
+  margin: 0 auto;
+  background: #1f2937;
+  border: 10px solid #1f2937;
+  outline: 2px solid #374151;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Desktop (≥1025px) - iPad Landscape / Tablet Style */
+@media (min-width: 1025px) {
+  .device-frame {
+    width: 850px;
+    aspect-ratio: 4 / 3;
+    border-radius: 32px;
+    border-width: 18px;
+    max-height: none;
+  }
+}
+
+/* Tablet (768px - 1024px) - iPad Portrait / Mobile Frame */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .device-frame {
+    width: 380px;
+    aspect-ratio: 9 / 16;
+    border-radius: 36px;
+    border-width: 12px;
+    max-height: 75vh;
+  }
+}
+
+/* Mobile (≤767px) - Phone Frame */
+@media (max-width: 767px) {
+  .device-frame {
+    width: 280px;
+    aspect-ratio: 9 / 19;
+    border-radius: 36px;
+    border-width: 10px;
+    max-height: 70vh;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 480px) {
+  .device-frame {
+    width: 85vw;
+    border-radius: 28px;
+  }
+}
+
     
   </style>
 </head>
@@ -403,23 +458,47 @@ html { scroll-padding-top: 100px; }
     <span class="text-brand-blue font-bold tracking-wider text-sm uppercase mb-2 block">Interactive Preview</span>
     <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-black text-brand-dark mb-4">Experience Both Apps</h2>
     
-    <div class="flex justify-center mb-10">
+    <!-- Device-aware toggle buttons -->
+    <div class="flex justify-center mb-6">
       <div class="inline-flex p-1 bg-gray-200 rounded-2xl shadow-inner">
-        <button id="toggleTeacher" onclick="switchPreview('teacher')" class="px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue">
-          <i class="fas fa-chalkboard-teacher mr-2"></i> Teacher App
-        </button>
         <button id="toggleStudent" onclick="switchPreview('student')" class="px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm">
           <i class="fas fa-user-graduate mr-2"></i> Student App
+        </button>
+        <button id="toggleTeacher" onclick="switchPreview('teacher')" class="px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue">
+          <i class="fas fa-chalkboard-teacher mr-2"></i> Teacher App
         </button>
       </div>
     </div>
 
-    <p id="previewSubtitle" class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+    <p id="previewSubtitle" class="text-lg text-gray-600 mb-6 max-w-2xl mx-auto leading-relaxed">
       The <strong>Student App</strong> is built for engagement on any mobile device. Track points, collect badges, and power up your house!
     </p>
 
-    <div id="demoFrame" class="phone-frame relative" data-aos="zoom-in-up">
-      <div class="bg-white w-full h-full rounded-[18px] sm:rounded-[24px] overflow-hidden relative">
+    <!-- Responsive CTA Section - Changes based on device -->
+    <div id="demoCtaContainer" class="mb-8">
+      <div id="teacherCta" class="hidden">
+        <div class="bg-gradient-to-r from-brand-blue/10 to-brand-green/10 p-5 rounded-2xl inline-block">
+          <p class="text-brand-dark font-semibold mb-3">👩‍🏫 Ready to manage your school's house system?</p>
+          <button onclick="window.location.href='https://trackedu-housepoints.web.app'" class="btn px-8 py-3 text-lg font-bold shadow-lg">
+            <i class="fas fa-chalkboard-teacher mr-2"></i> Start Free Demo
+          </button>
+          <p class="text-xs text-gray-500 mt-2">No credit card required • 30-day trial</p>
+        </div>
+      </div>
+      <div id="studentCta" class="hidden">
+        <div class="bg-gradient-to-r from-brand-green/10 to-brand-blue/10 p-5 rounded-2xl inline-block">
+          <p class="text-brand-dark font-semibold mb-3">🎓 Students can track their journey here!</p>
+          <button onclick="window.location.href='https://trackedu-housepoints.web.app/student.html?school=demo_school'" class="btn-secondary px-8 py-3 text-lg font-bold border-2">
+            <i class="fas fa-user-graduate mr-2"></i> Try Student Portal
+          </button>
+          <p class="text-xs text-gray-500 mt-2">See what students experience</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Device-aware Frame -->
+    <div id="demoFrame" class="device-frame relative mx-auto" data-aos="zoom-in-up">
+      <div class="bg-white w-full h-full rounded-[18px] sm:rounded-[24px] overflow-hidden relative shadow-2xl">
         
         <div id="mockup-loading" class="absolute inset-0 bg-brand-dark flex flex-col items-center justify-center z-10 transition-opacity duration-700">
           <span class="font-display text-4xl font-black text-white tracking-tight mb-4">Track<span class="text-brand-green">EDU</span></span>
@@ -1282,14 +1361,15 @@ html { scroll-padding-top: 100px; }
     document.getElementById('res-boost').innerText = engagementFactor;
   }
 
-  // 2. App Preview Switcher Logic
-  // 2. App Preview Switcher Logic - STUDENT APP AS DEFAULT
+ // 2. App Preview Switcher Logic - Adaptive Device Awareness
 function switchPreview(type) {
   const iframe = document.getElementById('mockup-content');
   const loader = document.getElementById('mockup-loading');
   const subtitle = document.getElementById('previewSubtitle');
   const btnTeacher = document.getElementById('toggleTeacher');
   const btnStudent = document.getElementById('toggleStudent');
+  const teacherCta = document.getElementById('teacherCta');
+  const studentCta = document.getElementById('studentCta');
 
   // Trigger Loading State
   loader.style.display = 'flex';
@@ -1297,18 +1377,33 @@ function switchPreview(type) {
   iframe.style.opacity = '0';
 
   if (type === 'teacher') {
+    // Update button styles
     btnTeacher.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm";
     btnStudent.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue";
-    subtitle.innerHTML = "The <strong>Teacher App</strong> is the command center for awarding points and managing tools.";
+    
+    // Update subtitle and CTAs
+    subtitle.innerHTML = "The <strong>Teacher App</strong> is the command center for awarding points and managing tools. Perfect for staff who run the house system.";
+    teacherCta.classList.remove('hidden');
+    studentCta.classList.add('hidden');
+    
+    // Load Teacher App
     iframe.src = "https://trackedu-housepoints.web.app/?school=demo_school";
+    
   } else {
+    // Update button styles (Student as default)
     btnStudent.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm";
     btnTeacher.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue";
+    
+    // Update subtitle and CTAs
     subtitle.innerHTML = "The <strong>Student App</strong> is built for engagement on any mobile device. Track points, collect badges, and power up your house!";
+    studentCta.classList.remove('hidden');
+    teacherCta.classList.add('hidden');
+    
+    // Load Student App
     iframe.src = "https://trackedu-housepoints.web.app/student.html?school=demo_school";
   }
 
-  // Simple transition delay
+  // Smooth transition delay
   setTimeout(() => {
     loader.style.opacity = '0';
     setTimeout(() => {
@@ -1477,10 +1572,11 @@ function switchPreview(type) {
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    window.formStartTime = Date.now();
-    calculateROI();
-   switchPreview('student');
-  });
+  window.formStartTime = Date.now();
+  calculateROI();
+  // Load Student App as default (shows student CTA)
+  switchPreview('student');
+});
 
   // 8. YouTube API Logic
   var player;
