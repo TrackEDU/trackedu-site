@@ -1284,81 +1284,81 @@ html { scroll-padding-top: 100px; }
 
   // 2. App Preview Switcher Logic
   function switchPreview(type) {
-    const iframe = document.getElementById('mockup-content');
-    const loader = document.getElementById('mockup-loading');
-    const subtitle = document.getElementById('previewSubtitle');
-    const btnTeacher = document.getElementById('toggleTeacher');
-    const btnStudent = document.getElementById('toggleStudent');
+    const iframe = document.getElementById('mockup-content');
+    const loader = document.getElementById('mockup-loading');
+    const subtitle = document.getElementById('previewSubtitle');
+    const btnTeacher = document.getElementById('toggleTeacher');
+    const btnStudent = document.getElementById('toggleStudent');
 
-    // 1. Trigger Loading State
-    loader.style.display = 'flex';
-    loader.style.opacity = '1';
-    iframe.style.opacity = '0';
+    // 1. Trigger Loading State
+    loader.style.display = 'flex';
+    loader.style.opacity = '1';
+    iframe.style.opacity = '0';
 
-    // 2. Handle Logic based on selection (Frame size is handled purely by CSS Media Queries)
-    if (type === 'teacher') {
-      btnTeacher.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm";
-      btnStudent.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue";
-      
-      subtitle.innerHTML = "The <strong>Teacher App</strong> is the command center for awarding points and managing tools.";
-      // Uses your custom domain + the demo bypass parameter
-      iframe.src = "https://housepoint.trackedu.net/?school=public_demo&demo=true";
-      
-    } else {
-      btnStudent.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm";
-      btnTeacher.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue";
-      
-      subtitle.innerHTML = "The <strong>Student App</strong> is built for engagement on any mobile device.";
-      // Uses your custom domain + the demo bypass parameter
-      iframe.src = "https://housepoint.trackedu.net/student.html?school=public_demo&demo=true";
-    }
+    // 2. Handle Logic based on selection
+    if (type === 'teacher') {
+        btnTeacher.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm";
+        btnStudent.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue";
+        
+        subtitle.innerHTML = "The <strong>Teacher App</strong> is the command center for awarding points and managing tools.";
+        // 🔥 UPDATED: Now uses the dedicated demo.html file
+        iframe.src = "demo.html?view=teacher";
+        
+    } else {
+        btnStudent.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm";
+        btnTeacher.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue";
+        
+        subtitle.innerHTML = "The <strong>Student App</strong> is built for engagement on any mobile device.";
+        // 🔥 UPDATED: Now uses the dedicated demo.html file with student view
+        iframe.src = "demo.html?view=student";
+    }
 
-    // 3. Simple transition delay
-    setTimeout(() => {
-      loader.style.opacity = '0';
-      setTimeout(() => {
-        loader.style.display = 'none';
-        iframe.style.opacity = '1';
-      }, 700);
-    }, 1000);
-  }
+    // 3. Simple transition delay
+    setTimeout(() => {
+        loader.style.opacity = '0';
+        setTimeout(() => {
+            loader.style.display = 'none';
+            iframe.style.opacity = '1';
+        }, 700);
+    }, 1000);
+}
 
-  // 3. Plan Detailed Information Logic
-  const planInfo = {
+// 3. Plan Detailed Information Logic (unchanged)
+const planInfo = {
     classroom: {
-      title: "Classroom Plan",
-      badge: "Individual Teacher",
-      color: "#0f66c3",
-      features: [
-        { icon: "fa-user", label: "Solo Management", desc: "1 Teacher account with 1 active class and up to 50 students." },
-        { icon: "fa-hat-wizard", label: "Basic Utilities", desc: "Access to the Magic Hat (random student picker) and Magic Timer." },
-        { icon: "fa-paint-brush", label: "House Config", desc: "Create and name up to 8 houses with custom colors and emojis." }
-      ]
+        title: "Classroom Plan",
+        badge: "Individual Teacher",
+        color: "#0f66c3",
+        features: [
+            { icon: "fa-user", label: "Solo Management", desc: "1 Teacher account with 1 active class and up to 50 students." },
+            { icon: "fa-hat-wizard", label: "Basic Utilities", desc: "Access to the Magic Hat (random student picker) and Magic Timer." },
+            { icon: "fa-paint-brush", label: "House Config", desc: "Create and name up to 8 houses with custom colors and emojis." }
+        ]
     },
     core: {
-      title: "Core Campus",
-      badge: "School-Wide Admin",
-      color: "#87C232",
-      features: [
-        { icon: "fa-toolbox", label: "Teacher Toolkit (8+ Tools)", desc: "Includes Duo Mode, Role Roulette, Squad Builder, Quest Board, Snakes & Ladders, and Quick Quiz (ATL Skills)." },
-        { icon: "fa-desktop", label: "Projector Mode", desc: "Optimized for 4K displays. Ideal for showing live house rankings and class MVPs during assemblies." },
-        { icon: "fa-file-import", label: "Bulk Administration", desc: "Import your entire school via CSV. Automatically balance houses across grades in one click." },
-        { icon: "fa-sync", label: "School-Wide Sync", desc: "All teachers share one database. Points awarded anywhere update the whole school in real-time." }
-      ]
+        title: "Core Campus",
+        badge: "School-Wide Admin",
+        color: "#87C232",
+        features: [
+            { icon: "fa-toolbox", label: "Teacher Toolkit (8+ Tools)", desc: "Includes Duo Mode, Role Roulette, Squad Builder, Quest Board, Snakes & Ladders, and Quick Quiz (ATL Skills)." },
+            { icon: "fa-desktop", label: "Projector Mode", desc: "Optimized for 4K displays. Ideal for showing live house rankings and class MVPs during assemblies." },
+            { icon: "fa-file-import", label: "Bulk Administration", desc: "Import your entire school via CSV. Automatically balance houses across grades in one click." },
+            { icon: "fa-sync", label: "School-Wide Sync", desc: "All teachers share one database. Points awarded anywhere update the whole school in real-time." }
+        ]
     },
     pro: {
-      title: "Pro Ecosystem",
-      badge: "The Full Digital Suite",
-      color: "#0f66c3",
-      features: [
-        { icon: "fa-layer-group", label: "Dual-App System", desc: "You get two specialized platforms: The **Teacher Command Center** for management and the **Student Hero Portal** for engagement." },
-        { icon: "fa-mobile-screen", label: "Full Student App", desc: "A dedicated mobile experience where students track points, maintain Daily Streaks, and claim Loot Drops. 100% PII-free login." },
-        { icon: "fa-clone", label: "3D Badge Binders", desc: "Activated inside the Student App. An RPG-style system where students unlock and flip holographic 3D trading cards." },
-        { icon: "fa-bolt", label: "House Power Boosts", desc: "Multi-player gamification. Students use their app to charge the House Reactor and trigger school-wide House Blasts." },
-        { icon: "fa-vote-yea", label: "Student Voice Polls", desc: "Turn the Student App into a democratic tool. Launch live polls and let students vote on rewards and school events." }
-      ]
+        title: "Pro Ecosystem",
+        badge: "The Full Digital Suite",
+        color: "#0f66c3",
+        features: [
+            { icon: "fa-layer-group", label: "Dual-App System", desc: "You get two specialized platforms: The **Teacher Command Center** for management and the **Student Hero Portal** for engagement." },
+            { icon: "fa-mobile-screen", label: "Full Student App", desc: "A dedicated mobile experience where students track points, maintain Daily Streaks, and claim Loot Drops. 100% PII-free login." },
+            { icon: "fa-clone", label: "3D Badge Binders", desc: "Activated inside the Student App. An RPG-style system where students unlock and flip holographic 3D trading cards." },
+            { icon: "fa-bolt", label: "House Power Boosts", desc: "Multi-player gamification. Students use their app to charge the House Reactor and trigger school-wide House Blasts." },
+            { icon: "fa-vote-yea", label: "Student Voice Polls", desc: "Turn the Student App into a democratic tool. Launch live polls and let students vote on rewards and school events." }
+        ]
     }
-  };
+};
 
   function openPlanDetails(planKey) {
     const data = planInfo[planKey];
