@@ -405,17 +405,17 @@ html { scroll-padding-top: 100px; }
     
     <div class="flex justify-center mb-10">
       <div class="inline-flex p-1 bg-gray-200 rounded-2xl shadow-inner">
-        <button id="toggleTeacher" onclick="switchPreview('teacher')" class="px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm">
+        <button id="toggleTeacher" onclick="switchPreview('teacher')" class="px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue">
           <i class="fas fa-chalkboard-teacher mr-2"></i> Teacher App
         </button>
-        <button id="toggleStudent" onclick="switchPreview('student')" class="px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue">
+        <button id="toggleStudent" onclick="switchPreview('student')" class="px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm">
           <i class="fas fa-user-graduate mr-2"></i> Student App
         </button>
       </div>
     </div>
 
     <p id="previewSubtitle" class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-      The <strong>Teacher App</strong> is the command center for awarding points and managing tools.
+      The <strong>Student App</strong> is built for engagement on any mobile device. Track points, collect badges, and power up your house!
     </p>
 
     <div id="demoFrame" class="phone-frame relative" data-aos="zoom-in-up">
@@ -1283,45 +1283,40 @@ html { scroll-padding-top: 100px; }
   }
 
   // 2. App Preview Switcher Logic
-  function switchPreview(type) {
-    const iframe = document.getElementById('mockup-content');
-    const loader = document.getElementById('mockup-loading');
-    const subtitle = document.getElementById('previewSubtitle');
-    const btnTeacher = document.getElementById('toggleTeacher');
-    const btnStudent = document.getElementById('toggleStudent');
+  // 2. App Preview Switcher Logic - STUDENT APP AS DEFAULT
+function switchPreview(type) {
+  const iframe = document.getElementById('mockup-content');
+  const loader = document.getElementById('mockup-loading');
+  const subtitle = document.getElementById('previewSubtitle');
+  const btnTeacher = document.getElementById('toggleTeacher');
+  const btnStudent = document.getElementById('toggleStudent');
 
-    // 1. Trigger Loading State
-    loader.style.display = 'flex';
-    loader.style.opacity = '1';
-    iframe.style.opacity = '0';
+  // Trigger Loading State
+  loader.style.display = 'flex';
+  loader.style.opacity = '1';
+  iframe.style.opacity = '0';
 
-    // 2. Handle Logic based on selection (Frame size is handled purely by CSS Media Queries)
-    if (type === 'teacher') {
-      btnTeacher.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm";
-      btnStudent.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue";
-      
-      subtitle.innerHTML = "The <strong>Teacher App</strong> is the command center for awarding points and managing tools.";
-      // Uses your custom domain + the demo bypass parameter
-      iframe.src = "https://housepoint.trackedu.net/?school=public_demo&demo=true";
-      
-    } else {
-      btnStudent.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm";
-      btnTeacher.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue";
-      
-      subtitle.innerHTML = "The <strong>Student App</strong> is built for engagement on any mobile device.";
-      // Uses your custom domain + the demo bypass parameter
-      iframe.src = "https://housepoint.trackedu.net/student.html?school=public_demo&demo=true";
-    }
+  if (type === 'teacher') {
+    btnTeacher.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm";
+    btnStudent.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue";
+    subtitle.innerHTML = "The <strong>Teacher App</strong> is the command center for awarding points and managing tools.";
+    iframe.src = "https://trackedu-housepoints.web.app/?school=demo_school";
+  } else {
+    btnStudent.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm";
+    btnTeacher.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue";
+    subtitle.innerHTML = "The <strong>Student App</strong> is built for engagement on any mobile device. Track points, collect badges, and power up your house!";
+    iframe.src = "https://trackedu-housepoints.web.app/student.html?school=demo_school";
+  }
 
-    // 3. Simple transition delay
-    setTimeout(() => {
-      loader.style.opacity = '0';
-      setTimeout(() => {
-        loader.style.display = 'none';
-        iframe.style.opacity = '1';
-      }, 700);
-    }, 1000);
-  }
+  // Simple transition delay
+  setTimeout(() => {
+    loader.style.opacity = '0';
+    setTimeout(() => {
+      loader.style.display = 'none';
+      iframe.style.opacity = '1';
+    }, 700);
+  }, 1000);
+}
 
   // 3. Plan Detailed Information Logic
   const planInfo = {
@@ -1484,7 +1479,7 @@ html { scroll-padding-top: 100px; }
   document.addEventListener('DOMContentLoaded', () => {
     window.formStartTime = Date.now();
     calculateROI();
-    switchPreview('teacher');
+   switchPreview('student');
   });
 
   // 8. YouTube API Logic
