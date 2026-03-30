@@ -784,7 +784,9 @@ html { scroll-padding-top: 100px; }
   </div>
 </section>
 
-<section id="pricing" class="py-20 bg-brand-light">
+
+
+  <section id="pricing" class="py-20 bg-brand-light">
   <div class="max-w-6xl mx-auto px-6">
     
     <div class="text-center mb-16">
@@ -795,27 +797,129 @@ html { scroll-padding-top: 100px; }
 
     <div class="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
       
+      <!-- Solo Teacher Card -->
       <div class="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm flex flex-col relative transition transform hover:-translate-y-1 hover:shadow-lg">
-  <h3 class="font-display text-2xl font-bold text-brand-dark mb-2">Pro Ecosystem</h3>
-  <div class="text-brand-blue font-black text-4xl mb-4">$2,950<span class="text-lg text-gray-500 font-medium"> / year</span></div>
-  <p class="text-gray-600 text-sm mb-6 h-10">The complete school culture suite with dual-app integration.</p>
-  
-  <div class="bg-blue-50 border border-blue-100 rounded-xl p-3 mb-6 text-center">
-      <p class="text-brand-blue font-bold text-xs uppercase tracking-widest">Included:</p>
-      <p class="text-brand-dark font-black text-sm">Teacher App + Student App</p>
-  </div>
+        <h3 class="font-display text-2xl font-bold text-brand-dark mb-2">Solo Teacher</h3>
+        <div class="text-brand-blue font-black text-4xl mb-4">Free<span class="text-lg text-gray-500 font-medium"> forever</span></div>
+        <p class="text-gray-600 text-sm mb-6 h-10">Essential tools for individual teachers to manage their room.</p>
+        <ul class="space-y-3 mb-8 flex-1">
+          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>1 Teacher, 1 Class</span></li>
+          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>Up to 50 Students</span></li>
+          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>Basic Magic Hat & Timer</span></li>
+        </ul>
+        <button onclick="openPlanDetails('classroom')" class="text-brand-blue text-xs font-bold uppercase tracking-widest mb-6 hover:underline cursor-pointer">View All Details <i class="fas fa-chevron-right ml-1"></i></button>
+        <button onclick="window.open('https://housepoint.trackedu.net/', '_blank')" class="w-full py-3 rounded-xl font-bold text-brand-blue border-2 border-brand-blue hover:bg-brand-blue hover:text-white transition">
+          Start for Free
+        </button>
+      </div>
 
-  <ul class="space-y-3 mb-8 flex-1">
-    <li class="flex items-start gap-3 text-sm font-bold text-brand-dark"><i class="fas fa-mobile-alt text-brand-blue mt-1"></i> <span><strong>Full Student App Access</strong></span></li>
-    <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>3D Holographic Badge Binders</span></li>
-    <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>House Power Boosts & Reactors</span></li>
-    <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>The Multi-player Mystery Word</span></li>
-  </ul>
-  <button onclick="openPlanDetails('pro')" class="text-brand-blue text-xs font-bold uppercase tracking-widest mb-6 hover:underline cursor-pointer">View Pro Features <i class="fas fa-chevron-right ml-1"></i></button>
-  <button onclick="window.open('https://housepoint.trackedu.net/', '_blank')" class="w-full py-3 rounded-xl font-bold bg-brand-green text-white hover:bg-green-500 transition shadow-lg shadow-brand-green/30">Start Free Trial</button>
-</div>
+      <!-- Core Campus Card - UPDATED PRICE -->
+      <div class="bg-brand-dark rounded-3xl p-8 border-2 border-brand-green shadow-2xl flex flex-col relative transform lg:-translate-y-4">
+        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-brand-green text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Most Popular</div>
+        <h3 class="font-display text-2xl font-bold text-white mb-2">Core Campus</h3>
+        <div class="text-white font-black text-4xl mb-4">$1,400<span class="text-lg text-gray-400 font-medium"> / year</span></div>
+        <p class="text-gray-300 text-sm mb-6 h-10">Unify school data and automate house administration.</p>
+        <ul class="space-y-3 mb-8 flex-1 text-gray-200">
+          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span><strong>Unlimited</strong> Teachers & Students</span></li>
+          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span><strong>8+ Teacher Utilities</strong> (Squad Builder, Snakes & Ladders, Duo Mode)</span></li>
+          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>Live Assembly Projector Mode</span></li>
+          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>Bulk CSV Import & Auto-Balance</span></li>
+        </ul>
+        <button onclick="openPlanDetails('core')" class="text-brand-green text-xs font-bold uppercase tracking-widest mb-6 hover:underline cursor-pointer">View Toolkit Details <i class="fas fa-chevron-right ml-1"></i></button>
+        <button onclick="window.open('https://housepoint.trackedu.net/', '_blank')" class="w-full py-3 rounded-xl font-bold bg-brand-green text-white hover:bg-green-500 transition shadow-lg shadow-brand-green/30">Start Free Trial</button>
+      </div>
 
-  </div>
+      <!-- Pro Ecosystem Card - Premium Version -->
+      <div class="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm flex flex-col relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl group">
+        
+        <!-- Premium Glow Effect on Hover -->
+        <div class="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style="background: radial-gradient(circle at top right, rgba(135, 194, 50, 0.08), rgba(15, 102, 195, 0.05));"></div>
+        
+        <!-- Corner Accent -->
+        <div class="absolute top-0 right-0 w-20 h-20 overflow-hidden pointer-events-none">
+          <div class="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-brand-green/20 to-transparent rounded-bl-3xl"></div>
+        </div>
+        
+        <!-- Premium Badge -->
+        <div class="inline-flex items-center gap-1.5 bg-gradient-to-r from-brand-green to-green-600 text-white px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider w-fit mb-4 shadow-sm">
+          <i class="fas fa-gem text-[8px]"></i>
+          FLAGSHIP
+        </div>
+        
+        <h3 class="font-display text-2xl font-black text-brand-dark mb-2 tracking-tight">Pro Ecosystem</h3>
+        
+        <div class="flex items-baseline gap-1 mb-4">
+          <span class="text-5xl font-black text-brand-blue">$2,950</span>
+          <span class="text-gray-400 font-medium text-sm">/ year</span>
+        </div>
+        
+        <p class="text-gray-500 text-sm mb-6 leading-relaxed">The complete school culture suite with dual-app integration. <span class="text-brand-green font-semibold">Everything included.</span></p>
+        
+        <!-- Premium Dual-App Badge -->
+        <div class="bg-gradient-to-r from-blue-50 to-green-50 border border-brand-green/20 rounded-xl p-4 mb-6 text-center">
+          <div class="flex items-center justify-center gap-3 mb-2">
+            <div class="w-8 h-8 bg-brand-blue/10 rounded-full flex items-center justify-center">
+              <i class="fas fa-chalkboard-teacher text-brand-blue text-sm"></i>
+            </div>
+            <span class="text-gray-400 text-xs">+</span>
+            <div class="w-8 h-8 bg-brand-green/10 rounded-full flex items-center justify-center">
+              <i class="fas fa-mobile-alt text-brand-green text-sm"></i>
+            </div>
+          </div>
+          <p class="text-brand-dark font-black text-sm">Teacher App <span class="text-gray-400 font-normal mx-1">+</span> Student App</p>
+          <p class="text-[10px] text-gray-500 mt-1">Two platforms. One ecosystem.</p>
+        </div>
+
+        <ul class="space-y-4 mb-8 flex-1">
+          <li class="flex items-start gap-3 text-sm">
+            <div class="w-5 h-5 rounded-full bg-brand-green/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <i class="fas fa-mobile-alt text-brand-green text-[10px]"></i>
+            </div>
+            <span class="text-gray-700"><strong class="text-brand-dark">Full Student App Access</strong> — Complete mobile experience</span>
+          </li>
+          <li class="flex items-start gap-3 text-sm">
+            <div class="w-5 h-5 rounded-full bg-brand-green/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <i class="fas fa-check text-brand-green text-[10px]"></i>
+            </div>
+            <span class="text-gray-700"><strong class="text-brand-dark">3D Holographic Badge Binders</strong> — Collectible cards system</span>
+          </li>
+          <li class="flex items-start gap-3 text-sm">
+            <div class="w-5 h-5 rounded-full bg-brand-green/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <i class="fas fa-check text-brand-green text-[10px]"></i>
+            </div>
+            <span class="text-gray-700"><strong class="text-brand-dark">House Power Boosts & Reactors</strong> — Team-based gamification</span>
+          </li>
+          <li class="flex items-start gap-3 text-sm">
+            <div class="w-5 h-5 rounded-full bg-brand-green/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <i class="fas fa-check text-brand-green text-[10px]"></i>
+            </div>
+            <span class="text-gray-700"><strong class="text-brand-dark">Multi-player Mystery Word</strong> — Collaborative challenges</span>
+          </li>
+        </ul>
+        
+        <div class="flex flex-col gap-3">
+          <div class="flex gap-2">
+            <button onclick="openPlanDetails('pro')" class="flex-1 py-2.5 rounded-xl text-sm font-bold text-brand-blue border border-brand-blue/30 hover:border-brand-blue hover:bg-brand-blue/5 transition-all duration-200">
+              <i class="fas fa-info-circle mr-1"></i> Details
+            </button>
+            <button onclick="switchVideo('student')" class="flex-1 py-2.5 rounded-xl text-sm font-bold text-brand-green border border-brand-green/30 hover:border-brand-green hover:bg-brand-green/5 transition-all duration-200">
+              <i class="fas fa-play-circle mr-1"></i> Demo
+            </button>
+          </div>
+          <button onclick="window.open('https://housepoint.trackedu.net/', '_blank')" class="w-full py-3.5 rounded-xl font-bold text-white bg-gradient-to-r from-brand-green to-green-600 hover:from-green-600 hover:to-brand-green transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+            <i class="fas fa-rocket mr-2"></i> Start Free Trial
+          </button>
+        </div>
+        
+        <!-- Trust Badge -->
+        <div class="mt-4 text-center">
+          <p class="text-[10px] text-gray-400 font-medium uppercase tracking-wider">
+            <i class="fas fa-shield-alt mr-1"></i> Secure • GDPR Compliant • 30-Day Pilot
+          </p>
+        </div>
+      </div>
+
+    </div>
 
     <div class="mt-20 overflow-x-auto scrollbar-hide">
       <div class="text-center mb-10">
@@ -824,7 +928,7 @@ html { scroll-padding-top: 100px; }
       </div>
 
       <table class="w-full min-w-[800px] compare-table text-left bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100">
-       <thead>
+        <thead>
           <tr class="bg-gray-50/50">
             <th class="w-1/3 text-sm font-bold uppercase tracking-widest text-gray-400 p-6">Feature</th>
             <th class="text-center text-brand-blue font-bold p-6">Solo Teacher</th>
