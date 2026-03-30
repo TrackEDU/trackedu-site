@@ -826,24 +826,53 @@ html { scroll-padding-top: 100px; }
       </div>
 
      <div class="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm flex flex-col relative transition transform hover:-translate-y-1 hover:shadow-lg">
-        <h3 class="font-display text-2xl font-bold text-brand-dark mb-2">Pro Ecosystem</h3>
-        <div class="text-brand-blue font-black text-4xl mb-4">$2,950<span class="text-lg text-gray-500 font-medium"> / year</span></div>
-        <p class="text-gray-600 text-sm mb-6 h-10">The complete school culture suite with dual-app integration.</p>
-        
-        <div class="bg-blue-50 border border-blue-100 rounded-xl p-3 mb-6 text-center">
-            <p class="text-brand-blue font-bold text-xs uppercase tracking-widest">Included:</p>
-            <p class="text-brand-dark font-black text-sm">Teacher App + Student App</p>
+  
+  <!-- Popular Badge (Optional but recommended for Pro) -->
+  <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-brand-green text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-md">
+    ⚡ Most Powerful
+  </div>
+  
+  <h3 class="font-display text-2xl font-bold text-brand-dark mb-2 mt-2">Pro Ecosystem</h3>
+  <div class="text-brand-blue font-black text-4xl mb-4">$2,950<span class="text-lg text-gray-500 font-medium"> / year</span></div>
+  <p class="text-gray-600 text-sm mb-6 h-10">The complete school culture suite with dual-app integration.</p>
+  
+  <!-- NEW: Student App Video Preview -->
+  <div class="relative mb-6 group">
+    <div class="rounded-xl overflow-hidden shadow-md border border-gray-100 bg-gray-50">
+      <div class="relative">
+        <img src="https://i.imgur.com/UVl5QwD.jpeg" alt="Student App Preview" class="w-full h-36 object-cover opacity-80 group-hover:opacity-100 transition">
+        <div class="absolute inset-0 flex items-center justify-center">
+          <button onclick="openStudentAppPreview()" class="w-12 h-12 bg-brand-green rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition transform">
+            <i class="fas fa-play text-white text-sm ml-0.5"></i>
+          </button>
         </div>
-
-        <ul class="space-y-3 mb-8 flex-1">
-          <li class="flex items-start gap-3 text-sm font-bold text-brand-dark"><i class="fas fa-mobile-alt text-brand-blue mt-1"></i> <span><strong>Full Student App Access</strong></span></li>
-          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>3D Holographic Badge Binders</span></li>
-          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>House Power Boosts & Reactors</span></li>
-          <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>The Multi-player Mystery Word</span></li>
-        </ul>
-        <button onclick="openPlanDetails('pro')" class="text-brand-blue text-xs font-bold uppercase tracking-widest mb-6 hover:underline cursor-pointer">View Pro Features <i class="fas fa-chevron-right ml-1"></i></button>
-      <button onclick="window.open('https://housepoint.trackedu.net/', '_blank')" class="w-full py-3 rounded-xl font-bold bg-brand-green text-white hover:bg-green-500 transition shadow-lg shadow-brand-green/30">Start Free Trial</button>
+        <div class="absolute bottom-2 left-2 bg-black/60 text-white text-[10px] px-2 py-1 rounded-full flex items-center gap-1">
+          <i class="fas fa-mobile-alt"></i> Student App Preview
+        </div>
       </div>
+    </div>
+    <p class="text-xs text-gray-500 text-center mt-2">Tap to see the student experience →</p>
+  </div>
+  
+  <div class="bg-blue-50 border border-blue-100 rounded-xl p-3 mb-6 text-center">
+      <p class="text-brand-blue font-bold text-xs uppercase tracking-widest">Included:</p>
+      <p class="text-brand-dark font-black text-sm">Teacher App + Student App</p>
+  </div>
+
+  <ul class="space-y-3 mb-8 flex-1">
+    <li class="flex items-start gap-3 text-sm font-bold text-brand-dark"><i class="fas fa-mobile-alt text-brand-blue mt-1"></i> <span><strong>Full Student App Access</strong></span></li>
+    <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>3D Holographic Badge Binders</span></li>
+    <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>House Power Boosts & Reactors</span></li>
+    <li class="flex items-start gap-3 text-sm"><i class="fas fa-check text-brand-green mt-1"></i> <span>The Multi-player Mystery Word</span></li>
+  </ul>
+  
+  <div class="flex gap-2 mb-6">
+    <button onclick="openPlanDetails('pro')" class="flex-1 text-brand-blue text-xs font-bold uppercase tracking-widest hover:underline cursor-pointer">View Pro Features →</button>
+    <button onclick="switchVideo('student')" class="flex-1 text-brand-green text-xs font-bold uppercase tracking-widest hover:underline cursor-pointer">🎬 Watch Student Demo →</button>
+  </div>
+  
+  <button onclick="window.open('https://housepoint.trackedu.net/', '_blank')" class="w-full py-3 rounded-xl font-bold bg-brand-green text-white hover:bg-green-500 transition shadow-lg shadow-brand-green/30">Start Free Trial</button>
+</div>
 
   </div>
 
@@ -1577,7 +1606,36 @@ function switchPreview(type) {
 
 
   
-
+// Student App Preview Modal Function
+function openStudentAppPreview() {
+  const modal = document.createElement('div');
+  modal.className = 'fixed inset-0 z-[100000] bg-black/95 flex items-center justify-center p-4';
+  modal.onclick = (e) => { if(e.target === modal) modal.remove(); };
+  
+  modal.innerHTML = `
+    <div class="relative w-full max-w-4xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl">
+      <button onclick="this.closest('.fixed').remove()" class="absolute -top-10 right-0 text-white text-3xl hover:text-gray-300 transition">&times;</button>
+      <iframe 
+        src="https://player.vimeo.com/video/1178512080?h=ff5159c513&autoplay=1&title=0&byline=0&portrait=0" 
+        class="w-full h-full"
+        frameborder="0" 
+        allow="autoplay; fullscreen; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
+  `;
+  
+  document.body.appendChild(modal);
+  
+  // Close on escape key
+  const closeHandler = (e) => {
+    if (e.key === 'Escape') {
+      modal.remove();
+      document.removeEventListener('keydown', closeHandler);
+    }
+  };
+  document.addEventListener('keydown', closeHandler);
+}
 
 
   
