@@ -503,9 +503,9 @@ html { scroll-padding-top: 100px; }
           <i class="fas fa-chalkboard-teacher text-5xl text-brand-green mb-4"></i>
           <h3 class="text-white text-2xl font-bold mb-3">Ready to Transform Your School?</h3>
           <p class="text-gray-200 text-sm mb-6 max-w-xs">Get full access to the Teacher App. No credit card required.</p>
-          <button onclick="window.location.href='https://trackedu-housepoints.web.app'" class="btn px-8 py-3 text-lg font-bold shadow-lg bg-white text-brand-dark hover:bg-brand-green hover:text-white transition">
-            <i class="fas fa-rocket mr-2"></i> Start Free Demo
-          </button>
+         <button onclick="window.open('https://housepoint.trackedu.net/', '_blank')" class="btn px-8 py-3 text-lg font-bold shadow-lg bg-white text-brand-dark hover:bg-brand-green hover:text-white transition">
+  <i class="fas fa-rocket mr-2"></i> Start Free Demo
+</button>
           <p class="text-xs text-gray-300 mt-4">30-day trial • Cancel anytime</p>
         </div>
 
@@ -1369,6 +1369,7 @@ html { scroll-padding-top: 100px; }
 
 
 // App Preview Switcher Logic - Student App default, Teacher App shows CTA overlay
+// App Preview Switcher Logic - Student App default, Teacher App shows CTA overlay
 function switchPreview(type) {
   const iframe = document.getElementById('mockup-content');
   const loader = document.getElementById('mockup-loading');
@@ -1394,7 +1395,7 @@ function switchPreview(type) {
     subtitle.innerHTML = "The <strong>Teacher App</strong> is the command center for awarding points and managing tools. Perfect for staff who run the house system.";
     
     // Load Teacher App
-    iframe.src = "https://trackedu-housepoints.web.app/?school=demo_school";
+    iframe.src = "https://housepoint.trackedu.net/?school=demo_school";
     
     // Show CTA overlay after Teacher App loads (with delay)
     setTimeout(() => {
@@ -1410,7 +1411,7 @@ function switchPreview(type) {
     subtitle.innerHTML = "The <strong>Student App</strong> is built for engagement on any mobile device. Track points, collect badges, and power up your house!";
     
     // Load Student App
-    iframe.src = "https://trackedu-housepoints.web.app/student.html?school=demo_school";
+    iframe.src = "https://housepoint.trackedu.net/student.html?school=demo_school";
     
     // Ensure CTA overlay is hidden
     ctaOverlay.classList.add('hidden');
