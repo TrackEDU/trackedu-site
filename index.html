@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" data-theme="light" class="scroll-smooth">
 <head>
@@ -1283,45 +1284,45 @@ html { scroll-padding-top: 100px; }
   }
 
   // 2. App Preview Switcher Logic
-  
-function switchPreview(type) {
-  const iframe = document.getElementById('mockup-content');
-  const loader = document.getElementById('mockup-loading');
-  const subtitle = document.getElementById('previewSubtitle');
-  const btnTeacher = document.getElementById('toggleTeacher');
-  const btnStudent = document.getElementById('toggleStudent');
+  function switchPreview(type) {
+    const iframe = document.getElementById('mockup-content');
+    const loader = document.getElementById('mockup-loading');
+    const subtitle = document.getElementById('previewSubtitle');
+    const btnTeacher = document.getElementById('toggleTeacher');
+    const btnStudent = document.getElementById('toggleStudent');
 
-  // Show loading state
-  loader.style.display = 'flex';
-  loader.style.opacity = '1';
-  iframe.style.opacity = '0';
+    // 1. Trigger Loading State
+    loader.style.display = 'flex';
+    loader.style.opacity = '1';
+    iframe.style.opacity = '0';
 
-  if (type === 'teacher') {
-    btnTeacher.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm";
-    btnStudent.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue";
-    
-    subtitle.innerHTML = "The <strong>Teacher App</strong> is the command center for awarding points and managing tools.";
-    // 🔥 CHANGE THIS ONE LINE 🔥
-    iframe.src = "https://housepoint.trackedu.net/?school=public_demo";
-    
-  } else {
-    btnStudent.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm";
-    btnTeacher.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue";
-    
-    subtitle.innerHTML = "The <strong>Student App</strong> is built for engagement on any mobile device.";
-    // 🔥 CHANGE THIS ONE LINE 🔥
-    iframe.src = "https://housepoint.trackedu.net/student.html?school=public_demo";
-  }
+    // 2. Handle Logic based on selection (Frame size is handled purely by CSS Media Queries)
+    if (type === 'teacher') {
+      btnTeacher.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm";
+      btnStudent.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue";
+      
+      subtitle.innerHTML = "The <strong>Teacher App</strong> is the command center for awarding points and managing tools.";
+      // Uses your custom domain + the demo bypass parameter
+      iframe.src = "https://housepoint.trackedu.net/?school=public_demo&demo=true";
+      
+    } else {
+      btnStudent.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm";
+      btnTeacher.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue";
+      
+      subtitle.innerHTML = "The <strong>Student App</strong> is built for engagement on any mobile device.";
+      // Uses your custom domain + the demo bypass parameter
+      iframe.src = "https://housepoint.trackedu.net/student.html?school=public_demo&demo=true";
+    }
 
-  // Animation
-  setTimeout(() => {
-    loader.style.opacity = '0';
-    setTimeout(() => {
-      loader.style.display = 'none';
-      iframe.style.opacity = '1';
-    }, 700);
-  }, 1000);
-}
+    // 3. Simple transition delay
+    setTimeout(() => {
+      loader.style.opacity = '0';
+      setTimeout(() => {
+        loader.style.display = 'none';
+        iframe.style.opacity = '1';
+      }, 700);
+    }, 1000);
+  }
 
   // 3. Plan Detailed Information Logic
   const planInfo = {
