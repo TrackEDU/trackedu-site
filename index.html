@@ -1663,26 +1663,58 @@ function openStudentAppPreview() {
       ]
     },
     pro: {
-      title: "Pro Ecosystem",
-      badge: "The Full Digital Suite",
-      color: "#0f66c3",
-      features: [
-        { icon: "fa-layer-group", label: "Dual-App System", desc: "You get two specialized platforms: The **Teacher Command Center** for management and the **Student Hero Portal** for engagement." },
-        { icon: "fa-mobile-screen", label: "Full Student App", desc: "A dedicated mobile experience where students track points, maintain Daily Streaks, and claim Loot Drops. 100% PII-free login." },
-        { icon: "fa-clone", label: "3D Badge Binders", desc: "Activated inside the Student App. An RPG-style system where students unlock and flip holographic 3D trading cards." },
-        { icon: "fa-bolt", label: "House Power Boosts", desc: "Multi-player gamification. Students use their app to charge the House Reactor and trigger school-wide House Blasts." },
-        { icon: "fa-vote-yea", label: "Student Voice Polls", desc: "Turn the Student App into a democratic tool. Launch live polls and let students vote on rewards and school events." }
-      ]
-    }
+  title: "Pro Ecosystem",
+  badge: "The Full Digital Suite",
+  color: "#0f66c3",
+  features: [
+    { 
+      icon: "fa-play-circle", 
+      label: "🎬 Watch the Student App in Action", 
+      desc: "See how students experience the gamified dashboard, collect badges, and power up their house.",
+      isVideo: true,
+      videoUrl: "https://player.vimeo.com/video/1178512080?h=ff5159c513&autoplay=1&title=0&byline=0&portrait=0"
+    },
+    { icon: "fa-layer-group", label: "Dual-App System", desc: "You get two specialized platforms: The **Teacher Command Center** for management and the **Student Hero Portal** for engagement." },
+    { icon: "fa-mobile-screen", label: "Full Student App", desc: "A dedicated mobile experience where students track points, maintain Daily Streaks, and claim Loot Drops. 100% PII-free login." },
+    { icon: "fa-clone", label: "3D Badge Binders", desc: "Activated inside the Student App. An RPG-style system where students unlock and flip holographic 3D trading cards." },
+    { icon: "fa-bolt", label: "House Power Boosts", desc: "Multi-player gamification. Students use their app to charge the House Reactor and trigger school-wide House Blasts." },
+    { icon: "fa-vote-yea", label: "Student Voice Polls", desc: "Turn the Student App into a democratic tool. Launch live polls and let students vote on rewards and school events." }
+  ]
+}
   };
 
   function openPlanDetails(planKey) {
-    const data = planInfo[planKey];
-    document.getElementById('modalPlanTitle').innerText = data.title;
-    document.getElementById('modalPlanBadge').innerText = data.badge;
-    document.getElementById('modalThemeBar').style.backgroundColor = data.color;
-    
-    const listHtml = data.features.map(f => `
+  const data = planInfo[planKey];
+  document.getElementById('modalPlanTitle').innerText = data.title;
+  document.getElementById('modalPlanBadge').innerText = data.badge;
+  document.getElementById('modalThemeBar').style.backgroundColor = data.color;
+  
+  const listHtml = data.features.map(f => {
+    if (f.isVideo) {
+      return `
+        <div class="mb-8">
+          <div class="rounded-xl overflow-hidden shadow-md border border-gray-100 bg-gray-50">
+            <div class="relative aspect-video bg-black">
+              <iframe 
+                src="${f.videoUrl}" 
+                class="absolute inset-0 w-full h-full"
+                frameborder="0" 
+                allow="autoplay; fullscreen; picture-in-picture" 
+                allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+          <div class="flex gap-3 mt-3 items-start">
+            <div class="feature-icon bg-brand-green/10"><i class="fas ${f.icon} text-brand-green"></i></div>
+            <div>
+              <h4 class="font-bold text-gray-900">${f.label}</h4>
+              <p class="text-sm text-gray-600 leading-relaxed">${f.desc}</p>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+    return `
       <div class="flex gap-4 mb-8 items-start">
         <div class="feature-icon"><i class="fas ${f.icon}"></i></div>
         <div>
@@ -1690,12 +1722,13 @@ function openStudentAppPreview() {
           <p class="text-sm text-gray-600 leading-relaxed">${f.desc}</p>
         </div>
       </div>
-    `).join('');
-    
-    document.getElementById('modalFeatureList').innerHTML = listHtml;
-    document.getElementById('pricingInfoModal').classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
-  }
+    `;
+  }).join('');
+  
+  document.getElementById('modalFeatureList').innerHTML = listHtml;
+  document.getElementById('pricingInfoModal').classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
 
   function closePricingModal() {
     document.getElementById('pricingInfoModal').classList.add('hidden');
