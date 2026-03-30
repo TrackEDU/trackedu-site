@@ -600,46 +600,59 @@ html { scroll-padding-top: 100px; }
   <div class="max-w-6xl mx-auto px-6 relative z-10">
     
     <div class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 bg-brand-green/20 rounded-full px-4 py-1.5 mb-6">
+        <i class="fas fa-mobile-alt text-brand-green text-xs"></i>
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-green">Student App • Community Dashboard</span>
+      </div>
       <h2 class="font-display text-4xl md:text-5xl font-black mb-6 leading-tight">
         One Shared View. <br>
         <span class="text-brand-green">Connected Community.</span>
       </h2>
       <p class="text-xl text-blue-100 mb-10 max-w-3xl mx-auto">
         Parents, students, and staff all see the same live results. <br>
-        House spirit doesn't stop at the school gate.
+        <strong class="text-brand-green">The Student App</strong> doubles as your school's live community dashboard — accessible to everyone.
       </p>
 
-      <button 
-        onclick="window.open('https://trackedu-housepoints.web.app/student.html?school=demo_school', '_blank')"
-        class="btn bg-white text-brand-dark hover:bg-brand-green hover:text-white px-10 py-5 text-xl shadow-2xl transition transform hover:scale-105"
-      >
-        <i class="fa-solid fa-users-viewfinder mr-2"></i>
-        View the Community Dashboard
-      </button>
-      <p class="mt-4 text-sm text-gray-400">Safe, read-only link. No login required for families.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-4">
+        <button 
+          onclick="window.open('https://trackedu-housepoints.web.app/student.html?school=demo_school', '_blank')"
+          class="btn bg-white text-brand-dark hover:bg-brand-green hover:text-white px-8 py-4 text-lg shadow-2xl transition transform hover:scale-105"
+        >
+          <i class="fa-solid fa-users-viewfinder mr-2"></i>
+          View Live Community Dashboard
+        </button>
+        <button 
+          onclick="switchVideo('student')"
+          class="btn-secondary px-8 py-4 text-lg font-bold transition hover:bg-brand-green hover:text-white hover:border-brand-green"
+        >
+          <i class="fas fa-play-circle mr-2"></i>
+          Watch Student App Demo
+        </button>
+      </div>
+      <p class="text-sm text-gray-400">Safe, read-only link. No login required for families. Perfect for newsletters and websites.</p>
     </div>
 
     <div class="grid md:grid-cols-3 gap-8 mb-16 border-t border-white/10 pt-16">
-      <div class="text-center p-4">
-        <div class="w-16 h-16 mx-auto bg-white/5 rounded-full flex items-center justify-center text-3xl mb-4 text-brand-green">🔗</div>
+      <div class="text-center p-4 group hover:bg-white/5 rounded-2xl transition">
+        <div class="w-16 h-16 mx-auto bg-white/5 rounded-full flex items-center justify-center text-3xl mb-4 text-brand-green group-hover:scale-110 transition">🔗</div>
         <h3 class="text-xl font-bold mb-2">One Permanent Link</h3>
-        <p class="text-gray-400 leading-relaxed">Share it in newsletters, on the website, or via QR code. It's accessible anytime, anywhere.</p>
+        <p class="text-gray-400 leading-relaxed">Share the Student App link in newsletters, on your website, or via QR code. Accessible anytime, anywhere — no login required for viewing.</p>
       </div>
-      <div class="text-center p-4">
-        <div class="w-16 h-16 mx-auto bg-white/5 rounded-full flex items-center justify-center text-3xl mb-4 text-brand-green">🕒</div>
+      <div class="text-center p-4 group hover:bg-white/5 rounded-2xl transition">
+        <div class="w-16 h-16 mx-auto bg-white/5 rounded-full flex items-center justify-center text-3xl mb-4 text-brand-green group-hover:scale-110 transition">🕒</div>
         <h3 class="text-xl font-bold mb-2">Updates Instantly</h3>
-        <p class="text-gray-400 leading-relaxed">Points awarded in class appear within seconds for the whole community to see.</p>
+        <p class="text-gray-400 leading-relaxed">Points awarded in class appear within seconds on the Student App dashboard for the whole community to celebrate.</p>
       </div>
-      <div class="text-center p-4">
-        <div class="w-16 h-16 mx-auto bg-white/5 rounded-full flex items-center justify-center text-3xl mb-4 text-brand-green">❤️</div>
+      <div class="text-center p-4 group hover:bg-white/5 rounded-2xl transition">
+        <div class="w-16 h-16 mx-auto bg-white/5 rounded-full flex items-center justify-center text-3xl mb-4 text-brand-green group-hover:scale-110 transition">❤️</div>
         <h3 class="text-xl font-bold mb-2">Connects School & Home</h3>
-        <p class="text-gray-400 leading-relaxed">Families feel part of the journey. House spirit lives beyond the school gates.</p>
+        <p class="text-gray-400 leading-relaxed">Families follow along with their child's house progress. House spirit doesn't stop at the school gate — it lives in your community.</p>
       </div>
     </div>
 
     <div class="max-w-3xl mx-auto text-center bg-white/5 rounded-2xl p-8 backdrop-blur-sm border border-white/10">
       <p class="text-xl md:text-2xl italic text-gray-200 font-light mb-4">
-        "For the first time, house points actually matter to students — not just on paper."
+        "For the first time, house points actually matter to students — not just on paper. The Student App dashboard changed how our whole community engages."
       </p>
       <div class="flex items-center justify-center gap-3">
         <div class="h-px w-8 bg-brand-green"></div>
