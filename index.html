@@ -1295,19 +1295,19 @@ html { scroll-padding-top: 100px; }
     loader.style.opacity = '1';
     iframe.style.opacity = '0';
 
-    // Handle Selection Logic
+   // Handle Selection Logic
     if (type === 'teacher') {
       btnTeacher.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm";
       btnStudent.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue";
       subtitle.innerHTML = "The <strong>Teacher App</strong> is the command center for awarding points and managing tools.";
-      // Point to a dedicated 'public_demo' school ID in your Firebase
-      iframe.src = "https://trackedu-housepoints.web.app?school=public_demo&mode=readonly";
+      // Use your custom domain + the demo bypass parameter
+      iframe.src = "https://housepoint.trackedu.net/?school=public_demo&demo=true";
     } else {
       btnStudent.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm";
       btnTeacher.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue";
-     subtitle.innerHTML = "The <strong>Student App</strong> is built for engagement on any mobile device.";
-      // Log them into the Student App automatically for the demo school
-      iframe.src = "https://trackedu-housepoints.web.app/student.html?school=public_demo&demo=true";
+      subtitle.innerHTML = "The <strong>Student App</strong> is built for engagement on any mobile device.";
+      // Use your custom domain + the demo bypass parameter
+      iframe.src = "https://housepoint.trackedu.net/student.html?school=public_demo&demo=true";
     }
 
     // Transition delay
