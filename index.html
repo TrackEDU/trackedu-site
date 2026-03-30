@@ -240,8 +240,7 @@ html { scroll-padding-top: 100px; }
 
 
 
-    /* Device-aware frame styling - Adaptive to screen size */
-/* Device-aware frame styling - Adaptive to screen size */
+   /* Device-aware frame styling */
 .device-frame {
   margin: 0 auto;
   background: #1f2937;
@@ -253,7 +252,7 @@ html { scroll-padding-top: 100px; }
   position: relative;
 }
 
-/* Desktop (≥1025px) - iPad Landscape / Tablet Style with CTA Overlay */
+/* Desktop (≥1025px) - iPad Landscape Style */
 @media (min-width: 1025px) {
   .device-frame {
     width: 850px;
@@ -262,15 +261,9 @@ html { scroll-padding-top: 100px; }
     border-width: 18px;
     max-height: none;
   }
-  #frameCtaOverlay {
-    display: flex !important;
-  }
-  #mobileCta {
-    display: none !important;
-  }
 }
 
-/* Tablet (768px - 1024px) - iPad Portrait with CTA Overlay */
+/* Tablet (768px - 1024px) - iPad Portrait Style */
 @media (min-width: 768px) and (max-width: 1024px) {
   .device-frame {
     width: 380px;
@@ -279,15 +272,9 @@ html { scroll-padding-top: 100px; }
     border-width: 12px;
     max-height: 75vh;
   }
-  #frameCtaOverlay {
-    display: flex !important;
-  }
-  #mobileCta {
-    display: none !important;
-  }
 }
 
-/* Mobile (≤767px) - Hide overlay, show bottom CTA */
+/* Mobile (≤767px) - Phone Frame */
 @media (max-width: 767px) {
   .device-frame {
     width: 280px;
@@ -295,12 +282,6 @@ html { scroll-padding-top: 100px; }
     border-radius: 36px;
     border-width: 10px;
     max-height: 70vh;
-  }
-  #frameCtaOverlay {
-    display: none !important;
-  }
-  #mobileCta {
-    display: block !important;
   }
 }
 
@@ -310,6 +291,20 @@ html { scroll-padding-top: 100px; }
     width: 85vw;
     border-radius: 28px;
   }
+}
+
+/* CTA Overlay Styles */
+#frameCtaOverlay {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#frameCtaOverlay:hover {
+  opacity: 0.95;
+}
+
+#frameCtaOverlay.hidden {
+  display: none !important;
 }
 
     
@@ -474,16 +469,28 @@ html { scroll-padding-top: 100px; }
 
 <section id="mobile-demo" class="py-16 bg-gradient-to-b from-white to-gray-50">
   <div class="max-w-6xl mx-auto px-4 text-center">
-    <span class="text-brand-blue font-bold tracking-wider text-sm uppercase mb-2 block">Try It Free</span>
-    <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-black text-brand-dark mb-4">Start Your Free Demo</h2>
+    <span class="text-brand-blue font-bold tracking-wider text-sm uppercase mb-2 block">Interactive Preview</span>
+    <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-black text-brand-dark mb-4">Experience Both Apps</h2>
     
+    <!-- Toggle Buttons -->
+    <div class="flex justify-center mb-6">
+      <div class="inline-flex p-1 bg-gray-200 rounded-2xl shadow-inner">
+        <button id="toggleStudent" onclick="switchPreview('student')" class="px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm">
+          <i class="fas fa-user-graduate mr-2"></i> Student App
+        </button>
+        <button id="toggleTeacher" onclick="switchPreview('teacher')" class="px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue">
+          <i class="fas fa-chalkboard-teacher mr-2"></i> Teacher App
+        </button>
+      </div>
+    </div>
+
     <p id="previewSubtitle" class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-      Get full access to the Teacher App. Award points, manage houses, and build school culture — all free for 30 days.
+      The <strong>Student App</strong> is built for engagement on any mobile device. Track points, collect badges, and power up your house!
     </p>
 
-    <!-- Device-aware Frame with CTA Inside -->
+    <!-- Device-aware Frame -->
     <div id="demoFrame" class="device-frame relative mx-auto" data-aos="zoom-in-up">
-      <div class="bg-white w-full h-full rounded-[18px] sm:rounded-[24px] overflow-hidden relative shadow-2xl flex flex-col">
+      <div class="bg-white w-full h-full rounded-[18px] sm:rounded-[24px] overflow-hidden relative shadow-2xl">
         
         <!-- Loading Overlay -->
         <div id="mockup-loading" class="absolute inset-0 bg-brand-dark flex flex-col items-center justify-center z-10 transition-opacity duration-700">
@@ -491,8 +498,8 @@ html { scroll-padding-top: 100px; }
           <div class="w-8 h-8 border-4 border-white/20 border-t-brand-green rounded-full animate-spin"></div>
         </div>
 
-        <!-- CTA Overlay Inside Frame (Visible on Desktop/Tablet) -->
-        <div id="frameCtaOverlay" class="absolute inset-0 bg-gradient-to-br from-brand-blue/95 to-brand-dark/95 backdrop-blur-sm z-20 flex flex-col items-center justify-center text-center p-6 transition-all duration-500 hover:opacity-90">
+        <!-- CTA Overlay Inside Frame - ONLY visible when Teacher App is active -->
+        <div id="frameCtaOverlay" class="absolute inset-0 bg-gradient-to-br from-brand-blue/95 to-brand-dark/95 backdrop-blur-sm z-20 flex flex-col items-center justify-center text-center p-6 transition-all duration-500 hover:opacity-90 hidden">
           <i class="fas fa-chalkboard-teacher text-5xl text-brand-green mb-4"></i>
           <h3 class="text-white text-2xl font-bold mb-3">Ready to Transform Your School?</h3>
           <p class="text-gray-200 text-sm mb-6 max-w-xs">Get full access to the Teacher App. No credit card required.</p>
@@ -504,21 +511,13 @@ html { scroll-padding-top: 100px; }
 
         <iframe 
           id="mockup-content"
-          src="https://trackedu-housepoints.web.app/?school=demo_school" 
+          src="https://trackedu-housepoints.web.app/student.html?school=demo_school" 
           class="w-full h-full opacity-0 transition-opacity duration-700"
           frameborder="0"
           scrolling="yes"
           sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals allow-top-navigation-by-user-activation">
         </iframe>
       </div>
-    </div>
-
-    <!-- Simple bottom CTA for mobile -->
-    <div id="mobileCta" class="mt-6 md:hidden">
-      <button onclick="window.location.href='https://trackedu-housepoints.web.app'" class="btn w-full py-4 text-lg font-bold shadow-lg">
-        <i class="fas fa-chalkboard-teacher mr-2"></i> Start Free Demo
-      </button>
-      <p class="text-xs text-gray-500 mt-2">30-day trial • No credit card required</p>
     </div>
   </div>
 </section>
@@ -1366,23 +1365,73 @@ html { scroll-padding-top: 100px; }
     document.getElementById('res-boost').innerText = engagementFactor;
   }
 
-// 2. Simple preview - Teacher App only with CTA overlay
-function initDemoFrame() {
+
+
+
+// App Preview Switcher Logic - Student App default, Teacher App shows CTA overlay
+function switchPreview(type) {
   const iframe = document.getElementById('mockup-content');
   const loader = document.getElementById('mockup-loading');
+  const subtitle = document.getElementById('previewSubtitle');
+  const btnTeacher = document.getElementById('toggleTeacher');
+  const btnStudent = document.getElementById('toggleStudent');
+  const ctaOverlay = document.getElementById('frameCtaOverlay');
+
+  // Trigger Loading State
+  loader.style.display = 'flex';
+  loader.style.opacity = '1';
+  iframe.style.opacity = '0';
   
-  // Ensure Teacher App loads
-  iframe.src = "https://trackedu-housepoints.web.app/?school=demo_school";
-  
-  // Handle loading
+  // Hide CTA overlay by default when switching
+  ctaOverlay.classList.add('hidden');
+
+  if (type === 'teacher') {
+    // Update button styles
+    btnTeacher.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm";
+    btnStudent.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue";
+    
+    // Update subtitle
+    subtitle.innerHTML = "The <strong>Teacher App</strong> is the command center for awarding points and managing tools. Perfect for staff who run the house system.";
+    
+    // Load Teacher App
+    iframe.src = "https://trackedu-housepoints.web.app/?school=demo_school";
+    
+    // Show CTA overlay after Teacher App loads (with delay)
+    setTimeout(() => {
+      ctaOverlay.classList.remove('hidden');
+    }, 1500);
+    
+  } else {
+    // Student App - update button styles
+    btnStudent.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm";
+    btnTeacher.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue";
+    
+    // Update subtitle
+    subtitle.innerHTML = "The <strong>Student App</strong> is built for engagement on any mobile device. Track points, collect badges, and power up your house!";
+    
+    // Load Student App
+    iframe.src = "https://trackedu-housepoints.web.app/student.html?school=demo_school";
+    
+    // Ensure CTA overlay is hidden
+    ctaOverlay.classList.add('hidden');
+  }
+
+  // Smooth transition delay
   setTimeout(() => {
     loader.style.opacity = '0';
     setTimeout(() => {
       loader.style.display = 'none';
       iframe.style.opacity = '1';
     }, 700);
-  }, 1500);
+  }, 1000);
 }
+
+
+  
+
+
+
+  
   // 3. Plan Detailed Information Logic
   const planInfo = {
     classroom: {
@@ -1544,7 +1593,8 @@ function initDemoFrame() {
   document.addEventListener('DOMContentLoaded', () => {
   window.formStartTime = Date.now();
   calculateROI();
-  initDemoFrame(); // Call the new init function
+  // Load Student App as default (CTA overlay hidden)
+  switchPreview('student');
 });
 
   // 8. YouTube API Logic
