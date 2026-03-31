@@ -786,138 +786,201 @@ html { scroll-padding-top: 100px; }
 
 
 
- <section id="pricing" class="py-20 bg-brand-light">
+  
+<section id="pricing" class="py-20 bg-brand-light">
   <div class="max-w-6xl mx-auto px-6">
     
-    <!-- PWA Badge -->
+    <!-- PWA Badge - Works on All Devices -->
     <div class="text-center mb-8">
-      <span class="inline-flex items-center gap-2 bg-blue-50 text-brand-blue px-4 py-2 rounded-full text-xs font-bold shadow-sm border border-blue-100">
+      <span class="inline-flex items-center gap-2 bg-blue-50 text-brand-blue px-4 py-2 rounded-full text-sm font-bold shadow-sm border border-blue-100">
         <i class="fas fa-mobile-alt"></i>
-        <span>Install as App on Any Device • iPhone • iPad • Android • Windows • Mac</span>
+        <span>📱 Install as App on Any Device • iPhone • iPad • Android • Windows • Mac</span>
       </span>
     </div>
 
     <div class="text-center mb-12">
       <span class="text-brand-green font-bold tracking-widest text-sm uppercase">Simple Pricing</span>
-      <h2 class="font-display text-3xl md:text-4xl font-black text-brand-dark mt-2 mb-3">Choose Your School's Plan</h2>
-      <p class="text-gray-600 max-w-2xl mx-auto">From a single classroom to a fully gamified campus.</p>
+      <h2 class="font-display text-4xl font-black text-brand-dark mt-2 mb-4">Choose Your School's Plan</h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">From a single classroom to a fully gamified campus, we have a plan that fits your budget.</p>
     </div>
 
     <div class="grid lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
       
-      <!-- Solo Teacher Card -->
-      <div class="bg-white rounded-2xl p-5 border border-gray-200 shadow-sm flex flex-col h-full">
+      <!-- Solo Teacher Card - COMPACT -->
+      <div class="bg-white rounded-2xl p-5 border border-gray-200 shadow-sm flex flex-col relative transition transform hover:-translate-y-1 hover:shadow-lg">
         <h3 class="font-display text-lg font-bold text-brand-dark mb-1">Solo Teacher</h3>
-        <div class="text-brand-blue font-black text-2xl mb-2">Free<span class="text-sm text-gray-500 font-medium"> forever</span></div>
-        <div class="flex items-center gap-1 text-[10px] text-gray-500 mb-3">
-          <i class="fas fa-mobile-alt text-brand-green text-xs"></i>
-          <span>PWA App | Install on any device</span>
+        <div class="text-brand-blue font-black text-2xl mb-2">Free<span class="text-base text-gray-500 font-medium"> forever</span></div>
+        
+        <!-- Compact PWA indicator -->
+        <div class="flex items-center gap-1 text-[9px] text-gray-500 mb-2">
+          <i class="fas fa-mobile-alt text-brand-green text-[10px]"></i>
+          <span>PWA App | Any device</span>
         </div>
-        <ul class="space-y-1.5 mb-4 flex-1 text-sm">
-          <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green text-xs w-4"></i> <span>1 Teacher, 1 Class, 50 Students</span></li>
-          <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green text-xs w-4"></i> <span>Magic Hat & Timer</span></li>
-          <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green text-xs w-4"></i> <span>Security updates only</span></li>
+        
+        <!-- Key features - only 3 bullets -->
+        <ul class="space-y-1.5 mb-3 text-xs">
+          <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green text-[10px] w-3"></i> <span>1 Teacher, 1 Class, 50 Students</span></li>
+          <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green text-[10px] w-3"></i> <span>Magic Hat & Timer</span></li>
+          <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green text-[10px] w-3"></i> <span>Security updates only</span></li>
         </ul>
-        <div class="text-[11px] text-gray-400 mb-3 p-1.5 bg-gray-50 rounded-lg text-center">
-          <i class="fas fa-envelope mr-1"></i> Email: 48hr
+        
+        <div class="text-[10px] text-gray-400 mb-3 p-1.5 bg-gray-50 rounded-lg text-center">
+          <i class="fas fa-envelope mr-1"></i> Email: 48hr response
         </div>
-        <button onclick="openPlanDetails('classroom')" class="text-brand-blue text-[10px] font-bold uppercase tracking-wider mb-3 hover:underline">Details →</button>
-        <button onclick="window.open('https://housepoint.trackedu.net/', '_blank')" class="w-full py-2 rounded-xl font-bold text-brand-blue border border-brand-blue hover:bg-brand-blue hover:text-white transition text-sm">Start Free</button>
+        
+        <button onclick="openPlanDetails('classroom')" class="text-brand-blue text-[10px] font-bold uppercase tracking-wider mb-3 hover:underline text-center block">View All Details →</button>
+        <button onclick="window.open('https://housepoint.trackedu.net/', '_blank')" class="w-full py-2 rounded-lg font-bold text-brand-blue border border-brand-blue hover:bg-brand-blue hover:text-white transition text-sm">Start for Free</button>
       </div>
 
-      <!-- Core Campus Card -->
-      <div class="bg-brand-dark rounded-2xl p-5 border-2 border-brand-green shadow-xl flex flex-col relative h-full">
-        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-brand-green text-white px-2.5 py-0.5 rounded-full text-[9px] font-bold uppercase">Most Popular</div>
+      <!-- Core Campus Card - COMPACT -->
+      <div class="bg-brand-dark rounded-2xl p-5 border-2 border-brand-green shadow-xl flex flex-col relative transform lg:-translate-y-1">
+        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-brand-green text-white px-2 py-0.5 rounded-full text-[9px] font-bold uppercase whitespace-nowrap">Most Popular</div>
         <h3 class="font-display text-lg font-bold text-white mb-1">Core Campus</h3>
-        <div class="text-white font-black text-2xl mb-2">$1,400<span class="text-sm text-gray-400 font-medium"> / year</span></div>
-        <div class="flex items-center gap-1 text-[10px] text-gray-400 mb-3">
-          <i class="fas fa-mobile-alt text-brand-green text-xs"></i>
-          <span>PWA App | Install on any device</span>
+        <div class="text-white font-black text-2xl mb-2">$1,400<span class="text-base text-gray-400 font-medium"> / year</span></div>
+        
+        <div class="flex items-center gap-1 text-[9px] text-gray-400 mb-2">
+          <i class="fas fa-mobile-alt text-brand-green text-[10px]"></i>
+          <span>PWA App | Any device</span>
         </div>
-        <div class="bg-brand-blue/20 border border-brand-blue/30 rounded-lg p-1.5 mb-3 text-center">
-          <span class="text-brand-blue font-bold text-[11px]">Teacher App Only</span>
+        
+        <div class="bg-brand-blue/20 border border-brand-blue/30 rounded-lg p-1.5 mb-2 text-center">
+          <div class="flex items-center justify-center gap-1">
+            <i class="fas fa-chalkboard-teacher text-brand-blue text-[10px]"></i>
+            <span class="text-brand-blue font-bold text-[10px]">Teacher App Only</span>
+          </div>
         </div>
-        <ul class="space-y-1.5 mb-4 flex-1 text-sm text-gray-200">
-          <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green text-xs w-4"></i> <span>Unlimited Teachers & Students</span></li>
-          <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green text-xs w-4"></i> <span>8+ Teacher Utilities</span></li>
-          <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green text-xs w-4"></i> <span>Projector Mode + CSV Import</span></li>
-          <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green text-xs w-4"></i> <span>Major updates included</span></li>
+        
+        <ul class="space-y-1.5 mb-3 text-xs text-gray-200">
+          <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green text-[10px] w-3"></i> <span><strong>Unlimited</strong> Teachers & Students</span></li>
+          <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green text-[10px] w-3"></i> <span><strong>8+ Teacher Tools</strong></span></li>
+          <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green text-[10px] w-3"></i> <span>Projector Mode + CSV Import</span></li>
         </ul>
-        <div class="text-[11px] text-gray-400 mb-3 p-1.5 bg-white/5 rounded-lg text-center">
-          <i class="fas fa-envelope mr-1"></i> Email: 24hr
+        
+        <div class="text-[10px] text-gray-400 mb-3 p-1.5 bg-white/5 rounded-lg text-center">
+          <i class="fas fa-envelope mr-1"></i> Email: 24hr response
         </div>
-        <button onclick="openPlanDetails('core')" class="text-brand-green text-[10px] font-bold uppercase tracking-wider mb-3 hover:underline">Details →</button>
-        <button onclick="window.open('https://housepoint.trackedu.net/', '_blank')" class="w-full py-2 rounded-xl font-bold bg-brand-green text-white hover:bg-green-500 transition text-sm">Start Free Trial</button>
+        
+        <button onclick="openPlanDetails('core')" class="text-brand-green text-[10px] font-bold uppercase tracking-wider mb-3 hover:underline text-center block">View Toolkit Details →</button>
+        <button onclick="window.open('https://housepoint.trackedu.net/', '_blank')" class="w-full py-2 rounded-lg font-bold bg-brand-green text-white hover:bg-green-500 transition text-sm">Start Free Trial</button>
       </div>
 
-      <!-- Pro Ecosystem Card -->
-      <div class="bg-white rounded-2xl p-5 border border-gray-200 shadow-sm flex flex-col h-full">
-        <div class="inline-flex items-center gap-1 bg-gradient-to-r from-brand-green to-green-600 text-white px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider w-fit mb-2">
-          <i class="fas fa-gem text-[8px]"></i> FLAGSHIP
+      <!-- Pro Ecosystem Card - COMPACT -->
+      <div class="bg-white rounded-2xl p-5 border border-gray-200 shadow-sm flex flex-col relative transition hover:-translate-y-1 hover:shadow-lg">
+        
+        <div class="inline-flex items-center gap-1 bg-gradient-to-r from-brand-green to-green-600 text-white px-2 py-0.5 rounded-full text-[8px] font-black uppercase tracking-wider w-fit mb-2">
+          <i class="fas fa-gem text-[5px]"></i> FLAGSHIP
         </div>
+        
         <h3 class="font-display text-lg font-black text-brand-dark mb-1">Pro Ecosystem</h3>
         <div class="flex items-baseline gap-1 mb-2">
           <span class="text-2xl font-black text-brand-blue">$2,500</span>
           <span class="text-gray-400 text-xs">/ year</span>
         </div>
-        <div class="flex items-center gap-1 text-[10px] text-gray-500 mb-3">
-          <i class="fas fa-mobile-alt text-brand-green text-xs"></i>
-          <span>PWA App | Install on any device</span>
+        
+        <div class="flex items-center gap-1 text-[9px] text-gray-500 mb-2">
+          <i class="fas fa-mobile-alt text-brand-green text-[10px]"></i>
+          <span>PWA App | Any device</span>
         </div>
-        <div class="bg-gradient-to-r from-blue-50 to-green-50 border border-brand-green/20 rounded-lg p-1.5 mb-3 text-center">
-          <span class="text-brand-dark font-bold text-[11px]">Teacher App + Student App</span>
+        
+        <div class="bg-gradient-to-r from-blue-50 to-green-50 border border-brand-green/20 rounded-lg p-1.5 mb-2 text-center">
+          <div class="flex items-center justify-center gap-1">
+            <i class="fas fa-chalkboard-teacher text-brand-blue text-[10px]"></i>
+            <span class="text-gray-500 text-[9px]">+</span>
+            <i class="fas fa-mobile-alt text-brand-green text-[10px]"></i>
+          </div>
+          <p class="text-brand-dark font-bold text-[10px]">Teacher + Student Apps</p>
         </div>
-        <ul class="space-y-1.5 mb-4 flex-1 text-sm">
-          <li class="flex items-start gap-2"><i class="fas fa-mobile-alt text-brand-green text-xs mt-0.5 w-4"></i> <span>Full Student App + 3D Badges</span></li>
-          <li class="flex items-start gap-2"><i class="fas fa-bolt text-brand-green text-xs mt-0.5 w-4"></i> <span>House Reactors + Mystery Word</span></li>
-          <li class="flex items-start gap-2"><i class="fas fa-flask text-brand-green text-xs mt-0.5 w-4"></i> <span>Early access to new tools</span></li>
+
+        <ul class="space-y-1.5 mb-3 text-xs">
+          <li class="flex items-start gap-2"><i class="fas fa-check text-brand-green text-[10px] mt-0.5 w-3"></i> <span><strong>Full Student App</strong> + 3D Badges</span></li>
+          <li class="flex items-start gap-2"><i class="fas fa-check text-brand-green text-[10px] mt-0.5 w-3"></i> <span><strong>House Power Boosts</strong> + Mystery Word</span></li>
+          <li class="flex items-start gap-2"><i class="fas fa-flask text-brand-green text-[10px] mt-0.5 w-3"></i> <span><strong>Early Access</strong> to new features</span></li>
         </ul>
-        <div class="text-[11px] text-gray-600 mb-3 p-1.5 bg-blue-50 rounded-lg text-center border border-blue-100">
-          <i class="fas fa-headset mr-1 text-brand-blue"></i> <strong>Priority:</strong> 4hr • Google Meet • Quarterly
+        
+        <div class="text-[10px] text-gray-600 mb-3 p-1.5 bg-blue-50 rounded-lg text-center border border-blue-100">
+          <i class="fas fa-headset mr-1 text-brand-blue"></i> <strong>Priority:</strong> 4hr email • Google Meet • Quarterly check-ins
         </div>
-        <div class="flex gap-2 mb-3">
-          <button onclick="openPlanDetails('pro')" class="flex-1 py-1.5 rounded-lg text-[11px] font-bold text-brand-blue border border-brand-blue/30 hover:border-brand-blue transition">Details</button>
-          <button onclick="switchVideo('student')" class="flex-1 py-1.5 rounded-lg text-[11px] font-bold text-brand-green border border-brand-green/30 hover:border-brand-green transition"><i class="fas fa-play-circle mr-1"></i> Demo</button>
+        
+        <div class="flex gap-1.5 mb-3">
+          <button onclick="openPlanDetails('pro')" class="flex-1 py-1.5 rounded-lg text-[10px] font-bold text-brand-blue border border-brand-blue/30 hover:border-brand-blue hover:bg-brand-blue/5 transition">Details</button>
+          <button onclick="switchVideo('student')" class="flex-1 py-1.5 rounded-lg text-[10px] font-bold text-brand-green border border-brand-green/30 hover:border-brand-green hover:bg-brand-green/5 transition"><i class="fas fa-play-circle mr-1"></i> Demo</button>
         </div>
-        <button onclick="window.open('https://housepoint.trackedu.net/', '_blank')" class="w-full py-2 rounded-xl font-bold text-white bg-gradient-to-r from-brand-green to-green-600 hover:from-green-600 hover:to-brand-green transition text-sm">Start Free Trial</button>
-        <p class="text-[9px] text-gray-400 text-center mt-2">30-Day Pilot • Export anytime</p>
+        
+        <button onclick="window.open('https://housepoint.trackedu.net/', '_blank')" class="w-full py-2 rounded-lg font-bold text-white bg-gradient-to-r from-brand-green to-green-600 hover:from-green-600 hover:to-brand-green transition text-sm">Start Free Trial</button>
+        
+        <p class="text-[8px] text-gray-400 text-center mt-2">
+          <i class="fas fa-shield-alt mr-1"></i> 30-Day Pilot • Export anytime
+        </p>
       </div>
 
     </div>
 
-    <!-- Comparison Table - Condensed -->
-    <div class="mt-12 overflow-x-auto">
+    <!-- Feature Comparison Table - Collapsible on Mobile -->
+    <div class="mt-12 overflow-x-auto scrollbar-hide">
       <div class="text-center mb-6">
-        <h3 class="font-display text-xl font-bold text-brand-dark">Compare Features</h3>
+        <button onclick="toggleComparisonTable()" class="inline-flex items-center gap-2 text-brand-blue font-bold text-sm bg-blue-50 px-4 py-2 rounded-full hover:bg-blue-100 transition md:hidden">
+          <i id="tableToggleIcon" class="fas fa-chevron-down text-xs"></i>
+          <span>View Full Feature Comparison</span>
+        </button>
+        <h3 class="font-display text-xl font-bold text-brand-dark hidden md:block">Detailed Feature Comparison</h3>
       </div>
-      <table class="w-full min-w-[650px] text-sm bg-white rounded-2xl overflow-hidden border border-gray-100">
-        <thead class="bg-gray-50">
-          <tr>
-            <th class="p-3 text-left font-bold text-gray-600">Feature</th>
-            <th class="p-3 text-center font-bold text-brand-blue">Solo</th>
-            <th class="p-3 text-center font-bold text-brand-green">Core</th>
-            <th class="p-3 text-center font-bold text-brand-blue">Pro</th>
-          </tr>
-        </thead>
-        <tbody class="divide-y divide-gray-100">
-          <tr><td class="p-3">PWA App (Install on device)</td><td class="p-3 text-center text-green-600">✓</td><td class="p-3 text-center text-green-600">✓</td><td class="p-3 text-center text-green-600">✓</td></tr>
-          <tr><td class="p-3">Unlimited Students</td><td class="p-3 text-center">50</td><td class="p-3 text-center text-green-600">✓</td><td class="p-3 text-center text-green-600">✓</td></tr>
-          <tr><td class="p-3">Teacher Tools</td><td class="p-3 text-center">Basic</td><td class="p-3 text-center">8+ Suite</td><td class="p-3 text-center">8+ Suite</td></tr>
-          <tr><td class="p-3">Student App Access</td><td class="p-3 text-center">—</td><td class="p-3 text-center">—</td><td class="p-3 text-center text-green-600">✓</td></tr>
-          <tr><td class="p-3">3D Badges / Power Boosts</td><td class="p-3 text-center">—</td><td class="p-3 text-center">—</td><td class="p-3 text-center text-green-600">✓</td></tr>
-          <tr><td class="p-3">Support Response</td><td class="p-3 text-center">48hr</td><td class="p-3 text-center">24hr</td><td class="p-3 text-center font-bold text-brand-blue">4hr + Meet</td></tr>
-          <tr><td class="p-3">New Feature Access</td><td class="p-3 text-center">Security</td><td class="p-3 text-center">Major</td><td class="p-3 text-center font-bold text-brand-blue">Early</td></tr>
-        </tbody>
-      </table>
+
+      <div id="comparisonTable" class="hidden md:block">
+        <table class="w-full min-w-[800px] compare-table text-left bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+          <thead>
+            <tr class="bg-gray-50/50">
+              <th class="w-1/3 text-xs font-bold uppercase tracking-widest text-gray-400 p-4">Feature</th>
+              <th class="text-center text-brand-blue font-bold p-4 text-sm">Solo Teacher</th>
+              <th class="text-center text-brand-green font-bold p-4 bg-green-50/30 text-sm">Core Campus</th>
+              <th class="text-center text-brand-blue font-bold p-4 text-sm">Pro Ecosystem</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td colspan="4" class="bg-gray-50/30 py-2 px-4 text-[9px] font-black uppercase tracking-widest text-gray-500">Core Management</td></tr>
+            <tr><td class="font-medium text-sm p-3">Teacher Accounts</td><td class="text-center text-sm p-3">1 Solo Teacher</td><td class="text-center text-sm p-3 font-bold">Unlimited</td><td class="text-center text-sm p-3 font-bold">Unlimited</td></tr>
+            <tr><td class="font-medium text-sm p-3">Student Capacity</td><td class="text-center text-sm p-3">Up to 50</td><td class="text-center text-sm p-3 font-bold">Unlimited</td><td class="text-center text-sm p-3 font-bold">Unlimited</td></tr>
+            <tr><td class="font-medium text-sm p-3">Unified School Syncing</td><td class="text-center text-gray-300 p-3"><i class="fas fa-times"></i></td><td class="text-center text-brand-green p-3"><i class="fas fa-check-circle"></i></td><td class="text-center text-brand-green p-3"><i class="fas fa-check-circle"></i></td></tr>
+            
+            <tr><td colspan="4" class="bg-gray-50/30 py-2 px-4 text-[9px] font-black uppercase tracking-widest text-gray-500">Accessibility</td></tr>
+            <tr><td class="font-medium text-sm p-3">📱 PWA App (Install on any device)</td><td class="text-center text-brand-green p-3"><i class="fas fa-check-circle"></i></td><td class="text-center text-brand-green p-3"><i class="fas fa-check-circle"></i></td><td class="text-center text-brand-green p-3"><i class="fas fa-check-circle"></i></td></tr>
+            
+            <tr><td colspan="4" class="bg-gray-50/30 py-2 px-4 text-[9px] font-black uppercase tracking-widest text-gray-500">Teacher Toolkit</td></tr>
+            <tr><td class="font-medium text-sm p-3">Basic Tools (Hat & Timer)</td><td class="text-center text-brand-green p-3"><i class="fas fa-check-circle"></i></td><td class="text-center text-brand-green p-3"><i class="fas fa-check-circle"></i></td><td class="text-center text-brand-green p-3"><i class="fas fa-check-circle"></i></td></tr>
+            <tr><td class="font-medium text-sm p-3">Full 8+ Tool Suite</td><td class="text-center text-gray-300 p-3"><i class="fas fa-times"></i></td><td class="text-center text-brand-green p-3"><i class="fas fa-check-circle"></i></td><td class="text-center text-brand-green p-3"><i class="fas fa-check-circle"></i></td></tr>
+            <tr><td class="font-medium text-sm p-3">CSV Bulk Import & Auto-Balance</td><td class="text-center text-gray-300 p-3"><i class="fas fa-times"></i></td><td class="text-center text-brand-green p-3"><i class="fas fa-check-circle"></i></td><td class="text-center text-brand-green p-3"><i class="fas fa-check-circle"></i></td></tr>
+            
+            <tr><td colspan="4" class="bg-gray-50/30 py-2 px-4 text-[9px] font-black uppercase tracking-widest text-gray-500">School-Wide Experience</td></tr>
+            <tr><td class="font-medium text-sm p-3">Assembly Projector Mode (4K)</td><td class="text-center text-gray-300 p-3"><i class="fas fa-times"></i></td><td class="text-center text-brand-green p-3"><i class="fas fa-check-circle"></i></td><td class="text-center text-brand-green p-3"><i class="fas fa-check-circle"></i></td></tr>
+            
+            <tr class="bg-blue-50/20"><td colspan="4" class="bg-brand-blue/10 py-2 px-4 text-[9px] font-black uppercase tracking-widest text-brand-blue">Interactive Gamification (Pro Features)</td></tr>
+            <tr><td class="font-bold text-sm p-3">Full Student Hero App Access</td><td class="text-center text-gray-300 p-3"><i class="fas fa-times"></i></td><td class="text-center text-gray-300 p-3"><i class="fas fa-times"></i></td><td class="text-center text-brand-blue p-3"><i class="fas fa-check-circle"></i></td></tr>
+            <tr><td class="font-medium text-sm p-3">3D Holographic Card Binders</td><td class="text-center text-gray-300 p-3"><i class="fas fa-times"></i></td><td class="text-center text-gray-300 p-3"><i class="fas fa-times"></i></td><td class="text-center text-brand-blue p-3"><i class="fas fa-check-circle"></i></td></tr>
+            <tr><td class="font-medium text-sm p-3">House Reactors & Blasts</td><td class="text-center text-gray-300 p-3"><i class="fas fa-times"></i></td><td class="text-center text-gray-300 p-3"><i class="fas fa-times"></i></td><td class="text-center text-brand-blue p-3"><i class="fas fa-check-circle"></i></td></tr>
+            <tr><td class="font-medium text-sm p-3">Live Student Voice Polls</td><td class="text-center text-gray-300 p-3"><i class="fas fa-times"></i></td><td class="text-center text-gray-300 p-3"><i class="fas fa-times"></i></td><td class="text-center text-brand-blue p-3"><i class="fas fa-check-circle"></i></td></tr>
+            <tr><td class="font-medium text-sm p-3">Loot Drops & Secret Codes</td><td class="text-center text-gray-300 p-3"><i class="fas fa-times"></i></td><td class="text-center text-gray-300 p-3"><i class="fas fa-times"></i></td><td class="text-center text-brand-blue p-3"><i class="fas fa-check-circle"></i></td></tr>
+            
+            <tr><td colspan="4" class="bg-gray-50/30 py-2 px-4 text-[9px] font-black uppercase tracking-widest text-gray-500">Updates & Support</td></tr>
+            <tr><td class="font-medium text-sm p-3">Feature Updates</td><td class="text-center text-sm text-gray-500 p-3">Security only</td><td class="text-center text-sm font-bold p-3">Major updates included</td><td class="text-center text-sm text-brand-blue font-bold p-3">Early access • All new tools</td></tr>
+            <tr><td class="font-medium text-sm p-3">Customer Support</td><td class="text-center text-sm text-gray-500 p-3">Email: 48hr</td><td class="text-center text-sm font-bold p-3">Email: 24hr</td><td class="text-center text-sm text-brand-blue font-bold p-3">Priority: 4hr • Google Meet • Quarterly check-ins</td></tr>
+            <tr><td class="font-medium text-sm p-3">FERPA & GDPR Compliance</td><td class="text-center text-brand-green p-3"><i class="fas fa-check-circle"></i></td><td class="text-center text-brand-green p-3"><i class="fas fa-check-circle"></i></td><td class="text-center text-brand-green p-3"><i class="fas fa-check-circle"></i></td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
-    <!-- Data Control Note -->
-    <div class="mt-8 text-center">
-      <p class="text-xs text-gray-500">✅ 30-day pilot • No credit card required • Export your data anytime • Cancel anytime</p>
+    <!-- Post-Pilot Clarity Section -->
+    <div class="mt-8 text-center bg-white rounded-xl p-4 border border-gray-200 max-w-2xl mx-auto">
+      <div class="flex items-center justify-center gap-2 text-brand-green mb-1">
+        <i class="fas fa-database text-xs"></i>
+        <span class="text-[10px] font-bold uppercase tracking-wider">Your Data, Your Control</span>
+      </div>
+      <p class="text-xs text-gray-600">✅ No credit card for 30-day pilot • ✅ Export your data anytime • ✅ Cancel anytime</p>
     </div>
 
   </div>
 </section>
+
+
 
 <section class="py-20 bg-white border-t border-gray-100">
   <div class="max-w-4xl mx-auto px-6 text-center">
@@ -1403,6 +1466,25 @@ html { scroll-padding-top: 100px; }
   }
 
 
+
+  function toggleComparisonTable() {
+  const table = document.getElementById('comparisonTable');
+  const icon = document.getElementById('tableToggleIcon');
+  if (table.classList.contains('hidden')) {
+    table.classList.remove('hidden');
+    icon.classList.remove('fa-chevron-down');
+    icon.classList.add('fa-chevron-up');
+  } else {
+    table.classList.add('hidden');
+    icon.classList.remove('fa-chevron-up');
+    icon.classList.add('fa-chevron-down');
+  }
+}
+
+// Ensure table is hidden on mobile by default
+if (window.innerWidth < 768) {
+  document.getElementById('comparisonTable')?.classList.add('hidden');
+}
 
 
 
