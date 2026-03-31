@@ -775,7 +775,7 @@ html { scroll-padding-top: 100px; }
           </div>
 
           <div class="p-4 text-center">
-            <p class="text-sm text-gray-400 italic">"By automating House Points, a typical school of 500 students saves over $\$5,000$ in hidden administrative labor costs."</p>
+            <p class="text-sm text-gray-400 italic">"By automating House Points, a typical school of 500 students saves over $5,000 in hidden administrative labor costs."</p>
           </div>
         </div>
       </div>
@@ -789,6 +789,14 @@ html { scroll-padding-top: 100px; }
  <section id="pricing" class="py-20 bg-brand-light">
   <div class="max-w-6xl mx-auto px-6">
     
+    <!-- NEW: PWA Badge - Works on All Devices -->
+    <div class="text-center mb-8">
+      <span class="inline-flex items-center gap-2 bg-blue-50 text-brand-blue px-4 py-2 rounded-full text-sm font-bold shadow-sm border border-blue-100">
+        <i class="fas fa-mobile-alt"></i>
+        <span>📱 Install as App on Any Device • iPhone • iPad • Android • Windows • Mac</span>
+      </span>
+    </div>
+
     <div class="text-center mb-16">
       <span class="text-brand-green font-bold tracking-widest text-sm uppercase">Simple Pricing</span>
       <h2 class="font-display text-4xl font-black text-brand-dark mt-2 mb-4">Choose Your School's Plan</h2>
@@ -797,28 +805,41 @@ html { scroll-padding-top: 100px; }
 
     <div class="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
       
-      <!-- Solo Teacher Card -->
+      <!-- Solo Teacher Card - Updated -->
       <div class="bg-white rounded-3xl p-6 border border-gray-200 shadow-sm flex flex-col relative transition transform hover:-translate-y-1 hover:shadow-lg">
         <h3 class="font-display text-xl font-bold text-brand-dark mb-1">Solo Teacher</h3>
         <div class="text-brand-blue font-black text-3xl mb-3">Free<span class="text-base text-gray-500 font-medium"> forever</span></div>
         <p class="text-gray-500 text-xs mb-5">Essential tools for individual teachers.</p>
+        <!-- NEW: PWA badge on all plans -->
+        <div class="flex items-center gap-1 text-[10px] text-gray-500 mb-3">
+          <i class="fas fa-mobile-alt text-brand-green text-xs"></i>
+          <span>PWA App | Install on any device</span>
+        </div>
         <ul class="space-y-2 mb-6 flex-1 text-sm">
           <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green text-xs w-4"></i> <span>1 Teacher, 1 Class</span></li>
           <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green text-xs w-4"></i> <span>Up to 50 Students</span></li>
           <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green text-xs w-4"></i> <span>Basic Magic Hat & Timer</span></li>
+          <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green text-xs w-4"></i> <span>Security updates only</span></li>
         </ul>
+        <div class="text-xs text-gray-400 mb-3 p-2 bg-gray-50 rounded-lg text-center">
+          <i class="fas fa-envelope mr-1"></i> Email support: 48hr response
+        </div>
         <button onclick="openPlanDetails('classroom')" class="text-brand-blue text-[10px] font-bold uppercase tracking-wider mb-4 hover:underline">View All Details →</button>
         <button onclick="window.open('https://housepoint.trackedu.net/', '_blank')" class="w-full py-2.5 rounded-xl font-bold text-brand-blue border-2 border-brand-blue hover:bg-brand-blue hover:text-white transition text-sm">Start for Free</button>
       </div>
 
-     <!-- Core Campus Card - Teacher App Only -->
+     <!-- Core Campus Card - Updated with support level -->
 <div class="bg-brand-dark rounded-3xl p-6 border-2 border-brand-green shadow-xl flex flex-col relative transform lg:-translate-y-2">
   <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-brand-green text-white px-3 py-0.5 rounded-full text-[10px] font-bold uppercase">Most Popular</div>
   <h3 class="font-display text-xl font-bold text-white mb-1">Core Campus</h3>
   <div class="text-white font-black text-3xl mb-3">$1,400<span class="text-base text-gray-400 font-medium"> / year</span></div>
   <p class="text-gray-300 text-xs mb-4">Unify school data and automate house admin.</p>
-  
-  <!-- Teacher App Badge - Clear distinction -->
+  <!-- PWA Badge -->
+  <div class="flex items-center gap-1 text-[10px] text-gray-400 mb-3">
+    <i class="fas fa-mobile-alt text-brand-green text-xs"></i>
+    <span>PWA App | Install on any device</span>
+  </div>
+  <!-- Teacher App Badge -->
   <div class="bg-brand-blue/20 border border-brand-blue/30 rounded-lg p-2 mb-4 text-center">
     <div class="flex items-center justify-center gap-2">
       <i class="fas fa-chalkboard-teacher text-brand-blue text-xs"></i>
@@ -832,12 +853,16 @@ html { scroll-padding-top: 100px; }
     <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green text-xs w-4"></i> <span><strong>8+ Teacher Utilities</strong> (Squad Builder, Snakes & Ladders, Duo Mode)</span></li>
     <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green text-xs w-4"></i> <span>Live Assembly Projector Mode</span></li>
     <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green text-xs w-4"></i> <span>Bulk CSV Import & Auto-Balance</span></li>
+    <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green text-xs w-4"></i> <span>Major feature updates included</span></li>
   </ul>
+  <div class="text-xs text-gray-400 mb-4 p-2 bg-white/5 rounded-lg text-center">
+    <i class="fas fa-envelope mr-1"></i> Email support: 24hr response
+  </div>
   <button onclick="openPlanDetails('core')" class="text-brand-green text-[10px] font-bold uppercase tracking-wider mb-4 hover:underline">View Toolkit Details →</button>
   <button onclick="window.open('https://housepoint.trackedu.net/', '_blank')" class="w-full py-2.5 rounded-xl font-bold bg-brand-green text-white hover:bg-green-500 transition shadow-md text-sm">Start Free Trial</button>
 </div>
 
-    <!-- Pro Ecosystem Card - Includes Both Apps -->
+    <!-- Pro Ecosystem Card - Updated with priority support -->
 <div class="bg-white rounded-3xl p-6 border border-gray-200 shadow-sm flex flex-col relative transition hover:-translate-y-1 hover:shadow-lg group">
   
   <!-- Premium Badge -->
@@ -853,8 +878,12 @@ html { scroll-padding-top: 100px; }
   </div>
   
   <p class="text-gray-500 text-xs mb-4">Complete school culture suite with dual-app integration.</p>
-  
-  <!-- Dual-App Badge - Clear distinction -->
+  <!-- PWA Badge -->
+  <div class="flex items-center gap-1 text-[10px] text-gray-500 mb-3">
+    <i class="fas fa-mobile-alt text-brand-green text-xs"></i>
+    <span>PWA App | Install on any device</span>
+  </div>
+  <!-- Dual-App Badge -->
   <div class="bg-gradient-to-r from-blue-50 to-green-50 border border-brand-green/20 rounded-lg p-2 mb-4 text-center">
     <div class="flex items-center justify-center gap-2">
       <i class="fas fa-chalkboard-teacher text-brand-blue text-xs"></i>
@@ -870,7 +899,12 @@ html { scroll-padding-top: 100px; }
     <li class="flex items-start gap-2"><i class="fas fa-clone text-brand-green text-xs mt-0.5 w-4"></i> <span><strong>3D Badge Binders</strong> — Collectible cards</span></li>
     <li class="flex items-start gap-2"><i class="fas fa-bolt text-brand-green text-xs mt-0.5 w-4"></i> <span><strong>House Power Boosts</strong> — Team gamification</span></li>
     <li class="flex items-start gap-2"><i class="fas fa-user-secret text-brand-green text-xs mt-0.5 w-4"></i> <span><strong>Mystery Word</strong> — Collaborative challenges</span></li>
+    <li class="flex items-start gap-2"><i class="fas fa-flask text-brand-green text-xs mt-0.5 w-4"></i> <span><strong>Early Access</strong> — First to receive all new tools & features</span></li>
   </ul>
+  
+  <div class="text-xs text-gray-600 mb-4 p-2 bg-blue-50 rounded-lg text-center border border-blue-100">
+    <i class="fas fa-headset mr-1 text-brand-blue"></i> <strong>Priority Support:</strong> 4hr email response • Google Meet onboarding • Quarterly check-ins
+  </div>
   
   <div class="flex gap-2 mb-3">
     <button onclick="openPlanDetails('pro')" class="flex-1 py-2 rounded-lg text-xs font-bold text-brand-blue border border-brand-blue/30 hover:border-brand-blue hover:bg-brand-blue/5 transition">
@@ -886,13 +920,13 @@ html { scroll-padding-top: 100px; }
   </button>
   
   <p class="text-[9px] text-gray-400 text-center mt-3">
-    <i class="fas fa-shield-alt mr-1"></i> Secure • GDPR • 30-Day Pilot
+    <i class="fas fa-shield-alt mr-1"></i> Secure • GDPR • 30-Day Pilot • Export your data anytime
   </p>
 </div>
 
     </div>
 
-    <!-- Feature Comparison Table (remains unchanged) -->
+    <!-- Feature Comparison Table - Updated with new support and update rows -->
     <div class="mt-20 overflow-x-auto scrollbar-hide">
       <div class="text-center mb-10">
         <h3 class="font-display text-2xl font-bold text-brand-dark">Detailed Feature Comparison</h3>
@@ -906,7 +940,7 @@ html { scroll-padding-top: 100px; }
             <th class="text-center text-brand-blue font-bold p-6">Solo Teacher</th>
             <th class="text-center text-brand-green font-bold p-6 bg-green-50/30">Core Campus</th>
             <th class="text-center text-brand-blue font-bold p-6">Pro Ecosystem</th>
-           </tr>
+            </tr>
         </thead>
         <tbody>
           <tr><td colspan="4" class="bg-gray-50/30 py-3 px-6 text-[10px] font-black uppercase tracking-widest text-gray-500">Core Management</td></tr>
@@ -925,6 +959,14 @@ html { scroll-padding-top: 100px; }
           <tr>
             <td class="font-medium text-gray-700">Unified School Syncing</td>
             <td class="text-center text-gray-300"><i class="fas fa-times"></i></td>
+            <td class="text-center text-brand-green"><i class="fas fa-check-circle"></i></td>
+            <td class="text-center text-brand-green"><i class="fas fa-check-circle"></i></td>
+          </tr>
+
+          <tr><td colspan="4" class="bg-gray-50/30 py-3 px-6 text-[10px] font-black uppercase tracking-widest text-gray-500">Accessibility</td></tr>
+          <tr>
+            <td class="font-medium text-gray-700">📱 PWA App (Install on any device)</td>
+            <td class="text-center text-brand-green"><i class="fas fa-check-circle"></i></td>
             <td class="text-center text-brand-green"><i class="fas fa-check-circle"></i></td>
             <td class="text-center text-brand-green"><i class="fas fa-check-circle"></i></td>
           </tr>
@@ -995,21 +1037,36 @@ html { scroll-padding-top: 100px; }
             <td class="text-center text-brand-blue"><i class="fas fa-check-circle"></i></td>
           </tr>
 
-          <tr><td colspan="4" class="bg-gray-50/30 py-3 px-6 text-[10px] font-black uppercase tracking-widest text-gray-500">Security & Support</td></tr>
+          <tr><td colspan="4" class="bg-gray-50/30 py-3 px-6 text-[10px] font-black uppercase tracking-widest text-gray-500">Updates & Support</td></tr>
+          <tr>
+            <td class="font-medium text-gray-700">Feature Updates</td>
+            <td class="text-center text-sm text-gray-500">Security only</td>
+            <td class="text-center text-sm text-gray-600 font-bold">Major updates included</td>
+            <td class="text-center text-sm text-brand-blue font-bold">Early access • All new tools</td>
+          </tr>
+          <tr>
+            <td class="font-medium text-gray-700">Customer Support</td>
+            <td class="text-center text-sm text-gray-400">Email: 48hr</td>
+            <td class="text-center text-sm text-gray-600 font-bold">Email: 24hr</td>
+            <td class="text-center text-sm text-brand-blue font-bold">Priority: 4hr • Google Meet • Quarterly check-ins</td>
+          </tr>
           <tr>
             <td class="font-medium text-gray-700">FERPA & GDPR Compliance</td>
             <td class="text-center text-brand-green"><i class="fas fa-check-circle"></i></td>
             <td class="text-center text-brand-green"><i class="fas fa-check-circle"></i></td>
             <td class="text-center text-brand-green"><i class="fas fa-check-circle"></i></td>
           </tr>
-          <tr>
-            <td class="font-medium text-gray-700">Customer Support</td>
-            <td class="text-center text-sm text-gray-400">Knowledge Base</td>
-            <td class="text-center text-sm text-gray-600 font-bold">Standard Support</td>
-            <td class="text-center text-sm text-brand-blue font-bold">Priority Support</td>
-          </tr>
         </tbody>
       </table>
+    </div>
+
+    <!-- NEW: Post-Pilot Clarity Section -->
+    <div class="mt-12 text-center bg-white rounded-2xl p-6 border border-gray-200 max-w-2xl mx-auto">
+      <div class="flex items-center justify-center gap-2 text-brand-green mb-2">
+        <i class="fas fa-database"></i>
+        <span class="text-xs font-bold uppercase tracking-wider">Your Data, Your Control</span>
+      </div>
+      <p class="text-sm text-gray-600">✅ No credit card required for 30-day pilot • ✅ Export your data anytime • ✅ Cancel anytime, no questions asked</p>
     </div>
 
   </div>
@@ -1227,6 +1284,16 @@ html { scroll-padding-top: 100px; }
       <div class="border border-gray-200 rounded-xl p-6 hover:border-brand-green/50 transition">
         <h3 class="font-bold text-lg text-gray-900 mb-2">Is our school data secure?</h3>
         <p class="text-gray-600 text-sm leading-relaxed">Absolutely. We run on highly secure, encrypted cloud infrastructure (Google Firebase). We do not run ads, we do not track student web data, and your school administrator can permanently wipe your entire database with a single click at any time.</p>
+      </div>
+
+      <div class="border border-gray-200 rounded-xl p-6 hover:border-brand-green/50 transition bg-green-50/30">
+        <h3 class="font-bold text-lg text-gray-900 mb-2">Can I install TrackEDU as an app on my device?</h3>
+        <p class="text-gray-600 text-sm leading-relaxed"><strong>Yes!</strong> TrackEDU is a Progressive Web App (PWA). On iPhone/iPad, tap Share → "Add to Home Screen". On Android, tap the install banner. On Windows/Mac, install from your browser. It works like a native app on any device!</p>
+      </div>
+
+      <div class="border border-gray-200 rounded-xl p-6 hover:border-brand-green/50 transition">
+        <h3 class="font-bold text-lg text-gray-900 mb-2">What happens after the 30-day pilot?</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">Your data is saved and waiting for you. Simply enter a credit card in the billing portal to continue. No data is held hostage — you can export everything anytime, even if you cancel.</p>
       </div>
 
     </div>
