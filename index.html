@@ -1938,7 +1938,7 @@ function openStudentAppPreview() {
   <div id="pitchDeckModal" class="fixed inset-0 z-[100000] hidden flex items-center justify-center p-0 md:p-4">
   <div class="absolute inset-0 bg-brand-dark/95 backdrop-blur-md" onclick="closePitchDeck()"></div>
   
-  <div class="relative w-full max-w-5xl h-full md:h-[90vh] bg-white md:rounded-3xl overflow-hidden flex flex-col shadow-2xl print:m-0 print:rounded-none">
+  <div class="relative w-full max-w-5xl h-full md:h-[90vh] bg-white md:rounded-3xl overflow-hidden flex flex-col shadow-2xl print:m-0 print:rounded-none print:overflow-visible print:h-auto">
     
     <div class="flex justify-between items-center px-8 py-4 border-b border-gray-100 print:hidden bg-white">
       <div class="flex items-center gap-2">
@@ -1956,9 +1956,10 @@ function openStudentAppPreview() {
     </div>
 
     <div class="flex-1 overflow-y-auto bg-gray-50 p-4 md:p-12 print:p-0 print:bg-white print:overflow-visible">
-      <div class="max-w-4xl mx-auto space-y-12 print:space-y-0">
+      <div class="max-w-4xl mx-auto space-y-12 print:space-y-0 print:mx-0 print:max-w-none">
         
-        <div class="bg-white p-12 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-center min-h-[500px] print:h-[297mm] print:shadow-none print:border-none print:break-after-page">
+        <!-- Page 1: The Proposal -->
+        <div id="pitch-page-1" class="bg-white p-12 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-center min-h-[500px] print:h-[297mm] print:shadow-none print:border-none">
           <span class="text-brand-blue font-black tracking-widest text-sm uppercase mb-4 block">The Proposal</span>
           <h1 class="text-5xl font-black text-brand-dark leading-tight mb-8">Transforming School Culture <br><span class="text-brand-green">Beyond the Spreadsheet</span></h1>
           <p class="text-xl text-gray-600 leading-relaxed max-w-2xl">Traditional house point systems fail because they are administratively heavy and visually static. TrackEDU turns school spirit into a high-engagement digital ecosystem.</p>
@@ -1969,7 +1970,8 @@ function openStudentAppPreview() {
           </div>
         </div>
 
-        <div class="bg-brand-dark text-white p-12 rounded-3xl shadow-sm flex flex-col justify-center min-h-[500px] print:h-[297mm] print:shadow-none print:break-after-page">
+        <!-- Page 2: The Dual-App Advantage -->
+        <div id="pitch-page-2" class="bg-brand-dark text-white p-12 rounded-3xl shadow-sm flex flex-col justify-center min-h-[500px] print:h-[297mm] print:shadow-none">
           <h2 class="text-4xl font-black mb-10">The Dual-App Advantage</h2>
           <div class="grid grid-cols-2 gap-10">
             <div class="space-y-6">
@@ -1988,7 +1990,8 @@ function openStudentAppPreview() {
           </div>
         </div>
 
-        <div class="bg-white p-12 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-center min-h-[500px] print:h-[297mm] print:shadow-none print:break-after-page">
+        <!-- Page 3: Privacy by Design -->
+        <div id="pitch-page-3" class="bg-white p-12 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-center min-h-[500px] print:h-[297mm] print:shadow-none print:border-none">
           <h2 class="text-4xl font-black text-brand-dark mb-10">Privacy by Design</h2>
           <div class="grid md:grid-cols-2 gap-12">
             <div class="space-y-8">
@@ -2018,20 +2021,21 @@ function openStudentAppPreview() {
           </div>
         </div>
 
-        <div class="bg-brand-green p-12 rounded-3xl shadow-sm flex flex-col justify-center items-center text-center min-h-[500px] print:h-[297mm] print:shadow-none print:bg-white print:border-4 print:border-brand-green">
+        <!-- Page 4: Ready for Deployment -->
+        <div id="pitch-page-4" class="bg-brand-green p-12 rounded-3xl shadow-sm flex flex-col justify-center items-center text-center min-h-[500px] print:h-[297mm] print:shadow-none print:bg-white print:border-4 print:border-brand-green">
           <h2 class="text-5xl font-black text-white print:text-brand-green mb-6 leading-tight">Ready for Deployment</h2>
           <p class="text-brand-dark text-xl font-medium mb-12 max-w-xl">Standardize behavior tracking, empower staff, and delight students with a modern digital house system.</p>
           
           <div class="bg-white p-8 rounded-3xl w-full max-w-md shadow-xl">
             <h4 class="font-bold text-brand-dark mb-4">Investment Tiers</h4>
             <div class="flex justify-between border-b py-3 text-left">
-  <span class="font-bold">Core Campus</span>
-  <span class="font-black">$2,450/yr</span>
-</div>
-<div class="flex justify-between py-3 text-left">
-  <span class="font-bold">Pro Ecosystem</span>
-  <span class="font-black text-brand-blue">$3,950/yr</span>
-</div>
+              <span class="font-bold">Core Campus</span>
+              <span class="font-black">$2,450/yr</span>
+            </div>
+            <div class="flex justify-between py-3 text-left">
+              <span class="font-bold">Pro Ecosystem</span>
+              <span class="font-black text-brand-blue">$3,950/yr</span>
+            </div>
             <div class="mt-6 text-xs text-gray-400 italic">No setup fees. Unlimited users. Personal onboarding.</div>
           </div>
           
@@ -2073,17 +2077,23 @@ function openStudentAppPreview() {
     overflow: visible !important;
   }
   
-  /* Ensure each page fills the entire sheet */
-  #pitchDeckModal .max-w-4xl {
-    max-width: 100% !important;
-    margin: 0 !important;
+  /* Hide the scrollable container's overflow and padding */
+  #pitchDeckModal .flex-1 {
+    overflow: visible !important;
     padding: 0 !important;
+    height: auto !important;
   }
   
-  /* Force each section to be its own full page */
-  #pitchDeckModal .bg-white.p-12.rounded-3xl,
-  #pitchDeckModal .bg-brand-dark.p-12.rounded-3xl,
-  #pitchDeckModal .bg-brand-green.p-12.rounded-3xl {
+  /* Remove the space-y-12 margin that causes extra pages */
+  #pitchDeckModal .space-y-12 {
+    margin: 0 !important;
+  }
+  
+  /* Target ONLY the 4 specific pages - NOT all instances */
+  #pitch-page-1,
+  #pitch-page-2,
+  #pitch-page-3,
+  #pitch-page-4 {
     min-height: 100vh !important;
     height: 100vh !important;
     width: 100vw !important;
@@ -2099,60 +2109,40 @@ function openStudentAppPreview() {
     justify-content: center !important;
   }
   
-  /* Ensure content fits within the page */
-  #pitchDeckModal .flex-1 {
-    overflow: visible !important;
-    padding: 0 !important;
+  /* Fix text colors for print */
+  #pitch-page-1 *,
+  #pitch-page-3 * {
+    color: #000 !important;
   }
   
-  /* Fix text visibility and sizing */
-  #pitchDeckModal * {
+  #pitch-page-2 * {
+    color: #fff !important;
+  }
+  
+  #pitch-page-4 * {
     color: #000 !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
+  }
+  
+  #pitch-page-4 .text-white {
+    color: #fff !important;
   }
   
   /* Ensure dark backgrounds print properly */
-  #pitchDeckModal .bg-brand-dark,
-  #pitchDeckModal .bg-brand-green {
+  #pitch-page-2 {
     background-color: #0f172a !important;
-    color: white !important;
   }
   
-  #pitchDeckModal .bg-brand-green {
+  #pitch-page-4 {
     background-color: #87C232 !important;
   }
   
-  /* Hide print buttons */
-  .print\\:hidden,
+  /* Hide print buttons and controls */
+  .print\:hidden,
   .btn,
-  button:not(.no-print) {
+  button:not(.no-print),
+  .flex.justify-between.items-center.px-8.py-4 {
     display: none !important;
   }
-}
-
-/* ROI Calculator Styles */
-input[type='range'] {
-  -webkit-appearance: none;
-  width: 100%;
-  background: transparent;
-}
-input[type='range']::-webkit-slider-runnable-track {
-  width: 100%;
-  height: 8px;
-  cursor: pointer;
-  background: #e2e8f0;
-  border-radius: 4px;
-}
-input[type='range']::-webkit-slider-thumb {
-  height: 24px;
-  width: 24px;
-  border-radius: 50%;
-  background: #87C232;
-  cursor: pointer;
-  -webkit-appearance: none;
-  margin-top: -8px;
-  box-shadow: 0 4px 10px rgba(135, 194, 50, 0.3);
 }
 </style>
 
