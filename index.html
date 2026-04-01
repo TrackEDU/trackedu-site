@@ -1576,7 +1576,116 @@ function switchVideo(type) {
 }
 
 
+  // Pitch Deck PDF Download Function
+async function downloadPitchDeckPDF() {
+  const modal = document.getElementById('pitchDeckModal');
+  const originalDisplay = modal.style.display;
   
+  // Show the modal if hidden
+  if (modal.classList.contains('hidden')) {
+    modal.classList.remove('hidden');
+    modal.style.display = 'flex';
+    await new Promise(r => setTimeout(r, 100));
+  }
+  
+  // Create a temporary container for the PDF
+  const pdfContainer = document.createElement('div');
+  pdfContainer.style.cssText = `
+    position: fixed;
+    left: -9999px;
+    top: 0;
+    width: 1200px;
+    background: white;
+    padding: 20px;
+    z-index: -1;
+  `;
+  
+  // Clone the 4 pages
+  const page1 = document.getElementById('pitch-page-1').cloneNode(true);
+  const page2 = document.getElementById('pitch-page-2').cloneNode(true);
+  const page3 = document.getElementById('pitch-page-3').cloneNode(true);
+  const page4 = document.getElementById('pitch-page-4').cloneNode(true);
+  
+  // Style each page for PDF capture
+  [page1, page2, page3, page4].forEach(page => {
+    page.style.cssText = `
+      width: 1000px;
+      height: 700px;
+      margin: 0 auto 20px auto;
+      page-break-after: always;
+      break-after: page;
+      position: relative;
+      overflow: hidden;
+    `;
+    page.classList.add('pdf-page');
+    pdfContainer.appendChild(page);
+  });
+  
+  document.body.appendChild(pdfContainer);
+  
+  // Show loading
+  const btn = event.target;
+  const originalText = btn.innerHTML;
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF...';
+  btn.disabled = true;
+  
+  try {
+    // Wait for rendering
+    await new Promise(r => setTimeout(r, 300));
+    
+    // Use html2canvas to capture each page
+    const pages = document.querySelectorAll('.pdf-page');
+    const canvasPages = [];
+    
+    for (let i = 0; i < pages.length; i++) {
+      const canvas = await html2canvas(pages[i], {
+        scale: 2,
+        backgroundColor: '#ffffff',
+        logging: false,
+        useCORS: true
+      });
+      canvasPages.push(canvas);
+    }
+    
+    // Create PDF with jsPDF (need to include the library first)
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF({
+      orientation: 'landscape',
+      unit: 'mm',
+      format: 'a4'
+    });
+    
+    const imgWidth = 280; // A4 landscape width in mm
+    const imgHeight = (canvasPages[0].height * imgWidth) / canvasPages[0].width;
+    
+    for (let i = 0; i < canvasPages.length; i++) {
+      const imgData = canvasPages[i].toDataURL('image/jpeg', 0.9);
+      if (i > 0) pdf.addPage();
+      pdf.addImage(imgData, 'JPEG', 0, 0, imgWidth, imgHeight);
+    }
+    
+    pdf.save('TrackEDU_Pitch_Deck.pdf');
+    
+    // Show success message
+    showToastMessage('✅ Pitch Deck downloaded successfully!', 'success');
+    
+  } catch (error) {
+    console.error('PDF generation error:', error);
+    showToastMessage('❌ Error generating PDF. Trying print method...', 'error');
+    // Fallback to print
+    window.print();
+  } finally {
+    // Clean up
+    document.body.removeChild(pdfContainer);
+    btn.innerHTML = originalText;
+    btn.disabled = false;
+    
+    // Restore modal state
+    if (originalDisplay === 'none' || modal.classList.contains('hidden')) {
+      modal.classList.add('hidden');
+    }
+  }
+}
 
 
 function switchPreview(type) {
@@ -1946,14 +2055,16 @@ function openStudentAppPreview() {
         <span class="text-xs font-bold bg-gray-100 text-gray-500 px-2 py-1 rounded">OFFICIAL PROPOSAL</span>
       </div>
       <div class="flex gap-3">
-        <button onclick="window.print()" class="btn px-4 py-2 text-sm flex items-center gap-2">
-          <i class="fas fa-print"></i> Save as PDF
-        </button>
-        <button onclick="closePitchDeck()" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 hover:bg-gray-200">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-    </div>
+  <button onclick="downloadPitchDeckPDF()" class="btn px-4 py-2 text-sm flex items-center gap-2 bg-brand-green hover:bg-green-600">
+    <i class="fas fa-file-pdf"></i> Download PDF
+  </button>
+  <button onclick="window.print()" class="btn px-4 py-2 text-sm flex items-center gap-2 bg-gray-600 hover:bg-gray-700">
+    <i class="fas fa-print"></i> Print
+  </button>
+  <button onclick="closePitchDeck()" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 hover:bg-gray-200">
+    <i class="fas fa-times"></i>
+  </button>
+</div>
 
     <div class="flex-1 overflow-y-auto bg-gray-50 p-4 md:p-12 print:p-0 print:bg-white print:overflow-visible">
       <div class="max-w-4xl mx-auto space-y-12 print:space-y-0 print:mx-0 print:max-w-none">
