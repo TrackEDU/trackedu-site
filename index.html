@@ -147,13 +147,7 @@
       background: var(--blue);
       color: white;
     }
-    .mobile-menu {
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      transform: translateX(100%);
-    }
-    .mobile-menu.open {
-      transform: translateX(0);
-    }
+    
   /* Base Device Frame logic - Default to Mobile Frame (Phone look) */
 .phone-frame {
   margin: 0 auto;
@@ -367,37 +361,31 @@ html { scroll-padding-top: 100px; }
 </button>
       </div>
 
-      <button id="mobileMenuBtn" class="md:hidden p-2 text-gray-700 hover:bg-gray-100 rounded-lg">
-        <i class="fas fa-bars text-xl"></i>
-      </button>
-    </div>
-  </nav>
+      <button id="mobileMenuBtn" class="md:hidden p-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-all duration-200">
+  <i class="fas fa-bars text-xl"></i>
+</button>
+</div>
+</nav>
 
-  <div id="mobileMenu" class="fixed inset-0 bg-gray-900/50 backdrop-blur-sm z-[9999] hidden">
-    <div class="mobile-menu fixed inset-y-0 right-0 w-full max-w-sm bg-white shadow-2xl flex flex-col z-[10000]">
-      <div class="p-5 flex justify-between items-center border-b">
-        <span class="font-display text-2xl font-black text-brand-dark">Track<span class="text-brand-green">EDU</span></span>
-        <button id="closeMenu" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-600">
-          <i class="fas fa-times text-lg"></i>
-        </button>
-      </div>
-      <div class="flex-1 flex flex-col items-center justify-center gap-8 p-6 overflow-y-auto">
-        
-        <a href="#how" onclick="closeMobileMenu()" class="text-xl font-bold text-gray-800">How It Works</a>
-        
-        <a href="#pricing" onclick="closeMobileMenu()" class="text-xl font-bold text-gray-800">Pricing</a>
-        
-        <button onclick="closeMobileMenu(); openPilotModal();" class="text-xl font-bold text-brand-blue">Platform Features</button>
-        
-        <a href="#mobile-demo" onclick="closeMobileMenu()" class="text-xl font-bold text-gray-800">Mobile Tool</a>
-        
-        <button onclick="closeMobileMenu(); openTrustModal();" class="text-xl font-bold text-gray-800">Trust & Vision</button>
-        
-        <button onclick="closeMobileMenu(); window.location.hash='#pricing';" class="w-full btn py-4 text-center text-lg mt-4 shadow-xl">
-          View Pricing
-        </button>
-      </div>
-    </div>
+<!-- Mobile Menu Overlay -->
+<div id="mobileMenuOverlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[9999] hidden transition-all duration-300"></div>
+
+<!-- Mobile Menu Panel -->
+<div id="mobileMenu" class="fixed inset-y-0 right-0 w-full max-w-sm bg-white shadow-2xl flex flex-col z-[10000] transform translate-x-full transition-transform duration-300 ease-out">
+  <div class="p-5 flex justify-between items-center border-b">
+    <span class="font-display text-2xl font-black text-brand-dark">Track<span class="text-brand-green">EDU</span></span>
+    <button id="closeMenu" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 transition">
+      <i class="fas fa-times text-lg"></i>
+    </button>
+  </div>
+  <div class="flex-1 flex flex-col items-center justify-center gap-8 p-6 overflow-y-auto">
+    <a href="#how" class="close-mobile-link text-xl font-bold text-gray-800 hover:text-brand-blue transition">How It Works</a>
+    <a href="#pricing" class="close-mobile-link text-xl font-bold text-gray-800 hover:text-brand-blue transition">Pricing</a>
+    <button class="close-mobile-link text-xl font-bold text-brand-blue hover:text-brand-green transition" onclick="openPilotModal();">Platform Features</button>
+    <a href="#mobile-demo" class="close-mobile-link text-xl font-bold text-gray-800 hover:text-brand-blue transition">Mobile Tool</a>
+    <button class="close-mobile-link text-xl font-bold text-gray-800 hover:text-brand-blue transition" onclick="openTrustModal();">Trust & Vision</button>
+    <button class="close-mobile-link w-full btn py-4 text-center text-lg mt-4 shadow-xl" onclick="window.location.hash='#pricing';">View Pricing</button>
+  </div>
 </div>
 </header>
 
@@ -1915,6 +1903,62 @@ function switchPreview(type) {
   }, 1000);
 }
 
+
+  // Mobile Menu Functions - FIXED
+function openMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const overlay = document.getElementById('mobileMenuOverlay');
+  
+  if (menu && overlay) {
+    menu.classList.remove('translate-x-full');
+    menu.classList.add('translate-x-0');
+    overlay.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const overlay = document.getElementById('mobileMenuOverlay');
+  
+  if (menu && overlay) {
+    menu.classList.remove('translate-x-0');
+    menu.classList.add('translate-x-full');
+    overlay.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+}
+
+// Event listeners for mobile menu
+document.addEventListener('DOMContentLoaded', function() {
+  const menuBtn = document.getElementById('mobileMenuBtn');
+  const closeBtn = document.getElementById('closeMenu');
+  const overlay = document.getElementById('mobileMenuOverlay');
+  const closeLinks = document.querySelectorAll('.close-mobile-link');
+  
+  if (menuBtn) {
+    menuBtn.addEventListener('click', openMobileMenu);
+  }
+  
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeMobileMenu);
+  }
+  
+  if (overlay) {
+    overlay.addEventListener('click', closeMobileMenu);
+  }
+  
+  closeLinks.forEach(link => {
+    link.addEventListener('click', closeMobileMenu);
+  });
+  
+  // Close on escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeMobileMenu();
+    }
+  });
+});
 
   
 // Student App Preview Modal Function
