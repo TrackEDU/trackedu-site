@@ -1701,8 +1701,6 @@ if (window.innerWidth < 768) {
 
 
 
-// Video Switcher Function - Add this with your other functions
-// Video Switcher Function - Fixed with correct video mapping and active state
 function switchVideo(type) {
   const container = document.getElementById('videoContainer');
   const studentBtn = document.querySelector('button[onclick="switchVideo(\'student\')"]');
@@ -1710,30 +1708,26 @@ function switchVideo(type) {
   
   if (!container) return;
   
-  // Update button styles - highlight selected button
+  // Update button styles
   if (studentBtn) {
-    studentBtn.className = "px-6 py-2 rounded-xl font-bold transition-all hover:shadow-lg hover:-translate-y-0.5 " + 
+    studentBtn.className = "px-6 py-2 rounded-xl font-bold transition-all " + 
       (type === 'student' 
         ? "bg-brand-green text-white shadow-md" 
         : "bg-gray-200 text-gray-700 hover:bg-brand-green hover:text-white");
   }
   
   if (teacherBtn) {
-    teacherBtn.className = "px-6 py-2 rounded-xl font-bold transition-all hover:shadow-lg hover:-translate-y-0.5 " + 
+    teacherBtn.className = "px-6 py-2 rounded-xl font-bold transition-all " + 
       (type === 'teacher' 
         ? "bg-brand-green text-white shadow-md" 
         : "bg-gray-200 text-gray-700 hover:bg-brand-green hover:text-white");
   }
   
-  // Show the container
   container.classList.remove('hidden');
-  
-  // Scroll video into view smoothly
   container.scrollIntoView({ behavior: 'smooth', block: 'start' });
   
-  // FIXED: Correct video mapping
+  // Load video
   if (type === 'student') {
-    // Student Experience - Student App Demo (first Vimeo link)
     container.innerHTML = `
       <div class="relative">
         <div class="absolute top-2 left-2 bg-black/70 text-white text-xs px-2 py-1 rounded-full z-10 flex items-center gap-1">
@@ -1747,8 +1741,10 @@ function switchVideo(type) {
           allowfullscreen></iframe>
       </div>
     `;
+    // 🔥 NEW: Auto-switch live demo to Student App
+    const studentPreviewBtn = document.getElementById('toggleStudent');
+    if (studentPreviewBtn) studentPreviewBtn.click();
   } else {
-    // Teacher Walkthrough - Teacher App Demo (second Vimeo link)
     container.innerHTML = `
       <div class="relative">
         <div class="absolute top-2 left-2 bg-black/70 text-white text-xs px-2 py-1 rounded-full z-10 flex items-center gap-1">
@@ -1762,6 +1758,9 @@ function switchVideo(type) {
           allowfullscreen></iframe>
       </div>
     `;
+    // 🔥 NEW: Auto-switch live demo to Teacher App
+    const teacherPreviewBtn = document.getElementById('toggleTeacher');
+    if (teacherPreviewBtn) teacherPreviewBtn.click();
   }
 }
 
