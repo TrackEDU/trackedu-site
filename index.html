@@ -838,67 +838,106 @@ html { scroll-padding-top: 100px; }
   }
 }
     
+
+/* Mascot click animation */
+.mascot-clickable {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mascot-clickable:active {
+  transform: scale(0.98);
+}
+
+.mascot-spin {
+  animation: mascotSpin 0.6s cubic-bezier(0.34, 1.2, 0.64, 1) forwards;
+}
+
+@keyframes mascotSpin {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(360deg) scale(1.15); }
+  100% { transform: rotate(720deg) scale(1); }
+}
     
   </style>
 </head>
-<body class="antialiased text-gray-800">
+<body class="antialiased text-gray-800 overflow-x-hidden">
 
-<header class="sticky top-0 z-50 w-full transition-all duration-300">
-  <nav class="w-full bg-white/95 backdrop-blur-xl border-b border-gray-100 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
-      
-      <div class="flex items-center gap-3">
-        <a href="https://www.trackedu.net/" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="group flex items-center gap-2">
-          <span class="font-display text-2xl sm:text-3xl font-black text-brand-dark tracking-tighter group-hover:opacity-80 transition">
-            Track<span class="text-brand-green">EDU</span>
-          </span>
-        </a>
-        <div class="hidden lg:block h-6 w-px bg-gray-300 mx-2"></div>
-       <div class="hidden lg:block text-xs font-semibold text-gray-500 max-w-[200px] leading-tight">
- House System + Student Engagement
-</div>
-      </div>
-
-     <div class="hidden md:flex items-center gap-6 font-medium text-sm text-gray-600">
-        <a href="#how" class="hover:text-brand-blue transition">How It Works</a>
-        <a href="#mobile-demo" class="hover:text-brand-blue transition">Interactive Preview</a>
-        <button onclick="openTrustModal()" class="hover:text-brand-blue transition">Trust & Data</button>
-        <a href="#pricing" class="hover:text-brand-blue transition font-semibold">Pricing</a>
+  <header class="sticky top-0 z-50 w-full transition-all duration-300">
+    <nav class="w-full bg-white/95 backdrop-blur-xl border-b border-gray-100 shadow-sm">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
         
-      <button onclick="window.open('https://housepoint.trackedu.net/', '_blank')" class="btn px-6 py-2.5 shadow-lg shadow-brand-green/20">
-  Start Free Pilot
-</button>
+        <div class="flex items-center gap-3">
+          <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="group flex items-center gap-2">
+            <span class="font-display text-2xl sm:text-3xl font-black text-brand-dark tracking-tighter group-hover:opacity-80 transition">
+              Track<span class="text-brand-green">EDU</span>
+            </span>
+          </a>
+          <div class="hidden lg:block h-6 w-px bg-gray-300 mx-2"></div>
+          <div class="hidden lg:block text-xs font-semibold text-gray-500 max-w-[200px] leading-tight">
+            House System + Student Engagement
+          </div>
+        </div>
+  
+        <div class="hidden md:flex items-center gap-6 font-bold text-sm text-gray-600">
+          <a href="#how" class="hover:text-brand-blue transition">The Platform</a>
+          <a href="#mobile-demo" class="hover:text-brand-blue transition">Live Demo</a>
+          <button onclick="openTrustModal()" class="hover:text-brand-blue transition flex items-center gap-1.5"><i class="fas fa-shield-alt text-gray-400 text-xs"></i> Security</button>
+          <a href="#pricing" class="hover:text-brand-blue transition">Pricing</a>
+          
+          <button onclick="openPilotModal()" class="btn px-6 py-2.5 shadow-lg shadow-brand-green/20">
+            Start Free Pilot
+          </button>
+        </div>
+  
+        <button id="mobileMenuBtn" class="md:hidden p-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-all duration-200">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
       </div>
-
-      <button id="mobileMenuBtn" class="md:hidden p-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-all duration-200">
-  <i class="fas fa-bars text-xl"></i>
-</button>
-</div>
-</nav>
-
-<!-- Mobile Menu Overlay -->
-<div id="mobileMenuOverlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[9999] hidden transition-all duration-300"></div>
-
-<!-- Mobile Menu Panel -->
-<div id="mobileMenu" class="fixed inset-y-0 right-0 w-full max-w-sm bg-white shadow-2xl flex flex-col z-[10000] transform translate-x-full transition-transform duration-300 ease-out">
-  <div class="p-5 flex justify-between items-center border-b">
-  <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); closeMobileMenu(); return false;" class="close-mobile-link font-display text-2xl font-black text-brand-dark hover:opacity-80 transition">
-    Track<span class="text-brand-green">EDU</span>
-  </a>
-  <button id="closeMenu" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 transition">
-    <i class="fas fa-times text-lg"></i>
-  </button>
-</div>
-  <div class="flex-1 flex flex-col items-center justify-center gap-8 p-6 overflow-y-auto">
-    <a href="#how" class="close-mobile-link text-xl font-bold text-gray-800 hover:text-brand-blue transition">How It Works</a>
-    <a href="#pricing" class="close-mobile-link text-xl font-bold text-gray-800 hover:text-brand-blue transition">Pricing</a>
-  <button class="close-mobile-link text-xl font-bold text-brand-blue hover:text-brand-green transition" onclick="openPilotModal();">⚡ Start in 3 Mins</button>
-    <a href="#mobile-demo" class="close-mobile-link text-xl font-bold text-gray-800 hover:text-brand-blue transition">Mobile Tool</a>
-    <button class="close-mobile-link text-xl font-bold text-gray-800 hover:text-brand-blue transition" onclick="openTrustModal();">Trust & Vision</button>
-  <button class="close-mobile-link w-full btn py-4 text-center text-lg mt-4 shadow-xl" onclick="window.open('https://housepoint.trackedu.net/', '_blank'); closeMobileMenu();">Start Free Pilot</button>
+    </nav>
+  </header>
+  
+  <div id="mobileMenuOverlay" class="fixed inset-0 bg-brand-dark/60 backdrop-blur-md z-[9999] hidden transition-opacity duration-300"></div>
+  
+  <div id="mobileMenu" class="fixed inset-y-0 right-0 w-full max-w-[85%] sm:max-w-sm bg-white shadow-2xl flex flex-col z-[10000] transform translate-x-full transition-transform duration-300 ease-out rounded-l-3xl">
+    
+    <div class="p-6 flex justify-between items-center border-b border-gray-100">
+      <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); closeMobileMenu(); return false;" class="close-mobile-link font-display text-2xl font-black text-brand-dark">
+        Track<span class="text-brand-green">EDU</span>
+      </a>
+      <button id="closeMenu" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-50 text-gray-400 hover:bg-gray-100 hover:text-gray-800 transition">
+        <i class="fas fa-times text-lg"></i>
+      </button>
+    </div>
+    
+    <div class="flex-1 flex flex-col p-8 overflow-y-auto">
+      <span class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-6">Menu</span>
+      
+      <div class="flex flex-col gap-6">
+        <a href="#how" class="close-mobile-link flex items-center gap-4 text-xl font-bold text-brand-dark hover:text-brand-blue transition">
+          <div class="w-10 h-10 rounded-xl bg-blue-50 text-brand-blue flex items-center justify-center text-lg"><i class="fas fa-layer-group"></i></div> The Platform
+        </a>
+        <a href="#mobile-demo" class="close-mobile-link flex items-center gap-4 text-xl font-bold text-brand-dark hover:text-brand-blue transition">
+          <div class="w-10 h-10 rounded-xl bg-green-50 text-brand-green flex items-center justify-center text-lg"><i class="fas fa-mobile-alt"></i></div> Live Demo
+        </a>
+        <button onclick="openTrustModal(); closeMobileMenu();" class="flex items-center gap-4 text-xl font-bold text-brand-dark hover:text-brand-blue transition text-left">
+          <div class="w-10 h-10 rounded-xl bg-gray-50 text-gray-600 flex items-center justify-center text-lg"><i class="fas fa-shield-alt"></i></div> Security & Trust
+        </button>
+        <a href="#pricing" class="close-mobile-link flex items-center gap-4 text-xl font-bold text-brand-dark hover:text-brand-blue transition">
+          <div class="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-lg"><i class="fas fa-tags"></i></div> Pricing Plans
+        </a>
+      </div>
+  
+      <div class="mt-auto pt-8 flex flex-col gap-3">
+        <button class="close-mobile-link w-full py-4 text-center text-brand-blue font-bold border-2 border-brand-blue/20 rounded-xl hover:bg-brand-blue/5 transition" onclick="window.open('https://cal.com/trackedu-a9dbpy/30min', '_blank'); closeMobileMenu();">
+          Book Walkthrough
+        </button>
+        <button class="close-mobile-link w-full py-4 text-center font-bold text-white bg-brand-green rounded-xl shadow-[0_10px_20px_rgba(16,185,129,0.3)] transition" onclick="openPilotModal(); closeMobileMenu();">
+          Start Free Pilot
+        </button>
+      </div>
+    </div>
   </div>
-</div>
-</header>
 
 
   
@@ -948,10 +987,6 @@ html { scroll-padding-top: 100px; }
         <div class="order-6 lg:order-none mt-6 pt-4 border-t border-gray-100">
           <div class="flex flex-wrap justify-center lg:justify-start gap-6">
             <div class="flex items-center gap-2">
-              <i class="fas fa-globe-asia text-brand-green text-sm"></i>
-              <span class="text-xs font-bold text-gray-500">Active in 5+ Countries</span>
-            </div>
-            <div class="flex items-center gap-2">
               <i class="fas fa-clock text-brand-green text-sm"></i>
               <span class="text-xs font-bold text-gray-500">3-Minute Setup</span>
             </div>
@@ -965,24 +1000,28 @@ html { scroll-padding-top: 100px; }
 
       <!-- RIGHT COLUMN: Mascot + Floating Icons (Mobile Optimized) -->
       <div class="order-2 lg:order-none w-full relative flex justify-center mb-1 lg:mb-0" data-aos="fade-left">
-        <!-- Mobile: smaller mascot, adjusted positioning -->
-        <div class="hero-glow-ring mobile-scaled">
-          <img src="https://trackedu.github.io/common-assets/teacherapp.png" alt="mascot" class="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-72 lg:h-72 rounded-full object-cover bg-white shadow-2xl border-4 border-white">
+        <!-- Mascot - CLICKABLE with spin/expand animation -->
+        <div class="hero-glow-ring mobile-scaled mascot-clickable relative group" id="mascotClickable" onclick="showMascotMessage()">
+          <img src="https://trackedu.github.io/common-assets/teacherapp.png" alt="mascot" id="mascotImage" class="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-72 lg:h-72 rounded-full object-cover bg-white shadow-2xl border-4 border-white transition-all duration-300 cursor-pointer group-hover:scale-105">
+          
+          <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 bg-brand-dark text-white text-[10px] sm:text-xs font-black px-4 py-1.5 rounded-full shadow-xl border-2 border-white z-20 flex items-center gap-1.5 animate-bounce whitespace-nowrap cursor-pointer group-hover:bg-brand-blue transition-colors">
+            <span class="text-brand-green text-sm leading-none">👆</span> Tap Me!
+          </div>
         </div>
-        <!-- floating teacher app icon - responsive sizing -->
-        <div class="absolute -top-6 -left-6 sm:-top-8 sm:-left-8 bg-white rounded-2xl p-2 sm:p-3 shadow-xl animate-float">
+        <!-- floating teacher app icon - CLICKABLE - plays Teacher App video -->
+        <div class="absolute -top-6 -left-6 sm:-top-8 sm:-left-8 bg-white rounded-2xl p-2 sm:p-3 shadow-xl animate-float cursor-pointer hover:scale-110 transition-transform" onclick="openVideoModal('teacher')">
           <img src="https://trackedu.github.io/common-assets/teacherapp.png" class="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-xl object-cover">
           <div class="absolute -bottom-2 -right-2 sm:-bottom-3 sm:-right-3 bg-[#1E40AF] text-white text-[10px] sm:text-sm px-1.5 sm:px-2 py-0.5 rounded-full font-bold">Teacher</div>
         </div>
-        <!-- floating student app icon - responsive sizing -->
-        <div class="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-white rounded-2xl p-2 sm:p-3 shadow-xl animate-float-delayed">
+        <!-- floating student app icon - CLICKABLE - plays Student App video -->
+        <div class="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-white rounded-2xl p-2 sm:p-3 shadow-xl animate-float-delayed cursor-pointer hover:scale-110 transition-transform" onclick="openVideoModal('student')">
           <img src="https://trackedu.github.io/common-assets/studentapp.png" class="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-xl object-cover">
           <div class="absolute -top-2 -left-2 sm:-top-3 sm:-left-3 bg-[#10B981] text-white text-[10px] sm:text-sm px-1.5 sm:px-2 py-0.5 rounded-full font-bold">Student</div>
         </div>
-       <!-- speech bubble - positioned to the right of the mascot -->
-<div class="speech-bubble">
-  🎓 Ready to lead your house?
-</div>
+        <!-- speech bubble -->
+        <div class="speech-bubble">
+          🎓 Ready to lead your house?
+        </div>
       </div>
 
     </div>
@@ -1114,7 +1153,7 @@ html { scroll-padding-top: 100px; }
 
 
 
- <section id="how" class="py-20 bg-white">
+ <section id="how" class="py-20 bg-white overflow-hidden">
   <div class="max-w-6xl mx-auto px-6">
     
     <!-- Simple, bold header - Two apps. One system. -->
@@ -1139,7 +1178,7 @@ html { scroll-padding-top: 100px; }
         </div>
         
         <!-- Watch demo button -->
-        <button onclick="switchVideo('teacher')" class="w-full mb-6 flex items-center justify-center gap-2 bg-white border border-gray-200 rounded-xl py-2 text-sm font-semibold text-brand-blue hover:bg-brand-blue hover:text-white hover:border-brand-blue transition">
+        <button onclick="openVideoModal('teacher')" class="w-full mb-6 flex items-center justify-center gap-2 bg-white border border-gray-200 rounded-xl py-2 text-sm font-semibold text-brand-blue hover:bg-brand-blue hover:text-white hover:border-brand-blue transition">
           <i class="fas fa-play-circle"></i> Watch how Teacher App works
         </button>
         
@@ -1181,7 +1220,7 @@ html { scroll-padding-top: 100px; }
         </div>
         
         <!-- Watch demo button -->
-        <button onclick="switchVideo('student')" class="w-full mb-6 flex items-center justify-center gap-2 bg-white border border-gray-200 rounded-xl py-2 text-sm font-semibold text-brand-green hover:bg-brand-green hover:text-white hover:border-brand-green transition">
+        <button onclick="openVideoModal('student')" class="w-full mb-6 flex items-center justify-center gap-2 bg-white border border-gray-200 rounded-xl py-2 text-sm font-semibold text-brand-green hover:bg-brand-green hover:text-white hover:border-brand-green transition">
           <i class="fas fa-play-circle"></i> Watch how Student App works
         </button>
         
@@ -1252,14 +1291,28 @@ html { scroll-padding-top: 100px; }
   <div class="max-w-6xl mx-auto px-4 text-center">
     <span class="text-brand-blue font-bold tracking-wider text-sm uppercase mb-2 block">Try It Yourself</span>
     <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-black text-brand-dark mb-4">Live Interactive Demo</h2>
-    <p class="text-gray-600 mb-8 max-w-2xl mx-auto">Tap the screen below to explore the Student App. No login required.</p>
+    <p class="text-gray-600 mb-6 max-w-2xl mx-auto">Tap the screen below to explore. Switch between Teacher and Student apps.</p>
+    
+    <!-- Toggle Buttons -->
+    <div class="flex justify-center mb-6">
+      <div class="inline-flex p-1 bg-gray-200 rounded-2xl shadow-inner">
+        <button id="toggleStudent" onclick="switchPreview('student')" class="px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm">
+          <i class="fas fa-user-graduate mr-2"></i> Student App
+        </button>
+        <button id="toggleTeacher" onclick="switchPreview('teacher')" class="px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue">
+          <i class="fas fa-chalkboard-teacher mr-2"></i> Teacher App
+        </button>
+      </div>
+    </div>
 
-    <!-- Device-aware Frame - Live Demo Only -->
+    <p id="previewSubtitle" class="text-sm text-gray-500 mb-4">Currently showing: <strong class="text-brand-green">Student App</strong> — tap any house or student to explore</p>
+
+    <!-- Device-aware Frame - Live Demo -->
     <div id="demoFrame" class="device-frame relative mx-auto" data-aos="zoom-in-up">
       <div class="bg-white w-full h-full rounded-[18px] sm:rounded-[24px] overflow-hidden relative shadow-2xl">
         
         <!-- Loading Overlay -->
-        <div id="mockup-loading" class="absolute inset-0 bg-brand-dark flex flex-col items-center justify-center z-10 transition-opacity duration-700">
+        <div id="mockup-loading" class="absolute inset-0 bg-brand-dark flex flex-col items-center justify-center z-20 transition-opacity duration-700">
           <span class="font-display text-4xl font-black text-white tracking-tight mb-4">Track<span class="text-brand-green">EDU</span></span>
           <div class="w-8 h-8 border-4 border-white/20 border-t-brand-green rounded-full animate-spin"></div>
         </div>
@@ -1267,11 +1320,36 @@ html { scroll-padding-top: 100px; }
         <iframe 
           id="mockup-content"
           src="https://trackedu-housepoints.web.app/student.html?school=demo_school" 
-          class="w-full h-full opacity-0 transition-opacity duration-700"
+          class="absolute inset-0 w-full h-full opacity-0 transition-opacity duration-700 z-10"
           frameborder="0"
           scrolling="yes"
           sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals allow-top-navigation-by-user-activation">
         </iframe>
+        
+        <div id="teacher-teaser" class="absolute inset-0 z-10 bg-brand-dark flex flex-col items-center justify-center p-6 text-center opacity-0 hidden transition-opacity duration-700">
+          <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] pointer-events-none"></div>
+          
+          <div class="relative z-20 w-full max-w-sm mx-auto flex flex-col h-full justify-center">
+            <div class="w-20 h-20 mx-auto bg-white rounded-2xl flex items-center justify-center mb-6 shadow-2xl border-4 border-brand-blue/30">
+              <img src="https://trackedu.github.io/common-assets/teacherapp.png" class="w-16 h-16 rounded-xl object-cover">
+            </div>
+            
+            <h3 class="font-display text-2xl sm:text-3xl font-black text-white mb-4 leading-tight">Teacher<br>Command Center</h3>
+            <p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-8">
+              Automate your house system. Save 4+ hours of admin work every week. Fair random pickers, instant groups, and live points synced school-wide.
+            </p>
+            
+            <div class="space-y-3 w-full mt-auto mb-4">
+              <button onclick="openPilotModal()" class="w-full py-4 rounded-xl font-bold bg-brand-green text-white hover:bg-green-500 transition shadow-lg shadow-brand-green/30 flex items-center justify-center gap-2">
+                <i class="fas fa-rocket"></i> Start Free 30-Day Pilot
+              </button>
+              <button onclick="openVideoModal('teacher')" class="w-full py-4 rounded-xl font-bold bg-white/10 text-white hover:bg-white/20 transition border border-white/20 flex items-center justify-center gap-2">
+                <i class="fas fa-play-circle"></i> Watch 60s Demo
+              </button>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
     
@@ -1331,72 +1409,95 @@ html { scroll-padding-top: 100px; }
 </section>
 
 <section class="py-24 bg-brand-dark text-white relative overflow-hidden">
-  <div class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 30px 30px;"></div>
+  <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] pointer-events-none"></div>
+  <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-blue/20 rounded-full blur-[120px] pointer-events-none"></div>
+  <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-brand-green/10 rounded-full blur-[120px] pointer-events-none"></div>
   
-  <div class="max-w-6xl mx-auto px-6 relative z-10">
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
     
-    <div class="text-center mb-16">
-      <div class="inline-flex items-center gap-2 bg-brand-green/20 rounded-full px-4 py-1.5 mb-6">
-        <i class="fas fa-mobile-alt text-brand-green text-xs"></i>
-        <span class="text-xs font-bold uppercase tracking-wider text-brand-green">Student App • Community Dashboard</span>
-      </div>
-      <h2 class="font-display text-4xl md:text-5xl font-black mb-6 leading-tight">
-        One Shared View. <br>
-        <span class="text-brand-green">Connected Community.</span>
-      </h2>
-      <p class="text-xl text-blue-100 mb-10 max-w-3xl mx-auto">
-        Parents, students, and staff all see the same live results. <br>
-        <strong class="text-brand-green">The Student App</strong> doubles as your school's live community dashboard — accessible to everyone.
-      </p>
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      
+      <div data-aos="fade-right">
+        <div class="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-1.5 mb-8 border border-white/20">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-green opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-green"></span>
+          </span>
+          <span class="text-xs font-bold uppercase tracking-widest text-gray-300">Campus-Wide Visibility</span>
+        </div>
+        
+        <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-[1.1]">
+          Don't just track culture. <br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-emerald-300">Broadcast it.</span>
+        </h2>
+        
+        <p class="text-lg text-gray-300 mb-10 leading-relaxed max-w-lg">
+          Stop hiding house points in a spreadsheet. Transform your lobby TVs, assembly projectors, and parent newsletters into a live, unified celebration of student effort.
+        </p>
 
-      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-4">
-        <button 
-          onclick="window.open('https://trackedu-housepoints.web.app/student.html?school=demo_school', '_blank')"
-          class="btn bg-white text-brand-dark hover:bg-brand-green hover:text-white px-8 py-4 text-lg shadow-2xl transition transform hover:scale-105"
-        >
-          <i class="fa-solid fa-users-viewfinder mr-2"></i>
-          View Live Community Dashboard
-        </button>
-        <button 
-          onclick="switchVideo('student')"
-          class="btn-secondary px-8 py-4 text-lg font-bold transition hover:bg-brand-green hover:text-white hover:border-brand-green"
-        >
-          <i class="fas fa-play-circle mr-2"></i>
-          Watch Student App Demo
-        </button>
+        <div class="space-y-8">
+          <div class="flex items-start gap-5">
+            <div class="w-14 h-14 bg-brand-blue/20 rounded-2xl flex items-center justify-center text-2xl shrink-0 border border-brand-blue/30 shadow-[0_0_15px_rgba(30,64,175,0.3)]">
+              📺
+            </div>
+            <div>
+              <h4 class="font-bold text-xl mb-2 text-white">The "Wow" Factor for Campus Tours</h4>
+              <p class="text-sm text-gray-400 leading-relaxed">Most lobby screens show a boring PDF lunch menu. TrackEDU turns them into live, animated arenas. When a teacher awards a point, the hallway screen updates instantly. Students actually stop to look.</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start gap-5">
+            <div class="w-14 h-14 bg-brand-green/20 rounded-2xl flex items-center justify-center text-2xl shrink-0 border border-brand-green/30 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+              💌
+            </div>
+            <div>
+              <h4 class="font-bold text-xl mb-2 text-white">Zero-Friction Parent PR</h4>
+              <p class="text-sm text-gray-400 leading-relaxed">Parents hate downloading new apps. We generate a permanent, secure "Read-Only" link. Drop it into your Friday newsletter, and families can watch the House Standings live from home. Zero passwords required.</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <p class="text-sm text-gray-400">Safe, read-only link. No login required for families. Perfect for newsletters and websites.</p>
+
+      <div class="relative h-[500px] flex items-center justify-center" data-aos="fade-left">
+        
+        <div class="absolute right-0 top-10 w-4/5 bg-[#0f172a] rounded-3xl border-[12px] border-gray-800 shadow-[0_20px_50px_rgba(0,0,0,0.5)] p-6 overflow-hidden">
+          <div class="flex justify-between items-center border-b border-white/10 pb-4 mb-6">
+            <div class="font-display font-bold text-xl uppercase text-white">Assembly <span class="text-brand-green">Arena</span></div>
+            <div class="bg-red-500/20 text-red-400 text-[10px] font-black px-3 py-1 rounded-full animate-pulse uppercase tracking-widest">Live Sync</div>
+          </div>
+          
+          <div class="flex items-end justify-around h-40 gap-4">
+            <div class="w-full bg-blue-500 rounded-t-xl relative group" style="height: 60%"></div>
+            <div class="w-full bg-brand-green rounded-t-xl relative shadow-[0_0_30px_rgba(16,185,129,0.4)]" style="height: 90%"></div>
+            <div class="w-full bg-yellow-500 rounded-t-xl relative" style="height: 45%"></div>
+            <div class="w-full bg-red-500 rounded-t-xl relative" style="height: 75%"></div>
+          </div>
+        </div>
+        
+        <div class="absolute left-0 bottom-10 w-2/5 bg-white rounded-[32px] border-[8px] border-gray-200 shadow-[0_30px_60px_rgba(0,0,0,0.4)] p-4 overflow-hidden z-20 transform -rotate-6 hover:rotate-0 transition-transform duration-500">
+          <div class="w-1/2 h-4 bg-gray-200 rounded-b-xl mx-auto absolute top-0 left-1/4"></div>
+          <div class="mt-6 text-center">
+            <div class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">Parent View</div>
+            <div class="font-display text-lg font-black text-brand-dark leading-tight">Live<br>Standings</div>
+          </div>
+          <div class="mt-6 space-y-3">
+            <div class="h-10 bg-green-50 rounded-lg border border-green-100 flex items-center px-3 gap-2">
+              <span class="text-lg">🐉</span><div class="h-2 bg-brand-green rounded-full w-full"></div>
+            </div>
+            <div class="h-10 bg-red-50 rounded-lg border border-red-100 flex items-center px-3 gap-2">
+              <span class="text-lg">🦁</span><div class="h-2 bg-red-400 rounded-full w-3/4"></div>
+            </div>
+            <div class="h-10 bg-blue-50 rounded-lg border border-blue-100 flex items-center px-3 gap-2">
+              <span class="text-lg">🦅</span><div class="h-2 bg-blue-400 rounded-full w-1/2"></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="absolute top-1/2 left-1/3 w-1/3 h-0.5 bg-gradient-to-r from-transparent via-brand-green to-transparent transform -rotate-12 z-10 opacity-50"></div>
+
+      </div>
+
     </div>
-
-    <div class="grid md:grid-cols-3 gap-8 mb-16 border-t border-white/10 pt-16">
-      <div class="text-center p-4 group hover:bg-white/5 rounded-2xl transition">
-        <div class="w-16 h-16 mx-auto bg-white/5 rounded-full flex items-center justify-center text-3xl mb-4 text-brand-green group-hover:scale-110 transition">🔗</div>
-        <h3 class="text-xl font-bold mb-2">One Permanent Link</h3>
-        <p class="text-gray-400 leading-relaxed">Share the Student App link in newsletters, on your website, or via QR code. Accessible anytime, anywhere — no login required for viewing.</p>
-      </div>
-      <div class="text-center p-4 group hover:bg-white/5 rounded-2xl transition">
-        <div class="w-16 h-16 mx-auto bg-white/5 rounded-full flex items-center justify-center text-3xl mb-4 text-brand-green group-hover:scale-110 transition">🕒</div>
-        <h3 class="text-xl font-bold mb-2">Updates Instantly</h3>
-        <p class="text-gray-400 leading-relaxed">Points awarded in class appear within seconds on the Student App dashboard for the whole community to celebrate.</p>
-      </div>
-      <div class="text-center p-4 group hover:bg-white/5 rounded-2xl transition">
-        <div class="w-16 h-16 mx-auto bg-white/5 rounded-full flex items-center justify-center text-3xl mb-4 text-brand-green group-hover:scale-110 transition">❤️</div>
-        <h3 class="text-xl font-bold mb-2">Connects School & Home</h3>
-        <p class="text-gray-400 leading-relaxed">Families follow along with their child's house progress. House spirit doesn't stop at the school gate — it lives in your community.</p>
-      </div>
-    </div>
-
-    <div class="max-w-3xl mx-auto text-center bg-white/5 rounded-2xl p-8 backdrop-blur-sm border border-white/10">
-      <p class="text-xl md:text-2xl italic text-gray-200 font-light mb-4">
-        "For the first time, house points actually matter to students — not just on paper. The Student App dashboard changed how our whole community engages."
-      </p>
-      <div class="flex items-center justify-center gap-3">
-        <div class="h-px w-8 bg-brand-green"></div>
-        <span class="font-bold text-brand-green uppercase tracking-wide text-sm">International School Principal, Asia</span>
-        <div class="h-px w-8 bg-brand-green"></div>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -2209,6 +2310,118 @@ if (window.innerWidth < 768) {
 
 
 
+
+// Cinematic Video Modal Player
+function openVideoModal(type) {
+  const isTeacher = type === 'teacher';
+  
+  // Pull the correct Vimeo links based on the button clicked
+  const videoUrl = isTeacher 
+    ? "https://player.vimeo.com/video/1178512080?h=ff5159c513&autoplay=1&autopause=0&title=0&byline=0&portrait=0" 
+    : "https://player.vimeo.com/video/1178539459?h=ff5159c513&autoplay=1&autopause=0&title=0&byline=0&portrait=0";
+  
+  // Create the dark glass overlay
+  const modal = document.createElement('div');
+  modal.className = 'fixed inset-0 z-[200000] bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8';
+  modal.onclick = (e) => { if(e.target === modal) modal.remove(); };
+  
+  // Create the 16:9 Video Container
+  modal.innerHTML = `
+    <div class="relative w-full max-w-5xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl" onclick="event.stopPropagation()">
+      <button onclick="this.closest('.fixed').remove()" class="absolute top-4 right-4 text-white text-2xl z-50 bg-black/50 w-10 h-10 rounded-full flex items-center justify-center hover:bg-black/80 transition backdrop-blur-sm border border-white/20">&times;</button>
+      <iframe 
+        src="${videoUrl}" 
+        class="absolute inset-0 w-full h-full"
+        frameborder="0" 
+        allow="autoplay; fullscreen; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
+  `;
+  
+  document.body.appendChild(modal);
+  
+  // Easter Egg: Let users close it by hitting the "Escape" key on their keyboard
+  const closeHandler = (e) => {
+    if (e.key === 'Escape') {
+      modal.remove();
+      document.removeEventListener('keydown', closeHandler);
+    }
+  };
+  document.addEventListener('keydown', closeHandler);
+}
+
+
+// Mascot click handler - shows the "Why" message about the Ant character
+// Mascot click handler - shows the "Why" philosophy behind the TrackEDU platform
+function showMascotMessage() {
+  const mascotImg = document.getElementById('mascotImage');
+  if (!mascotImg) return;
+  
+  // Add spin animation
+  mascotImg.classList.add('mascot-spin');
+  setTimeout(() => {
+    mascotImg.classList.remove('mascot-spin');
+  }, 600);
+  
+  // Create modal with the "Why" message
+  const modal = document.createElement('div');
+  // FIX 1: Use classes already compiled by Tailwind CDN in your HTML
+  modal.className = 'fixed inset-0 z-[100000] bg-brand-dark/95 backdrop-blur-md flex items-center justify-center p-4 modal-fullscreen-mobile';
+  modal.onclick = (e) => { if(e.target === modal) modal.remove(); };
+  
+  modal.innerHTML = `
+    <div class="bg-white rounded-extra max-w-md w-full overflow-hidden shadow-2xl relative" onclick="event.stopPropagation()">
+      <button onclick="this.closest('.fixed').remove()" class="absolute top-4 right-4 text-2xl text-white hover:text-gray-200 transition z-10">&times;</button>
+      
+      <div class="bg-gradient-to-br from-brand-blue to-brand-green p-8 text-white text-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        <div class="relative z-10">
+            <div class="text-6xl mb-3 drop-shadow-lg">🐜</div>
+            <h3 class="text-2xl font-display font-black tracking-tight">The Power of the Ant</h3>
+            <p class="text-blue-100 text-xs font-bold uppercase tracking-widest mt-1">The philosophy behind our software</p>
+        </div>
+      </div>
+      
+      <div class="p-8 text-center">
+        <p class="text-gray-600 mb-6 leading-relaxed text-sm">
+          Schools use their own mascots—Eagles, Lions, or Dragons. But inside the TrackEDU platform, the underlying engine is built on the philosophy of the <strong>Ant</strong>: the ultimate symbol of <strong class="text-brand-blue">collective impact</strong>.
+        </p>
+        
+        <div class="bg-brand-slate rounded-2xl p-5 mb-6 text-left border border-gray-100 shadow-sm">
+          <p class="mb-3 text-sm"><span class="text-brand-blue font-bold">🐜 One ant</span> carries a crumb → <span class="text-gray-500">A small, daily positive habit.</span></p>
+          <p class="mb-3 text-sm"><span class="text-brand-green font-bold">🐜🐜 Ten ants</span> carry a leaf → <span class="text-gray-500">A classroom working together.</span></p>
+          <p class="text-sm"><span class="text-brand-dark font-black">🐜🐜🐜 A colony</span> builds a nest → <span class="text-gray-700 font-bold">Transformative school culture.</span></p>
+        </div>
+        
+        <p class="text-gray-500 text-xs mb-8 leading-relaxed">
+          That is why our digital badges and student avatars evolve. We don't just track points; we show students how their tiny daily actions build the legacy of their House.
+        </p>
+        
+        <button onclick="this.closest('.fixed').remove()" class="btn-dojo w-full py-4 bg-brand-dark text-white hover:bg-gray-800 transition shadow-lg">Understood</button>
+      </div>
+    </div>
+  `;
+  
+  document.body.appendChild(modal);
+}
+
+
+
+
+// Jump to the "Two Apps. One System." Section
+function jumpToDemo(appType) {
+    // 1. Scroll smoothly to the exact section explaining the two apps
+    document.getElementById('how').scrollIntoView({ behavior: 'smooth' });
+    
+    // 2. We still silently switch the interactive demo further down the page in the background!
+    // So if they keep scrolling, it's already loaded to the app they clicked.
+    setTimeout(() => {
+      if(typeof switchPreview === 'function') switchPreview(appType);
+    }, 300);
+  }
+
+
 function switchVideo(type) {
   const container = document.getElementById('videoContainer');
   const studentBtn = document.querySelector('button[onclick="switchVideo(\'student\')"]');
@@ -2531,19 +2744,18 @@ function switchPreview(type) {
   if (videoContainer) videoContainer.classList.add('hidden');
 
   const iframe = document.getElementById('mockup-content');
+  const teaser = document.getElementById('teacher-teaser');
   const loader = document.getElementById('mockup-loading');
   const subtitle = document.getElementById('previewSubtitle');
   const btnTeacher = document.getElementById('toggleTeacher');
   const btnStudent = document.getElementById('toggleStudent');
-  const ctaOverlay = document.getElementById('frameCtaOverlay');
 
   // Trigger Loading State
   loader.style.display = 'flex';
   loader.style.opacity = '1';
-  iframe.style.opacity = '0';
   
-  // Hide CTA overlay by default when switching
-  ctaOverlay.classList.add('hidden');
+  if (iframe) iframe.style.opacity = '0';
+  if (teaser) teaser.style.opacity = '0';
 
   if (type === 'teacher') {
     // Update button styles
@@ -2553,14 +2765,12 @@ function switchPreview(type) {
     // Update subtitle
     subtitle.innerHTML = "The <strong>Teacher App</strong> is the command center for awarding points and managing tools. Perfect for staff who run the house system.";
     
-    // Load Teacher App
-    iframe.src = "https://housepoint.trackedu.net/";
-    
-    // Show CTA overlay after Teacher App loads (with delay)
+    // Prepare DOM (Hide iframe, show teaser in background)
     setTimeout(() => {
-      ctaOverlay.classList.remove('hidden');
-    }, 1500);
-    
+      if (iframe) iframe.classList.add('hidden');
+      if (teaser) teaser.classList.remove('hidden');
+    }, 500);
+
   } else {
     // Student App - update button styles
     btnStudent.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm";
@@ -2569,23 +2779,29 @@ function switchPreview(type) {
     // Update subtitle
     subtitle.innerHTML = "The <strong>Student App</strong> is built for engagement on any mobile device. Track points, collect 3D badges, and power up your house!";
     
-    // Load Student App
-    iframe.src = "https://housepoint.trackedu.net/student.html?school=demo_school";
+    // Load Student App Data
+    if (iframe) iframe.src = "https://trackedu-housepoints.web.app/student.html?school=demo_school";
     
-    // Ensure CTA overlay is hidden
-    ctaOverlay.classList.add('hidden');
+    // Prepare DOM (Hide teaser, show iframe in background)
+    setTimeout(() => {
+      if (teaser) teaser.classList.add('hidden');
+      if (iframe) iframe.classList.remove('hidden');
+    }, 500);
   }
 
-  // Smooth transition delay
+  // Smooth transition delay to reveal content
   setTimeout(() => {
     loader.style.opacity = '0';
     setTimeout(() => {
       loader.style.display = 'none';
-      iframe.style.opacity = '1';
+      if (type === 'teacher' && teaser) {
+        teaser.style.opacity = '1';
+      } else if (type === 'student' && iframe) {
+        iframe.style.opacity = '1';
+      }
     }, 700);
   }, 1000);
 }
-
 
   // Mobile Menu Functions - FIXED
 function openMobileMenu() {
