@@ -329,6 +329,28 @@ html { scroll-padding-top: 100px; }
   font-size: 0.875rem;
 }
 
+
+    /* Hero glow ring animation */
+.hero-glow-ring {
+  background: linear-gradient(135deg, #1E40AF, #87C232);
+  padding: 6px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 20px 35px -10px rgba(0,0,0,0.2), 0 0 0 8px rgba(135, 194, 50, 0.15);
+}
+
+/* Floating animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-12px); }
+}
+.animate-float {
+  animation: float 4s ease-in-out infinite alternate;
+}
+.animate-float-delayed {
+  animation: float 5s ease-in-out infinite alternate 0.5s;
+}
+
     
   </style>
 </head>
@@ -396,12 +418,13 @@ html { scroll-padding-top: 100px; }
     
     <div class="flex flex-col lg:grid lg:grid-cols-2 gap-5 lg:gap-16 items-center">
       
+      <!-- LEFT COLUMN: Headline & CTA -->
       <div class="contents lg:block text-center lg:text-left" data-aos="fade-right">
         
         <h1 class="order-1 lg:order-none font-display text-3xl sm:text-5xl lg:text-6xl font-black leading-[1.1] text-brand-dark mb-3 lg:mb-6 tracking-tight">
-  Digital House Point <br>
-  <span class="text-gradient whitespace-nowrap">System for Schools</span>
-</h1>
+          Digital House Point <br>
+          <span class="text-gradient whitespace-nowrap">System for Schools</span>
+        </h1>
 
         <div class="order-3 lg:order-none inline-flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-1.5 px-4 py-1.5 rounded-2xl bg-white border border-gray-200 shadow-sm text-xs font-bold uppercase tracking-wide mb-3 lg:mb-6 mx-auto lg:mx-0 max-w-fit">
           <div class="flex items-center gap-2">
@@ -411,14 +434,15 @@ html { scroll-padding-top: 100px; }
             </span>
             <span class="text-gray-600">Active in International Schools:</span>
           </div>
-        <span class="text-base leading-none">🇲🇾 🇦🇪 🇸🇦 🇹🇭 🇻🇳</span>
+          <span class="text-base leading-none">🇲🇾 🇦🇪 🇸🇦 🇹🇭 🇻🇳</span>
         </div>
         
-       <p class="order-4 lg:order-none text-base sm:text-lg text-gray-600 mb-5 lg:mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0">
-  <strong>One house system. Every year level.</strong> Replace spreadsheets with a <strong>real-time culture platform</strong> that works for primary, secondary, and your whole school. Students love it. Teachers use it. Families see it.
-</p>
+        <p class="order-4 lg:order-none text-base sm:text-lg text-gray-600 mb-5 lg:mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0">
+          <strong>One house system. Every year level.</strong> Replace spreadsheets with a <strong>real-time culture platform</strong> that works for primary, secondary, and your whole school. Students love it. Teachers use it. Families see it.
+        </p>
 
-       <div class="order-5 lg:order-none flex flex-col gap-3 justify-center lg:justify-start w-full sm:w-auto">
+        <!-- ORIGINAL CTA BUTTONS - PRESERVED -->
+        <div class="order-5 lg:order-none flex flex-col gap-3 justify-center lg:justify-start w-full sm:w-auto">
           <div class="flex flex-col sm:flex-row gap-3">
             <button onclick="openPilotModal()" class="btn text-lg px-8 py-3.5 flex items-center justify-center gap-3 group bg-brand-dark hover:bg-gray-800 border-2 border-brand-dark text-white shadow-xl">
               <i class="fas fa-rocket text-brand-green text-sm group-hover:translate-y-[-2px] transition"></i>
@@ -432,43 +456,43 @@ html { scroll-padding-top: 100px; }
           <p class="text-xs text-gray-500 font-medium text-center lg:text-left ml-1"><i class="fas fa-video text-brand-blue mr-1"></i> A live 30-min intro for School Leaders & Admins</p>
         </div>
         
-       <div class="order-6 lg:order-none mt-6 pt-4 border-t border-gray-100">
-  <div class="flex flex-wrap justify-center lg:justify-start gap-6">
-    <div class="flex items-center gap-2">
-      <i class="fas fa-globe-asia text-brand-green text-sm"></i>
-      <span class="text-xs font-bold text-gray-500">Active in 5+ Countries</span>
-    </div>
-    <div class="flex items-center gap-2">
-      <i class="fas fa-clock text-brand-green text-sm"></i>
-      <span class="text-xs font-bold text-gray-500">3-Minute Setup</span>
-    </div>
-    <div class="flex items-center gap-2">
-      <i class="fas fa-cloud-upload-alt text-brand-green text-sm"></i>
-      <span class="text-xs font-bold text-gray-500">No Student PII Required</span>
-    </div>
-  </div>
-</div>
-      </div>
-
-      <div class="order-2 lg:order-none w-full relative mb-1 lg:mb-0" data-aos="fade-left">
-        <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white ring-1 ring-gray-100 transform hover:scale-[1.01] transition duration-500">
-          <div class="aspect-video bg-black relative group">
-           <iframe id="hero-video" 
-  class="absolute inset-0 w-full h-full" 
-  src="https://www.youtube.com/embed/lNbZ6-j2GCM?autoplay=1&loop=1&playlist=lNbZ6-j2GCM&controls=0&modestbranding=1&rel=0&playsinline=1&enablejsapi=1" 
-  title="TrackEDU" 
-  frameborder="0" 
-  allow="autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" 
-  allowfullscreen>
-</iframe>
-            <div class="absolute bottom-4 right-4 flex gap-2 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <button id="toggleMute" class="w-8 h-8 rounded-full bg-black/60 hover:bg-black/80 flex items-center justify-center text-white transition"><i id="muteIcon" class="fas fa-volume-mute text-xs"></i></button>
-              <button id="toggleFullscreen" class="w-8 h-8 rounded-full bg-black/60 hover:bg-black/80 flex items-center justify-center text-white transition"><i class="fas fa-expand text-xs"></i></button>
+        <div class="order-6 lg:order-none mt-6 pt-4 border-t border-gray-100">
+          <div class="flex flex-wrap justify-center lg:justify-start gap-6">
+            <div class="flex items-center gap-2">
+              <i class="fas fa-globe-asia text-brand-green text-sm"></i>
+              <span class="text-xs font-bold text-gray-500">Active in 5+ Countries</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fas fa-clock text-brand-green text-sm"></i>
+              <span class="text-xs font-bold text-gray-500">3-Minute Setup</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fas fa-cloud-upload-alt text-brand-green text-sm"></i>
+              <span class="text-xs font-bold text-gray-500">No Student PII Required</span>
             </div>
           </div>
         </div>
-        <div class="absolute -z-10 top-10 -right-10 w-32 h-32 bg-brand-green/10 rounded-full blur-3xl"></div>
-        <div class="absolute -z-10 -bottom-10 -left-10 w-40 h-40 bg-brand-blue/10 rounded-full blur-3xl"></div>
+      </div>
+
+      <!-- RIGHT COLUMN: Mascot + Floating Icons (NO VIDEO) -->
+      <div class="order-2 lg:order-none w-full relative flex justify-center mb-1 lg:mb-0" data-aos="fade-left">
+        <div class="hero-glow-ring">
+          <img src="https://trackedu.github.io/common-assets/teacherapp.png" alt="mascot" class="w-56 h-56 md:w-72 md:h-72 rounded-full object-cover bg-white shadow-2xl border-4 border-white">
+        </div>
+        <!-- floating teacher app icon - 2x bigger -->
+        <div class="absolute -top-8 -left-8 bg-white rounded-2xl p-3 shadow-xl animate-float">
+          <img src="https://trackedu.github.io/common-assets/teacherapp.png" class="w-16 h-16 rounded-xl object-cover">
+          <div class="absolute -bottom-3 -right-3 bg-[#1E40AF] text-white text-sm px-2 py-0.5 rounded-full font-bold">Teacher</div>
+        </div>
+        <!-- floating student app icon - 2x bigger -->
+        <div class="absolute -bottom-6 -right-6 bg-white rounded-2xl p-3 shadow-xl animate-float-delayed">
+          <img src="https://trackedu.github.io/common-assets/studentapp.png" class="w-16 h-16 rounded-xl object-cover">
+          <div class="absolute -top-3 -left-3 bg-[#10B981] text-white text-sm px-2 py-0.5 rounded-full font-bold">Student</div>
+        </div>
+        <!-- speech bubble - school friendly message -->
+        <div class="absolute -top-12 right-0 md:right-8 bg-white rounded-3xl px-5 py-2 shadow-lg border border-gray-200 text-sm font-bold text-gray-800 after:content-[''] after:absolute after:-bottom-2 after:left-6 after:w-4 after:h-4 after:bg-white after:rotate-45 after:border-r after:border-b after:border-gray-200">
+          🎓 Ready to lead your house?
+        </div>
       </div>
 
     </div>
@@ -478,7 +502,32 @@ html { scroll-padding-top: 100px; }
 
 
 
-
+<!-- VIDEO SECTION - Moved below hero -->
+<section class="py-12 bg-white">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="text-center mb-6">
+      <span class="text-brand-green text-xs font-bold uppercase tracking-wider">See It In Action</span>
+      <h2 class="font-display text-2xl md:text-3xl font-black text-brand-dark mt-2">Watch TrackEDU in 60 seconds</h2>
+    </div>
+    <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white ring-1 ring-gray-200">
+      <div class="aspect-video bg-black relative group">
+        <iframe id="hero-video" 
+          class="absolute inset-0 w-full h-full" 
+          src="https://www.youtube.com/embed/lNbZ6-j2GCM?autoplay=1&loop=1&playlist=lNbZ6-j2GCM&controls=1&modestbranding=1&rel=0&playsinline=1&enablejsapi=1" 
+          title="TrackEDU" 
+          frameborder="0" 
+          allow="autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" 
+          allowfullscreen>
+        </iframe>
+        <div class="absolute bottom-4 right-4 flex gap-2 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <button id="toggleMute" class="w-8 h-8 rounded-full bg-black/60 hover:bg-black/80 flex items-center justify-center text-white transition"><i id="muteIcon" class="fas fa-volume-mute text-xs"></i></button>
+          <button id="toggleFullscreen" class="w-8 h-8 rounded-full bg-black/60 hover:bg-black/80 flex items-center justify-center text-white transition"><i class="fas fa-expand text-xs"></i></button>
+        </div>
+      </div>
+    </div>
+    <p class="text-center text-gray-500 text-sm mt-4">See how teachers award points and students engage in real-time</p>
+  </div>
+</section>
 
   
 
