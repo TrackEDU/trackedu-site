@@ -1109,192 +1109,129 @@ html { scroll-padding-top: 100px; }
 
 
 
- <section id="how" class="py-20 bg-white overflow-hidden">
+
+  <section id="how" class="py-20 bg-white">
   <div class="max-w-6xl mx-auto px-6">
     
-    <div class="text-center mb-12" data-aos="fade-up">
-      <span class="text-brand-green font-bold tracking-widest text-xs uppercase">Two Apps. One Mission.</span>
-      <h2 class="font-display text-4xl md:text-5xl font-black text-brand-dark mt-2 mb-4">Teachers manage. Students play.<br><span class="text-brand-blue">The whole community celebrates.</span></h2>
-      <p class="text-gray-500 max-w-2xl mx-auto">Click any icon below to see how it works in the actual app.</p>
+    <!-- Simple, bold header -->
+    <div class="text-center mb-16" data-aos="fade-up">
+      <div class="inline-flex items-center gap-2 bg-green-50 px-4 py-1.5 rounded-full mb-4">
+        <span class="w-2 h-2 bg-brand-green rounded-full"></span>
+        <span class="text-xs font-bold text-brand-green uppercase tracking-wide">Used in 10+ countries</span>
+      </div>
+      <h2 class="font-display text-4xl md:text-5xl font-black text-brand-dark">
+        Everything you need<br>
+        <span class="text-brand-green">in one simple system</span>
+      </h2>
+      <p class="text-gray-500 max-w-xl mx-auto mt-4">TrackEDU replaces spreadsheets, sticker charts, and disconnected tools.</p>
     </div>
 
-    <div class="grid lg:grid-cols-2 gap-8 lg:gap-12">
+    <!-- TWO COLUMN LAYOUT - CLEAN AND SIMPLE -->
+    <div class="grid lg:grid-cols-2 gap-12">
       
-      <!-- ==================== TEACHER APP SIDE ==================== -->
-      <div class="app-card teacher-card" data-aos="fade-right">
-        <!-- Clickable header -->
-        <div class="app-header clickable" onclick="openAppModal('teacher')">
-          <img src="https://trackedu.github.io/common-assets/teacherapp.png" alt="Teacher App" class="app-icon">
+      <!-- LEFT: TEACHER SIDE -->
+      <div class="bg-gray-50 rounded-3xl p-8" data-aos="fade-right">
+        <div class="flex items-center gap-4 mb-6">
+          <img src="https://trackedu.github.io/common-assets/teacherapp.png" class="w-16 h-16 rounded-xl shadow-md">
           <div>
-            <h3 class="app-title">Teacher App</h3>
-            <p class="app-subtitle">Click to see the dashboard →</p>
+            <h3 class="text-2xl font-black text-brand-dark">For Teachers</h3>
+            <p class="text-sm text-gray-500">Save 4+ hours every week</p>
           </div>
         </div>
         
-        <!-- Teacher Toolkits Section -->
-        <div class="tools-section">
-          <div class="section-label">
-            <i class="fas fa-toolbox text-brand-blue"></i>
-            <span>Teacher Toolkits</span>
+        <div class="space-y-4">
+          <!-- Magic Hat -->
+          <div class="flex items-center gap-4 p-3 bg-white rounded-2xl shadow-sm">
+            <div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center text-2xl">🎩</div>
+            <div><div class="font-bold">Magic Hat</div><div class="text-xs text-gray-500">Pick a random student — ends "not fair"</div></div>
           </div>
-          <div class="tools-grid">
-            <div class="tool-card" onclick="showToolDetail('magic-hat')" data-tool="magic-hat">
-              <div class="tool-emoji">🎩</div>
-              <div class="tool-name">Magic Hat</div>
-              <div class="tool-desc">Pick a random student</div>
-            </div>
-            <div class="tool-card" onclick="showToolDetail('house-fortune')" data-tool="house-fortune">
-              <div class="tool-emoji">🏠</div>
-              <div class="tool-name">House of Fortune</div>
-              <div class="tool-desc">Pick a random house</div>
-            </div>
-            <div class="tool-card" onclick="showToolDetail('student-insights')" data-tool="student-insights">
-              <div class="tool-emoji">📊</div>
-              <div class="tool-name">Student Insights</div>
-              <div class="tool-desc">IB & British Values data</div>
-            </div>
-            <div class="tool-card" onclick="showToolDetail('magic-timer')" data-tool="magic-timer">
-              <div class="tool-emoji">⏱️</div>
-              <div class="tool-name">Magic Timer</div>
-              <div class="tool-desc">Manage classroom time</div>
-            </div>
-            <div class="tool-card" onclick="showToolDetail('duo-mode')" data-tool="duo-mode">
-              <div class="tool-emoji">⚡</div>
-              <div class="tool-name">Duo Mode</div>
-              <div class="tool-desc">Timer + Magic Hat</div>
-            </div>
-            <div class="tool-card" onclick="showToolDetail('role-roulette')" data-tool="role-roulette">
-              <div class="tool-emoji">🎭</div>
-              <div class="tool-name">Role Roulette</div>
-              <div class="tool-desc">Assign classroom jobs</div>
-            </div>
-            <div class="tool-card" onclick="showToolDetail('squad-builder')" data-tool="squad-builder">
-              <div class="tool-emoji">👥</div>
-              <div class="tool-name">Squad Builder</div>
-              <div class="tool-desc">Instant group generator</div>
-            </div>
-            <div class="tool-card" onclick="showToolDetail('quick-quiz')" data-tool="quick-quiz">
-              <div class="tool-emoji">🧠</div>
-              <div class="tool-name">Quick Quiz</div>
-              <div class="tool-desc">ATL Skills & Values</div>
-            </div>
+          <!-- Magic Timer -->
+          <div class="flex items-center gap-4 p-3 bg-white rounded-2xl shadow-sm">
+            <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-2xl">⏱️</div>
+            <div><div class="font-bold">Magic Timer</div><div class="text-xs text-gray-500">Visual countdown for transitions</div></div>
+          </div>
+          <!-- Squad Builder -->
+          <div class="flex items-center gap-4 p-3 bg-white rounded-2xl shadow-sm">
+            <div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center text-2xl">👥</div>
+            <div><div class="font-bold">Squad Builder</div><div class="text-xs text-gray-500">Instant balanced groups</div></div>
+          </div>
+          <!-- Quick Quiz -->
+          <div class="flex items-center gap-4 p-3 bg-white rounded-2xl shadow-sm">
+            <div class="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center text-2xl">🧠</div>
+            <div><div class="font-bold">Quick Quiz</div><div class="text-xs text-gray-500">ATL Skills & British Values questions</div></div>
           </div>
         </div>
         
-        <!-- House Master Tools Section -->
-        <div class="tools-section">
-          <div class="section-label">
-            <i class="fas fa-crown text-brand-green"></i>
-            <span>House Master Tools</span>
-          </div>
-          <div class="tools-grid">
-            <div class="tool-card" onclick="showToolDetail('mystery-word')" data-tool="mystery-word">
-              <div class="tool-emoji">🔐</div>
-              <div class="tool-name">Mystery Word</div>
-              <div class="tool-desc">Cross-class puzzle</div>
-            </div>
-            <div class="tool-card" onclick="showToolDetail('student-voice')" data-tool="student-voice">
-              <div class="tool-emoji">📢</div>
-              <div class="tool-name">Student Voice</div>
-              <div class="tool-desc">Live polls & voting</div>
-            </div>
-            <div class="tool-card" onclick="showToolDetail('poster-gen')" data-tool="poster-gen">
-              <div class="tool-emoji">🖨️</div>
-              <div class="tool-name">Poster Gen</div>
-              <div class="tool-desc">QR code posters</div>
-            </div>
-            <div class="tool-card" onclick="showToolDetail('power-boosts')" data-tool="power-boosts">
-              <div class="tool-emoji">⚡</div>
-              <div class="tool-name">Power Boosts</div>
-              <div class="tool-desc">Reward payout manager</div>
-            </div>
-            <div class="tool-card" onclick="showToolDetail('group-builder')" data-tool="group-builder">
-              <div class="tool-emoji">🏗️</div>
-              <div class="tool-name">Group Builder</div>
-              <div class="tool-desc">Mix or keep houses together</div>
-            </div>
-            <div class="tool-card" onclick="showToolDetail('house-countdown')" data-tool="house-countdown">
-              <div class="tool-emoji">⏰</div>
-              <div class="tool-name">House Countdown</div>
-              <div class="tool-desc">Hype school events</div>
-            </div>
+        <div class="mt-6 pt-4 border-t border-gray-200">
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-gray-500">✨ Plus 8+ more tools</span>
+            <span class="text-brand-green font-bold">CSV import • Auto-balance • Projector mode</span>
           </div>
         </div>
       </div>
 
-      <!-- ==================== STUDENT APP SIDE ==================== -->
-      <div class="app-card student-card" data-aos="fade-left">
-        <!-- Clickable header -->
-        <div class="app-header clickable" onclick="openAppModal('student')">
-          <img src="https://trackedu.github.io/common-assets/studentapp.png" alt="Student App" class="app-icon">
+      <!-- RIGHT: STUDENT SIDE -->
+      <div class="bg-gray-50 rounded-3xl p-8" data-aos="fade-left">
+        <div class="flex items-center gap-4 mb-6">
+          <img src="https://trackedu.github.io/common-assets/studentapp.png" class="w-16 h-16 rounded-xl shadow-md">
           <div>
-            <h3 class="app-title">Student App</h3>
-            <p class="app-subtitle">Click to see the portal →</p>
+            <h3 class="text-2xl font-black text-brand-dark">For Students</h3>
+            <p class="text-sm text-gray-500">They actually want to log in daily</p>
           </div>
         </div>
         
-        <!-- Culture & Community Section -->
-        <div class="tools-section">
-          <div class="section-label">
-            <i class="fas fa-users text-brand-green"></i>
-            <span>Culture & Community</span>
+        <div class="space-y-4">
+          <!-- Daily Streaks -->
+          <div class="flex items-center gap-4 p-3 bg-white rounded-2xl shadow-sm">
+            <div class="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center text-2xl">🔥</div>
+            <div><div class="font-bold">Daily Streaks</div><div class="text-xs text-gray-500">Login every day = bonus rewards</div></div>
           </div>
-          <div class="tools-grid">
-            <div class="tool-card" onclick="showToolDetail('live-standings')" data-tool="live-standings">
-              <div class="tool-emoji">🏆</div>
-              <div class="tool-name">Live Standings</div>
-              <div class="tool-desc">Real-time house rankings</div>
-            </div>
-            <div class="tool-card" onclick="showToolDetail('house-reactor')" data-tool="house-reactor">
-              <div class="tool-emoji">🔋</div>
-              <div class="tool-name">House Reactor</div>
-              <div class="tool-desc">Charge together, win together</div>
-            </div>
-            <div class="tool-card" onclick="showToolDetail('mystery-word-student')" data-tool="mystery-word-student">
-              <div class="tool-emoji">🔍</div>
-              <div class="tool-name">Mystery Word</div>
-              <div class="tool-desc">Solve with your house</div>
-            </div>
+          <!-- 3D Badges -->
+          <div class="flex items-center gap-4 p-3 bg-white rounded-2xl shadow-sm">
+            <div class="w-12 h-12 bg-pink-50 rounded-xl flex items-center justify-center text-2xl">🃏</div>
+            <div><div class="font-bold">3D Badge Binder</div><div class="text-xs text-gray-500">Collectible cards that evolve with points</div></div>
+          </div>
+          <!-- House Reactor -->
+          <div class="flex items-center gap-4 p-3 bg-white rounded-2xl shadow-sm">
+            <div class="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center text-2xl">🔋</div>
+            <div><div class="font-bold">House Reactor</div><div class="text-xs text-gray-500">Charge together → trigger House Blast</div></div>
+          </div>
+          <!-- Live Standings -->
+          <div class="flex items-center gap-4 p-3 bg-white rounded-2xl shadow-sm">
+            <div class="w-12 h-12 bg-yellow-50 rounded-xl flex items-center justify-center text-2xl">🏆</div>
+            <div><div class="font-bold">Live Standings</div><div class="text-xs text-gray-500">Families watch via public link</div></div>
           </div>
         </div>
         
-        <!-- Engagement Mechanics Section -->
-        <div class="tools-section">
-          <div class="section-label">
-            <i class="fas fa-gamepad text-brand-green"></i>
-            <span>Engagement Mechanics</span>
-          </div>
-          <div class="tools-grid">
-            <div class="tool-card" onclick="showToolDetail('daily-streaks')" data-tool="daily-streaks">
-              <div class="tool-emoji">🔥</div>
-              <div class="tool-name">Daily Streaks</div>
-              <div class="tool-desc">Login bonuses</div>
-            </div>
-            <div class="tool-card" onclick="showToolDetail('badge-binder')" data-tool="badge-binder">
-              <div class="tool-emoji">🃏</div>
-              <div class="tool-name">Badge Binder</div>
-              <div class="tool-desc">3D trading cards</div>
-            </div>
-            <div class="tool-card" onclick="showToolDetail('loot-drops')" data-tool="loot-drops">
-              <div class="tool-emoji">🎁</div>
-              <div class="tool-name">Loot Drops</div>
-              <div class="tool-desc">Secret claim codes</div>
-            </div>
+        <div class="mt-6 pt-4 border-t border-gray-200">
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-gray-500">✨ Mystery Word • Loot Drops • Polls</span>
+            <span class="text-brand-green font-bold">100% free for students</span>
           </div>
         </div>
       </div>
 
     </div>
 
+    <!-- ONE BIG TRUST STATEMENT -->
+    <div class="mt-16 bg-brand-dark rounded-3xl p-8 text-center text-white" data-aos="fade-up">
+      <div class="flex flex-wrap justify-center gap-8 text-sm">
+        <span class="flex items-center gap-2"><i class="fas fa-shield-alt text-brand-green"></i> No student emails required</span>
+        <span class="flex items-center gap-2"><i class="fas fa-lock text-brand-green"></i> FERPA & GDPR compliant</span>
+        <span class="flex items-center gap-2"><i class="fas fa-credit-card text-brand-green"></i> 30-day pilot • No credit card</span>
+      </div>
+    </div>
+
+    <!-- CTA BUTTON -->
     <div class="text-center mt-12">
-      <button onclick="openPilotModal()" class="btn px-8 py-3 text-base font-bold shadow-xl">
-        <i class="fas fa-rocket mr-2"></i> Start Free Pilot
+      <button onclick="openPilotModal()" class="btn px-10 py-4 text-lg font-bold shadow-xl">
+        Start your free pilot →
       </button>
+      <p class="text-xs text-gray-400 mt-3">Setup takes 3 minutes. Cancel anytime.</p>
     </div>
 
   </div>
 </section>
-
 
 
 
