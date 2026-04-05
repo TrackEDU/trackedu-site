@@ -357,80 +357,10 @@ html { scroll-padding-top: 100px; }
     padding: 4px;
     box-shadow: 0 15px 25px -8px rgba(0,0,0,0.2), 0 0 0 4px rgba(135, 194, 50, 0.15);
   }
-  
-  /* Speech bubble repositioned - above the mascot, not overlapping headline */
-  .speech-bubble {
-    position: absolute;
-    top: -50px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: white;
-    border-radius: 30px;
-    padding: 6px 16px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    border: 1px solid #e5e7eb;
-    font-size: 12px;
-    font-weight: 700;
-    color: #1f2937;
-    white-space: nowrap;
-    z-index: 20;
-  }
-  
-  .speech-bubble::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%) rotate(45deg);
-    width: 12px;
-    height: 12px;
-    background: white;
-    border-right: 1px solid #e5e7eb;
-    border-bottom: 1px solid #e5e7eb;
-  }
-}
-
-@media (min-width: 769px) {
-  /* Desktop speech bubble - original positioning */
-  .speech-bubble {
-    position: absolute;
-    top: -50px;
-    right: 0;
-    background: white;
-    border-radius: 30px;
-    padding: 8px 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    border: 1px solid #e5e7eb;
-    font-size: 14px;
-    font-weight: 700;
-    color: #1f2937;
-    white-space: nowrap;
-    z-index: 20;
-  }
-  
-  .speech-bubble::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 30px;
-    width: 14px;
-    height: 14px;
-    background: white;
-    border-right: 1px solid #e5e7eb;
-    border-bottom: 1px solid #e5e7eb;
-    transform: rotate(45deg);
-  }
 }
 
 /* Additional mobile safety margins */
 @media (max-width: 480px) {
-  .speech-bubble {
-    font-size: 10px;
-    padding: 5px 12px;
-    top: -45px;
-    white-space: nowrap;
-  }
-  
   /* Ensure floating icons don't hit edges */
   .absolute.-top-6.-left-6 {
     top: -15px !important;
@@ -440,6 +370,64 @@ html { scroll-padding-top: 100px; }
   .absolute.-bottom-4.-right-4 {
     bottom: -10px !important;
     right: -10px !important;
+  }
+}
+
+/* Speech bubble - positioned to the right of the mascot */
+.speech-bubble {
+  position: absolute;
+  top: 10%;
+  right: -20px;
+  background: white;
+  border-radius: 30px;
+  padding: 8px 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border: 1px solid #e5e7eb;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1f2937;
+  white-space: nowrap;
+  z-index: 20;
+}
+
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: 15px;
+  left: -8px;
+  width: 14px;
+  height: 14px;
+  background: white;
+  border-left: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+  transform: rotate(45deg);
+}
+
+/* Mobile adjustment - keep to the right but closer */
+@media (max-width: 768px) {
+  .speech-bubble {
+    top: 5%;
+    right: -10px;
+    padding: 5px 12px;
+    font-size: 10px;
+    white-space: nowrap;
+  }
+  
+  .speech-bubble::after {
+    bottom: 10px;
+    left: -7px;
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* Small mobile - ensure it doesn't get cut off */
+@media (max-width: 480px) {
+  .speech-bubble {
+    right: -5px;
+    top: 0;
+    padding: 4px 10px;
+    font-size: 9px;
   }
 }
     
@@ -583,10 +571,10 @@ html { scroll-padding-top: 100px; }
           <img src="https://trackedu.github.io/common-assets/studentapp.png" class="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-xl object-cover">
           <div class="absolute -top-2 -left-2 sm:-top-3 sm:-left-3 bg-[#10B981] text-white text-[10px] sm:text-sm px-1.5 sm:px-2 py-0.5 rounded-full font-bold">Student</div>
         </div>
-        <!-- speech bubble - repositioned for mobile to avoid covering text -->
-        <div class="speech-bubble">
-          🎓 Ready to lead your house?
-        </div>
+       <!-- speech bubble - positioned to the right of the mascot -->
+<div class="speech-bubble">
+  🎓 Ready to lead your house?
+</div>
       </div>
 
     </div>
