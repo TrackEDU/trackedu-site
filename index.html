@@ -2564,6 +2564,76 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+
+
+  // Tool detail modal - shows info when clicking any tool
+function showToolDetail(toolId) {
+  const toolNames = {
+    'magic-hat': 'Magic Hat',
+    'house-fortune': 'House of Fortune',
+    'student-insights': 'Student Insights',
+    'magic-timer': 'Magic Timer',
+    'duo-mode': 'Duo Mode',
+    'role-roulette': 'Role Roulette',
+    'squad-builder': 'Squad Builder',
+    'quick-quiz': 'Quick Quiz',
+    'mystery-word': 'Mystery Word',
+    'student-voice': 'Student Voice',
+    'poster-gen': 'Poster Generator',
+    'power-boosts': 'Power Boosts',
+    'group-builder': 'Group Builder',
+    'house-countdown': 'House Countdown',
+    'live-standings': 'Live Standings',
+    'house-reactor': 'House Reactor',
+    'daily-streaks': 'Daily Streaks',
+    'badge-binder': 'Badge Binder',
+    'loot-drops': 'Loot Drops'
+  };
+  
+  const name = toolNames[toolId] || toolId;
+  showToastMessage(`${name} - Available in your 30-day pilot`, 'info');
+}
+
+// App modal - shows screenshots of the actual app
+function openAppModal(appType) {
+  const isTeacher = appType === 'teacher';
+  const title = isTeacher ? 'Teacher App Dashboard' : 'Student App Portal';
+  
+  const modal = document.createElement('div');
+  modal.className = 'fixed inset-0 z-[20000] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4';
+  modal.onclick = (e) => { if(e.target === modal) modal.remove(); };
+  
+  modal.innerHTML = `
+    <div class="bg-white rounded-3xl max-w-4xl w-full max-h-[85vh] overflow-hidden" onclick="event.stopPropagation()">
+      <div class="flex justify-between items-center p-5 border-b">
+        <h3 class="text-xl font-black">${title}</h3>
+        <button onclick="this.closest('.fixed').remove()" class="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200">✕</button>
+      </div>
+      <div class="p-6 overflow-y-auto max-h-[70vh]">
+        <div class="grid md:grid-cols-2 gap-4">
+          <img src="https://i.imgur.com/${isTeacher ? 'jJdF6dh' : 'Xr6JFho'}.jpeg" class="rounded-xl shadow-md w-full" alt="${title}">
+          <img src="https://i.imgur.com/UVl5QwD.jpeg" class="rounded-xl shadow-md w-full" alt="Leaderboard view">
+        </div>
+        <p class="text-center text-gray-500 text-sm mt-4">Click any tool above to see it in action during your free pilot.</p>
+        <div class="mt-6 text-center">
+          <button onclick="this.closest('.fixed').remove(); openPilotModal();" class="btn px-6 py-2">Start Free Pilot →</button>
+        </div>
+      </div>
+    </div>
+  `;
+  
+  document.body.appendChild(modal);
+}
+
+// Helper for toast messages
+function showToastMessage(message, type = 'info') {
+  const toast = document.createElement('div');
+  toast.style.cssText = `position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); background: ${type === 'error' ? '#ef4444' : '#10b981'}; color: white; padding: 10px 20px; border-radius: 12px; z-index: 20001; font-weight: 600; font-size: 14px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);`;
+  toast.innerText = message;
+  document.body.appendChild(toast);
+  setTimeout(() => toast.remove(), 3000);
+}
+
 function switchPreview(type) {
   // Hide video container when switching to live demo
   const videoContainer = document.getElementById('videoContainer');
