@@ -1137,6 +1137,11 @@ html { scroll-padding-top: 100px; }
           </div>
         </div>
         
+        <!-- Watch demo button -->
+        <button onclick="switchVideo('teacher')" class="w-full mb-6 flex items-center justify-center gap-2 bg-white border border-gray-200 rounded-xl py-2 text-sm font-semibold text-brand-blue hover:bg-brand-blue hover:text-white hover:border-brand-blue transition">
+          <i class="fas fa-play-circle"></i> Watch how Teacher App works
+        </button>
+        
         <div class="space-y-4">
           <div class="flex items-center gap-4 p-3 bg-white rounded-2xl shadow-sm">
             <div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center text-2xl">🎩</div>
@@ -1174,6 +1179,11 @@ html { scroll-padding-top: 100px; }
           </div>
         </div>
         
+        <!-- Watch demo button -->
+        <button onclick="switchVideo('student')" class="w-full mb-6 flex items-center justify-center gap-2 bg-white border border-gray-200 rounded-xl py-2 text-sm font-semibold text-brand-green hover:bg-brand-green hover:text-white hover:border-brand-green transition">
+          <i class="fas fa-play-circle"></i> Watch how Student App works
+        </button>
+        
         <div class="space-y-4">
           <div class="flex items-center gap-4 p-3 bg-white rounded-2xl shadow-sm">
             <div class="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center text-2xl">🔥</div>
@@ -1196,7 +1206,7 @@ html { scroll-padding-top: 100px; }
         <div class="mt-6 pt-4 border-t border-gray-200">
           <div class="flex items-center justify-between text-sm">
             <span class="text-gray-500">✨ Mystery Word • Loot Drops • Polls</span>
-            <span class="text-brand-green font-bold">100% free for students</span>
+            <span class="text-brand-green font-bold">Part of Pro Ecosystem plan</span>
           </div>
         </div>
       </div>
@@ -1237,60 +1247,13 @@ html { scroll-padding-top: 100px; }
 
 
 
-
 <section id="mobile-demo" class="py-16 bg-gradient-to-b from-white to-gray-50">
   <div class="max-w-6xl mx-auto px-4 text-center">
-    <span class="text-brand-blue font-bold tracking-wider text-sm uppercase mb-2 block">Interactive Preview</span>
-    <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-black text-brand-dark mb-4">Experience Both Apps</h2>
-    
-   <!-- Video Tabs - Updated with better styling -->
-<div class="flex justify-center gap-3 mb-8">
-  <button id="studentVideoBtn" onclick="switchVideo('student')" class="px-6 py-2 rounded-xl font-bold transition-all hover:shadow-lg hover:-translate-y-0.5 bg-brand-green text-white shadow-md">
-    🎬 Student Experience
-  </button>
-  <button id="teacherVideoBtn" onclick="switchVideo('teacher')" class="px-6 py-2 rounded-xl font-bold transition-all hover:shadow-lg hover:-translate-y-0.5 bg-gray-200 text-gray-700 hover:bg-brand-green hover:text-white">
-    👩‍🏫 Teacher Walkthrough
-  </button>
-</div>
+    <span class="text-brand-blue font-bold tracking-wider text-sm uppercase mb-2 block">Try It Yourself</span>
+    <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-black text-brand-dark mb-4">Live Interactive Demo</h2>
+    <p class="text-gray-600 mb-8 max-w-2xl mx-auto">Tap the screen below to explore the Student App. No login required.</p>
 
-    
-
-  <!-- Video container with preload hints -->
-<div id="videoContainer" class="mb-12 rounded-2xl overflow-hidden shadow-xl border-2 border-brand-green/30 hidden">
-  <!-- Preload video metadata for faster playback -->
-  <link rel="preconnect" href="https://player.vimeo.com">
-  <link rel="dns-prefetch" href="https://f.vimeocdn.com">
-</div>
-
-    
-
-    <!-- Divider with "OR" -->
-    <div class="relative mb-8">
-      <div class="absolute inset-0 flex items-center">
-        <div class="w-full border-t border-gray-300"></div>
-      </div>
-      <div class="relative flex justify-center text-sm">
-        <span class="px-4 bg-gradient-to-b from-white to-gray-50 text-gray-500 font-bold uppercase text-xs tracking-wider">Or Try Live Demo</span>
-      </div>
-    </div>
-    
-    <!-- Toggle Buttons -->
-    <div class="flex justify-center mb-6">
-      <div class="inline-flex p-1 bg-gray-200 rounded-2xl shadow-inner">
-        <button id="toggleStudent" onclick="switchPreview('student')" class="px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm">
-          <i class="fas fa-user-graduate mr-2"></i> Student App
-        </button>
-        <button id="toggleTeacher" onclick="switchPreview('teacher')" class="px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue">
-          <i class="fas fa-chalkboard-teacher mr-2"></i> Teacher App
-        </button>
-      </div>
-    </div>
-
-    <p id="previewSubtitle" class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-      The <strong>Student App</strong> is built for engagement on any mobile device. Track points, collect 3D badges, and power up your house!
-    </p>
-
-    <!-- Device-aware Frame -->
+    <!-- Device-aware Frame - Live Demo Only -->
     <div id="demoFrame" class="device-frame relative mx-auto" data-aos="zoom-in-up">
       <div class="bg-white w-full h-full rounded-[18px] sm:rounded-[24px] overflow-hidden relative shadow-2xl">
         
@@ -1298,17 +1261,6 @@ html { scroll-padding-top: 100px; }
         <div id="mockup-loading" class="absolute inset-0 bg-brand-dark flex flex-col items-center justify-center z-10 transition-opacity duration-700">
           <span class="font-display text-4xl font-black text-white tracking-tight mb-4">Track<span class="text-brand-green">EDU</span></span>
           <div class="w-8 h-8 border-4 border-white/20 border-t-brand-green rounded-full animate-spin"></div>
-        </div>
-
-        <!-- CTA Overlay Inside Frame - ONLY visible when Teacher App is active -->
-       <div id="frameCtaOverlay" class="absolute inset-0 bg-gradient-to-br from-brand-blue/95 to-brand-dark/95 backdrop-blur-sm z-20 flex flex-col items-center justify-center text-center p-6 transition-all duration-500 hover:opacity-90 hidden">
-          <i class="fas fa-chalkboard-teacher text-5xl text-brand-green mb-4"></i>
-          <h3 class="text-white text-2xl font-bold mb-3">Ready to Transform Your School?</h3>
-          <p class="text-gray-200 text-sm mb-6 max-w-xs">Stop playing with fake data. Set up your real school in 3 minutes. No credit card required.</p>
-         <button onclick="openPilotModal()" class="btn px-8 py-3 text-lg font-bold shadow-lg bg-white text-brand-dark hover:bg-brand-green hover:text-white transition">
-  <i class="fas fa-bolt text-brand-green mr-2 group-hover:text-white"></i> Start 30-Day Pilot
-</button>
-          <p class="text-xs text-gray-300 mt-4">Invite unlimited teachers for free during the pilot.</p>
         </div>
 
         <iframe 
@@ -1321,9 +1273,10 @@ html { scroll-padding-top: 100px; }
         </iframe>
       </div>
     </div>
+    
+    <p class="text-xs text-gray-400 mt-6">⬅️ Swipe to explore • Tap any house or student to see details</p>
   </div>
 </section>
-
 
 
 
