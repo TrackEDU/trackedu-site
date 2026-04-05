@@ -836,6 +836,27 @@ html { scroll-padding-top: 100px; }
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+
+    /* Mascot click animation */
+.mascot-clickable {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mascot-clickable:active {
+  transform: scale(0.98);
+}
+
+.mascot-spin {
+  animation: mascotSpin 0.6s cubic-bezier(0.34, 1.2, 0.64, 1) forwards;
+}
+
+@keyframes mascotSpin {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(360deg) scale(1.15); }
+  100% { transform: rotate(720deg) scale(1); }
+}
     
     
   </style>
@@ -962,26 +983,26 @@ html { scroll-padding-top: 100px; }
         </div>
       </div>
 
-      <!-- RIGHT COLUMN: Mascot + Floating Icons (Mobile Optimized) -->
+          <!-- RIGHT COLUMN: Mascot + Floating Icons (Mobile Optimized) -->
       <div class="order-2 lg:order-none w-full relative flex justify-center mb-1 lg:mb-0" data-aos="fade-left">
-        <!-- Mobile: smaller mascot, adjusted positioning -->
-        <div class="hero-glow-ring mobile-scaled">
-          <img src="https://trackedu.github.io/common-assets/teacherapp.png" alt="mascot" class="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-72 lg:h-72 rounded-full object-cover bg-white shadow-2xl border-4 border-white">
+        <!-- Mascot - CLICKABLE with spin/expand animation -->
+        <div class="hero-glow-ring mobile-scaled mascot-clickable" id="mascotClickable" onclick="showMascotMessage()">
+          <img src="https://trackedu.github.io/common-assets/teacherapp.png" alt="mascot" id="mascotImage" class="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-72 lg:h-72 rounded-full object-cover bg-white shadow-2xl border-4 border-white transition-all duration-300 cursor-pointer">
         </div>
-        <!-- floating teacher app icon - responsive sizing -->
-        <div class="absolute -top-6 -left-6 sm:-top-8 sm:-left-8 bg-white rounded-2xl p-2 sm:p-3 shadow-xl animate-float">
+        <!-- floating teacher app icon - CLICKABLE - plays Teacher App video -->
+        <div class="absolute -top-6 -left-6 sm:-top-8 sm:-left-8 bg-white rounded-2xl p-2 sm:p-3 shadow-xl animate-float cursor-pointer hover:scale-110 transition-transform" onclick="switchVideo('teacher')">
           <img src="https://trackedu.github.io/common-assets/teacherapp.png" class="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-xl object-cover">
           <div class="absolute -bottom-2 -right-2 sm:-bottom-3 sm:-right-3 bg-[#1E40AF] text-white text-[10px] sm:text-sm px-1.5 sm:px-2 py-0.5 rounded-full font-bold">Teacher</div>
         </div>
-        <!-- floating student app icon - responsive sizing -->
-        <div class="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-white rounded-2xl p-2 sm:p-3 shadow-xl animate-float-delayed">
+        <!-- floating student app icon - CLICKABLE - plays Student App video -->
+        <div class="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-white rounded-2xl p-2 sm:p-3 shadow-xl animate-float-delayed cursor-pointer hover:scale-110 transition-transform" onclick="switchVideo('student')">
           <img src="https://trackedu.github.io/common-assets/studentapp.png" class="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-xl object-cover">
           <div class="absolute -top-2 -left-2 sm:-top-3 sm:-left-3 bg-[#10B981] text-white text-[10px] sm:text-sm px-1.5 sm:px-2 py-0.5 rounded-full font-bold">Student</div>
         </div>
-       <!-- speech bubble - positioned to the right of the mascot -->
-<div class="speech-bubble">
-  🎓 Ready to lead your house?
-</div>
+        <!-- speech bubble -->
+        <div class="speech-bubble">
+          🎓 Ready to lead your house?
+        </div>
       </div>
 
     </div>
@@ -1246,14 +1267,27 @@ html { scroll-padding-top: 100px; }
 
 
 
-
 <section id="mobile-demo" class="py-16 bg-gradient-to-b from-white to-gray-50">
   <div class="max-w-6xl mx-auto px-4 text-center">
     <span class="text-brand-blue font-bold tracking-wider text-sm uppercase mb-2 block">Try It Yourself</span>
     <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-black text-brand-dark mb-4">Live Interactive Demo</h2>
-    <p class="text-gray-600 mb-8 max-w-2xl mx-auto">Tap the screen below to explore the Student App. No login required.</p>
+    <p class="text-gray-600 mb-6 max-w-2xl mx-auto">Tap the screen below to explore. Switch between Teacher and Student apps.</p>
+    
+    <!-- Toggle Buttons -->
+    <div class="flex justify-center mb-6">
+      <div class="inline-flex p-1 bg-gray-200 rounded-2xl shadow-inner">
+        <button id="toggleStudent" onclick="switchPreview('student')" class="px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm">
+          <i class="fas fa-user-graduate mr-2"></i> Student App
+        </button>
+        <button id="toggleTeacher" onclick="switchPreview('teacher')" class="px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue">
+          <i class="fas fa-chalkboard-teacher mr-2"></i> Teacher App
+        </button>
+      </div>
+    </div>
 
-    <!-- Device-aware Frame - Live Demo Only -->
+    <p id="previewSubtitle" class="text-sm text-gray-500 mb-4">Currently showing: <strong class="text-brand-green">Student App</strong> — tap any house or student to explore</p>
+
+    <!-- Device-aware Frame - Live Demo -->
     <div id="demoFrame" class="device-frame relative mx-auto" data-aos="zoom-in-up">
       <div class="bg-white w-full h-full rounded-[18px] sm:rounded-[24px] overflow-hidden relative shadow-2xl">
         
@@ -1277,7 +1311,6 @@ html { scroll-padding-top: 100px; }
     <p class="text-xs text-gray-400 mt-6">⬅️ Swipe to explore • Tap any house or student to see details</p>
   </div>
 </section>
-
 
 
 
@@ -2522,6 +2555,53 @@ function showToastMessage(message, type = 'info') {
   toast.innerText = message;
   document.body.appendChild(toast);
   setTimeout(() => toast.remove(), 3000);
+}
+
+
+
+
+  // Mascot click handler - shows the "Why" message about the Ant character
+function showMascotMessage() {
+  const mascotImg = document.getElementById('mascotImage');
+  if (!mascotImg) return;
+  
+  // Add spin animation
+  mascotImg.classList.add('mascot-spin');
+  setTimeout(() => {
+    mascotImg.classList.remove('mascot-spin');
+  }, 600);
+  
+  // Create modal with the "Why" message
+  const modal = document.createElement('div');
+  modal.className = 'fixed inset-0 z-[20000] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4';
+  modal.onclick = (e) => { if(e.target === modal) modal.remove(); };
+  
+  modal.innerHTML = `
+    <div class="bg-white rounded-3xl max-w-md w-full overflow-hidden" onclick="event.stopPropagation()">
+      <div class="bg-gradient-to-r from-brand-blue to-brand-green p-4 text-white text-center">
+        <div class="text-5xl mb-2">🐜</div>
+        <h3 class="text-xl font-black">The TrackEDU Ant</h3>
+      </div>
+      <div class="p-6 text-center">
+        <p class="text-gray-700 mb-4 leading-relaxed">
+          <strong>Why an ant?</strong> Ants are the ultimate symbol of <strong class="text-brand-blue">teamwork</strong>, 
+          <strong class="text-brand-blue">perseverance</strong>, and <strong class="text-brand-blue">collective impact</strong>.
+        </p>
+        <div class="bg-gray-50 rounded-xl p-4 mb-4 text-left text-sm">
+          <p class="mb-2">🐜 <strong>One ant</strong> carries a crumb → small contribution</p>
+          <p class="mb-2">🐜🐜 <strong>Ten ants</strong> carry a leaf → noticeable impact</p>
+          <p>🐜🐜🐜 <strong>A colony</strong> builds a nest → <span class="text-brand-green font-bold">transformative change</span></p>
+        </div>
+        <p class="text-gray-600 text-sm mb-4">
+          That's why your avatar <strong>evolves every 50 points</strong> — from a tiny worker to a legendary leader. 
+          Every point you earn matters. Every student counts.
+        </p>
+        <button onclick="this.closest('.fixed').remove()" class="btn px-6 py-2">Got it! 🐜</button>
+      </div>
+    </div>
+  `;
+  
+  document.body.appendChild(modal);
 }
 
 function switchPreview(type) {
