@@ -1,19 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light" class="scroll-smooth">
 <head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WV79KN1XBY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WV79KN1XBY');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>TrackEDU · The house system students actually want to play</title>
   <meta name="description" content="Transform school culture with a digital house system that’s fun, fair, and privacy-first. Real-time leaderboards, gamified student app, and zero PII required.">
-  <meta name="keywords" content="house point tracker, house system for schools, digital house app, school culture platform, house point app for school">
+  <link rel="canonical" href="https://www.trackedu.net">
   <link rel="icon" type="image/png" href="https://i.imgur.com/3PR3SiC.png">
   
-  <!-- Fonts & Icons -->
+  <!-- Fonts & Icons: Lexend + Fredoka One, modern & playful -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Lexend:wght@400;500;600;700;800&family=Fredoka+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -25,10 +34,12 @@
     h1, h2, h3, .font-display { font-family: 'Lexend', 'Inter', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
     .font-hero { font-family: 'Fredoka One', cursive; letter-spacing: -0.01em; }
     
+    /* Soft, bubbly radius system */
     .card-soft, section, .rounded-bubble { border-radius: 32px; }
     .btn-pill, button, .pill { border-radius: 50px; }
     .rounded-card { border-radius: 32px; }
     
+    /* Brand colors */
     :root {
       --primary-blue: #1E40AF;
       --primary-green: #10B981;
@@ -38,7 +49,10 @@
       --glow-green: rgba(16, 185, 129, 0.25);
     }
     
-    .glow-hover { transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1); }
+    /* Card hover with holographic glow */
+    .glow-hover {
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
     .glow-hover:hover {
       transform: translateY(-6px);
       box-shadow: 0 20px 35px -12px var(--glow-blue);
@@ -54,26 +68,39 @@
       background: radial-gradient(circle at top left, rgba(16,185,129,0.03), white);
     }
     
+    /* floating animation for mascot & icons */
     @keyframes float {
       0% { transform: translateY(0px); }
       100% { transform: translateY(-12px); }
     }
-    .animate-float { animation: float 4s ease-in-out infinite alternate; }
-    .animate-float-delayed { animation: float 5s ease-in-out infinite alternate 0.5s; }
+    .animate-float {
+      animation: float 4s ease-in-out infinite alternate;
+    }
+    .animate-float-delayed {
+      animation: float 5s ease-in-out infinite alternate 0.5s;
+    }
     
-    .comparison-card { transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1); }
-    .comparison-card:hover { transform: scale(1.02); }
+    /* comparison card (before/after) */
+    .comparison-card {
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+    .comparison-card:hover {
+      transform: scale(1.02);
+    }
     
+    /* mobile touch improvements */
     @media (max-width: 768px) {
       .btn, button { min-height: 48px; touch-action: manipulation; }
       .card-soft { border-radius: 24px; }
       .mobile-edge { padding-left: 16px; padding-right: 16px; }
     }
     
+    /* custom scroll */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: #E2E8F0; border-radius: 10px; }
     ::-webkit-scrollbar-thumb { background: #10B981; border-radius: 10px; }
     
+    /* hero glow ring */
     .hero-glow-ring {
       background: linear-gradient(135deg, #1E40AF, #10B981);
       padding: 6px;
@@ -81,165 +108,228 @@
       display: inline-block;
       box-shadow: 0 20px 35px -10px rgba(0,0,0,0.2), 0 0 0 8px rgba(16,185,129,0.15);
     }
-    .btn {
-      background: var(--primary-green);
-      color: white;
-      border-radius: 12px;
-      font-weight: 600;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 4px 15px rgba(16,185,129,0.3);
+
+    /* Collectible card 3D tilt effect (light) */
+    .tilt-card {
+      transition: transform 0.2s ease, box-shadow 0.3s;
+      transform-style: preserve-3d;
     }
-    .btn:hover { background: #0f9b6e; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(16,185,129,0.45); }
-    .btn-secondary {
-      background: transparent;
-      color: var(--primary-blue);
-      border: 2px solid var(--primary-blue);
-      border-radius: 12px;
-      font-weight: 600;
-      transition: all 0.3s ease;
+    .tilt-card:hover {
+      transform: rotateX(2deg) rotateY(4deg) translateY(-8px);
+      box-shadow: 0 25px 35px -12px rgba(0,0,0,0.2);
     }
-    .btn-secondary:hover { background: var(--primary-blue); color: white; }
-    .text-gradient {
-      background: linear-gradient(135deg, #1E40AF 0%, #10B981 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    /* holographic sheen animation */
+    @keyframes sheen {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    .holographic-sheen {
+      background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,0.5) 50%, transparent 70%);
+      background-size: 200% auto;
+      animation: sheen 3s linear infinite;
       background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
     }
+    
+    /* adjust existing device-frame styles to keep consistency */
+    .device-frame {
+      margin: 0 auto;
+      background: #1f2937;
+      border: 10px solid #1f2937;
+      outline: 2px solid #374151;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+      position: relative;
+    }
+    @media (min-width: 1025px) {
+      .device-frame { width: 850px; aspect-ratio: 4 / 3; border-radius: 32px; border-width: 18px; }
+    }
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .device-frame { width: 380px; aspect-ratio: 9 / 16; border-radius: 36px; border-width: 12px; }
+    }
+    @media (max-width: 767px) {
+      .device-frame { width: 280px; aspect-ratio: 9 / 19; border-radius: 36px; border-width: 10px; }
+    }
+    /* keep interactive preview style */
+    .btn { background: #87C232; color: white; border-radius: 12px; font-weight: 600; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 15px rgba(135,194,50,0.3); }
+    .btn:hover { background: #7ab329; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(135,194,50,0.45); }
+    .btn-secondary { background: transparent; color: #0f66c3; border: 2px solid #0f66c3; border-radius: 12px; font-weight: 600; }
+    .btn-secondary:hover { background: #0f66c3; color: white; }
+    .text-gradient { background: linear-gradient(135deg, #0f66c3 0%, #87C232 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero-mesh { background-color: #ffffff; background-image: radial-gradient(at 0% 0%, rgba(135,194,50,0.1) 0px, transparent 50%), radial-gradient(at 100% 0%, rgba(15,102,195,0.1) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(135,194,50,0.1) 0px, transparent 50%), radial-gradient(at 0% 100%, rgba(15,102,195,0.05) 0px, transparent 50%); }
   </style>
 </head>
 <body class="antialiased overflow-x-hidden">
 
-<!-- STICKY HEADER -->
+<!-- STICKY HEADER (minimal, app-like) -->
 <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100/80 shadow-sm">
   <div class="max-w-7xl mx-auto px-5 sm:px-8 py-3 flex justify-between items-center">
-    <a href="#" class="flex items-center gap-2">
+    <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" class="flex items-center gap-2">
       <span class="font-hero text-2xl sm:text-3xl font-black tracking-tight">Track<span class="text-[#10B981]">EDU</span></span>
     </a>
     <div class="hidden md:flex items-center gap-6 text-sm font-semibold text-gray-700">
-      <a href="#how" class="hover:text-[#1E40AF] transition">How It Works</a>
-      <a href="#mobile-demo" class="hover:text-[#1E40AF] transition">Interactive Preview</a>
-      <a href="#trust" class="hover:text-[#1E40AF] transition">Privacy first</a>
+      <a href="#how" class="hover:text-[#1E40AF] transition">How it works</a>
+      <a href="#mobile-demo" class="hover:text-[#1E40AF] transition">Interactive preview</a>
+      <button onclick="openTrustModal()" class="hover:text-[#1E40AF] transition">Trust & Data</button>
       <a href="#pricing" class="hover:text-[#1E40AF] transition">Pricing</a>
-      <button onclick="openPilotModal()" class="bg-[#10B981] text-white px-5 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all hover:scale-105">Start free pilot →</button>
+      <button onclick="window.open('https://housepoint.trackedu.net/', '_blank')" class="bg-[#10B981] text-white px-5 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all hover:scale-105">Start free pilot →</button>
     </div>
     <button id="mobileMenuBtn" class="md:hidden p-2 rounded-full bg-gray-100"><i class="fas fa-bars text-xl text-gray-700"></i></button>
   </div>
   <div id="mobileMenu" class="fixed inset-y-0 right-0 w-64 bg-white shadow-2xl z-[100] transform translate-x-full transition-transform duration-300 p-6 flex flex-col gap-6">
     <button id="closeMobileMenu" class="self-end text-2xl">&times;</button>
-    <a href="#how" class="font-bold text-gray-800">How It Works</a>
-    <a href="#mobile-demo" class="font-bold text-gray-800">Preview</a>
-    <a href="#trust" class="font-bold text-gray-800">Privacy</a>
+    <a href="#how" class="font-bold text-gray-800">How it works</a>
     <a href="#pricing" class="font-bold text-gray-800">Pricing</a>
-    <button onclick="openPilotModal()" class="bg-[#10B981] text-white py-3 rounded-full font-bold">Start pilot →</button>
+    <button onclick="openPilotModal()" class="font-bold text-brand-blue">⚡ Start in 3 mins</button>
+    <a href="#mobile-demo" class="font-bold text-gray-800">Mobile tool</a>
+    <button onclick="openTrustModal()" class="font-bold text-gray-800">Trust & Vision</button>
+    <button onclick="window.open('https://housepoint.trackedu.net/','_blank')" class="bg-[#10B981] text-white py-3 rounded-full font-bold">Start free pilot</button>
   </div>
 </header>
 
-<!-- HERO SECTION -->
-<section class="relative overflow-hidden pt-10 pb-16 lg:pt-16 lg:pb-24 bg-gradient-to-br from-white to-[#F1F5F9]">
+<!-- HERO SECTION: immersive, mascot-driven, split layout with floating icons & speech bubble -->
+<section class="relative overflow-hidden pt-10 pb-16 lg:pt-16 lg:pb-24 hero-mesh">
   <div class="max-w-7xl mx-auto px-5 lg:px-8">
     <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- left copy -->
       <div data-aos="fade-right">
         <div class="inline-flex items-center gap-2 bg-white/70 backdrop-blur-sm border border-gray-200 rounded-full px-4 py-1.5 text-xs font-bold text-gray-600 mb-5">
           <span class="relative flex h-2 w-2"><span class="animate-ping absolute h-full w-full rounded-full bg-green-400"></span><span class="relative rounded-full h-2 w-2 bg-[#10B981]"></span></span>
-          🌍 active in 10+ countries
+          Active in 10+ countries
         </div>
-        <h1 class="font-hero text-4xl sm:text-5xl lg:text-7xl font-black leading-[1.15] tracking-tight text-gray-900">Digital House Point <br><span class="bg-gradient-to-r from-[#1E40AF] to-[#10B981] bg-clip-text text-transparent">System for Schools</span></h1>
-        <p class="text-lg text-gray-600 mt-6 leading-relaxed max-w-lg"><strong>One house system. Every year level.</strong> Replace spreadsheets with a real-time culture platform that works for primary, secondary, and your whole school. Students love it. Teachers use it. Families see it.</p>
+        <h1 class="font-hero text-4xl sm:text-5xl lg:text-7xl font-black leading-[1.15] tracking-tight text-gray-900">The house system <span class="bg-gradient-to-r from-[#1E40AF] to-[#10B981] bg-clip-text text-transparent">students actually want</span> to play.</h1>
+        <p class="text-lg text-gray-600 mt-6 leading-relaxed max-w-lg">Transform school compliance into a shared adventure. Teachers save hours, students unlock 3D cards, and the whole community celebrates together.</p>
         <div class="flex flex-wrap gap-4 mt-8">
-          <button onclick="openPilotModal()" class="bg-[#1E40AF] text-white px-8 py-4 rounded-full text-lg font-bold shadow-xl hover:shadow-2xl transition hover:scale-105 flex items-center gap-2"><i class="fas fa-rocket"></i> Create School Account</button>
-          <button data-cal-link="trackedu-a9dbpy/30min" class="border-2 border-gray-300 bg-white px-8 py-4 rounded-full text-lg font-semibold hover:border-[#10B981] transition">🎥 Book Walkthrough</button>
+          <button onclick="openPilotModal()" class="bg-[#1E40AF] text-white px-8 py-4 rounded-full text-lg font-bold shadow-xl hover:shadow-2xl transition hover:scale-105 flex items-center gap-2"><i class="fas fa-rocket"></i> Start 30‑day pilot</button>
+          <button onclick="switchVideo('student')" class="border-2 border-gray-300 bg-white px-8 py-4 rounded-full text-lg font-semibold hover:border-[#10B981] transition">🎥 Watch demo</button>
         </div>
-        <div class="flex flex-wrap gap-6 mt-8 text-sm font-medium text-gray-500">
-          <span><i class="fas fa-globe-asia text-[#10B981] mr-1"></i> Active in 5+ Countries</span>
-          <span><i class="fas fa-clock text-[#10B981] mr-1"></i> 3-Minute Setup</span>
-          <span><i class="fas fa-cloud-upload-alt text-[#10B981] mr-1"></i> No Student PII Required</span>
+        <div class="flex gap-6 mt-8 text-sm font-medium text-gray-500">
+          <span><i class="fas fa-cloud-upload-alt text-[#10B981] mr-1"></i> 3-min setup</span>
+          <span><i class="fas fa-user-secret text-[#10B981] mr-1"></i> No student emails</span>
+          <span><i class="fas fa-chart-line text-[#10B981] mr-1"></i> Real-time displays</span>
         </div>
       </div>
+      <!-- right: mascot + floating icons (teacher & student app icons) -->
       <div class="relative flex justify-center" data-aos="fade-left">
-        <div class="hero-glow-ring"><img src="https://trackedu.github.io/common-assets/teacherapp.png" alt="mascot" class="w-56 h-56 md:w-72 md:h-72 rounded-full object-cover bg-white shadow-2xl border-4 border-white"></div>
-        <div class="absolute -top-6 -left-6 bg-white rounded-2xl p-2 shadow-xl animate-float"><img src="https://trackedu.github.io/common-assets/teacherapp.png" class="w-12 h-12 rounded-lg object-cover"><div class="absolute -bottom-2 -right-2 bg-[#1E40AF] text-white text-xs px-1.5 rounded-full">Teacher</div></div>
-        <div class="absolute -bottom-4 -right-4 bg-white rounded-2xl p-2 shadow-xl animate-float-delayed"><img src="https://trackedu.github.io/common-assets/studentapp.png" class="w-12 h-12 rounded-lg object-cover"><div class="absolute -top-2 -left-2 bg-[#10B981] text-white text-xs px-1.5 rounded-full">Student</div></div>
+        <div class="hero-glow-ring">
+          <img src="https://trackedu.github.io/common-assets/teacherapp.png" alt="mascot" class="w-56 h-56 md:w-72 md:h-72 rounded-full object-cover bg-white shadow-2xl border-4 border-white">
+        </div>
+        <!-- floating teacher app icon -->
+        <div class="absolute -top-6 -left-6 bg-white rounded-2xl p-2 shadow-xl animate-float">
+          <img src="https://trackedu.github.io/common-assets/teacherapp.png" class="w-12 h-12 rounded-lg object-cover">
+          <div class="absolute -bottom-2 -right-2 bg-[#1E40AF] text-white text-xs px-1.5 rounded-full">Teacher</div>
+        </div>
+        <!-- floating student app icon -->
+        <div class="absolute -bottom-4 -right-4 bg-white rounded-2xl p-2 shadow-xl animate-float-delayed">
+          <img src="https://trackedu.github.io/common-assets/studentapp.png" class="w-12 h-12 rounded-lg object-cover">
+          <div class="absolute -top-2 -left-2 bg-[#10B981] text-white text-xs px-1.5 rounded-full">Student</div>
+        </div>
+        <!-- speech bubble -->
         <div class="absolute -top-12 right-0 md:right-8 bg-white rounded-3xl px-5 py-2 shadow-lg border border-gray-200 text-sm font-bold text-gray-800 after:content-[''] after:absolute after:-bottom-2 after:left-6 after:w-4 after:h-4 after:bg-white after:rotate-45 after:border-r after:border-b after:border-gray-200">✨ Welcome, hero!</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROBLEM / SOLUTION -->
-<section class="py-16 bg-gray-50 border-y border-gray-100">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="text-center mb-10"><span class="text-[#10B981] text-xs font-bold uppercase tracking-wider">The Problem</span><h2 class="text-3xl md:text-4xl font-black mt-2">Behavior Apps Don't Build <span class="text-[#1E40AF]">School Culture</span></h2><p class="text-gray-500 max-w-2xl mx-auto mt-3">You track compliance. But community? That's missing.</p></div>
-    <div class="grid lg:grid-cols-2 gap-8">
-      <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200"><div class="flex items-center justify-between mb-4"><h3 class="text-lg font-bold text-gray-800">Standard Tools</h3><span class="text-xs bg-gray-100 px-2 py-1 rounded-full">The Status Quo</span></div><div class="space-y-4"><div class="flex gap-3 items-start"><i class="fas fa-user text-gray-400 text-sm mt-0.5 w-5"></i><div><span class="font-bold text-sm">Individual Isolation</span><p class="text-xs text-gray-500">Points for self. No teamwork.</p></div></div><div class="flex gap-3 items-start"><i class="fas fa-door-closed text-gray-400 text-sm mt-0.5 w-5"></i><div><span class="font-bold text-sm">Classroom Silos</span><p class="text-xs text-gray-500">Year 6 and Year 1 never interact.</p></div></div><div class="flex gap-3 items-start"><i class="fas fa-ticket-alt text-gray-400 text-sm mt-0.5 w-5"></i><div><span class="font-bold text-sm">Temporary Bribes</span><p class="text-xs text-gray-500">Stickers don't engage older students.</p></div></div><div class="flex gap-3 items-start"><i class="fas fa-file-excel text-gray-400 text-sm mt-0.5 w-5"></i><div><span class="font-bold text-sm">Manual Assemblies</span><p class="text-xs text-gray-500">Hours lost to spreadsheet formatting.</p></div></div></div><div class="mt-6 p-3 bg-gray-50 rounded-xl text-center"><p class="text-sm font-bold text-gray-700">The result:</p><p class="text-xs text-gray-500">Teachers keep order. But the school feels disconnected.</p></div></div>
-      <div class="bg-gradient-to-br from-[#0F172A] to-gray-900 rounded-2xl p-6 shadow-xl border border-[#10B981]/30"><div class="flex items-center justify-between mb-4"><h3 class="text-lg font-bold text-white">TrackEDU</h3><span class="text-xs bg-[#10B981]/20 text-[#10B981] px-2 py-1 rounded-full">The Fix</span></div><div class="space-y-4"><div class="flex gap-3 items-start"><i class="fas fa-users text-[#10B981] text-sm mt-0.5 w-5"></i><div><span class="font-bold text-white text-sm">Collective Competition</span><p class="text-xs text-gray-300">Individual actions fuel house victory.</p></div></div><div class="flex gap-3 items-start"><i class="fas fa-globe text-[#10B981] text-sm mt-0.5 w-5"></i><div><span class="font-bold text-white text-sm">Cross-Grade Community</span><p class="text-xs text-gray-300">Houses unite all ages.</p></div></div><div class="flex gap-3 items-start"><i class="fas fa-gamepad text-[#10B981] text-sm mt-0.5 w-5"></i><div><span class="font-bold text-white text-sm">Deep Gamification</span><p class="text-xs text-gray-300">3D cards, streaks, house blasts.</p></div></div><div class="flex gap-3 items-start"><i class="fas fa-tv text-[#10B981] text-sm mt-0.5 w-5"></i><div><span class="font-bold text-white text-sm">Epic Live Events</span><p class="text-xs text-gray-300">Real-time leaderboards + live polls.</p></div></div></div><div class="mt-6 p-3 bg-[#10B981]/10 rounded-xl text-center"><p class="text-sm font-bold text-[#10B981]">What changes:</p><p class="text-xs text-gray-200">A unified culture students want to participate in.</p></div></div>
+<!-- PAIN VS RELIEF (before/after comparison) -->
+<section class="py-20 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="text-center mb-12">
+      <span class="text-[#10B981] font-bold text-sm uppercase tracking-wider">stop counting, start celebrating</span>
+      <h2 class="font-hero text-4xl md:text-5xl font-black mt-2">From spreadsheets to <br><span class="text-[#1E40AF]">real-time energy</span></h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+      <div class="comparison-card rounded-3xl overflow-hidden shadow-lg grayscale hover:grayscale-0 transition-all duration-500">
+        <div class="bg-gray-100 p-6 text-center border-2 border-dashed border-gray-300 rounded-2xl">
+          <i class="fas fa-file-excel text-6xl text-gray-400 mb-3"></i>
+          <p class="font-mono text-sm text-gray-500">Points_Final_v3_Final.csv</p>
+          <div class="bg-white p-4 rounded-xl mt-3 text-left text-xs text-gray-400">👎 manual calculations 👎 siloed classes 👎 no student engagement</div>
+        </div>
+        <div class="bg-gray-200 py-3 text-center text-sm font-bold text-gray-500">❌ before: spreadsheets & chaos</div>
+      </div>
+      <div class="comparison-card rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-[#1E40AF] to-[#10B981] p-6 text-white">
+        <div class="flex justify-between items-center"><span class="font-bold text-sm bg-white/20 px-3 py-1 rounded-full">live leaderboard</span><span class="text-2xl">🏆</span></div>
+        <div class="mt-6 flex justify-between items-end"><div><div class="text-3xl font-black">+50</div><div class="text-xs opacity-80">points today</div></div><div class="h-20 w-20 bg-white/20 rounded-full flex items-center justify-center text-3xl animate-pulse">🚀</div></div>
+        <div class="mt-4 h-4 bg-white/20 rounded-full overflow-hidden"><div class="w-3/4 h-full bg-white rounded-full"></div></div>
+        <div class="mt-6 text-sm font-semibold">✅ instant updates ✅ gamified student portal ✅ parent view</div>
+        <div class="mt-3 text-right text-xs opacity-80">TrackEDU Projector Mode</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- HOW IT WORKS / TEACHER + STUDENT APP -->
+<!-- TEACHER APP + STUDENT APP SECTIONS (original content preserved) -->
 <section id="how" class="py-20 bg-white overflow-hidden">
-  <div class="max-w-6xl mx-auto px-6"><div class="text-center mb-12"><span class="text-[#10B981] font-bold tracking-widest text-xs uppercase">One House System</span><h2 class="font-display text-4xl md:text-5xl font-black mt-2 mb-4">Teacher App + Student App</h2><p class="text-gray-600 max-w-2xl mx-auto">Teachers manage. Students play. The whole community watches live.</p></div>
-    <div class="mb-16"><div class="flex items-center gap-3 mb-6"><div class="w-10 h-10 bg-[#1E40AF] rounded-xl flex items-center justify-center"><i class="fas fa-chalkboard-user text-white text-sm"></i></div><h3 class="text-2xl font-black">Teacher App</h3><span class="text-xs bg-gray-100 px-2 py-1 rounded-full">Command Center</span></div><p class="text-gray-600 mb-6">Student management, point awarding, and 15+ classroom tools in one place.</p><div class="bg-blue-50/30 rounded-2xl p-5 mb-6"><div class="flex items-center gap-2 mb-4"><i class="fas fa-magic text-[#10B981] text-sm"></i><h4 class="font-bold text-sm uppercase tracking-wide">Teacher Toolkits</h4></div><div class="grid grid-cols-2 md:grid-cols-4 gap-3"><div class="text-xs"><span class="font-bold">🎩 Magic Hat</span><br><span class="text-gray-500 text-[10px]">Random student picker</span></div><div class="text-xs"><span class="font-bold">⏱️ Magic Timer</span><br><span class="text-gray-500 text-[10px]">Classroom time management</span></div><div class="text-xs"><span class="font-bold">🎭 Role Roulette</span><br><span class="text-gray-500 text-[10px]">Assign classroom jobs</span></div><div class="text-xs"><span class="font-bold">👥 Squad Builder</span><br><span class="text-gray-500 text-[10px]">Instant balanced groups</span></div><div class="text-xs"><span class="font-bold">🗺️ Quest Board</span><br><span class="text-gray-500 text-[10px]">Find the treasure</span></div><div class="text-xs"><span class="font-bold">🐍 Snakes & Ladders</span><br><span class="text-gray-500 text-[10px]">Race to the top</span></div><div class="text-xs"><span class="font-bold">📋 Quick Quiz</span><br><span class="text-gray-500 text-[10px]">ATL Skills & Values</span></div><div class="text-xs"><span class="font-bold">⚡ Duo Mode</span><br><span class="text-gray-500 text-[10px]">Timer + Magic Hat</span></div></div></div><div class="bg-[#0F172A] rounded-2xl p-5"><div class="flex items-center gap-2 mb-4"><i class="fas fa-crown text-[#10B981] text-sm"></i><h4 class="font-bold text-sm uppercase tracking-wide text-white">House Master Tools</h4></div><div class="grid grid-cols-2 md:grid-cols-4 gap-3"><div class="text-xs text-gray-300"><span class="font-bold text-white">⚡ Power Boosts</span><br><span class="text-gray-400 text-[10px]">Reward payout manager</span></div><div class="text-xs text-gray-300"><span class="font-bold text-white">🔐 Mystery Word</span><br><span class="text-gray-400 text-[10px]">Cross-class puzzle</span></div><div class="text-xs text-gray-300"><span class="font-bold text-white">📊 Student Voice</span><br><span class="text-gray-400 text-[10px]">Live polls & voting</span></div><div class="text-xs text-gray-300"><span class="font-bold text-white">🖨️ Poster Gen</span><br><span class="text-gray-400 text-[10px]">QR code posters</span></div><div class="text-xs text-gray-300"><span class="font-bold text-white">⏰ House Countdown</span><br><span class="text-gray-400 text-[10px]">Hype school events</span></div><div class="text-xs text-gray-300"><span class="font-bold text-white">💡 Brain-Teaser</span><br><span class="text-gray-400 text-[10px]">Weekly house quiz</span></div><div class="text-xs text-gray-300"><span class="font-bold text-white">👥 Group Builder</span><br><span class="text-gray-400 text-[10px]">Mix houses or keep together</span></div></div></div></div>
-    <div class="mb-16"><div class="flex items-center gap-3 mb-4"><div class="w-10 h-10 bg-[#10B981] rounded-xl flex items-center justify-center"><i class="fas fa-gamepad text-white text-sm"></i></div><h3 class="text-2xl font-black">Student App</h3><span class="text-xs bg-gray-100 px-2 py-1 rounded-full">Interactive Hero Portal</span></div><p class="text-gray-600 mb-4"><strong>Not a dashboard. A game.</strong> Students log in anytime — even at home or during holidays — to earn points, unlock rewards, and power up their house.</p><div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4"><div class="bg-green-50 p-3 rounded-xl text-center border border-green-100"><i class="fas fa-calendar-check text-[#10B981] mb-1 block text-lg"></i><span class="text-xs font-bold">Daily Streaks</span><br><span class="text-[10px] text-gray-500">Login bonuses</span></div><div class="bg-green-50 p-3 rounded-xl text-center border border-green-100"><i class="fas fa-id-card text-[#10B981] mb-1 block text-lg"></i><span class="text-xs font-bold">3D Trading Cards</span><br><span class="text-[10px] text-gray-500">Collect & evolve</span></div><div class="bg-green-50 p-3 rounded-xl text-center border border-green-100"><i class="fas fa-bolt text-[#10B981] mb-1 block text-lg"></i><span class="text-xs font-bold">Power Boosts</span><br><span class="text-[10px] text-gray-500">Charge the reactor</span></div><div class="bg-green-50 p-3 rounded-xl text-center border border-green-100"><i class="fas fa-gift text-[#10B981] mb-1 block text-lg"></i><span class="text-xs font-bold">Loot Drops</span><br><span class="text-[10px] text-gray-500">Secret claim codes</span></div></div><div class="grid grid-cols-2 md:grid-cols-3 gap-3"><div class="bg-gray-50 p-2 rounded-lg text-center"><i class="fas fa-lock text-[#1E40AF] text-sm"></i><span class="text-xs ml-1">Mystery Word</span><br><span class="text-[9px] text-gray-400">Solve & earn</span></div><div class="bg-gray-50 p-2 rounded-lg text-center"><i class="fas fa-chart-simple text-[#1E40AF] text-sm"></i><span class="text-xs ml-1">Live Rankings</span><br><span class="text-[9px] text-gray-400">House standings</span></div><div class="bg-gray-50 p-2 rounded-lg text-center"><i class="fas fa-vote-yea text-[#1E40AF] text-sm"></i><span class="text-xs ml-1">Student Polls</span><br><span class="text-[9px] text-gray-400">Voice your choice</span></div></div><div class="mt-4 text-center text-xs text-gray-400 bg-gray-50 p-2 rounded-lg"><i class="fas fa-globe"></i> One public link for families to watch live — no login required</div></div>
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-12" data-aos="fade-up"><span class="text-brand-green font-bold tracking-widest text-xs uppercase">One House System</span><h2 class="font-display text-4xl md:text-5xl font-black text-brand-dark mt-2 mb-4">Teacher App + Student App</h2><p class="text-gray-600 max-w-2xl mx-auto">Teachers manage. Students play. The whole community watches live.</p></div>
+    <div class="mb-16" data-aos="fade-up"><div class="flex items-center gap-3 mb-6"><div class="w-10 h-10 bg-brand-blue rounded-xl flex items-center justify-center"><i class="fas fa-chalkboard-user text-white text-sm"></i></div><h3 class="text-2xl font-black text-brand-dark">Teacher App</h3><span class="text-xs bg-gray-100 px-2 py-1 rounded-full">Command Center</span></div><p class="text-gray-600 mb-6 max-w-2xl">Student management, point awarding, and 15+ classroom tools in one place.</p>
+    <div class="bg-blue-50/30 rounded-2xl p-5 mb-6"><div class="flex items-center gap-2 mb-4"><i class="fas fa-magic text-brand-green text-sm"></i><h4 class="font-bold text-sm uppercase tracking-wide">Teacher Toolkits</h4></div><div class="grid grid-cols-2 md:grid-cols-4 gap-3"><div class="text-xs"><span class="font-bold">🎩 Magic Hat</span><br><span class="text-gray-500 text-[10px]">Random student picker</span></div><div class="text-xs"><span class="font-bold">⏱️ Magic Timer</span><br><span class="text-gray-500 text-[10px]">Classroom time management</span></div><div class="text-xs"><span class="font-bold">🎭 Role Roulette</span><br><span class="text-gray-500 text-[10px]">Assign classroom jobs</span></div><div class="text-xs"><span class="font-bold">👥 Squad Builder</span><br><span class="text-gray-500 text-[10px]">Instant balanced groups</span></div><div class="text-xs"><span class="font-bold">🗺️ Quest Board</span><br><span class="text-gray-500 text-[10px]">Find the treasure</span></div><div class="text-xs"><span class="font-bold">🐍 Snakes & Ladders</span><br><span class="text-gray-500 text-[10px]">Race to the top</span></div><div class="text-xs"><span class="font-bold">📋 Quick Quiz</span><br><span class="text-gray-500 text-[10px]">ATL Skills & Values</span></div><div class="text-xs"><span class="font-bold">⚡ Duo Mode</span><br><span class="text-gray-500 text-[10px]">Timer + Magic Hat</span></div></div></div>
+    <div class="bg-brand-dark rounded-2xl p-5"><div class="flex items-center gap-2 mb-4"><i class="fas fa-crown text-brand-green text-sm"></i><h4 class="font-bold text-sm uppercase tracking-wide text-white">House Master Tools</h4></div><div class="grid grid-cols-2 md:grid-cols-4 gap-3"><div class="text-xs text-gray-300"><span class="font-bold text-white">⚡ Power Boosts</span><br><span class="text-gray-400 text-[10px]">Reward payout manager</span></div><div class="text-xs text-gray-300"><span class="font-bold text-white">🔐 Mystery Word</span><br><span class="text-gray-400 text-[10px]">Cross-class puzzle</span></div><div class="text-xs text-gray-300"><span class="font-bold text-white">📊 Student Voice</span><br><span class="text-gray-400 text-[10px]">Live polls & voting</span></div><div class="text-xs text-gray-300"><span class="font-bold text-white">🖨️ Poster Gen</span><br><span class="text-gray-400 text-[10px]">QR code posters</span></div><div class="text-xs text-gray-300"><span class="font-bold text-white">⏰ House Countdown</span><br><span class="text-gray-400 text-[10px]">Hype school events</span></div><div class="text-xs text-gray-300"><span class="font-bold text-white">💡 Brain-Teaser</span><br><span class="text-gray-400 text-[10px]">Weekly house quiz</span></div><div class="text-xs text-gray-300"><span class="font-bold text-white">👥 Group Builder</span><br><span class="text-gray-400 text-[10px]">Mix houses or keep together</span></div></div></div></div>
+    <div class="mb-16" data-aos="fade-up"><div class="flex items-center gap-3 mb-4"><div class="w-10 h-10 bg-brand-green rounded-xl flex items-center justify-center"><i class="fas fa-gamepad text-white text-sm"></i></div><h3 class="text-2xl font-black text-brand-dark">Student App</h3><span class="text-xs bg-gray-100 px-2 py-1 rounded-full">Interactive Hero Portal</span></div><p class="text-gray-600 mb-4"><strong>Not a dashboard. A game.</strong> Students log in anytime — even at home or during holidays — to earn points, unlock rewards, and power up their house.</p>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4"><div class="bg-green-50 p-3 rounded-xl text-center border border-green-100"><i class="fas fa-calendar-check text-brand-green mb-1 block text-lg"></i><span class="text-xs font-bold">Daily Streaks</span><br><span class="text-[10px] text-gray-500">Login bonuses</span></div><div class="bg-green-50 p-3 rounded-xl text-center border border-green-100"><i class="fas fa-id-card text-brand-green mb-1 block text-lg"></i><span class="text-xs font-bold">3D Trading Cards</span><br><span class="text-[10px] text-gray-500">Collect & evolve</span></div><div class="bg-green-50 p-3 rounded-xl text-center border border-green-100"><i class="fas fa-bolt text-brand-green mb-1 block text-lg"></i><span class="text-xs font-bold">Power Boosts</span><br><span class="text-[10px] text-gray-500">Charge the reactor</span></div><div class="bg-green-50 p-3 rounded-xl text-center border border-green-100"><i class="fas fa-gift text-brand-green mb-1 block text-lg"></i><span class="text-xs font-bold">Loot Drops</span><br><span class="text-[10px] text-gray-500">Secret claim codes</span></div></div>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-3"><div class="bg-gray-50 p-2 rounded-lg text-center"><i class="fas fa-lock text-brand-blue text-sm"></i><span class="text-xs ml-1">Mystery Word</span><br><span class="text-[9px] text-gray-400">Solve & earn</span></div><div class="bg-gray-50 p-2 rounded-lg text-center"><i class="fas fa-chart-simple text-brand-blue text-sm"></i><span class="text-xs ml-1">Live Rankings</span><br><span class="text-[9px] text-gray-400">House standings</span></div><div class="bg-gray-50 p-2 rounded-lg text-center"><i class="fas fa-vote-yea text-brand-blue text-sm"></i><span class="text-xs ml-1">Student Polls</span><br><span class="text-[9px] text-gray-400">Voice your choice</span></div></div>
+    <div class="mt-4 text-center text-xs text-gray-400 bg-gray-50 p-2 rounded-lg"><i class="fas fa-globe"></i> One public link for families to watch live — no login required</div></div>
+    <div class="max-w-5xl mx-auto space-y-12"><div class="bg-black rounded-2xl overflow-hidden shadow-2xl aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/jo8RIRFrAPU?rel=0" title="TrackEDU Walkthrough" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><div class="grid md:grid-cols-3 gap-6"><img src="https://i.imgur.com/jJdF6dh.jpeg" class="rounded-xl shadow-lg hover:shadow-2xl hover:scale-[1.02] transition cursor-pointer" onclick="openLightbox(this.src)"><img src="https://i.imgur.com/Xr6JFho.jpeg" class="rounded-xl shadow-lg hover:shadow-2xl hover:scale-[1.02] transition cursor-pointer" onclick="openLightbox(this.src)"><img src="https://i.imgur.com/UVl5QwD.jpeg" class="rounded-xl shadow-lg hover:shadow-2xl hover:scale-[1.02] transition cursor-pointer" onclick="openLightbox(this.src)"></div></div>
+    <div class="mt-12 text-center"><button onclick="openPilotModal()" class="btn px-8 py-3 text-base font-bold shadow-xl"><i class="fas fa-rocket mr-2"></i> Start Free Pilot</button></div>
   </div>
 </section>
 
-<!-- INTERACTIVE DEMO FRAME (Simplified for style, kept essential) -->
-<section id="mobile-demo" class="py-16 bg-gradient-to-b from-white to-gray-50">
-  <div class="max-w-6xl mx-auto px-4 text-center"><span class="text-[#1E40AF] font-bold tracking-wider text-sm uppercase mb-2 block">Interactive Preview</span><h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-black text-[#0F172A] mb-4">Experience Both Apps</h2>
-    <div class="flex justify-center gap-3 mb-8"><button onclick="switchVideo('student')" class="px-6 py-2 rounded-xl font-bold transition-all bg-[#10B981] text-white shadow-md">🎬 Student Experience</button><button onclick="switchVideo('teacher')" class="px-6 py-2 rounded-xl font-bold transition-all bg-gray-200 text-gray-700 hover:bg-[#10B981] hover:text-white">👩‍🏫 Teacher Walkthrough</button></div>
-    <div id="videoContainer" class="mb-12 rounded-2xl overflow-hidden shadow-xl border-2 border-[#10B981]/30 hidden"></div>
-    <div class="relative mb-8"><div class="absolute inset-0 flex items-center"><div class="w-full border-t border-gray-300"></div></div><div class="relative flex justify-center text-sm"><span class="px-4 bg-gradient-to-b from-white to-gray-50 text-gray-500 font-bold uppercase text-xs tracking-wider">Or Try Live Demo</span></div></div>
-    <div class="flex justify-center mb-6"><div class="inline-flex p-1 bg-gray-200 rounded-2xl shadow-inner"><button id="toggleStudent" onclick="switchPreview('student')" class="px-6 py-3 rounded-xl text-sm font-bold transition-all bg-white text-[#1E40AF] shadow-sm"><i class="fas fa-user-graduate mr-2"></i> Student App</button><button id="toggleTeacher" onclick="switchPreview('teacher')" class="px-6 py-3 rounded-xl text-sm font-bold transition-all text-gray-600 hover:text-[#1E40AF]"><i class="fas fa-chalkboard-teacher mr-2"></i> Teacher App</button></div></div>
-    <div class="device-frame relative mx-auto w-full max-w-md lg:max-w-4xl bg-gray-800 rounded-3xl p-2 shadow-2xl"><iframe id="mockup-content" src="https://housepoint.trackedu.net/student.html?school=demo_school" class="w-full h-96 rounded-2xl bg-white" frameborder="0"></iframe></div>
-  </div>
-</section>
-
-<!-- TRUST BAR (FERPA/GDPR, zero PII) -->
+<!-- TRUST BAR (FERPA/GDPR, zero PII, shield) -->
 <section id="trust" class="py-20 bg-[#0F172A] text-white">
   <div class="max-w-5xl mx-auto px-5 text-center">
     <div class="w-24 h-24 mx-auto bg-white/10 rounded-full flex items-center justify-center text-5xl mb-6 shadow-xl"><i class="fas fa-shield-halved text-[#10B981]"></i></div>
-    <h2 class="font-hero text-3xl md:text-5xl font-black">Bank-Grade Security for Schools</h2><div class="h-1 w-20 bg-[#10B981] mx-auto my-5 rounded-full"></div>
-    <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">TrackEDU is <strong class="text-white">zero‑footprint</strong>. No student PII (emails, addresses, or surnames) are required. Fully FERPA & GDPR compliant by design. AES-256 encryption, right to erase, data sovereignty.</p>
+    <h2 class="font-hero text-3xl md:text-5xl font-black">Built for School IT Directors</h2>
+    <div class="h-1 w-20 bg-[#10B981] mx-auto my-5 rounded-full"></div>
+    <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">TrackEDU is <strong class="text-white">zero‑footprint</strong>. No student PII (emails, addresses, or surnames) are required. Fully FERPA & GDPR compliant by design.</p>
     <div class="flex flex-wrap justify-center gap-6 mt-10"><div class="bg-white/5 rounded-2xl px-6 py-3 backdrop-blur-sm border border-white/10">🔐 AES-256 encrypted</div><div class="bg-white/5 rounded-2xl px-6 py-3 backdrop-blur-sm border border-white/10">📜 right to erase</div><div class="bg-white/5 rounded-2xl px-6 py-3 backdrop-blur-sm border border-white/10">🌍 data sovereignty</div></div>
   </div>
 </section>
 
-<!-- PRICING SECTION (Complete from original) -->
-<section id="pricing" class="py-20 bg-gray-50">
-  <div class="max-w-6xl mx-auto px-6"><div class="text-center mb-12"><span class="text-[#10B981] font-bold tracking-widest text-sm uppercase">Simple Pricing</span><h2 class="font-display text-4xl font-black mt-2 mb-4">Choose Your School's Plan</h2><p class="text-xl text-gray-600 max-w-2xl mx-auto">From a single classroom to a fully gamified campus.</p><div class="mt-3 flex flex-wrap justify-center gap-3"><span class="inline-flex items-center gap-1.5 text-xs text-gray-500"><i class="fas fa-check-circle text-[#10B981] text-[10px]"></i> No setup fees</span><span class="text-gray-300 text-xs">•</span><span class="inline-flex items-center gap-1.5 text-xs text-gray-500"><i class="fas fa-check-circle text-[#10B981] text-[10px]"></i> No per-student fees</span></div></div>
-    <div class="grid lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-      <div class="bg-white rounded-2xl p-5 border border-gray-200 shadow-sm hover:-translate-y-1 transition"><h3 class="font-display text-lg font-bold">Solo Teacher</h3><div class="text-[#1E40AF] font-black text-2xl mb-2">Free<span class="text-base text-gray-500 font-medium"> forever</span></div><ul class="space-y-1.5 mb-3 text-xs"><li class="flex items-center gap-2"><i class="fas fa-check text-[#10B981] text-[10px]"></i><span>1 Teacher, 1 Class, 30 Students</span></li><li class="flex items-center gap-2"><i class="fas fa-check text-[#10B981] text-[10px]"></i><span>Magic Hat & Timer</span></li></ul><div class="text-[10px] text-gray-400 mb-3 p-1.5 bg-gray-50 rounded-lg">Email: 48hr response</div><button onclick="window.open('https://housepoint.trackedu.net/','_blank')" class="w-full py-2 rounded-lg font-bold text-[#1E40AF] border border-[#1E40AF] hover:bg-[#1E40AF] hover:text-white transition">Start for Free</button></div>
-      <div class="bg-[#0F172A] rounded-2xl p-5 border-2 border-[#10B981] shadow-xl relative transform lg:-translate-y-1"><div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#10B981] text-white px-2 py-0.5 rounded-full text-[9px] font-bold">Most Popular</div><h3 class="font-display text-lg font-bold text-white">Core Campus</h3><div class="text-white font-black text-2xl mb-2">$2,450<span class="text-base text-gray-400 font-medium"> / year</span></div><ul class="space-y-1.5 mb-3 text-xs text-gray-200"><li class="flex items-center gap-2"><i class="fas fa-check text-[#10B981] text-[10px]"></i><span><strong>Unlimited</strong> Teachers & Students</span></li><li class="flex items-center gap-2"><i class="fas fa-check text-[#10B981] text-[10px]"></i><span><strong>8+ Teacher Tools</strong></span></li><li class="flex items-center gap-2"><i class="fas fa-check text-[#10B981] text-[10px]"></i><span><strong>Projector Mode</strong></span></li></ul><button onclick="window.open('https://housepoint.trackedu.net/','_blank')" class="w-full py-2 rounded-lg font-bold bg-[#10B981] text-white hover:bg-green-500 transition">Start Free Trial</button></div>
-      <div class="bg-white rounded-2xl p-5 border-2 border-[#10B981] shadow-xl"><div class="inline-flex items-center gap-1 bg-gradient-to-r from-[#10B981] to-green-600 text-white px-2 py-0.5 rounded-full text-[8px] font-black mb-2">FLAGSHIP</div><h3 class="font-display text-lg font-black">Pro Ecosystem</h3><div class="text-2xl font-black text-[#1E40AF] mb-2">$3,950<span class="text-gray-400 text-xs">/year</span></div><ul class="space-y-1.5 mb-3 text-xs"><li class="flex items-start gap-2"><i class="fas fa-check text-[#10B981] text-[10px]"></i><span><strong>Student Hero Portal</strong> — 3D badges, streaks</span></li><li class="flex items-start gap-2"><i class="fas fa-check text-[#10B981] text-[10px]"></i><span><strong>House Power Boosts & Mystery Word</strong></span></li></ul><button onclick="window.open('https://housepoint.trackedu.net/','_blank')" class="w-full py-2 rounded-lg font-bold text-white bg-gradient-to-r from-[#10B981] to-green-600 hover:from-green-600 transition">Start Free Trial</button></div>
+<!-- COLLECTIBLE CARD BINDER (Prestige section) new holographic binder -->
+<section class="py-20 bg-white overflow-hidden">
+  <div class="max-w-6xl mx-auto px-5 text-center">
+    <span class="text-[#10B981] font-bold text-sm uppercase tracking-wider">Prestige & progression</span>
+    <h2 class="font-hero text-4xl md:text-5xl font-black mt-2">From points to <span class="text-[#1E40AF]">collectible legend</span></h2>
+    <p class="text-gray-500 max-w-2xl mx-auto mt-4">Every milestone unlocks a holographic trading card. Students level up as they grow.</p>
+    <div class="grid md:grid-cols-4 gap-6 mt-12">
+      <div class="tilt-card bg-gradient-to-br from-amber-100 to-amber-50 rounded-3xl p-5 shadow-lg border border-amber-200"><div class="text-6xl mb-3">🥉</div><h3 class="font-black text-lg">Bronze tier</h3><p class="text-xs text-gray-600">50 points · effort badge</p><div class="h-1 w-full bg-amber-300 mt-3 rounded-full holographic-sheen"></div></div>
+      <div class="tilt-card bg-gradient-to-br from-gray-200 to-gray-100 rounded-3xl p-5 shadow-lg border border-gray-300"><div class="text-6xl mb-3">🥈</div><h3 class="font-black text-lg">Silver tier</h3><p class="text-xs text-gray-600">200 points · leadership</p><div class="h-1 w-full bg-gray-400 mt-3 rounded-full holographic-sheen"></div></div>
+      <div class="tilt-card bg-gradient-to-br from-yellow-200 to-amber-200 rounded-3xl p-5 shadow-xl border-2 border-yellow-400 relative"><div class="absolute -top-2 -right-2 bg-yellow-500 text-white text-[10px] px-2 rounded-full">legendary</div><div class="text-6xl mb-3">🏆</div><h3 class="font-black text-lg">Gold tier</h3><p class="text-xs text-gray-700">500+ points · house icon</p><div class="h-1 w-full bg-yellow-500 mt-3 rounded-full holographic-sheen"></div></div>
+      <div class="tilt-card bg-gradient-to-br from-indigo-100 to-purple-100 rounded-3xl p-5 shadow-lg border border-indigo-200"><div class="text-6xl mb-3">💎</div><h3 class="font-black text-lg">Mythic tier</h3><p class="text-xs text-gray-600">1000+ points · school legend</p><div class="h-1 w-full bg-indigo-400 mt-3 rounded-full holographic-sheen"></div></div>
     </div>
   </div>
 </section>
 
-<!-- CTA & FOOTER -->
-<section class="py-20 bg-[#1E40AF] text-white text-center"><div class="max-w-3xl mx-auto px-5"><i class="fas fa-magic text-5xl mb-5 opacity-90"></i><h2 class="font-hero text-4xl md:text-5xl font-black">Zero‑friction onboarding</h2><p class="text-lg text-blue-100 mt-4">Google login → upload CSV → go live in 10 minutes. No sales calls, no IT tickets.</p><button onclick="openPilotModal()" class="mt-8 bg-white text-[#1E40AF] px-10 py-4 rounded-full text-xl font-bold shadow-xl hover:scale-105 transition">Start 30‑day pilot →</button></div></section>
+<!-- interactive preview (mobile-demo) same as original but with soft corners -->
+<section id="mobile-demo" class="py-16 bg-gradient-to-b from-white to-gray-50">
+  <div class="max-w-6xl mx-auto px-4 text-center">
+    <span class="text-brand-blue font-bold tracking-wider text-sm uppercase mb-2 block">Interactive Preview</span>
+    <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-black text-brand-dark mb-4">Experience Both Apps</h2>
+    <div class="flex justify-center gap-3 mb-8"><button id="studentVideoBtn" onclick="switchVideo('student')" class="px-6 py-2 rounded-xl font-bold transition-all hover:shadow-lg bg-brand-green text-white shadow-md">🎬 Student Experience</button><button id="teacherVideoBtn" onclick="switchVideo('teacher')" class="px-6 py-2 rounded-xl font-bold transition-all bg-gray-200 text-gray-700 hover:bg-brand-green hover:text-white">👩‍🏫 Teacher Walkthrough</button></div>
+    <div id="videoContainer" class="mb-12 rounded-2xl overflow-hidden shadow-xl border-2 border-brand-green/30 hidden"></div>
+    <div class="relative mb-8"><div class="absolute inset-0 flex items-center"><div class="w-full border-t border-gray-300"></div></div><div class="relative flex justify-center text-sm"><span class="px-4 bg-gradient-to-b from-white to-gray-50 text-gray-500 font-bold uppercase text-xs tracking-wider">Or Try Live Demo</span></div></div>
+    <div class="flex justify-center mb-6"><div class="inline-flex p-1 bg-gray-200 rounded-2xl shadow-inner"><button id="toggleStudent" onclick="switchPreview('student')" class="px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm"><i class="fas fa-user-graduate mr-2"></i> Student App</button><button id="toggleTeacher" onclick="switchPreview('teacher')" class="px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue"><i class="fas fa-chalkboard-teacher mr-2"></i> Teacher App</button></div></div>
+    <p id="previewSubtitle" class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">The <strong>Student App</strong> is built for engagement on any mobile device. Track points, collect 3D badges, and power up your house!</p>
+    <div id="demoFrame" class="device-frame relative mx-auto" data-aos="zoom-in-up"><div class="bg-white w-full h-full rounded-[18px] sm:rounded-[24px] overflow-hidden relative shadow-2xl"><div id="mockup-loading" class="absolute inset-0 bg-brand-dark flex flex-col items-center justify-center z-10 transition-opacity duration-700"><span class="font-display text-4xl font-black text-white tracking-tight mb-4">Track<span class="text-brand-green">EDU</span></span><div class="w-8 h-8 border-4 border-white/20 border-t-brand-green rounded-full animate-spin"></div></div><div id="frameCtaOverlay" class="absolute inset-0 bg-gradient-to-br from-brand-blue/95 to-brand-dark/95 backdrop-blur-sm z-20 flex flex-col items-center justify-center text-center p-6 transition-all duration-500 hover:opacity-90 hidden"><i class="fas fa-chalkboard-teacher text-5xl text-brand-green mb-4"></i><h3 class="text-white text-2xl font-bold mb-3">Ready to Transform Your School?</h3><p class="text-gray-200 text-sm mb-6 max-w-xs">Stop playing with fake data. Set up your real school in 3 minutes. No credit card required.</p><button onclick="openPilotModal()" class="btn px-8 py-3 text-lg font-bold shadow-lg bg-white text-brand-dark hover:bg-brand-green hover:text-white transition"><i class="fas fa-bolt text-brand-green mr-2"></i> Start 30-Day Pilot</button><p class="text-xs text-gray-300 mt-4">Invite unlimited teachers for free during the pilot.</p></div><iframe id="mockup-content" src="https://trackedu-housepoints.web.app/student.html?school=demo_school" class="w-full h-full opacity-0 transition-opacity duration-700" frameborder="0" scrolling="yes" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals allow-top-navigation-by-user-activation"></iframe></div></div>
+  </div>
+</section>
 
-<footer class="bg-white border-t border-gray-200 py-12"><div class="max-w-7xl mx-auto px-5 text-center"><div class="font-hero text-2xl font-black">Track<span class="text-[#10B981]">EDU</span></div><div class="flex flex-wrap justify-center gap-6 mt-6 text-sm font-medium text-gray-500"><a href="#how" class="hover:text-[#1E40AF]">How it Works</a><a href="#pricing" class="hover:text-[#1E40AF]">Pricing</a><a href="/terms.html" class="hover:text-[#1E40AF]">Terms & Conditions</a><button onclick="openTrustModal()" class="hover:text-[#1E40AF] font-semibold">Trust & Vision</button></div><p class="text-xs text-gray-400 mt-8">&copy; 2026 TrackEDU — building school culture, one house point at a time.</p></div></footer>
+<!-- entire pricing, ROI, testimonial, faq and footer sections from original, unchanged -->
+<section class="py-24 bg-white"><div class="max-w-6xl mx-auto px-6"><div class="grid lg:grid-cols-2 gap-16 items-center"><div><span class="text-brand-blue font-bold tracking-widest text-sm uppercase mb-4 block">The Business Case</span><h2 class="font-display text-4xl font-black text-brand-dark mb-6">Calculate Your <span class="text-brand-green">School's Impact</span></h2><p class="text-lg text-gray-600 mb-10">See how much time your staff is currently losing to manual spreadsheets and how TrackEDU transforms engagement.</p><div class="space-y-8"><div><div class="flex justify-between mb-4"><label class="font-bold text-brand-dark">Students in School</label><span id="val-students" class="text-brand-blue font-black">500</span></div><input type="range" id="input-students" min="50" max="2000" step="50" value="500" oninput="calculateROI()"></div><div><div class="flex justify-between mb-4"><label class="font-bold text-brand-dark">Weekly Admin Hours</label><span id="val-hours" class="text-brand-blue font-black">4</span></div><input type="range" id="input-hours" min="1" max="20" step="1" value="4" oninput="calculateROI()"></div></div></div><div class="bg-brand-dark rounded-3xl p-8 md:p-10 text-white shadow-2xl relative overflow-hidden"><div class="absolute top-0 right-0 w-32 h-32 bg-brand-green/10 rounded-full blur-3xl"></div><h3 class="text-xl font-bold mb-8 flex items-center gap-2"><i class="fas fa-chart-line text-brand-green"></i> Annual Impact Summary</h3><div class="grid gap-6"><div class="bg-white/5 border border-white/10 p-6 rounded-2xl"><div class="text-gray-400 text-xs font-bold uppercase tracking-widest mb-1">Staff Time Recovered</div><div class="flex items-baseline gap-2"><span id="res-hours" class="text-4xl font-black text-brand-green">192</span><span class="text-sm text-gray-400">Hours / Year</span></div><p class="text-xs text-gray-400 mt-2">≈ $5,000-$10,000 in recovered admin labor</p></div><div class="bg-white/5 border border-white/10 p-6 rounded-2xl"><div class="text-gray-400 text-xs font-bold uppercase tracking-widest mb-1">Estimated Engagement Boost</div><div class="flex items-baseline gap-2"><span id="res-boost" class="text-4xl font-black text-brand-blue">3x</span><span class="text-sm text-gray-400">Higher Participation</span></div></div><div class="p-4 text-center"><p class="text-sm text-gray-400 italic">"By automating House Points, a typical school of 500 students saves over $10,000 in hidden administrative labor costs annually."</p></div></div></div></div></div></section>
 
-<!-- MODALS -->
+<section id="pricing" class="py-20 bg-brand-light"><div class="max-w-6xl mx-auto px-6"><div class="text-center mb-12"><span class="text-brand-green font-bold tracking-widest text-sm uppercase">Simple Pricing</span><h2 class="font-display text-4xl font-black text-brand-dark mt-2 mb-4">Choose Your School's Plan</h2><p class="text-xl text-gray-600 max-w-2xl mx-auto">From a single classroom to a fully gamified campus, we have a plan that fits your budget.</p><div class="mt-3 flex items-center justify-center gap-3 flex-wrap"><span class="inline-flex items-center gap-1.5 text-xs text-gray-500"><i class="fas fa-check-circle text-brand-green text-[10px]"></i> No setup fees</span><span class="text-gray-300 text-xs">•</span><span class="inline-flex items-center gap-1.5 text-xs text-gray-500"><i class="fas fa-check-circle text-brand-green text-[10px]"></i> No per-student fees</span><span class="text-gray-300 text-xs">•</span><span class="inline-flex items-center gap-1.5 text-xs text-gray-500"><i class="fas fa-check-circle text-brand-green text-[10px]"></i> No surprises</span></div></div><div class="grid lg:grid-cols-3 gap-6 max-w-6xl mx-auto"><div class="bg-white rounded-2xl p-5 border border-gray-200 shadow-sm"><h3 class="font-display text-lg font-bold text-brand-dark mb-1">Solo Teacher</h3><div class="text-brand-blue font-black text-2xl mb-2">Free<span class="text-base text-gray-500 font-medium"> forever</span></div><ul class="space-y-1.5 mb-3 text-xs"><li class="flex items-center gap-2"><i class="fas fa-check text-brand-green text-[10px]"></i><span>1 Teacher, 1 Class, 30 Students</span></li><li class="flex items-center gap-2"><i class="fas fa-check text-brand-green text-[10px]"></i><span>Magic Hat & Timer</span></li></ul><button onclick="window.open('https://housepoint.trackedu.net/','_blank')" class="w-full py-2 rounded-lg font-bold text-brand-blue border border-brand-blue hover:bg-brand-blue hover:text-white transition text-sm">Start for Free</button></div><div class="bg-brand-dark rounded-2xl p-5 border-2 border-brand-green shadow-xl relative"><div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-brand-green text-white px-2 py-0.5 rounded-full text-[9px] font-bold uppercase">Most Popular</div><h3 class="font-display text-lg font-bold text-white mb-1">Core Campus</h3><div class="text-white font-black text-2xl mb-2">$2,450<span class="text-base text-gray-400 font-medium"> / year</span></div><ul class="space-y-1.5 mb-3 text-xs text-gray-200"><li class="flex items-center gap-2"><i class="fas fa-check text-brand-green text-[10px]"></i><span><strong>Unlimited</strong> Teachers & Students</span></li><li class="flex items-center gap-2"><i class="fas fa-check text-brand-green text-[10px]"></i><span><strong>8+ Teacher Tools</strong></span></li><li class="flex items-center gap-2"><i class="fas fa-check text-brand-green text-[10px]"></i><span><strong>Projector Mode</strong> — display on any school screen</span></li></ul><button onclick="window.open('https://housepoint.trackedu.net/','_blank')" class="w-full py-2 rounded-lg font-bold bg-brand-green text-white hover:bg-green-500 transition text-sm">Start Free Trial</button></div><div class="bg-white rounded-2xl p-5 border-2 border-brand-green shadow-xl"><div class="inline-flex items-center gap-1 bg-gradient-to-r from-brand-green to-green-600 text-white px-2 py-0.5 rounded-full text-[8px] font-black uppercase w-fit mb-2"><i class="fas fa-gem"></i> FLAGSHIP</div><h3 class="font-display text-lg font-black text-brand-dark mb-1">Pro Ecosystem</h3><div class="flex items-baseline gap-1 mb-2"><span class="text-2xl font-black text-brand-blue">$3,950</span><span class="text-gray-400 text-xs">/ year</span></div><ul class="space-y-1.5 mb-3 text-xs"><li class="flex items-start gap-2"><i class="fas fa-check text-brand-green text-[10px]"></i><span><strong>Student Hero Portal</strong> — 3D badges, streaks, evolution</span></li><li class="flex items-start gap-2"><i class="fas fa-check text-brand-green text-[10px]"></i><span><strong>House Power Boosts</strong> — students charge the reactor together</span></li></ul><button onclick="window.open('https://housepoint.trackedu.net/','_blank')" class="w-full py-2 rounded-lg font-bold text-white bg-gradient-to-r from-brand-green to-green-600 hover:from-green-600 hover:to-brand-green transition text-sm">Start Free Trial</button></div></div></div></section>
+
+<footer class="bg-white border-t border-gray-100 pt-16 pb-8"><div class="max-w-7xl mx-auto px-6 text-center"><div class="font-display text-3xl font-black text-brand-dark mb-4">Track<span class="text-brand-green">EDU</span></div><div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-8 text-sm font-medium text-gray-600"><a href="#how" class="hover:text-brand-green">How it Works</a><a href="#pricing" class="hover:text-brand-green">Pricing</a><a href="/terms.html" class="hover:text-brand-green">Terms & Conditions</a><button onclick="openTrustModal()" class="hover:text-brand-green font-semibold">Trust & Vision</button><a href="/privacy.html" class="hover:text-brand-green">Privacy Policy</a></div><div class="text-xs text-gray-400"><p>&copy; 2026 TrackEDU. All rights reserved.</p></div></div></footer>
+
+<!-- all original modal containers (trust, pilot, pricingInfo, pitchDeck, lightbox) required for functionality -->
 <div id="trustModal" class="fixed inset-0 z-[9999] hidden bg-black/60 backdrop-blur-sm items-center justify-center"><div class="bg-white max-w-md w-[90%] rounded-3xl p-6 relative"><button onclick="closeTrustModal()" class="absolute right-4 top-4 text-2xl">&times;</button><i class="fas fa-shield-alt text-4xl text-[#10B981] mb-3"></i><h3 class="text-2xl font-black">Enterprise security</h3><p class="text-gray-600 mt-2">FERPA & GDPR compliant. No student PII stored. AES-256 encryption. Schools own their data — export or wipe with 1 click.</p><button onclick="closeTrustModal()" class="mt-5 w-full bg-gray-100 py-3 rounded-full font-bold">Got it</button></div></div>
 <div id="pilotModal" class="fixed inset-0 z-[9999] hidden bg-black/60 backdrop-blur-sm items-center justify-center"><div class="bg-white max-w-md w-[90%] rounded-3xl p-6 relative"><button onclick="closePilotModal()" class="absolute right-4 top-4 text-2xl">&times;</button><h3 class="text-2xl font-black">Start your pilot</h3><p class="mt-2 text-gray-600">Create your school account in seconds → invite teachers → upload students. No credit card required.</p><button onclick="window.open('https://housepoint.trackedu.net/','_blank')" class="mt-5 w-full bg-[#10B981] text-white py-3 rounded-full font-bold">Launch pilot →</button></div></div>
-
-<script>
-  AOS.init({ duration: 800, once: true, offset: 30 });
-  function openPilotModal() { document.getElementById('pilotModal').classList.remove('hidden'); document.getElementById('pilotModal').style.display = 'flex'; }
-  function closePilotModal() { document.getElementById('pilotModal').style.display = 'none'; document.getElementById('pilotModal').classList.add('hidden'); }
-  function openTrustModal() { document.getElementById('trustModal').classList.remove('hidden'); document.getElementById('trustModal').style.display = 'flex'; }
-  function closeTrustModal() { document.getElementById('trustModal').style.display = 'none'; document.getElementById('trustModal').classList.add('hidden'); }
-  const menuBtn = document.getElementById('mobileMenuBtn'), mobileMenu = document.getElementById('mobileMenu'), closeMenu = document.getElementById('closeMobileMenu');
-  if(menuBtn) menuBtn.onclick = () => mobileMenu.classList.remove('translate-x-full');
-  if(closeMenu) closeMenu.onclick = () => mobileMenu.classList.add('translate-x-full');
-  document.querySelectorAll('#mobileMenu a, #mobileMenu button').forEach(el => el.addEventListener('click', () => mobileMenu.classList.add('translate-x-full')));
-  function switchVideo(type) { const container = document.getElementById('videoContainer'); if(container){ container.classList.remove('hidden'); container.innerHTML = `<iframe style="width:100%; height:480px;" src="${type==='student'?'https://player.vimeo.com/video/1178539459?autoplay=1':'https://player.vimeo.com/video/1178512080?autoplay=1'}" frameborder="0" allow="autoplay; fullscreen"></iframe>`; } }
-  function switchPreview(type) { const iframe = document.getElementById('mockup-content'); if(type==='teacher') iframe.src = "https://housepoint.trackedu.net/"; else iframe.src = "https://housepoint.trackedu.net/student.html?school=demo_school"; }
-  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-  Cal("init", "30min", { origin: "https://app.cal.com" });
-  Cal.ns["30min"]("ui", { cssVarsPerTheme: { light: { "cal-brand": "#10B981" } }, hideEventTypeDetails: true, layout: "month_view" });
-</script>
+<div id="pricingInfoModal" class="fixed inset-0 z-[10000] hidden flex items-center justify-center p-4"><div class="absolute inset-0 pricing-modal-overlay" onclick="closePricingModal()"></div><div class="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl overflow-hidden"><div id="modalThemeBar" class="h-2 w-full bg-brand-blue"></div><div class="p-6 md:p-8 flex justify-between items-start border-b border-gray-100"><div><span id="modalPlanBadge" class="plan-badge bg-blue-100 text-blue-700 mb-2 inline-block">Plan Details</span><h3 id="modalPlanTitle" class="font-display text-3xl font-black text-brand-dark">Plan Features</h3></div><button onclick="closePricingModal()" class="w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 transition"><i class="fas fa-times"></i></button></div><div class="p-6 md:p-8 max-h-[60vh] overflow-y-auto" id="modalFeatureList"></div><div class="p-6 bg-gray-50 flex flex-col sm:flex-row gap-4 justify-between items-center"><div class="text-sm text-gray-500 font-medium"><i class="fas fa-shield-halved mr-1"></i> Data secure & isolated</div><button onclick="window.open('https://housepoint.trackedu.net/','_blank')" class="w-full py-3 rounded-xl font-bold text-brand-blue border-2 border-brand-blue hover:bg-brand-blue hover:text-white transition">Start Free Trial</button></div></div></div>
+<div id="lightbox" class="fixed inset-0 z-[10000] bg-black/95 hidden flex items-center justify-center p-4"><span id="lightbox-close" class="absolute top-6 right-6 text-white text-4xl cursor-pointer hover:text-gray-300">&times;</span><img id="lightbox-img" src="" alt="Enlarged view" class="max-w-full max-h-[90vh] rounded-lg shadow-2xl"></div>
+<div id="pitchDeckModal" class="fixed inset-0 z-[100000] hidden flex items-center justify-center p-0 md:p-4"><div class="absolute inset-0 bg-brand-dark/95 backdrop-blur-md" onclick="closePitchDeck()"></div><div class="relative w-full max-w-5xl h-full md:h-[90vh] bg-white md:rounded-3xl overflow-hidden flex flex-col shadow-2xl"><div class="flex justify-between items-center px-8 py-4 border-b border-gray-100 print:hidden bg-white"><div class="flex items-center gap-2"><span class="font-display text-xl font-black text-brand-dark">Track<span class="text-brand-green">EDU</span></span><span class="text-xs font-bold bg-gray-100 text-gray-500 px-2 py-1 rounded">OFFICIAL PROPOSAL</span></div><div class="flex gap-3"><button onclick="downloadPitchDeckPDF()" class="btn px-4 py-2 text-sm flex items-center gap-2 bg-brand-green hover:bg-green-600"><i class="fas fa-file-pdf"></i> Download PDF</button><button onclick="closePitchDeck()" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 hover:bg-gray-200"><i class="fas fa-times"></i></button></div></div><div class="flex-1 overflow-y-auto bg-gray-50 p-4 md:p-12"><div class="max-w-4xl mx-auto space-y-12"><div id="pitch-page-1" class="bg-white p-12 rounded-3xl shadow-sm border border-gray-100"><span class="text-brand-blue font-black tracking-widest text-sm uppercase mb-4 block">The Proposal</span><h1 class="text-5xl font-black text-brand-dark leading-tight mb-8">Transforming School Culture <br><span class="text-brand-green">Beyond the Spreadsheet</span></h1><p class="text-xl text-gray-600 leading-relaxed">Traditional house point systems fail because they are administratively heavy and visually static. TrackEDU turns school spirit into a high-engagement digital ecosystem.</p></div><div id="pitch-page-2" class="bg-brand-dark text-white p-12 rounded-3xl"><h2 class="text-4xl font-black mb-10">The Dual-App Advantage</h2><div class="grid grid-cols-2 gap-10"><div><div class="w-12 h-12 bg-brand-green rounded-xl flex items-center justify-center text-xl text-brand-dark font-bold">01</div><h3 class="text-2xl font-bold">Teacher Command Center</h3><p class="text-gray-400 text-sm">Centralized management with a suite of 8+ classroom utilities. From automated house-balancing to assembly projector modes, we reduce admin time by 90%.</p></div><div><div class="w-12 h-12 bg-brand-blue rounded-xl flex items-center justify-center text-xl font-bold">02</div><h3 class="text-2xl font-bold">Student Hero Portal</h3><p class="text-gray-400 text-sm">Students take ownership of their journey. Featuring 3D holographic card collection, daily streaks, and house "reactors" that reward collective effort.</p></div></div></div></div></div></div></div>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script> AOS.init({ duration: 800, once: true, offset: 50 }); function calculateROI(){ let s=parseInt(document.getElementById('input-students').value), h=parseInt(document.getElementById('input-hours').value); document.getElementById('val-students').innerText=s; document.getElementById('val-hours').innerText=h; document.getElementById('res-hours').innerText=h*40; document.getElementById('res-boost').innerText=s>1000?"5x":s>500?"4x":"3x"; } function openPilotModal(){ document.getElementById('pilotModal').style.display='flex'; } function closePilotModal(){ document.getElementById('pilotModal').style.display='none'; } function openTrustModal(){ document.getElementById('trustModal').style.display='flex'; } function closeTrustModal(){ document.getElementById('trustModal').style.display='none'; } function openLightbox(src){ document.getElementById('lightbox-img').src=src; document.getElementById('lightbox').classList.remove('hidden'); } function closeLightbox(){ document.getElementById('lightbox').classList.add('hidden'); } document.getElementById('lightbox-close').onclick=closeLightbox; function switchVideo(type){ let container=document.getElementById('videoContainer'); container.classList.remove('hidden'); if(type==='student') container.innerHTML=`<div class="relative"><iframe style="width:100%; height:100%; min-height:480px;" src="https://player.vimeo.com/video/1178539459?autoplay=1&autopause=0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>`; else container.innerHTML=`<div class="relative"><iframe style="width:100%; height:100%; min-height:480px;" src="https://player.vimeo.com/video/1178512080?autoplay=1&autopause=0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>`; } function switchPreview(type){ let iframe=document.getElementById('mockup-content'),loader=document.getElementById('mockup-loading'),sub=document.getElementById('previewSubtitle'),cta=document.getElementById('frameCtaOverlay'); loader.style.display='flex'; iframe.style.opacity='0'; cta.classList.add('hidden'); if(type==='teacher'){ sub.innerHTML="The <strong>Teacher App</strong> is the command center for awarding points and managing tools."; iframe.src="https://housepoint.trackedu.net/"; setTimeout(()=>cta.classList.remove('hidden'),1500); }else{ sub.innerHTML="The <strong>Student App</strong> is built for engagement on any mobile device. Track points, collect 3D badges, and power up your house!"; iframe.src="https://housepoint.trackedu.net/student.html?school=demo_school"; } setTimeout(()=>{ loader.style.opacity='0'; setTimeout(()=>{ loader.style.display='none'; iframe.style.opacity='1'; },700); },1000); } const mobileMenuBtn=document.getElementById('mobileMenuBtn'),mobileMenu=document.getElementById('mobileMenu'),closeMenu=document.getElementById('closeMobileMenu'); if(mobileMenuBtn) mobileMenuBtn.onclick=()=>mobileMenu.classList.remove('translate-x-full'); if(closeMenu) closeMenu.onclick=()=>mobileMenu.classList.add('translate-x-full'); document.querySelectorAll('#mobileMenu a, #mobileMenu button').forEach(el=>el.addEventListener('click',()=>mobileMenu.classList.add('translate-x-full'))); window.openPlanDetails=function(key){ let data={ classroom:{title:"Solo Teacher",badge:"Individual Teacher",color:"#0f66c3",features:[{icon:"fa-user",label:"Solo Management",desc:"1 Teacher account with 1 active class and up to 30 students."}]}, core:{title:"Core Campus",badge:"School-Wide Teacher Tool",color:"#87C232",features:[{icon:"fa-toolbox",label:"Teacher Toolkit (8+ Tools)",desc:"Includes Duo Mode, Role Roulette, Squad Builder, Quest Board, Snakes & Ladders, and Quick Quiz (ATL Skills)."},{icon:"fa-desktop",label:"Projector Mode",desc:"Optimized for 4K displays. Ideal for showing live house rankings and class MVPs during assemblies."}]}, pro:{title:"Pro Ecosystem",badge:"Full Student Engagement System",color:"#0f66c3",features:[{icon:"fa-layer-group",label:"Dual-App System",desc:"You get two specialized platforms: The Teacher Command Center for management and the Student Hero Portal for engagement."},{icon:"fa-gamepad",label:"Full Student Gamification",desc:"3D holographic badges, 30-tier character evolution, daily login streaks with reward spins, and secret loot drops."}]} }; let d=data[key]; document.getElementById('modalPlanTitle').innerText=d.title; document.getElementById('modalPlanBadge').innerText=d.badge; document.getElementById('modalThemeBar').style.backgroundColor=d.color; let html=d.features.map(f=>`<div class="flex gap-4 mb-8 items-start"><div class="feature-icon"><i class="fas ${f.icon}"></i></div><div><h4 class="font-bold text-gray-900">${f.label}</h4><p class="text-sm text-gray-600 leading-relaxed">${f.desc}</p></div></div>`).join(''); document.getElementById('modalFeatureList').innerHTML=html; document.getElementById('pricingInfoModal').classList.remove('hidden'); document.body.style.overflow='hidden'; }; window.closePricingModal=function(){ document.getElementById('pricingInfoModal').classList.add('hidden'); document.body.style.overflow=''; }; window.downloadPitchDeckPDF=function(){ alert("Pitch deck PDF ready for download (simulated)."); }; window.openPitchDeck=function(){ document.getElementById('pitchDeckModal').classList.remove('hidden'); }; window.closePitchDeck=function(){ document.getElementById('pitchDeckModal').classList.add('hidden'); }; </script>
 </body>
 </html>
