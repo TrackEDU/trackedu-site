@@ -666,6 +666,177 @@ html { scroll-padding-top: 100px; }
     font-size: 0.5rem;
   }
 }
+
+/* App Cards */
+.app-card {
+  background: white;
+  border-radius: 32px;
+  padding: 24px;
+  box-shadow: 0 10px 30px -8px rgba(0,0,0,0.06);
+  border: 1px solid #f1f5f9;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.app-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+.app-header.clickable {
+  cursor: pointer;
+}
+
+.app-header.clickable:hover .app-title {
+  color: #87C232;
+}
+
+.app-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.app-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0;
+  transition: color 0.2s;
+}
+
+.app-subtitle {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  margin: 2px 0 0 0;
+}
+
+/* Tools sections */
+.tools-section {
+  margin-bottom: 24px;
+}
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+.section-label i {
+  font-size: 0.9rem;
+}
+
+.section-label span {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #64748b;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.tool-card {
+  background: #f8fafc;
+  border-radius: 16px;
+  padding: 12px 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.tool-card:hover {
+  transform: translateY(-3px);
+  background: white;
+  border-color: #87C232;
+  box-shadow: 0 8px 20px -8px rgba(135,194,50,0.3);
+}
+
+.tool-emoji {
+  font-size: 1.6rem;
+  margin-bottom: 6px;
+}
+
+.tool-name {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 2px;
+}
+
+.tool-desc {
+  font-size: 0.6rem;
+  color: #64748b;
+  line-height: 1.3;
+}
+
+/* Mobile responsive */
+@media (max-width: 1024px) {
+  .tools-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .app-card {
+    padding: 18px;
+  }
+  
+  .app-icon {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .app-title {
+    font-size: 1.2rem;
+  }
+  
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .tool-card {
+    padding: 10px 6px;
+  }
+  
+  .tool-emoji {
+    font-size: 1.3rem;
+  }
+  
+  .tool-name {
+    font-size: 0.65rem;
+  }
+  
+  .tool-desc {
+    font-size: 0.55rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+    
     
   </style>
 </head>
@@ -938,258 +1109,184 @@ html { scroll-padding-top: 100px; }
 
 
 
-  <section id="how" class="py-20 bg-white overflow-hidden">
+ <section id="how" class="py-20 bg-white overflow-hidden">
   <div class="max-w-6xl mx-auto px-6">
     
     <div class="text-center mb-12" data-aos="fade-up">
-      <span class="text-brand-green font-bold tracking-widest text-xs uppercase">One Platform. Two Experiences.</span>
-      <h2 class="font-display text-4xl md:text-5xl font-black text-brand-dark mt-2 mb-4">Teachers save <span class="text-brand-blue">4+ hours weekly</span><br>Students <span class="text-brand-green">actually want to participate</span></h2>
-      <p class="text-gray-500 max-w-2xl mx-auto">Most house point systems fail because teachers don't use them and students don't care. TrackEDU solves both.</p>
+      <span class="text-brand-green font-bold tracking-widest text-xs uppercase">Two Apps. One Mission.</span>
+      <h2 class="font-display text-4xl md:text-5xl font-black text-brand-dark mt-2 mb-4">Teachers manage. Students play.<br><span class="text-brand-blue">The whole community celebrates.</span></h2>
+      <p class="text-gray-500 max-w-2xl mx-auto">Click any icon below to see how it works in the actual app.</p>
     </div>
 
-    <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+    <div class="grid lg:grid-cols-2 gap-8 lg:gap-12">
       
-      <!-- LEFT: TEACHER SIDE (FLOATING ICONS) -->
-      <div class="teacher-ecosystem" data-aos="fade-right">
-        <div class="floating-center">
-          <img src="https://trackedu.github.io/common-assets/teacherapp.png" alt="Teacher Tools" class="center-icon">
-          <div class="center-label">15+ Teacher Tools</div>
-        </div>
-        
-        <div class="floating-icons teacher-icons">
-          <!-- Magic Hat -->
-          <div class="float-icon" data-benefit="Ends 'not fair' arguments forever">
-            <div class="icon-circle">🎩</div>
-            <span class="icon-benefit">Fairness</span>
-          </div>
-          
-          <!-- Magic Timer -->
-          <div class="float-icon" data-benefit="Visual transitions, zero disruption">
-            <div class="icon-circle">⏱️</div>
-            <span class="icon-benefit">Time saved</span>
-          </div>
-          
-          <!-- Squad Builder -->
-          <div class="float-icon" data-benefit="30-second balanced groups">
-            <div class="icon-circle">👥</div>
-            <span class="icon-benefit">Grouping</span>
-          </div>
-          
-          <!-- Mystery Word -->
-          <div class="float-icon" data-benefit="Whole-school collaboration">
-            <div class="icon-circle">🔐</div>
-            <span class="icon-benefit">Community</span>
-          </div>
-          
-          <!-- Student Voice Polls -->
-          <div class="float-icon" data-benefit="Live student feedback, no paper">
-            <div class="icon-circle">📊</div>
-            <span class="icon-benefit">Student voice</span>
-          </div>
-          
-          <!-- Poster Generator -->
-          <div class="float-icon" data-benefit="Professional branding in 2 minutes">
-            <div class="icon-circle">🖨️</div>
-            <span class="icon-benefit">Visibility</span>
-          </div>
-          
-          <!-- CSV Import -->
-          <div class="float-icon" data-benefit="Setup your whole school in 5 minutes">
-            <div class="icon-circle">📋</div>
-            <span class="icon-benefit">Bulk import</span>
-          </div>
-          
-          <!-- Projector Mode -->
-          <div class="float-icon" data-benefit="Assembly-ready live leaderboards">
-            <div class="icon-circle">📺</div>
-            <span class="icon-benefit">Live displays</span>
+      <!-- ==================== TEACHER APP SIDE ==================== -->
+      <div class="app-card teacher-card" data-aos="fade-right">
+        <!-- Clickable header -->
+        <div class="app-header clickable" onclick="openAppModal('teacher')">
+          <img src="https://trackedu.github.io/common-assets/teacherapp.png" alt="Teacher App" class="app-icon">
+          <div>
+            <h3 class="app-title">Teacher App</h3>
+            <p class="app-subtitle">Click to see the dashboard →</p>
           </div>
         </div>
         
-        <div class="ecosystem-stats">
-          <div class="stat-block">
-            <span class="stat-number">4+ hrs</span>
-            <span class="stat-label">weekly admin time recovered</span>
+        <!-- Teacher Toolkits Section -->
+        <div class="tools-section">
+          <div class="section-label">
+            <i class="fas fa-toolbox text-brand-blue"></i>
+            <span>Teacher Toolkits</span>
           </div>
-          <div class="stat-block">
-            <span class="stat-number">100%</span>
-            <span class="stat-label">teacher adoption possible</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- RIGHT: STUDENT SIDE (FLOATING ICONS) -->
-      <div class="student-ecosystem" data-aos="fade-left">
-        <div class="floating-center">
-          <img src="https://trackedu.github.io/common-assets/studentapp.png" alt="Student Experience" class="center-icon">
-          <div class="center-label">Why students log in daily</div>
-        </div>
-        
-        <div class="floating-icons student-icons">
-          <!-- Daily Streaks -->
-          <div class="float-icon" data-benefit="Returns every day = builds habit">
-            <div class="icon-circle">🔥</div>
-            <span class="icon-benefit">Daily habit</span>
-          </div>
-          
-          <!-- Badge Binder -->
-          <div class="float-icon" data-benefit="30-tier evolution = visible progress">
-            <div class="icon-circle">🃏</div>
-            <span class="icon-benefit">Progress visible</span>
-          </div>
-          
-          <!-- Power Reactor -->
-          <div class="float-icon" data-benefit="Collective impact = we win together">
-            <div class="icon-circle">🔋</div>
-            <span class="icon-benefit">Team wins</span>
-          </div>
-          
-          <!-- Loot Drops -->
-          <div class="float-icon" data-benefit="Surprise rewards = dopamine hit">
-            <div class="icon-circle">🎁</div>
-            <span class="icon-benefit">Instant reward</span>
-          </div>
-          
-          <!-- Mystery Word -->
-          <div class="float-icon" data-benefit="Cross-class puzzle = social bonding">
-            <div class="icon-circle">🔍</div>
-            <span class="icon-benefit">Social bonding</span>
-          </div>
-          
-          <!-- Live Standings -->
-          <div class="float-icon" data-benefit="Real-time competition = motivation">
-            <div class="icon-circle">🏆</div>
-            <span class="icon-benefit">Competition</span>
+          <div class="tools-grid">
+            <div class="tool-card" onclick="showToolDetail('magic-hat')" data-tool="magic-hat">
+              <div class="tool-emoji">🎩</div>
+              <div class="tool-name">Magic Hat</div>
+              <div class="tool-desc">Pick a random student</div>
+            </div>
+            <div class="tool-card" onclick="showToolDetail('house-fortune')" data-tool="house-fortune">
+              <div class="tool-emoji">🏠</div>
+              <div class="tool-name">House of Fortune</div>
+              <div class="tool-desc">Pick a random house</div>
+            </div>
+            <div class="tool-card" onclick="showToolDetail('student-insights')" data-tool="student-insights">
+              <div class="tool-emoji">📊</div>
+              <div class="tool-name">Student Insights</div>
+              <div class="tool-desc">IB & British Values data</div>
+            </div>
+            <div class="tool-card" onclick="showToolDetail('magic-timer')" data-tool="magic-timer">
+              <div class="tool-emoji">⏱️</div>
+              <div class="tool-name">Magic Timer</div>
+              <div class="tool-desc">Manage classroom time</div>
+            </div>
+            <div class="tool-card" onclick="showToolDetail('duo-mode')" data-tool="duo-mode">
+              <div class="tool-emoji">⚡</div>
+              <div class="tool-name">Duo Mode</div>
+              <div class="tool-desc">Timer + Magic Hat</div>
+            </div>
+            <div class="tool-card" onclick="showToolDetail('role-roulette')" data-tool="role-roulette">
+              <div class="tool-emoji">🎭</div>
+              <div class="tool-name">Role Roulette</div>
+              <div class="tool-desc">Assign classroom jobs</div>
+            </div>
+            <div class="tool-card" onclick="showToolDetail('squad-builder')" data-tool="squad-builder">
+              <div class="tool-emoji">👥</div>
+              <div class="tool-name">Squad Builder</div>
+              <div class="tool-desc">Instant group generator</div>
+            </div>
+            <div class="tool-card" onclick="showToolDetail('quick-quiz')" data-tool="quick-quiz">
+              <div class="tool-emoji">🧠</div>
+              <div class="tool-name">Quick Quiz</div>
+              <div class="tool-desc">ATL Skills & Values</div>
+            </div>
           </div>
         </div>
         
-        <div class="ecosystem-stats">
-          <div class="stat-block">
-            <span class="stat-number">3x</span>
-            <span class="stat-label">higher participation than sticker charts</span>
+        <!-- House Master Tools Section -->
+        <div class="tools-section">
+          <div class="section-label">
+            <i class="fas fa-crown text-brand-green"></i>
+            <span>House Master Tools</span>
           </div>
-          <div class="stat-block">
-            <span class="stat-number">70%</span>
-            <span class="stat-label">of students log in outside school hours</span>
+          <div class="tools-grid">
+            <div class="tool-card" onclick="showToolDetail('mystery-word')" data-tool="mystery-word">
+              <div class="tool-emoji">🔐</div>
+              <div class="tool-name">Mystery Word</div>
+              <div class="tool-desc">Cross-class puzzle</div>
+            </div>
+            <div class="tool-card" onclick="showToolDetail('student-voice')" data-tool="student-voice">
+              <div class="tool-emoji">📢</div>
+              <div class="tool-name">Student Voice</div>
+              <div class="tool-desc">Live polls & voting</div>
+            </div>
+            <div class="tool-card" onclick="showToolDetail('poster-gen')" data-tool="poster-gen">
+              <div class="tool-emoji">🖨️</div>
+              <div class="tool-name">Poster Gen</div>
+              <div class="tool-desc">QR code posters</div>
+            </div>
+            <div class="tool-card" onclick="showToolDetail('power-boosts')" data-tool="power-boosts">
+              <div class="tool-emoji">⚡</div>
+              <div class="tool-name">Power Boosts</div>
+              <div class="tool-desc">Reward payout manager</div>
+            </div>
+            <div class="tool-card" onclick="showToolDetail('group-builder')" data-tool="group-builder">
+              <div class="tool-emoji">🏗️</div>
+              <div class="tool-name">Group Builder</div>
+              <div class="tool-desc">Mix or keep houses together</div>
+            </div>
+            <div class="tool-card" onclick="showToolDetail('house-countdown')" data-tool="house-countdown">
+              <div class="tool-emoji">⏰</div>
+              <div class="tool-name">House Countdown</div>
+              <div class="tool-desc">Hype school events</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== STUDENT APP SIDE ==================== -->
+      <div class="app-card student-card" data-aos="fade-left">
+        <!-- Clickable header -->
+        <div class="app-header clickable" onclick="openAppModal('student')">
+          <img src="https://trackedu.github.io/common-assets/studentapp.png" alt="Student App" class="app-icon">
+          <div>
+            <h3 class="app-title">Student App</h3>
+            <p class="app-subtitle">Click to see the portal →</p>
+          </div>
+        </div>
+        
+        <!-- Culture & Community Section -->
+        <div class="tools-section">
+          <div class="section-label">
+            <i class="fas fa-users text-brand-green"></i>
+            <span>Culture & Community</span>
+          </div>
+          <div class="tools-grid">
+            <div class="tool-card" onclick="showToolDetail('live-standings')" data-tool="live-standings">
+              <div class="tool-emoji">🏆</div>
+              <div class="tool-name">Live Standings</div>
+              <div class="tool-desc">Real-time house rankings</div>
+            </div>
+            <div class="tool-card" onclick="showToolDetail('house-reactor')" data-tool="house-reactor">
+              <div class="tool-emoji">🔋</div>
+              <div class="tool-name">House Reactor</div>
+              <div class="tool-desc">Charge together, win together</div>
+            </div>
+            <div class="tool-card" onclick="showToolDetail('mystery-word-student')" data-tool="mystery-word-student">
+              <div class="tool-emoji">🔍</div>
+              <div class="tool-name">Mystery Word</div>
+              <div class="tool-desc">Solve with your house</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Engagement Mechanics Section -->
+        <div class="tools-section">
+          <div class="section-label">
+            <i class="fas fa-gamepad text-brand-green"></i>
+            <span>Engagement Mechanics</span>
+          </div>
+          <div class="tools-grid">
+            <div class="tool-card" onclick="showToolDetail('daily-streaks')" data-tool="daily-streaks">
+              <div class="tool-emoji">🔥</div>
+              <div class="tool-name">Daily Streaks</div>
+              <div class="tool-desc">Login bonuses</div>
+            </div>
+            <div class="tool-card" onclick="showToolDetail('badge-binder')" data-tool="badge-binder">
+              <div class="tool-emoji">🃏</div>
+              <div class="tool-name">Badge Binder</div>
+              <div class="tool-desc">3D trading cards</div>
+            </div>
+            <div class="tool-card" onclick="showToolDetail('loot-drops')" data-tool="loot-drops">
+              <div class="tool-emoji">🎁</div>
+              <div class="tool-name">Loot Drops</div>
+              <div class="tool-desc">Secret claim codes</div>
+            </div>
           </div>
         </div>
       </div>
 
     </div>
 
-    <!-- DIVIDER WITH TRUST MESSAGE -->
-    <div class="text-center mt-12 pt-8 border-t border-gray-100">
-      <div class="flex flex-wrap justify-center gap-8 text-sm text-gray-500">
-        <span class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green"></i> No student email required</span>
-        <span class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green"></i> FERPA / GDPR compliant</span>
-        <span class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green"></i> 30‑day pilot, no credit card</span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-
-<section id="how" class="py-20 bg-white overflow-hidden">
-  <div class="max-w-6xl mx-auto px-6">
-    
-    <div class="text-center mb-12" data-aos="fade-up">
-      <span class="text-brand-green font-bold tracking-widest text-xs uppercase">One House System</span>
-      <h2 class="font-display text-4xl md:text-5xl font-black text-brand-dark mt-2 mb-4">Teacher App + Student App</h2>
-      <p class="text-gray-600 max-w-2xl mx-auto">Teachers manage. Students play. The whole community watches live.</p>
-    </div>
-
-    <!-- TEACHER APP SECTION -->
-    <div class="mb-16" data-aos="fade-up">
-      <div class="flex items-center gap-3 mb-6">
-        <div class="w-10 h-10 bg-brand-blue rounded-xl flex items-center justify-center">
-          <i class="fas fa-chalkboard-user text-white text-sm"></i>
-        </div>
-        <h3 class="text-2xl font-black text-brand-dark">Teacher App</h3>
-        <span class="text-xs bg-gray-100 px-2 py-1 rounded-full">Command Center</span>
-      </div>
-      <p class="text-gray-600 mb-6 max-w-2xl">Student management, point awarding, and 15+ classroom tools in one place.</p>
-
-      <!-- Teacher Tools -->
-      <div class="bg-blue-50/30 rounded-2xl p-5 mb-6">
-        <div class="flex items-center gap-2 mb-4">
-          <i class="fas fa-magic text-brand-green text-sm"></i>
-          <h4 class="font-bold text-sm uppercase tracking-wide">Teacher Toolkits</h4>
-        </div>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-          <div class="text-xs"><span class="font-bold">🎩 Magic Hat</span><br><span class="text-gray-500 text-[10px]">Random student picker</span></div>
-          <div class="text-xs"><span class="font-bold">⏱️ Magic Timer</span><br><span class="text-gray-500 text-[10px]">Classroom time management</span></div>
-          <div class="text-xs"><span class="font-bold">🎭 Role Roulette</span><br><span class="text-gray-500 text-[10px]">Assign classroom jobs</span></div>
-          <div class="text-xs"><span class="font-bold">👥 Squad Builder</span><br><span class="text-gray-500 text-[10px]">Instant balanced groups</span></div>
-          <div class="text-xs"><span class="font-bold">🗺️ Quest Board</span><br><span class="text-gray-500 text-[10px]">Find the treasure</span></div>
-          <div class="text-xs"><span class="font-bold">🐍 Snakes & Ladders</span><br><span class="text-gray-500 text-[10px]">Race to the top</span></div>
-          <div class="text-xs"><span class="font-bold">📋 Quick Quiz</span><br><span class="text-gray-500 text-[10px]">ATL Skills & Values</span></div>
-          <div class="text-xs"><span class="font-bold">⚡ Duo Mode</span><br><span class="text-gray-500 text-[10px]">Timer + Magic Hat</span></div>
-        </div>
-      </div>
-
-      <!-- House Master Tools -->
-      <div class="bg-brand-dark rounded-2xl p-5">
-        <div class="flex items-center gap-2 mb-4">
-          <i class="fas fa-crown text-brand-green text-sm"></i>
-          <h4 class="font-bold text-sm uppercase tracking-wide text-white">House Master Tools</h4>
-        </div>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-          <div class="text-xs text-gray-300"><span class="font-bold text-white">⚡ Power Boosts</span><br><span class="text-gray-400 text-[10px]">Reward payout manager</span></div>
-          <div class="text-xs text-gray-300"><span class="font-bold text-white">🔐 Mystery Word</span><br><span class="text-gray-400 text-[10px]">Cross-class puzzle</span></div>
-          <div class="text-xs text-gray-300"><span class="font-bold text-white">📊 Student Voice</span><br><span class="text-gray-400 text-[10px]">Live polls & voting</span></div>
-          <div class="text-xs text-gray-300"><span class="font-bold text-white">🖨️ Poster Gen</span><br><span class="text-gray-400 text-[10px]">QR code posters</span></div>
-          <div class="text-xs text-gray-300"><span class="font-bold text-white">⏰ House Countdown</span><br><span class="text-gray-400 text-[10px]">Hype school events</span></div>
-          <div class="text-xs text-gray-300"><span class="font-bold text-white">💡 Brain-Teaser</span><br><span class="text-gray-400 text-[10px]">Weekly house quiz</span></div>
-          <div class="text-xs text-gray-300"><span class="font-bold text-white">👥 Group Builder</span><br><span class="text-gray-400 text-[10px]">Mix houses or keep together</span></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- STUDENT APP SECTION - CORRECTED -->
-    <div class="mb-16" data-aos="fade-up">
-      <div class="flex items-center gap-3 mb-4">
-        <div class="w-10 h-10 bg-brand-green rounded-xl flex items-center justify-center">
-          <i class="fas fa-gamepad text-white text-sm"></i>
-        </div>
-        <h3 class="text-2xl font-black text-brand-dark">Student App</h3>
-        <span class="text-xs bg-gray-100 px-2 py-1 rounded-full">Interactive Hero Portal</span>
-      </div>
-      <p class="text-gray-600 mb-4"><strong>Not a dashboard. A game.</strong> Students log in anytime — even at home or during holidays — to earn points, unlock rewards, and power up their house.</p>
-      
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
-        <div class="bg-green-50 p-3 rounded-xl text-center border border-green-100"><i class="fas fa-calendar-check text-brand-green mb-1 block text-lg"></i><span class="text-xs font-bold">Daily Streaks</span><br><span class="text-[10px] text-gray-500">Login bonuses</span></div>
-        <div class="bg-green-50 p-3 rounded-xl text-center border border-green-100"><i class="fas fa-id-card text-brand-green mb-1 block text-lg"></i><span class="text-xs font-bold">3D Trading Cards</span><br><span class="text-[10px] text-gray-500">Collect & evolve</span></div>
-        <div class="bg-green-50 p-3 rounded-xl text-center border border-green-100"><i class="fas fa-bolt text-brand-green mb-1 block text-lg"></i><span class="text-xs font-bold">Power Boosts</span><br><span class="text-[10px] text-gray-500">Charge the reactor</span></div>
-        <div class="bg-green-50 p-3 rounded-xl text-center border border-green-100"><i class="fas fa-gift text-brand-green mb-1 block text-lg"></i><span class="text-xs font-bold">Loot Drops</span><br><span class="text-[10px] text-gray-500">Secret claim codes</span></div>
-      </div>
-      
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
-        <div class="bg-gray-50 p-2 rounded-lg text-center"><i class="fas fa-lock text-brand-blue text-sm"></i><span class="text-xs ml-1">Mystery Word</span><br><span class="text-[9px] text-gray-400">Solve & earn</span></div>
-        <div class="bg-gray-50 p-2 rounded-lg text-center"><i class="fas fa-chart-simple text-brand-blue text-sm"></i><span class="text-xs ml-1">Live Rankings</span><br><span class="text-[9px] text-gray-400">House standings</span></div>
-        <div class="bg-gray-50 p-2 rounded-lg text-center"><i class="fas fa-vote-yea text-brand-blue text-sm"></i><span class="text-xs ml-1">Student Polls</span><br><span class="text-[9px] text-gray-400">Voice your choice</span></div>
-      </div>
-      
-      <div class="mt-4 text-center text-xs text-gray-400 bg-gray-50 p-2 rounded-lg">
-        <i class="fas fa-globe"></i> One public link for families to watch live — no login required
-      </div>
-    </div>
-
-    <!-- VIDEO + IMAGES (KEPT) -->
-    <div class="max-w-5xl mx-auto space-y-12">
-      <div class="bg-black rounded-2xl overflow-hidden shadow-2xl aspect-video" data-aos="zoom-in">
-        <iframe class="w-full h-full" src="https://www.youtube.com/embed/jo8RIRFrAPU?rel=0" title="TrackEDU Walkthrough" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      
-      <div class="grid md:grid-cols-3 gap-6">
-        <img src="https://i.imgur.com/jJdF6dh.jpeg" alt="Teacher Dashboard" class="rounded-xl shadow-lg hover:shadow-2xl hover:scale-[1.02] transition cursor-pointer" onclick="openLightbox(this.src)">
-        <img src="https://i.imgur.com/Xr6JFho.jpeg" alt="Student App Mobile" class="rounded-xl shadow-lg hover:shadow-2xl hover:scale-[1.02] transition cursor-pointer" onclick="openLightbox(this.src)">
-        <img src="https://i.imgur.com/UVl5QwD.jpeg" alt="Live Leaderboard" class="rounded-xl shadow-lg hover:shadow-2xl hover:scale-[1.02] transition cursor-pointer" onclick="openLightbox(this.src)">
-      </div>
-    </div>
-
-    <div class="mt-12 text-center">
+    <div class="text-center mt-12">
       <button onclick="openPilotModal()" class="btn px-8 py-3 text-base font-bold shadow-xl">
         <i class="fas fa-rocket mr-2"></i> Start Free Pilot
       </button>
@@ -1197,6 +1294,9 @@ html { scroll-padding-top: 100px; }
 
   </div>
 </section>
+
+
+
 
 
 
