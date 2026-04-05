@@ -351,7 +351,97 @@ html { scroll-padding-top: 100px; }
   animation: float 5s ease-in-out infinite alternate 0.5s;
 }
 
+/* Hero responsive fixes */
+@media (max-width: 768px) {
+  .hero-glow-ring.mobile-scaled {
+    padding: 4px;
+    box-shadow: 0 15px 25px -8px rgba(0,0,0,0.2), 0 0 0 4px rgba(135, 194, 50, 0.15);
+  }
+  
+  /* Speech bubble repositioned - above the mascot, not overlapping headline */
+  .speech-bubble {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border-radius: 30px;
+    padding: 6px 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border: 1px solid #e5e7eb;
+    font-size: 12px;
+    font-weight: 700;
+    color: #1f2937;
+    white-space: nowrap;
+    z-index: 20;
+  }
+  
+  .speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-right: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+  }
+}
 
+@media (min-width: 769px) {
+  /* Desktop speech bubble - original positioning */
+  .speech-bubble {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    background: white;
+    border-radius: 30px;
+    padding: 8px 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 1px solid #e5e7eb;
+    font-size: 14px;
+    font-weight: 700;
+    color: #1f2937;
+    white-space: nowrap;
+    z-index: 20;
+  }
+  
+  .speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 30px;
+    width: 14px;
+    height: 14px;
+    background: white;
+    border-right: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+    transform: rotate(45deg);
+  }
+}
+
+/* Additional mobile safety margins */
+@media (max-width: 480px) {
+  .speech-bubble {
+    font-size: 10px;
+    padding: 5px 12px;
+    top: -45px;
+    white-space: nowrap;
+  }
+  
+  /* Ensure floating icons don't hit edges */
+  .absolute.-top-6.-left-6 {
+    top: -15px !important;
+    left: -15px !important;
+  }
+  
+  .absolute.-bottom-4.-right-4 {
+    bottom: -10px !important;
+    right: -10px !important;
+  }
+}
     
   </style>
 </head>
@@ -414,6 +504,8 @@ html { scroll-padding-top: 100px; }
 </div>
 </header>
 
+
+  
 <section class="relative pt-4 pb-12 lg:pt-20 lg:pb-28 hero-mesh overflow-hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
     
@@ -475,23 +567,24 @@ html { scroll-padding-top: 100px; }
         </div>
       </div>
 
-      <!-- RIGHT COLUMN: Mascot + Floating Icons (NO VIDEO) -->
+      <!-- RIGHT COLUMN: Mascot + Floating Icons (Mobile Optimized) -->
       <div class="order-2 lg:order-none w-full relative flex justify-center mb-1 lg:mb-0" data-aos="fade-left">
-        <div class="hero-glow-ring">
-          <img src="https://trackedu.github.io/common-assets/teacherapp.png" alt="mascot" class="w-56 h-56 md:w-72 md:h-72 rounded-full object-cover bg-white shadow-2xl border-4 border-white">
+        <!-- Mobile: smaller mascot, adjusted positioning -->
+        <div class="hero-glow-ring mobile-scaled">
+          <img src="https://trackedu.github.io/common-assets/teacherapp.png" alt="mascot" class="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-72 lg:h-72 rounded-full object-cover bg-white shadow-2xl border-4 border-white">
         </div>
-        <!-- floating teacher app icon - 2x bigger -->
-        <div class="absolute -top-8 -left-8 bg-white rounded-2xl p-3 shadow-xl animate-float">
-          <img src="https://trackedu.github.io/common-assets/teacherapp.png" class="w-16 h-16 rounded-xl object-cover">
-          <div class="absolute -bottom-3 -right-3 bg-[#1E40AF] text-white text-sm px-2 py-0.5 rounded-full font-bold">Teacher</div>
+        <!-- floating teacher app icon - responsive sizing -->
+        <div class="absolute -top-6 -left-6 sm:-top-8 sm:-left-8 bg-white rounded-2xl p-2 sm:p-3 shadow-xl animate-float">
+          <img src="https://trackedu.github.io/common-assets/teacherapp.png" class="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-xl object-cover">
+          <div class="absolute -bottom-2 -right-2 sm:-bottom-3 sm:-right-3 bg-[#1E40AF] text-white text-[10px] sm:text-sm px-1.5 sm:px-2 py-0.5 rounded-full font-bold">Teacher</div>
         </div>
-        <!-- floating student app icon - 2x bigger -->
-        <div class="absolute -bottom-6 -right-6 bg-white rounded-2xl p-3 shadow-xl animate-float-delayed">
-          <img src="https://trackedu.github.io/common-assets/studentapp.png" class="w-16 h-16 rounded-xl object-cover">
-          <div class="absolute -top-3 -left-3 bg-[#10B981] text-white text-sm px-2 py-0.5 rounded-full font-bold">Student</div>
+        <!-- floating student app icon - responsive sizing -->
+        <div class="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-white rounded-2xl p-2 sm:p-3 shadow-xl animate-float-delayed">
+          <img src="https://trackedu.github.io/common-assets/studentapp.png" class="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-xl object-cover">
+          <div class="absolute -top-2 -left-2 sm:-top-3 sm:-left-3 bg-[#10B981] text-white text-[10px] sm:text-sm px-1.5 sm:px-2 py-0.5 rounded-full font-bold">Student</div>
         </div>
-        <!-- speech bubble - school friendly message -->
-        <div class="absolute -top-12 right-0 md:right-8 bg-white rounded-3xl px-5 py-2 shadow-lg border border-gray-200 text-sm font-bold text-gray-800 after:content-[''] after:absolute after:-bottom-2 after:left-6 after:w-4 after:h-4 after:bg-white after:rotate-45 after:border-r after:border-b after:border-gray-200">
+        <!-- speech bubble - repositioned for mobile to avoid covering text -->
+        <div class="speech-bubble">
           🎓 Ready to lead your house?
         </div>
       </div>
@@ -499,7 +592,6 @@ html { scroll-padding-top: 100px; }
     </div>
   </div>
 </section>
-
 
 
 
