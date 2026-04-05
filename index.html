@@ -430,6 +430,211 @@ html { scroll-padding-top: 100px; }
     font-size: 9px;
   }
 }
+
+    /* ==========================================
+   INTEGRATED ECOSYSTEMS STYLES
+   ========================================== */
+
+.ecosystem-card {
+  background: white;
+  border-radius: 32px;
+  padding: 24px 20px 20px 20px;
+  box-shadow: 0 10px 30px -8px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.03);
+}
+
+.ecosystem-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -12px rgba(0,0,0,0.12);
+}
+
+.ecosystem-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+.staff-header .ecosystem-title { color: #1E40AF; }
+.student-header .ecosystem-title { color: #10B981; }
+
+.ecosystem-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 12px;
+  background: linear-gradient(135deg, #f8fafc, #ffffff);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  border: 3px solid #e2e8f0;
+}
+
+.ecosystem-center-icon {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.ecosystem-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0 0 4px 0;
+}
+
+.ecosystem-subtitle {
+  font-size: 0.8rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* Tools Grid */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px 12px;
+  margin-bottom: 24px;
+}
+
+.tool-node {
+  position: relative;
+  background: #f8fafc;
+  border-radius: 20px;
+  padding: 12px 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  border: 2px solid transparent;
+}
+
+.tool-node.highlight {
+  background: linear-gradient(135deg, #ffffff, #f1f5f9);
+  border-color: #87C232;
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(135, 194, 50, 0.2);
+}
+
+.tool-emoji {
+  font-size: 2rem;
+  margin-bottom: 6px;
+}
+
+.tool-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #334155;
+  letter-spacing: -0.2px;
+}
+
+/* Tool description popup */
+.tool-desc-popup {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  background: #0F172A;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 12px;
+  width: 160px;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  pointer-events: none;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.tool-desc-popup::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: #0F172A transparent transparent transparent;
+}
+
+.tool-node:hover .tool-desc-popup {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-4px);
+}
+
+.tool-node:hover {
+  transform: translateY(-4px);
+  background: white;
+  border-color: #cbd5e1;
+}
+
+/* Ecosystem footer pills */
+.ecosystem-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  padding-top: 16px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.pill-badge {
+  background: #f1f5f9;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  
+  .tool-desc-popup {
+    width: 130px;
+    font-size: 0.6rem;
+    padding: 6px 10px;
+  }
+  
+  .ecosystem-title {
+    font-size: 1.2rem;
+  }
+  
+  .ecosystem-icon-wrapper {
+    width: 65px;
+    height: 65px;
+  }
+  
+  .ecosystem-center-icon {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tools-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  
+  .tool-emoji {
+    font-size: 1.5rem;
+  }
+  
+  .tool-label {
+    font-size: 0.6rem;
+  }
+}
     
   </style>
 </head>
@@ -701,6 +906,144 @@ html { scroll-padding-top: 100px; }
 
 
 
+
+  <section id="how" class="py-20 bg-white overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6">
+    
+    <div class="text-center mb-12" data-aos="fade-up">
+      <span class="text-brand-green font-bold tracking-widest text-xs uppercase">The Fully Integrated School Ecosystem</span>
+      <h2 class="font-display text-4xl md:text-5xl font-black text-brand-dark mt-2 mb-4">Purpose‑built tools for <span class="text-brand-blue">staff efficiency</span> and <span class="text-brand-green">learner engagement</span></h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">Everything works together. Teachers manage. Students participate. Families stay connected.</p>
+    </div>
+
+    <!-- DUAL ECOSYSTEM LAYOUT -->
+    <div class="grid lg:grid-cols-2 gap-8 lg:gap-12">
+      
+      <!-- ==================== LEFT: STAFF MANAGEMENT SUITE ==================== -->
+      <div class="ecosystem-card" data-aos="fade-right" data-ecosystem="staff">
+        <div class="ecosystem-header staff-header">
+          <div class="ecosystem-icon-wrapper">
+            <img src="https://trackedu.github.io/common-assets/teacherapp.png" alt="Staff Command Center" class="ecosystem-center-icon">
+          </div>
+          <h3 class="ecosystem-title">Staff Command Center</h3>
+          <p class="ecosystem-subtitle">Teacher‑first tools that save hours every week</p>
+        </div>
+        
+        <div class="tools-grid staff-grid" id="staffToolsGrid">
+          <!-- Tool 1: Magic Hat -->
+          <div class="tool-node" data-tool="magic-hat" data-description="Fairness guaranteed. Random student picker with instant point awards — eliminates 'not fair' forever.">
+            <div class="tool-emoji">🎩</div>
+            <div class="tool-label">Magic Hat</div>
+            <div class="tool-desc-popup">Fairness guaranteed. Random student picker with instant awards.</div>
+          </div>
+          
+          <!-- Tool 2: Magic Timer -->
+          <div class="tool-node" data-tool="magic-timer" data-description="Visual countdown timer with color warnings (green → yellow → red). Perfect for transitions and activities.">
+            <div class="tool-emoji">⏱️</div>
+            <div class="tool-label">Magic Timer</div>
+            <div class="tool-desc-popup">Visual countdown with warnings. Perfect for transitions.</div>
+          </div>
+          
+          <!-- Tool 3: Squad Builder -->
+          <div class="tool-node" data-tool="squad-builder" data-description="Instant balanced groups by house, mixed, or custom size. Export to CSV or PDF for activities.">
+            <div class="tool-emoji">👥</div>
+            <div class="tool-label">Squad Builder</div>
+            <div class="tool-desc-popup">Instant balanced groups. Export for any activity.</div>
+          </div>
+          
+          <!-- Tool 4: Mystery Word (MOVED FROM HIDDEN) -->
+          <div class="tool-node" data-tool="mystery-word" data-description="School‑wide collaborative puzzle. Each student gets one letter — first house to guess wins massive bonus.">
+            <div class="tool-emoji">🔐</div>
+            <div class="tool-label">Mystery Word</div>
+            <div class="tool-desc-popup">Cross‑class collaboration. First house to guess wins bonus.</div>
+          </div>
+          
+          <!-- Tool 5: Student Voice Polls (MOVED FROM HIDDEN) -->
+          <div class="tool-node" data-tool="student-voice" data-description="Launch live polls. Students vote via their app — results update in real time on the projector.">
+            <div class="tool-emoji">📊</div>
+            <div class="tool-label">Student Voice</div>
+            <div class="tool-desc-popup">Live polls. Real‑time results. Student agency.</div>
+          </div>
+          
+          <!-- Tool 6: Poster Generator (HIGH VALUE FOR HOUSE MASTERS) -->
+          <div class="tool-node" data-tool="poster-gen" data-description="Generate branded house engagement posters with QR codes. Print or share digitally in seconds.">
+            <div class="tool-emoji">🖨️</div>
+            <div class="tool-label">Poster Gen</div>
+            <div class="tool-desc-popup">Branded QR posters. Print and display anywhere.</div>
+          </div>
+        </div>
+        
+        <div class="ecosystem-footer">
+          <span class="pill-badge">🏆 15+ classroom utilities</span>
+          <span class="pill-badge">⚡ Award points in 1 click</span>
+          <span class="pill-badge">📋 CSV import & auto‑balance</span>
+        </div>
+      </div>
+
+      <!-- ==================== RIGHT: STUDENT ENGAGEMENT PORTAL ==================== -->
+      <div class="ecosystem-card" data-aos="fade-left" data-ecosystem="student">
+        <div class="ecosystem-header student-header">
+          <div class="ecosystem-icon-wrapper">
+            <img src="https://trackedu.github.io/common-assets/studentapp.png" alt="Student Success Portal" class="ecosystem-center-icon">
+          </div>
+          <h3 class="ecosystem-title">Student Success Portal</h3>
+          <p class="ecosystem-subtitle">Not a dashboard — a game students play by being their best</p>
+        </div>
+        
+        <div class="tools-grid student-grid" id="studentToolsGrid">
+          <!-- Tool 1: Digital Badge Binder -->
+          <div class="tool-node" data-tool="badge-binder" data-description="3D holographic trading cards. Every 50 points unlocks a new character evolution. Collect them all!">
+            <div class="tool-emoji">🃏</div>
+            <div class="tool-label">Badge Binder</div>
+            <div class="tool-desc-popup">3D holographic cards. Collect & evolve.</div>
+          </div>
+          
+          <!-- Tool 2: Participation Streaks -->
+          <div class="tool-node" data-tool="streaks" data-description="Daily login streaks. 5‑day streak unlocks a mystery reward spin — builds consistent engagement.">
+            <div class="tool-emoji">🔥</div>
+            <div class="tool-label">Daily Streaks</div>
+            <div class="tool-desc-popup">Login daily. Build streaks. Earn rewards.</div>
+          </div>
+          
+          <!-- Tool 3: Power Reactor -->
+          <div class="tool-node" data-tool="reactor" data-description="Collective efficacy in action. Every student tap charges the house core — 100% triggers a House Blast for all members!">
+            <div class="tool-emoji">🔋</div>
+            <div class="tool-label">Power Reactor</div>
+            <div class="tool-desc-popup">Charge the core together. Trigger House Blasts.</div>
+          </div>
+          
+          <!-- Tool 4: Loot Drops -->
+          <div class="tool-node" data-tool="loot" data-description="Teachers create secret codes. Students enter them in their app to claim bonus points instantly.">
+            <div class="tool-emoji">🎁</div>
+            <div class="tool-label">Loot Drops</div>
+            <div class="tool-desc-popup">Secret codes. Instant rewards.</div>
+          </div>
+          
+          <!-- Tool 5: Live Standings -->
+          <div class="tool-node" data-tool="standings" data-description="Real‑time house leaderboard. Families watch via public link — no login required.">
+            <div class="tool-emoji">🛡️</div>
+            <div class="tool-label">Live Standings</div>
+            <div class="tool-desc-popup">Real‑time rankings. Family‑friendly view.</div>
+          </div>
+        </div>
+        
+        <div class="ecosystem-footer">
+          <span class="pill-badge">🎮 3D trading cards</span>
+          <span class="pill-badge">⚡ House power boosts</span>
+          <span class="pill-badge">🔗 One public family link</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-12">
+      <button onclick="openPilotModal()" class="btn px-8 py-3 text-base font-bold shadow-xl">
+        <i class="fas fa-rocket mr-2"></i> Start Free Pilot
+      </button>
+      <p class="text-xs text-gray-400 mt-3">✨ No credit card • 30‑day trial • Full access to all tools</p>
+    </div>
+
+  </div>
+</section>
 
 
 
@@ -2004,6 +2347,77 @@ async function downloadPitchDeckPDF() {
     }
   }
 }
+
+
+
+
+  // ==========================================
+// AUTO-HIGHLIGHT LOOP FOR ECOSYSTEM TOOLS
+// ==========================================
+
+let currentStaffIndex = 0;
+let currentStudentIndex = 0;
+let highlightInterval;
+
+function startEcosystemHighlight() {
+  const staffTools = document.querySelectorAll('#staffToolsGrid .tool-node');
+  const studentTools = document.querySelectorAll('#studentToolsGrid .tool-node');
+  
+  if (staffTools.length === 0 || studentTools.length === 0) return;
+  
+  // Clear any existing interval
+  if (highlightInterval) clearInterval(highlightInterval);
+  
+  // Remove any existing highlights
+  function clearHighlights() {
+    staffTools.forEach(tool => tool.classList.remove('highlight'));
+    studentTools.forEach(tool => tool.classList.remove('highlight'));
+  }
+  
+  // Highlight next tool in each ecosystem
+  function rotateHighlights() {
+    clearHighlights();
+    
+    // Rotate staff tools
+    if (staffTools.length > 0) {
+      staffTools[currentStaffIndex].classList.add('highlight');
+      currentStaffIndex = (currentStaffIndex + 1) % staffTools.length;
+    }
+    
+    // Rotate student tools
+    if (studentTools.length > 0) {
+      studentTools[currentStudentIndex].classList.add('highlight');
+      currentStudentIndex = (currentStudentIndex + 1) % studentTools.length;
+    }
+  }
+  
+  // Start with first tools highlighted
+  rotateHighlights();
+  
+  // Rotate every 3 seconds
+  highlightInterval = setInterval(rotateHighlights, 3000);
+}
+
+// Start the highlight loop when the section is visible
+function initEcosystemHighlight() {
+  const section = document.getElementById('how');
+  if (!section) return;
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        startEcosystemHighlight();
+      }
+    });
+  }, { threshold: 0.3 });
+  
+  observer.observe(section);
+}
+
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+  initEcosystemHighlight();
+});
 
 
 function switchPreview(type) {
