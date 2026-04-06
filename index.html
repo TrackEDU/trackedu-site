@@ -382,7 +382,11 @@ html { scroll-padding-top: 100px; }
   display: inline-block;
 }
 
-/* --- MOBILE ONLY (Default) --- */
+/* ==========================================
+   HERO ICON & SPEECH BUBBLE POSITIONING (FULL UPDATE)
+   ========================================== */
+
+/* 1. MOBILE ONLY (Default - Base View) */
 .floating-icon-teacher {
   top: -15px !important;
   left: -35px !important;
@@ -391,72 +395,20 @@ html { scroll-padding-top: 100px; }
 
 .floating-icon-student {
   bottom: -10px !important;
-  right: -85px !important; /* PUSHED RIGHT: Clears the "Tap Me!" button */
+  right: -85px !important;
   transform: scale(0.75);
 }
 
 .speech-bubble {
-  top: -35px !important;
-  right: -30px !important;
-  transform: scale(0.8);
-}
-
-/* --- IPAD / TABLET ONLY (768px to 1024px) --- */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .floating-icon-teacher {
-    top: -60px !important;
-    left: -110px !important; /* WIDE ORBIT */
-    transform: scale(0.9);
-  }
-  .floating-icon-student {
-    bottom: -60px !important;
-    right: -110px !important; /* WIDE ORBIT */
-    transform: scale(0.9);
-  }
-  .speech-bubble {
-    top: -70px !important; /* MOVED UP */
-    right: -80px !important; /* MOVED AWAY */
-    transform: scale(1);
-  }
-}
-
-/* --- DESKTOP ONLY (1025px+) --- */
-@media (min-width: 1025px) {
-  .floating-icon-teacher {
-    top: -90px !important; /* MAX PUSH UP */
-    left: -160px !important; /* MAX PUSH LEFT */
-    transform: scale(1);
-  }
-  .floating-icon-student {
-    bottom: -70px !important; /* MAX PUSH DOWN */
-    right: -160px !important; /* MAX PUSH RIGHT */
-    transform: scale(1);
-  }
-  .speech-bubble {
-    top: -80px !important; /* MOVED UP AWAY FROM HEAD */
-    right: -120px !important; /* MOVED RIGHT */
-    transform: scale(1.1);
-  }
-}
-
-/* Speech bubble adjustment */
-@media (max-width: 1024px) {
-  .speech-bubble {
-    right: -10px !important;
-    top: -20px !important;
-    transform: scale(0.9);
-  }
-}
-
-/* Speech bubble - positioned to the right of the mascot */
-.speech-bubble {
   position: absolute;
-  top: 10%;
-  right: -20px;
+  /* Pushed down and right for mobile */
+  top: 5px !important; 
+  right: -45px !important;
+  transform: scale(0.85);
   background: white;
   border-radius: 30px;
   padding: 8px 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   border: 1px solid #e5e7eb;
   font-size: 14px;
   font-weight: 700;
@@ -465,6 +417,49 @@ html { scroll-padding-top: 100px; }
   z-index: 20;
 }
 
+/* 2. IPAD / TABLET ONLY (768px to 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .floating-icon-teacher {
+    top: -60px !important;
+    left: -110px !important;
+    transform: scale(0.9);
+  }
+  .floating-icon-student {
+    bottom: -60px !important;
+    right: -110px !important;
+    transform: scale(0.9);
+  }
+  .speech-bubble {
+    /* Pushed right to the edge of the hero container */
+    top: -10px !important;
+    right: -105px !important;
+    transform: scale(1);
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+}
+
+/* 3. DESKTOP ONLY (1025px+) */
+@media (min-width: 1025px) {
+  .floating-icon-teacher {
+    top: -90px !important;
+    left: -160px !important;
+    transform: scale(1);
+  }
+  .floating-icon-student {
+    bottom: -70px !important;
+    right: -160px !important;
+    transform: scale(1);
+  }
+  .speech-bubble {
+    /* Lowered toward the mascot's ear and pushed far right */
+    top: -15px !important;
+    right: -170px !important;
+    transform: scale(1.1);
+  }
+}
+
+/* 4. SPEECH BUBBLE TAIL (Common to all) */
 .speech-bubble::after {
   content: '';
   position: absolute;
@@ -478,16 +473,12 @@ html { scroll-padding-top: 100px; }
   transform: rotate(45deg);
 }
 
-/* Mobile adjustment - keep to the right but closer */
+/* Small screen micro-adjustments */
 @media (max-width: 768px) {
   .speech-bubble {
-    top: 5%;
-    right: -10px;
     padding: 5px 12px;
     font-size: 10px;
-    white-space: nowrap;
   }
-  
   .speech-bubble::after {
     bottom: 10px;
     left: -7px;
@@ -496,16 +487,13 @@ html { scroll-padding-top: 100px; }
   }
 }
 
-/* Small mobile - ensure it doesn't get cut off */
 @media (max-width: 480px) {
   .speech-bubble {
-    right: -5px;
-    top: 0;
-    padding: 4px 10px;
+    right: -35px !important; /* Slightly tighter for very narrow phones */
+    top: 10px !important;
     font-size: 9px;
   }
 }
-
   /* ==========================================
    FLOATING ICON ECOSYSTEMS
    ========================================== */
@@ -997,6 +985,59 @@ html { scroll-padding-top: 100px; }
 .story-line-blue { background: linear-gradient(to bottom, #0f66c3, #87C232); }
 .story-line-dark { background: linear-gradient(to bottom, #0C1E2C, #87C232); }
     
+
+
+/* FAQ Accordion Styling */
+.faq-details {
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.faq-details[open] {
+  border-color: #87C232;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.faq-summary {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #0C1E2C;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Custom Arrow Icon */
+.faq-summary::after {
+  content: '\2b'; /* Plus sign */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 0.9rem;
+  color: #87C232;
+  transition: transform 0.3s ease;
+}
+
+.faq-details[open] .faq-summary::after {
+  content: '\f068'; /* Minus sign */
+  transform: rotate(180deg);
+}
+
+.faq-content {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  color: #64748b;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+
+
   </style>
 </head>
 <body class="antialiased text-gray-800 overflow-x-hidden">
@@ -1045,12 +1086,12 @@ html { scroll-padding-top: 100px; }
   
   <div id="mobileMenu" class="fixed inset-y-0 right-0 w-full max-w-[85%] sm:max-w-sm bg-white shadow-2xl flex flex-col z-[10000] transform translate-x-full transition-transform duration-300 ease-out rounded-l-3xl">
     
-    <div class="p-6 flex justify-between items-center border-b border-gray-100">
+    <div class="p-4 sm:p-6 flex justify-between items-center border-b border-gray-100">
       <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); closeMobileMenu(); return false;" class="close-mobile-link font-display text-2xl font-black text-brand-dark">
         Track<span class="text-brand-green">EDU</span>
       </a>
-      <button id="closeMenu" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-50 text-gray-400 hover:bg-gray-100 hover:text-gray-800 transition">
-        <i class="fas fa-times text-lg"></i>
+      <button id="closeMenu" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-500 transition-colors mr-2">
+        <i class="fas fa-times text-xl"></i>
       </button>
     </div>
     
@@ -1061,18 +1102,21 @@ html { scroll-padding-top: 100px; }
         <a href="#how" class="close-mobile-link flex items-center gap-4 text-xl font-bold text-brand-dark hover:text-brand-blue transition">
           <div class="w-10 h-10 rounded-xl bg-blue-50 text-brand-blue flex items-center justify-center text-lg"><i class="fas fa-project-diagram"></i></div> The Framework
         </a>
+
         <a href="#mobile-demo" class="close-mobile-link flex items-center gap-4 text-xl font-bold text-brand-dark hover:text-brand-blue transition">
-          <div class="w-10 h-10 rounded-xl bg-green-50 text-brand-green flex items-center justify-center text-lg"><i class="fas fa-touch-app"></i></div> Try the Apps
+          <div class="w-10 h-10 rounded-xl bg-green-50 text-brand-green flex items-center justify-center text-lg"><i class="fas fa-mobile-screen-button"></i></div> Try the Apps
         </a>
+
         <a href="#business" class="close-mobile-link flex items-center gap-4 text-xl font-bold text-brand-dark hover:text-brand-blue transition">
           <div class="w-10 h-10 rounded-xl bg-gray-50 text-gray-600 flex items-center justify-center text-lg"><i class="fas fa-calculator"></i></div> School ROI
         </a>
-        </a>
+
         <a href="#pricing" class="close-mobile-link flex items-center gap-4 text-xl font-bold text-brand-dark hover:text-brand-blue transition">
           <div class="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-lg"><i class="fas fa-tags"></i></div> Pricing Plans
         </a>
+
         <button onclick="openTrustModal(); closeMobileMenu();" class="flex items-center gap-4 text-sm font-bold text-gray-500 hover:text-brand-blue transition text-left mt-2">
-          <div class="w-8 h-8 rounded-lg bg-gray-100 text-gray-400 flex items-center justify-center text-sm"><i class="fas fa-shield-alt"></i></div> Security & Trust
+          <div class="w-8 h-8 rounded-lg bg-gray-100 text-gray-400 flex items-center justify-center text-sm"><i class="fas fa-lock"></i></div> Privacy & Security
         </button>
       </div>
   
@@ -1165,7 +1209,7 @@ html { scroll-padding-top: 100px; }
             </div>
 
             <div class="speech-bubble">
-              🎓 Ready to lead?
+              ✨ Culture made visible.
             </div>
           </div>
           
@@ -1189,6 +1233,7 @@ html { scroll-padding-top: 100px; }
 
 
 
+        
           <section class="py-24 bg-white overflow-hidden border-b border-gray-50">
             <div class="max-w-7xl mx-auto px-6">
               
@@ -2174,72 +2219,97 @@ html { scroll-padding-top: 100px; }
   </div>
 </section>
 
-<section class="py-20 bg-white">
+<section class="py-24 bg-white border-t border-gray-50">
   <div class="max-w-4xl mx-auto px-6">
-    <h2 class="font-display text-3xl font-black text-center mb-12 text-brand-dark">Frequently Asked Questions</h2>
+    <h2 class="font-display text-3xl md:text-4xl font-black text-center mb-12 text-brand-dark">Frequently Asked Questions</h2>
+    
     <div class="space-y-4">
       
-      <div class="border border-gray-200 rounded-xl p-6 hover:border-brand-green/50 transition bg-gray-50/50">
-        <h3 class="font-bold text-lg text-gray-900 mb-2">Do students need an email address to log in?</h3>
-        <p class="text-gray-600 text-sm leading-relaxed">No. We built TrackEDU specifically to avoid PII (Personally Identifiable Information) issues. Students access their Pro Ecosystem dashboard using an anonymous, auto-generated ID token (e.g., EMWA482) and a Class Passcode. It requires zero IT integration.</p>
-      </div>
+      <details class="faq-details">
+        <summary class="faq-summary">Do students need an email address to log in?</summary>
+        <div class="faq-content">
+          No. We built TrackEDU specifically to avoid PII (Personally Identifiable Information) issues. Students access their Pro Ecosystem dashboard using an anonymous, auto-generated ID token (e.g., EMWA482) and a Class Passcode. It requires zero IT integration.
+        </div>
+      </details>
 
-      <div class="border border-gray-200 rounded-xl p-6 hover:border-brand-green/50 transition">
-        <h3 class="font-bold text-lg text-gray-900 mb-2">Can teachers see points awarded by other teachers?</h3>
-        <p class="text-gray-600 text-sm leading-relaxed">Yes! In both our Core Campus and Pro Ecosystem plans, the data syncs across the entire school. If Mr. Smith awards 5 points in Math, Ms. Johnson will instantly see those points reflected in her Science class.</p>
-      </div>
+      <details class="faq-details">
+        <summary class="faq-summary">Can teachers see points awarded by other teachers?</summary>
+        <div class="faq-content">
+          Yes! In both our Core Campus and Pro Ecosystem plans, the data syncs across the entire school. If Mr. Smith awards 5 points in Math, Ms. Johnson will instantly see those points reflected in her Science class.
+        </div>
+      </details>
 
-      <div class="border border-gray-200 rounded-xl p-6 hover:border-brand-green/50 transition">
-        <h3 class="font-bold text-lg text-gray-900 mb-2">How do we get our student list into the system?</h3>
-        <p class="text-gray-600 text-sm leading-relaxed">For school-wide plans, we provide a simple CSV template. You paste your student names, grades, and classes into the sheet, upload it, and our system automatically builds your entire database and auto-balances the houses in seconds.</p>
-      </div>
+      <details class="faq-details">
+        <summary class="faq-summary">How do we get our student list into the system?</summary>
+        <div class="faq-content">
+          For school-wide plans, we provide a simple CSV template. You paste your student names, grades, and classes into the sheet, upload it, and our system automatically builds your entire database and auto-balances the houses in seconds.
+        </div>
+      </details>
 
-      <div class="border border-gray-200 rounded-xl p-6 hover:border-brand-green/50 transition">
-        <h3 class="font-bold text-lg text-gray-900 mb-2">Is our school data secure?</h3>
-        <p class="text-gray-600 text-sm leading-relaxed">Absolutely. We run on highly secure, encrypted cloud infrastructure (Google Firebase). We do not run ads, we do not track student web data, and your school administrator can permanently wipe your entire database with a single click at any time.</p>
-      </div>
+      <details class="faq-details">
+        <summary class="faq-summary">Is our school data secure?</summary>
+        <div class="faq-content">
+          Absolutely. We run on highly secure, encrypted cloud infrastructure (Google Firebase). We do not run ads, we do not track student web data, and your school administrator can permanently wipe your entire database with a single click at any time.
+        </div>
+      </details>
 
-      <div class="border border-gray-200 rounded-xl p-6 hover:border-brand-green/50 transition">
-        <h3 class="font-bold text-lg text-gray-900 mb-2">What happens after the 30-day pilot?</h3>
-        <p class="text-gray-600 text-sm leading-relaxed">Your data is saved and waiting for you. Simply enter a credit card in the billing portal to continue. No data is held hostage — you can export everything anytime, even if you cancel.</p>
-      </div>
+      <details class="faq-details">
+        <summary class="faq-summary">What happens after the 30-day pilot?</summary>
+        <div class="faq-content">
+          Your data is saved and waiting for you. Simply enter a credit card in the billing portal to continue. No data is held hostage — you can export everything anytime, even if you cancel.
+        </div>
+      </details>
 
-      <div class="border border-gray-200 rounded-xl p-6 hover:border-brand-green/50 transition">
-        <h3 class="font-bold text-lg text-gray-900 mb-2">What login options does TrackEDU support?</h3>
-        <p class="text-gray-600 text-sm leading-relaxed">TrackEDU supports Google Workspace login via OAuth for teachers and staff. Students use a secure, anonymous ID token (e.g., EMWA482) combined with a Class Passcode — no email or password required. We do not currently integrate with SIS platforms like iSAMS, SIMS, or PowerSchool, but all data can be exported to CSV for import into your existing systems.</p>
-      </div>
+      <details class="faq-details">
+        <summary class="faq-summary">What login options does TrackEDU support?</summary>
+        <div class="faq-content">
+          TrackEDU supports Google Workspace login via OAuth for teachers and staff. Students use a secure, anonymous ID token combined with a Class Passcode — no email or password required. We do not currently integrate with SIS platforms like iSAMS or PowerSchool, but all data can be exported to CSV.
+        </div>
+      </details>
 
-      <div class="border border-gray-200 rounded-xl p-6 hover:border-brand-green/50 transition">
-        <h3 class="font-bold text-lg text-gray-900 mb-2">What happens to our data if we cancel?</h3>
-        <p class="text-gray-600 text-sm leading-relaxed">Your data belongs to you. You can export all student points, history, and rosters to CSV anytime. If you cancel, we retain your data for 90 days. After that, it's permanently deleted unless you've exported it.</p>
-      </div>
+      <details class="faq-details">
+        <summary class="faq-summary">What happens to our data if we cancel?</summary>
+        <div class="faq-content">
+          Your data belongs to you. You can export all student points, history, and rosters to CSV anytime. If you cancel, we retain your data for 90 days. After that, it's permanently deleted unless you've exported it.
+        </div>
+      </details>
 
-      <div class="border border-gray-200 rounded-xl p-6 hover:border-brand-green/50 transition">
-        <h3 class="font-bold text-lg text-gray-900 mb-2">Why TrackEDU over ClassDojo?</h3>
-        <p class="text-gray-600 text-sm leading-relaxed">ClassDojo is a classroom behavior tool. TrackEDU is a school-wide culture platform. With TrackEDU, every teacher sees the same live data, students get 3D badges and gamification, families have a public dashboard, and your house system finally works — without the admin. We're not a replacement for ClassDojo; we're the missing layer that connects your whole school.</p>
-      </div>
+      <details class="faq-details">
+        <summary class="faq-summary">How does TrackEDU differ from classroom tools like ClassDojo?</summary>
+        <div class="faq-content">
+          TrackEDU and ClassDojo serve distinct, often complementary purposes within a school. While ClassDojo is an excellent tool for individual classroom management and teacher-parent communication, <strong>TrackEDU is a specialized school-wide culture platform</strong> designed specifically for House Systems. 
+          <br><br>
+          Where classroom tools focus on the relationship between a single teacher and their students, TrackEDU provides the "vertical" layer that connects all grade levels through a unified House identity. It automates the administrative burden of school-wide points, provides live campus-wide leaderboards, and offers high-level gamification (like 3D badges and streaks) designed to engage students from Primary through to Secondary. Many of our partner schools use both: ClassDojo for classroom-level feedback and TrackEDU as the unified engine for their House System.
+        </div>
+      </details>
 
-      <!-- NEW SEO-FRIENDLY QUESTIONS START HERE -->
+      <details class="faq-details bg-gray-50/50">
+        <summary class="faq-summary">What is a house point tracker and why do schools need one?</summary>
+        <div class="faq-content">
+          A house point tracker is a digital tool that records and displays points earned by students for their houses. Schools need one to replace manual spreadsheets, ensure consistency across teachers, and keep students engaged with real-time leaderboards and gamification.
+        </div>
+      </details>
 
-      <div class="border border-gray-200 rounded-xl p-6 hover:border-brand-green/50 transition bg-gray-50/50">
-        <h3 class="font-bold text-lg text-gray-900 mb-2">What is a house point tracker and why do schools need one?</h3>
-        <p class="text-gray-600 text-sm leading-relaxed">A house point tracker is a digital tool that records and displays points earned by students for their assigned houses. Schools need a reliable house point tracker to replace manual spreadsheets, ensure consistency across teachers, and keep students engaged. TrackEDU is the leading digital house point app that makes house systems work — with real-time leaderboards, student gamification, and zero administrative overhead.</p>
-      </div>
+      <details class="faq-details">
+        <summary class="faq-summary">Can TrackEDU be used for inter-house competitions and school events?</summary>
+        <div class="faq-content">
+          Absolutely! TrackEDU is designed specifically for inter-house competitions, sports days, academic challenges, and school-wide events. The Projector Mode displays live house rankings on any screen — perfect for assemblies and sports days.
+        </div>
+      </details>
 
-      <div class="border border-gray-200 rounded-xl p-6 hover:border-brand-green/50 transition">
-        <h3 class="font-bold text-lg text-gray-900 mb-2">Can TrackEDU be used for inter-house competitions and school events?</h3>
-        <p class="text-gray-600 text-sm leading-relaxed">Absolutely! TrackEDU is designed specifically for inter-house competitions, sports days, academic challenges, and school-wide events. The Projector Mode displays live house rankings on any screen — perfect for assemblies and sports days. Teachers can award points instantly during events, and students can track their house's progress in real-time through the Student App (Pro plan).</p>
-      </div>
+      <details class="faq-details">
+        <summary class="faq-summary">How does TrackEDU help build school culture and community?</summary>
+        <div class="faq-content">
+          TrackEDU transforms school culture by making positive behavior visible and celebrated. Students see their contributions matter to their house. Parents can view live standings via a link. When students feel connected to their house, school spirit grows naturally.
+        </div>
+      </details>
 
-      <div class="border border-gray-200 rounded-xl p-6 hover:border-brand-green/50 transition">
-        <h3 class="font-bold text-lg text-gray-900 mb-2">How does TrackEDU help build school culture and community?</h3>
-        <p class="text-gray-600 text-sm leading-relaxed">TrackEDU transforms school culture by making positive behavior visible and celebrated. Students see their contributions matter to their house. Parents can view live standings via the public dashboard link. The gamified Student App (Pro plan) creates daily engagement through streaks, badges, and power boosts. When students feel connected to their house, school spirit grows naturally — and TrackEDU gives you the tools to nurture that connection effortlessly.</p>
-      </div>
-
-      <div class="border border-gray-200 rounded-xl p-6 hover:border-brand-green/50 transition">
-        <h3 class="font-bold text-lg text-gray-900 mb-2">Is TrackEDU suitable for primary schools, secondary schools, or both?</h3>
-        <p class="text-gray-600 text-sm leading-relaxed">TrackEDU works brilliantly for both primary and secondary schools. Primary schools love the simple interface and visual leaderboards that students understand instantly. Secondary schools appreciate the robust gamification features (streaks, badges, power boosts) that keep older students engaged. Our flexible house system adapts to any school structure — whether you have 4 houses across 12 grades or 6 houses across primary-only. Many international schools use TrackEDU across both primary and secondary with seamless data sync.</p>
-      </div>
+      <details class="faq-details">
+        <summary class="faq-summary">Is TrackEDU suitable for primary schools, secondary schools, or both?</summary>
+        <div class="faq-content">
+          TrackEDU works brilliantly for both. Primary schools love the simple interface and visual leaderboards. Secondary schools appreciate the robust gamification features (streaks, badges, power boosts) that keep older students engaged. Our system adapts to any school structure.
+        </div>
+      </details>
 
     </div>
   </div>
@@ -3432,112 +3502,109 @@ function openStudentAppPreview() {
 
 
 
-  <div id="pitchDeckModal" class="fixed inset-0 z-[100000] hidden flex items-center justify-center p-0 md:p-4">
+<div id="pitchDeckModal" class="fixed inset-0 z-[100000] hidden flex items-center justify-center p-0 md:p-4">
   <div class="absolute inset-0 bg-brand-dark/95 backdrop-blur-md" onclick="closePitchDeck()"></div>
   
   <div class="relative w-full max-w-5xl h-full md:h-[90vh] bg-white md:rounded-3xl overflow-hidden flex flex-col shadow-2xl print:m-0 print:rounded-none print:overflow-visible print:h-auto">
     
-    <div class="flex justify-between items-center px-8 py-4 border-b border-gray-100 print:hidden bg-white">
-      <div class="flex items-center gap-2">
-        <span class="font-display text-xl font-black text-brand-dark">Track<span class="text-brand-green">EDU</span></span>
-        <span class="text-xs font-bold bg-gray-100 text-gray-500 px-2 py-1 rounded">OFFICIAL PROPOSAL</span>
+    <div class="flex justify-between items-center px-4 md:px-8 py-3 md:py-4 border-b border-gray-100 print:hidden bg-white shrink-0">
+      <div class="flex items-center gap-1.5 md:gap-2">
+        <span class="font-display text-base md:text-xl font-black text-brand-dark">Track<span class="text-brand-green">EDU</span></span>
+        <span class="hidden xs:inline-block text-[9px] md:text-xs font-bold bg-gray-100 text-gray-500 px-1.5 py-0.5 rounded uppercase tracking-tighter">Proposal</span>
       </div>
-      <div class="flex gap-3">
-        <button onclick="downloadPitchDeckPDF()" class="btn px-4 py-2 text-sm flex items-center gap-2 bg-brand-green hover:bg-green-600">
-          <i class="fas fa-file-pdf"></i> Download PDF
+      <div class="flex items-center gap-2 md:gap-3">
+        <button onclick="downloadPitchDeckPDF()" class="btn px-3 md:px-4 py-1.5 md:py-2 text-[10px] md:text-sm flex items-center gap-2 bg-brand-green hover:bg-green-600 shadow-none">
+          <i class="fas fa-file-pdf"></i> <span class="hidden sm:inline">Download</span> PDF
         </button>
        
-        <button onclick="closePitchDeck()" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 hover:bg-gray-200">
-          <i class="fas fa-times"></i>
+        <button onclick="closePitchDeck()" class="w-8 h-8 md:w-10 md:h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 hover:bg-gray-200 transition-colors">
+          <i class="fas fa-times text-sm md:text-base"></i>
         </button>
       </div>
     </div>
 
-    <div class="flex-1 overflow-y-auto bg-gray-50 p-4 md:p-12 print:p-0 print:bg-white print:overflow-visible">
-      <div class="max-w-4xl mx-auto space-y-12 print:space-y-0 print:mx-0 print:max-w-none">
+    <div class="flex-1 overflow-y-auto bg-gray-50 p-4 md:p-12 print:p-0 print:bg-white print:overflow-visible scrollbar-hide">
+      <div class="max-w-4xl mx-auto space-y-6 md:space-y-12 print:space-y-0 print:mx-0 print:max-w-none">
         
-        <!-- Page 1: The Proposal -->
-        <div id="pitch-page-1" class="bg-white p-12 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-center min-h-[500px] print:h-[297mm] print:shadow-none print:border-none">
-          <span class="text-brand-blue font-black tracking-widest text-sm uppercase mb-4 block">The Proposal</span>
-          <h1 class="text-5xl font-black text-brand-dark leading-tight mb-8">Transforming School Culture <br><span class="text-brand-green">Beyond the Spreadsheet</span></h1>
-          <p class="text-xl text-gray-600 leading-relaxed max-w-2xl">Traditional house point systems fail because they are administratively heavy and visually static. TrackEDU turns school spirit into a high-engagement digital ecosystem.</p>
-          <div class="mt-12 grid grid-cols-3 gap-6">
-            <div class="p-6 bg-blue-50 rounded-2xl"><div class="text-2xl mb-2">⚡</div><div class="font-bold text-brand-blue">Instant</div><div class="text-xs text-gray-500">Points awarded in 3 seconds.</div></div>
-            <div class="p-6 bg-green-50 rounded-2xl"><div class="text-2xl mb-2">💎</div><div class="font-bold text-brand-green">Engaged</div><div class="text-xs text-gray-500">RPG-style student journey.</div></div>
-            <div class="p-6 bg-brand-dark rounded-2xl"><div class="text-2xl mb-2">📊</div><div class="font-bold text-white">Unified</div><div class="text-xs text-gray-400">Total school data sync.</div></div>
+        <div id="pitch-page-1" class="bg-white p-6 md:p-12 rounded-2xl md:rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-center min-h-[450px] md:min-h-[500px] print:h-[297mm] print:shadow-none print:border-none">
+          <span class="text-brand-blue font-black tracking-widest text-[10px] md:text-sm uppercase mb-3 md:mb-4 block">The Proposal</span>
+          <h1 class="text-2xl md:text-5xl font-black text-brand-dark leading-tight mb-4 md:mb-8">Transforming School Culture <br class="hidden md:block"><span class="text-brand-green">Beyond the Spreadsheet</span></h1>
+          <p class="text-sm md:text-xl text-gray-600 leading-relaxed max-w-2xl">Traditional house point systems fail because they are administratively heavy and visually static. TrackEDU turns school spirit into a high-engagement digital ecosystem.</p>
+          
+          <div class="mt-8 md:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-6">
+            <div class="p-4 md:p-6 bg-blue-50 rounded-xl md:rounded-2xl"><div class="text-xl md:text-2xl mb-1 md:mb-2">⚡</div><div class="font-bold text-brand-blue text-sm md:text-base">Instant</div><div class="text-[10px] md:text-xs text-gray-500">Points awarded in 3 seconds.</div></div>
+            <div class="p-4 md:p-6 bg-green-50 rounded-xl md:rounded-2xl"><div class="text-xl md:text-2xl mb-1 md:mb-2">💎</div><div class="font-bold text-brand-green text-sm md:text-base">Engaged</div><div class="text-[10px] md:text-xs text-gray-500">RPG-style student journey.</div></div>
+            <div class="p-4 md:p-6 bg-brand-dark rounded-xl md:rounded-2xl"><div class="text-xl md:text-2xl mb-1 md:mb-2">📊</div><div class="font-bold text-white text-sm md:text-base">Unified</div><div class="text-[10px] md:text-xs text-gray-400">Total school data sync.</div></div>
           </div>
         </div>
 
-        <!-- Page 2: The Dual-App Advantage -->
-        <div id="pitch-page-2" class="bg-brand-dark text-white p-12 rounded-3xl shadow-sm flex flex-col justify-center min-h-[500px] print:h-[297mm] print:shadow-none">
-          <h2 class="text-4xl font-black mb-10">The Dual-App Advantage</h2>
-          <div class="grid grid-cols-2 gap-10">
-            <div class="space-y-6">
-              <div class="w-12 h-12 bg-brand-green rounded-xl flex items-center justify-center text-xl text-brand-dark font-bold">01</div>
-              <h3 class="text-2xl font-bold">Teacher Command Center</h3>
-              <p class="text-gray-400 text-sm leading-relaxed">Centralized management with a suite of 8+ classroom utilities. From automated house-balancing to assembly projector modes, we reduce admin time by 90%.</p>
+        <div id="pitch-page-2" class="bg-brand-dark text-white p-6 md:p-12 rounded-2xl md:rounded-3xl shadow-sm flex flex-col justify-center min-h-[450px] md:min-h-[500px] print:h-[297mm] print:shadow-none">
+          <h2 class="text-2xl md:text-4xl font-black mb-6 md:mb-10">The Dual-App Advantage</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+            <div class="space-y-3 md:space-y-6">
+              <div class="w-10 h-10 md:w-12 md:h-12 bg-brand-green rounded-xl flex items-center justify-center text-lg md:text-xl text-brand-dark font-bold">01</div>
+              <h3 class="text-lg md:text-2xl font-bold">Teacher Command Center</h3>
+              <p class="text-gray-400 text-xs md:text-sm leading-relaxed">Centralized management with a suite of 8+ classroom utilities. From automated house-balancing to assembly projector modes, we reduce admin time by 90%.</p>
             </div>
-            <div class="space-y-6">
-              <div class="w-12 h-12 bg-brand-blue rounded-xl flex items-center justify-center text-xl font-bold">02</div>
-              <h3 class="text-2xl font-bold">Student Hero Portal</h3>
-              <p class="text-gray-400 text-sm leading-relaxed">Students take ownership of their journey. Featuring 3D holographic card collection, daily streaks, and house "reactors" that reward collective effort.</p>
+            <div class="space-y-3 md:space-y-6">
+              <div class="w-10 h-10 md:w-12 md:h-12 bg-brand-blue rounded-xl flex items-center justify-center text-lg md:text-xl font-bold">02</div>
+              <h3 class="text-lg md:text-2xl font-bold">Student Hero Portal</h3>
+              <p class="text-gray-400 text-xs md:text-sm leading-relaxed">Students take ownership of their journey. Featuring 3D holographic card collection, daily streaks, and house "reactors" that reward collective effort.</p>
             </div>
           </div>
-          <div class="mt-10 p-6 bg-white/5 border border-white/10 rounded-2xl text-center font-medium">
+          <div class="mt-8 md:mt-10 p-4 md:p-6 bg-white/5 border border-white/10 rounded-xl md:rounded-2xl text-center font-medium text-xs md:text-base italic text-brand-green">
              "It's not a tracker. It's a game students play by being their best selves."
           </div>
         </div>
 
-        <!-- Page 3: Privacy by Design -->
-        <div id="pitch-page-3" class="bg-white p-12 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-center min-h-[500px] print:h-[297mm] print:shadow-none print:border-none">
-          <h2 class="text-4xl font-black text-brand-dark mb-10">Privacy by Design</h2>
-          <div class="grid md:grid-cols-2 gap-12">
-            <div class="space-y-8">
+        <div id="pitch-page-3" class="bg-white p-6 md:p-12 rounded-2xl md:rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-center min-h-[450px] md:min-h-[500px] print:h-[297mm] print:shadow-none print:border-none">
+          <h2 class="text-2xl md:text-4xl font-black text-brand-dark mb-6 md:mb-10">Privacy by Design</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            <div class="space-y-6 md:space-y-8">
               <div class="flex gap-4">
-                <i class="fas fa-user-secret text-3xl text-brand-blue"></i>
+                <i class="fas fa-user-secret text-2xl md:text-3xl text-brand-blue shrink-0"></i>
                 <div>
-                  <h4 class="font-bold text-lg">No PII Required</h4>
-                  <p class="text-sm text-gray-500">We do not store student emails, location data, or demographic records. System access is token-based.</p>
+                  <h4 class="font-bold text-base md:text-lg">No PII Required</h4>
+                  <p class="text-xs md:text-sm text-gray-500">We do not store student emails, location data, or demographic records. System access is token-based.</p>
                 </div>
               </div>
               <div class="flex gap-4">
-                <i class="fas fa-shield-halved text-3xl text-brand-blue"></i>
+                <i class="fas fa-shield-halved text-2xl md:text-3xl text-brand-blue shrink-0"></i>
                 <div>
-                  <h4 class="font-bold text-lg">Compliance Standards</h4>
-                  <p class="text-sm text-gray-500">Fully compliant with FERPA and GDPR. All data is encrypted using AES-256 and TLS 1.3 standards.</p>
+                  <h4 class="font-bold text-base md:text-lg">Compliance Standards</h4>
+                  <p class="text-xs md:text-sm text-gray-500">Fully compliant with FERPA and GDPR. All data is encrypted using AES-256 and TLS 1.3 standards.</p>
                 </div>
               </div>
             </div>
-            <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100">
-               <h4 class="font-black text-xs uppercase tracking-widest text-gray-400 mb-4">Infrastructure</h4>
+            <div class="bg-gray-50 p-6 md:p-8 rounded-xl md:rounded-2xl border border-gray-100">
+               <h4 class="font-black text-[10px] uppercase tracking-widest text-gray-400 mb-3 md:mb-4">Infrastructure</h4>
                <ul class="space-y-3">
-                 <li class="flex items-center gap-3 text-sm font-bold text-gray-700"><i class="fas fa-check text-brand-green"></i> Secure Firebase Backend</li>
-                 <li class="flex items-center gap-3 text-sm font-bold text-gray-700"><i class="fas fa-check text-brand-green"></i> School Data Sovereignty</li>
-                 <li class="flex items-center gap-3 text-sm font-bold text-gray-700"><i class="fas fa-check text-brand-green"></i> 1-Click System Wipe</li>
+                 <li class="flex items-center gap-3 text-xs md:text-sm font-bold text-gray-700"><i class="fas fa-check text-brand-green"></i> Secure Firebase Backend</li>
+                 <li class="flex items-center gap-3 text-xs md:text-sm font-bold text-gray-700"><i class="fas fa-check text-brand-green"></i> School Data Sovereignty</li>
+                 <li class="flex items-center gap-3 text-xs md:text-sm font-bold text-gray-700"><i class="fas fa-check text-brand-green"></i> 1-Click System Wipe</li>
                </ul>
             </div>
           </div>
         </div>
 
-        <!-- Page 4: Ready for Deployment -->
-        <div id="pitch-page-4" class="bg-brand-green p-12 rounded-3xl shadow-sm flex flex-col justify-center items-center text-center min-h-[500px] print:h-[297mm] print:shadow-none print:bg-white print:border-4 print:border-brand-green">
-          <h2 class="text-5xl font-black text-white print:text-brand-green mb-6 leading-tight">Ready for Deployment</h2>
-          <p class="text-brand-dark text-xl font-medium mb-12 max-w-xl">Standardize behavior tracking, empower staff, and delight students with a modern digital house system.</p>
+        <div id="pitch-page-4" class="bg-brand-green p-6 md:p-12 rounded-2xl md:rounded-3xl shadow-sm flex flex-col justify-center items-center text-center min-h-[450px] md:min-h-[500px] print:h-[297mm] print:shadow-none print:bg-white print:border-4 print:border-brand-green">
+          <h2 class="text-3xl md:text-5xl font-black text-white print:text-brand-green mb-4 md:mb-6 leading-tight">Ready for Deployment</h2>
+          <p class="text-brand-dark text-sm md:text-xl font-medium mb-8 md:mb-12 max-w-xl">Standardize behavior tracking, empower staff, and delight students with a modern digital house system.</p>
           
-          <div class="bg-white p-8 rounded-3xl w-full max-w-md shadow-xl">
-            <h4 class="font-bold text-brand-dark mb-4">Investment Tiers</h4>
-            <div class="flex justify-between border-b py-3 text-left">
+          <div class="bg-white p-6 md:p-8 rounded-2xl md:rounded-3xl w-full max-w-md shadow-xl">
+            <h4 class="font-bold text-brand-dark mb-4 text-sm md:text-base">Investment Tiers</h4>
+            <div class="flex justify-between border-b py-3 text-left text-sm md:text-base">
               <span class="font-bold">Core Campus</span>
               <span class="font-black">$2,450/yr</span>
             </div>
-            <div class="flex justify-between py-3 text-left">
+            <div class="flex justify-between py-3 text-left text-sm md:text-base">
               <span class="font-bold">Pro Ecosystem</span>
               <span class="font-black text-brand-blue">$3,950/yr</span>
             </div>
-            <div class="mt-6 text-xs text-gray-400 italic">No setup fees. Unlimited users. Personal onboarding.</div>
+            <div class="mt-4 md:mt-6 text-[9px] md:text-xs text-gray-400 italic">No setup fees. Unlimited users. Personal onboarding.</div>
           </div>
           
-          <div class="mt-12 text-sm font-bold text-white print:text-brand-green uppercase tracking-widest">www.trackedu.net • hello@trackedu.net</div>
+          <div class="mt-10 md:mt-12 text-[10px] md:text-sm font-bold text-white print:text-brand-green uppercase tracking-widest">www.trackedu.net • hello@trackedu.net</div>
         </div>
 
       </div>
@@ -3547,100 +3614,32 @@ function openStudentAppPreview() {
 
 <style>
 @media print {
-  /* Force landscape and remove all margins */
-  @page {
-    size: landscape;
-    margin: 0;
-  }
-  
-  /* Hide everything except the pitch deck */
-  body * {
-    visibility: hidden !important;
-  }
-  
-  #pitchDeckModal,
-  #pitchDeckModal * {
-    visibility: visible !important;
-  }
-  
+  @page { size: landscape; margin: 0; }
+  body * { visibility: hidden !important; }
+  #pitchDeckModal, #pitchDeckModal * { visibility: visible !important; }
   #pitchDeckModal {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    background: white !important;
-    overflow: visible !important;
+    position: fixed !important; top: 0 !important; left: 0 !important; width: 100vw !important; height: 100vh !important;
+    margin: 0 !important; padding: 0 !important; background: white !important; overflow: visible !important;
   }
-  
-  /* Hide the scrollable container's overflow and padding */
-  #pitchDeckModal .flex-1 {
-    overflow: visible !important;
-    padding: 0 !important;
-    height: auto !important;
+  #pitchDeckModal .flex-1 { overflow: visible !important; padding: 0 !important; height: auto !important; }
+  #pitchDeckModal .space-y-12 { margin: 0 !important; }
+  #pitch-page-1, #pitch-page-2, #pitch-page-3, #pitch-page-4 {
+    min-height: 100vh !important; height: 100vh !important; width: 100vw !important; max-width: 100vw !important;
+    margin: 0 !important; padding: 2rem !important; page-break-after: always !important; break-after: page !important;
+    border-radius: 0 !important; box-shadow: none !important; display: flex !important; align-items: center !important; justify-content: center !important;
   }
-  
-  /* Remove the space-y-12 margin that causes extra pages */
-  #pitchDeckModal .space-y-12 {
-    margin: 0 !important;
-  }
-  
-  /* Target ONLY the 4 specific pages - NOT all instances */
-  #pitch-page-1,
-  #pitch-page-2,
-  #pitch-page-3,
-  #pitch-page-4 {
-    min-height: 100vh !important;
-    height: 100vh !important;
-    width: 100vw !important;
-    max-width: 100vw !important;
-    margin: 0 !important;
-    padding: 2rem !important;
-    page-break-after: always !important;
-    break-after: page !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-  
-  /* Fix text colors for print */
-  #pitch-page-1 *,
-  #pitch-page-3 * {
-    color: #000 !important;
-  }
-  
-  #pitch-page-2 * {
-    color: #fff !important;
-  }
-  
-  #pitch-page-4 * {
-    color: #000 !important;
-  }
-  
-  #pitch-page-4 .text-white {
-    color: #fff !important;
-  }
-  
-  /* Ensure dark backgrounds print properly */
-  #pitch-page-2 {
-    background-color: #0f172a !important;
-  }
-  
-  #pitch-page-4 {
-    background-color: #87C232 !important;
-  }
-  
-  /* Hide print buttons and controls */
-  .print\:hidden,
-  .btn,
-  button:not(.no-print),
-  .flex.justify-between.items-center.px-8.py-4 {
-    display: none !important;
-  }
+  #pitch-page-1 *, #pitch-page-3 * { color: #000 !important; }
+  #pitch-page-2 * { color: #fff !important; }
+  #pitch-page-4 * { color: #000 !important; }
+  #pitch-page-4 .text-white { color: #fff !important; }
+  #pitch-page-2 { background-color: #0f172a !important; }
+  #pitch-page-4 { background-color: #87C232 !important; }
+  .print\:hidden, .btn, button:not(.no-print), .flex.justify-between.items-center.px-8.py-4 { display: none !important; }
+}
+
+/* Custom extra-small mobile breakpoint for the "Proposal" badge */
+@media (max-width: 400px) {
+  .xs\:inline-block { display: none !important; }
 }
 </style>
 
