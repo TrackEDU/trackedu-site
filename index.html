@@ -371,9 +371,7 @@ html { scroll-padding-top: 100px; }
 
 /* 📱 MOBILE ONLY: Reduce vertical gaps above and below mascot */
 @media (max-width: 767px) {
-  .hero-mascot-container {
-    padding: 1rem 0.5rem !important; /* Tightens the "messy" whitespace */
-  }
+ 
   .hero-mascot-wrapper {
     margin: 0.5rem auto !important; /* Pulls headline and description closer */
   }
@@ -936,6 +934,27 @@ html { scroll-padding-top: 100px; }
 }
 
 
+
+@media (max-width: 767px) {
+  /* Balanced Spacing: Fixed the "jammed" look */
+  .hero-mascot-container {
+    padding-top: 1.5rem !important; /* Increased from 0.5rem to 1.5rem */
+    padding-bottom: 1.5rem !important;
+  }
+  
+  /* Ensure the small watermark branding is present */
+  .mobile-brand-watermark {
+    display: block;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 800;
+    color: #e2e8f0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 0.5rem;
+  }
+}
+
     
   </style>
 </head>
@@ -946,7 +965,12 @@ html { scroll-padding-top: 100px; }
       <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
         
         <div class="flex items-center gap-3">
-          <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="group flex items-center gap-2">
+          <div class="md:hidden flex flex-col">
+            <span class="font-display text-xl font-black text-brand-dark leading-none uppercase tracking-tighter">Digital House Points</span>
+            <span class="text-[11px] font-extrabold text-brand-green uppercase tracking-[0.15em] mt-0.5">Built for Schools</span>
+          </div>
+
+          <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="hidden md:flex group items-center gap-2">
             <span class="font-display text-2xl sm:text-3xl font-black text-brand-dark tracking-tighter group-hover:opacity-80 transition">
               Track<span class="text-brand-green">EDU</span>
             </span>
@@ -1018,19 +1042,19 @@ html { scroll-padding-top: 100px; }
   </div>
 
 
-  <section class="relative pt-4 pb-12 lg:pt-20 lg:pb-28 hero-mesh overflow-hidden">
+  <section class="relative pt-0 sm:pt-4 pb-12 lg:pt-20 lg:pb-28 hero-mesh overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
       
       <div class="flex flex-col lg:grid lg:grid-cols-2 gap-5 lg:gap-16 items-center">
         
         <div class="contents lg:block text-center lg:text-left" data-aos="fade-right">
           
-          <h1 class="order-1 lg:order-none font-display text-3xl sm:text-5xl lg:text-6xl font-black leading-[1.1] text-brand-dark mb-3 lg:mb-6 tracking-tight">
+          <h1 class="hidden md:block font-display text-3xl sm:text-5xl lg:text-7xl font-black leading-[1.1] text-brand-dark mb-3 lg:mb-6 tracking-tight">
             Digital House Point <br>
             <span class="text-gradient whitespace-nowrap">System for Schools</span>
           </h1>
   
-          <div class="order-3 lg:order-none inline-flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-1.5 px-4 py-1.5 rounded-2xl bg-white border border-gray-200 shadow-sm text-xs font-bold uppercase tracking-wide mb-3 lg:mb-6 mx-auto lg:mx-0 max-w-fit">
+          <div class="hidden md:inline-flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-1.5 px-4 py-1.5 rounded-2xl bg-white border border-gray-200 shadow-sm text-xs font-bold uppercase tracking-wide mb-3 lg:mb-6 mx-auto lg:mx-0 max-w-fit">
             <div class="flex items-center gap-2">
               <span class="relative flex h-2.5 w-2.5">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -1041,11 +1065,11 @@ html { scroll-padding-top: 100px; }
             <span class="text-base leading-none">🇲🇾 🇦🇪 🇸🇦 🇹🇭 🇻🇳</span>
           </div>
           
-          <p class="order-4 lg:order-none text-base sm:text-lg text-gray-600 mb-5 lg:mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0">
+          <p class="order-4 lg:order-none text-sm sm:text-lg text-gray-600 mb-5 lg:mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0">
             <strong>One house system. Every year level.</strong> Replace spreadsheets with a <strong>real-time culture platform</strong> that works for primary, secondary, and your whole school. Students love it. Teachers use it. Families see it.
           </p>
   
-          <div class="order-5 lg:order-none flex flex-col gap-3 justify-center lg:justify-start w-full sm:w-auto">
+          <div class="order-5 lg:order-none flex flex-col gap-2 justify-center lg:justify-start w-full sm:w-auto">
             <div class="flex flex-col sm:flex-row gap-3">
               <button onclick="openPilotModal()" class="btn text-lg px-8 py-3.5 flex items-center justify-center gap-3 group bg-brand-dark hover:bg-gray-800 border-2 border-brand-dark text-white shadow-xl">
                 <i class="fas fa-rocket text-brand-green text-sm group-hover:translate-y-[-2px] transition"></i>
@@ -1056,10 +1080,10 @@ html { scroll-padding-top: 100px; }
                 <span>Book School Walkthrough</span>
               </button>
             </div>
-            <p class="text-xs text-gray-500 font-medium text-center lg:text-left ml-1"><i class="fas fa-video text-brand-blue mr-1"></i> A live 30-min intro for School Leaders & Admins</p>
+            <p class="text-[10px] text-gray-400 font-semibold text-center lg:text-left ml-1 mt-0.5"><i class="fas fa-video text-brand-blue mr-1"></i> A live 30-min intro for School Leaders & Admins</p>
           </div>
           
-          <div class="order-6 lg:order-none mt-3 pt-3 border-t border-gray-100">
+          <div class="order-6 lg:order-none mt-1 pt-2 border-t border-gray-100">
             <div class="flex flex-wrap justify-center lg:justify-start gap-6">
               <div class="flex items-center gap-2">
                 <i class="fas fa-clock text-brand-green text-sm"></i>
@@ -1097,7 +1121,15 @@ html { scroll-padding-top: 100px; }
             <div class="speech-bubble">
               🎓 Ready to lead?
             </div>
-          </div> </div> </div> </div> </section>
+          </div>
+          
+          <div class="md:hidden mobile-brand-watermark">TrackEDU</div>
+          
+        </div>
+        
+        
+        
+        </div> </div> </div> </section>
 
 
 
@@ -1116,7 +1148,7 @@ html { scroll-padding-top: 100px; }
                   <div class="aspect-video bg-black relative group">
                     <iframe id="hero-video" 
                       class="absolute inset-0 w-full h-full" 
-                      src="https://www.youtube.com/embed/lNbZ6-j2GCM?autoplay=1&loop=1&playlist=lNbZ6-j2GCM&controls=1&modestbranding=1&rel=0&playsinline=1&enablejsapi=1" 
+                      src="https://www.youtube.com/embed/lNbZ6-j2GCM?autoplay=1&mute=1&loop=1&playlist=lNbZ6-j2GCM&controls=1&modestbranding=1&rel=0&playsinline=1&enablejsapi=1" 
                       title="TrackEDU" 
                       frameborder="0" 
                       allow="autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" 
@@ -1244,14 +1276,19 @@ html { scroll-padding-top: 100px; }
       
     </div>
     
-    <div class="text-center mt-8">
-      <button onclick="openPilotModal()" class="btn px-6 py-2.5 text-sm font-bold shadow-lg">
-        Start Free Pilot →
+    <div class="mt-16 text-center" data-aos="fade-up">
+      <p class="text-xs text-brand-green font-black uppercase tracking-widest mb-2">The Transformation</p>
+      <h3 class="text-2xl md:text-3xl font-display font-black text-brand-dark max-w-2xl mx-auto leading-tight mb-8">
+        Stop just tracking behavior. <br>
+        <span class="text-brand-blue">Start building a thriving school community.</span>
+      </h3>
+      
+      <button onclick="openPilotModal()" class="btn px-8 py-3 text-base font-bold shadow-lg hover:scale-105 transition-transform">
+        See how we build community →
       </button>
     </div>
     
-  </div>
-</section>
+  </div> </section>
 
 
 
@@ -2470,96 +2507,94 @@ function openVideoModal(type) {
 }
 
 
-// Mascot click handler - shows the "Why" message about the Ant character
-// Mascot click handler - shows the "Why" philosophy behind the TrackEDU platform
 function showMascotMessage() {
   const mascotImg = document.getElementById('mascotImage');
   if (!mascotImg) return;
-  
+
   mascotImg.classList.add('mascot-spin');
   setTimeout(() => mascotImg.classList.remove('mascot-spin'), 600);
-  
+
   const modal = document.createElement('div');
-  // Removed padding (p-4) on mobile so child can hit the edges
-  modal.className = 'fixed inset-0 z-[100000] bg-brand-dark/95 backdrop-blur-md flex lg:items-center lg:justify-center lg:p-8';
+  // Full screen overlay on all devices, centered content on desktop
+  modal.className = 'fixed inset-0 z-[100000] bg-brand-dark/95 backdrop-blur-md flex lg:items-center lg:justify-center';
   modal.onclick = (e) => { if(e.target === modal) modal.remove(); };
-  
+
   modal.innerHTML = `
-    <div class="bg-white w-full h-full lg:h-auto lg:max-w-4xl lg:max-h-[90vh] rounded-none lg:rounded-[40px] overflow-hidden shadow-2xl relative border-gray-200 flex flex-col transition-all duration-500" onclick="event.stopPropagation()">
-      
-      <div class="bg-[#0f172a] p-4 lg:p-8 text-white flex items-center justify-between relative shrink-0">
-        <div class="flex items-center gap-3 lg:gap-6 relative z-10">
-          <div class="w-10 h-10 lg:w-16 lg:h-16 bg-white/10 rounded-lg lg:rounded-2xl flex items-center justify-center border border-white/10 shadow-inner">
-            <span class="text-xl lg:text-3xl" style="filter: hue-rotate(100deg) brightness(2.2) saturate(3);">🐜</span>
+    <div class="bg-white w-full h-full lg:h-auto lg:max-w-4xl lg:max-h-[90vh] rounded-none lg:rounded-[40px] overflow-hidden shadow-2xl relative border-gray-200 flex flex-col" onclick="event.stopPropagation()">
+
+      <div class="bg-[#0f172a] p-5 md:p-8 text-white flex items-center justify-between relative shrink-0">
+        <div class="flex items-center gap-4 md:gap-6 relative z-10">
+          <div class="w-10 h-10 md:w-16 md:h-16 bg-white/10 rounded-xl md:rounded-2xl flex items-center justify-center border border-white/10 shadow-inner p-1">
+            <img src="https://trackedu.github.io/common-assets/teacherapp.png" alt="Framework Icon" class="w-full h-full object-cover rounded-lg md:rounded-xl">
           </div>
           <div class="text-left">
-            <h3 class="text-lg lg:text-2xl font-black tracking-tight leading-none mb-0.5 lg:mb-2">The Ant Philosophy</h3>
-            <p class="text-brand-green text-[8px] lg:text-xs font-black uppercase tracking-[0.2em]">Collective Impact</p>
+            <h3 class="text-xl md:text-2xl font-black tracking-tight leading-none mb-1">Small Actions. Big Impact.</h3>
+            <p class="text-brand-green text-[9px] md:text-xs font-black uppercase tracking-[0.2em]">The TrackEDU Framework</p>
           </div>
         </div>
-        <button onclick="this.closest('.fixed').remove()" class="text-gray-500 hover:text-white transition text-3xl lg:text-4xl p-1 leading-none relative z-10">&times;</button>
+        <button onclick="this.closest('.fixed').remove()" class="text-gray-400 hover:text-white transition text-4xl p-2 leading-none relative z-10">&times;</button>
       </div>
-      
-      <div class="flex-1 p-6 md:p-14 overflow-y-auto scrollbar-hide pb-20 lg:pb-14">
-        <div class="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-12 items-center">
-          
+
+      <div class="flex-1 p-8 md:p-14 overflow-y-auto scrollbar-hide pb-24 lg:pb-14">
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
+
           <div class="lg:col-span-2 text-center lg:text-left">
-            <h4 class="text-2xl md:text-3xl font-black text-brand-dark mb-4 md:mb-6 leading-tight">Small Actions.<br class="hidden lg:block">Exponential Culture.</h4>
+            <h4 class="text-2xl md:text-3xl font-black text-brand-dark mb-6 leading-tight">Every point is a <br class="hidden lg:block">contribution.</h4>
             <p class="text-gray-600 mb-6 text-base md:text-lg leading-relaxed">
-              While schools celebrate their own mascots, TrackEDU’s engine is built on the <strong>Ant</strong>: the ultimate symbol of perseverance and teamwork.
+              TrackEDU is built on a simple principle: **consistent, small actions create a lasting impact.**
             </p>
-            <div class="bg-brand-green/5 border-l-4 border-brand-green p-4 rounded-r-xl">
-              <p class="text-gray-500 text-sm md:text-base leading-relaxed italic">
-                "One ant carries a crumb. A colony builds a kingdom. We visualize the moments that build your school's legacy."
-              </p>
+            <p class="text-gray-500 text-sm md:text-base leading-relaxed mb-8">
+              We help you move beyond compliance tracking and start building a culture where every student feels seen and every effort is celebrated.
+            </p>
+            <div class="inline-flex items-center gap-2 text-xs font-bold text-gray-400 uppercase tracking-widest border-t pt-4">
+               <i class="fas fa-chart-line text-brand-green"></i> Built for sustainable growth
             </div>
           </div>
 
           <div class="lg:col-span-3 grid grid-cols-1 gap-4">
-            
-            <div class="flex items-center gap-5 p-5 md:p-6 bg-gray-50 rounded-3xl border border-gray-100 transition-all hover:bg-white hover:shadow-xl group">
-              <div class="w-12 h-12 md:w-14 md:h-14 bg-white rounded-2xl shadow-md flex items-center justify-center text-brand-blue border border-gray-100 shrink-0 group-hover:scale-110 transition-transform text-2xl" style="filter: brightness(1.2);">🐜</div>
+
+            <div class="flex items-center gap-5 p-6 bg-gray-50 rounded-[24px] border border-gray-100 transition-all hover:bg-white hover:shadow-xl group">
+              <div class="w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center text-brand-blue border border-gray-100 shrink-0"><i class="fas fa-check-circle text-xl"></i></div>
               <div>
-                <div class="font-black text-[10px] text-brand-blue uppercase tracking-widest mb-1">Atomic Input</div>
-                <div class="text-sm md:text-base text-brand-dark font-bold mb-0.5">The Daily Habit</div>
-                <div class="text-[12px] md:text-sm text-gray-500 leading-tight">Every point is a "crumb"—a small, daily habit that matters.</div>
+                <div class="font-black text-[10px] text-brand-blue uppercase tracking-widest mb-1">Step 1: Daily Recognition</div>
+                <div class="text-sm md:text-base text-brand-dark font-bold mb-0.5">Positive Habits</div>
+                <div class="text-[12px] md:text-sm text-gray-500 leading-tight">Small, repeatable daily actions that build student character.</div>
               </div>
             </div>
 
-            <div class="flex items-center gap-5 p-5 md:p-6 bg-gray-50 rounded-3xl border border-gray-100 transition-all hover:bg-white hover:shadow-xl group">
-              <div class="w-12 h-12 md:w-14 md:h-14 bg-white rounded-2xl shadow-md flex items-center justify-center text-brand-green border border-gray-100 shrink-0 group-hover:scale-110 transition-transform text-2xl" style="filter: hue-rotate(100deg) brightness(1.3);">🐜🐜</div>
+            <div class="flex items-center gap-5 p-6 bg-gray-50 rounded-[24px] border border-gray-100 transition-all hover:bg-white hover:shadow-xl group">
+              <div class="w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center text-brand-green border border-gray-100 shrink-0"><i class="fas fa-users text-xl"></i></div>
               <div>
-                <div class="font-black text-[10px] text-brand-green uppercase tracking-widest mb-1">Shared Synergy</div>
-                <div class="text-sm md:text-base text-brand-dark font-bold mb-0.5">The Classroom Colony</div>
-                <div class="text-[12px] md:text-sm text-gray-500 leading-tight">Students realize that together, they can move massive weights.</div>
+                <div class="font-black text-[10px] text-brand-green uppercase tracking-widest mb-1">Step 2: Shared Progress</div>
+                <div class="text-sm md:text-base text-brand-dark font-bold mb-0.5">Community Synergy</div>
+                <div class="text-[12px] md:text-sm text-gray-500 leading-tight">Students see how their individual growth supports their House.</div>
               </div>
             </div>
 
-            <div class="flex items-center gap-5 p-5 md:p-6 bg-brand-dark rounded-3xl border border-brand-dark shadow-2xl shadow-brand-green/20 transition-all hover:-translate-y-1 group">
-              <div class="w-12 h-12 md:w-14 md:h-14 bg-white/10 rounded-2xl flex items-center justify-center text-brand-green shrink-0 group-hover:scale-110 transition-transform text-2xl">🏰</div>
+            <div class="flex items-center gap-5 p-6 bg-brand-dark rounded-[24px] border border-brand-dark shadow-2xl shadow-brand-green/20 group">
+              <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-brand-green shrink-0"><i class="fas fa-award text-xl"></i></div>
               <div>
-                <div class="font-black text-[10px] text-brand-green uppercase tracking-widest mb-1">Campus Legacy</div>
-                <div class="text-sm md:text-base text-white font-bold mb-0.5">The Enduring Kingdom</div>
-                <div class="text-[12px] md:text-sm text-gray-400 leading-tight">Individual efforts evolve into a self-sustaining school culture.</div>
+                <div class="font-black text-[10px] text-brand-green uppercase tracking-widest mb-1">Step 3: Cultural Legacy</div>
+                <div class="text-sm md:text-base text-white font-bold mb-0.5">Lasting Impact</div>
+                <div class="text-[12px] md:text-sm text-gray-400 leading-tight">A self-sustaining culture of high engagement across all grades.</div>
               </div>
             </div>
+
           </div>
         </div>
 
-        <div class="flex flex-col md:flex-row items-center justify-between gap-6 pt-10 mt-10 border-t border-gray-100 mb-6">
-           <div class="flex items-center gap-3">
-             <div class="w-2 h-2 rounded-full bg-brand-green animate-pulse"></div>
-             <p class="text-gray-400 text-xs md:text-sm font-medium">TrackEDU avatars evolve every 50 points.</p>
-           </div>
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6 pt-10 mt-10 border-t border-gray-100">
+           <p class="text-gray-400 text-xs font-medium text-center md:text-left">
+             TrackEDU provides the framework. Your school provides the heart.
+           </p>
            <button onclick="this.closest('.fixed').remove()" class="w-full md:w-auto px-12 py-4 bg-brand-dark text-white rounded-2xl font-black hover:bg-gray-800 transition text-sm uppercase tracking-widest shadow-lg">Understood</button>
         </div>
       </div>
     </div>
   `;
-  
+
   document.body.appendChild(modal);
 }
-
 
 
 
