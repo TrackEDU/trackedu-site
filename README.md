@@ -16,7 +16,7 @@ TrackEDU operates as a dual-sided ecosystem tailored for both screen-free enviro
 ### 👩‍🏫 The Teacher Command Center
 A frictionless, PWA-optimized dashboard for educators to drive school spirit.
 * **Instant Point Awarding:** Award or deduct points to individuals, groups, or whole classes in seconds.
-* **Classroom Utilities (Micro-Tools):** Includes a Magic Hat (random cold-calling), Squad Builder (instant group generation), and Magic Timer.
+* **Classroom Utilities (10+ Tools):** Includes Magic Hat (random cold-calling), Squad Builder (instant group generation), Magic Timer, Duo Mode, Role Roulette, Quest Board, Snakes & Ladders, and Quick Quiz (ATL Skills).
 * **Live Projector Mode:** A beautiful, auto-rotating full-screen display for school assemblies that showcases live house standings and top contributing students.
 * **Admin Dashboard:** CSV bulk imports, auto-balancing algorithms, and cross-classroom point syncing.
 
@@ -30,12 +30,12 @@ A full-blown gamified web app that students can access on their own devices.
 
 ---
 
-## 🔒 Bank-Grade Security & Privacy
+## 🔒 Privacy-First Security
 
 School IT departments love TrackEDU because it operates on a strict **"Privacy by Design"** framework.
 
 * **Zero PII Required:** Students do *not* need emails, passwords, or Google SSO to log in. They use an auto-generated alphanumeric ID (e.g., `EMWA482`) and a custom Class Passcode.
-* **Built for Privacy Standards:** Designed to support schools in their FERPA, COPPA, and GDPR obligations. We do not track students across the web, run ads, or sell data.
+* **Privacy-First Architecture:** Designed with student privacy as the foundation. Student names are partially displayed (e.g., "Bill S." instead of full name). We do not track students across the web, run ads, or sell data.
 * **Data Sovereignty:** Schools retain 100% ownership of their data with the ability to permanently wipe their database via the dashboard instantly.
 * **Encrypted Infrastructure:** Hosted on Google Cloud (Firebase) using AES-256 encryption at rest and TLS 1.3 in transit.
 
@@ -45,13 +45,16 @@ School IT departments love TrackEDU because it operates on a strict **"Privacy b
 
 We believe in simple, predictable budgets for schools. TrackEDU offers **one complete plan** with absolutely no hidden fees, setup costs, or feature upcharges.
 
-* **The Complete Ecosystem:** ~$1.90 / student / year (Billed Annually)
-* **Minimum Annual Contract:** $950 (Covers up to 500 students)
+* **Pro Ecosystem:** $1,990 / year (Billed Annually)
+* **Includes:** Up to 3,000 students, unlimited classes, 10+ Teacher Toolkit utilities, full Student App access, and priority support.
 
 ### 🚧 2026 Early Adopter Program (Active)
-We are currently operating in a closed beta and accepting applications for **5 Design Partner Schools**. Accepted campuses receive a **completely free pilot** for the remainder of the academic year in exchange for roadmap feedback. 
+We are currently accepting applications for **Design Partner Schools**. Accepted campuses receive a **completely free 30-day pilot** to test the full Pro Ecosystem in exchange for roadmap feedback.
 
 Apply for a pilot via strategy call at [trackedu.net](https://www.trackedu.net).
+
+### Solo Teacher Plan (Free Forever)
+Individual educators using personal email domains (Gmail, Yahoo, Outlook, etc.) can use the **Solo Plan** at no cost — includes 1 class, up to 30 students, Magic Hat, Timer, and Quick Quiz.
 
 ---
 
