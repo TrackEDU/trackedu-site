@@ -2877,9 +2877,9 @@ html { scroll-padding-top: 100px; }
   </div>
 </div>
 
-<div id="pilotModal" class="fixed inset-0 z-[9999] hidden">
+<div id="pilotModal" class="fixed inset-0 z-[9999] hidden overflow-y-auto">
   <div class="absolute inset-0 bg-gray-900/70 backdrop-blur-sm" onclick="closePilotModal()"></div>
-  <div class="relative w-full h-full md:h-auto md:max-w-2xl md:m-auto md:top-1/2 md:-translate-y-1/2 bg-white md:rounded-2xl shadow-2xl flex flex-col overflow-hidden">
+  <div class="relative w-full min-h-screen md:min-h-0 md:h-auto md:max-w-2xl md:m-auto md:top-1/2 md:-translate-y-1/2 bg-white md:rounded-2xl shadow-2xl flex flex-col overflow-hidden my-8 md:my-0">
     
     <!-- Header -->
     <div class="px-6 py-5 border-b flex justify-between items-center bg-white">
@@ -4170,41 +4170,39 @@ function openStudentAppPreview() {
 
 <script>
 // Single PNG Download - captures all 4 pages as one vertical image
+// Single PNG Download - optimized for mobile
 async function downloadPitchDeckPNG() {
   const container = document.getElementById('pitchDeckContent');
   if (!container) return;
   
-  // Show loading indicator
   const btn = event.target.closest('button');
   const originalText = btn.innerHTML;
   btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...';
   btn.disabled = true;
   
   try {
-    // Temporarily remove overflow constraints for clean capture
-    const originalOverflow = container.style.overflow;
-    container.style.overflow = 'visible';
+    // Temporarily scale down for mobile performance
+    const scale = window.innerWidth < 768 ? 1.2 : 2;
     
     const canvas = await html2canvas(container, {
-      scale: 2,
+      scale: scale,
       backgroundColor: '#f3f4f6',
       logging: false,
       useCORS: true,
       windowHeight: container.scrollHeight
     });
     
-    // Restore original overflow
-    container.style.overflow = originalOverflow;
-    
-    // Download single PNG
+    // Compress image for smaller file size
     const link = document.createElement('a');
     link.download = 'TrackEDU_Principal_Deck.png';
-    link.href = canvas.toDataURL('image/png');
+    link.href = canvas.toDataURL('image/png', 0.8);
     link.click();
+    
+    showToastMessage('✅ Pitch Deck saved!', 'success');
     
   } catch (error) {
     console.error('PNG capture error:', error);
-    alert('Error generating image. Please try again or take screenshots manually.');
+    showToastMessage('❌ Error. Taking screenshot manually works best.', 'error');
   } finally {
     btn.innerHTML = originalText;
     btn.disabled = false;
@@ -4214,21 +4212,22 @@ async function downloadPitchDeckPNG() {
 
 
 // Single Modal: Value Props + Video/Visuals Together (for all three tools)
+// Single Modal: Value Props + Video/Visuals Together (for all three tools)
+// Single Modal: One scrollable area - clean and simple
 function showToolInfo(tool) {
   const tools = {
     teacher: {
       title: "Teacher App",
       icon: "fa-chalkboard-user",
       gradient: "from-brand-blue to-blue-700",
-      gradientLight: "from-blue-50 to-slate-50",
-      description: "The command center for every classroom. Award points, manage behavior, and run engaging lessons — all from one dashboard.",
+      description: "The command center for every classroom. Award points, manage behavior, and run engaging lessons.",
       valueProps: [
         "Save 4+ hours per week on manual tracking",
         "Magic Hat random picker for fair participation",
-        "Focus Timer & Squad Builder for classroom management",
-        "Quick Quiz library with 250+ pre-written questions",
+        "Focus Timer & Squad Builder",
+        "Quick Quiz library with 250+ questions",
         "Assembly projector mode with live leaderboards",
-        "One-click house points for individuals or whole classes"
+        "One-click house points"
       ],
       visualType: "video",
       visualUrl: "https://player.vimeo.com/video/1178512080?h=ff5159c513&autoplay=1&title=0&byline=0&portrait=0"
@@ -4237,13 +4236,14 @@ function showToolInfo(tool) {
       title: "Student Portal",
       icon: "fa-user-graduate",
       gradient: "from-brand-green to-emerald-600",
-      gradientLight: "from-green-50 to-emerald-50",
       description: "Where school culture becomes a game students actually want to play.",
       valueProps: [
-        "3D holographic badge collection — 30 evolution tiers",
+        "3D holographic badge collection — 30 tiers",
         "Daily streaks with mystery spin rewards",
-        "House power boosts — collective energy toward school-wide events",
-        "Student voice polls and mystery word missions"
+        "House power boosts — collective energy",
+        "Student voice polls",
+        "Mystery word missions",
+        "Live house leaderboards"
       ],
       visualType: "video",
       visualUrl: "https://player.vimeo.com/video/1178539459?h=ff5159c513&autoplay=1&title=0&byline=0&portrait=0"
@@ -4252,17 +4252,16 @@ function showToolInfo(tool) {
       title: "Behavior Tracker",
       icon: "fa-chart-line",
       gradient: "from-purple-600 to-purple-800",
-      gradientLight: "from-purple-50 to-purple-100",
-      description: "Tiered intervention tracking for counsellors and school leaders. Complete visibility without spreadsheets.",
+      description: "Tiered intervention tracking for counsellors and school leaders.",
       valueProps: [
-        "Pre-Tier 1 to Tier 3 tracking with automatic progression",
-        "Parent communication logs with contact history",
-        "Real-time behavior analytics and trends",
-        "Export incident reports by student, class, or grade"
+        "Pre-Tier 1 to Tier 3 auto-progression",
+        "Parent communication logs with history",
+        "Real-time behavior analytics",
+        "Export reports by student, class, or grade",
+        "Counsellor caseload dashboard",
+        "Follow-up scheduling"
       ],
-      visualType: "before-after",
-      beforeImage: "📊 Spreadsheet Chaos",
-      afterImage: "📈 TrackEDU Clarity"
+      visualType: "before-after"
     }
   };
   
@@ -4270,14 +4269,14 @@ function showToolInfo(tool) {
   if (!data) return;
   
   const modal = document.createElement('div');
-  modal.className = 'fixed inset-0 z-[100000] bg-black/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto';
+  modal.className = 'fixed inset-0 z-[100000] bg-black/80 flex items-center justify-center p-0 overflow-y-auto';
   modal.onclick = (e) => { if (e.target === modal) modal.remove(); };
   
-  // Generate visual section based on type
+  // Generate visual section
   let visualHtml = '';
   if (data.visualType === 'video') {
     visualHtml = `
-      <div class="aspect-video bg-black">
+      <div class="aspect-video bg-black rounded-t-2xl overflow-hidden">
         <iframe 
           src="${data.visualUrl}" 
           class="w-full h-full"
@@ -4287,130 +4286,84 @@ function showToolInfo(tool) {
         </iframe>
       </div>
     `;
-  } else if (data.visualType === 'before-after') {
+  } else {
     visualHtml = `
       <div class="bg-gray-50 p-4">
-        <div class="grid md:grid-cols-2 gap-4">
-          <!-- Before Card -->
-          <div class="bg-white rounded-xl p-4 border border-red-200 shadow-sm">
-            <div class="flex items-center gap-2 mb-3">
-              <span class="text-red-500 text-lg">😫</span>
-              <span class="text-xs font-bold text-red-600 uppercase tracking-wider">Before TrackEDU</span>
+        <div class="grid grid-cols-2 gap-3">
+          <div class="bg-white rounded-xl p-3 border border-red-200">
+            <div class="flex items-center gap-1 mb-2"><span class="text-red-500 text-sm">😫</span><span class="text-xs font-bold text-red-600">Before</span></div>
+            <div class="space-y-1 text-[10px]">
+              <div class="flex justify-between"><span>📊 Manual sheets</span><span class="text-red-500">4+ hrs/wk</span></div>
+              <div class="flex justify-between"><span>📧 Parent emails</span><span class="text-red-500">Scattered</span></div>
+              <div class="flex justify-between"><span>📈 Reports</span><span class="text-red-500">Manual</span></div>
+              <div class="flex justify-between"><span>🏷️ Tier tracking</span><span class="text-red-500">Inconsistent</span></div>
             </div>
-            <div class="space-y-2">
-              <div class="flex justify-between text-xs p-2 bg-red-50 rounded">
-                <span>📊 Manual spreadsheets</span>
-                <span class="text-red-500">4+ hours/week</span>
-              </div>
-              <div class="flex justify-between text-xs p-2 bg-red-50 rounded">
-                <span>📧 Parent emails scattered</span>
-                <span class="text-red-500">No central log</span>
-              </div>
-              <div class="flex justify-between text-xs p-2 bg-red-50 rounded">
-                <span>📈 Trend reports</span>
-                <span class="text-red-500">Manual compilation</span>
-              </div>
-              <div class="flex justify-between text-xs p-2 bg-red-50 rounded">
-                <span>🏷️ Tier tracking</span>
-                <span class="text-red-500">Inconsistent</span>
-              </div>
-            </div>
-            <div class="mt-3 text-center text-xs text-red-400 font-medium">❌ Painful. Slow. Error-prone.</div>
           </div>
-          
-          <!-- After Card -->
-          <div class="bg-white rounded-xl p-4 border border-green-200 shadow-sm">
-            <div class="flex items-center gap-2 mb-3">
-              <span class="text-green-500 text-lg">😊</span>
-              <span class="text-xs font-bold text-green-600 uppercase tracking-wider">With TrackEDU</span>
+          <div class="bg-white rounded-xl p-3 border border-green-200">
+            <div class="flex items-center gap-1 mb-2"><span class="text-green-500 text-sm">😊</span><span class="text-xs font-bold text-green-600">After</span></div>
+            <div class="space-y-1 text-[10px]">
+              <div class="flex justify-between"><span>📊 Real-time</span><span class="text-green-600">Instant</span></div>
+              <div class="flex justify-between"><span>📧 Parent logs</span><span class="text-green-600">Centralized</span></div>
+              <div class="flex justify-between"><span>📈 Auto-analytics</span><span class="text-green-600">1 click</span></div>
+              <div class="flex justify-between"><span>🏷️ Auto-tier</span><span class="text-green-600">Consistent</span></div>
             </div>
-            <div class="space-y-2">
-              <div class="flex justify-between text-xs p-2 bg-green-50 rounded">
-                <span>📊 Real-time dashboard</span>
-                <span class="text-green-600">Instant</span>
-              </div>
-              <div class="flex justify-between text-xs p-2 bg-green-50 rounded">
-                <span>📧 Parent logs + history</span>
-                <span class="text-green-600">Centralized</span>
-              </div>
-              <div class="flex justify-between text-xs p-2 bg-green-50 rounded">
-                <span>📈 Auto-generated analytics</span>
-                <span class="text-green-600">One click</span>
-              </div>
-              <div class="flex justify-between text-xs p-2 bg-green-50 rounded">
-                <span>🏷️ Auto-tier progression</span>
-                <span class="text-green-600">Consistent</span>
-              </div>
-            </div>
-            <div class="mt-3 text-center text-xs text-green-500 font-medium">✅ Simple. Fast. Reliable.</div>
           </div>
         </div>
-        
-        <!-- Mini Dashboard Preview -->
-        <div class="mt-4 bg-white rounded-xl p-4 border border-gray-200">
-          <div class="flex items-center justify-between mb-3">
-            <span class="text-xs font-bold text-gray-600">📋 Live Caseload Preview</span>
-            <span class="text-[9px] text-purple-500 bg-purple-50 px-2 py-0.5 rounded-full">Demo Data</span>
+        <div class="mt-3 bg-white rounded-xl p-3 border border-gray-200">
+          <div class="flex gap-2">
+            <div class="flex-1 text-center"><span class="text-sm font-bold text-purple-700">8</span><div class="text-[8px]">Pre-T1</div></div>
+            <div class="flex-1 text-center"><span class="text-sm font-bold text-green-700">12</span><div class="text-[8px]">Tier 1</div></div>
+            <div class="flex-1 text-center"><span class="text-sm font-bold text-yellow-700">5</span><div class="text-[8px]">Tier 2</div></div>
+            <div class="flex-1 text-center"><span class="text-sm font-bold text-red-700">3</span><div class="text-[8px]">Tier 3</div></div>
           </div>
-          <div class="flex gap-2 mb-3">
-            <div class="flex-1 text-center p-2 bg-purple-50 rounded-lg"><span class="text-sm font-bold text-purple-700">8</span><div class="text-[9px] text-gray-500">Pre-Tier 1</div></div>
-            <div class="flex-1 text-center p-2 bg-green-50 rounded-lg"><span class="text-sm font-bold text-green-700">12</span><div class="text-[9px] text-gray-500">Tier 1</div></div>
-            <div class="flex-1 text-center p-2 bg-yellow-50 rounded-lg"><span class="text-sm font-bold text-yellow-700">5</span><div class="text-[9px] text-gray-500">Tier 2</div></div>
-            <div class="flex-1 text-center p-2 bg-red-50 rounded-lg"><span class="text-sm font-bold text-red-700">3</span><div class="text-[9px] text-gray-500">Tier 3</div></div>
-          </div>
-          <div class="text-[10px] text-gray-400 text-center">Export reports | Parent logs | Trend analytics</div>
         </div>
       </div>
     `;
   }
   
-  // Set background color class based on tool
-  let bgClass = '';
-  if (tool === 'student') bgClass = 'bg-green-50';
-  else if (tool === 'behavior') bgClass = 'bg-purple-50';
-  else bgClass = 'bg-blue-50';
+  let btnColor = tool === 'student' ? 'bg-brand-green hover:bg-green-600' : tool === 'behavior' ? 'bg-purple-600 hover:bg-purple-700' : 'bg-brand-blue hover:bg-blue-700';
+  let checkColor = tool === 'student' ? 'text-brand-green' : tool === 'behavior' ? 'text-purple-600' : 'text-brand-blue';
   
   modal.innerHTML = `
-    <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-hidden shadow-2xl animate-modal-slide-up flex flex-col" onclick="event.stopPropagation()">
+    <div class="bg-white w-full max-w-md mx-auto my-8 rounded-2xl overflow-hidden shadow-2xl animate-modal-slide-up flex flex-col max-h-[90vh]" onclick="event.stopPropagation()">
       <!-- Header -->
-      <div class="bg-gradient-to-r ${data.gradient} p-5 text-white shrink-0">
+      <div class="bg-gradient-to-r ${data.gradient} px-5 py-4 text-white shrink-0">
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-3">
-            <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
-              <i class="fas ${data.icon} text-2xl"></i>
+            <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">
+              <i class="fas ${data.icon} text-xl"></i>
             </div>
             <div>
-              <h3 class="text-xl font-bold">${data.title}</h3>
-              <p class="text-white/80 text-xs">See it in action + why it matters</p>
+              <h3 class="text-lg font-bold">${data.title}</h3>
+              <p class="text-white/70 text-[10px]">Why schools love this tool</p>
             </div>
           </div>
-          <button onclick="this.closest('.fixed').remove()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition">&times;</button>
+          <button onclick="this.closest('.fixed').remove()" class="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition">✕</button>
         </div>
       </div>
       
-      <!-- Visual Section (Video OR Before/After) -->
-      ${visualHtml}
-      
-      <!-- Value Props Section -->
-      <div class="p-6 overflow-y-auto flex-1">
-        <p class="text-gray-700 text-sm font-medium mb-4">${data.description}</p>
+      <!-- Content Area - Single Scroll -->
+      <div class="overflow-y-auto flex-1">
+        ${visualHtml}
         
-        <div class="grid sm:grid-cols-2 gap-3 mb-6">
-          ${data.valueProps.map(vp => `
-            <div class="flex items-start gap-2 ${bgClass} rounded-xl p-3">
-              <i class="fas fa-check-circle ${tool === 'student' ? 'text-brand-green' : tool === 'behavior' ? 'text-purple-600' : 'text-brand-blue'} text-sm mt-0.5 shrink-0"></i>
-              <span class="text-sm text-gray-700">${vp}</span>
-            </div>
-          `).join('')}
-        </div>
-        
-        <div class="flex flex-col sm:flex-row gap-3 pt-4 border-t border-gray-100">
+        <div class="p-5">
+          <p class="text-gray-600 text-sm mb-4">${data.description}</p>
+          
+          <div class="grid grid-cols-2 gap-2 mb-5">
+            ${data.valueProps.slice(0,6).map(vp => `
+              <div class="flex items-start gap-1.5">
+                <i class="fas fa-check-circle ${checkColor} text-xs mt-0.5 shrink-0"></i>
+                <span class="text-xs text-gray-600">${vp}</span>
+              </div>
+            `).join('')}
+          </div>
+          
           <button onclick="openPilotModal(); this.closest('.fixed').remove();" 
-            class="flex-1 py-3 rounded-xl font-bold text-white ${tool === 'student' ? 'bg-brand-green hover:bg-green-600' : tool === 'behavior' ? 'bg-purple-600 hover:bg-purple-700' : 'bg-brand-blue hover:bg-blue-700'} transition shadow-md">
+            class="w-full py-3 rounded-xl font-bold text-white ${btnColor} transition shadow-md text-sm">
             🚀 Start Free Pilot
           </button>
           <button onclick="this.closest('.fixed').remove()" 
-            class="flex-1 py-3 rounded-xl font-medium text-gray-600 border border-gray-200 hover:bg-gray-50 transition">
+            class="w-full mt-2 py-2 rounded-xl font-medium text-gray-500 text-xs hover:bg-gray-50 transition">
             Close
           </button>
         </div>
@@ -4435,7 +4388,6 @@ function showToolInfo(tool) {
     document.head.appendChild(style);
   }
 }
-
 
 
 </script>
