@@ -7,12 +7,19 @@
     <meta name="robots" content="index, follow">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
-    <style>body { font-family: 'Inter', sans-serif; }</style>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .text-brand-blue { color: #0f66c3; }
+        .text-brand-green { color: #87C232; }
+        .border-brand-blue { border-color: #0f66c3; }
+        .bg-brand-blue { background-color: #0f66c3; }
+        .bg-brand-green { background-color: #87C232; }
+    </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
     <div class="max-w-4xl mx-auto px-6 py-12">
         <div class="mb-10">
-            <a href="/" class="text-blue-600 font-bold hover:underline" style="color: #0f66c3;">← Back to Home</a>
+            <a href="/" class="text-brand-blue font-bold hover:underline">← Back to Home</a>
         </div>
 
         <div class="flex items-center gap-3 mb-2">
@@ -24,25 +31,27 @@
             
             <section>
                 <h2 class="text-2xl font-bold mb-4 text-slate-900 border-b pb-2">1. Introduction & Overview</h2>
-                <p class="text-gray-600 leading-relaxed mb-4">TrackEDU ("we", "our", or "us") provides a digital school culture, gamification, and house point tracking platform. We are deeply committed to protecting the privacy and security of educators, administrators, and students.</p>
+                <p class="text-gray-600 leading-relaxed mb-4">TrackEDU ("we", "our", or "us") provides a complete school culture operating system featuring three integrated tools: the <strong>Teacher App</strong>, <strong>Student Portal</strong>, and <strong>Behavior Tracker</strong>. We are deeply committed to protecting the privacy and security of educators, administrators, counsellors, and students.</p>
                 <p class="text-gray-600 leading-relaxed">In the context of data protection laws, the <strong>School or Educational Institution is the Data Controller</strong>, and <strong>TrackEDU acts solely as the Data Processor</strong>. We only process student data under the direct instruction and authorization of the school.</p>
             </section>
 
             <section>
                 <h2 class="text-2xl font-bold mb-4 text-slate-900 border-b pb-2">2. Information We Collect</h2>
-                <p class="text-gray-600 leading-relaxed mb-4">We adhere to the principle of data minimization, collecting only what is strictly necessary to operate the platform.</p>
+                <p class="text-gray-600 leading-relaxed mb-4">We adhere to the principle of data minimization, collecting only what is strictly necessary to operate the three integrated tools.</p>
                 
-                <h3 class="text-lg font-bold text-slate-800 mt-6 mb-2">A. Educator & Administrator Data</h3>
+                <h3 class="text-lg font-bold text-slate-800 mt-6 mb-2">A. Teacher & Administrator Data (Teacher App)</h3>
                 <ul class="list-disc pl-5 text-gray-600 space-y-2 mb-4">
                     <li><strong>Account Information:</strong> First and last name, school email address, school affiliation, and professional role.</li>
                     <li><strong>Authentication Data:</strong> We use Google Single Sign-On (SSO) to authenticate educators. We do not process or store your Google password.</li>
+                    <li><strong>Platform Activity:</strong> Points awarded, class management actions, and toolkit usage patterns.</li>
                 </ul>
 
-                <h3 class="text-lg font-bold text-slate-800 mt-6 mb-2">B. Student Data (Provided by the School)</h3>
+                <h3 class="text-lg font-bold text-slate-800 mt-6 mb-2">B. Student Data (Student Portal & Behavior Tracker)</h3>
                 <ul class="list-disc pl-5 text-gray-600 space-y-2 mb-4">
                     <li><strong>Profile Information:</strong> First name, last initial (or last name), grade/category, class assignment, and house assignment. Student names are partially displayed (e.g., "Bill S." instead of full name) to protect individual privacy.</li>
-                    <li><strong>Platform Activity:</strong> Points earned, badges unlocked, daily streaks, and poll participation.</li>
-                    <li><strong class="text-blue-600">What we DO NOT collect:</strong> We strictly prohibit and do not collect student email addresses, phone numbers, home addresses, dates of birth, social security numbers, or sensitive demographic/health data. Students access the app via auto-generated anonymous ID tokens and shared class passcodes.</li>
+                    <li><strong>Student Portal Activity:</strong> Points earned, 3D badges unlocked, daily streaks, house power boost contributions, poll participation, and mystery word mission progress.</li>
+                    <li><strong>Behavior Tracker Data:</strong> Incident logs, behavior types, severity levels, tier progression (Pre-Tier 1 to Tier 3), action taken, follow-up notes, and parent communication records.</li>
+                    <li><strong class="text-brand-blue">What we DO NOT collect:</strong> We strictly prohibit and do not collect student email addresses, phone numbers, home addresses, dates of birth, social security numbers, or sensitive demographic/health data. Students access the Student Portal via auto-generated anonymous ID tokens and shared class passcodes.</li>
                 </ul>
 
                 <h3 class="text-lg font-bold text-slate-800 mt-6 mb-2">C. Automatically Collected Usage Data</h3>
@@ -53,10 +62,12 @@
 
             <section>
                 <h2 class="text-2xl font-bold mb-4 text-slate-900 border-b pb-2">3. How We Use the Information</h2>
-                <p class="text-gray-600 leading-relaxed mb-2">We use the collected data exclusively to provide and support the TrackEDU platform. Specifically, to:</p>
+                <p class="text-gray-600 leading-relaxed mb-2">We use the collected data exclusively to provide and support the three TrackEDU tools. Specifically, to:</p>
                 <ul class="list-disc pl-5 text-gray-600 space-y-2">
-                    <li>Operate the house point tracking, leaderboards, and gamification mechanics.</li>
-                    <li>Authenticate authorized school staff.</li>
+                    <li><strong>Teacher App:</strong> Operate house point tracking, classroom toolkits (Magic Hat, Timer, Squad Builder), and live assembly displays.</li>
+                    <li><strong>Student Portal:</strong> Power gamification features including 3D badges, daily streaks, house power boosts, and mystery word missions.</li>
+                    <li><strong>Behavior Tracker:</strong> Enable tiered intervention tracking, parent communication logs, and real-time behavior analytics for counsellors and school leaders.</li>
+                    <li>Authenticate authorized school staff and counsellors.</li>
                     <li>Generate anonymized, aggregated school-wide analytics for administrators.</li>
                     <li>Provide customer support and respond to technical issues.</li>
                 </ul>
@@ -69,15 +80,15 @@
                 <h2 class="text-2xl font-bold mb-4 text-slate-900 border-b pb-2">4. Subprocessors & Data Sharing</h2>
                 <p class="text-gray-600 leading-relaxed mb-4">We do not share your data with third parties except as necessary to provide the service through trusted infrastructure partners (Subprocessors). Our subprocessors are contractually bound to stringent privacy and security standards:</p>
                 <ul class="list-disc pl-5 text-gray-600 space-y-2">
-                    <li><strong>Google Cloud Platform (Firebase):</strong> Used for secure database hosting, real-time syncing, and educator authentication. Google Cloud's underlying infrastructure is certified under SOC 2 and ISO 27001.</li>
-                    <li><strong>EmailJS:</strong> Used exclusively to route transactional emails (e.g., account approvals and system alerts) to educators.</li>
+                    <li><strong>Google Cloud Platform (Firebase):</strong> Used for secure database hosting, real-time syncing across all three tools, and educator authentication. Google Cloud's underlying infrastructure is certified under SOC 2 and ISO 27001.</li>
+                    <li><strong>EmailJS:</strong> Used exclusively to route transactional emails (e.g., account approvals, system alerts, and behavior incident notifications) to educators and counsellors.</li>
                 </ul>
             </section>
 
             <section>
                 <h2 class="text-2xl font-bold mb-4 text-slate-900 border-b pb-2">5. Cookies & Local Storage</h2>
                 <p class="text-gray-600 leading-relaxed mb-2">TrackEDU does not use third-party tracking cookies or advertising pixels.</p>
-                <p class="text-gray-600 leading-relaxed">We use browser <strong>Local Storage</strong> strictly for functional purposes within the Student App, such as tracking "daily login streaks," preventing duplicate poll votes, and temporarily locking gamification elements (like House Power Boosts) to ensure fair play. This data remains on the device and is not used to track students across the internet.</p>
+                <p class="text-gray-600 leading-relaxed">We use browser <strong>Local Storage</strong> strictly for functional purposes within the Student Portal and Behavior Tracker, such as tracking "daily login streaks," preventing duplicate poll votes, temporarily locking gamification elements (like House Power Boosts), and caching user preferences. This data remains on the device and is not used to track students across the internet.</p>
             </section>
 
             <section>
@@ -85,18 +96,20 @@
                 <p class="text-gray-600 leading-relaxed mb-2">We implement robust security measures to protect educational records:</p>
                 <ul class="list-disc pl-5 text-gray-600 space-y-2">
                     <li><strong>Encryption:</strong> Data is encrypted in transit using TLS 1.3 and at rest using AES-256 encryption.</li>
-                    <li><strong>Access Controls:</strong> Firebase Security Rules strictly govern database reads and writes, ensuring that student data is only accessible to authorized educators within that specific school domain.</li>
-                    <li><strong>Anonymous IDs:</strong> The Student App requires only a randomly generated alphanumeric ID and a shared Class Passcode, mitigating the risk of credential theft.</li>
-                    <li><strong>Privacy-First Display:</strong> Student names are partially displayed (e.g., "Bill S." instead of full name) to protect individual privacy while maintaining functionality.</li>
+                    <li><strong>Access Controls:</strong> Firebase Security Rules strictly govern database reads and writes, ensuring that student data is only accessible to authorized educators, counsellors, and school leaders within that specific school domain.</li>
+                    <li><strong>Anonymous IDs:</strong> The Student Portal requires only a randomly generated alphanumeric ID and a shared Class Passcode, mitigating the risk of credential theft.</li>
+                    <li><strong>Privacy-First Display:</strong> Student names are partially displayed (e.g., "Bill S." instead of full name) to protect individual privacy while maintaining functionality across all three tools.</li>
+                    <li><strong>Role-Based Access:</strong> Homeroom Teachers see their students only. Counsellors (SAC) see school-wide behavior data. School leaders (SLT) have administrative visibility.</li>
                 </ul>
             </section>
 
             <section>
                 <h2 class="text-2xl font-bold mb-4 text-slate-900 border-b pb-2">7. Data Retention & Deletion</h2>
-                <p class="text-gray-600 leading-relaxed mb-4">Schools have absolute control over their data lifecycle.</p>
+                <p class="text-gray-600 leading-relaxed mb-4">Schools have absolute control over their data lifecycle across all three tools.</p>
                 <ul class="list-disc pl-5 text-gray-600 space-y-2">
                     <li><strong>Active Subscriptions:</strong> Data is retained as long as the school maintains an active license to provide continuous service.</li>
-                    <li><strong>Self-Serve Deletion:</strong> School Administrators have access to a "Full System Wipe" feature in their dashboard, allowing them to permanently and irrevocably destroy all student records, points, and history instantly.</li>
+                    <li><strong>Self-Serve Deletion:</strong> School Administrators have access to a "Full System Wipe" feature in their dashboard, allowing them to permanently and irrevocably destroy all student records, points, behavior incidents, and history instantly.</li>
+                    <li><strong>Behavior Tracker Export:</strong> Counsellors can export all behavior incident reports to CSV before deletion.</li>
                     <li><strong>Account Termination:</strong> Upon cancellation or expiration of a contract, we will permanently delete the school's database within 90 days unless legal holds apply.</li>
                 </ul>
             </section>
@@ -106,15 +119,15 @@
                 <div class="space-y-6">
                     <div>
                         <h3 class="text-lg font-bold text-slate-800 mb-2">FERPA Considerations (United States)</h3>
-                        <p class="text-gray-600 text-sm">TrackEDU is designed with privacy-first principles to support schools in their educational record-keeping. We act as a "School Official" with a legitimate educational interest. We operate under the direct control of the school regarding the use and maintenance of educational records. Schools should consult their legal counsel to determine compliance with specific regulations.</p>
+                        <p class="text-gray-600 text-sm">TrackEDU is designed with privacy-first principles to support schools in their educational record-keeping. We act as a "School Official" with a legitimate educational interest across all three tools — Teacher App, Student Portal, and Behavior Tracker. We operate under the direct control of the school regarding the use and maintenance of educational records. Schools should consult their legal counsel to determine compliance with specific regulations.</p>
                     </div>
                     <div>
                         <h3 class="text-lg font-bold text-slate-800 mb-2">COPPA Considerations (United States)</h3>
-                        <p class="text-gray-600 text-sm">The Children's Online Privacy Protection Act (COPPA) protects children under 13. TrackEDU relies on the School to provide verifiable consent to create student profiles. We intentionally do not collect PII directly from students, nor do we require personal accounts for students to interact with the system.</p>
+                        <p class="text-gray-600 text-sm">The Children's Online Privacy Protection Act (COPPA) protects children under 13. TrackEDU relies on the School to provide verifiable consent to create student profiles. We intentionally do not collect PII directly from students, nor do we require personal accounts for students to interact with the Student Portal.</p>
                     </div>
                     <div>
                         <h3 class="text-lg font-bold text-slate-800 mb-2">GDPR Principles (European Union / UK)</h3>
-                        <p class="text-gray-600 text-sm">Schools act as the Data Controller and TrackEDU as the Data Processor. Data processing is based on the legitimate interest of the school to administer educational programs. Data is processed within the region determined by Google Cloud infrastructure routing. Schools should consult their legal counsel for GDPR compliance requirements.</p>
+                        <p class="text-gray-600 text-sm">Schools act as the Data Controller and TrackEDU as the Data Processor. Data processing is based on the legitimate interest of the school to administer educational programs. Data is processed within the region determined by Google Cloud infrastructure routing, with region-specific hosting available for SG/UK-based schools. Schools should consult their legal counsel for GDPR compliance requirements.</p>
                     </div>
                 </div>
             </section>
@@ -126,7 +139,7 @@
                     <li><strong>Access:</strong> Request a copy of the personal data we hold.</li>
                     <li><strong>Correction:</strong> Request that inaccurate data be updated.</li>
                     <li><strong>Deletion:</strong> Request the erasure of your data (Right to be Forgotten).</li>
-                    <li><strong>Portability:</strong> Export data via the built-in CSV export tools in the Admin Dashboard.</li>
+                    <li><strong>Portability:</strong> Export data via the built-in CSV export tools in the Admin Dashboard (including behavior incident reports).</li>
                 </ul>
                 <p class="text-gray-600 text-sm italic mt-4">Note: Parents or students wishing to exercise these rights must contact their School Administrator directly, as the school controls the data. TrackEDU will assist the school in fulfilling these requests.</p>
             </section>
@@ -136,7 +149,7 @@
                 <p class="text-gray-600 mb-2">If you have any questions about this Privacy Policy, our data practices, or wish to review our Data Processing Agreement (DPA), please contact us at:</p>
                 <div class="bg-gray-100 p-4 rounded-lg inline-block mt-2 border border-gray-200">
                     <p class="font-bold text-slate-800">TrackEDU Privacy & Security Team</p>
-                    <a href="mailto:hello@trackedu.net" class="text-blue-600 font-bold hover:underline" style="color: #0f66c3;">hello@trackedu.net</a>
+                    <a href="mailto:hello@trackedu.net" class="text-brand-blue font-bold hover:underline">hello@trackedu.net</a>
                 </div>
             </section>
 
