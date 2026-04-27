@@ -1043,6 +1043,13 @@ html { scroll-padding-top: 100px; }
 </head>
 <body class="antialiased text-gray-800 overflow-x-hidden">
 
+<!-- MOM COMPLIANCE BANNER - PERSONAL DEVELOPMENT PROJECT -->
+<div class="bg-amber-50 border-b border-amber-200 text-amber-700 px-4 py-2.5 text-center text-sm font-medium sticky top-0 z-50 flex flex-wrap items-center justify-center gap-3">
+  <span>🔧 <strong>Personal Development Project</strong> — Technical demonstration only</span>
+  <span class="text-xs bg-amber-100 px-2 py-0.5 rounded-full">No commercial services</span>
+  <span class="text-xs bg-amber-100 px-2 py-0.5 rounded-full">Private testing phase</span>
+</div>
+
 
 <!-- MOBILE TOP HEADER (visible only on mobile, auto-hide on scroll) -->
 <div id="mobileTopHeader" class="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-xl border-b border-gray-100 shadow-sm md:hidden transition-transform duration-300 ease-out">
@@ -1087,7 +1094,9 @@ html { scroll-padding-top: 100px; }
         <a href="#how" class="text-base font-bold text-gray-700 hover:text-brand-blue transition">Tools</a>
         <a href="#mobile-demo" class="text-base font-bold text-gray-700 hover:text-brand-green transition">Demo</a>
         <a href="#business" class="text-base font-bold text-gray-700 hover:text-brand-blue transition">Results</a>
-        <a href="#pricing" class="text-base font-bold text-gray-700 hover:text-brand-blue transition">Pricing</a>
+        <!-- PRICING LINK HIDDEN - MOM COMPLIANCE
+<a href="#pricing" class="text-base font-bold text-gray-700 hover:text-brand-blue transition">Pricing</a>
+-->
         <a href="#faq" class="text-base font-bold text-gray-700 hover:text-brand-blue transition">FAQ</a>
       </div>
       
@@ -1129,10 +1138,12 @@ html { scroll-padding-top: 100px; }
         <i class="fas fa-chart-line text-lg"></i>
         <span class="text-[9px] font-medium">Results</span>
       </a>
-      <a href="#pricing" class="flex flex-col items-center gap-0.5 py-1 px-2 text-gray-500 hover:text-brand-blue transition">
-        <i class="fas fa-tag text-lg"></i>
-        <span class="text-[9px] font-medium">Price</span>
-      </a>
+      <!-- PRICING NAV HIDDEN - MOM COMPLIANCE
+<a href="#pricing" class="flex flex-col items-center gap-0.5 py-1 px-2 text-gray-500 hover:text-brand-blue transition">
+  <i class="fas fa-tag text-lg"></i>
+  <span class="text-[9px] font-medium">Price</span>
+</a>
+-->
       <a href="#faq" class="flex flex-col items-center gap-0.5 py-1 px-2 text-gray-500 hover:text-brand-blue transition">
         <i class="fas fa-question-circle text-lg"></i>
         <span class="text-[9px] font-medium">FAQ</span>
@@ -1262,14 +1273,20 @@ html { scroll-padding-top: 100px; }
   
           <div class="order-5 lg:order-none flex flex-col gap-2 justify-center lg:justify-start w-full sm:w-auto">
             <div class="flex flex-col sm:flex-row gap-3">
-              <button onclick="window.open('https://housepoint.trackedu.net/', '_blank')" class="btn text-lg px-8 py-3.5 flex items-center justify-center gap-3 group bg-brand-green hover:bg-green-600 border-2 border-brand-green text-white shadow-xl">
-                <i class="fas fa-rocket text-white text-sm group-hover:translate-y-[-2px] transition"></i>
-                Start Free Pilot Now
-              </button>
-                
-              <button id="bookWalkthrough" data-cal-link="trackedu-a9dbpy/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view"}' class="btn text-lg px-8 py-3.5 bg-brand-dark hover:bg-gray-800 text-white border-2 border-brand-dark shadow-xl flex flex-col items-center justify-center leading-tight">
-                <span>Book School Walkthrough</span>
-              </button>
+             <!-- PILOT & WALKTHROUGH BUTTONS HIDDEN - MOM COMPLIANCE
+<button onclick="window.open('https://housepoint.trackedu.net/', '_blank')" class="btn text-lg px-8 py-3.5...">
+  Start Free Pilot Now
+</button>
+  
+<button id="bookWalkthrough" ...>
+  Book School Walkthrough
+</button>
+-->
+
+<!-- Temporary safe button -->
+<button disabled class="btn text-lg px-8 py-3.5 bg-gray-400 cursor-not-allowed opacity-50 shadow-none">
+  <i class="fas fa-code"></i> Technical Demo (Private Access)
+</button>
             </div>
             <p class="text-[10px] text-gray-400 font-semibold text-center lg:text-left ml-1 mt-0.5">Test instantly, no credit card required.</p>
           </div>
@@ -2137,6 +2154,7 @@ html { scroll-padding-top: 100px; }
     </div>
 
     <!-- Testimonial -->
+    <!-- TESTIMONIAL SECTION HIDDEN FOR MOM COMPLIANCE - PERSONAL PROJECT MODE
     <div class="max-w-3xl mx-auto bg-gray-50 rounded-2xl p-8 border border-gray-200">
       <div class="flex items-start gap-4">
         <div class="text-5xl text-brand-green opacity-50">“</div>
@@ -2154,12 +2172,35 @@ html { scroll-padding-top: 100px; }
         </div>
       </div>
     </div>
+-->
+
+<!-- SAFE PLACEHOLDER FOR PERSONAL PROJECT MODE -->
+    <div class="max-w-3xl mx-auto bg-gray-50 rounded-2xl p-8 border border-gray-200">
+      <div class="flex items-start gap-4">
+        <div class="text-5xl text-gray-300 opacity-50">“</div>
+        <div>
+          <p class="text-gray-500 text-lg italic mb-4">This is a personal development project. Feedback from concept testing has been positive, but no commercial services are currently offered.</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center">
+              <i class="fas fa-code text-gray-500 text-sm"></i>
+            </div>
+            <div>
+              <div class="font-bold text-gray-600">Developer</div>
+              <div class="text-xs text-gray-400">Personal Project</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="text-center mt-12">
       <button onclick="openPilotModal()" class="btn px-10 py-4 text-lg font-bold shadow-xl hover:scale-105 transition-all">
         Start Your Free Pilot →
       </button>
+      <!-- JOIN SCHOOLS TEXT HIDDEN FOR MOM COMPLIANCE - PERSONAL PROJECT MODE
       <p class="text-xs text-gray-400 mt-4">Join 15+ international schools already using TrackEDU</p>
+      -->
+      <p class="text-xs text-gray-400 mt-4">Personal development project — technical demonstration only</p>
     </div>
 
   </div>
@@ -2167,155 +2208,23 @@ html { scroll-padding-top: 100px; }
 
   
   
-<section id="pricing" class="py-24 bg-white">
-  <div class="max-w-6xl mx-auto px-6">
-    
-    <!-- Top badge -->
-    <div class="text-center mb-6">
-      <span class="inline-flex items-center gap-2 bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium">
-        <i class="fas fa-mobile-alt text-brand-green"></i>
-        Works on iPhone · iPad · Android · Windows · Mac
-      </span>
-    </div>
 
-    <!-- Headline -->
-    <div class="text-center max-w-3xl mx-auto mb-12">
-      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
-        A complete culture operating system
-      </h2>
-      <p class="text-xl text-gray-500">
-        Three integrated apps. One unified platform. Zero spreadsheets.
+<!-- TEMPORARY PLACEHOLDER FOR PERSONAL PROJECT MODE -->
+<section class="py-24 bg-white">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <div class="bg-amber-50 border border-amber-200 rounded-2xl p-8 md:p-12">
+      <i class="fas fa-code text-4xl text-amber-500 mb-4"></i>
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-3">Personal Development Project</h2>
+      <p class="text-gray-600 max-w-lg mx-auto">
+        TrackEDU is currently in private testing phase. No commercial services are offered at this time.
       </p>
-    </div>
-
-    <!-- 🔥 FOUNDING PARTNERS - License Waiver -->
-    <div class="max-w-4xl mx-auto mb-12">
-      <div class="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl shadow-xl overflow-hidden">
-        <div class="p-8 md:p-10">
-          
-          <div class="flex flex-wrap justify-between items-center gap-4 mb-6">
-            <div class="inline-flex items-center gap-2 bg-brand-green/20 backdrop-blur-sm px-4 py-1.5 rounded-full">
-              <span class="text-brand-green font-bold text-sm">🤝 Strategic Partnership</span>
-            </div>
-            <div class="inline-flex items-center gap-2 bg-red-500/20 backdrop-blur-sm px-4 py-1.5 rounded-full">
-              <span class="text-red-400 font-bold text-sm">⚠️ 3 spots left out of 5</span>
-            </div>
-          </div>
-          
-          <h3 class="text-3xl md:text-4xl font-bold text-white mb-3">Founding Schools Program</h3>
-          
-          <p class="text-gray-300 text-lg max-w-2xl mb-6">
-            We're hand-selecting <strong class="text-brand-green font-bold">5 partner schools</strong> to help shape the future of TrackEDU. Selected schools receive a <strong class="text-brand-green">full license waiver</strong> for the Pro Ecosystem for one year, plus dedicated training and implementation support.
-          </p>
-          
-          <div class="flex flex-wrap gap-4 mb-8">
-            <div class="flex items-center gap-2 bg-white/10 rounded-full px-4 py-2">
-              <i class="fas fa-chalkboard-user text-brand-green text-sm"></i>
-              <span class="text-white text-sm">Staff training workshops</span>
-            </div>
-            <div class="flex items-center gap-2 bg-white/10 rounded-full px-4 py-2">
-              <i class="fas fa-headset text-brand-green text-sm"></i>
-              <span class="text-white text-sm">Priority implementation support</span>
-            </div>
-            <div class="flex items-center gap-2 bg-white/10 rounded-full px-4 py-2">
-              <i class="fas fa-star text-brand-green text-sm"></i>
-              <span class="text-white text-sm">Featured as early innovator</span>
-            </div>
-          </div>
-          
-          <p class="text-gray-400 text-sm mb-6">
-            Start with a no-obligation 30-day pilot, then indicate your interest in the program.
-          </p>
-          
-          <button onclick="openPilotModal()" class="inline-flex items-center gap-2 bg-white text-gray-900 hover:bg-gray-100 font-bold py-3 px-8 rounded-xl transition-all duration-200 shadow-lg">
-            Express Interest <i class="fas fa-arrow-right"></i>
-          </button>
-        </div>
+      <div class="mt-4 text-sm text-gray-400">
+        <span class="inline-flex items-center gap-2">🔧 Technical demonstration only</span>
       </div>
     </div>
-
-    <!-- Two-column: Pro + Solo -->
-    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
-      
-      <!-- PRO CARD -->
-      <div class="relative bg-gradient-to-br from-white to-blue-50/30 rounded-2xl border-2 border-brand-blue/40 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
-        <div class="absolute top-0 right-0 w-20 h-20">
-          <div class="absolute top-0 right-0 w-0 h-0 border-t-[80px] border-r-[80px] border-t-brand-blue/10 border-r-transparent"></div>
-        </div>
-        
-        <div class="p-8 relative z-10">
-          <div class="flex justify-between items-start mb-4">
-            <div>
-              <h3 class="text-2xl font-bold text-gray-900">Pro Ecosystem</h3>
-              <p class="text-brand-blue font-medium mt-1">For whole schools · Up to 3,000 students</p>
-              <p class="text-brand-blue/60 text-[11px] font-bold uppercase tracking-wider mt-1">(Future per-student pricing waived for Founding Schools)</p>
-            </div>
-            <div class="flex flex-col items-end gap-2">
-              <span class="bg-brand-blue/15 text-brand-blue text-xs font-bold px-3 py-1 rounded-full">Most Popular</span>
-              <span class="bg-brand-green/10 text-brand-green text-[10px] font-bold px-2 py-0.5 rounded-full">License Waiver Available</span>
-            </div>
-          </div>
-          
-          <div class="border-t border-brand-blue/20 my-6"></div>
-          
-          <ul class="space-y-3 mb-8">
-            <li class="flex items-start gap-3 text-gray-700"><i class="fas fa-check-circle text-brand-green text-lg mt-0.5 w-5"></i> <span><strong>Teacher App</strong> — Full command center</span></li>
-            <li class="flex items-start gap-3 text-gray-700"><i class="fas fa-check-circle text-brand-green text-lg mt-0.5 w-5"></i> <span><strong>Student Portal</strong> — 3D badges + streaks</span></li>
-            <li class="flex items-start gap-3 text-gray-700"><i class="fas fa-check-circle text-brand-green text-lg mt-0.5 w-5"></i> <span><strong>Behavior Tracker</strong> — Tiered interventions</span></li>
-            <li class="flex items-start gap-3 text-gray-700"><i class="fas fa-check-circle text-brand-green text-lg mt-0.5 w-5"></i> <span>Live Admin Analytics & Dashboards</span></li>
-            <li class="flex items-start gap-3 text-gray-700"><i class="fas fa-check-circle text-brand-green text-lg mt-0.5 w-5"></i> <span>10+ Teacher Toolkit Utilities</span></li>
-            <li class="flex items-start gap-3 text-gray-700"><i class="fas fa-check-circle text-brand-green text-lg mt-0.5 w-5"></i> <span>Projector Mode for Assemblies</span></li>
-            <li class="flex items-start gap-3 text-gray-700"><i class="fas fa-check-circle text-brand-green text-lg mt-0.5 w-5"></i> <span>Priority Support & CSV Import</span></li>
-          </ul>
-          
-          <button onclick="openPilotModal()" class="w-full py-3.5 bg-brand-blue hover:bg-brand-blue/90 text-white font-bold rounded-xl transition-all duration-200 shadow-md">
-            Start 30-Day Pilot →
-          </button>
-          <p class="text-center text-xs text-gray-400 mt-3">No credit card required · Full access</p>
-        </div>
-      </div>
-      
-      <!-- SOLO CARD -->
-      <div class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
-        <div class="p-8">
-          <div class="flex justify-between items-start mb-4">
-            <div>
-              <h3 class="text-xl font-bold text-gray-500">Solo Plan</h3>
-              <p class="text-gray-400 text-sm mt-1">For individual teachers</p>
-            </div>
-            <span class="bg-gray-200 text-gray-500 text-xs font-semibold px-3 py-1 rounded-full">Free Forever</span>
-          </div>
-          
-          <div class="border-t border-gray-200 my-6"></div>
-          
-          <ul class="space-y-3 mb-8">
-            <li class="flex items-start gap-3 text-gray-400"><i class="fas fa-check-circle text-gray-300 text-lg mt-0.5 w-5"></i> <span>1 teacher account</span></li>
-            <li class="flex items-start gap-3 text-gray-400"><i class="fas fa-check-circle text-gray-300 text-lg mt-0.5 w-5"></i> <span>1 class · up to 30 students</span></li>
-            <li class="flex items-start gap-3 text-gray-400"><i class="fas fa-check-circle text-gray-300 text-lg mt-0.5 w-5"></i> <span>Magic Hat random picker</span></li>
-            <li class="flex items-start gap-3 text-gray-400"><i class="fas fa-check-circle text-gray-300 text-lg mt-0.5 w-5"></i> <span>Magic Timer</span></li>
-          </ul>
-          
-          <button onclick="window.open('https://housepoint.trackedu.net/', '_blank')" class="w-full py-3.5 bg-gray-200 hover:bg-gray-300 text-gray-600 font-medium rounded-xl transition-all duration-200">
-            Launch Solo Plan →
-          </button>
-          <p class="text-center text-xs text-gray-400 mt-3">No credit card · Instant access</p>
-        </div>
-      </div>
-      
-    </div>
-    
-    <!-- Trust footer - Updated with SG/UK hosting -->
-    <div class="text-center mt-12">
-      <div class="inline-flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-gray-400">
-        <span class="flex items-center gap-2"><i class="fas fa-lock text-brand-green text-xs"></i> Privacy-first architecture</span>
-        <span class="flex items-center gap-2"><i class="fas fa-database text-brand-green text-xs"></i> Your data, your control</span>
-        <span class="flex items-center gap-2"><i class="fas fa-file-export text-brand-green text-xs"></i> Export anytime</span>
-        <span class="flex items-center gap-2"><i class="fas fa-globe text-brand-green text-xs"></i> Region-specific hosting (SG/UK)</span>
-      </div>
-    </div>
-
   </div>
 </section>
+
 
 
 
@@ -2439,7 +2348,7 @@ html { scroll-padding-top: 100px; }
         </button>
       </div>
       
-      <p class="text-gray-400 text-xs font-medium uppercase tracking-widest">Join 15+ international schools already using TrackEDU</p>
+      <p class="text-gray-400 text-xs font-medium uppercase tracking-widest">Personal development project — technical demonstration only</p>
     </div>
 
   </div>
@@ -2622,7 +2531,8 @@ html { scroll-padding-top: 100px; }
       <div>
         <div class="font-display text-4xl font-black mb-6">Track<span class="text-brand-green">EDU</span></div>
 <p class="text-gray-400 text-lg max-w-md leading-relaxed mb-8">
-  A complete school culture operating system. Three integrated tools — Teacher App, Student Portal, and Behavior Tracker — working as one unified platform.
+  TrackEDU is a personal software development project demonstrating school culture platform concepts. 
+  No commercial operations. No business entity. Private testing phase only.
 </p>
         
         <div class="flex items-center gap-4">
@@ -2841,77 +2751,77 @@ html { scroll-padding-top: 100px; }
             </div>
           </div>
           
-          <form action="https://formsubmit.co/hello@trackedu.net" method="POST" id="foundingSchoolsForm" class="space-y-4">
-            <input type="hidden" name="_subject" value="🔥 Founding Schools Application - TrackEDU">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="box">
-            <input type="hidden" name="_next" value="https://www.trackedu.net?application=submitted">
-            <input type="hidden" name="_autoresponse" value="Thank you for applying to the TrackEDU Founding Schools Program!
+          <!-- LEAD FORM HIDDEN FOR MOM COMPLIANCE - PERSONAL PROJECT MODE
+<form action="https://formsubmit.co/hello@trackedu.net" method="POST" id="foundingSchoolsForm" class="space-y-4">
+  <div class="grid grid-cols-2 gap-3">
+    <div>
+      <label class="block text-xs font-semibold text-gray-600 mb-1">Full name *</label>
+      <input type="text" name="name" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm">
+    </div>
+    <div>
+      <label class="block text-xs font-semibold text-gray-600 mb-1">Job title *</label>
+      <input type="text" name="title" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm">
+    </div>
+  </div>
+  
+  <div class="grid grid-cols-2 gap-3">
+    <div>
+      <label class="block text-xs font-semibold text-gray-600 mb-1">School email *</label>
+      <input type="email" name="email" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm">
+    </div>
+    <div>
+      <label class="block text-xs font-semibold text-gray-600 mb-1">School name *</label>
+      <input type="text" name="school" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm">
+    </div>
+  </div>
+  
+  <div class="grid grid-cols-2 gap-3">
+    <div>
+      <label class="block text-xs font-semibold text-gray-600 mb-1">Country *</label>
+      <select name="country" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm bg-white">
+        <option value="">Select country</option>
+        <option value="Singapore">🇸🇬 Singapore</option>
+        <option value="United Kingdom">🇬🇧 United Kingdom</option>
+        <option value="Malaysia">🇲🇾 Malaysia</option>
+        <option value="Thailand">🇹🇭 Thailand</option>
+        <option value="UAE">🇦🇪 UAE</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+    <div>
+      <label class="block text-xs font-semibold text-gray-600 mb-1">Student count *</label>
+      <select name="student_count" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm bg-white">
+        <option value="">Select range</option>
+        <option value="<100">&lt; 100</option>
+        <option value="100-300">100 - 300</option>
+        <option value="300-600">300 - 600</option>
+        <option value="600-1000">600 - 1,000</option>
+        <option value="1000+">1,000+</option>
+      </select>
+    </div>
+  </div>
+  
+  <input type="hidden" name="source" value="founding_schools_modal">
+  <input type="hidden" name="timestamp" value="">
+  
+  <button type="submit" id="foundingSubmitBtn" class="w-full py-3 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl transition-all duration-200 flex items-center justify-center gap-2">
+    <span class="btn-text">Apply for Founding Schools →</span>
+    <span class="btn-spinner hidden"><i class="fas fa-circle-notch fa-spin"></i></span>
+  </button>
+  
+  <p class="text-[10px] text-gray-400 text-center">
+    <i class="fas fa-shield-alt text-amber-500"></i> Only apply if authorized to make school-wide decisions
+  </p>
+</form>
+-->
 
-We have received your application. Our team will review your submission and contact you within 48 hours about the 1-year license waiver.
-
-- The TrackEDU Team">
-            
-            <div class="grid grid-cols-2 gap-3">
-              <div>
-                <label class="block text-xs font-semibold text-gray-600 mb-1">Full name *</label>
-                <input type="text" name="name" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm">
-              </div>
-              <div>
-                <label class="block text-xs font-semibold text-gray-600 mb-1">Job title *</label>
-                <input type="text" name="title" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm">
-              </div>
-            </div>
-            
-            <div class="grid grid-cols-2 gap-3">
-              <div>
-                <label class="block text-xs font-semibold text-gray-600 mb-1">School email *</label>
-                <input type="email" name="email" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm">
-              </div>
-              <div>
-                <label class="block text-xs font-semibold text-gray-600 mb-1">School name *</label>
-                <input type="text" name="school" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm">
-              </div>
-            </div>
-            
-            <div class="grid grid-cols-2 gap-3">
-              <div>
-                <label class="block text-xs font-semibold text-gray-600 mb-1">Country *</label>
-                <select name="country" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm bg-white">
-                  <option value="">Select country</option>
-                  <option value="Singapore">🇸🇬 Singapore</option>
-                  <option value="United Kingdom">🇬🇧 United Kingdom</option>
-                  <option value="Malaysia">🇲🇾 Malaysia</option>
-                  <option value="Thailand">🇹🇭 Thailand</option>
-                  <option value="UAE">🇦🇪 UAE</option>
-                  <option value="Other">Other</option>
-                </select>
-              </div>
-              <div>
-                <label class="block text-xs font-semibold text-gray-600 mb-1">Student count *</label>
-                <select name="student_count" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm bg-white">
-                  <option value="">Select range</option>
-                  <option value="<100">&lt; 100</option>
-                  <option value="100-300">100 - 300</option>
-                  <option value="300-600">300 - 600</option>
-                  <option value="600-1000">600 - 1,000</option>
-                  <option value="1000+">1,000+</option>
-                </select>
-              </div>
-            </div>
-            
-            <input type="hidden" name="source" value="founding_schools_modal">
-            <input type="hidden" name="timestamp" value="">
-            
-            <button type="submit" id="foundingSubmitBtn" class="w-full py-3 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl transition-all duration-200 flex items-center justify-center gap-2">
-              <span class="btn-text">Apply for Founding Schools →</span>
-              <span class="btn-spinner hidden"><i class="fas fa-circle-notch fa-spin"></i></span>
-            </button>
-            
-            <p class="text-[10px] text-gray-400 text-center">
-              <i class="fas fa-shield-alt text-amber-500"></i> Only apply if authorized to make school-wide decisions
-            </p>
-          </form>
+<!-- SAFE PLACEHOLDER FOR PERSONAL PROJECT MODE -->
+<div class="bg-gray-100 rounded-xl p-6 text-center">
+  <i class="fas fa-code text-3xl text-gray-400 mb-3"></i>
+  <p class="text-gray-600 font-medium">Developer Preview Mode</p>
+  <p class="text-gray-400 text-sm mt-2">This feature is disabled during personal project phase.</p>
+  <p class="text-gray-400 text-xs mt-3">Contact the developer directly for technical inquiries.</p>
+</div>
         </div>
       </div>
       
@@ -3819,11 +3729,28 @@ function openStudentAppPreview() {
   }
 
   // 4. Modal Logic Generators
-  const setupModal = (modalId, triggerFnName, closeFnName) => {
+  // PILOT MODAL MODIFIED FOR MOM COMPLIANCE - FORM HIDDEN
+const setupModal = (modalId, triggerFnName, closeFnName) => {
     const modal = document.getElementById(modalId);
     window[triggerFnName] = () => {
       modal.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
+      // Also hide the form inside and show disabled message
+      const form = modal.querySelector('form');
+      const placeholder = modal.querySelector('#disabledPlaceholder');
+      if (form && !placeholder) {
+        form.style.display = 'none';
+        const newPlaceholder = document.createElement('div');
+        newPlaceholder.id = 'disabledPlaceholder';
+        newPlaceholder.className = 'bg-gray-100 rounded-xl p-6 text-center';
+        newPlaceholder.innerHTML = `
+          <i class="fas fa-code text-3xl text-gray-400 mb-3"></i>
+          <p class="text-gray-600 font-medium">Developer Preview Mode</p>
+          <p class="text-gray-400 text-sm mt-2">This feature is disabled during personal project phase.</p>
+          <p class="text-gray-400 text-xs mt-3">Contact the developer directly for technical inquiries.</p>
+        `;
+        form.parentNode.appendChild(newPlaceholder);
+      }
     };
     window[closeFnName] = () => {
       modal.classList.add('hidden');
