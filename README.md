@@ -50,27 +50,27 @@ School IT departments love TrackEDU because it operates on a strict **"Privacy b
 
 ---
 
-## 💼 Strategic Pilot Programs
+## 💼 Pilot Programs
 
-TrackEDU is currently in strategic pilot phase. We offer three paths for schools:
-
-### 🔥 Founding Schools Program (Limited to 5 Schools)
-Hand‑selecting **5 partner schools** for a **1-year Strategic Partnership** including:
-- Full license waiver for the Pro Ecosystem
+### 🔥 Charter Pilot — 5 Spots Only (1 Year)
+We are selecting **5 schools** for our Charter Pilot:
+- Full Pro Ecosystem access for 1 year
 - Complimentary staff training workshops
 - Priority implementation support
-- Featured as early innovators
+- Featured as launch partners
 
-**⚠️ 3 spots remaining**
+**⚠️ Only 3 spots remain**
 
-### ⚡ Priority Access Pilot (30 Days)
-Schools ready to test the full Pro Ecosystem can join our **Priority Access Pilot**:
+### 🚀 Launch Pilot — First 50 Schools (30 Days)
+No application needed. Direct access for the first 50 schools.
 - Full access to Teacher App, Student Portal, and Behavior Tracker
-- Dedicated onboarding support
+- Instant account creation
 - No commitment — export your data anytime
 
+**⚠️ Limited to first 50 schools**
+
 ### 👩‍🏫 Solo Teacher Plan (Always Free)
-Individual educators can use the **Solo Plan** at no cost — includes 1 teacher account, 1 class, up to 30 students, Magic Hat, Timer, and Quick Quiz.
+Individual educators: 1 teacher account, 1 class, up to 30 students, Magic Hat, Timer, Quick Quiz.
 
 ---
 
