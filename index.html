@@ -1,9 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en" data-theme="light" class="scroll-smooth">
 <head>
-  <!-- Google Analytics disabled - personal project mode
-  Analytics disabled - personal project mode
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WV79KN1XBY"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -11,8 +8,6 @@
     gtag('js', new Date());
     gtag('config', 'G-WV79KN1XBY');
   </script>
-  -->
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -35,8 +30,6 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#0f66c3">
 
-  
-  <!-- Schema markup disabled - personal project mode
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -69,8 +62,6 @@
     }
   }
   </script>
-  -->
-  
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -1045,18 +1036,17 @@ html { scroll-padding-top: 100px; }
   font-size: 0.95rem;
 }
 
-
+/* Video Tutorial Modal */
+#videoTutorialModal {
+  transition: opacity 0.2s ease;
+}
+#videoTutorialModal:not(.hidden) {
+  display: flex !important;
+}
 
   </style>
 </head>
 <body class="antialiased text-gray-800 overflow-x-hidden">
-
-<!-- MOM COMPLIANCE BANNER - PERSONAL DEVELOPMENT PROJECT -->
-<div class="bg-amber-50 border-b border-amber-200 text-amber-700 px-4 py-2.5 text-center text-sm font-medium sticky top-0 z-50 flex flex-wrap items-center justify-center gap-3">
-  <span>🔧 <strong>Personal Development Project</strong> </span>
-  <span class="text-xs bg-amber-100 px-2 py-0.5 rounded-full">No commercial services</span>
-  <span class="text-xs bg-amber-100 px-2 py-0.5 rounded-full">Private testing phase</span>
-</div>
 
 
 <!-- MOBILE TOP HEADER (visible only on mobile, auto-hide on scroll) -->
@@ -1066,19 +1056,15 @@ html { scroll-padding-top: 100px; }
       <span class="font-display text-lg font-black text-brand-dark tracking-tighter">
         Track<span class="text-brand-green">EDU</span>
       </span>
-      <span class="text-[8px] font-bold text-amber-600 bg-amber-100 px-1.5 py-0.5 rounded-full">Demo</span>
+      <span class="text-[8px] font-bold text-gray-400 bg-gray-100 px-1.5 py-0.5 rounded-full">Pilot</span>
     </a>
     <div class="text-[9px] font-semibold text-gray-500">
       Teacher · Student · Behavior
     </div>
     <div class="flex items-center gap-1">
-      
-      <!-- LinkedIn link disabled - personal project mode
       <a href="https://www.linkedin.com/company/trackedu/" target="_blank" class="w-7 h-7 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-brand-blue hover:text-white transition">
         <i class="fab fa-linkedin-in text-xs"></i>
       </a>
-      -->
-      
       <button onclick="openTrustModal()" class="w-7 h-7 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-brand-blue hover:text-white transition">
         <i class="fas fa-lock text-xs"></i>
       </button>
@@ -1098,7 +1084,7 @@ html { scroll-padding-top: 100px; }
         <span class="font-display text-2xl font-black text-brand-dark tracking-tighter">
           Track<span class="text-brand-green">EDU</span>
         </span>
-        <span class="text-[10px] font-bold text-amber-600 bg-amber-100 px-2 py-0.5 rounded-full">Demo</span>
+        <span class="text-[10px] font-bold text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">Pilot</span>
       </a>
       
       <!-- Desktop Navigation Links -->
@@ -1106,9 +1092,7 @@ html { scroll-padding-top: 100px; }
         <a href="#how" class="text-base font-bold text-gray-700 hover:text-brand-blue transition">Tools</a>
         <a href="#mobile-demo" class="text-base font-bold text-gray-700 hover:text-brand-green transition">Demo</a>
         <a href="#business" class="text-base font-bold text-gray-700 hover:text-brand-blue transition">Results</a>
-        <!-- PRICING LINK HIDDEN - MOM COMPLIANCE
-<a href="#pricing" class="text-base font-bold text-gray-700 hover:text-brand-blue transition">Pricing</a>
--->
+        <a href="#pricing" class="text-base font-bold text-gray-700 hover:text-brand-blue transition">Pricing</a>
         <a href="#faq" class="text-base font-bold text-gray-700 hover:text-brand-blue transition">FAQ</a>
       </div>
       
@@ -1118,16 +1102,14 @@ html { scroll-padding-top: 100px; }
           Teacher · Student · Behavior
         </div>
         <div class="flex items-center gap-3">
-                   <!-- LinkedIn link disabled - personal project mode
           <a href="https://www.linkedin.com/company/trackedu/" target="_blank" class="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-brand-blue hover:text-white transition">
             <i class="fab fa-linkedin-in text-sm"></i>
           </a>
-          -->
           <button onclick="openTrustModal()" class="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-brand-blue hover:text-white transition">
             <i class="fas fa-lock text-sm"></i>
           </button>
           <button onclick="openPilotModal()" class="px-5 py-2.5 rounded-full bg-brand-green text-white text-sm font-bold hover:bg-green-600 transition shadow-md">
-            🚀 Test it
+            🚀  Start Limited Pilot
           </button>
         </div>
       </div>
@@ -1152,19 +1134,17 @@ html { scroll-padding-top: 100px; }
         <i class="fas fa-chart-line text-lg"></i>
         <span class="text-[9px] font-medium">Results</span>
       </a>
-      <!-- PRICING NAV HIDDEN - MOM COMPLIANCE
-<a href="#pricing" class="flex flex-col items-center gap-0.5 py-1 px-2 text-gray-500 hover:text-brand-blue transition">
-  <i class="fas fa-tag text-lg"></i>
-  <span class="text-[9px] font-medium">Price</span>
-</a>
--->
+      <a href="#pricing" class="flex flex-col items-center gap-0.5 py-1 px-2 text-gray-500 hover:text-brand-blue transition">
+        <i class="fas fa-tag text-lg"></i>
+        <span class="text-[9px] font-medium">Price</span>
+      </a>
       <a href="#faq" class="flex flex-col items-center gap-0.5 py-1 px-2 text-gray-500 hover:text-brand-blue transition">
         <i class="fas fa-question-circle text-lg"></i>
         <span class="text-[9px] font-medium">FAQ</span>
       </a>
       <button onclick="openPilotModal()" class="flex flex-col items-center gap-0.5 py-1 px-2 text-brand-green hover:text-brand-green/80 transition">
         <i class="fas fa-rocket text-lg"></i>
-        <span class="text-[8px] font-bold text-amber-600 bg-amber-100 px-1.5 py-0.5 rounded-full">Demo</span>
+        <span class="text-[9px] font-medium font-bold">Limited Pilot</span>
       </button>
     </div>
     
@@ -1267,42 +1247,36 @@ html { scroll-padding-top: 100px; }
             <span class="block text-2xl md:text-3xl lg:text-4xl mt-3 text-gray-500 font-medium">One platform that does it all.</span>
           </h1>
   
-         <!-- <div class="hidden md:inline-flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-1.5 px-4 py-1.5 rounded-2xl bg-white border border-gray-200 shadow-sm text-xs font-bold uppercase tracking-wide mb-3 lg:mb-6 mx-auto lg:mx-0 max-w-fit">
+          <div class="hidden md:inline-flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-1.5 px-4 py-1.5 rounded-2xl bg-white border border-gray-200 shadow-sm text-xs font-bold uppercase tracking-wide mb-3 lg:mb-6 mx-auto lg:mx-0 max-w-fit">
             <div class="flex items-center gap-2">
-             <span class="relative flex h-2.5 w-2.5">
+              <span class="relative flex h-2.5 w-2.5">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                 <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-green"></span>
               </span>
-               <span class="text-gray-600">Trusted by International Schools:</span>   
+              <span class="text-gray-600">Trusted by International Schools:</span>
             </div>
-            <span class="text-base leading-none">🇲🇾 🇦🇪 🇸🇦 🇹🇭 🇻🇳 🇬🇧</span>    
-          </div> -->
-     
+            <span class="text-base leading-none">🇲🇾 🇦🇪 🇸🇦 🇹🇭 🇻🇳 🇬🇧</span>
+          </div>
+          
           
           <ul class="order-5 lg:order-none text-sm sm:text-base text-gray-600 mb-6 lg:mb-8 max-w-lg mx-auto lg:mx-0 space-y-2 text-left inline-block lg:block">
-            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green"></i> <span><strong>Teachers:</strong> Manage classrooms and award house points with 12+ tools</span></li>
-            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green"></i> <span><strong>Students:</strong> Build house community and student voice beyond school hours</span></li>
-            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green"></i> <span><strong>Leaders:</strong> Monitor school-wide behavior with tiered tracking for everyone</span></li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green"></i> <span><strong>Teachers:</strong> Award house points with 12+ tools</span></li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green"></i> <span><strong>Students:</strong> See progress, earn badges, build community</span></li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green"></i> <span><strong>Leaders:</strong> Track behavior across your school</span></li>
           </ul>
   
           <div class="order-5 lg:order-none flex flex-col gap-2 justify-center lg:justify-start w-full sm:w-auto">
             <div class="flex flex-col sm:flex-row gap-3">
-             <!-- PILOT & WALKTHROUGH BUTTONS HIDDEN - MOM COMPLIANCE
-<button onclick="window.open('https://housepoint.trackedu.net/', '_blank')" class="btn text-lg px-8 py-3.5...">
-  Start Free Pilot Now
-</button>
-  
-<button id="bookWalkthrough" ...>
-  Book School Walkthrough
-</button>
--->
-
-<!-- Testing access button -->
-<button onclick="openPilotModal()" class="btn text-lg px-8 py-3.5 bg-amber-500 hover:bg-amber-600 text-white shadow-lg flex items-center justify-center gap-2">
-  <i class="fas fa-flask"></i> Request 30-Day Testing
-</button>
+              <button onclick="openPilotModal()" class="btn text-lg px-8 py-3.5 flex items-center justify-center gap-3 group bg-brand-green hover:bg-green-600 border-2 border-brand-green text-white shadow-xl">
+                <i class="fas fa-rocket text-white text-sm group-hover:translate-y-[-2px] transition"></i>
+                Start Limited Pilot →
+              </button>
+                
+              <button id="bookWalkthrough" data-cal-link="trackedu-a9dbpy/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view"}' class="btn text-lg px-8 py-3.5 bg-brand-dark hover:bg-gray-800 text-white border-2 border-brand-dark shadow-xl flex flex-col items-center justify-center leading-tight">
+                <span>Book School Walkthrough</span>
+              </button>
             </div>
-            <p class="text-[10px] text-gray-400 font-semibold text-center lg:text-left ml-1 mt-0.5">Test instantly — feedback required in exchange.</p>
+            <p class="text-[10px] text-gray-400 font-semibold text-center lg:text-left ml-1 mt-0.5">Test instantly, no credit card required.</p>
           </div>
           
           <div class="order-6 lg:order-none mt-1 pt-2 border-t border-gray-100">
@@ -1370,7 +1344,6 @@ html { scroll-padding-top: 100px; }
   
           </div>
           
-          <div class="md:hidden mobile-brand-watermark mt-12">TrackEDU</div>
           
         </div>
         
@@ -1579,26 +1552,59 @@ html { scroll-padding-top: 100px; }
                   <i class="fas fa-chalkboard-user"></i>
                 </div>
                 <h4 class="text-2xl font-black text-brand-dark mb-4">Teacher Awards</h4>
-                <p class="text-gray-500 leading-relaxed">A teacher opens the <strong>Teacher App</strong>, uses the Magic Hat to pick a student, and awards points to their house. One tap. Done.</p>
+                <p class="text-gray-500 leading-relaxed mb-4">A teacher opens the <strong>Teacher App</strong>, uses the Magic Hat to pick a student, and awards points to their house. One tap. Done.</p>
+                
+                <!-- Video at the bottom -->
+                <div onclick="showToolInfo('teacher')" class="rounded-xl overflow-hidden cursor-pointer group relative">
+                  <img src="https://img.youtube.com/vi/XXGsGuO1t1s/hqdefault.jpg" class="w-full h-32 object-cover group-hover:scale-105 transition duration-300">
+                  <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/50 transition">
+                    <div class="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center">
+                      <i class="fas fa-play text-brand-blue text-sm ml-1"></i>
+                    </div>
+                  </div>
+                  <div class="absolute bottom-2 right-2 bg-black/70 text-white text-[9px] px-2 py-0.5 rounded">2 min</div>
+                </div>
               </div>
-        
+            
               <div class="text-center group" data-aos="fade-up" data-aos-delay="200">
                 <div class="w-24 h-24 bg-green-50 text-brand-green rounded-[32px] flex items-center justify-center text-4xl mx-auto mb-8 shadow-sm border border-green-100 group-hover:scale-110 transition-transform">
                   <i class="fas fa-user-graduate"></i>
                 </div>
                 <h4 class="text-2xl font-black text-brand-dark mb-4">Student Sees Impact</h4>
-                <p class="text-gray-500 leading-relaxed">The student logs into their <strong>Student Portal</strong>, watches their house leaderboard rise, and unlocks a new 3D badge. Engagement instant.</p>
+                <p class="text-gray-500 leading-relaxed mb-4">The student logs into their <strong>Student Portal</strong>, watches their house leaderboard rise, and unlocks a new 3D badge. Engagement instant.</p>
+                
+                <!-- Video at the bottom -->
+                <div onclick="showToolInfo('student')" class="rounded-xl overflow-hidden cursor-pointer group relative">
+                  <img src="https://img.youtube.com/vi/rDBz3GPZSFE/hqdefault.jpg" class="w-full h-32 object-cover group-hover:scale-105 transition duration-300">
+                  <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/50 transition">
+                    <div class="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center">
+                      <i class="fas fa-play text-brand-green text-sm ml-1"></i>
+                    </div>
+                  </div>
+                  <div class="absolute bottom-2 right-2 bg-black/70 text-white text-[9px] px-2 py-0.5 rounded">90 sec</div>
+                </div>
               </div>
-        
+            
               <div class="text-center group" data-aos="fade-up" data-aos-delay="300">
                 <div class="w-24 h-24 bg-purple-50 text-purple-600 rounded-[32px] flex items-center justify-center text-4xl mx-auto mb-8 shadow-sm border border-purple-100 group-hover:scale-110 transition-transform">
                   <i class="fas fa-chart-line"></i>
                 </div>
                 <h4 class="text-2xl font-black text-brand-dark mb-4">Visibility for All</h4>
-                <p class="text-gray-500 leading-relaxed">The counsellor opens the <strong>Behavior Tracker</strong> and sees real-time analytics. The principal exports the data. Everyone is aligned.</p>
+                <p class="text-gray-500 leading-relaxed mb-4">The counsellor opens the <strong>Behavior Tracker</strong> and sees real-time analytics. The principal exports the data. Everyone is aligned.</p>
+                
+                <!-- Video at the bottom -->
+                <div onclick="showToolInfo('behavior')" class="rounded-xl overflow-hidden cursor-pointer group relative">
+                  <img src="https://img.youtube.com/vi/_cXVZfvfPtQ/hqdefault.jpg" class="w-full h-32 object-cover group-hover:scale-105 transition duration-300">
+                  <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/50 transition">
+                    <div class="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center">
+                      <i class="fas fa-play text-purple-600 text-sm ml-1"></i>
+                    </div>
+                  </div>
+                  <div class="absolute bottom-2 right-2 bg-black/70 text-white text-[9px] px-2 py-0.5 rounded">90 sec</div>
+                </div>
               </div>
               
-              <div class="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-gray-100 to-transparent -z-0"></div>
+              
             </div>
         
             <div class="story-path-container" style="margin-top: 2rem;">
@@ -1707,14 +1713,9 @@ html { scroll-padding-top: 100px; }
                 <span class="text-brand-blue">Get one platform that does it all.</span>
               </h3>
               
-              <button onclick="window.open('https://housepoint.trackedu.net/', '_blank')" class="btn bg-amber-500 text-white hover:bg-amber-600 border-2 border-amber-500 px-10 py-4 text-xl shadow-lg transition">
-                Start 30-Day Testing →
+              <button onclick="openPilotModal()" class="btn px-10 py-4 text-lg font-bold shadow-2xl hover:scale-105 transition-all">
+                 Start Limited Pilot →
               </button>
-
-
-
-
-              
             </div>
             
           </div>
@@ -1746,59 +1747,98 @@ html { scroll-padding-top: 100px; }
         
             <div class="grid md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-6 relative">
               
-              <!-- TOOL 1: Teacher App -->
-              <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 group" data-aos="fade-up">
-                <div class="w-16 h-16 bg-brand-blue/10 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                  <i class="fas fa-chalkboard-user text-2xl text-brand-blue"></i>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Teacher App</h3>
-                <p class="text-gray-500 text-sm mb-4">12+ classroom tools. One dashboard.</p>
-                <ul class="space-y-2 text-sm text-gray-600">
-                  <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Magic Hat random picker</li>
-                  <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Focus Timer for lessons</li>
-                  <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Squad Builder for groups</li>
-                  <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Quick Quiz library (250+ questions)</li>
-                  <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Assembly projector mode</li>
-                  <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> One-click house points</li>
-                </ul>
-                <button onclick="showToolInfo('teacher')" class="mt-6 text-brand-blue text-sm font-semibold flex items-center gap-1 hover:gap-2 transition-all">Watch demo <i class="fas fa-arrow-right text-xs"></i></button>
-              </div>
+             <!-- TOOL 1: Teacher App -->
+<div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 group" data-aos="fade-up">
+  <div class="w-16 h-16 bg-brand-blue/10 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+    <i class="fas fa-chalkboard-user text-2xl text-brand-blue"></i>
+  </div>
+  <h3 class="text-xl font-bold text-gray-900 mb-2">Teacher App</h3>
+  <p class="text-gray-500 text-sm mb-4">12+ classroom tools. One dashboard.</p>
+  
+  <ul class="space-y-2 text-sm text-gray-600">
+    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Magic Hat random picker</li>
+    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Focus Timer for lessons</li>
+    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Squad Builder for groups</li>
+    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Quick Quiz library (250+ questions)</li>
+    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Assembly projector mode</li>
+    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> One-click house points</li>
+  </ul>
+  
+  <!-- Video Thumbnail - BELOW features -->
+  <div onclick="showToolInfo('teacher')" class="mt-4 rounded-xl overflow-hidden cursor-pointer group relative">
+    <img src="https://img.youtube.com/vi/XXGsGuO1t1s/hqdefault.jpg" class="w-full h-28 object-cover group-hover:scale-105 transition duration-300">
+    <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/50 transition">
+      <div class="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center">
+        <i class="fas fa-play text-brand-blue text-sm ml-1"></i>
+      </div>
+    </div>
+    <div class="absolute bottom-2 right-2 bg-black/70 text-white text-[9px] px-2 py-0.5 rounded">2 min</div>
+  </div>
+  
+  <button onclick="showToolInfo('teacher')" class="mt-3 w-full py-2 bg-brand-blue/10 text-brand-blue rounded-lg font-semibold text-sm hover:bg-brand-blue hover:text-white transition">Watch demo</button>
+</div>
               
-              <!-- TOOL 2: Student Portal -->
-              <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 group" data-aos="fade-up" data-aos-delay="100">
-                <div class="w-16 h-16 bg-brand-green/10 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                  <i class="fas fa-user-graduate text-2xl text-brand-green"></i>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Student Portal</h3>
-                <p class="text-gray-500 text-sm mb-4">Gamified engagement. Real ownership.</p>
-                <ul class="space-y-2 text-sm text-gray-600">
-                  <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> 3D holographic badge collection</li>
-                  <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Daily streaks & mystery spins</li>
-                  <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> House power boosts & reactors</li>
-                  <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Live house leaderboards</li>
-                  <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Student voice polls</li>
-                  <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Mystery word missions</li>
-                </ul>
-                <button onclick="showToolInfo('student')" class="mt-6 text-brand-green text-sm font-semibold flex items-center gap-1 hover:gap-2 transition-all">Watch demo <i class="fas fa-arrow-right text-xs"></i></button>
-              </div>
+           <!-- TOOL 2: Student Portal -->
+<div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 group" data-aos="fade-up" data-aos-delay="100">
+  <div class="w-16 h-16 bg-brand-green/10 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+    <i class="fas fa-user-graduate text-2xl text-brand-green"></i>
+  </div>
+  <h3 class="text-xl font-bold text-gray-900 mb-2">Student Portal</h3>
+  <p class="text-gray-500 text-sm mb-4">Gamified engagement. Real ownership.</p>
+  
+  <ul class="space-y-2 text-sm text-gray-600">
+    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> 3D holographic badge collection</li>
+    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Daily streaks & mystery spins</li>
+    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> House power boosts & reactors</li>
+    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Live house leaderboards</li>
+    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Student voice polls</li>
+    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Mystery word missions</li>
+  </ul>
+  
+  <!-- Video Thumbnail - BELOW features -->
+  <div onclick="showToolInfo('student')" class="mt-4 rounded-xl overflow-hidden cursor-pointer group relative">
+    <img src="https://img.youtube.com/vi/rDBz3GPZSFE/hqdefault.jpg" class="w-full h-28 object-cover group-hover:scale-105 transition duration-300">
+    <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/50 transition">
+      <div class="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center">
+        <i class="fas fa-play text-brand-green text-sm ml-1"></i>
+      </div>
+    </div>
+    <div class="absolute bottom-2 right-2 bg-black/70 text-white text-[9px] px-2 py-0.5 rounded">90 sec</div>
+  </div>
+  
+  <button onclick="showToolInfo('student')" class="mt-3 w-full py-2 bg-brand-green/10 text-brand-green rounded-lg font-semibold text-sm hover:bg-brand-green hover:text-white transition">Watch demo</button>
+</div>
               
               <!-- TOOL 3: Behavior Tracker -->
-              <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 group" data-aos="fade-up" data-aos-delay="200">
-                <div class="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                  <i class="fas fa-chart-line text-2xl text-purple-600"></i>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Behavior Tracker</h3>
-                <p class="text-gray-500 text-sm mb-4">Tiered interventions. Complete visibility.</p>
-                <ul class="space-y-2 text-sm text-gray-600">
-                  <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Pre-Tier 1 to Tier 3 tracking</li>
-                  <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Parent communication logs</li>
-                  <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Real-time behavior analytics</li>
-                  <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Export incident reports to CSV</li>
-                  <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Counsellor caseload dashboard</li>
-                  <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Follow-up scheduling</li>
-                </ul>
-                <button onclick="showToolInfo('behavior')" class="mt-6 text-purple-600 text-sm font-semibold flex items-center gap-1 hover:gap-2 transition-all">Learn more <i class="fas fa-arrow-right text-xs"></i></button>
-              </div>
+<div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 group" data-aos="fade-up" data-aos-delay="200">
+  <div class="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+    <i class="fas fa-chart-line text-2xl text-purple-600"></i>
+  </div>
+  <h3 class="text-xl font-bold text-gray-900 mb-2">Behavior Tracker</h3>
+  <p class="text-gray-500 text-sm mb-4">Tiered interventions. Complete visibility.</p>
+  
+  <ul class="space-y-2 text-sm text-gray-600">
+    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Pre-Tier 1 to Tier 3 tracking</li>
+    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Parent communication logs</li>
+    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Real-time behavior analytics</li>
+    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Export incident reports to CSV</li>
+    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Counsellor caseload dashboard</li>
+    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Follow-up scheduling</li>
+  </ul>
+  
+  <!-- Video Thumbnail - BELOW features -->
+  <div onclick="showToolInfo('behavior')" class="mt-4 rounded-xl overflow-hidden cursor-pointer group relative">
+    <img src="https://img.youtube.com/vi/_cXVZfvfPtQ/hqdefault.jpg" class="w-full h-28 object-cover group-hover:scale-105 transition duration-300">
+    <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/50 transition">
+      <div class="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center">
+        <i class="fas fa-play text-purple-600 text-sm ml-1"></i>
+      </div>
+    </div>
+    <div class="absolute bottom-2 right-2 bg-black/70 text-white text-[9px] px-2 py-0.5 rounded">90 sec</div>
+  </div>
+  
+  <button onclick="showToolInfo('behavior')" class="mt-3 w-full py-2 bg-purple-100 text-purple-600 rounded-lg font-semibold text-sm hover:bg-purple-600 hover:text-white transition">Watch demo</button>
+</div>
               
             </div>
         
@@ -1828,8 +1868,8 @@ html { scroll-padding-top: 100px; }
                 </div>
               </div>
               
-              <button onclick="openPilotModal()" class="btn px-10 py-4 text-lg font-bold shadow-2xl hover:scale-105 transition-all bg-amber-500 hover:bg-amber-600">
-                Request 30-Day Testing →
+              <button onclick="openPilotModal()" class="w-full md:w-auto bg-brand-green text-white px-10 py-4 rounded-xl font-bold shadow-xl hover:bg-green-600 transition transform hover:-translate-y-0.5">
+                 Start Limited Pilot →
               </button>
             </div>
         
@@ -1907,8 +1947,8 @@ html { scroll-padding-top: 100px; }
                     <h3 class="font-display text-2xl sm:text-3xl font-black text-white mb-4 leading-tight">Teacher<br>Command Center</h3>
                     <p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-8">12+ classroom tools. One-click house points. Live assembly mode.</p>
                     <div class="space-y-3 w-full mt-auto mb-4">
-                      <button disabled class="w-full py-4 rounded-xl font-bold bg-gray-400 text-white cursor-not-allowed opacity-60 flex items-center justify-center gap-2">
-                        <i class="fas fa-lock"></i> Pilot Disabled
+                      <button onclick="openPilotModal()" class="w-full py-4 rounded-xl font-bold bg-brand-green text-white hover:bg-green-500 transition shadow-lg shadow-brand-green/30 flex items-center justify-center gap-2">
+                        <i class="fas fa-rocket"></i>  Start Limited Pilot
                       </button>
                     </div>
                   </div>
@@ -2089,36 +2129,38 @@ html { scroll-padding-top: 100px; }
           </div>
         </section>
 
-        <section class="py-24 bg-brand-light relative">
-          <div class="max-w-4xl mx-auto px-6">
-            <div class="bg-white rounded-[48px] p-12 md:p-20 text-center shadow-2xl border border-gray-100 relative" data-aos="zoom-in">
-              <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 bg-amber-500 rounded-3xl flex items-center justify-center text-white text-4xl shadow-xl shadow-amber-500/30">
-                <i class="fas fa-code"></i>
-              </div>
-              
-              <p class="text-2xl md:text-4xl font-display font-medium text-brand-dark leading-tight mb-12">
-                "This is a <strong>personal development project</strong> currently in private testing phase. Early concept testing has shown positive feedback from educators who <strong>value unified tools</strong> for teacher management, student engagement, and behavior tracking. We are <strong>incorporating feedback</strong> to improve the platform before any commercial release."
-              </p>
-              
-              <div class="flex items-center justify-center gap-5">
-                <div class="w-16 h-16 rounded-full bg-gray-100 border-4 border-white shadow-md flex items-center justify-center text-gray-400 text-2xl">
-                  <i class="fas fa-laptop-code"></i>
-                </div>
-                <div class="text-left">
-                  <div class="text-xl font-black text-brand-dark leading-none">Personal Development Project</div>
-                  <div class="text-xs font-black text-amber-600 uppercase tracking-widest mt-1">Concept Testing & Feedback Phase</div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 opacity-30 grayscale">
-               <div class="text-center font-black text-xl text-gray-400 text-sm md:text-base">CONCEPT TESTING</div>
-               <div class="text-center font-black text-xl text-gray-400 text-sm md:text-base">FEEDBACK DRIVEN</div>
-               <div class="text-center font-black text-xl text-gray-400 text-sm md:text-base">PRIVATE PHASE</div>
-               <div class="text-center font-black text-xl text-gray-400 text-sm md:text-base">DEVELOPMENT PROJECT</div>
-            </div>
-          </div>
-        </section>
+<section class="py-24 bg-brand-light relative">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="bg-white rounded-[48px] p-12 md:p-20 text-center shadow-2xl border border-gray-100 relative" data-aos="zoom-in">
+      <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 bg-brand-green rounded-3xl flex items-center justify-center text-white text-4xl shadow-xl shadow-brand-green/30">
+        <i class="fas fa-quote-left"></i>
+      </div>
+      
+      <p class="text-2xl md:text-4xl font-display font-medium text-brand-dark leading-tight mb-12">
+        "TrackEDU gave us <strong>complete visibility</strong> across our whole school. Teachers save 4+ hours a week. Students actually <strong>want to participate</strong>. And our school leaders finally have the data they need to support students effectively."
+      </p>
+      
+      <div class="flex items-center justify-center gap-5">
+        <div class="w-16 h-16 rounded-full bg-gray-100 border-4 border-white shadow-md flex items-center justify-center text-gray-400 text-2xl">
+          <i class="fas fa-school"></i>
+        </div>
+        <div class="text-left">
+          <div class="text-xl font-black text-brand-dark leading-none">Head of Pastoral Care</div>
+          <div class="text-xs font-black text-brand-blue uppercase tracking-widest mt-1">Leading International School, SE Asia</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
+       <div class="text-center font-black text-xl text-gray-400">BRITISH SCHOOL</div>
+       <div class="text-center font-black text-xl text-gray-400">INTERNATIONAL</div>
+       <div class="text-center font-black text-xl text-gray-400">ACADEMY TRUST</div>
+       <div class="text-center font-black text-xl text-gray-400">PREP SCHOOL</div>
+    </div>
+  </div>
+</section>
+
+
 
 <section id="business" class="py-24 bg-white border-t border-gray-50">
   
@@ -2127,13 +2169,13 @@ html { scroll-padding-top: 100px; }
       <path d="M50 0 C 0 20, 50 60, 50 90" stroke="#64748b" stroke-width="3" stroke-dasharray="6 4" stroke-linecap="round" />
       <path d="M42 82 L50 90 L58 82" stroke="#64748b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
     </svg>
-    <span class="narrative-step" style="color: #64748b;">Chapter 5: Feedback Insights</span>
+    <span class="narrative-step" style="color: #64748b;">Chapter 5: The Results</span>
   </div>
 
   <div class="max-w-6xl mx-auto px-6">
     <div class="text-center mb-12">
-      <h2 class="font-display text-4xl md:text-5xl font-black text-brand-dark mb-4">Feedback from testing participants</h2>
-      <p class="text-gray-500 text-lg max-w-2xl mx-auto">Early testers have shared positive feedback on the three tools.</p>
+      <h2 class="font-display text-4xl md:text-5xl font-black text-brand-dark mb-4">Real results from real schools</h2>
+      <p class="text-gray-500 text-lg max-w-2xl mx-auto">Schools using TrackEDU see measurable impact across all three tools.</p>
     </div>
 
     <div class="grid md:grid-cols-3 gap-8 mb-16">
@@ -2144,8 +2186,8 @@ html { scroll-padding-top: 100px; }
           <i class="fas fa-clock text-2xl text-brand-blue"></i>
         </div>
         <div class="text-4xl font-black text-brand-dark mb-2">4+ hours</div>
-        <div class="text-sm font-semibold text-brand-blue mb-3">estimated time saved weekly</div>
-        <p class="text-gray-500 text-sm">Based on tester feedback, teachers may save time by replacing manual spreadsheets.</p>
+        <div class="text-sm font-semibold text-brand-blue mb-3">saved per teacher, weekly</div>
+        <p class="text-gray-500 text-sm">Teachers reclaim 4+ hours every week by replacing manual spreadsheets and fragmented tools.</p>
       </div>
       
       <!-- Stat 2: Student Engagement -->
@@ -2154,8 +2196,8 @@ html { scroll-padding-top: 100px; }
           <i class="fas fa-chart-line text-2xl text-brand-green"></i>
         </div>
         <div class="text-4xl font-black text-brand-dark mb-2">3x</div>
-        <div class="text-sm font-semibold text-brand-green mb-3">higher participation (observed)</div>
-        <p class="text-gray-500 text-sm">Gamified engagement aims to drive daily check-ins and house contributions.</p>
+        <div class="text-sm font-semibold text-brand-green mb-3">higher participation</div>
+        <p class="text-gray-500 text-sm">Gamified engagement drives daily check-ins and house contributions.</p>
       </div>
       
       <!-- Stat 3: Complete Visibility -->
@@ -2163,14 +2205,14 @@ html { scroll-padding-top: 100px; }
         <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-5">
           <i class="fas fa-eye text-2xl text-purple-600"></i>
         </div>
-        <div class="text-4xl font-black text-brand-dark mb-2">Real-time</div>
-        <div class="text-sm font-semibold text-purple-600 mb-3">visibility dashboard</div>
-        <p class="text-gray-500 text-sm">School leaders can view behavior trends without waiting for manual reports.</p>
+        <div class="text-4xl font-black text-brand-dark mb-2">100%</div>
+        <div class="text-sm font-semibold text-purple-600 mb-3">real-time visibility</div>
+        <p class="text-gray-500 text-sm">school leaders see behavior trends instantly — no waiting for reports.</p>
       </div>
       
     </div>
+
     <!-- Testimonial -->
-    <!-- TESTIMONIAL SECTION HIDDEN FOR MOM COMPLIANCE - PERSONAL PROJECT MODE
     <div class="max-w-3xl mx-auto bg-gray-50 rounded-2xl p-8 border border-gray-200">
       <div class="flex items-start gap-4">
         <div class="text-5xl text-brand-green opacity-50">“</div>
@@ -2188,36 +2230,12 @@ html { scroll-padding-top: 100px; }
         </div>
       </div>
     </div>
--->
-
-<!-- SAFE PLACEHOLDER FOR PERSONAL PROJECT MODE -->
-    <div class="max-w-3xl mx-auto bg-gray-50 rounded-2xl p-8 border border-gray-200">
-      <div class="flex items-start gap-4">
-        <div class="text-5xl text-gray-300 opacity-50">“</div>
-        <div>
-          <p class="text-gray-500 text-lg italic mb-4">This is a personal development project. Feedback from concept testing has been positive, but no commercial services are currently offered.</p>
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center">
-              <i class="fas fa-code text-gray-500 text-sm"></i>
-            </div>
-            <div>
-              <div class="font-bold text-gray-600">Developer</div>
-              <div class="text-xs text-gray-400">Personal Project</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <div class="text-center mt-12">
-      <button onclick="window.open('https://housepoint.trackedu.net/', '_blank')" class="btn bg-amber-500 text-white hover:bg-amber-600 border-2 border-amber-500 px-10 py-4 text-xl shadow-lg transition">
-        Start 30-Day Testing →
+      <button onclick="openPilotModal()" class="btn px-10 py-4 text-lg font-bold shadow-xl hover:scale-105 transition-all">
+         Start Limited Pilot →
       </button>
-      <p class="text-xs text-amber-600 mt-4">Free testing in exchange for feedback</p>
-      <!-- JOIN SCHOOLS TEXT HIDDEN FOR MOM COMPLIANCE - PERSONAL PROJECT MODE
       <p class="text-xs text-gray-400 mt-4">Join 15+ international schools already using TrackEDU</p>
-      -->
-      <p class="text-xs text-gray-400 mt-4">Personal development project — technical demonstration only</p>
     </div>
 
   </div>
@@ -2225,20 +2243,153 @@ html { scroll-padding-top: 100px; }
 
   
   
+<section id="pricing" class="py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    
+    <!-- Top badge -->
+    <div class="text-center mb-6">
+      <span class="inline-flex items-center gap-2 bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium">
+        <i class="fas fa-mobile-alt text-brand-green"></i>
+        Works on iPhone · iPad · Android · Windows · Mac
+      </span>
+    </div>
 
-<!-- TEMPORARY PLACEHOLDER FOR PERSONAL PROJECT MODE -->
-<section class="py-24 bg-white">
-  <div class="max-w-4xl mx-auto px-6 text-center">
-    <div class="bg-amber-50 border border-amber-200 rounded-2xl p-8 md:p-12">
-      <i class="fas fa-code text-4xl text-amber-500 mb-4"></i>
-      <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-3">Personal Development Project</h2>
-      <p class="text-gray-600 max-w-lg mx-auto">
-        TrackEDU is currently in private testing phase. No commercial services are offered at this time.
+    <!-- Headline -->
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
+        A complete culture operating system
+      </h2>
+      <p class="text-xl text-gray-500">
+        Three integrated apps. One unified platform. Zero spreadsheets.
       </p>
-      <div class="mt-4 text-sm text-gray-400">
-        <span class="inline-flex items-center gap-2">🔧 Technical demonstration only</span>
+    </div>
+
+    <!-- 🔥 FOUNDING PARTNERS - License Waiver -->
+    <div class="max-w-4xl mx-auto mb-12">
+      <div class="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl shadow-xl overflow-hidden">
+        <div class="p-8 md:p-10">
+          
+          <div class="flex flex-wrap justify-between items-center gap-4 mb-6">
+            <div class="inline-flex items-center gap-2 bg-brand-green/20 backdrop-blur-sm px-4 py-1.5 rounded-full">
+              <span class="text-brand-green font-bold text-sm">🤝 Strategic Partnership</span>
+            </div>
+            <div class="inline-flex items-center gap-2 bg-red-500/20 backdrop-blur-sm px-4 py-1.5 rounded-full">
+              <span class="text-red-400 font-bold text-sm">⚠️ 3 spots left out of 5</span>
+            </div>
+          </div>
+          
+          <h3 class="text-3xl md:text-4xl font-bold text-white mb-3">Founding Schools Program</h3>
+          
+          <p class="text-gray-300 text-lg max-w-2xl mb-6">
+            We're hand-selecting <strong class="text-brand-green font-bold">5 partner schools</strong> to help shape the future of TrackEDU. Selected schools receive a <strong class="text-brand-green">full license waiver</strong> for the Pro Ecosystem for one year, plus dedicated training and implementation support.
+          </p>
+          
+          <div class="flex flex-wrap gap-4 mb-8">
+            <div class="flex items-center gap-2 bg-white/10 rounded-full px-4 py-2">
+              <i class="fas fa-chalkboard-user text-brand-green text-sm"></i>
+              <span class="text-white text-sm">Staff training workshops</span>
+            </div>
+            <div class="flex items-center gap-2 bg-white/10 rounded-full px-4 py-2">
+              <i class="fas fa-headset text-brand-green text-sm"></i>
+              <span class="text-white text-sm">Priority implementation support</span>
+            </div>
+            <div class="flex items-center gap-2 bg-white/10 rounded-full px-4 py-2">
+              <i class="fas fa-star text-brand-green text-sm"></i>
+              <span class="text-white text-sm">Featured as early innovator</span>
+            </div>
+          </div>
+          
+          <p class="text-gray-400 text-sm mb-6">
+            Start with a no-obligation 30-day pilot, then indicate your interest in the program.
+          </p>
+          
+          <button onclick="openPilotModal()" class="inline-flex items-center gap-2 bg-white text-gray-900 hover:bg-gray-100 font-bold py-3 px-8 rounded-xl transition-all duration-200 shadow-lg">
+            Express Interest <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
       </div>
     </div>
+
+    <!-- Two-column: Pro + Solo -->
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+      
+      <!-- PRO CARD -->
+      <div class="relative bg-gradient-to-br from-white to-blue-50/30 rounded-2xl border-2 border-brand-blue/40 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
+        <div class="absolute top-0 right-0 w-20 h-20">
+          <div class="absolute top-0 right-0 w-0 h-0 border-t-[80px] border-r-[80px] border-t-brand-blue/10 border-r-transparent"></div>
+        </div>
+        
+        <div class="p-8 relative z-10">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <h3 class="text-2xl font-bold text-gray-900">Pro Ecosystem</h3>
+              <p class="text-brand-blue font-medium mt-1">For whole schools · Up to 3,000 students</p>
+              <p class="text-brand-blue/60 text-[11px] font-bold uppercase tracking-wider mt-1">(Future per-student pricing waived for Founding Schools)</p>
+            </div>
+            <div class="flex flex-col items-end gap-2">
+              <span class="bg-brand-blue/15 text-brand-blue text-xs font-bold px-3 py-1 rounded-full">Most Popular</span>
+              <span class="bg-brand-green/10 text-brand-green text-[10px] font-bold px-2 py-0.5 rounded-full">License Waiver Available</span>
+            </div>
+          </div>
+          
+          <div class="border-t border-brand-blue/20 my-6"></div>
+          
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-start gap-3 text-gray-700"><i class="fas fa-check-circle text-brand-green text-lg mt-0.5 w-5"></i> <span><strong>Teacher App</strong> — Full command center</span></li>
+            <li class="flex items-start gap-3 text-gray-700"><i class="fas fa-check-circle text-brand-green text-lg mt-0.5 w-5"></i> <span><strong>Student Portal</strong> — 3D badges + streaks</span></li>
+            <li class="flex items-start gap-3 text-gray-700"><i class="fas fa-check-circle text-brand-green text-lg mt-0.5 w-5"></i> <span><strong>Behavior Tracker</strong> — Tiered interventions</span></li>
+            <li class="flex items-start gap-3 text-gray-700"><i class="fas fa-check-circle text-brand-green text-lg mt-0.5 w-5"></i> <span>Live Admin Analytics & Dashboards</span></li>
+            <li class="flex items-start gap-3 text-gray-700"><i class="fas fa-check-circle text-brand-green text-lg mt-0.5 w-5"></i> <span>10+ Teacher Toolkit Utilities</span></li>
+            <li class="flex items-start gap-3 text-gray-700"><i class="fas fa-check-circle text-brand-green text-lg mt-0.5 w-5"></i> <span>Projector Mode for Assemblies</span></li>
+            <li class="flex items-start gap-3 text-gray-700"><i class="fas fa-check-circle text-brand-green text-lg mt-0.5 w-5"></i> <span>Priority Support & CSV Import</span></li>
+          </ul>
+          
+          <button onclick="openPilotModal()" class="w-full py-3.5 bg-brand-blue hover:bg-brand-blue/90 text-white font-bold rounded-xl transition-all duration-200 shadow-md">
+            Start 30-Day Pilot →
+          </button>
+          <p class="text-center text-xs text-gray-400 mt-3">No credit card required · Full access</p>
+        </div>
+      </div>
+      
+      <!-- SOLO CARD -->
+      <div class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
+        <div class="p-8">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-gray-500">Solo Plan</h3>
+              <p class="text-gray-400 text-sm mt-1">For individual teachers</p>
+            </div>
+            <span class="bg-gray-200 text-gray-500 text-xs font-semibold px-3 py-1 rounded-full">Free Forever</span>
+          </div>
+          
+          <div class="border-t border-gray-200 my-6"></div>
+          
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-start gap-3 text-gray-400"><i class="fas fa-check-circle text-gray-300 text-lg mt-0.5 w-5"></i> <span>1 teacher account</span></li>
+            <li class="flex items-start gap-3 text-gray-400"><i class="fas fa-check-circle text-gray-300 text-lg mt-0.5 w-5"></i> <span>1 class · up to 30 students</span></li>
+            <li class="flex items-start gap-3 text-gray-400"><i class="fas fa-check-circle text-gray-300 text-lg mt-0.5 w-5"></i> <span>Magic Hat random picker</span></li>
+            <li class="flex items-start gap-3 text-gray-400"><i class="fas fa-check-circle text-gray-300 text-lg mt-0.5 w-5"></i> <span>Magic Timer</span></li>
+          </ul>
+          
+          <button onclick="window.open('https://housepoint.trackedu.net/', '_blank')" class="w-full py-3.5 bg-gray-200 hover:bg-gray-300 text-gray-600 font-medium rounded-xl transition-all duration-200">
+            Launch Solo Plan →
+          </button>
+          <p class="text-center text-xs text-gray-400 mt-3">No credit card · Instant access</p>
+        </div>
+      </div>
+      
+    </div>
+    
+    <!-- Trust footer - Updated with SG/UK hosting -->
+    <div class="text-center mt-12">
+      <div class="inline-flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-gray-400">
+        <span class="flex items-center gap-2"><i class="fas fa-lock text-brand-green text-xs"></i> Privacy-first architecture</span>
+        <span class="flex items-center gap-2"><i class="fas fa-database text-brand-green text-xs"></i> Your data, your control</span>
+        <span class="flex items-center gap-2"><i class="fas fa-file-export text-brand-green text-xs"></i> Export anytime</span>
+        <span class="flex items-center gap-2"><i class="fas fa-globe text-brand-green text-xs"></i> Region-specific hosting (SG/UK)</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -2251,17 +2402,14 @@ html { scroll-padding-top: 100px; }
       <i class="fas fa-chalkboard-user text-4xl text-brand-blue"></i>
     </div>
 
-    <h2 class="font-display text-3xl font-black text-brand-dark mb-6">Built by an Educator, for Educators.</h2>
+    <h2 class="font-display text-3xl font-black text-brand-dark mb-6">Built by Educators, for Educators.</h2>
     
     <div class="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed max-w-3xl mx-auto space-y-4">
       <p>
-        TrackEDU is a personal development project created by a former educator who experienced the challenges of school life firsthand.
+        TrackEDU was developed by a global team of former teachers, House Masters, and school leaders who understand the real challenges of school life.
       </p>
       <p>
-        This platform was built to explore solutions for three specific problems: <strong>teacher admin overload</strong>, <strong>low student engagement</strong>, and <strong>inconsistent behavior tracking</strong>. One platform. Three tools. Complete visibility.
-      </p>
-      <p class="text-sm text-amber-600 bg-amber-50 inline-block px-4 py-2 rounded-full">
-        🔧 Personal project — currently in testing phase
+        We built this system to solve three specific problems: <strong>teacher admin overload</strong>, <strong>low student engagement</strong>, and <strong>inconsistent behavior tracking</strong>. One platform. Three tools. Complete visibility.
       </p>
     </div>
     
@@ -2292,6 +2440,7 @@ html { scroll-padding-top: 100px; }
   </div>
 </section>
 
+
   
   
   
@@ -2315,10 +2464,10 @@ html { scroll-padding-top: 100px; }
       </div>
     </div>
     
-      <button onclick="window.open('https://housepoint.trackedu.net/', '_blank')" class="btn bg-amber-500 text-white hover:bg-amber-600 border-2 border-amber-500 px-10 py-4 text-xl shadow-lg transition">
-                Start 30-Day Testing →
-              </button>
-    <p class="text-xs text-amber-600 mt-4">Free testing · Feedback required · 30-day access</p>
+    <button onclick="window.open('https://housepoint.trackedu.net/', '_blank')" class="btn bg-brand-green text-white hover:bg-white hover:text-brand-green border-2 border-brand-green px-10 py-4 text-xl shadow-lg transition">
+       Start Limited Pilot →
+    </button>
+    <p class="text-xs text-gray-400 mt-4">No credit card required • Full access for 30 days</p>
   </div>
 </section>
 
@@ -2334,10 +2483,10 @@ html { scroll-padding-top: 100px; }
         <div class="w-16 h-16 bg-brand-green/20 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
           <i class="fas fa-rocket text-brand-green text-2xl"></i>
         </div>
-        <h3 class="font-display text-2xl font-bold mb-3 text-brand-dark">Test it now</h3>
-        <p class="text-gray-600 mb-8 flex-1">Get instant access to all three tools — Teacher App, Student Portal, and Behavior Tracker. Free testing in exchange for feedback.</p>
-        <button onclick="openPilotModal()" class="w-full btn py-4 text-lg font-bold shadow-md bg-amber-500 hover:bg-amber-600 text-white border-2 border-amber-500">
-          Request Testing Access →
+        <h3 class="font-display text-2xl font-bold mb-3 text-brand-dark"> Start Limited Pilot</h3>
+        <p class="text-gray-600 mb-8 flex-1">Get instant access to all three tools — Teacher App, Student Portal, and Behavior Tracker. No credit card required.</p>
+        <button onclick="openPilotModal()" class="w-full btn py-4 text-lg font-bold shadow-md bg-brand-dark hover:bg-gray-800 text-white border-2 border-brand-dark">
+          Launch 30-Day Pilot →
         </button>
       </div>
 
@@ -2346,7 +2495,7 @@ html { scroll-padding-top: 100px; }
           <i class="fas fa-calendar-alt text-2xl"></i>
         </div>
         <h3 class="font-display text-2xl font-bold mb-3 text-brand-dark">Book a Walkthrough</h3>
-        <p class="text-gray-600 mb-8 flex-1">Have questions about deployment, data privacy, or testing access? Book a 30-minute live demo.</p>
+        <p class="text-gray-600 mb-8 flex-1">Have questions about deployment, data privacy, or multi-school pricing? Book a 30-minute live demo with our team.</p>
         <button data-cal-link="trackedu-a9dbpy/30min" class="w-full py-4 text-lg font-bold text-brand-blue border-2 border-brand-blue rounded-xl hover:bg-brand-blue hover:text-white transition">
           Schedule a Call →
         </button>
@@ -2360,22 +2509,23 @@ html { scroll-padding-top: 100px; }
           Download Principal's Deck (PNG)
         </button>
         
-        <button disabled class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gray-100 text-gray-400 font-bold cursor-not-allowed border border-gray-200">
-          <i class="fas fa-gem text-gray-300"></i>
-          Founding Schools (Disabled)
+        <button class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-50 text-brand-blue font-bold hover:bg-blue-100 transition border border-blue-100" onclick="openPilotModal()">
+          <i class="fas fa-gem text-brand-green"></i>
+          Apply for Founding Schools →
         </button>
       </div>
       
-      <p class="text-gray-400 text-xs font-medium uppercase tracking-widest">Personal development project — technical demonstration only</p>
+      <p class="text-gray-400 text-xs font-medium uppercase tracking-widest">Join 15+ international schools already using TrackEDU</p>
     </div>
 
   </div>
 </section>
+
 <section class="py-24 bg-brand-dark text-white overflow-hidden relative">
   <div class="max-w-6xl mx-auto px-6 relative z-10">
     <div class="text-center mb-16">
-      <h2 class="font-display text-4xl font-black mb-4 text-white">Get your whole school testing in <span class="text-brand-green">10 minutes</span></h2>
-      <p class="text-gray-400">Simple setup. No commitments. Just three steps.</p>
+      <h2 class="font-display text-4xl font-black mb-4 text-white">Get your whole school live in <span class="text-brand-green">10 minutes</span></h2>
+      <p class="text-gray-400">No IT tickets. No sales calls. Just three simple steps.</p>
     </div>
 
     <div class="grid md:grid-cols-3 gap-12 relative">
@@ -2384,9 +2534,9 @@ html { scroll-padding-top: 100px; }
         <div class="relative z-10">
           <h3 class="text-xl font-bold mb-4 flex items-center gap-3">
             <span class="w-8 h-8 rounded-lg bg-brand-green text-brand-dark flex items-center justify-center text-sm">1</span>
-            Request Testing Access
+            Create Your Account
           </h3>
-          <p class="text-gray-400 text-sm leading-relaxed">Authenticate with your school Google account. Free testing in exchange for feedback.</p>
+          <p class="text-gray-400 text-sm leading-relaxed">Authenticate with your school Google account. No credit card required. No waiting for approval.</p>
         </div>
       </div>
 
@@ -2414,13 +2564,14 @@ html { scroll-padding-top: 100px; }
     </div>
     
     <div class="text-center mt-12">
-      <button onclick="window.open('https://housepoint.trackedu.net/', '_blank')" class="btn bg-amber-500 text-white hover:bg-amber-600 border-2 border-amber-500 px-10 py-4 text-xl shadow-lg transition flex items-center justify-center gap-2 mx-auto">
-        <i class="fas fa-flask"></i> Start 30-Day Free Testing
+      <button onclick="openPilotModal()" class="btn px-10 py-4 text-lg font-bold shadow-xl hover:scale-105 transition-all bg-brand-green text-white">
+         Start Limited Pilot →
       </button>
-      <p class="text-amber-300 text-sm mt-4">No payment needed · Feedback required in exchange</p>
     </div>
   </div>
 </section>
+
+
 
 <section id="faq" class="py-24 bg-white border-t border-gray-50">
   <div class="max-w-4xl mx-auto px-6">
@@ -2428,7 +2579,7 @@ html { scroll-padding-top: 100px; }
     
     <div class="space-y-4">
       
-      <!-- FAQ: What are the three tools? -->
+      <!-- New FAQ: What are the three tools? -->
       <details class="faq-details">
         <summary class="faq-summary">What are the three tools in TrackEDU?</summary>
         <div class="faq-content">
@@ -2436,7 +2587,7 @@ html { scroll-padding-top: 100px; }
         </div>
       </details>
 
-      <!-- FAQ: Do I need a house system to use TrackEDU? -->
+      <!-- New FAQ: Do I need a house system to use TrackEDU? -->
       <details class="faq-details">
         <summary class="faq-summary">Do I need an existing house system to use TrackEDU?</summary>
         <div class="faq-content">
@@ -2461,7 +2612,7 @@ html { scroll-padding-top: 100px; }
       <details class="faq-details">
         <summary class="faq-summary">How does the Behavior Tracker work with the Teacher App?</summary>
         <div class="faq-content">
-          The Behavior Tracker pulls student data directly from your Teacher App roster. When a teacher logs an incident, it appears instantly in the Behavior Tracker dashboard. School leaders can add parent communication notes, track tier progression, and export reports — all without re-entering student information.
+          The Behavior Tracker pulls student data directly from your Teacher App roster. When a teacher logs an incident, it appears instantly in the Behavior Tracker dashboard. school leaders can add parent communication notes, track tier progression, and export reports — all without re-entering student information.
         </div>
       </details>
 
@@ -2480,30 +2631,30 @@ html { scroll-padding-top: 100px; }
       </details>
 
       <details class="faq-details">
-        <summary class="faq-summary">What happens after the 30-day testing period?</summary>
+        <summary class="faq-summary">What happens after the 30-day pilot?</summary>
         <div class="faq-content">
-          After your 30-day testing period, you can continue testing longer-term arrangements or simply export your data if TrackEDU isn't right for your school. No data is held hostage. Feedback from testing helps improve the platform.
+          After your pilot, you can either join our Founding Schools Program (limited to 5 schools — full license waiver for 1 year + training) or continue with a standard annual license. If TrackEDU isn't right for your school, you can export all your data to CSV and walk away. No data is held hostage.
         </div>
       </details>
 
       <details class="faq-details">
         <summary class="faq-summary">What login options does TrackEDU support?</summary>
         <div class="faq-content">
-          Teachers and staff use Google Workspace login via OAuth. Students use a secure, anonymous ID token combined with a Class Passcode — no email or password required. School leaders access the Behavior Tracker with their same Google credentials. No SIS integration required — all data imports via CSV.
+          Teachers and staff use Google Workspace login via OAuth. Students use a secure, anonymous ID token combined with a Class Passcode — no email or password required. school leaders access the Behavior Tracker with their same Google credentials. No SIS integration required — all data imports via CSV.
         </div>
       </details>
 
       <details class="faq-details">
-        <summary class="faq-summary">What happens to our data if we stop testing?</summary>
+        <summary class="faq-summary">What happens to our data if we cancel?</summary>
         <div class="faq-content">
-          Your data belongs to you. You can export all student points, behavior incidents, and rosters to CSV anytime from the settings panel. If you stop testing, we retain your data for 90 days. After that, it's permanently deleted unless you've exported it.
+          Your data belongs to you. You can export all student points, behavior incidents, and rosters to CSV anytime from the settings panel. If you cancel, we retain your data for 90 days. After that, it's permanently deleted unless you've exported it.
         </div>
       </details>
 
       <details class="faq-details">
         <summary class="faq-summary">How does TrackEDU differ from classroom tools like ClassDojo?</summary>
         <div class="faq-content">
-          ClassDojo excels at individual classroom management and teacher-parent communication. TrackEDU is a <strong>school-wide culture operating system concept</strong> with three integrated tools. Where classroom tools focus on a single teacher-student relationship, TrackEDU connects all grade levels through a unified system — giving teachers 12+ classroom tools, students a gamified portal, and school leaders tiered behavior tracking. Many schools use both: ClassDojo for daily classroom feedback and TrackEDU for school-wide culture, house systems, and behavior intervention tracking.
+          ClassDojo excels at individual classroom management and teacher-parent communication. TrackEDU is a <strong>school-wide culture operating system</strong> with three integrated tools. Where classroom tools focus on a single teacher-student relationship, TrackEDU connects all grade levels through a unified system — giving teachers 12+ classroom tools, students a gamified portal, and school leaders tiered behavior tracking. Many schools use both: ClassDojo for daily classroom feedback and TrackEDU for school-wide culture, house systems, and behavior intervention tracking.
         </div>
       </details>
 
@@ -2517,21 +2668,21 @@ html { scroll-padding-top: 100px; }
       <details class="faq-details">
         <summary class="faq-summary">How does TrackEDU help with behavior intervention tracking?</summary>
         <div class="faq-content">
-          The Behavior Tracker provides tiered intervention tracking from Pre-Tier 1 through Tier 3. School leaders can log parent communications, track follow-up actions, and view real-time analytics on behavior trends. Export incident reports by student, class, or grade level. All data syncs with the Teacher App so everyone stays informed.
+          The Behavior Tracker provides tiered intervention tracking from Pre-Tier 1 through Tier 3. school leaders can log parent communications, track follow-up actions, and view real-time analytics on behavior trends. Export incident reports by student, class, or grade level. All data syncs with the Teacher App so everyone stays informed.
         </div>
       </details>
 
       <details class="faq-details">
         <summary class="faq-summary">Is TrackEDU suitable for primary schools, secondary schools, or both?</summary>
         <div class="faq-content">
-          TrackEDU works brilliantly for both. Primary schools love the simple Teacher App interface and visual leaderboards. Secondary schools appreciate robust gamification (3D badges, streaks, power boosts) and the Behavior Tracker for tiered interventions. Our platform concept adapts to any school structure from 50 to 3,000+ students.
+          TrackEDU works brilliantly for both. Primary schools love the simple Teacher App interface and visual leaderboards. Secondary schools appreciate robust gamification (3D badges, streaks, power boosts) and the Behavior Tracker for tiered interventions. Our system adapts to any school structure from 50 to 3,000+ students.
         </div>
       </details>
 
       <details class="faq-details">
-        <summary class="faq-summary">What support do you provide during testing?</summary>
+        <summary class="faq-summary">What support do you provide during the pilot?</summary>
         <div class="faq-content">
-          All testing schools receive email support. We also provide video tutorials, setup guides, and documentation for self-service help.
+          All pilot schools receive priority email support within 24 hours. Founding Schools receive dedicated implementation support, staff training workshops, and a direct contact person. We also provide video tutorials, setup guides, and a knowledge base for self-service help.
         </div>
       </details>
 
@@ -2547,16 +2698,13 @@ html { scroll-padding-top: 100px; }
       <div>
         <div class="font-display text-4xl font-black mb-6">Track<span class="text-brand-green">EDU</span></div>
 <p class="text-gray-400 text-lg max-w-md leading-relaxed mb-8">
-  TrackEDU is a personal software development project demonstrating school culture platform concepts. 
-  No commercial operations. No business entity. Private testing phase only.
+  A complete school culture operating system. Three integrated tools — Teacher App, Student Portal, and Behavior Tracker — working as one unified platform.
 </p>
         
         <div class="flex items-center gap-4">
-          <!-- LinkedIn link disabled - personal project mode
           <a href="https://www.linkedin.com/company/trackedu/" target="_blank" class="w-11 h-11 rounded-xl bg-white/5 border border-white/10 text-gray-400 flex items-center justify-center hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all duration-300 shadow-lg">
             <i class="fab fa-linkedin-in text-xl"></i>
           </a>
-          -->
           <span class="text-[10px] font-black text-gray-600 uppercase tracking-widest">Follow our journey</span>
         </div>
       </div>
@@ -2664,6 +2812,7 @@ html { scroll-padding-top: 100px; }
             </div>
           </div>
         </section>
+
         <section class="border-t pt-10 mt-10">
           <div class="text-center mb-10">
             <h2 class="text-3xl font-bold text-brand-dark mt-4 mb-6">Data Sovereignty & Control</h2>
@@ -2677,7 +2826,7 @@ html { scroll-padding-top: 100px; }
             <div class="bg-white border p-6 rounded-xl shadow-sm">
               <i class="fas fa-trash-alt text-4xl mb-4 text-brand-blue"></i>
               <h4 class="font-bold text-lg mb-2">The Right to Erase</h4>
-              <p class="text-sm text-gray-600">Schools retain full ownership of their data. If you cancel your testing access, you can permanently wipe your entire school database with a single click.</p>
+              <p class="text-sm text-gray-600">Schools retain full ownership of their data. If you cancel your contract, you can permanently wipe your entire school database with a single click.</p>
             </div>
             <div class="bg-white border p-6 rounded-xl shadow-sm">
               <i class="fas fa-file-export text-4xl mb-4 text-brand-blue"></i>
@@ -2701,10 +2850,10 @@ html { scroll-padding-top: 100px; }
 
 <div id="pilotModal" class="fixed inset-0 z-[9999] hidden overflow-y-auto">
   <div class="absolute inset-0 bg-gray-900/70 backdrop-blur-sm" onclick="closePilotModal()"></div>
-  <div class="relative w-full min-h-screen md:min-h-0 md:h-auto md:max-w-2xl md:m-auto md:top-1/2 md:-translate-y-1/2 bg-white md:rounded-2xl shadow-2xl flex flex-col overflow-hidden my-8 md:my-0">
+  <div class="relative w-full h-full md:h-auto md:min-h-0 md:max-w-2xl md:m-auto md:top-1/2 md:-translate-y-1/2 bg-white md:rounded-2xl shadow-2xl flex flex-col overflow-hidden md:max-h-[85vh]">
     
     <!-- Header -->
-    <div class="px-6 py-5 border-b flex justify-between items-center bg-white">
+    <div class="px-6 py-5 border-b flex justify-between items-center bg-white shrink-0">
       <div>
         <h3 class="font-display text-xl font-bold text-gray-900">Choose your path</h3>
         <p class="text-xs text-gray-500 mt-0.5">Two ways to get started with TrackEDU</p>
@@ -2714,29 +2863,39 @@ html { scroll-padding-top: 100px; }
       </button>
     </div>
     
-    <div class="p-6 space-y-5">
+    <div class="p-6 space-y-5 overflow-y-auto flex-1">
       
-      <!-- Option 1: 30-Day Testing (Feedback Exchange) -->
-      <a href="https://housepoint.trackedu.net/" target="_blank" 
-         class="group block p-5 rounded-xl border-2 border-amber-400 hover:border-amber-500 hover:bg-amber-50/30 transition-all duration-200">
-        <div class="flex items-center justify-between">
-          <div class="flex-1">
-            <div class="flex items-center gap-2 mb-1">
-              <div class="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center group-hover:bg-amber-200 transition">
-                <i class="fas fa-flask text-amber-600 text-sm"></i>
+      <!-- Option 1: Limited 30-Day Pilot -->
+<a href="https://housepoint.trackedu.net/" target="_blank" 
+class="group block p-5 rounded-xl border-2 border-gray-200 hover:border-brand-green hover:bg-brand-green/5 transition-all duration-200">
+<div class="flex items-center justify-between">
+ <div class="flex-1">
+   <div class="flex items-center gap-2 mb-1">
+     <div class="w-8 h-8 rounded-full bg-brand-green/10 flex items-center justify-center group-hover:bg-brand-green/20 transition">
+       <i class="fas fa-rocket text-brand-green text-sm"></i>
+     </div>
+     <span class="font-bold text-gray-900 text-lg">Limited 30-Day Pilot</span>
+   </div>
+   <p class="text-gray-500 text-sm ml-10">Full access · Instant setup · Up to 3,000 students</p>
+   <div class="flex items-center gap-3 ml-10 mt-2">
+     <span class="text-xs text-gray-400 flex items-center gap-1"><i class="fas fa-check-circle text-brand-green text-[10px]"></i> No commitment</span>
+     <span class="text-xs text-gray-400 flex items-center gap-1"><i class="fas fa-check-circle text-brand-green text-[10px]"></i> Export anytime</span>
+   </div>
+ </div>
+ <i class="fas fa-arrow-right text-gray-300 group-hover:text-brand-green group-hover:translate-x-1 transition-all"></i>
+</div>
+</a>
+      
+            <!-- How to Join a School Video Card -->
+            <div class="bg-white rounded-xl border border-gray-200 p-4 flex flex-col items-center text-center gap-3 hover:shadow-md transition md:flex-row md:text-left md:justify-between">
+              <div>
+                <div class="font-bold text-sm text-gray-800">Joining an existing school?</div>
+                <div class="text-xs text-gray-500">Watch: How to join a school as a teacher</div>
               </div>
-              <span class="font-bold text-gray-900 text-lg">30-Day Free Testing</span>
-              <span class="text-[10px] font-bold bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full ml-2">Feedback Required</span>
+              <button onclick="openTutorialVideo('join')" class="px-4 py-2 bg-green-600 text-white rounded-lg font-semibold text-xs hover:bg-green-700 transition flex items-center gap-2">
+                <i class="fas fa-play-circle"></i> Watch Tutorial
+              </button>
             </div>
-            <p class="text-gray-500 text-sm ml-10">Test all three tools · Up to 3,000 students</p>
-            <div class="flex items-center gap-3 ml-10 mt-2">
-              <span class="text-xs text-amber-600 flex items-center gap-1"><i class="fas fa-comment-dots text-amber-500 text-[10px]"></i> In exchange for feedback</span>
-              <span class="text-xs text-gray-400 flex items-center gap-1"><i class="fas fa-code text-amber-500 text-[10px]"></i> Personal development project</span>
-            </div>
-          </div>
-          <i class="fas fa-arrow-right text-amber-400 group-hover:text-amber-600 group-hover:translate-x-1 transition-all"></i>
-        </div>
-      </a>
       
       <!-- Divider -->
       <div class="relative">
@@ -2748,32 +2907,296 @@ html { scroll-padding-top: 100px; }
         </div>
       </div>
       
-      <!-- Option 2: Feedback Program -->
+      <!-- Option 2: Founding Schools -->
       <div class="bg-gradient-to-br from-amber-50 to-orange-50/30 rounded-xl border-2 border-amber-300/50 overflow-hidden">
+        <!-- Scarcity banner -->
         <div class="bg-amber-600 px-4 py-2 text-center">
           <div class="flex items-center justify-center gap-2">
-            <i class="fas fa-comment-dots text-white text-xs"></i>
-            <span class="text-white font-bold text-xs uppercase tracking-wider">Feedback Exchange Program</span>
-            <span class="bg-white/20 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">Open for testers</span>
+            <i class="fas fa-crown text-white text-xs"></i>
+            <span class="text-white font-bold text-xs uppercase tracking-wider">Limited to 5 schools worldwide</span>
+            <span class="bg-white/20 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">3 spots left</span>
           </div>
         </div>
         
         <div class="p-5">
           <div class="text-center mb-5">
-            <h4 class="font-bold text-gray-900 text-xl">Testing Feedback Program</h4>
+            <h4 class="font-bold text-gray-900 text-xl">🔥 Charter Pilot — 5 Spots Only</h4>
             <div class="flex items-center justify-center gap-3 mt-2">
-              <span class="inline-flex items-center gap-1 text-xs text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full"><i class="fas fa-flask text-[10px]"></i> Free testing</span>
-              <span class="inline-flex items-center gap-1 text-xs text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full"><i class="fas fa-comment-dots text-[10px]"></i> Feedback required</span>
+              <span class="inline-flex items-center gap-1 text-xs text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full"><i class="fas fa-gem text-[10px]"></i> 1 year full access</span>
+              <span class="inline-flex items-center gap-1 text-xs text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full"><i class="fas fa-file-invoice-dollar text-[10px]"></i> License waiver</span>
               <span class="inline-flex items-center gap-1 text-xs text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full"><i class="fas fa-chalkboard-user text-[10px]"></i> Training included</span>
             </div>
+            <p class="text-xs text-amber-600 mt-2 font-semibold">⚠️ Applications close July 31st · 3 spots remaining</p>
           </div>
           
-          <div class="bg-amber-50 rounded-xl p-5 text-center border border-amber-200">
-            <i class="fas fa-comment-dots text-3xl text-amber-500 mb-3"></i>
-            <p class="text-gray-700 font-medium">Help shape the platform</p>
-            <p class="text-gray-500 text-sm mt-2">Test the full platform and provide feedback.</p>
-            <p class="text-gray-400 text-xs mt-3">Contact the developer to join: <strong class="text-amber-600">hello@trackedu.net</strong></p>
-          </div>
+            <!-- 🎬 Video Tutorial: How to Create a School -->
+  <div class="mb-5 p-4 bg-blue-50 rounded-xl border border-blue-200 flex flex-col items-center text-center gap-3 md:flex-row md:text-left md:justify-between">
+    <div>
+      <div class="font-bold text-sm text-gray-800">New to TrackEDU?</div>
+      <div class="text-xs text-gray-600">Watch: How to create & set up your school</div>
+    </div>
+    <button onclick="openTutorialVideo('create')" class="px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold text-xs hover:bg-blue-700 transition flex items-center gap-2">
+      <i class="fas fa-play-circle"></i> Watch Tutorial
+    </button>
+  </div>
+          
+          <form action="https://formsubmit.co/hello@trackedu.net" method="POST" id="foundingSchoolsForm" class="space-y-4">
+            <input type="hidden" name="_subject" value="🔥 Founding Schools Application - TrackEDU">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="box">
+            <input type="hidden" name="_next" value="https://www.trackedu.net?application=submitted">
+            <input type="hidden" name="_autoresponse" value="Thank you for applying to the TrackEDU Founding Schools Program! We have received your application. Our team will review your submission and contact you within 48 hours about the 1-year license waiver. - The TrackEDU Team">
+            
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-gray-600 mb-1">Full name *</label>
+                <input type="text" name="name" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-gray-600 mb-1">Job title *</label>
+                <input type="text" name="title" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm">
+              </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-gray-600 mb-1">School email *</label>
+                <input type="email" name="email" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-gray-600 mb-1">School name *</label>
+                <input type="text" name="school" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm">
+              </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-gray-600 mb-1">Country *</label>
+                <select name="country" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm bg-white">
+                  <option value="">Select country</option>
+                  <option value="Afghanistan">Afghanistan</option>
+                  <option value="Albania">Albania</option>
+                  <option value="Algeria">Algeria</option>
+                  <option value="Andorra">Andorra</option>
+                  <option value="Angola">Angola</option>
+                  <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                  <option value="Argentina">Argentina</option>
+                  <option value="Armenia">Armenia</option>
+                  <option value="Australia">Australia</option>
+                  <option value="Austria">Austria</option>
+                  <option value="Azerbaijan">Azerbaijan</option>
+                  <option value="Bahamas">Bahamas</option>
+                  <option value="Bahrain">Bahrain</option>
+                  <option value="Bangladesh">Bangladesh</option>
+                  <option value="Barbados">Barbados</option>
+                  <option value="Belarus">Belarus</option>
+                  <option value="Belgium">Belgium</option>
+                  <option value="Belize">Belize</option>
+                  <option value="Benin">Benin</option>
+                  <option value="Bhutan">Bhutan</option>
+                  <option value="Bolivia">Bolivia</option>
+                  <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                  <option value="Botswana">Botswana</option>
+                  <option value="Brazil">Brazil</option>
+                  <option value="Brunei">Brunei</option>
+                  <option value="Bulgaria">Bulgaria</option>
+                  <option value="Burkina Faso">Burkina Faso</option>
+                  <option value="Burundi">Burundi</option>
+                  <option value="Cabo Verde">Cabo Verde</option>
+                  <option value="Cambodia">Cambodia</option>
+                  <option value="Cameroon">Cameroon</option>
+                  <option value="Canada">Canada</option>
+                  <option value="Central African Republic">Central African Republic</option>
+                  <option value="Chad">Chad</option>
+                  <option value="Chile">Chile</option>
+                  <option value="China">China</option>
+                  <option value="Colombia">Colombia</option>
+                  <option value="Comoros">Comoros</option>
+                  <option value="Congo">Congo</option>
+                  <option value="Costa Rica">Costa Rica</option>
+                  <option value="Côte d'Ivoire">Côte d'Ivoire</option>
+                  <option value="Croatia">Croatia</option>
+                  <option value="Cuba">Cuba</option>
+                  <option value="Cyprus">Cyprus</option>
+                  <option value="Czech Republic">Czech Republic</option>
+                  <option value="Denmark">Denmark</option>
+                  <option value="Djibouti">Djibouti</option>
+                  <option value="Dominica">Dominica</option>
+                  <option value="Dominican Republic">Dominican Republic</option>
+                  <option value="Ecuador">Ecuador</option>
+                  <option value="Egypt">Egypt</option>
+                  <option value="El Salvador">El Salvador</option>
+                  <option value="Equatorial Guinea">Equatorial Guinea</option>
+                  <option value="Eritrea">Eritrea</option>
+                  <option value="Estonia">Estonia</option>
+                  <option value="Eswatini">Eswatini</option>
+                  <option value="Ethiopia">Ethiopia</option>
+                  <option value="Fiji">Fiji</option>
+                  <option value="Finland">Finland</option>
+                  <option value="France">France</option>
+                  <option value="Gabon">Gabon</option>
+                  <option value="Gambia">Gambia</option>
+                  <option value="Georgia">Georgia</option>
+                  <option value="Germany">Germany</option>
+                  <option value="Ghana">Ghana</option>
+                  <option value="Greece">Greece</option>
+                  <option value="Grenada">Grenada</option>
+                  <option value="Guatemala">Guatemala</option>
+                  <option value="Guinea">Guinea</option>
+                  <option value="Guinea-Bissau">Guinea-Bissau</option>
+                  <option value="Guyana">Guyana</option>
+                  <option value="Haiti">Haiti</option>
+                  <option value="Honduras">Honduras</option>
+                  <option value="Hungary">Hungary</option>
+                  <option value="Iceland">Iceland</option>
+                  <option value="India">India</option>
+                  <option value="Indonesia">Indonesia</option>
+                  <option value="Iran">Iran</option>
+                  <option value="Iraq">Iraq</option>
+                  <option value="Ireland">Ireland</option>
+                  <option value="Israel">Israel</option>
+                  <option value="Italy">Italy</option>
+                  <option value="Jamaica">Jamaica</option>
+                  <option value="Japan">Japan</option>
+                  <option value="Jordan">Jordan</option>
+                  <option value="Kazakhstan">Kazakhstan</option>
+                  <option value="Kenya">Kenya</option>
+                  <option value="Kiribati">Kiribati</option>
+                  <option value="Korea, North">Korea, North</option>
+                  <option value="Korea, South">Korea, South</option>
+                  <option value="Kosovo">Kosovo</option>
+                  <option value="Kuwait">Kuwait</option>
+                  <option value="Kyrgyzstan">Kyrgyzstan</option>
+                  <option value="Laos">Laos</option>
+                  <option value="Latvia">Latvia</option>
+                  <option value="Lebanon">Lebanon</option>
+                  <option value="Lesotho">Lesotho</option>
+                  <option value="Liberia">Liberia</option>
+                  <option value="Libya">Libya</option>
+                  <option value="Liechtenstein">Liechtenstein</option>
+                  <option value="Lithuania">Lithuania</option>
+                  <option value="Luxembourg">Luxembourg</option>
+                  <option value="Madagascar">Madagascar</option>
+                  <option value="Malawi">Malawi</option>
+                  <option value="Malaysia">Malaysia</option>
+                  <option value="Maldives">Maldives</option>
+                  <option value="Mali">Mali</option>
+                  <option value="Malta">Malta</option>
+                  <option value="Marshall Islands">Marshall Islands</option>
+                  <option value="Mauritania">Mauritania</option>
+                  <option value="Mauritius">Mauritius</option>
+                  <option value="Mexico">Mexico</option>
+                  <option value="Micronesia">Micronesia</option>
+                  <option value="Moldova">Moldova</option>
+                  <option value="Monaco">Monaco</option>
+                  <option value="Mongolia">Mongolia</option>
+                  <option value="Montenegro">Montenegro</option>
+                  <option value="Morocco">Morocco</option>
+                  <option value="Mozambique">Mozambique</option>
+                  <option value="Myanmar">Myanmar</option>
+                  <option value="Namibia">Namibia</option>
+                  <option value="Nauru">Nauru</option>
+                  <option value="Nepal">Nepal</option>
+                  <option value="Netherlands">Netherlands</option>
+                  <option value="New Zealand">New Zealand</option>
+                  <option value="Nicaragua">Nicaragua</option>
+                  <option value="Niger">Niger</option>
+                  <option value="Nigeria">Nigeria</option>
+                  <option value="North Macedonia">North Macedonia</option>
+                  <option value="Norway">Norway</option>
+                  <option value="Oman">Oman</option>
+                  <option value="Pakistan">Pakistan</option>
+                  <option value="Palau">Palau</option>
+                  <option value="Palestine">Palestine</option>
+                  <option value="Panama">Panama</option>
+                  <option value="Papua New Guinea">Papua New Guinea</option>
+                  <option value="Paraguay">Paraguay</option>
+                  <option value="Peru">Peru</option>
+                  <option value="Philippines">Philippines</option>
+                  <option value="Poland">Poland</option>
+                  <option value="Portugal">Portugal</option>
+                  <option value="Qatar">Qatar</option>
+                  <option value="Romania">Romania</option>
+                  <option value="Russia">Russia</option>
+                  <option value="Rwanda">Rwanda</option>
+                  <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                  <option value="Saint Lucia">Saint Lucia</option>
+                  <option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
+                  <option value="Samoa">Samoa</option>
+                  <option value="San Marino">San Marino</option>
+                  <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+                  <option value="Saudi Arabia">Saudi Arabia</option>
+                  <option value="Senegal">Senegal</option>
+                  <option value="Serbia">Serbia</option>
+                  <option value="Seychelles">Seychelles</option>
+                  <option value="Sierra Leone">Sierra Leone</option>
+                  <option value="Singapore">Singapore</option>
+                  <option value="Slovakia">Slovakia</option>
+                  <option value="Slovenia">Slovenia</option>
+                  <option value="Solomon Islands">Solomon Islands</option>
+                  <option value="Somalia">Somalia</option>
+                  <option value="South Africa">South Africa</option>
+                  <option value="South Sudan">South Sudan</option>
+                  <option value="Spain">Spain</option>
+                  <option value="Sri Lanka">Sri Lanka</option>
+                  <option value="Sudan">Sudan</option>
+                  <option value="Suriname">Suriname</option>
+                  <option value="Sweden">Sweden</option>
+                  <option value="Switzerland">Switzerland</option>
+                  <option value="Syria">Syria</option>
+                  <option value="Taiwan">Taiwan</option>
+                  <option value="Tajikistan">Tajikistan</option>
+                  <option value="Tanzania">Tanzania</option>
+                  <option value="Thailand">Thailand</option>
+                  <option value="Timor-Leste">Timor-Leste</option>
+                  <option value="Togo">Togo</option>
+                  <option value="Tonga">Tonga</option>
+                  <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                  <option value="Tunisia">Tunisia</option>
+                  <option value="Turkey">Turkey</option>
+                  <option value="Turkmenistan">Turkmenistan</option>
+                  <option value="Tuvalu">Tuvalu</option>
+                  <option value="Uganda">Uganda</option>
+                  <option value="Ukraine">Ukraine</option>
+                  <option value="United Arab Emirates">United Arab Emirates</option>
+                  <option value="United Kingdom">United Kingdom</option>
+                  <option value="United States">United States</option>
+                  <option value="Uruguay">Uruguay</option>
+                  <option value="Uzbekistan">Uzbekistan</option>
+                  <option value="Vanuatu">Vanuatu</option>
+                  <option value="Vatican City">Vatican City</option>
+                  <option value="Venezuela">Venezuela</option>
+                  <option value="Vietnam">Vietnam</option>
+                  <option value="Yemen">Yemen</option>
+                  <option value="Zambia">Zambia</option>
+                  <option value="Zimbabwe">Zimbabwe</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-gray-600 mb-1">Student count *</label>
+                <select name="student_count" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm bg-white">
+                  <option value="">Select range</option>
+                  <option value="<100">&lt; 100</option>
+                  <option value="100-300">100 - 300</option>
+                  <option value="300-600">300 - 600</option>
+                  <option value="600-1000">600 - 1,000</option>
+                  <option value="1000+">1,000+</option>
+                </select>
+              </div>
+            </div>
+            
+            <input type="hidden" name="source" value="founding_schools_modal">
+            <input type="hidden" name="timestamp" value="">
+            
+            <button type="submit" id="foundingSubmitBtn" class="w-full py-3 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl transition-all duration-200 flex items-center justify-center gap-2">
+              <span class="btn-text">Reserve Your Spot →</span>
+              <span class="btn-spinner hidden"><i class="fas fa-circle-notch fa-spin"></i></span>
+            </button>
+            
+            <p class="text-[10px] text-gray-400 text-center">
+              <i class="fas fa-shield-alt text-amber-500"></i> Only apply if authorized to make school-wide decisions
+            </p>
+          </form>
         </div>
       </div>
       
@@ -2782,8 +3205,35 @@ html { scroll-padding-top: 100px; }
 </div>
 
 <script>
-// Feedback program inquiry - no form submission needed
-// Contact directly via email
+// Founding Schools Form with loading spinner
+const foundingForm = document.getElementById('foundingSchoolsForm');
+if (foundingForm) {
+  foundingForm.addEventListener('submit', function(e) {
+    const submitBtn = document.getElementById('foundingSubmitBtn');
+    const btnText = submitBtn.querySelector('.btn-text');
+    const btnSpinner = submitBtn.querySelector('.btn-spinner');
+    
+    // Show spinner, disable button
+    btnText.classList.add('hidden');
+    btnSpinner.classList.remove('hidden');
+    submitBtn.disabled = true;
+    submitBtn.classList.add('opacity-70');
+    
+    // Add timestamp
+    const tsField = foundingForm.querySelector('input[name="timestamp"]');
+    if (tsField) tsField.value = new Date().toISOString();
+    
+    // Form will submit normally to FormSubmit
+    // Keep spinner visible during redirect
+    setTimeout(() => {
+      // Fallback: if form doesn't redirect, re-enable (shouldn't happen)
+      btnText.classList.remove('hidden');
+      btnSpinner.classList.add('hidden');
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('opacity-70');
+    }, 10000);
+  });
+}
 </script>
 
 
@@ -2811,9 +3261,9 @@ html { scroll-padding-top: 100px; }
       <div class="text-sm text-gray-500 font-medium">
         <i class="fas fa-shield-halved mr-1"></i> Data secure & isolated
       </div>
-      <button onclick="window.open('https://housepoint.trackedu.net/', '_blank')" class="w-full py-3 rounded-xl font-bold text-amber-600 border-2 border-amber-500 hover:bg-amber-500 hover:text-white transition">
-        Request Testing Access
-      </button>
+     <button onclick="window.open('https://housepoint.trackedu.net/', '_blank')" class="w-full py-3 rounded-xl font-bold text-brand-blue border-2 border-brand-blue hover:bg-brand-blue hover:text-white transition">
+    Start Limited Pilot
+</button>
     </div>
   </div>
 </div>
@@ -2847,6 +3297,61 @@ html { scroll-padding-top: 100px; }
   // Update Results
   document.getElementById('res-hours').innerText = yearlyHoursSaved;
   document.getElementById('res-boost').innerText = engagementFactor;
+}
+
+
+// Video Tutorial Functions
+function openTutorialVideo(type) {
+  // Create modal container if it doesn't exist
+  let modal = document.getElementById('videoTutorialModal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'videoTutorialModal';
+    modal.className = 'fixed inset-0 z-[200000] bg-black/90 backdrop-blur-md flex items-center justify-center p-4 hidden';
+    modal.onclick = (e) => { if (e.target === modal) closeTutorialVideo(); };
+    
+    modal.innerHTML = `
+      <div class="relative w-full max-w-4xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl" onclick="event.stopPropagation()">
+        <button onclick="closeTutorialVideo()" class="absolute -top-10 right-0 text-white text-3xl hover:text-gray-300 transition">&times;</button>
+        <iframe id="tutorialIframe" class="w-full h-full" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    `;
+    document.body.appendChild(modal);
+  }
+  
+  const iframe = document.getElementById('tutorialIframe');
+  if (!iframe) return;
+  
+  // Set video URL based on type
+  let videoUrl = '';
+  let title = '';
+  
+  if (type === 'create') {
+    videoUrl = 'https://www.youtube.com/embed/lyTC9Y62N2w?autoplay=1&rel=0';
+    title = 'How to Create & Set Up Your School';
+  } else if (type === 'join') {
+    videoUrl = 'https://www.youtube.com/embed/a2c7nvWgtXM?autoplay=1&rel=0';
+    title = 'How to Join a School';
+  } else if (type === 'house') {
+    videoUrl = 'https://www.youtube.com/embed/WKuOrP85410?autoplay=1&rel=0';
+    title = 'House Configuration Guide';
+  }
+  
+  iframe.src = videoUrl;
+  modal.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeTutorialVideo() {
+  const modal = document.getElementById('videoTutorialModal');
+  const iframe = document.getElementById('tutorialIframe');
+  if (modal) {
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+  if (iframe) {
+    iframe.src = '';
+  }
 }
 
 
@@ -3379,9 +3884,9 @@ function openAppModal(appType) {
           <img src="https://i.imgur.com/${isTeacher ? 'jJdF6dh' : 'Xr6JFho'}.jpeg" class="rounded-xl shadow-md w-full" alt="${title}">
           <img src="https://i.imgur.com/UVl5QwD.jpeg" class="rounded-xl shadow-md w-full" alt="Leaderboard view">
         </div>
-        <p class="text-center text-gray-500 text-sm mt-4">Click any tool above to see it in action during your free pilot.</p>
+        <p class="text-center text-gray-500 text-sm mt-4">Click any tool above to see it in action during your pilot.</p>
         <div class="mt-6 text-center">
-          <button onclick="this.closest('.fixed').remove(); openPilotModal();" class="btn px-6 py-2">Test it →</button>
+          <button onclick="this.closest('.fixed').remove(); openPilotModal();" class="btn px-6 py-2"> Start Limited Pilot →</button>
         </div>
       </div>
     </div>
@@ -3653,28 +4158,11 @@ function openStudentAppPreview() {
   }
 
   // 4. Modal Logic Generators
-  // PILOT MODAL MODIFIED FOR MOM COMPLIANCE - FORM HIDDEN
-const setupModal = (modalId, triggerFnName, closeFnName) => {
+  const setupModal = (modalId, triggerFnName, closeFnName) => {
     const modal = document.getElementById(modalId);
     window[triggerFnName] = () => {
       modal.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
-      // Also hide the form inside and show disabled message
-      const form = modal.querySelector('form');
-      const placeholder = modal.querySelector('#disabledPlaceholder');
-      if (form && !placeholder) {
-        form.style.display = 'none';
-        const newPlaceholder = document.createElement('div');
-        newPlaceholder.id = 'disabledPlaceholder';
-        newPlaceholder.className = 'bg-gray-100 rounded-xl p-6 text-center';
-        newPlaceholder.innerHTML = `
-          <i class="fas fa-code text-3xl text-gray-400 mb-3"></i>
-          <p class="text-gray-600 font-medium">Developer Preview Mode</p>
-          <p class="text-gray-400 text-sm mt-2">This feature is disabled during personal project phase.</p>
-          <p class="text-gray-400 text-xs mt-3">Contact the developer directly for technical inquiries.</p>
-        `;
-        form.parentNode.appendChild(newPlaceholder);
-      }
     };
     window[closeFnName] = () => {
       modal.classList.add('hidden');
@@ -3830,6 +4318,7 @@ const setupModal = (modalId, triggerFnName, closeFnName) => {
 </script>
 
 
+
 <div id="pitchDeckModal" class="fixed inset-0 z-[100000] hidden flex items-center justify-center p-0 md:p-4">
   <div class="absolute inset-0 bg-gray-900/80 backdrop-blur-sm" onclick="closePitchDeck()"></div>
   
@@ -3839,7 +4328,7 @@ const setupModal = (modalId, triggerFnName, closeFnName) => {
     <div class="flex justify-between items-center px-6 py-4 border-b border-gray-100 print:hidden bg-white shrink-0">
       <div class="flex items-center gap-2">
         <span class="font-display text-xl font-bold text-gray-900">Track<span class="text-brand-green">EDU</span></span>
-        <span class="text-xs font-medium bg-amber-100 text-amber-700 px-2 py-0.5 rounded">Concept Overview</span>
+        <span class="text-xs font-medium bg-gray-100 text-gray-500 px-2 py-0.5 rounded">Principal's Deck</span>
       </div>
       <div class="flex items-center gap-3">
         <button onclick="downloadPitchDeckPNG()" class="px-4 py-2 text-sm font-medium bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg transition flex items-center gap-2">
@@ -3857,26 +4346,21 @@ const setupModal = (modalId, triggerFnName, closeFnName) => {
         
         <!-- PAGE 1: The Problem & Solution -->
         <div id="pitch-page-1" class="bg-white p-8 md:p-12 rounded-xl border border-gray-100 mb-8 shadow-sm">
-          <span class="text-amber-600 font-semibold tracking-wide text-sm uppercase mb-4">Concept Overview</span>
-          <h1 class="text-3xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">A Complete School Culture<br><span class="text-brand-green">Platform Concept</span></h1>
-          <p class="text-lg text-gray-500 leading-relaxed max-w-2xl mb-8">Most schools still manage culture through spreadsheets, sticky notes, or fragmented apps. TrackEDU is a concept platform that combines teacher tools, student engagement, and behavior tracking — all in one place. This is a personal development project currently in testing phase.</p>
+          <span class="text-brand-green font-semibold tracking-wide text-sm uppercase mb-4">The Solution</span>
+          <h1 class="text-3xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">A Complete School Culture<br><span class="text-brand-green">Operating System</span></h1>
+          <p class="text-lg text-gray-500 leading-relaxed max-w-2xl mb-8">Most schools still manage culture through spreadsheets, sticky notes, or fragmented apps. TrackEDU is a unified platform that combines teacher tools, student engagement, and behavior tracking — all in one place.</p>
           
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
-            <div class="p-5 bg-gray-50 rounded-xl"><div class="text-2xl mb-2">⚡</div><div class="font-semibold text-gray-900">Instant</div><div class="text-sm text-gray-500">Concept: Award points in seconds</div></div>
-            <div class="p-5 bg-gray-50 rounded-xl"><div class="text-2xl mb-2">💎</div><div class="font-semibold text-gray-900">Engaged</div><div class="text-sm text-gray-500">Concept: RPG-style student journey</div></div>
-            <div class="p-5 bg-gray-50 rounded-xl"><div class="text-2xl mb-2">📊</div><div class="font-semibold text-gray-900">Unified</div><div class="text-sm text-gray-500">Concept: School-wide data sync</div></div>
-          </div>
-          
-          <!-- Disclaimer -->
-          <div class="mt-6 p-3 bg-amber-50 border border-amber-200 rounded-lg text-center">
-            <p class="text-xs text-amber-700"><i class="fas fa-flask mr-1"></i> Personal development project</p>
+            <div class="p-5 bg-gray-50 rounded-xl"><div class="text-2xl mb-2">⚡</div><div class="font-semibold text-gray-900">Instant</div><div class="text-sm text-gray-500">Award points in 3 seconds</div></div>
+            <div class="p-5 bg-gray-50 rounded-xl"><div class="text-2xl mb-2">💎</div><div class="font-semibold text-gray-900">Engaged</div><div class="text-sm text-gray-500">RPG-style student journey</div></div>
+            <div class="p-5 bg-gray-50 rounded-xl"><div class="text-2xl mb-2">📊</div><div class="font-semibold text-gray-900">Unified</div><div class="text-sm text-gray-500">School-wide data sync</div></div>
           </div>
         </div>
 
         <!-- PAGE 2: Three Integrated Tools -->
         <div id="pitch-page-2" class="bg-gray-900 text-white p-8 md:p-12 rounded-xl mb-8 shadow-sm">
           <h2 class="text-3xl md:text-4xl font-bold mb-3">Three Tools. One Ecosystem.</h2>
-          <p class="text-gray-400 text-lg mb-10 max-w-2xl">Everything your school needs to build positive culture — in one unified platform concept.</p>
+          <p class="text-gray-400 text-lg mb-10 max-w-2xl">Everything your school needs to build positive culture — in one unified platform.</p>
           
           <div class="grid md:grid-cols-3 gap-6">
             
@@ -3890,7 +4374,7 @@ const setupModal = (modalId, triggerFnName, closeFnName) => {
               <ul class="mt-4 space-y-1 text-xs text-gray-400">
                 <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-[10px]"></i> One-click house points</li>
                 <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-[10px]"></i> 10+ classroom utilities</li>
-                <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-[10px]"></i> Assembly mode concept</li>
+                <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-[10px]"></i> Live assembly mode</li>
               </ul>
             </div>
             
@@ -3902,30 +4386,30 @@ const setupModal = (modalId, triggerFnName, closeFnName) => {
               <h3 class="text-lg font-bold mb-2">Student Hero Portal</h3>
               <p class="text-gray-400 text-sm">Where school culture becomes a game students actually want to play.</p>
               <ul class="mt-4 space-y-1 text-xs text-gray-400">
-                <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-[10px]"></i> 3D badge collection concept</li>
-                <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-[10px]"></i> Daily streaks & spins concept</li>
-                <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-[10px]"></i> House power boosts concept</li>
+                <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-[10px]"></i> 3D badge collection</li>
+                <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-[10px]"></i> Daily streaks & spins</li>
+                <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-[10px]"></i> House power boosts</li>
               </ul>
             </div>
             
-            <!-- Tool 3: Behavior Tracker -->
+            <!-- Tool 3: Behavior Tracker (consistent naming) -->
             <div class="bg-white/5 rounded-xl p-5 border border-white/10">
               <div class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center mb-4">
                 <i class="fas fa-chart-line text-2xl text-purple-400"></i>
               </div>
-              <h3 class="text-lg font-bold mb-2">Behavior Tracker (Concept)</h3>
+              <h3 class="text-lg font-bold mb-2">Behavior Tracker</h3>
               <p class="text-gray-400 text-sm">Tiered interventions, parent logs, and school-wide analytics.</p>
               <ul class="mt-4 space-y-1 text-xs text-gray-400">
-                <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-[10px]"></i> Pre-Tier 1 to Tier 3 concept</li>
-                <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-[10px]"></i> Parent communication logs concept</li>
-                <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-[10px]"></i> Real-time analytics concept</li>
+                <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-[10px]"></i> Pre-Tier 1 to Tier 3</li>
+                <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-[10px]"></i> Parent communication logs</li>
+                <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-[10px]"></i> Real-time analytics</li>
               </ul>
             </div>
             
           </div>
           
           <div class="mt-8 p-4 bg-white/5 border border-white/10 rounded-xl text-center italic text-brand-green text-sm">
-            "Three integrated apps. One unified database. Zero spreadsheets — concept phase"
+            "Three integrated apps. One unified database. Zero spreadsheets."
           </div>
         </div>
 
@@ -3944,7 +4428,7 @@ const setupModal = (modalId, triggerFnName, closeFnName) => {
               </div>
             </div>
             <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
-              <h4 class="font-semibold text-gray-900 mb-4">Infrastructure (Concept)</h4>
+              <h4 class="font-semibold text-gray-900 mb-4">Infrastructure</h4>
               <ul class="space-y-3 text-sm text-gray-600">
                 <li class="flex items-center gap-3"><i class="fas fa-check-circle text-brand-green text-sm"></i> Secure Firebase Backend</li>
                 <li class="flex items-center gap-3"><i class="fas fa-check-circle text-brand-green text-sm"></i> School Data Sovereignty</li>
@@ -3953,39 +4437,32 @@ const setupModal = (modalId, triggerFnName, closeFnName) => {
               </ul>
             </div>
           </div>
-          
-          <!-- Disclaimer -->
-          <div class="mt-6 p-3 bg-amber-50 border border-amber-200 rounded-lg text-center">
-            <p class="text-xs text-amber-700"><i class="fas fa-flask mr-1"></i> Personal development project — no commercial services offered</p>
-          </div>
         </div>
 
-        <!-- PAGE 4: Call to Action (Updated to Feedback Program) -->
-        <div id="pitch-page-4" class="bg-gradient-to-br from-amber-500 to-amber-700 p-8 md:p-12 rounded-xl shadow-sm">
+        <!-- PAGE 4: Call to Action -->
+        <div id="pitch-page-4" class="bg-gradient-to-br from-brand-green to-emerald-700 p-8 md:p-12 rounded-xl shadow-sm">
           <div class="max-w-lg mx-auto text-center">
             <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-1.5 rounded-full mb-6">
-              <i class="fas fa-flask text-white text-xs"></i>
-              <span class="text-white font-semibold text-sm">Testing Feedback Program</span>
+              <span class="text-white font-semibold text-sm">🔥 Limited to 5 Schools</span>
             </div>
             
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Help Shape the Platform</h2>
-            <p class="text-white/90 text-lg mb-6">Free testing · Feedback required · Personal development project</p>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Founding Schools Program</h2>
+            <p class="text-white/90 text-lg mb-6">1 full year FREE · License waiver · Staff training included</p>
             
             <div class="bg-white rounded-xl p-6 text-left mb-6">
               <div class="flex items-center gap-3 mb-4">
-                <i class="fas fa-comment-dots text-amber-600 text-xl"></i>
-                <span class="font-semibold text-gray-900">What testers receive:</span>
+                <i class="fas fa-gem text-brand-green text-xl"></i>
+                <span class="font-semibold text-gray-900">What Founding Schools receive:</span>
               </div>
               <ul class="space-y-2 text-sm text-gray-600">
-                <li class="flex items-center gap-2"><i class="fas fa-check-circle text-amber-500"></i> Free access during testing phase</li>
-                <li class="flex items-center gap-2"><i class="fas fa-check-circle text-amber-500"></i> Direct input into feature development</li>
-                <li class="flex items-center gap-2"><i class="fas fa-check-circle text-amber-500"></i> Priority support during testing</li>
-                <li class="flex items-center gap-2"><i class="fas fa-check-circle text-amber-500"></i> Acknowledged as early tester</li>
+                <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green"></i> Full license waiver for 1 year</li>
+                <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green"></i> Complimentary staff training workshops</li>
+                <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green"></i> Priority implementation support</li>
+                <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green"></i> Featured as early innovator</li>
               </ul>
             </div>
             
             <p class="text-white/70 text-xs">www.trackedu.net · hello@trackedu.net</p>
-            <p class="text-white/50 text-[10px] mt-2">Personal development project — no commercial entity</p>
           </div>
         </div>
 
@@ -4037,7 +4514,7 @@ async function downloadPitchDeckPNG() {
 
 
 
-// Single Modal: Full screen on mobile/iPad, larger on desktop
+/// Single Modal: Full screen on mobile/iPad, larger on desktop
 function showToolInfo(tool) {
   const tools = {
     teacher: {
@@ -4054,7 +4531,27 @@ function showToolInfo(tool) {
         "One-click house points"
       ],
       visualType: "video",
-      visualUrl: "https://player.vimeo.com/video/1178512080?h=ff5159c513&autoplay=1&title=0&byline=0&portrait=0"
+      visualUrl: "https://player.vimeo.com/video/1178512080?h=ff5159c513&autoplay=1&title=0&byline=0&portrait=0",
+      tabbedVideos: [
+        {
+          id: "toolkit",
+          name: "🎬 Toolkit Overview",
+          desc: "See all 12+ classroom tools in action",
+          url: "https://www.youtube.com/embed/XXGsGuO1t1s?autoplay=1"
+        },
+        {
+          id: "award",
+          name: "🎬 How to Award Points",
+          desc: "Quick click, bulk select, whole class",
+          url: "https://www.youtube.com/embed/saGDS8hTNbQ?autoplay=1"
+        },
+        {
+  id: "hmt",
+  name: "🎬 House Master Tools",
+  desc: "Overview of 8 advanced school-wide tools",
+  url: "https://www.youtube.com/embed/WKuOrP85410?autoplay=1"
+}
+      ]
     },
     student: {
       title: "Student Portal",
@@ -4070,7 +4567,7 @@ function showToolInfo(tool) {
         "Live house leaderboards"
       ],
       visualType: "video",
-      visualUrl: "https://player.vimeo.com/video/1178539459?h=ff5159c513&autoplay=1&title=0&byline=0&portrait=0"
+      visualUrl: "https://www.youtube.com/embed/rDBz3GPZSFE?autoplay=1"
     },
     behavior: {
       title: "Behavior Tracker",
@@ -4085,7 +4582,8 @@ function showToolInfo(tool) {
         "School leader caseload dashboard",
         "Follow-up scheduling"
       ],
-      visualType: "before-after"
+      visualType: "video",
+      visualUrl: "https://www.youtube.com/embed/_cXVZfvfPtQ?autoplay=1"
     }
   };
   
@@ -4098,7 +4596,9 @@ function showToolInfo(tool) {
   
   // Generate visual section
   let visualHtml = '';
-  if (data.visualType === 'video') {
+
+  // For Behavior Tracker: show video + comparison table
+  if (tool === 'behavior') {
     visualHtml = `
       <div class="aspect-video bg-black">
         <iframe 
@@ -4109,10 +4609,7 @@ function showToolInfo(tool) {
           allowfullscreen>
         </iframe>
       </div>
-    `;
-  } else {
-    visualHtml = `
-      <div class="bg-gray-50 p-5">
+      <div class="bg-gray-50 p-5 mt-4">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div class="bg-white rounded-xl p-4 border border-red-200">
             <div class="flex items-center gap-2 mb-3"><span class="text-red-500 text-lg">😫</span><span class="text-xs font-bold text-red-600 uppercase">Before TrackEDU</span></div>
@@ -4135,18 +4632,96 @@ function showToolInfo(tool) {
             <div class="mt-3 text-center text-xs text-green-500">✅ Simple. Fast. Reliable.</div>
           </div>
         </div>
-        <div class="mt-4 bg-white rounded-xl p-4 border border-gray-200">
-          <div class="flex items-center justify-between mb-3">
-            <span class="text-xs font-bold text-gray-600">📋 Live Caseload Preview</span>
-            <span class="text-[9px] text-purple-500 bg-purple-50 px-2 py-0.5 rounded-full">Demo</span>
-          </div>
-          <div class="flex gap-3">
-            <div class="flex-1 text-center p-2 bg-purple-50 rounded-lg"><span class="text-lg font-bold text-purple-700">8</span><div class="text-[9px]">Pre-T1</div></div>
-            <div class="flex-1 text-center p-2 bg-green-50 rounded-lg"><span class="text-lg font-bold text-green-700">12</span><div class="text-[9px]">Tier 1</div></div>
-            <div class="flex-1 text-center p-2 bg-yellow-50 rounded-lg"><span class="text-lg font-bold text-yellow-700">5</span><div class="text-[9px]">Tier 2</div></div>
-            <div class="flex-1 text-center p-2 bg-red-50 rounded-lg"><span class="text-lg font-bold text-red-700">3</span><div class="text-[9px]">Tier 3</div></div>
-          </div>
-        </div>
+      </div>
+    `;
+  } 
+  // For Teacher: show tabbed video selector ONLY (no duplicate House Master section)
+else if (tool === 'teacher' && data.tabbedVideos) {
+  // Generate tab buttons
+  const tabButtons = data.tabbedVideos.map((tab, index) => `
+    <button class="teacher-tab-btn ${index === 0 ? 'active' : ''}" 
+            data-video-url="${tab.url}"
+            style="flex: 1; padding: 10px 8px; border: none; background: ${index === 0 ? '#1e40af' : '#f1f5f9'}; color: ${index === 0 ? 'white' : '#64748b'}; font-weight: 700; font-size: 12px; border-radius: 10px; cursor: pointer; transition: all 0.2s ease; display: flex; flex-direction: column; align-items: center; gap: 4px;"
+            onmouseover="if(!this.classList.contains('active')){this.style.background='#e2e8f0'; this.style.color='#1e293b';}"
+            onmouseout="if(!this.classList.contains('active')){this.style.background='#f1f5f9'; this.style.color='#64748b';}">
+      <span style="font-size: 14px;">${tab.name}</span>
+      <span style="font-size: 9px; opacity: 0.8;">${tab.desc}</span>
+    </button>
+  `).join('');
+  
+  // First video URL as default
+  const firstVideoUrl = data.tabbedVideos[0].url;
+  
+  visualHtml = `
+    <div class="bg-white">
+      <!-- Tab Buttons Row -->
+      <div class="teacher-tab-buttons" style="display: flex; gap: 8px; padding: 12px 12px 0 12px; background: white; border-bottom: 1px solid #e2e8f0;">
+        ${tabButtons}
+      </div>
+      <!-- Video Container -->
+      <div class="aspect-video bg-black">
+        <iframe id="teacherModalVideo" 
+          src="${firstVideoUrl}" 
+          class="w-full h-full"
+          frameborder="0" 
+          allow="autoplay; fullscreen; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  `;
+  
+  // Add script to handle tab switching after modal is added to DOM
+  setTimeout(() => {
+    const tabButtons = document.querySelectorAll('.teacher-tab-btn');
+    const iframe = document.getElementById('teacherModalVideo');
+    
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        // Remove active class from all tabs
+        tabButtons.forEach(b => {
+          b.classList.remove('active');
+          b.style.background = '#f1f5f9';
+          b.style.color = '#64748b';
+        });
+        // Add active class to clicked tab
+        this.classList.add('active');
+        this.style.background = '#1e40af';
+        this.style.color = 'white';
+        // Update iframe src
+        const videoUrl = this.getAttribute('data-video-url');
+        if (iframe && videoUrl) {
+          iframe.src = videoUrl;
+        }
+      });
+    });
+  }, 100);
+}
+  // For Student: show ONLY video (no tabs, no comparison)
+  else if (tool === 'student' && data.visualType === 'video') {
+    visualHtml = `
+      <div class="aspect-video bg-black">
+        <iframe 
+          src="${data.visualUrl}" 
+          class="w-full h-full"
+          frameborder="0" 
+          allow="autoplay; fullscreen; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+    `;
+  } 
+  // Fallback for any other video type
+  else if (data.visualType === 'video') {
+    visualHtml = `
+      <div class="aspect-video bg-black">
+        <iframe 
+          src="${data.visualUrl}" 
+          class="w-full h-full"
+          frameborder="0" 
+          allow="autoplay; fullscreen; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
       </div>
     `;
   }
@@ -4188,9 +4763,10 @@ function showToolInfo(tool) {
             `).join('')}
           </div>
           
-          <button onclick="openPilotModal()" class="w-full py-4 rounded-xl font-bold bg-amber-500 text-white hover:bg-amber-600 transition shadow-lg shadow-amber-500/30 flex items-center justify-center gap-2">
-                        <i class="fas fa-flask"></i> Request Testing Access
-                      </button>
+          <button onclick="openPilotModal(); this.closest('.fixed').remove();" 
+            class="w-full py-3.5 rounded-xl font-bold text-white ${btnColor} transition shadow-md text-base">
+            🚀  Start Limited Pilot
+          </button>
           
         </div>
       </div>
@@ -4215,6 +4791,31 @@ function showToolInfo(tool) {
   }
 }
 
+// Helper function to close modal and open House Master Toolkits
+function closeModalAndOpenHouseMasterToolkits() {
+  // Find and close the open modal
+  const openModal = document.querySelector('.fixed.inset-0.z-\\[100000\\]');
+  if (openModal) {
+    openModal.remove();
+  }
+  // Open House Master Toolkits
+  if (typeof openHouseMasterToolkits === 'function') {
+    openHouseMasterToolkits();
+  }
+}
+
+
+function closeModalAndOpenHouseMasterToolkits() {
+  // Find and close the open modal
+  const openModal = document.querySelector('.fixed.inset-0.z-\\[100000\\]');
+  if (openModal) {
+    openModal.remove();
+  }
+  // Open House Master Toolkits
+  if (typeof openHouseMasterToolkits === 'function') {
+    openHouseMasterToolkits();
+  }
+}
 
 </script>
 
