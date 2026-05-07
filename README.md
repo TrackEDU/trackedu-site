@@ -4,7 +4,7 @@
 
 [![Website](https://img.shields.io/badge/Website-trackedu.net-0f66c3?style=flat&logo=google-chrome)](https://www.trackedu.net)
 [![Security](https://img.shields.io/badge/Security-Privacy--First-10b981?style=flat&logo=shield)](https://www.trackedu.net/privacy.html)
-[![Status](https://img.shields.io/badge/Status-Pilot-87C232?style=flat)](https://www.trackedu.net)
+[![Status](https://img.shields.io/badge/Status-Priority%20Access-87C232?style=flat)](https://www.trackedu.net)
 
 TrackEDU is a complete school culture operating system featuring three integrated tools: the **Teacher App**, **Student Portal**, and **Behavior Tracker**. Built by former educators, it empowers teachers with frictionless classroom tools, engages students with RPG-style gamification, and gives counsellors tiered behavior intervention tracking—all without requiring any Personally Identifiable Information (PII).
 
@@ -50,22 +50,27 @@ School IT departments love TrackEDU because it operates on a strict **"Privacy b
 
 ---
 
-## 💼 Pilot Programs (Active)
+## 💼 Strategic Pilot Programs
 
-TrackEDU is currently free during the pilot phase.
+TrackEDU is currently in strategic pilot phase. We offer three paths for schools:
 
 ### 🔥 Founding Schools Program (Limited to 5 Schools)
-Hand‑selecting **5 partner schools** to receive:
-- Full license waiver for the Pro Ecosystem for **one year**
-- **Complimentary staff training workshops**
-- **Priority implementation support**
-- **Featured** as early innovators
+Hand‑selecting **5 partner schools** for a **1-year Strategic Partnership** including:
+- Full license waiver for the Pro Ecosystem
+- Complimentary staff training workshops
+- Priority implementation support
+- Featured as early innovators
 
-### 🆓 Free 30‑Day Pilot (Available to All Schools)
-Any school can start a free 30‑day campus‑wide pilot to test the full Pro Ecosystem. No credit card required.
+**⚠️ 3 spots remaining**
 
-### 👩‍🏫 Solo Teacher Plan (Free Forever)
-Individual educators can use the **Solo Plan** at no cost — 1 teacher account, 1 class, up to 30 students, Magic Hat, Timer, and Quick Quiz.
+### ⚡ Priority Access Pilot (30 Days)
+Schools ready to test the full Pro Ecosystem can join our **Priority Access Pilot**:
+- Full access to Teacher App, Student Portal, and Behavior Tracker
+- Dedicated onboarding support
+- No commitment — export your data anytime
+
+### 👩‍🏫 Solo Teacher Plan (Always Free)
+Individual educators can use the **Solo Plan** at no cost — includes 1 teacher account, 1 class, up to 30 students, Magic Hat, Timer, and Quick Quiz.
 
 ---
 
@@ -81,7 +86,7 @@ Individual educators can use the **Solo Plan** at no cost — 1 teacher account,
 
 | Phase | Status |
 |-------|--------|
-| Pilot | ✅ Active |
+| Priority Access Pilot | ✅ Active |
 | Founding Schools selection | 🔄 In progress (3/5 spots remaining) |
 | Public Launch | ⏳ Planned for 2026 |
 
