@@ -1093,14 +1093,19 @@ html { scroll-padding-top: 100px; }
         <a href="#mobile-demo" class="text-base font-bold text-gray-700 hover:text-brand-green transition">Demo</a>
         <a href="#business" class="text-base font-bold text-gray-700 hover:text-brand-blue transition">Results</a>
         <a href="#pricing" class="text-base font-bold text-gray-700 hover:text-brand-blue transition">Pricing</a>
-        <a href="#faq" class="text-base font-bold text-gray-700 hover:text-brand-blue transition">FAQ</a>
-      </div>
+      <a href="#faq" class="text-base font-bold text-gray-700 hover:text-brand-blue transition">FAQ</a>
+      <a href="#founding-section" class="text-base font-bold text-brand-green hover:text-brand-green/80 transition flex items-center gap-1.5" onclick="document.getElementById('founding-video-section').scrollIntoView({behavior: 'smooth', block: 'start'}); return false;">
+        <i class="fas fa-crown text-sm"></i>
+        Founding Schools
+        <span class="text-red-500 text-[10px] font-bold ml-1">(3 left)</span>
+      </a>     
+    
+    
+    </div>
       
       <!-- Right Side: Tagline + Social + CTA -->
       <div class="flex items-center gap-5">
-        <div class="text-sm font-semibold text-gray-500 hidden lg:block">
-          Teacher · Student · Behavior
-        </div>
+        
         <div class="flex items-center gap-3">
           <a href="https://www.linkedin.com/company/trackedu/" target="_blank" class="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-brand-blue hover:text-white transition">
             <i class="fab fa-linkedin-in text-sm"></i>
@@ -1142,10 +1147,10 @@ html { scroll-padding-top: 100px; }
         <i class="fas fa-question-circle text-lg"></i>
         <span class="text-[9px] font-medium">FAQ</span>
       </a>
-      <button onclick="openPilotModal()" class="flex flex-col items-center gap-0.5 py-1 px-2 text-brand-green hover:text-brand-green/80 transition">
-        <i class="fas fa-rocket text-lg"></i>
+      <a href="#founding-video-section" onclick="document.getElementById('founding-video-section').scrollIntoView({behavior: 'smooth', block: 'start'}); closeMobileMenu(); return false;" class="flex flex-col items-center gap-0.5 py-1 px-2 text-brand-green hover:text-brand-green/80 transition">
+        <i class="fas fa-crown text-lg"></i>
         <span class="text-[9px] font-medium font-bold">Limited Pilot</span>
-      </button>
+      </a>
     </div>
     
   </div>
@@ -1727,12 +1732,130 @@ html { scroll-padding-top: 100px; }
         <section id="how" class="py-24 bg-white overflow-hidden border-b border-gray-100">
           <div class="max-w-7xl mx-auto px-6">
             
-            <div class="story-path-container mb-12 -mt-12">
-              <svg class="story-path-svg" viewBox="0 0 100 100" fill="none">
+            
+            <!-- Founding Schools Video Section - Premium Design (OPTIMIZED SIZING) -->
+        <div id="founding-video-section" class="max-w-5xl mx-auto px-4 sm:px-6 py-12 md:py-16" data-aos="fade-up">          
+              <!-- Animated urgency badge -->
+              <div class="flex justify-center mb-6">
+                <div class="relative">
+                  <div class="absolute inset-0 bg-red-500 rounded-full blur-xl opacity-50 animate-pulse"></div>
+                  <div class="relative inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-amber-600 text-white px-4 md:px-5 py-2 rounded-full shadow-lg">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+                    </span>
+                    <span class="text-[10px] md:text-xs font-black uppercase tracking-wider">Limited to 5 schools worldwide</span>
+                    <span class="bg-white/30 text-white text-[8px] md:text-[10px] font-black px-1.5 md:px-2 py-0.5 rounded-full">⚠️ 3 spots left</span>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Main Card -->
+              <div class="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+                
+                <!-- Background decorative elements -->
+                <div class="absolute top-0 right-0 w-48 md:w-64 h-48 md:h-64 bg-brand-green/10 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 left-0 w-64 md:w-80 h-64 md:h-80 bg-brand-blue/10 rounded-full blur-3xl"></div>
+                
+                <!-- Glowing top border -->
+                <div class="h-1 w-full bg-gradient-to-r from-transparent via-brand-green to-transparent"></div>
+                
+                <!-- Content -->
+                <div class="relative z-10 p-5 md:p-8">
+                  
+                  <!-- Header -->
+                  <div class="text-center mb-4 md:mb-6">
+                   
+                    
+                    <h3 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white mb-2 md:mb-3 leading-tight">
+                      Become a <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-emerald-400">Founding School</span>
+                    </h3>
+                    
+                    <p class="text-gray-300 text-sm md:text-base lg:text-lg max-w-2xl mx-auto px-2">
+                      Shape the future of TrackEDU while your school gets <strong class="text-brand-green">1 year completely free</strong>.
+                    </p>
+                  </div>
+                  
+                  <!-- Video Container -->
+                  <div class="relative group rounded-xl md:rounded-2xl overflow-hidden shadow-2xl mb-6 md:mb-8">
+                    <div class="aspect-video bg-black">
+                      <iframe 
+                        src="https://www.youtube.com/embed/S7K-TN6GfmI?autoplay=0&rel=0&modestbranding=1&showinfo=0" 
+                        class="w-full h-full"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                      </iframe>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                  </div>
+                  
+                  <!-- Benefits Grid - Responsive columns -->
+                  <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 mb-6 md:mb-8">
+                    <div class="bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl p-2 md:p-3 text-center border border-white/10">
+                      <i class="fas fa-gem text-brand-green text-base md:text-xl mb-0.5 md:mb-1"></i>
+                      <div class="text-white font-bold text-xs md:text-sm">1 Year Free</div>
+                      <div class="text-gray-400 text-[8px] md:text-[10px]">Full license waiver</div>
+                    </div>
+                    <div class="bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl p-2 md:p-3 text-center border border-white/10">
+                      <i class="fas fa-chalkboard-user text-brand-green text-base md:text-xl mb-0.5 md:mb-1"></i>
+                      <div class="text-white font-bold text-xs md:text-sm">Training</div>
+                      <div class="text-gray-400 text-[8px] md:text-[10px]">Staff workshops</div>
+                    </div>
+                    <div class="bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl p-2 md:p-3 text-center border border-white/10">
+                      <i class="fas fa-headset text-brand-green text-base md:text-xl mb-0.5 md:mb-1"></i>
+                      <div class="text-white font-bold text-xs md:text-sm">Priority Support</div>
+                      <div class="text-gray-400 text-[8px] md:text-[10px]">Dedicated contact</div>
+                    </div>
+                    <div class="bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl p-2 md:p-3 text-center border border-white/10">
+                      <i class="fas fa-star text-brand-green text-base md:text-xl mb-0.5 md:mb-1"></i>
+                      <div class="text-white font-bold text-xs md:text-sm">Early Innovator</div>
+                      <div class="text-gray-400 text-[8px] md:text-[10px]">Featured school</div>
+                    </div>
+                  </div>
+                  
+                  <!-- CTA Row -->
+                  <div class="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4">
+                    <button onclick="openPilotModal()" class="group relative bg-gradient-to-r from-brand-green to-emerald-600 hover:from-brand-green/90 hover:to-emerald-700 text-white font-bold py-3 px-6 md:py-3.5 md:px-10 rounded-xl transition-all duration-300 shadow-lg shadow-brand-green/30 hover:shadow-xl hover:scale-105 flex items-center gap-2 text-sm md:text-base w-full sm:w-auto justify-center">
+                      <i class="fas fa-rocket group-hover:translate-y-[-2px] transition-transform"></i>
+                      Apply to become a Founding School →
+                    </button>
+                    
+                    <div class="flex items-center gap-2 text-gray-400 text-[10px] md:text-xs">
+                      <i class="fas fa-lock"></i>
+                      <span>No commitment • No credit card</span>
+                    </div>
+                  </div>
+                  
+                  <!-- Video duration note -->
+                  <div class="text-center mt-4 md:mt-6">
+                    <span class="inline-flex items-center gap-1 text-gray-500 text-[9px] md:text-[11px]">
+                      <i class="far fa-clock"></i>
+                      38-second overview
+                    </span>
+                  </div>
+                  
+                </div>
+                
+                <!-- Glowing bottom border -->
+                <div class="h-0.5 w-full bg-gradient-to-r from-transparent via-brand-green to-transparent"></div>
+                
+              </div>
+            </div>
+            
+            <!-- Divider with arrow -->
+            <div class="flex justify-center -mt-6 md:-mt-8 mb-6 md:mb-8">
+              <div class="bg-white rounded-full p-1.5 md:p-2 shadow-md border border-gray-200">
+                <i class="fas fa-chevron-down text-brand-green text-[10px] md:text-sm"></i>
+              </div>
+            </div>
+            
+            <div class="story-path-container mb-8 md:mb-12">
+              <svg class="story-path-svg w-16 md:w-20" viewBox="0 0 100 100" fill="none">
                 <path d="M50 0 C 0 20, 50 60, 50 90" stroke="#0f66c3" stroke-width="3" stroke-dasharray="6 4" stroke-linecap="round" />
                 <path d="M42 82 L50 90 L58 82" stroke="#0f66c3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
-              <span class="narrative-step" style="color: #0f66c3;">Chapter 3: Three Tools. One Ecosystem.</span>
+              <span class="narrative-step text-xs md:text-sm" style="color: #0f66c3;">Chapter 3: Three Tools. One Ecosystem.</span>
             </div>
         
             <div class="text-center mb-16" data-aos="fade-up">
@@ -2264,7 +2387,7 @@ html { scroll-padding-top: 100px; }
       </p>
     </div>
 
-    <!-- 🔥 FOUNDING PARTNERS - License Waiver -->
+    <!-- 🔥 Founding SchoolS - License Waiver -->
     <div class="max-w-4xl mx-auto mb-12">
       <div class="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl shadow-xl overflow-hidden">
         <div class="p-8 md:p-10">
@@ -3466,7 +3589,7 @@ function showMascotMessage() {
               <div class="w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center text-brand-blue border border-gray-100 shrink-0"><i class="fas fa-chalkboard-user text-xl"></i></div>
               <div>
                 <div class="font-black text-[10px] text-brand-blue uppercase tracking-widest mb-1">12+ Classroom Tools</div>
-                <div class="text-sm md:text-base text-brand-dark font-bold mb-0.5">Teacher Command Center</div>
+                <div class="text-sm md:text-base text-brand-dark font-bold mb-0.5">Teaching Hub</div>
                 <div class="text-[12px] md:text-sm text-gray-500 leading-tight">Magic Hat, Squad Builder, Quick Quiz, Focus Timer, and more — all designed to save teachers 4+ hours per week.</div>
               </div>
             </div>
@@ -4095,7 +4218,7 @@ function openStudentAppPreview() {
         isVideo: true,
         videoUrl: "https://player.vimeo.com/video/1178539459?h=ff5159c513&autoplay=1&title=0&byline=0&portrait=0"
       },
-      { icon: "fa-layer-group", label: "Dual-App System", desc: "You get two specialized platforms: The **Teacher Command Center** for management and the **Student Hero Portal** for engagement." },
+      { icon: "fa-layer-group", label: "Dual-App System", desc: "You get two specialized platforms: The **Teaching Hub** for management and the **Student Hero Portal** for engagement." },
       { icon: "fa-gamepad", label: "Full Student Gamification", desc: "3D holographic badges, 30-tier character evolution, daily login streaks with reward spins, and secret loot drops." },
       { icon: "fa-bolt", label: "House Power Boosts", desc: "Multi-player gamification. Students use their app to charge the House Reactor and trigger school-wide House Blasts." },
       { icon: "fa-vote-yea", label: "Student Voice Polls", desc: "Turn the Student App into a democratic tool. Launch live polls and let students vote on rewards and school events." },
@@ -4369,7 +4492,7 @@ function openStudentAppPreview() {
               <div class="w-12 h-12 bg-brand-blue/20 rounded-xl flex items-center justify-center mb-4">
                 <i class="fas fa-chalkboard-user text-2xl text-brand-blue"></i>
               </div>
-              <h3 class="text-lg font-bold mb-2">Teacher Command Center</h3>
+              <h3 class="text-lg font-bold mb-2">Teaching Hub</h3>
               <p class="text-gray-400 text-sm">Award points, manage classes, run assemblies — all from one dashboard.</p>
               <ul class="mt-4 space-y-1 text-xs text-gray-400">
                 <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-[10px]"></i> One-click house points</li>
