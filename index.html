@@ -113,13 +113,32 @@
       background-clip: text;
     }
     .hero-mesh {
-      background-color: #ffffff;
-      background-image: 
-        radial-gradient(at 0% 0%, rgba(135, 194, 50, 0.1) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, rgba(15, 102, 195, 0.1) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(135, 194, 50, 0.1) 0px, transparent 50%),
-        radial-gradient(at 0% 100%, rgba(15, 102, 195, 0.05) 0px, transparent 50%);
-    }
+  background: linear-gradient(135deg, #f0f9ff 0%, #e6f7e6 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-mesh::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 60%;
+  height: 80%;
+  background: radial-gradient(circle, rgba(135, 194, 50, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-mesh::after {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  left: -10%;
+  width: 50%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(15, 102, 195, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
     .btn {
       background: var(--green);
       color: white;
@@ -382,84 +401,40 @@ html { scroll-padding-top: 100px; }
 }
 
 /* ==========================================
-   HERO ICON & SPEECH BUBBLE POSITIONING (FULL UPDATE)
+   HERO ICON & SPEECH BUBBLE POSITIONING (OPTIMIZED)
    ========================================== */
 
-/* 1. MOBILE ONLY (Default - Base View) */
-.floating-icon-teacher {
-  top: -15px !important;
-  left: -35px !important;
-  transform: scale(0.75);
-}
-
-.floating-icon-student {
-  bottom: -10px !important;
-  right: -85px !important;
-  transform: scale(0.75);
+/* Base styles using CSS custom properties */
+:root {
+  --bubble-top-mobile: 5px;
+  --bubble-right-mobile: -45px;
+  --bubble-scale-mobile: 0.85;
+  --icon-teacher-top-mobile: -15px;
+  --icon-teacher-left-mobile: -35px;
+  --icon-student-bottom-mobile: -10px;
+  --icon-student-right-mobile: -85px;
 }
 
 .speech-bubble {
   position: absolute;
-  /* Pushed down and right for mobile */
-  top: 5px !important; 
-  right: -45px !important;
-  transform: scale(0.85);
   background: white;
   border-radius: 30px;
   padding: 8px 20px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   border: 1px solid #e5e7eb;
-  font-size: 16px;
   font-weight: 800;
   color: #1f2937;
   white-space: nowrap;
   z-index: 20;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-/* 2. IPAD / TABLET ONLY (768px to 1024px) */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .floating-icon-teacher {
-    top: -60px !important;
-    left: -110px !important;
-    transform: scale(0.9);
-  }
-  .floating-icon-student {
-    bottom: -60px !important;
-    right: -110px !important;
-    transform: scale(0.9);
-  }
-  .speech-bubble {
-    /* Pushed right to the edge of the hero container */
-    top: -10px !important;
-    right: -105px !important;
-    transform: scale(1);
-    padding: 8px 20px;
-    font-size: 16px;
-  }
+.speech-bubble:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
-/* 3. DESKTOP ONLY (1025px+) */
-@media (min-width: 1025px) {
-  .floating-icon-teacher {
-    top: -90px !important;
-    left: -160px !important;
-    transform: scale(1);
-  }
-  .floating-icon-student {
-    bottom: -70px !important;
-    right: -160px !important;
-    transform: scale(1);
-  }
-  .speech-bubble {
-    /* Lowered toward the mascot's ear and pushed far right */
-    top: -15px !important;
-    right: -170px !important;
-    transform: scale(1.1);
-    font-size: 18px;
-  }
-}
-
-/* 4. SPEECH BUBBLE TAIL (Common to all) */
 .speech-bubble::after {
   content: '';
   position: absolute;
@@ -473,25 +448,68 @@ html { scroll-padding-top: 100px; }
   transform: rotate(45deg);
 }
 
-/* Small screen micro-adjustments */
-@media (max-width: 768px) {
+/* MOBILE (≤767px) */
+@media (max-width: 767px) {
+  .floating-icon-student-portal {
+    top: -15px !important;
+    left: -55px !important;
+    transform: scale(0.7);
+  }
+  .floating-icon-behavior {
+    bottom: -10px !important;
+    right: -55px !important;
+    transform: scale(0.7);
+  }
   .speech-bubble {
-    padding: 5px 12px;
+    top: -40px !important;
+    right: -80px !important;
+    transform: scale(0.75);
+    padding: 4px 10px;
     font-size: 10px;
   }
   .speech-bubble::after {
     bottom: 10px;
-    left: -7px;
+    left: -6px;
     width: 10px;
     height: 10px;
   }
 }
 
-@media (max-width: 480px) {
+/* TABLET (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .floating-icon-student-portal {
+    top: -30px !important;
+    left: -80px !important;
+  }
+  .floating-icon-behavior {
+    bottom: -25px !important;
+    right: -80px !important;
+  }
   .speech-bubble {
-    right: -35px !important; /* Slightly tighter for very narrow phones */
-    top: 10px !important;
-    font-size: 9px;
+    top: -35px !important;
+    right: -140px !important;
+    transform: scale(0.85);
+    padding: 4px 12px;
+    font-size: 14px;
+  }
+}
+
+/* DESKTOP (≥1025px) */
+@media (min-width: 1025px) {
+  .floating-icon-student-portal {
+    top: -60px !important;
+    left: -120px !important;
+  }
+  .floating-icon-behavior {
+    bottom: -50px !important;
+    right: -120px !important;
+  }
+  .speech-bubble {
+    top: -50px !important;
+    right: -120px !important;
+    transform: scale(1.1);
+    padding: 8px 20px;
+    font-size: 18px;
   }
 }
   /* ==========================================
@@ -1050,8 +1068,7 @@ html { scroll-padding-top: 100px; }
 
 
 <!-- MOBILE TOP HEADER (visible only on mobile, auto-hide on scroll) -->
-<div id="mobileTopHeader" class="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-xl border-b border-gray-100 shadow-sm md:hidden transition-transform duration-300 ease-out">
-  <div class="px-4 py-2 flex items-center justify-between">
+<div id="mobileTopHeader" class="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-xl border-b border-gray-100 shadow-sm lg:hidden transition-transform duration-300 ease-out">  <div class="px-4 py-2 flex items-center justify-between">
     <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="flex items-baseline gap-1">
       <span class="font-display text-lg font-black text-brand-dark tracking-tighter">
         Track<span class="text-brand-green">EDU</span>
@@ -1076,8 +1093,8 @@ html { scroll-padding-top: 100px; }
 <nav id="bottomNav" class="fixed bottom-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-xl border-t border-gray-100 shadow-lg transition-transform duration-300 ease-out translate-y-0">
   <div class="max-w-7xl mx-auto px-4 py-2">
     
-    <!-- Desktop Row (visible on md+) -->
-    <div class="hidden md:flex items-center justify-between">
+    <!-- Desktop Row (visible on lg+ (1024px+) -->
+<div class="hidden lg:flex items-center justify-between">
       
       <!-- Logo -->
       <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="flex items-baseline gap-2 shrink-0">
@@ -1089,7 +1106,7 @@ html { scroll-padding-top: 100px; }
       
       <!-- Desktop Navigation Links -->
       <div class="flex items-center gap-8">
-        <a href="#how" class="text-base font-bold text-gray-700 hover:text-brand-blue transition">Tools</a>
+        <a href="#tools-section" class="text-base font-bold text-gray-700 hover:text-brand-blue transition">Tools</a>
         <a href="#mobile-demo" class="text-base font-bold text-gray-700 hover:text-brand-green transition">Demo</a>
         <a href="#business" class="text-base font-bold text-gray-700 hover:text-brand-blue transition">Results</a>
         <a href="#pricing" class="text-base font-bold text-gray-700 hover:text-brand-blue transition">Pricing</a>
@@ -1122,12 +1139,12 @@ html { scroll-padding-top: 100px; }
     </div>
     
     <!-- Mobile Bottom Navigation Icons (visible on mobile only) -->
-    <div class="flex md:hidden justify-around items-center">
+    <div class="flex lg:hidden justify-around items-center">
       <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="flex flex-col items-center gap-0.5 py-1 px-2 text-gray-500 hover:text-brand-blue transition">
         <i class="fas fa-home text-lg"></i>
         <span class="text-[9px] font-medium">Home</span>
       </a>
-      <a href="#how" class="flex flex-col items-center gap-0.5 py-1 px-2 text-gray-500 hover:text-brand-blue transition">
+      <a href="#tools-section" class="flex flex-col items-center gap-0.5 py-1 px-2 text-gray-500 hover:text-brand-blue transition">
         <i class="fas fa-cubes text-lg"></i>
         <span class="text-[9px] font-medium">Tools</span>
       </a>
@@ -1218,13 +1235,15 @@ html { scroll-padding-top: 100px; }
     padding-top: 0;
     padding-bottom: 80px;
   }
-  @media (max-width: 767px) {
+  /* Mobile AND Tablet (up to 1024px) */
+  @media (max-width: 1024px) {
     body {
       padding-top: 60px;
       padding-bottom: 70px;
     }
   }
-  @media (min-width: 768px) {
+  /* Desktop only (1025px and above) */
+  @media (min-width: 1025px) {
     body {
       padding-bottom: 80px;
     }
@@ -1239,17 +1258,17 @@ html { scroll-padding-top: 100px; }
 
 
 
-  <section class="relative pt-4 sm:pt-2 pb-12 lg:pt-10 lg:pb-20 hero-mesh overflow-hidden">
+  <section class="relative pt-2 sm:pt-2 pb-6 lg:pt-6 lg:pb-16 hero-mesh overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
       
       <div class="flex flex-col lg:grid lg:grid-cols-2 gap-5 lg:gap-16 items-center">
         
         <div class="contents lg:block text-center lg:text-left" data-aos="fade-right">
           
-          <h1 class="font-display text-4xl lg:text-5xl xl:text-6xl font-black leading-[1.2] text-brand-dark mb-6 tracking-tighter max-w-5xl">
+          <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black leading-[1.2] text-brand-dark mb-4 sm:mb-6 tracking-tighter max-w-5xl">
             School Culture.<br>
             <span class="text-gradient">House Points. Behavior Tracking.</span>
-            <span class="block text-2xl md:text-3xl lg:text-4xl mt-3 text-gray-500 font-medium">One platform that does it all.</span>
+            <span class="block text-xl sm:text-2xl md:text-3xl lg:text-4xl mt-2 sm:mt-3 text-gray-500 font-medium">One platform that does it all.</span>
           </h1>
   
           <div class="hidden md:inline-flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-1.5 px-4 py-1.5 rounded-2xl bg-white border border-gray-200 shadow-sm text-xs font-bold uppercase tracking-wide mb-3 lg:mb-6 mx-auto lg:mx-0 max-w-fit">
@@ -1264,88 +1283,69 @@ html { scroll-padding-top: 100px; }
           </div>
           
           
-          <ul class="order-5 lg:order-none text-sm sm:text-base text-gray-600 mb-6 lg:mb-8 max-w-lg mx-auto lg:mx-0 space-y-2 text-left inline-block lg:block">
-            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green"></i> <span><strong>Teachers:</strong> Award house points with 12+ tools</span></li>
-            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green"></i> <span><strong>Students:</strong> See progress, earn badges, build community</span></li>
-            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green"></i> <span><strong>Leaders:</strong> Track behavior across your school</span></li>
-          </ul>
   
           <div class="order-5 lg:order-none flex flex-col gap-2 justify-center lg:justify-start w-full sm:w-auto">
-            <div class="flex flex-col sm:flex-row gap-3">
-              <button onclick="openPilotModal()" class="btn text-lg px-8 py-3.5 flex items-center justify-center gap-3 group bg-brand-green hover:bg-green-600 border-2 border-brand-green text-white shadow-xl">
-                <i class="fas fa-rocket text-white text-sm group-hover:translate-y-[-2px] transition"></i>
-                Start Limited Pilot →
+            <div class="flex flex-row gap-2 sm:gap-3 justify-center">
+              <button onclick="openPilotModal()" class="btn text-xs sm:text-sm px-3 sm:px-5 py-1.5 sm:py-2 flex items-center justify-center gap-1 sm:gap-2 group bg-brand-green hover:bg-green-600 border-2 border-brand-green text-white shadow-sm whitespace-nowrap">
+                <i class="fas fa-rocket text-white text-[10px] sm:text-xs group-hover:translate-y-[-2px] transition"></i>
+                <span class="hidden xs:inline">Start Pilot →</span>
+                <span class="xs:hidden">Limited Pilot →</span>
               </button>
                 
-              <button id="bookWalkthrough" data-cal-link="trackedu-a9dbpy/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view"}' class="btn text-lg px-8 py-3.5 bg-brand-dark hover:bg-gray-800 text-white border-2 border-brand-dark shadow-xl flex flex-col items-center justify-center leading-tight">
-                <span>Book School Walkthrough</span>
+              <button id="bookWalkthrough" data-cal-link="trackedu-a9dbpy/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view"}' class="btn text-xs sm:text-sm px-3 sm:px-5 py-1.5 sm:py-2 bg-brand-dark hover:bg-gray-800 text-white border-2 border-brand-dark shadow-sm flex items-center justify-center whitespace-nowrap">
+                <span class="hidden xs:inline">Book Walkthrough</span>
+                <span class="xs:hidden">Walkthrough</span>
               </button>
             </div>
-            <p class="text-[10px] text-gray-400 font-semibold text-center lg:text-left ml-1 mt-0.5">Start instantly, no credit card required.</p>
+           
           </div>
           
-          <div class="order-6 lg:order-none mt-1 pt-2 border-t border-gray-100">
-            <div class="flex flex-wrap justify-center lg:justify-start gap-6">
-              <div class="flex items-center gap-2">
-                <i class="fas fa-check-circle text-brand-green text-sm"></i>
-                <span class="text-[10px] font-bold text-gray-500 uppercase tracking-tight">Teacher App</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <i class="fas fa-check-circle text-brand-green text-sm"></i>
-                <span class="text-[10px] font-bold text-gray-500 uppercase tracking-tight">Student Portal</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <i class="fas fa-check-circle text-brand-green text-sm"></i>
-                <span class="text-[10px] font-bold text-gray-500 uppercase tracking-tight">Behavior Tracker</span>
-              </div>
-            </div>
-          </div>
         </div>
   
         <div class="order-2 lg:order-none w-full hero-mascot-container relative" data-aos="fade-left">
           
           <div class="mascot-anchor hero-mascot-wrapper">
-            <!-- CENTER: Teacher App (Big) - Clickable to teacher video -->
-            <div class="hero-glow-ring mobile-scaled relative group cursor-pointer" onclick="showToolInfo('teacher')">
-              <img src="https://trackedu.github.io/common-assets/teacherapp.png" alt="Teacher App" id="mascotImage" class="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-72 lg:h-72 rounded-full object-cover bg-white shadow-2xl border-4 border-white transition-all duration-300 group-hover:scale-105">
-            </div>
+           <!-- CENTER: Teacher App - Clickable to teacher video -->
+<div class="hero-glow-ring mobile-scaled relative group cursor-pointer" onclick="showToolInfo('teacher')">
+  <img src="https://trackedu.github.io/common-assets/teacherapp.png" alt="Teacher App" id="mascotImage" class="w-24 h-24 sm:w-32 sm:h-32 md:w-44 md:h-44 lg:w-52 lg:h-52 rounded-full object-cover bg-white shadow-2xl border-4 border-white transition-all duration-300 group-hover:scale-105">
+</div>
             
             <!-- Center badge label -->
             <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-brand-blue text-white text-[9px] sm:text-[10px] font-bold px-3 py-1 rounded-full shadow-md whitespace-nowrap z-20 cursor-pointer hover:bg-brand-blue/80 transition" onclick="showToolInfo('teacher')">
-              Teacher App
+              <i class="fas fa-play-circle text-[8px] mr-1"></i> Teacher app→ About
             </div>
   
             <!-- Speech bubble - Clickable to framework modal -->
             <div class="speech-bubble cursor-pointer" onclick="showMascotMessage()">
               <div class="text-center">
                 <div class="text-[9px] sm:text-xs text-gray-500 font-medium mb-0.5">What is TrackEDU?</div>
-                <div class="text-[10px] sm:text-sm font-black text-brand-dark">Click to see the 3 tools →</div>
+                <div class="text-[10px] sm:text-sm font-black text-brand-dark">3 Tools. 1 Ecosystem→</div>
               </div>
             </div>
   
-            <!-- FLOATING LEFT: Student Portal - Clickable to student video -->
-            <div class="floating-icon-student-portal absolute bg-white rounded-2xl p-2 sm:p-3 shadow-xl animate-float cursor-pointer hover:scale-110 transition-all duration-300 z-30" onclick="showToolInfo('student')">
-              <img src="https://trackedu.github.io/common-assets/studentapp.png" class="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl object-cover">
-              <div class="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 bg-[#10B981] text-white text-[10px] sm:text-xs px-1.5 sm:px-2 py-0.5 rounded-full font-bold shadow-sm whitespace-nowrap">Student</div>
-              <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-[#10B981]/80 text-white text-[10px] sm:text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">Portal</div>
-            </div>
-  
-          <!-- FLOATING RIGHT: Behavior Tracker - Clean & On-Brand -->
-          <div class="floating-icon-behavior absolute cursor-pointer hover:scale-110 transition-all duration-300 z-30" onclick="showToolInfo('behavior')">
-            <div class="relative">
-              <div class="bg-white/90 backdrop-blur-md rounded-2xl p-2 sm:p-3 shadow-xl border border-gray-100 hover:border-purple-400/50 transition-all">
-                <div class="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-purple-50 to-purple-100 flex items-center justify-center">
-                  <i class="fas fa-chart-line text-purple-600 text-base sm:text-lg md:text-xl"></i>
-                </div>
-                <div class="absolute -top-2 -right-2 bg-purple-100 backdrop-blur-sm text-purple-600 text-[10px] sm:text-xs font-bold px-2 py-0.5 rounded-full border border-purple-200 whitespace-nowrap">
-                  Behavior
-                </div>
-                <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-white/90 backdrop-blur-sm text-purple-600 text-[10px] sm:text-xs font-bold px-3 py-1 rounded-full shadow-sm whitespace-nowrap border border-purple-200">
-                  Tracker
-                </div>
-              </div>
-            </div>
-          </div>
+           <!-- FLOATING LEFT: Student Portal - Clickable to student video -->
+<button class="floating-icon-student-portal absolute bg-white rounded-2xl p-2 sm:p-3 shadow-xl animate-float cursor-pointer hover:scale-110 transition-all duration-300 z-30" onclick="showToolInfo('student')" role="button" tabindex="0" aria-label="View Student Portal demo">
+  <img src="https://trackedu.github.io/common-assets/studentapp.png" class="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl object-cover" alt="Student Portal icon">
+  <div class="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 bg-[#10B981] text-white text-[10px] sm:text-xs px-1.5 sm:px-2 py-0.5 rounded-full font-bold shadow-sm whitespace-nowrap">Student App</div>
+  <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-[#10B981]/80 text-white text-[10px] sm:text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">→About</div>
+</button>
+
+<!-- FLOATING RIGHT: Behavior Tracker - Clean & On-Brand -->
+<button class="floating-icon-behavior absolute cursor-pointer hover:scale-110 transition-all duration-300 z-30" onclick="showToolInfo('behavior')" role="button" tabindex="0" aria-label="View Behavior Tracker demo">
+  <div class="relative">
+    <div class="bg-white/90 backdrop-blur-md rounded-2xl p-2 sm:p-3 shadow-xl border border-gray-100 hover:border-purple-400/50 transition-all">
+      <div class="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-purple-50 to-purple-100 flex items-center justify-center">
+        <i class="fas fa-chart-line text-purple-600 text-base sm:text-lg md:text-xl" aria-hidden="true"></i>
+      </div>
+      <div class="absolute -top-2 -right-2 bg-purple-100 backdrop-blur-sm text-purple-600 text-[10px] sm:text-xs font-bold px-2 py-0.5 rounded-full border border-purple-200 whitespace-nowrap">
+        Behavior Tracker
+      </div>
+      <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-white/90 backdrop-blur-sm text-purple-600 text-[10px] sm:text-xs font-bold px-3 py-1 rounded-full shadow-sm whitespace-nowrap border border-purple-200">
+        → About
+      </div>
+    </div>
+  </div>
+</button>
   
           </div>
           
@@ -1507,6 +1507,501 @@ html { scroll-padding-top: 100px; }
 
 
 
+<!-- ==========================================
+     HORIZONTAL SCROLLING CAROUSEL (10 Cards)
+     Click any card to watch the video
+     ========================================== -->
+     <section class="pt-2 pb-4 bg-gray-50/80 overflow-hidden border-t border-gray-100">
+      <div class="max-w-full px-4 sm:px-6">
+        
+       
+        
+        <!-- Carousel Container -->
+        <div class="relative -mx-4 sm:-mx-6">
+          
+          <!-- Scrollable Cards Container -->
+          <div id="carouselContainer" class="overflow-x-auto scrollbar-hide pb-4 px-4 sm:px-6" style="scroll-behavior: smooth; -webkit-overflow-scrolling: touch;">
+            <div id="carouselTrack" class="flex gap-5 md:gap-6" style="width: max-content;">
+              
+              <!-- CARD 1: Teacher App -->
+              <div class="carousel-card w-[220px] sm:w-[240px] md:w-[260px] lg:w-[280px] flex-shrink-0 cursor-pointer group/card transition-all duration-300 hover:-translate-y-2" data-video="lNbZ6-j2GCM" data-title="Teacher App">
+                <div class="relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
+                  <img src="https://img.youtube.com/vi/lNbZ6-j2GCM/hqdefault.jpg" class="w-full aspect-video object-cover group-hover/card:scale-105 transition duration-500">
+                  <div class="absolute inset-0 bg-black/30 group-hover/card:bg-black/20 transition flex items-center justify-center">
+                    <div class="w-10 h-10 bg-white/95 rounded-full flex items-center justify-center shadow-lg group-hover/card:scale-110 transition duration-300">
+                      <i class="fas fa-play text-brand-blue text-sm ml-0.5"></i>
+                    </div>
+                  </div>
+                  <div class="absolute bottom-2 right-2 bg-black/70 text-white text-[10px] font-bold px-2 py-1 rounded-full">2 min</div>
+                </div>
+                <div class="mt-3 text-center">
+                  <h3 class="font-bold text-gray-900">Teacher App</h3>
+                  <p class="text-xs text-gray-500 mt-1">Award points, run assemblies, manage classes</p>
+                </div>
+              </div>
+              
+              <!-- CARD 2: Student Portal -->
+              <div class="carousel-card w-[220px] sm:w-[240px] md:w-[260px] lg:w-[280px] flex-shrink-0 cursor-pointer group/card transition-all duration-300 hover:-translate-y-2" data-video="rDBz3GPZSFE" data-title="Student Portal">
+                <div class="relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
+                  <img src="https://img.youtube.com/vi/rDBz3GPZSFE/hqdefault.jpg" class="w-full aspect-video object-cover group-hover/card:scale-105 transition duration-500">
+                  <div class="absolute inset-0 bg-black/30 group-hover/card:bg-black/20 transition flex items-center justify-center">
+                    <div class="w-10 h-10 bg-white/95 rounded-full flex items-center justify-center shadow-lg group-hover/card:scale-110 transition duration-300">
+                      <i class="fas fa-play text-brand-green text-sm ml-0.5"></i>
+                    </div>
+                  </div>
+                  <div class="absolute bottom-2 right-2 bg-black/70 text-white text-[10px] font-bold px-2 py-1 rounded-full">90 sec</div>
+                </div>
+                <div class="mt-3 text-center">
+                  <h3 class="font-bold text-gray-900">Student Portal</h3>
+                  <p class="text-xs text-gray-500 mt-1">3D badges, daily streaks, house boosts</p>
+                </div>
+              </div>
+              
+              <!-- CARD 3: Behavior Tracker -->
+              <div class="carousel-card w-[220px] sm:w-[240px] md:w-[260px] lg:w-[280px] flex-shrink-0 cursor-pointer group/card transition-all duration-300 hover:-translate-y-2" data-video="_cXVZfvfPtQ" data-title="Behavior Tracker">
+                <div class="relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
+                  <img src="https://img.youtube.com/vi/_cXVZfvfPtQ/hqdefault.jpg" class="w-full aspect-video object-cover group-hover/card:scale-105 transition duration-500">
+                  <div class="absolute inset-0 bg-black/30 group-hover/card:bg-black/20 transition flex items-center justify-center">
+                    <div class="w-10 h-10 bg-white/95 rounded-full flex items-center justify-center shadow-lg group-hover/card:scale-110 transition duration-300">
+                      <i class="fas fa-play text-purple-600 text-sm ml-0.5"></i>
+                    </div>
+                  </div>
+                  <div class="absolute bottom-2 right-2 bg-black/70 text-white text-[10px] font-bold px-2 py-1 rounded-full">90 sec</div>
+                </div>
+                <div class="mt-3 text-center">
+                  <h3 class="font-bold text-gray-900">Behavior Tracker</h3>
+                  <p class="text-xs text-gray-500 mt-1">Tiered interventions, parent logs, analytics</p>
+                </div>
+              </div>
+              
+              <!-- CARD 4: Founding Schools -->
+              <div class="carousel-card w-[220px] sm:w-[240px] md:w-[260px] lg:w-[280px] flex-shrink-0 cursor-pointer group/card transition-all duration-300 hover:-translate-y-2" data-video="S7K-TN6GfmI" data-title="Founding Schools Program">
+                <div class="relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
+                  <div class="absolute top-2 left-2 bg-amber-500 text-white text-[9px] font-bold px-2 py-0.5 rounded-full z-10">🔥 3 spots left</div>
+                  <img src="https://img.youtube.com/vi/S7K-TN6GfmI/hqdefault.jpg" class="w-full aspect-video object-cover group-hover/card:scale-105 transition duration-500">
+                  <div class="absolute inset-0 bg-black/30 group-hover/card:bg-black/20 transition flex items-center justify-center">
+                    <div class="w-10 h-10 bg-white/95 rounded-full flex items-center justify-center shadow-lg group-hover/card:scale-110 transition duration-300">
+                      <i class="fas fa-play text-amber-500 text-sm ml-0.5"></i>
+                    </div>
+                  </div>
+                  <div class="absolute bottom-2 right-2 bg-black/70 text-white text-[10px] font-bold px-2 py-1 rounded-full">38 sec</div>
+                </div>
+                <div class="mt-3 text-center">
+                  <h3 class="font-bold text-gray-900">Founding Schools (1 Year Free)</h3>
+                  <p class="text-xs text-gray-500 mt-1">Training included • 5 spots left</p>
+                </div>
+              </div>
+              
+              <!-- CARD 5: Teacher Toolkit -->
+              <div class="carousel-card w-[220px] sm:w-[240px] md:w-[260px] lg:w-[280px] flex-shrink-0 cursor-pointer group/card transition-all duration-300 hover:-translate-y-2" data-video="XXGsGuO1t1s" data-title="Teacher Toolkit">
+                <div class="relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
+                  <img src="https://img.youtube.com/vi/XXGsGuO1t1s/hqdefault.jpg" class="w-full aspect-video object-cover group-hover/card:scale-105 transition duration-500">
+                  <div class="absolute inset-0 bg-black/30 group-hover/card:bg-black/20 transition flex items-center justify-center">
+                    <div class="w-10 h-10 bg-white/95 rounded-full flex items-center justify-center shadow-lg group-hover/card:scale-110 transition duration-300">
+                      <i class="fas fa-play text-brand-blue text-sm ml-0.5"></i>
+                    </div>
+                  </div>
+                  <div class="absolute bottom-2 right-2 bg-black/70 text-white text-[10px] font-bold px-2 py-1 rounded-full">2 min</div>
+                </div>
+                <div class="mt-3 text-center">
+                  <h3 class="font-bold text-gray-900">Teacher Toolkit</h3>
+                  <p class="text-xs text-gray-500 mt-1">Magic Hat • Timer • 250+ quiz questions</p>
+                </div>
+              </div>
+              
+              <!-- CARD 6: House Master Tools -->
+              <div class="carousel-card w-[220px] sm:w-[240px] md:w-[260px] lg:w-[280px] flex-shrink-0 cursor-pointer group/card transition-all duration-300 hover:-translate-y-2" data-video="4fNjOmjfKnM" data-title="House Master Tools">
+                <div class="relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
+                  <img src="https://img.youtube.com/vi/4fNjOmjfKnM/hqdefault.jpg" class="w-full aspect-video object-cover group-hover/card:scale-105 transition duration-500">
+                  <div class="absolute inset-0 bg-black/30 group-hover/card:bg-black/20 transition flex items-center justify-center">
+                    <div class="w-10 h-10 bg-white/95 rounded-full flex items-center justify-center shadow-lg group-hover/card:scale-110 transition duration-300">
+                      <i class="fas fa-play text-purple-600 text-sm ml-0.5"></i>
+                    </div>
+                  </div>
+                  <div class="absolute bottom-2 right-2 bg-black/70 text-white text-[10px] font-bold px-2 py-1 rounded-full">90 sec</div>
+                </div>
+                <div class="mt-3 text-center">
+                  <h3 class="font-bold text-gray-900">House Master Tools</h3>
+                  <p class="text-xs text-gray-500 mt-1">School-wide events, polls, mystery word</p>
+                </div>
+              </div>
+              
+              <!-- CARD 7: Quick Setup Guide -->
+              <div class="carousel-card w-[220px] sm:w-[240px] md:w-[260px] lg:w-[280px] flex-shrink-0 cursor-pointer group/card transition-all duration-300 hover:-translate-y-2" data-video="lyTC9Y62N2w" data-title="How to Set Up Your School">
+                <div class="relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
+                  <img src="https://img.youtube.com/vi/lyTC9Y62N2w/hqdefault.jpg" class="w-full aspect-video object-cover group-hover/card:scale-105 transition duration-500">
+                  <div class="absolute inset-0 bg-black/30 group-hover/card:bg-black/20 transition flex items-center justify-center">
+                    <div class="w-10 h-10 bg-white/95 rounded-full flex items-center justify-center shadow-lg group-hover/card:scale-110 transition duration-300">
+                      <i class="fas fa-play text-brand-blue text-sm ml-0.5"></i>
+                    </div>
+                  </div>
+                  <div class="absolute bottom-2 right-2 bg-black/70 text-white text-[10px] font-bold px-2 py-1 rounded-full">3 min</div>
+                </div>
+                <div class="mt-3 text-center">
+                  <h3 class="font-bold text-gray-900">Quick Setup Guide</h3>
+                  <p class="text-xs text-gray-500 mt-1">CSV import, house config, instant setup</p>
+                </div>
+              </div>
+              
+              <!-- CARD 8: Join a School (For Teachers) -->
+              <div class="carousel-card w-[220px] sm:w-[240px] md:w-[260px] lg:w-[280px] flex-shrink-0 cursor-pointer group/card transition-all duration-300 hover:-translate-y-2" data-video="a2c7nvWgtXM" data-title="How to Join a School">
+                <div class="relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
+                  <img src="https://img.youtube.com/vi/a2c7nvWgtXM/hqdefault.jpg" class="w-full aspect-video object-cover group-hover/card:scale-105 transition duration-500">
+                  <div class="absolute inset-0 bg-black/30 group-hover/card:bg-black/20 transition flex items-center justify-center">
+                    <div class="w-10 h-10 bg-white/95 rounded-full flex items-center justify-center shadow-lg group-hover/card:scale-110 transition duration-300">
+                      <i class="fas fa-play text-brand-blue text-sm ml-0.5"></i>
+                    </div>
+                  </div>
+                  <div class="absolute bottom-2 right-2 bg-black/70 text-white text-[10px] font-bold px-2 py-1 rounded-full">90 sec</div>
+                </div>
+                <div class="mt-3 text-center">
+                  <h3 class="font-bold text-gray-900">Join a School (For Teachers)</h3>
+                  <p class="text-xs text-gray-500 mt-1">Step-by-step guide for teachers</p>
+                </div>
+              </div>
+              
+              <!-- CARD 9: How to Award Points -->
+              <div class="carousel-card w-[220px] sm:w-[240px] md:w-[260px] lg:w-[280px] flex-shrink-0 cursor-pointer group/card transition-all duration-300 hover:-translate-y-2" data-video="saGDS8hTNbQ" data-title="How to Award Points">
+                <div class="relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
+                  <img src="https://img.youtube.com/vi/saGDS8hTNbQ/hqdefault.jpg" class="w-full aspect-video object-cover group-hover/card:scale-105 transition duration-500">
+                  <div class="absolute inset-0 bg-black/30 group-hover/card:bg-black/20 transition flex items-center justify-center">
+                    <div class="w-10 h-10 bg-white/95 rounded-full flex items-center justify-center shadow-lg group-hover/card:scale-110 transition duration-300">
+                      <i class="fas fa-play text-brand-green text-sm ml-0.5"></i>
+                    </div>
+                  </div>
+                  <div class="absolute bottom-2 right-2 bg-black/70 text-white text-[10px] font-bold px-2 py-1 rounded-full">90 sec</div>
+                </div>
+                <div class="mt-3 text-center">
+                  <h3 class="font-bold text-gray-900">How to Award Points</h3>
+                  <p class="text-xs text-gray-500 mt-1">Quick click, bulk select, whole class awards</p>
+                </div>
+              </div>
+              
+              <!-- CARD 10: Works on Every Device (Placeholder Video) -->
+              <div class="carousel-card w-[220px] sm:w-[240px] md:w-[260px] lg:w-[280px] flex-shrink-0 cursor-pointer group/card transition-all duration-300 hover:-translate-y-2" data-video="lNbZ6-j2GCM" data-title="Works on Every Device">
+                <div class="relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
+                  <img src="https://trackedu.github.io/common-assets/teacherapp.png" class="w-full aspect-video object-cover group-hover/card:scale-105 transition duration-500">
+                  <div class="absolute inset-0 bg-black/30 group-hover/card:bg-black/20 transition flex items-center justify-center">
+                    <div class="w-10 h-10 bg-white/95 rounded-full flex items-center justify-center shadow-lg group-hover/card:scale-110 transition duration-300">
+                      <i class="fas fa-play text-brand-blue text-sm ml-0.5"></i>
+                    </div>
+                  </div>
+                  <div class="absolute bottom-2 right-2 bg-black/70 text-white text-[10px] font-bold px-2 py-1 rounded-full">Coming soon</div>
+                </div>
+                <div class="mt-3 text-center">
+                  <h3 class="font-bold text-gray-900">Works on Every Device</h3>
+                  <p class="text-xs text-gray-500 mt-1">iPhone, iPad, Android, Mac, Windows • No app store required</p>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          
+        </div>
+        
+        <!-- Controls Row: Arrows on edges, Dots centered -->
+<div class="flex items-center justify-between mt-2 px-20 md:px-32" style="width: 100%;">
+  <button id="carouselPrevBtn" class="bg-gray-100 hover:bg-brand-green text-gray-600 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-gray-100 disabled:hover:text-gray-600">
+    <i class="fas fa-chevron-left text-sm"></i>
+  </button>
+  <div id="carouselDots" class="flex gap-3"></div>
+  <button id="carouselNextBtn" class="bg-gray-100 hover:bg-brand-green text-gray-600 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-gray-100 disabled:hover:text-gray-600">
+    <i class="fas fa-chevron-right text-sm"></i>
+  </button>
+</div>
+        
+      </div>
+    </section>
+    
+    <style>
+      /* Hide scrollbar but keep functionality */
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      
+      /* Carousel Container - Add scroll snap */
+.overflow-x-auto {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+/* Smooth hover transitions with scroll snap alignment */
+.carousel-card {
+  transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1), box-shadow 0.3s ease;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+      
+      /* Active dot styling */
+      .carousel-dot-active {
+        background-color: #87C232 !important;
+        width: 28px !important;
+      }
+      
+      /* Prevent body scroll when interacting with carousel */
+      .overflow-x-auto {
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+      }
+    </style>
+    
+    <script>
+    (function() {
+      const container = document.getElementById('carouselContainer');
+      const track = document.getElementById('carouselTrack');
+      const prevBtn = document.getElementById('carouselPrevBtn');
+      const nextBtn = document.getElementById('carouselNextBtn');
+      const dotsContainer = document.getElementById('carouselDots');
+      
+      if (!container || !track) return;
+      
+      let autoScrollInterval = null;
+      let isUserInteracting = false;
+      let interactionTimeout = null;
+      let totalCards = document.querySelectorAll('.carousel-card').length;
+      let currentIndex = 0;
+      let isAutoScrollingEnabled = true;
+      
+      // Function to update dots
+      function updateDots() {
+        if (!dotsContainer) return;
+        const dots = dotsContainer.querySelectorAll('.carousel-dot');
+        dots.forEach((dot, idx) => {
+          if (idx === currentIndex) {
+            dot.classList.add('carousel-dot-active');
+            dot.style.backgroundColor = '#87C232';
+            dot.style.width = '28px';
+          } else {
+            dot.classList.remove('carousel-dot-active');
+            dot.style.backgroundColor = '#cbd5e1';
+            dot.style.width = '10px';
+          }
+        });
+      }
+      
+      // Function to scroll to a specific card
+      function scrollToCard(index) {
+        if (!container) return;
+        const cards = document.querySelectorAll('.carousel-card');
+        if (cards.length === 0) return;
+        const targetCard = cards[index];
+        if (targetCard) {
+          targetCard.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          currentIndex = index;
+          updateDots();
+        }
+      }
+      
+      // Create dots
+      function createDots() {
+        if (!dotsContainer) return;
+        dotsContainer.innerHTML = '';
+        for (let i = 0; i < totalCards; i++) {
+          const dot = document.createElement('button');
+          dot.className = 'carousel-dot rounded-full transition-all duration-300 mx-1';
+          dot.style.backgroundColor = '#cbd5e1';
+          dot.style.width = '10px';
+          dot.style.height = '10px';
+          dot.onclick = () => {
+            resetAutoScrollTimer();
+            scrollToCard(i);
+          };
+          dotsContainer.appendChild(dot);
+        }
+        updateDots();
+      }
+      
+      // Function to get current visible card index based on scroll position
+      function updateCurrentIndexFromScroll() {
+        if (!container) return;
+        const cards = document.querySelectorAll('.carousel-card');
+        if (cards.length === 0) return;
+        const containerRect = container.getBoundingClientRect();
+        const containerCenter = containerRect.left + containerRect.width / 2;
+        
+        let closestIndex = 0;
+        let closestDistance = Infinity;
+        
+        cards.forEach((card, idx) => {
+          const rect = card.getBoundingClientRect();
+          const cardCenter = rect.left + rect.width / 2;
+          const distance = Math.abs(containerCenter - cardCenter);
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            closestIndex = idx;
+          }
+        });
+        
+        if (closestIndex !== currentIndex) {
+          currentIndex = closestIndex;
+          updateDots();
+        }
+      }
+      
+      // Navigation handlers
+      if (prevBtn) {
+        prevBtn.onclick = () => {
+          resetAutoScrollTimer();
+          if (currentIndex > 0) {
+            scrollToCard(currentIndex - 1);
+          } else {
+            scrollToCard(totalCards - 1);
+          }
+        };
+      }
+      
+      if (nextBtn) {
+        nextBtn.onclick = () => {
+          resetAutoScrollTimer();
+          if (currentIndex < totalCards - 1) {
+            scrollToCard(currentIndex + 1);
+          } else {
+            scrollToCard(0);
+          }
+        };
+      }
+      
+      // Auto-scroll RIGHT TO LEFT (next card) every 8 seconds
+      // Auto-scroll RIGHT TO LEFT (next card) every 8 seconds
+// Flag to prevent auto-scroll immediately after page load
+let isPageJustLoaded = true;
+
+function startAutoScroll() {
+  if (autoScrollInterval) clearInterval(autoScrollInterval);
+  autoScrollInterval = setInterval(() => {
+    if (isAutoScrollingEnabled && !isUserInteracting && container) {
+      const rect = container.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+      
+      // 🔥 CRITICAL FIX: Check if user is actively scrolling the page
+      const isPageScrolling = window.scrollY !== lastKnownScrollY;
+      lastKnownScrollY = window.scrollY;
+      
+      // 🔥 NEW: Don't auto-scroll within first 5 seconds of page load
+      if (isPageJustLoaded) {
+        return;
+      }
+      
+      // Only auto-scroll if carousel is visible AND page is NOT being scrolled
+      if (isVisible && !isPageScrolling) {
+        let nextIndex = currentIndex + 1;
+        if (nextIndex >= totalCards) {
+          nextIndex = 0;
+        }
+        scrollToCard(nextIndex);
+      }
+    }
+  }, 8000);
+}
+
+// Disable the page-load protection after 5 seconds
+setTimeout(function() {
+  isPageJustLoaded = false;
+}, 5000);
+
+// Track page scroll position
+let lastKnownScrollY = window.scrollY;
+window.addEventListener('scroll', () => {
+  lastKnownScrollY = window.scrollY;
+});
+      
+      function resetAutoScrollTimer() {
+        isUserInteracting = true;
+        if (interactionTimeout) clearTimeout(interactionTimeout);
+        interactionTimeout = setTimeout(() => {
+          isUserInteracting = false;
+        }, 5000);
+      }
+      
+      // Event listeners for user interaction
+      if (container) {
+        container.addEventListener('scroll', () => {
+          resetAutoScrollTimer();
+          updateCurrentIndexFromScroll();
+        });
+        container.addEventListener('touchstart', resetAutoScrollTimer);
+        container.addEventListener('mousedown', resetAutoScrollTimer);
+      }
+      
+      // Pause auto-scroll when user hovers over carousel
+      if (container) {
+        container.addEventListener('mouseenter', () => {
+          isAutoScrollingEnabled = false;
+        });
+        container.addEventListener('mouseleave', () => {
+          isAutoScrollingEnabled = true;
+        });
+      }
+      
+      // Click handlers for cards to play video
+      document.querySelectorAll('.carousel-card').forEach(card => {
+        card.addEventListener('click', (e) => {
+          const videoId = card.getAttribute('data-video');
+          const title = card.getAttribute('data-title') || 'TrackEDU Demo';
+          if (videoId) {
+            openVideoModal(videoId, title);
+          } else {
+            showToastMessage('Video coming soon!', 'info');
+          }
+        });
+      });
+      
+      // Video modal function
+      window.openVideoModal = function(videoId, title) {
+        const modal = document.createElement('div');
+        modal.className = 'fixed inset-0 z-[200000] bg-black/90 backdrop-blur-md flex items-center justify-center p-4';
+        modal.onclick = (e) => { if(e.target === modal) modal.remove(); };
+        
+        modal.innerHTML = `
+          <div class="relative w-full max-w-4xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl" onclick="event.stopPropagation()">
+            <button onclick="this.closest('.fixed').remove()" class="absolute top-4 right-4 text-white text-2xl z-50 bg-black/50 w-10 h-10 rounded-full flex items-center justify-center hover:bg-black/80 transition backdrop-blur-sm border border-white/20">&times;</button>
+            <iframe 
+              src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0" 
+              class="absolute inset-0 w-full h-full"
+              frameborder="0" 
+              allow="autoplay; fullscreen; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        `;
+        document.body.appendChild(modal);
+      };
+      
+      // Toast message helper
+      function showToastMessage(message, type = 'info') {
+        const toast = document.createElement('div');
+        toast.style.cssText = `position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%); background: ${type === 'error' ? '#ef4444' : '#10b981'}; color: white; padding: 10px 20px; border-radius: 12px; z-index: 200001; font-weight: 600; font-size: 14px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); white-space: nowrap;`;
+        toast.innerText = message;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 3000);
+      }
+      
+      // Initialize with delay to prevent immediate scroll on mobile
+createDots();
+
+// Wait 3 seconds before starting auto-scroll to prevent jarring page load scroll
+setTimeout(function() {
+  startAutoScroll();
+}, 3000);
+      
+      // Handle window resize
+      let resizeTimeout;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+          updateCurrentIndexFromScroll();
+        }, 150);
+      });
+    })();
+    </script>
+
+
         
 
         <div class="story-path-container">
@@ -1514,11 +2009,19 @@ html { scroll-padding-top: 100px; }
             <path d="M50 0 C 100 20, 50 60, 50 90" stroke="#87C232" stroke-width="3" stroke-dasharray="6 4" stroke-linecap="round" />
             <path d="M42 82 L50 90 L58 82" stroke="#87C232" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
-          <span class="narrative-step" style="color: #87C232;">The Spark</span>
+         
         </div>
 
 
 
+
+
+
+
+
+
+
+        
 
 
         
@@ -1729,7 +2232,7 @@ html { scroll-padding-top: 100px; }
 
 
 
-        <section id="how" class="py-24 bg-white overflow-hidden border-b border-gray-100">
+        <section id="three-tools" class="py-24 bg-white overflow-hidden border-b border-gray-100">
           <div class="max-w-7xl mx-auto px-6">
             
             
@@ -1868,7 +2371,7 @@ html { scroll-padding-top: 100px; }
               </p>
             </div>
         
-            <div class="grid md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-6 relative">
+            <div id="tools-section" class="grid md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-6 relative">
               
              <!-- TOOL 1: Teacher App -->
 <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 group" data-aos="fade-up">
@@ -2260,7 +2763,7 @@ html { scroll-padding-top: 100px; }
       </div>
       
       <p class="text-2xl md:text-4xl font-display font-medium text-brand-dark leading-tight mb-12">
-        "TrackEDU gave us <strong>complete visibility</strong> across our whole school. Teachers save 4+ hours a week. Students actually <strong>want to participate</strong>. And our school leaders finally have the data they need to support students effectively."
+        "TrackEDU helped us <strong>increase student engagement by 40%</strong> in our house system. Teachers save 4+ hours weekly. <strong>Attendance at house events doubled</strong> within one term."
       </p>
       
       <div class="flex items-center justify-center gap-5">
@@ -2518,6 +3021,18 @@ html { scroll-padding-top: 100px; }
 
 
 
+<!-- Direct Question Section (NEW) -->
+<div class="max-w-3xl mx-auto text-center py-12 px-4">
+  <div class="bg-brand-blue/5 rounded-2xl p-6 md:p-8 border border-brand-blue/20">
+    <p class="text-xl md:text-2xl font-bold text-brand-dark mb-3">🤔 Does this sound like it would help your school?</p>
+    <p class="text-gray-600 mb-6">We see connections. Let's talk about how TrackEDU fits your specific needs.</p>
+    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+      <button onclick="openPilotModal()" class="btn px-6 md:px-8 py-3 text-base md:text-lg">Yes, show me how →</button>
+     
+    </div>
+  </div>
+</div>
+
 <section class="py-20 bg-white border-t border-gray-100">
   <div class="max-w-4xl mx-auto px-6 text-center">
     
@@ -2563,6 +3078,49 @@ html { scroll-padding-top: 100px; }
   </div>
 </section>
 
+
+
+
+
+
+
+
+
+<!-- Post-Sale Support Section (NEW) -->
+<section class="py-16 bg-white border-t border-gray-100">
+  <div class="max-w-5xl mx-auto px-6 text-center">
+    <div class="inline-flex items-center gap-2 bg-brand-green/10 rounded-full px-4 py-1.5 mb-4">
+      <i class="fas fa-heart text-brand-green text-sm"></i>
+      <span class="text-xs font-bold text-brand-green uppercase tracking-wider">We're in this together</span>
+    </div>
+    <h2 class="text-2xl md:text-3xl font-black text-brand-dark mb-4">We don't disappear after the sale.</h2>
+    <p class="text-gray-500 max-w-2xl mx-auto mb-10">Here's exactly what happens when you sign up:</p>
+    <div class="grid md:grid-cols-3 gap-6 text-left">
+      <div class="p-5 bg-gray-50 rounded-xl border border-gray-100 hover:shadow-md transition">
+        <div class="w-12 h-12 bg-brand-green/10 rounded-xl flex items-center justify-center mb-3">
+          <i class="fas fa-headset text-brand-green text-xl"></i>
+        </div>
+        <h3 class="font-bold text-brand-dark mb-2">Week 1: Onboarding</h3>
+        <p class="text-sm text-gray-500">Dedicated implementation specialist walks your team through setup.</p>
+      </div>
+      <div class="p-5 bg-gray-50 rounded-xl border border-gray-100 hover:shadow-md transition">
+        <div class="w-12 h-12 bg-brand-green/10 rounded-xl flex items-center justify-center mb-3">
+          <i class="fas fa-chalkboard-user text-brand-green text-xl"></i>
+        </div>
+        <h3 class="font-bold text-brand-dark mb-2">Week 2: Staff Training</h3>
+        <p class="text-sm text-gray-500">Live virtual workshop for all teachers and administrators.</p>
+      </div>
+      <div class="p-5 bg-gray-50 rounded-xl border border-gray-100 hover:shadow-md transition">
+        <div class="w-12 h-12 bg-brand-green/10 rounded-xl flex items-center justify-center mb-3">
+          <i class="fas fa-calendar-check text-brand-green text-xl"></i>
+        </div>
+        <h3 class="font-bold text-brand-dark mb-2">Ongoing Support</h3>
+        <p class="text-sm text-gray-500">30-day check-ins, priority email support, and regular progress reviews.</p>
+      </div>
+    </div>
+    <p class="text-xs text-gray-400 mt-8">📞 Response within 24 hours • Dedicated account manager for Founding Schools</p>
+  </div>
+</section>
 
   
   
@@ -3500,45 +4058,7 @@ if (window.innerWidth < 768) {
 
 
 
-// Cinematic Video Modal Player
-function openVideoModal(type) {
-  const isTeacher = type === 'teacher';
-  
-  // Pull the correct Vimeo links based on the button clicked
-  const videoUrl = isTeacher 
-    ? "https://player.vimeo.com/video/1178512080?h=ff5159c513&autoplay=1&autopause=0&title=0&byline=0&portrait=0" 
-    : "https://player.vimeo.com/video/1178539459?h=ff5159c513&autoplay=1&autopause=0&title=0&byline=0&portrait=0";
-  
-  // Create the dark glass overlay
-  const modal = document.createElement('div');
-  modal.className = 'fixed inset-0 z-[200000] bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8';
-  modal.onclick = (e) => { if(e.target === modal) modal.remove(); };
-  
-  // Create the 16:9 Video Container
-  modal.innerHTML = `
-    <div class="relative w-full max-w-5xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl" onclick="event.stopPropagation()">
-      <button onclick="this.closest('.fixed').remove()" class="absolute top-4 right-4 text-white text-2xl z-50 bg-black/50 w-10 h-10 rounded-full flex items-center justify-center hover:bg-black/80 transition backdrop-blur-sm border border-white/20">&times;</button>
-      <iframe 
-        src="${videoUrl}" 
-        class="absolute inset-0 w-full h-full"
-        frameborder="0" 
-        allow="autoplay; fullscreen; picture-in-picture" 
-        allowfullscreen>
-      </iframe>
-    </div>
-  `;
-  
-  document.body.appendChild(modal);
-  
-  // Easter Egg: Let users close it by hitting the "Escape" key on their keyboard
-  const closeHandler = (e) => {
-    if (e.key === 'Escape') {
-      modal.remove();
-      document.removeEventListener('keydown', closeHandler);
-    }
-  };
-  document.addEventListener('keydown', closeHandler);
-}
+
 
 function showMascotMessage() {
   const mascotImg = document.getElementById('mascotImage');
