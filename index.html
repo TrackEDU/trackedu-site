@@ -1290,248 +1290,233 @@ html { scroll-padding-top: 100px; }
 
 
 
-  <section class="relative pt-24 sm:pt-24 lg:pt-24 pb-6 lg:pb-16 hero-mesh overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-      
-      <div class="flex flex-col lg:grid lg:grid-cols-2 gap-5 lg:gap-16 items-center">
-        
-        <div class="contents lg:block text-center lg:text-left" data-aos="fade-right">
-          
-          <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black leading-[1.2] text-brand-dark mb-4 sm:mb-6 tracking-tighter max-w-5xl">
-            School Culture.<br>
-            <span class="text-gradient">House Points. Behavior Tracking.</span>
-            <span class="block text-xl sm:text-2xl md:text-3xl lg:text-4xl mt-2 sm:mt-3 text-gray-500 font-medium">One platform that does it all.</span>
-          </h1>
-  
-          <div class="hidden md:inline-flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-1.5 px-4 py-1.5 rounded-2xl bg-white border border-gray-200 shadow-sm text-xs font-bold uppercase tracking-wide mb-3 lg:mb-6 mx-auto lg:mx-0 max-w-fit">
-            <div class="flex items-center gap-2">
-              <span class="relative flex h-2.5 w-2.5">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-green"></span>
-              </span>
-              <span class="text-gray-600">Trusted by International Schools:</span>
-            </div>
-            <span class="text-base leading-none">🇲🇾 🇦🇪 🇸🇦 🇹🇭 🇻🇳 🇬🇧</span>
-          </div>
-          
-          
-  
-          <div class="order-5 lg:order-none flex flex-col gap-2 justify-center lg:justify-start w-full sm:w-auto">
-            <div class="flex flex-row gap-2 sm:gap-3 justify-center lg:justify-start">
-              <button onclick="openPilotModal()" class="btn text-xs sm:text-sm px-3 sm:px-5 py-1.5 sm:py-2 flex items-center justify-center gap-1 sm:gap-2 group bg-brand-green hover:bg-green-600 border-2 border-brand-green text-white shadow-sm whitespace-nowrap">
-                <i class="fas fa-rocket text-white text-[10px] sm:text-xs group-hover:translate-y-[-2px] transition"></i>
-                <span class="hidden xs:inline">Start Pilot →</span>
-                <span class="xs:hidden">Reserve Your Pilot →</span>
-              </button>
-                
-              <button id="bookWalkthrough" data-cal-link="trackedu-a9dbpy/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view"}' class="btn text-xs sm:text-sm px-3 sm:px-5 py-1.5 sm:py-2 bg-brand-dark hover:bg-gray-800 text-white border-2 border-brand-dark shadow-sm flex items-center justify-center whitespace-nowrap">
-                <span class="hidden xs:inline">Book 1 on 1 Demo</span>
-                <span class="xs:hidden">Book 1 on 1 Demo</span>
-              </button>
-            </div>
-           
-          </div>
-          
-        </div>
-  
-        <div class="order-2 lg:order-none w-full hero-mascot-container relative" data-aos="fade-left">
-          
-          <div class="mascot-anchor hero-mascot-wrapper">
-           <!-- CENTER: Teacher App - Clickable to teacher video -->
-<div class="hero-glow-ring mobile-scaled relative group cursor-pointer" onclick="showToolInfo('teacher')">
-  <img src="https://trackedu.github.io/common-assets/teacherapp.png" alt="Teacher App" id="mascotImage" class="w-24 h-24 sm:w-32 sm:h-32 md:w-44 md:h-44 lg:w-52 lg:h-52 rounded-full object-cover bg-white shadow-2xl border-4 border-white transition-all duration-300 group-hover:scale-105">
-</div>
-            
-            <!-- Center badge label -->
-            <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-brand-blue text-white text-[9px] sm:text-[10px] font-bold px-3 py-1 rounded-full shadow-md whitespace-nowrap z-20 cursor-pointer hover:bg-brand-blue/80 transition" onclick="showToolInfo('teacher')">
-              <i class="fas fa-play-circle text-[8px] mr-1"></i> Teacher app→ About
-            </div>
-  
-            <!-- Speech bubble - Clickable to framework modal -->
-            <div class="speech-bubble cursor-pointer" onclick="showMascotMessage()">
-              <div class="text-center">
-                <div class="text-[9px] sm:text-xs text-gray-500 font-medium mb-0.5">What is TrackEDU?</div>
-                <div class="text-[10px] sm:text-sm font-black text-brand-dark">3 Tools. 1 Ecosystem→</div>
-              </div>
-            </div>
-  
-           <!-- FLOATING LEFT: Student Portal - Clickable to student video -->
-<button class="floating-icon-student-portal absolute bg-white rounded-2xl p-2 sm:p-3 shadow-xl animate-float cursor-pointer hover:scale-110 transition-all duration-300 z-30" onclick="showToolInfo('student')" role="button" tabindex="0" aria-label="View Student Portal demo">
-  <img src="https://trackedu.github.io/common-assets/studentapp.png" class="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl object-cover" alt="Student Portal icon">
-  <div class="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 bg-[#10B981] text-white text-[10px] sm:text-xs px-1.5 sm:px-2 py-0.5 rounded-full font-bold shadow-sm whitespace-nowrap">Student App</div>
-  <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-[#10B981]/80 text-white text-[10px] sm:text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">→About</div>
-</button>
+  <!-- ==========================================
+     HERO SECTION, MOBILE-OPTIMISED VERSION
+     Floating icons removed. Tool cards still open the same modals.
+     ========================================== -->
+<section class="relative pt-24 sm:pt-24 lg:pt-28 pb-6 lg:pb-12 hero-mesh overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
 
-<!-- FLOATING RIGHT: Behavior Tracker - Clean & On-Brand -->
-<button class="floating-icon-behavior absolute cursor-pointer hover:scale-110 transition-all duration-300 z-30" onclick="showToolInfo('behavior')" role="button" tabindex="0" aria-label="View Behavior Tracker demo">
-  <div class="relative">
-    <div class="bg-white/90 backdrop-blur-md rounded-2xl p-2 sm:p-3 shadow-xl border border-gray-100 hover:border-purple-400/50 transition-all">
-      <div class="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-purple-50 to-purple-100 flex items-center justify-center">
-        <i class="fas fa-chart-line text-purple-600 text-base sm:text-lg md:text-xl" aria-hidden="true"></i>
+    <div class="grid lg:grid-cols-2 gap-5 lg:gap-12 items-center">
+
+      <!-- HERO TEXT -->
+      <div class="text-center lg:text-left" data-aos="fade-right">
+        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.05] text-brand-dark tracking-tighter mb-3 lg:mb-4">
+          School Culture.<br>
+          <span class="text-gradient">House Points.</span><br>
+          <span class="text-gradient">Behavior Tracking.</span>
+        </h1>
+
+        <p class="text-lg sm:text-2xl lg:text-3xl text-gray-500 font-semibold mb-4 lg:mb-6">
+          One platform that does it all.
+        </p>
+
+        <div class="hidden md:inline-flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-1.5 px-4 py-1.5 rounded-2xl bg-white border border-gray-200 shadow-sm text-xs font-bold uppercase tracking-wide mb-6 mx-auto lg:mx-0 max-w-fit">
+          <div class="flex items-center gap-2">
+            <span class="relative flex h-2.5 w-2.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-green"></span>
+            </span>
+            <span class="text-gray-600">Trusted by International Schools:</span>
+          </div>
+          <span class="text-base leading-none">🇲🇾 🇦🇪 🇸🇦 🇹🇭 🇻🇳 🇬🇧</span>
+        </div>
+
+        <!-- DESKTOP CTA BUTTONS -->
+        <div class="hidden lg:flex flex-row gap-3 justify-start w-full sm:w-auto">
+          <button onclick="openPilotModal()" class="btn hero-cta-btn flex items-center justify-center gap-1.5 group bg-brand-green hover:bg-green-600 border-2 border-brand-green text-white shadow-sm whitespace-nowrap">
+            <i class="fas fa-rocket text-white text-xs group-hover:translate-y-[-2px] transition"></i>
+            <span>Reserve Your Pilot →</span>
+          </button>
+
+          <button data-cal-link="trackedu-a9dbpy/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view"}' class="btn hero-cta-btn bg-brand-dark hover:bg-gray-800 text-white border-2 border-brand-dark shadow-sm flex items-center justify-center gap-1.5 whitespace-nowrap">
+            <i class="fas fa-calendar-alt text-xs"></i>
+            <span>Book 1 on 1 Demo</span>
+          </button>
+        </div>
       </div>
-      <div class="absolute -top-2 -right-2 bg-purple-100 backdrop-blur-sm text-purple-600 text-[10px] sm:text-xs font-bold px-2 py-0.5 rounded-full border border-purple-200 whitespace-nowrap">
-        Behavior Tracker
+
+      <!-- HERO IMAGE -->
+      <div class="relative flex justify-center items-center w-full" data-aos="fade-left">
+        <img
+          src="https://trackedu.github.io/common-assets/mainheroimage.png"
+          alt="TrackEDU Teacher App dashboard with TrackEDU mascot"
+          class="hero-main-image w-full max-w-[720px] lg:max-w-[800px] xl:max-w-[880px] object-contain drop-shadow-2xl mx-auto"
+          loading="eager"
+          fetchpriority="high"
+        >
       </div>
-      <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-white/90 backdrop-blur-sm text-purple-600 text-[10px] sm:text-xs font-bold px-3 py-1 rounded-full shadow-sm whitespace-nowrap border border-purple-200">
-        → About
-      </div>
+    </div>
+
+    <!-- MOBILE CTA BUTTONS, PLACED AFTER IMAGE -->
+    <div class="lg:hidden mt-3 flex flex-row gap-2 justify-center w-full">
+      <button onclick="openPilotModal()" class="btn hero-cta-btn flex items-center justify-center gap-1.5 group bg-brand-green hover:bg-green-600 border-2 border-brand-green text-white shadow-sm whitespace-nowrap">
+        <i class="fas fa-rocket text-white text-[10px] group-hover:translate-y-[-2px] transition"></i>
+        <span>Reserve Your Pilot →</span>
+      </button>
+
+      <button data-cal-link="trackedu-a9dbpy/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view"}' class="btn hero-cta-btn bg-brand-dark hover:bg-gray-800 text-white border-2 border-brand-dark shadow-sm flex items-center justify-center gap-1.5 whitespace-nowrap">
+        <i class="fas fa-calendar-alt text-[10px]"></i>
+        <span>Book 1 on 1 Demo</span>
+      </button>
+    </div>
+
+    <!-- 3 TOOL CARDS, LINKED TO EXISTING MODALS -->
+    <div class="hero-tool-grid mt-5 lg:mt-8 grid grid-cols-3 gap-2 sm:gap-4 lg:gap-5">
+
+      <button onclick="showToolInfo('teacher')" class="hero-tool-card group bg-white/95 backdrop-blur-sm border border-gray-100 rounded-3xl p-5 shadow-card hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-left" aria-label="Open Teacher App information">
+        <div class="flex items-start gap-4">
+          <div class="hero-tool-icon w-12 h-12 rounded-2xl bg-green-50 flex items-center justify-center shrink-0 group-hover:bg-brand-green transition">
+            <i class="fas fa-chalkboard-user text-brand-green group-hover:text-white text-xl"></i>
+          </div>
+          <div class="hero-tool-copy">
+            <h3 class="font-display text-xl font-black text-brand-dark mb-1">Teacher App</h3>
+            <p class="hero-tool-desc text-sm text-gray-500 leading-relaxed">Manage classes, reward students, and track progress with ease.</p>
+            <span class="hero-tool-link inline-flex items-center mt-3 text-sm font-bold text-brand-green">
+              Explore <i class="fas fa-arrow-right text-xs ml-2 group-hover:translate-x-1 transition"></i>
+            </span>
+          </div>
+        </div>
+      </button>
+
+      <button onclick="showToolInfo('student')" class="hero-tool-card group bg-white/95 backdrop-blur-sm border border-gray-100 rounded-3xl p-5 shadow-card hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-left" aria-label="Open Student Portal information">
+        <div class="flex items-start gap-4">
+          <div class="hero-tool-icon w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center shrink-0 group-hover:bg-brand-blue transition">
+            <i class="fas fa-users text-brand-blue group-hover:text-white text-xl"></i>
+          </div>
+          <div class="hero-tool-copy">
+            <h3 class="font-display text-xl font-black text-brand-dark mb-1">Student Portal</h3>
+            <p class="hero-tool-desc text-sm text-gray-500 leading-relaxed">Students view points, badges, rewards, and house progress in one place.</p>
+            <span class="hero-tool-link inline-flex items-center mt-3 text-sm font-bold text-brand-blue">
+              Explore <i class="fas fa-arrow-right text-xs ml-2 group-hover:translate-x-1 transition"></i>
+            </span>
+          </div>
+        </div>
+      </button>
+
+      <button onclick="showToolInfo('behavior')" class="hero-tool-card group bg-white/95 backdrop-blur-sm border border-gray-100 rounded-3xl p-5 shadow-card hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-left" aria-label="Open Behavior Tracker information">
+        <div class="flex items-start gap-4">
+          <div class="hero-tool-icon w-12 h-12 rounded-2xl bg-purple-50 flex items-center justify-center shrink-0 group-hover:bg-purple-600 transition">
+            <i class="fas fa-chart-line text-purple-600 group-hover:text-white text-xl"></i>
+          </div>
+          <div class="hero-tool-copy">
+            <h3 class="font-display text-xl font-black text-brand-dark mb-1">Behavior Tracker</h3>
+            <p class="hero-tool-desc text-sm text-gray-500 leading-relaxed">Monitor incidents, identify trends, and support students earlier.</p>
+            <span class="hero-tool-link inline-flex items-center mt-3 text-sm font-bold text-purple-600">
+              Explore <i class="fas fa-arrow-right text-xs ml-2 group-hover:translate-x-1 transition"></i>
+            </span>
+          </div>
+        </div>
+      </button>
+
     </div>
   </div>
-</button>
-  
-          </div>
-          
-          
-        </div>
-        
-      </div>
-    </div>
-  </section>
-  
-  <style>
-  /* Floating icon positioning - Student Portal (LEFT) */
-  .floating-icon-student-portal {
-  top: -10px !important;
-  left: -40px !important;
-}
+</section>
 
-.floating-icon-student-portal .absolute.-bottom-6 {
-  font-size: 10px !important;
-  padding: 3px 8px !important;
-}
+<style>
+  .hero-cta-btn {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+  }
 
-.floating-icon-behavior {
-  bottom: -10px !important;
-  right: -40px !important;
-}
+  .hero-main-image {
+    display: block;
+  }
 
-.floating-icon-behavior .absolute.-bottom-6 {
-  font-size: 10px !important;
-  padding: 3px 8px !important;
-}
-  
-  /* Desktop adjustments (1025px+) */
-  @media (min-width: 1025px) {
-    .floating-icon-student-portal {
-      top: -60px !important;
-      left: -120px !important;
-    }
-    .floating-icon-behavior {
-      bottom: -50px !important;
-      right: -120px !important;
-    }
-  }
-  /* Tablet adjustments (768px - 1024px) */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .floating-icon-student-portal {
-    top: -30px !important;
-    left: -80px !important;
-  }
-  .floating-icon-behavior {
-    bottom: -25px !important;
-    right: -80px !important;
-  }
-  /* Tablet speech bubble - move right and reduce size */
-  .speech-bubble {
-    top: -35px !important;
-    right: -140px !important;
-    transform: scale(0.85);
-    padding: 4px 12px;
-  }
-  .speech-bubble div .text-\[10px\] {
-    font-size: 8px !important;
-  }
-  .speech-bubble div .text-xs {
-    font-size: 9px !important;
-  }
-}
-  
-  /* Mobile adjustments (max-width: 767px) */
+  /* Compact mobile hero layout */
 @media (max-width: 767px) {
-  .floating-icon-student-portal {
-    top: -15px !important;
-    left: -55px !important;
-    transform: scale(0.7);
+  .hero-mesh {
+    padding-top: 5.4rem !important;
+    padding-bottom: 1rem !important;
   }
-  .floating-icon-behavior {
-    bottom: -10px !important;
-    right: -85px !important;
-    transform: scale(0.7);
+
+  .hero-mesh h1 {
+    font-size: 2rem !important;
+    line-height: 1.05 !important;
+    margin-bottom: 0.55rem !important;
   }
-  .hero-mascot-container {
-    padding-bottom: 2rem !important;
+
+  .hero-mesh p {
+    font-size: 1rem !important;
+    margin-bottom: 0 !important;
+  }
+
+  .hero-main-image {
+    max-width: 104% !important;
+    width: 104% !important;
+    margin: -0.65rem auto -0.15rem auto !important;
+    transform: none !important;
+    display: block !important;
+  }
+
+  .hero-cta-btn {
+    font-size: 0.68rem !important;
+    padding: 0.5rem 0.55rem !important;
+    border-radius: 0.75rem !important;
+    min-width: 0;
+    flex: 1 1 0;
+    letter-spacing: 0;
+  }
+
+  .lg\:hidden.mt-3 {
+    margin-top: 0.25rem !important;
+  }
+
+  .hero-tool-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 0.45rem !important;
+    margin-top: 0.75rem !important;
+  }
+
+  .hero-tool-card {
+    padding: 0.62rem 0.35rem !important;
+    border-radius: 0.9rem !important;
+    text-align: center !important;
+  }
+
+  .hero-tool-card > div {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.35rem !important;
+  }
+
+  .hero-tool-icon {
+    width: 1.95rem !important;
+    height: 1.95rem !important;
+    border-radius: 0.7rem !important;
+  }
+
+  .hero-tool-icon i {
+    font-size: 0.82rem !important;
+  }
+
+  .hero-tool-card h3 {
+    font-size: 0.62rem !important;
+    line-height: 1.05 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .hero-tool-desc {
+    display: none !important;
+  }
+
+  .hero-tool-link {
+    font-size: 0.58rem !important;
+    margin-top: 0.18rem !important;
+  }
+
+  .hero-tool-link i {
+    font-size: 0.55rem !important;
+    margin-left: 0.15rem !important;
   }
 }
-  
-  /* Speech bubble positioning */
-  .speech-bubble {
-    position: absolute;
-    top: -30px !important;
-    right: -50px !important;
-    background: white;
-    border-radius: 30px;
-    padding: 6px 16px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    border: 1px solid #e5e7eb;
-    z-index: 20;
-    white-space: nowrap;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-  
-  .speech-bubble:hover {
-    transform: scale(1.02);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-  }
-  
+
   @media (min-width: 1025px) {
-    .speech-bubble {
-      top: -50px !important;
-      right: -120px !important;
-      transform: scale(1.1);
-      padding: 8px 20px;
+    .hero-mesh {
+      min-height: 620px;
     }
   }
-  
-  @media (max-width: 767px) {
-    .speech-bubble {
-      top: -40px !important;
-      right: -80px !important;
-      transform: scale(0.75);
-      padding: 4px 10px;
-    }
-  }
-  
-  /* Speech bubble tail */
-  .speech-bubble::after {
-    content: '';
-    position: absolute;
-    bottom: 12px;
-    left: -8px;
-    width: 14px;
-    height: 14px;
-    background: white;
-    border-left: 1px solid #e5e7eb;
-    border-bottom: 1px solid #e5e7eb;
-    transform: rotate(45deg);
-  }
-  
-  @media (max-width: 767px) {
-    .speech-bubble::after {
-      bottom: 10px;
-      left: -6px;
-      width: 10px;
-      height: 10px;
-    }
-  }
-  
-  /* Add hover effect for all clickable icons */
-  .floating-icon-student-portal:hover,
-  .floating-icon-behavior:hover {
-    transform: scale(1.15) !important;
-    transition: all 0.2s ease;
-  }
-  </style>
+</style>
 
         
 
