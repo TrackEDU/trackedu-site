@@ -1291,23 +1291,23 @@ html { scroll-padding-top: 100px; }
 
 
   <!-- ==========================================
-     HERO SECTION, MOBILE-OPTIMISED VERSION
-     Floating icons removed. Tool cards still open the same modals.
+     HERO SECTION, DESKTOP + MOBILE OPTIMISED
+     Floating icons removed. Tool cards open existing modals.
      ========================================== -->
-<section class="relative pt-24 sm:pt-24 lg:pt-28 pb-6 lg:pb-12 hero-mesh overflow-hidden">
+<section class="relative pt-24 sm:pt-24 lg:pt-20 pb-6 lg:pb-12 hero-mesh overflow-hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
 
-    <div class="grid lg:grid-cols-2 gap-5 lg:gap-12 items-center">
+    <div class="grid lg:grid-cols-2 gap-5 lg:gap-10 items-center">
 
       <!-- HERO TEXT -->
       <div class="text-center lg:text-left" data-aos="fade-right">
         <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.05] text-brand-dark tracking-tighter mb-3 lg:mb-4">
-          School Culture.<br>
-          <span class="text-gradient">House Points.</span><br>
-          <span class="text-gradient">Behavior Tracking.</span>
+          <span class="school-culture-line">School Culture.</span><br>
+          <span class="house-points-line">House Points.</span><br>
+          <span class="behavior-tracking-line">Behavior Tracking.</span>
         </h1>
 
-        <p class="text-lg sm:text-2xl lg:text-3xl text-gray-500 font-semibold mb-4 lg:mb-6">
+        <p class="text-lg sm:text-2xl lg:text-3xl text-gray-500 font-semibold mb-4 lg:mb-5">
           One platform that does it all.
         </p>
 
@@ -1341,7 +1341,7 @@ html { scroll-padding-top: 100px; }
         <img
           src="https://trackedu.github.io/common-assets/mainheroimage.png"
           alt="TrackEDU Teacher App dashboard with TrackEDU mascot"
-          class="hero-main-image w-full max-w-[720px] lg:max-w-[800px] xl:max-w-[880px] object-contain drop-shadow-2xl mx-auto"
+          class="hero-main-image w-full max-w-[720px] lg:max-w-[900px] xl:max-w-[960px] object-contain drop-shadow-2xl mx-auto"
           loading="eager"
           fetchpriority="high"
         >
@@ -1349,7 +1349,7 @@ html { scroll-padding-top: 100px; }
     </div>
 
     <!-- MOBILE CTA BUTTONS, PLACED AFTER IMAGE -->
-    <div class="lg:hidden mt-3 flex flex-row gap-2 justify-center w-full">
+    <div class="lg:hidden mt-1 flex flex-row gap-2 justify-center w-full">
       <button onclick="openPilotModal()" class="btn hero-cta-btn flex items-center justify-center gap-1.5 group bg-brand-green hover:bg-green-600 border-2 border-brand-green text-white shadow-sm whitespace-nowrap">
         <i class="fas fa-rocket text-white text-[10px] group-hover:translate-y-[-2px] transition"></i>
         <span>Reserve Your Pilot →</span>
@@ -1362,9 +1362,9 @@ html { scroll-padding-top: 100px; }
     </div>
 
     <!-- 3 TOOL CARDS, LINKED TO EXISTING MODALS -->
-    <div class="hero-tool-grid mt-5 lg:mt-8 grid grid-cols-3 gap-2 sm:gap-4 lg:gap-5">
+    <div class="hero-tool-grid mt-5 lg:mt-7 grid grid-cols-3 gap-2 sm:gap-4 lg:gap-5">
 
-      <button onclick="showToolInfo('teacher')" class="hero-tool-card group bg-white/95 backdrop-blur-sm border border-gray-100 rounded-3xl p-5 shadow-card hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-left" aria-label="Open Teacher App information">
+      <button onclick="showToolInfo('teacher')" class="hero-tool-card hero-tool-card-active group bg-white/95 backdrop-blur-sm border border-gray-100 rounded-3xl p-5 shadow-card hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-left" aria-label="Open Teacher App information">
         <div class="flex items-start gap-4">
           <div class="hero-tool-icon w-12 h-12 rounded-2xl bg-green-50 flex items-center justify-center shrink-0 group-hover:bg-brand-green transition">
             <i class="fas fa-chalkboard-user text-brand-green group-hover:text-white text-xl"></i>
@@ -1414,6 +1414,7 @@ html { scroll-padding-top: 100px; }
 </section>
 
 <style>
+  /* HERO BASE */
   .hero-cta-btn {
     font-size: 1rem;
     padding: 0.75rem 1.5rem;
@@ -1423,97 +1424,151 @@ html { scroll-padding-top: 100px; }
     display: block;
   }
 
-  /* Compact mobile hero layout */
-@media (max-width: 767px) {
+  .hero-tool-card-active {
+    border-color: rgba(135, 194, 50, 0.45) !important;
+    background: rgba(240, 253, 244, 0.65) !important;
+    box-shadow: 0 18px 45px -20px rgba(135, 194, 50, 0.45) !important;
+  }
+
+  /* DESKTOP REBALANCE */
+@media (min-width: 1025px) {
   .hero-mesh {
-    padding-top: 5.4rem !important;
-    padding-bottom: 1rem !important;
+    min-height: 620px;
   }
 
   .hero-mesh h1 {
-    font-size: 2rem !important;
-    line-height: 1.05 !important;
-    margin-bottom: 0.55rem !important;
+    font-size: clamp(3.75rem, 4.55vw, 5.25rem) !important;
+    line-height: 1.04 !important;
+    max-width: 640px;
+  }
+
+  .hero-mesh h1 span {
+    white-space: nowrap;
   }
 
   .hero-mesh p {
-    font-size: 1rem !important;
-    margin-bottom: 0 !important;
+    max-width: 520px;
   }
 
   .hero-main-image {
-    max-width: 104% !important;
-    width: 104% !important;
-    margin: -0.65rem auto -0.15rem auto !important;
-    transform: none !important;
-    display: block !important;
-  }
-
-  .hero-cta-btn {
-    font-size: 0.68rem !important;
-    padding: 0.5rem 0.55rem !important;
-    border-radius: 0.75rem !important;
-    min-width: 0;
-    flex: 1 1 0;
-    letter-spacing: 0;
-  }
-
-  .lg\:hidden.mt-3 {
-    margin-top: 0.25rem !important;
+    max-width: 940px !important;
+    transform: translateX(-35px) !important;
   }
 
   .hero-tool-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 0.45rem !important;
-    margin-top: 0.75rem !important;
-  }
-
-  .hero-tool-card {
-    padding: 0.62rem 0.35rem !important;
-    border-radius: 0.9rem !important;
-    text-align: center !important;
-  }
-
-  .hero-tool-card > div {
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 0.35rem !important;
-  }
-
-  .hero-tool-icon {
-    width: 1.95rem !important;
-    height: 1.95rem !important;
-    border-radius: 0.7rem !important;
-  }
-
-  .hero-tool-icon i {
-    font-size: 0.82rem !important;
-  }
-
-  .hero-tool-card h3 {
-    font-size: 0.62rem !important;
-    line-height: 1.05 !important;
-    margin-bottom: 0 !important;
-  }
-
-  .hero-tool-desc {
-    display: none !important;
-  }
-
-  .hero-tool-link {
-    font-size: 0.58rem !important;
-    margin-top: 0.18rem !important;
-  }
-
-  .hero-tool-link i {
-    font-size: 0.55rem !important;
-    margin-left: 0.15rem !important;
+    margin-top: 1.35rem !important;
   }
 }
 
-  @media (min-width: 1025px) {
+
+.school-culture-line {
+  color: #0C1E2C;
+}
+
+.house-points-line {
+  background: linear-gradient(135deg, #0f66c3 0%, #3B8F7A 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.behavior-tracking-line {
+  display: inline-block;
+  background: linear-gradient(135deg, #3B8F7A 0%, #8B5CF6 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  font-size: 0.92em;
+  letter-spacing: -0.035em;
+}
+
+  /* COMPACT MOBILE HERO */
+  @media (max-width: 767px) {
     .hero-mesh {
-      min-height: 620px;
+  padding-top: 4.75rem !important;
+  padding-bottom: 1rem !important;
+}
+
+    .hero-mesh h1 {
+      font-size: 2rem !important;
+      line-height: 1.05 !important;
+      margin-bottom: 0.55rem !important;
+    }
+
+    .hero-mesh p {
+      font-size: 1rem !important;
+      margin-bottom: 0 !important;
+    }
+
+    .hero-main-image {
+      max-width: 104% !important;
+      width: 104% !important;
+      margin: -0.65rem auto -0.15rem auto !important;
+      transform: none !important;
+      display: block !important;
+    }
+
+    .hero-cta-btn {
+      font-size: 0.68rem !important;
+      padding: 0.5rem 0.55rem !important;
+      border-radius: 0.75rem !important;
+      min-width: 0;
+      flex: 1 1 0;
+      letter-spacing: 0;
+    }
+
+    .lg\:hidden.mt-1 {
+      margin-top: 0.25rem !important;
+    }
+
+    .hero-tool-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: 0.45rem !important;
+      margin-top: 0.75rem !important;
+    }
+
+    .hero-tool-card {
+      padding: 0.62rem 0.35rem !important;
+      border-radius: 0.9rem !important;
+      text-align: center !important;
+    }
+
+    .hero-tool-card > div {
+      flex-direction: column !important;
+      align-items: center !important;
+      gap: 0.35rem !important;
+    }
+
+    .hero-tool-icon {
+      width: 1.95rem !important;
+      height: 1.95rem !important;
+      border-radius: 0.7rem !important;
+    }
+
+    .hero-tool-icon i {
+      font-size: 0.82rem !important;
+    }
+
+    .hero-tool-card h3 {
+      font-size: 0.62rem !important;
+      line-height: 1.05 !important;
+      margin-bottom: 0 !important;
+    }
+
+    .hero-tool-desc {
+      display: none !important;
+    }
+
+    .hero-tool-link {
+      font-size: 0.58rem !important;
+      margin-top: 0.18rem !important;
+    }
+
+    .hero-tool-link i {
+      font-size: 0.55rem !important;
+      margin-left: 0.15rem !important;
     }
   }
 </style>
@@ -1830,16 +1885,28 @@ html { scroll-padding-top: 100px; }
       
       // Function to scroll to a specific card
       function scrollToCard(index) {
-        if (!container) return;
-        const cards = document.querySelectorAll('.carousel-card');
-        if (cards.length === 0) return;
-        const targetCard = cards[index];
-        if (targetCard) {
-          targetCard.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-          currentIndex = index;
-          updateDots();
-        }
-      }
+  if (!container) return;
+
+  const cards = document.querySelectorAll('.carousel-card');
+  if (cards.length === 0) return;
+
+  const targetCard = cards[index];
+  if (!targetCard) return;
+
+  const containerWidth = container.clientWidth;
+  const cardLeft = targetCard.offsetLeft;
+  const cardWidth = targetCard.offsetWidth;
+
+  const targetScrollLeft = cardLeft - (containerWidth / 2) + (cardWidth / 2);
+
+  container.scrollTo({
+    left: targetScrollLeft,
+    behavior: 'smooth'
+  });
+
+  currentIndex = index;
+  updateDots();
+}
       
       // Create dots
       function createDots() {
@@ -1910,8 +1977,6 @@ html { scroll-padding-top: 100px; }
         };
       }
       
-      // Auto-scroll RIGHT TO LEFT (next card) every 8 seconds
-      // Auto-scroll RIGHT TO LEFT (next card) every 8 seconds
 // Flag to prevent auto-scroll immediately after page load
 let isPageJustLoaded = true;
 
@@ -2031,7 +2096,7 @@ createDots();
 // Wait 3 seconds before starting auto-scroll to prevent jarring page load scroll
 setTimeout(function() {
   startAutoScroll();
-}, 3000);
+}, 8000);
       
       // Handle window resize
       let resizeTimeout;
