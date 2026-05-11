@@ -1408,10 +1408,23 @@ html { scroll-padding-top: 100px; }
           <span class="behavior-tracking-line">Behavior Tracking.</span>
         </h1>
 
-        <p class="text-lg sm:text-2xl lg:text-3xl text-gray-500 font-semibold mb-4 lg:mb-5">
+        <p class="text-lg sm:text-2xl lg:text-3xl text-gray-500 font-semibold mb-3 lg:mb-5">
           One platform that does it all.
         </p>
-
+        
+        <!-- MOBILE CTA BUTTONS, PLACED UNDER HEADLINE -->
+        <div class="lg:hidden mb-3 flex flex-row gap-2 justify-center w-full">
+          <button onclick="openPilotModal()" class="btn hero-cta-btn flex items-center justify-center gap-1.5 group bg-brand-green hover:bg-green-600 border-2 border-brand-green text-white shadow-sm whitespace-nowrap">
+            <i class="fas fa-rocket text-white text-[10px] group-hover:translate-y-[-2px] transition"></i>
+            <span>Reserve Your Pilot →</span>
+          </button>
+        
+          <button data-cal-link="trackedu-a9dbpy/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view"}' class="btn hero-cta-btn bg-brand-dark hover:bg-gray-800 text-white border-2 border-brand-dark shadow-sm flex items-center justify-center gap-1.5 whitespace-nowrap">
+            <i class="fas fa-calendar-alt text-[10px]"></i>
+            <span>Book 1 on 1 Demo</span>
+          </button>
+        </div>
+        
         <div class="hidden md:inline-flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-1.5 px-4 py-1.5 rounded-2xl bg-white border border-gray-200 shadow-sm text-xs font-bold uppercase tracking-wide mb-6 mx-auto lg:mx-0 max-w-fit">
           <div class="flex items-center gap-2">
             <span class="relative flex h-2.5 w-2.5">
@@ -1449,18 +1462,6 @@ html { scroll-padding-top: 100px; }
       </div>
     </div>
 
-    <!-- MOBILE CTA BUTTONS, PLACED AFTER IMAGE -->
-    <div class="lg:hidden mt-1 flex flex-row gap-2 justify-center w-full">
-      <button onclick="openPilotModal()" class="btn hero-cta-btn flex items-center justify-center gap-1.5 group bg-brand-green hover:bg-green-600 border-2 border-brand-green text-white shadow-sm whitespace-nowrap">
-        <i class="fas fa-rocket text-white text-[10px] group-hover:translate-y-[-2px] transition"></i>
-        <span>Reserve Your Pilot →</span>
-      </button>
-
-      <button data-cal-link="trackedu-a9dbpy/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view"}' class="btn hero-cta-btn bg-brand-dark hover:bg-gray-800 text-white border-2 border-brand-dark shadow-sm flex items-center justify-center gap-1.5 whitespace-nowrap">
-        <i class="fas fa-calendar-alt text-[10px]"></i>
-        <span>Book 1 on 1 Demo</span>
-      </button>
-    </div>
 
     <!-- 3 TOOL TABS, LINKED TO EXISTING MODALS -->
 <div class="hero-tool-grid mt-4 lg:mt-5 grid grid-cols-3 gap-2 sm:gap-4 lg:gap-4">
@@ -1645,12 +1646,12 @@ html { scroll-padding-top: 100px; }
     }
 
     .hero-main-image {
-      max-width: 104% !important;
-      width: 104% !important;
-      margin: -0.65rem auto -0.15rem auto !important;
-      transform: none !important;
-      display: block !important;
-    }
+  max-width: 104% !important;
+  width: 104% !important;
+  margin: -0.35rem auto -0.2rem auto !important;
+  transform: none !important;
+  display: block !important;
+}
 
     .hero-cta-btn {
       font-size: 0.68rem !important;
@@ -1661,9 +1662,9 @@ html { scroll-padding-top: 100px; }
       letter-spacing: 0;
     }
 
-    .lg\:hidden.mt-1 {
-      margin-top: 0.25rem !important;
-    }
+    .lg\:hidden.mb-3 {
+  margin-bottom: 0.75rem !important;
+}
 
     .hero-tool-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
@@ -5918,127 +5919,6 @@ function closeModalAndOpenHouseMasterToolkits() {
 
 
 
-
-<!-- ==========================================
-     WHY TRACKEDU SECTION
-     ========================================== -->
-<section id="why-trackedu" class="relative bg-white py-14 sm:py-16 lg:py-20 border-t border-gray-100 scroll-mt-24">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6">
-
-    <div class="max-w-3xl mx-auto text-center mb-10 lg:mb-14">
-      <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-50 text-brand-green text-xs font-black uppercase tracking-wide mb-4">
-        <i class="fas fa-circle-check text-xs"></i>
-        Why TrackEDU
-      </span>
-
-      <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark tracking-tight leading-tight">
-        Built for schools that need visibility without more admin.
-      </h2>
-
-      <p class="mt-4 text-base sm:text-lg text-gray-500 leading-relaxed">
-        TrackEDU brings house points, behaviour tracking, student engagement, and school-wide visibility into one connected ecosystem.
-      </p>
-    </div>
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
-
-      <!-- Built by educators -->
-      <div class="bg-gray-50 rounded-3xl p-6 border border-gray-100 shadow-sm">
-        <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shadow-sm mb-5">
-          <i class="fas fa-chalkboard-user text-brand-green text-xl"></i>
-        </div>
-        <h3 class="font-display text-xl font-black text-brand-dark mb-2">
-          Built by educators
-        </h3>
-        <p class="text-gray-600 text-sm leading-relaxed">
-          TrackEDU was created by people who understand the daily pressure of school systems, pastoral work, house points, and staff workload.
-        </p>
-      </div>
-
-      <!-- One connected system -->
-      <div class="bg-gray-50 rounded-3xl p-6 border border-gray-100 shadow-sm">
-        <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shadow-sm mb-5">
-          <i class="fas fa-diagram-project text-brand-blue text-xl"></i>
-        </div>
-        <h3 class="font-display text-xl font-black text-brand-dark mb-2">
-          One connected system
-        </h3>
-        <p class="text-gray-600 text-sm leading-relaxed">
-          Replace disconnected spreadsheets, separate point systems, and scattered behaviour logs with one easy-to-use platform.
-        </p>
-      </div>
-
-      <!-- Student data and trust -->
-      <div class="bg-gray-50 rounded-3xl p-6 border border-gray-100 shadow-sm">
-        <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shadow-sm mb-5">
-          <i class="fas fa-shield-halved text-brand-green text-xl"></i>
-        </div>
-        <h3 class="font-display text-xl font-black text-brand-dark mb-2">
-          Student data and trust
-        </h3>
-        <p class="text-gray-600 text-sm leading-relaxed">
-          TrackEDU is designed with clear access controls, secure authentication, no advertising, and no selling of student data.
-        </p>
-      </div>
-
-      <!-- Less friction -->
-      <div class="bg-gray-50 rounded-3xl p-6 border border-gray-100 shadow-sm">
-        <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shadow-sm mb-5">
-          <i class="fas fa-wand-magic-sparkles text-purple-600 text-xl"></i>
-        </div>
-        <h3 class="font-display text-xl font-black text-brand-dark mb-2">
-          Less implementation friction
-        </h3>
-        <p class="text-gray-600 text-sm leading-relaxed">
-          Setup, onboarding, and staff training are designed to reduce workload rather than create another system for teachers to manage.
-        </p>
-      </div>
-
-      <!-- School-wide visibility -->
-      <div class="bg-gray-50 rounded-3xl p-6 border border-gray-100 shadow-sm">
-        <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shadow-sm mb-5">
-          <i class="fas fa-chart-line text-brand-blue text-xl"></i>
-        </div>
-        <h3 class="font-display text-xl font-black text-brand-dark mb-2">
-          School-wide visibility
-        </h3>
-        <p class="text-gray-600 text-sm leading-relaxed">
-          Leaders and pastoral teams can see patterns earlier, recognise positive behaviour, and support students with clearer information.
-        </p>
-      </div>
-
-      <!-- Founder note -->
-      <div class="bg-brand-dark rounded-3xl p-6 shadow-lg text-white relative overflow-hidden">
-        <div class="absolute -right-10 -top-10 w-32 h-32 rounded-full bg-brand-green/20"></div>
-        <div class="relative z-10">
-          <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center mb-5">
-            <i class="fas fa-user-check text-brand-green text-xl"></i>
-          </div>
-          <h3 class="font-display text-xl font-black mb-2">
-            A founder-led platform
-          </h3>
-          <p class="text-white/75 text-sm leading-relaxed">
-            TrackEDU is currently founder-led, school-focused, and built around direct feedback from educators and school teams.
-          </p>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
-      <button onclick="openPilotModal()" class="btn px-6 py-3 text-sm sm:text-base flex items-center justify-center gap-2 bg-brand-green hover:bg-green-600 text-white font-bold">
-        <i class="fas fa-rocket text-xs"></i>
-        Reserve Your Pilot
-      </button>
-
-      <button data-cal-link="trackedu-a9dbpy/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view"}' class="btn px-6 py-3 text-sm sm:text-base bg-brand-dark hover:bg-gray-800 text-white font-bold flex items-center justify-center gap-2">
-        <i class="fas fa-calendar-alt text-xs"></i>
-        Book 1 on 1 Demo
-      </button>
-    </div>
-
-  </div>
-</section>
 
 
 
