@@ -1482,16 +1482,30 @@ html { scroll-padding-top: 100px; }
 <p class="lg:hidden hero-teacher-note mt-2 text-center text-xs text-gray-500 font-medium px-3">
   Teachers can start free with one class, even if their school is not ready yet.
 </p>
+
+<div class="lg:hidden mt-2 flex justify-center px-3">
+  <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-green-100 shadow-sm text-[10px] font-bold uppercase tracking-wide text-brand-green">
+    <i class="fas fa-shield-halved text-[10px]"></i>
+    <span>ICO registered · Ref: C1932322</span>
+  </div>
+</div>
         
-        <div class="hidden md:inline-flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-1.5 px-4 py-1.5 rounded-2xl bg-white border border-gray-200 shadow-sm text-xs font-bold uppercase tracking-wide mb-6 mx-auto lg:mx-0 max-w-fit">
-          <div class="flex items-center gap-2">
-            <span class="relative flex h-2.5 w-2.5">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-green"></span>
-            </span>
-            <span class="text-gray-600">Built for international schools</span>
-          </div>
-        </div>
+<div class="hidden md:inline-flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2 px-4 py-2 rounded-2xl bg-white border border-gray-200 shadow-sm text-xs font-bold uppercase tracking-wide mb-6 mx-auto lg:mx-0 max-w-fit">
+  <div class="flex items-center gap-2">
+    <span class="relative flex h-2.5 w-2.5">
+      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+      <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-green"></span>
+    </span>
+    <span class="text-gray-600">Built for international schools</span>
+  </div>
+
+  <span class="hidden sm:inline text-gray-300">|</span>
+
+  <div class="flex items-center gap-1.5 text-brand-green">
+    <i class="fas fa-shield-halved text-[10px]"></i>
+    <span>ICO registered</span>
+  </div>
+</div>
 
         <!-- DESKTOP CTA BUTTONS -->
 <div class="hidden lg:flex flex-row gap-3 justify-start w-full sm:w-auto">
@@ -3856,11 +3870,11 @@ setTimeout(function() {
   </div>
 </section>
 
-<footer class="bg-brand-dark text-white pt-24 pb-12 overflow-hidden relative">
+<footer class="bg-brand-dark text-white pt-12 sm:pt-16 lg:pt-20 pb-10 sm:pb-12 overflow-hidden relative">
   <div class="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] pointer-events-none"></div>
   
   <div class="max-w-7xl mx-auto px-6 relative z-10">
-    <div class="grid lg:grid-cols-[1.2fr_1.8fr] gap-16 border-b border-white/10 pb-16 mb-12">
+    <div class="grid lg:grid-cols-[1.2fr_1.8fr] gap-10 lg:gap-16 border-b border-white/10 pb-10 lg:pb-16 mb-8 lg:mb-12">
       
       <!-- Brand -->
       <div>
@@ -3925,11 +3939,11 @@ setTimeout(function() {
       </div>
     </div>
   </div>
-</footer><footer class="bg-brand-dark text-white pt-24 pb-12 overflow-hidden relative">
+</footer><footer class="bg-brand-dark text-white pt-12 sm:pt-16 lg:pt-20 pb-10 sm:pb-12 overflow-hidden relative">
   <div class="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] pointer-events-none"></div>
   
   <div class="max-w-7xl mx-auto px-6 relative z-10">
-    <div class="grid lg:grid-cols-[1.2fr_1.8fr] gap-16 border-b border-white/10 pb-16 mb-12">
+    <div class="grid lg:grid-cols-[1.2fr_1.8fr] gap-10 lg:gap-16 border-b border-white/10 pb-10 lg:pb-16 mb-8 lg:mb-12">
       
       <!-- Brand -->
       <div>
@@ -4050,25 +4064,29 @@ setTimeout(function() {
 <div class="w-full bg-white border-t border-gray-200 py-6">
   <div class="max-w-5xl mx-auto px-5 sm:px-6">
     
-    <div class="text-center text-xs sm:text-sm leading-relaxed text-gray-600 space-y-2">
+    <div class="text-center text-xs sm:text-sm leading-relaxed text-gray-600 space-y-3">
       
       <p class="font-semibold text-gray-900">
         © 2026 Track<span class="text-brand-green">EDU</span> Ltd. All rights reserved.
       </p>
 
-      <div class="flex flex-col sm:flex-row sm:flex-wrap items-center justify-center gap-y-1 gap-x-3">
-        <span>
+      <div class="space-y-1 text-[11px] sm:text-xs text-gray-600">
+        <p>
           Registered in England &amp; Wales, No. 17216557
-        </span>
-        <span class="hidden sm:inline text-gray-300">|</span>
-        <span>
+        </p>
+        <p>
           Registered Office: 128 City Road, London, EC1V 2NX, United Kingdom
-        </span>
+        </p>
       </div>
 
-      <p class="text-gray-500">
-        Registered with the Information Commissioner’s Office, ICO, for data protection compliance. Ref: C1932322.
-      </p>
+      <div class="flex justify-center px-2">
+        <div class="inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-[10px] sm:text-xs font-semibold text-brand-blue max-w-full">
+          <i class="fas fa-shield-halved text-[10px] sm:text-xs shrink-0"></i>
+          <span class="leading-snug">
+            ICO registered for data protection compliance. Ref: C1932322.
+          </span>
+        </div>
+      </div>
 
       <!-- TODO: Once Wise account details are approved, replace the invoice email link with a proper invoice request form. -->
       <!-- TODO: If a formal Data Processing Agreement page is created later, add it under Trust Centre. -->
@@ -4218,7 +4236,9 @@ setTimeout(function() {
   </div>
 </div>
 
-<!-- INVOICE REQUEST MODAL -->
+
+
+<!-- INVOICE REQUEST MODAL - SINGLE CORRECTED VERSION -->
 <div id="invoiceModal" class="fixed inset-0 z-[9999] hidden overflow-y-auto">
   <div class="min-h-full flex items-start md:items-center justify-center p-0 md:p-6">
     <div class="absolute inset-0 bg-gray-900/70 backdrop-blur-sm" onclick="closeInvoiceModal()"></div>
@@ -4251,11 +4271,13 @@ setTimeout(function() {
           </p>
         </div>
 
-        <form action="https://formsubmit.co/hello@trackedu.net" method="POST" id="invoiceRequestForm" class="space-y-5" target="invoiceHiddenFrame" onsubmit="handleInvoiceFormSubmit(event)">
+        <!-- IMPORTANT: form tag with onsubmit attribute -->
+        <form id="invoiceRequestForm" class="space-y-5" onsubmit="handleInvoiceFormSubmit(event)">
           
           <input type="hidden" name="_subject" value="TrackEDU Invoice Request">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="box">
+          <input type="hidden" name="_next" value="https://www.trackedu.net">
           <input type="hidden" name="_autoresponse" value="Thank you for requesting a TrackEDU school invoice. We have received your billing details and will review them before issuing the official invoice. - The TrackEDU Team">
 
           <!-- Contact details -->
@@ -4359,9 +4381,12 @@ setTimeout(function() {
             <p>
               TrackEDU Ltd is registered in England &amp; Wales, No. 17216557. Registered Office: 128 City Road, London, EC1V 2NX, United Kingdom.
             </p>
-            <p>
-              Registered with the Information Commissioner’s Office, ICO, for data protection compliance. Ref: C1932322.
-            </p>
+            <div class="inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-full bg-green-50 border border-green-100 text-[11px] sm:text-xs font-semibold text-brand-green">
+              <i class="fas fa-shield-halved text-[10px] sm:text-xs"></i>
+              <span>
+                ICO registered for data protection compliance. Ref: C1932322.
+              </span>
+            </div>
           </div>
 
           <button type="submit" id="invoiceSubmitButton" class="w-full py-3.5 bg-brand-blue hover:bg-brand-blue/90 text-white font-bold rounded-xl transition-all duration-200 shadow-md flex items-center justify-center gap-2">
@@ -4379,150 +4404,7 @@ setTimeout(function() {
   </div>
 </div>
 
-<!-- Hidden iframe keeps the visitor on the TrackEDU site after FormSubmit sends the request. -->
-<iframe name="invoiceHiddenFrame" id="invoiceHiddenFrame" style="display:none;"></iframe>
-
-
-
-<!-- INVOICE REQUEST MODAL -->
-<div id="invoiceModal" class="fixed inset-0 z-[9999] hidden overflow-y-auto">
-  <div class="absolute inset-0 bg-gray-900/70 backdrop-blur-sm" onclick="closeInvoiceModal()"></div>
-
-  <div class="relative w-full h-full md:h-auto md:max-w-2xl md:m-auto md:top-1/2 md:-translate-y-1/2 bg-white md:rounded-2xl shadow-2xl flex flex-col overflow-hidden md:max-h-[90vh]">
-    
-    <!-- Header -->
-    <div class="px-6 py-5 border-b flex justify-between items-center bg-white shrink-0">
-      <div>
-        <h3 class="font-display text-xl font-bold text-gray-900">Request a School Invoice</h3>
-        <p class="text-xs text-gray-500 mt-0.5">
-          Submit your billing details and TrackEDU will issue an invoice manually.
-        </p>
-      </div>
-
-      <button onclick="closeInvoiceModal()" class="w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full transition flex items-center justify-center text-gray-500 hover:text-gray-700">
-        <i class="fas fa-times text-sm"></i>
-      </button>
-    </div>
-
-    <!-- Body -->
-    <div class="p-6 overflow-y-auto flex-1">
-      
-      <div class="mb-5 p-4 rounded-xl bg-blue-50 border border-blue-100">
-        <p class="text-sm text-gray-700 leading-relaxed">
-          Use this form if your school prefers to pay by invoice and bank transfer. 
-          This is an invoice request only. The official invoice will be emailed after TrackEDU reviews the details.
-        </p>
-        <p class="text-sm text-gray-700 leading-relaxed mt-2">
-          Once payment is confirmed, TrackEDU will issue a 1-year licence activation code for your school. 
-          The code unlocks full school access for the agreed licence period.
-        </p>
-      </div>
-
-      <form action="https://formsubmit.co/hello@trackedu.net" method="POST" id="invoiceRequestForm" class="space-y-4" target="invoiceHiddenFrame" onsubmit="handleInvoiceFormSubmit(event)">
-        
-        <input type="hidden" name="_subject" value="TrackEDU Invoice Request">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="box">
-        
-        <input type="hidden" name="_autoresponse" value="Thank you for requesting a TrackEDU school invoice. We have received your billing details and will review them before issuing the official invoice. - The TrackEDU Team">
-
-        <div class="grid md:grid-cols-2 gap-4">
-          <div>
-            <label class="block text-xs font-semibold text-gray-600 mb-1">Your full name *</label>
-            <input type="text" name="contact_name" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
-          </div>
-
-          <div>
-            <label class="block text-xs font-semibold text-gray-600 mb-1">Job title *</label>
-            <input type="text" name="job_title" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
-          </div>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-4">
-          <div>
-            <label class="block text-xs font-semibold text-gray-600 mb-1">School name *</label>
-            <input type="text" name="school_name" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
-          </div>
-
-          <div>
-            <label class="block text-xs font-semibold text-gray-600 mb-1">School country *</label>
-            <input type="text" name="school_country" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
-          </div>
-        </div>
-
-        <div>
-          <label class="block text-xs font-semibold text-gray-600 mb-1">Billing address *</label>
-          <textarea name="billing_address" rows="3" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm"></textarea>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-4">
-          <div>
-            <label class="block text-xs font-semibold text-gray-600 mb-1">Finance contact email *</label>
-            <input type="email" name="finance_email" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
-          </div>
-
-          <div>
-            <label class="block text-xs font-semibold text-gray-600 mb-1">Purchase order number, if available</label>
-            <input type="text" name="purchase_order_number" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
-          </div>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-4">
-          <div>
-            <label class="block text-xs font-semibold text-gray-600 mb-1">Requested licence start date *</label>
-            <input type="date" name="licence_start_date" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
-          </div>
-
-          <div>
-            <label class="block text-xs font-semibold text-gray-600 mb-1">Licence type *</label>
-            <select name="licence_type" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm bg-white">
-              <option value="">Select licence type</option>
-              <option value="School Annual Licence">School Annual Licence</option>
-              <option value="Founding School Licence">Founding School Licence</option>
-              <option value="Pilot Extension">Pilot Extension</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-4">
-          <div>
-            <label class="block text-xs font-semibold text-gray-600 mb-1">Estimated number of students *</label>
-            <input type="number" name="estimated_students" min="1" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
-          </div>
-
-          <div>
-            <label class="block text-xs font-semibold text-gray-600 mb-1">Estimated number of staff users *</label>
-            <input type="number" name="estimated_staff_users" min="1" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
-          </div>
-        </div>
-
-        <div>
-          <label class="block text-xs font-semibold text-gray-600 mb-1">Additional invoice notes</label>
-          <textarea name="invoice_notes" rows="3" placeholder="For example: required wording, department name, internal reference, payment terms, or procurement notes." class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm"></textarea>
-        </div>
-
-        <div class="p-4 rounded-xl bg-gray-50 border border-gray-100 text-xs text-gray-500 leading-relaxed">
-          <p>
-            TrackEDU Ltd is registered in England &amp; Wales, No. 17216557. Registered Office: 128 City Road, London, United Kingdom, EC1V 2NX.
-          </p>
-          <p class="mt-1">
-            Registered with the Information Commissioner’s Office, ICO, for data protection compliance. Ref: C1932322.
-          </p>
-        </div>
-
-        <button type="submit" class="w-full py-3.5 bg-brand-blue hover:bg-brand-blue/90 text-white font-bold rounded-xl transition-all duration-200 shadow-md flex items-center justify-center gap-2">
-          <i class="fas fa-file-invoice-dollar text-xs"></i>
-          Submit Invoice Request
-        </button>
-
-        <p class="text-center text-xs text-gray-400">
-          The official invoice will be emailed manually after review. Bank transfer details will be included once confirmed.
-        </p>
-
-      </form>
-    </div>
-  </div>
-</div>
+<!-- Remove the iframe - not needed with fetch -->
 
 
 
@@ -4624,6 +4506,7 @@ class="group block p-5 rounded-xl border-2 border-gray-200 hover:border-brand-gr
             <input type="hidden" name="_subject" value="🔥 Founding Schools Application - TrackEDU">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_template" value="box">
+            <input type="hidden" name="_next" value="https://www.trackedu.net">
             <input type="hidden" name="_next" value="https://www.trackedu.net?application=submitted">
             <input type="hidden" name="_autoresponse" value="Thank you for applying to the TrackEDU Founding Schools Program! We have received your application. Our team will review your submission and contact you within 48 hours about the 1-year license waiver. - The TrackEDU Team">
             
@@ -6802,7 +6685,6 @@ function closeModalAndOpenHouseMasterToolkits() {
 
 
 
-
 <script>
   function openInvoiceModal() {
     const modal = document.getElementById('invoiceModal');
@@ -6837,27 +6719,47 @@ function closeModalAndOpenHouseMasterToolkits() {
   }
 
   function handleInvoiceFormSubmit(event) {
+    event.preventDefault();
+    
     const form = event.target;
     const submitButton = form.querySelector('button[type="submit"]');
-
+    const formData = new FormData(form);
+    
+    // Add required FormSubmit parameters
+    formData.set('_next', 'https://www.trackedu.net');
+    formData.set('_captcha', 'false');
+    
     if (submitButton) {
       submitButton.disabled = true;
       submitButton.innerHTML = '<i class="fas fa-circle-notch fa-spin text-xs"></i> Sending request...';
     }
-
-    setTimeout(function () {
-      closeInvoiceModal();
-      openInvoiceSuccessModal();
-
-      if (form) {
+    
+    // Send via fetch - this keeps user on the site
+    fetch('https://formsubmit.co/ajax/hello@trackedu.net', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => {
+      if (response.ok) {
+        closeInvoiceModal();
+        openInvoiceSuccessModal();
         form.reset();
+      } else {
+        throw new Error('Form submission failed');
       }
-
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('There was an error sending your request. Please email hello@trackedu.net directly.');
+    })
+    .finally(() => {
       if (submitButton) {
         submitButton.disabled = false;
         submitButton.innerHTML = '<i class="fas fa-file-invoice-dollar text-xs"></i> Submit Invoice Request';
       }
-    }, 900);
+    });
+    
+    return false;
   }
 </script>
 
