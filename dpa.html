@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Processing Agreement | TrackEDU Ltd</title>
+  <meta name="robots" content="index, follow">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .text-brand-blue { color: #0f66c3; }
+    .text-brand-green { color: #87C232; }
+    .border-brand-blue { border-color: #0f66c3; }
+    .bg-brand-blue { background-color: #0f66c3; }
+    .bg-brand-green { background-color: #87C232; }
+    .hover\:bg-brand-blue\/10:hover { background-color: rgba(15, 102, 195, 0.1); }
+    
+    @media print {
+      .no-print, .sidebar-nav, .print-hide, .back-link, .print-button {
+        display: none !important;
+      }
+      body { background: white; padding: 0; margin: 0; }
+      .main-content { margin: 0; padding: 0; width: 100%; }
+      a { text-decoration: none; color: black; }
+      @page { margin: 2cm; }
+    }
+    
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+    
+    .sidebar-nav {
+      position: sticky;
+      top: 20px;
+      max-height: calc(100vh - 40px);
+      overflow-y: auto;
+    }
+    
+    .sidebar-nav::-webkit-scrollbar {
+      width: 4px;
+    }
+    .sidebar-nav::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 4px;
+    }
+    .sidebar-nav::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-12">
+    
+    <!-- Back link and print button row -->
+    <div class="flex justify-between items-center mb-6 no-print">
+      <a href="/" class="inline-flex items-center gap-2 text-brand-blue font-bold hover:underline">
+        <i class="fas fa-arrow-left text-sm"></i>
+        Back to TrackEDU Home
+      </a>
+      
+      <button onclick="window.print()" class="print-button inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-xl text-sm font-semibold transition">
+        <i class="fas fa-print text-sm"></i>
+        Print / Save as PDF
+      </button>
+    </div>
+
+    <!-- Header -->
+    <div class="mb-8">
+      <h1 class="text-3xl sm:text-4xl font-black text-slate-900">Data Processing Agreement</h1>
+      <div class="flex flex-wrap items-center gap-3 mt-3">
+        <p class="text-sm text-gray-500">Last updated: <strong>May 2026</strong></p>
+        <span class="text-gray-300">|</span>
+        <div class="inline-flex items-center gap-2 text-sm">
+          <i class="fas fa-building text-brand-green"></i>
+          <span class="text-gray-600">Company No: <strong class="text-brand-blue">17216557</strong></span>
+        </div>
+        <span class="text-gray-300">|</span>
+        <div class="inline-flex items-center gap-2 text-sm">
+          <i class="fas fa-shield-halved text-brand-green"></i>
+          <span class="text-gray-600">ICO Registered: <strong class="text-brand-blue">C1932322</strong></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Two-column layout: Sidebar + Content -->
+    <div class="flex flex-col lg:flex-row gap-8">
+      
+      <!-- SIDEBAR NAVIGATION -->
+      <aside class="lg:w-72 shrink-0 no-print">
+        <div class="sidebar-nav bg-white rounded-xl border border-gray-200 p-4 shadow-sm">
+          <h3 class="font-bold text-gray-900 mb-3 pb-2 border-b flex items-center gap-2">
+            <i class="fas fa-list-ul text-brand-green text-sm"></i>
+            Contents
+          </h3>
+          <ul class="space-y-1 text-sm">
+            <li><a href="#purpose" class="block py-1.5 px-2 rounded-lg text-gray-600 hover:text-brand-blue hover:bg-brand-blue/10 transition">1. Purpose and Scope</a></li>
+            <li><a href="#roles" class="block py-1.5 px-2 rounded-lg text-gray-600 hover:text-brand-blue hover:bg-brand-blue/10 transition">2. Controller and Processor Roles</a></li>
+            <li><a href="#categories" class="block py-1.5 px-2 rounded-lg text-gray-600 hover:text-brand-blue hover:bg-brand-blue/10 transition">3. Categories of Data Processed</a></li>
+            <li><a href="#instructions" class="block py-1.5 px-2 rounded-lg text-gray-600 hover:text-brand-blue hover:bg-brand-blue/10 transition">4. Processing Instructions</a></li>
+            <li><a href="#security" class="block py-1.5 px-2 rounded-lg text-gray-600 hover:text-brand-blue hover:bg-brand-blue/10 transition">5. Data Security</a></li>
+            <li><a href="#subprocessors" class="block py-1.5 px-2 rounded-lg text-gray-600 hover:text-brand-blue hover:bg-brand-blue/10 transition">6. Subprocessors</a></li>
+            <li><a href="#international" class="block py-1.5 px-2 rounded-lg text-gray-600 hover:text-brand-blue hover:bg-brand-blue/10 transition">7. International Data Transfers</a></li>
+            <li><a href="#breach" class="block py-1.5 px-2 rounded-lg text-gray-600 hover:text-brand-blue hover:bg-brand-blue/10 transition">8. Data Breach Notification</a></li>
+            <li><a href="#export" class="block py-1.5 px-2 rounded-lg text-gray-600 hover:text-brand-blue hover:bg-brand-blue/10 transition">9. Data Export, Deletion and Return</a></li>
+            <li><a href="#assistance" class="block py-1.5 px-2 rounded-lg text-gray-600 hover:text-brand-blue hover:bg-brand-blue/10 transition">10. Assistance to Schools</a></li>
+            <li><a href="#school-responsibilities" class="block py-1.5 px-2 rounded-lg text-gray-600 hover:text-brand-blue hover:bg-brand-blue/10 transition">11. School Responsibilities</a></li>
+            <li><a href="#dpa-contact" class="block py-1.5 px-2 rounded-lg text-gray-600 hover:text-brand-blue hover:bg-brand-blue/10 transition">12. Contact</a></li>
+          </ul>
+          
+          <!-- Trust badges in sidebar -->
+          <div class="mt-4 pt-4 border-t border-gray-100 space-y-2">
+            <div class="flex items-center gap-2 text-xs text-gray-500">
+              <i class="fas fa-check-circle text-brand-green text-xs"></i>
+              <span>UK Registered Company #17216557</span>
+            </div>
+            <div class="flex items-center gap-2 text-xs text-gray-500">
+              <i class="fas fa-check-circle text-brand-green text-xs"></i>
+              <span>ICO Registered: C1932322</span>
+            </div>
+            <div class="flex items-center gap-2 text-xs text-gray-500">
+              <i class="fas fa-check-circle text-brand-green text-xs"></i>
+              <span>128 City Road, London, EC1V 2NX</span>
+            </div>
+          </div>
+          
+          <!-- DPA Note -->
+          <div class="mt-4 pt-4 border-t border-gray-100">
+            <div class="bg-blue-50 rounded-lg p-3 text-xs">
+              <i class="fas fa-file-signature text-brand-blue mr-1"></i>
+              <span class="font-medium">Need a signed copy?</span>
+              <p class="text-gray-600 mt-1">Contact us to request a signed DPA for your school.</p>
+              <a href="mailto:hello@trackedu.net?subject=Signed%20DPA%20Request" class="text-brand-blue font-medium hover:underline mt-2 inline-block">Request Signed DPA →</a>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <div class="flex-1 bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+        <div class="p-6 sm:p-8 md:p-10 space-y-10">
+          
+          <!-- Section 1 -->
+          <section id="purpose">
+            <h2 class="text-2xl font-bold mb-4 text-slate-900 border-b border-gray-200 pb-2">1. Purpose and Scope</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              This Data Processing Agreement ("DPA") explains how <strong>TrackEDU Ltd</strong> (Company Number: 17216557, Registered Office: 128 City Road, London, United Kingdom, EC1V 2NX) processes school-controlled personal data when providing the <strong>Teacher App</strong>, <strong>Student Portal</strong>, and <strong>Behavior Tracker</strong> (together, the "Platform").
+            </p>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              This DPA is intended as a practical framework for school pilots and early access use. It outlines the data protection commitments TrackEDU Ltd makes when processing personal data on behalf of schools.
+            </p>
+            <p class="text-gray-600 leading-relaxed">
+              A separate signed data processing agreement may be provided where required for formal school deployment, procurement, or regulatory compliance. Schools should contact us to request a signed copy.
+            </p>
+          </section>
+
+          <!-- Section 2 -->
+          <section id="roles">
+            <h2 class="text-2xl font-bold mb-4 text-slate-900 border-b border-gray-200 pb-2">2. Controller and Processor Roles</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              For school-managed use of TrackEDU, the school or educational organisation will generally act as the <strong>Data Controller</strong>, and TrackEDU Ltd will generally act as the <strong>Data Processor</strong>, processing school data on the school's instructions.
+            </p>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              This means the school determines the purposes and means of processing student and staff data within TrackEDU, and TrackEDU Ltd processes that data only to provide the Platform as instructed by the school.
+            </p>
+            <p class="text-gray-600 leading-relaxed">
+              The allocation of controller and processor roles may vary depending on the applicable jurisdiction, contract, implementation arrangement, or specific feature use. Where TrackEDU Ltd determines the purposes and means of processing (for example, for its own operational analytics or security logs), TrackEDU Ltd acts as a controller for that specific processing activity.
+            </p>
+          </section>
+
+          <!-- Section 3 -->
+          <section id="categories">
+            <h2 class="text-2xl font-bold mb-4 text-slate-900 border-b border-gray-200 pb-2">3. Categories of Data Processed</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              TrackEDU Ltd may process the following categories of data on behalf of schools:
+            </p>
+            <ul class="list-disc pl-5 text-gray-600 space-y-2 mb-4">
+              <li><strong>Staff account information:</strong> name, school email address, professional role, school affiliation, and authentication records.</li>
+              <li><strong>Student profile information:</strong> first name, last initial or last name, grade or year group, class assignment, house, group, or team assignment.</li>
+              <li><strong>House point records:</strong> points awarded, point history, leaderboard positions, and point-related activity.</li>
+              <li><strong>Student Portal activity:</strong> badges earned, daily streaks, house power boost contributions, poll participation, mystery word mission progress, and engagement metrics.</li>
+              <li><strong>Behavior Tracker records:</strong> incident logs, behaviour types, severity levels, tier progression, action notes, follow-up notes, and parent or guardian communication records entered by authorised school staff.</li>
+              <li><strong>Technical and operational data:</strong> device type, browser type, error logs, performance information, and non-identifying interaction metrics needed to secure, maintain, and improve the Platform.</li>
+            </ul>
+            <div class="mt-4 p-4 bg-blue-50 border-l-4 border-brand-blue rounded-r-lg text-blue-900 text-sm">
+              <strong><i class="fas fa-info-circle mr-1"></i> What we do not require:</strong> TrackEDU does not require student email addresses, student passwords, phone numbers, home addresses, dates of birth, government identity numbers, or sensitive demographic data for standard platform use.
+            </div>
+          </section>
+
+          <!-- Section 4 -->
+          <section id="instructions">
+            <h2 class="text-2xl font-bold mb-4 text-slate-900 border-b border-gray-200 pb-2">4. Processing Instructions</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              TrackEDU Ltd processes school-controlled data only to provide, secure, support, and improve the Platform, and in accordance with the school's instructions as expressed through normal use of TrackEDU.
+            </p>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              Processing activities include:
+            </p>
+            <ul class="list-disc pl-5 text-gray-600 space-y-2 mb-4">
+              <li>operating the Teacher App, Student Portal, and Behavior Tracker;</li>
+              <li>authenticating staff and managing role-based access;</li>
+              <li>storing and displaying student point records, badges, leaderboards, and engagement features;</li>
+              <li>storing and displaying behaviour records, tier interventions, and pastoral information;</li>
+              <li>providing export, deletion, and support functions requested by the school;</li>
+              <li>monitoring platform reliability, preventing misuse, and improving security;</li>
+              <li>improving TrackEDU based on aggregated, non-identifying usage patterns and school feedback.</li>
+            </ul>
+            <p class="text-gray-600 leading-relaxed">
+              Schools are responsible for ensuring they have appropriate authority, notices, consents, or lawful bases for uploading and managing student and staff data in TrackEDU.
+            </p>
+          </section>
+
+          <!-- Section 5 -->
+          <section id="security">
+            <h2 class="text-2xl font-bold mb-4 text-slate-900 border-b border-gray-200 pb-2">5. Data Security</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              TrackEDU Ltd uses technical and organisational measures designed to protect school data against unauthorised access, loss, misuse, alteration, and disclosure.
+            </p>
+            <ul class="list-disc pl-5 text-gray-600 space-y-2 mb-4">
+              <li><strong>Secure authentication:</strong> staff access is managed through Google sign-in where available. We do not store staff passwords.</li>
+              <li><strong>Role-based access:</strong> teachers, counsellors, administrators, and school leaders have different permission levels based on role.</li>
+              <li><strong>Student access controls:</strong> students use auto-generated ID tokens and class passcodes rather than email/password accounts.</li>
+              <li><strong>Protected infrastructure:</strong> TrackEDU uses cloud infrastructure (Google Firebase) with database security rules, access controls, and encrypted transmission where supported.</li>
+              <li><strong>Privacy-conscious display:</strong> where appropriate, student names may be displayed in shortened form, such as first name and last initial.</li>
+              <li><strong>Employee security training:</strong> all TrackEDU personnel receive security and data protection training relevant to their role.</li>
+            </ul>
+            <p class="text-gray-600 leading-relaxed">
+              No online service can guarantee absolute security. Schools should also follow appropriate internal access, device, staff training, and safeguarding procedures when using TrackEDU.
+            </p>
+          </section>
+
+          <!-- Section 6 -->
+          <section id="subprocessors">
+            <h2 class="text-2xl font-bold mb-4 text-slate-900 border-b border-gray-200 pb-2">6. Subprocessors</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              TrackEDU Ltd may use trusted subprocessors to provide cloud hosting, authentication, email, scheduling, video hosting, analytics, and technical support services.
+            </p>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              Current categories of subprocessors include:
+            </p>
+            <ul class="list-disc pl-5 text-gray-600 space-y-2 mb-4">
+              <li><strong>Cloud infrastructure providers:</strong> for database hosting, authentication, real-time syncing, and secure platform operation.</li>
+              <li><strong>Email and communication services:</strong> for essential service messages, support, onboarding, and account-related communications.</li>
+              <li><strong>Scheduling and demonstration tools:</strong> for booking demos or consultations.</li>
+              <li><strong>Video hosting services:</strong> for hosting demonstration and tutorial videos.</li>
+            </ul>
+            <p class="text-gray-600 leading-relaxed">
+              Subprocessors are selected with attention to security, reliability, and privacy safeguards. They are not permitted to use school data for their own advertising, marketing, or unrelated commercial purposes. TrackEDU Ltd remains responsible for the data protection compliance of its subprocessors.
+            </p>
+          </section>
+
+          <!-- Section 7 -->
+          <section id="international">
+            <h2 class="text-2xl font-bold mb-4 text-slate-900 border-b border-gray-200 pb-2">7. International Data Transfers</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              TrackEDU may be used by schools in different countries. Depending on where a school is located and which infrastructure and subprocessor services are used, data may be processed or stored in countries different from the school's location.
+            </p>
+            <p class="text-gray-600 leading-relaxed">
+              Where required by applicable law (including UK GDPR and EU GDPR), TrackEDU Ltd will work with schools to put appropriate safeguards in place for international data transfers, such as Standard Contractual Clauses (SCCs) or equivalent transfer mechanisms.
+            </p>
+          </section>
+
+          <!-- Section 8 -->
+          <section id="breach">
+            <h2 class="text-2xl font-bold mb-4 text-slate-900 border-b border-gray-200 pb-2">8. Data Breach Notification</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              If TrackEDU Ltd becomes aware of a confirmed personal data breach affecting school-controlled data that is likely to result in a risk to the rights and freedoms of individuals, we will:
+            </p>
+            <ul class="list-disc pl-5 text-gray-600 space-y-2 mb-4">
+              <li>notify the affected school without undue delay (and generally within 72 hours where feasible);</li>
+              <li>provide available information about the nature of the breach, the categories of data affected, and the measures taken or proposed to address the breach;</li>
+              <li>support the school in meeting its own breach notification obligations where required by applicable law.</li>
+            </ul>
+            <p class="text-gray-600 leading-relaxed">
+              Where a specific legal deadline applies, we will work with the school to support timely compliance.
+            </p>
+          </section>
+
+          <!-- Section 9 -->
+          <section id="export">
+            <h2 class="text-2xl font-bold mb-4 text-slate-900 border-b border-gray-200 pb-2">9. Data Export, Deletion and Return</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              Schools retain control over the student, behaviour, and operational data they enter into TrackEDU.
+            </p>
+            <ul class="list-disc pl-5 text-gray-600 space-y-2 mb-4">
+              <li><strong>Export:</strong> Schools may export relevant data, such as student rosters, point records, and behaviour records, where export features are available.</li>
+              <li><strong>Deletion controls:</strong> Authorised school administrators may use available deletion controls to remove school data from the active Platform.</li>
+              <li><strong>Deletion requests:</strong> Schools may contact TrackEDU Ltd to request deletion of school-controlled data. We will respond and process deletion requests within a reasonable period, subject to legal, security, backup, and technical constraints.</li>
+              <li><strong>Backups and logs:</strong> Deleted data may persist temporarily in backups or technical logs before routine deletion, where necessary for security, reliability, or legal reasons.</li>
+              <li><strong>End of use:</strong> At the end of a pilot or agreement, we will make reasonable efforts to enable data export and deletion in accordance with school instructions.</li>
+            </ul>
+          </section>
+
+          <!-- Section 10 -->
+          <section id="assistance">
+            <h2 class="text-2xl font-bold mb-4 text-slate-900 border-b border-gray-200 pb-2">10. Assistance to Schools</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              TrackEDU Ltd will provide reasonable assistance to schools to help them meet their data protection obligations, including:
+            </p>
+            <ul class="list-disc pl-5 text-gray-600 space-y-2 mb-4">
+              <li>responding to appropriate data subject access requests directed to TrackEDU Ltd where the school is the controller;</li>
+              <li>supporting data portability, rectification, restriction, and erasure requests as instructed by the school;</li>
+              <li>providing available information to support data protection impact assessments (DPIAs) conducted by the school;</li>
+              <li>assisting with breach notification and security incident responses where required.</li>
+            </ul>
+            <p class="text-gray-600 leading-relaxed">
+              Any assistance will be provided in a commercially reasonable manner and may be subject to agreement on any associated costs where requests are excessive or frequent.
+            </p>
+          </section>
+
+          <!-- Section 11 -->
+          <section id="school-responsibilities">
+            <h2 class="text-2xl font-bold mb-4 text-slate-900 border-b border-gray-200 pb-2">11. School Responsibilities</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              When using TrackEDU, schools are responsible for:
+            </p>
+            <ul class="list-disc pl-5 text-gray-600 space-y-2 mb-4">
+              <li>deciding whether TrackEDU is suitable for their legal, safeguarding, procurement, and policy requirements;</li>
+              <li>ensuring they have appropriate authority, lawful basis, notices, and consents to upload and manage student and staff data;</li>
+              <li>assigning staff permissions appropriately and reviewing them regularly;</li>
+              <li>reviewing which staff can access behaviour and pastoral information;</li>
+              <li>ensuring exported data is stored securely outside TrackEDU;</li>
+              <li>avoiding unnecessary sensitive data unless the school has a clear lawful basis and appropriate safeguards;</li>
+              <li>using the Behavior Tracker responsibly and in line with safeguarding, pastoral, disciplinary, and data protection policies;</li>
+              <li>responding to parent, guardian, student, or staff requests relating to data the school controls within TrackEDU.</li>
+            </ul>
+          </section>
+
+          <!-- Section 12 -->
+          <section id="dpa-contact">
+            <h2 class="text-2xl font-bold mb-4 text-slate-900 border-b border-gray-200 pb-2">12. Contact</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              For data protection enquiries, DPA requests, or to request a signed copy of this agreement:
+            </p>
+            <div class="bg-gray-100 p-5 rounded-xl border border-gray-200 inline-block">
+              <p class="font-bold text-slate-800">TrackEDU Ltd</p>
+              <p class="text-sm text-gray-600">Registered in England and Wales | Company Number: <strong>17216557</strong></p>
+              <p class="text-sm text-gray-600">ICO Registration Reference: <strong>C1932322</strong></p>
+              <p class="text-sm text-gray-600">Registered Office: 128 City Road, London, United Kingdom, EC1V 2NX</p>
+              <a href="mailto:hello@trackedu.net" class="text-brand-blue font-bold hover:underline mt-3 inline-block">
+                <i class="fas fa-envelope mr-1"></i> hello@trackedu.net
+              </a>
+            </div>
+          </section>
+
+          <!-- Footer note -->
+          <div class="pt-6 text-xs text-gray-400 border-t border-gray-200">
+            <p>
+              This Data Processing Agreement applies to TrackEDU Ltd (Company Number 17216557) and the TrackEDU Platform. For formal school deployment, procurement, or regulatory compliance, please contact us to request a signed DPA.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Highlight active section in sidebar when scrolling
+    document.addEventListener('DOMContentLoaded', function() {
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.sidebar-nav a');
+      
+      function highlightActiveSection() {
+        let current = '';
+        const scrollPosition = window.scrollY + 120;
+        
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionBottom = sectionTop + section.offsetHeight;
+          
+          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+            current = section.getAttribute('id');
+          }
+        });
+        
+        navLinks.forEach(link => {
+          link.classList.remove('text-brand-blue', 'bg-brand-blue/10', 'font-semibold');
+          link.classList.add('text-gray-600');
+          
+          const href = link.getAttribute('href');
+          if (href === `#${current}`) {
+            link.classList.remove('text-gray-600');
+            link.classList.add('text-brand-blue', 'bg-brand-blue/10', 'font-semibold');
+          }
+        });
+      }
+      
+      window.addEventListener('scroll', highlightActiveSection);
+      highlightActiveSection();
+    });
+  </script>
+</body>
+</html>
