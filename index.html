@@ -1263,8 +1263,12 @@ html { scroll-padding-top: 100px; }
         Create Your School
       </a>
 
-      <p class="text-center text-xs text-gray-400 mt-2">
+      <p class="text-center text-xs text-gray-400 mt-3">
         Start your 30-day pilot in 5 to 10 minutes.
+      </p>
+      
+      <p class="text-center text-xs text-gray-400 mt-2">
+        Annual school access is activated with a secure licence code and expires automatically at the end of the agreed licence period.
       </p>
     </div>
 
@@ -3319,7 +3323,8 @@ setTimeout(function() {
         </div>
         
         <p class="text-gray-400 text-sm mb-6">
-          Start with a 30-day pilot, then apply to join the Founding Schools Program if TrackEDU is a good fit for your school.
+          Start with a 30-day pilot, then apply to join the Founding Schools Program if TrackEDU is a good fit for your school. 
+          Selected Founding Schools receive a 1-year licence activation code after approval.
         </p>
       </div>
       
@@ -3378,8 +3383,17 @@ setTimeout(function() {
                     <i class="fas fa-rocket text-xs"></i>
                     Create Your School →
                   </a>
-        
-                  <p class="text-center text-xs text-gray-400 mt-3">Start your 30-day pilot in 5 to 10 minutes</p>
+                  
+                  <p class="text-center text-xs text-gray-400 mt-3">
+                    Start your 30-day pilot in 5 to 10 minutes.
+                  </p>
+                  
+                  <p class="text-center text-xs text-gray-400 mt-2">
+                    Prefer invoice and bank transfer? 
+                    <button onclick="openInvoiceModal()" class="text-brand-blue font-bold hover:underline">
+                      Request an invoice
+                    </button>.
+                  </p>
                 </div>
               </div>
               
@@ -3732,6 +3746,14 @@ setTimeout(function() {
         </div>
       </details>
 
+
+      <details class="faq-details">
+        <summary class="faq-summary">How does the annual school licence work?</summary>
+        <div class="faq-content">
+          Annual school access is activated with a secure licence code. Each code unlocks TrackEDU for the agreed licence period, usually 12 months. At the end of the licence period, access expires unless the school renews for a further year. Renewal is handled manually so schools can review usage, update billing details, and decide whether to continue.
+        </div>
+      </details>
+
       <details class="faq-details">
         <summary class="faq-summary">Do I need an existing house system to use TrackEDU?</summary>
         <div class="faq-content">
@@ -3838,37 +3860,56 @@ setTimeout(function() {
   <div class="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] pointer-events-none"></div>
   
   <div class="max-w-7xl mx-auto px-6 relative z-10">
-    <div class="grid lg:grid-cols-2 gap-16 border-b border-white/10 pb-16 mb-12">
+    <div class="grid lg:grid-cols-[1.2fr_1.8fr] gap-16 border-b border-white/10 pb-16 mb-12">
+      
+      <!-- Brand -->
       <div>
-        <div class="font-display text-4xl font-black mb-6">Track<span class="text-brand-green">EDU</span></div>
+        <div class="font-display text-4xl font-black mb-6">
+          Track<span class="text-brand-green">EDU</span>
+        </div>
+
         <p class="text-gray-400 text-lg max-w-md leading-relaxed mb-8">
-          A complete school culture operating system. Three integrated tools — Teacher App, Student Portal, and Behavior Tracker — working as one unified platform.
+          A complete school culture operating system. Teacher App, Student Portal, and Behavior Tracker working together in one unified platform.
         </p>
         
         <div class="flex items-center gap-4">
-          <a href="https://www.linkedin.com/company/trackedu/" target="_blank" class="w-11 h-11 rounded-xl bg-white/5 border border-white/10 text-gray-400 flex items-center justify-center hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all duration-300 shadow-lg">
+          <a href="https://www.linkedin.com/company/trackedu/" target="_blank" class="w-11 h-11 rounded-xl bg-white/5 border border-white/10 text-gray-400 flex items-center justify-center hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all duration-300 shadow-lg" aria-label="TrackEDU on LinkedIn">
             <i class="fab fa-linkedin-in text-xl"></i>
           </a>
           <span class="text-[10px] font-black text-gray-600 uppercase tracking-widest">Follow our journey</span>
         </div>
       </div>
       
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-10">
+      <!-- Footer Links -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-10">
+        
         <div>
           <h5 class="font-black text-xs uppercase tracking-widest text-brand-green mb-6">Platform</h5>
           <ul class="space-y-4 text-sm text-gray-400">
             <li><a href="#tools-section" class="hover:text-white transition">Teacher App</a></li>
             <li><a href="#tools-section" class="hover:text-white transition">Student Portal</a></li>
             <li><a href="#tools-section" class="hover:text-white transition">Behavior Tracker</a></li>
+            <li><a href="#pricing" class="hover:text-white transition">Plans</a></li>
           </ul>
         </div>
         
         <div>
-          <h5 class="font-black text-xs uppercase tracking-widest text-brand-green mb-6">Trust</h5>
+          <h5 class="font-black text-xs uppercase tracking-widest text-brand-green mb-6">Trust Centre</h5>
           <ul class="space-y-4 text-sm text-gray-400">
-            <li><button onclick="openTrustModal()" class="hover:text-white transition text-left">Data & Trust</button></li>
+            <li><button onclick="openTrustModal()" class="hover:text-white transition text-left">Data, Privacy & Security</button></li>
             <li><a href="/privacy.html" class="hover:text-white transition">Privacy Policy</a></li>
             <li><a href="/terms.html" class="hover:text-white transition">Terms of Use</a></li>
+            <li><a href="/cookies.html" class="hover:text-white transition">Cookie Policy</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="font-black text-xs uppercase tracking-widest text-brand-green mb-6">For Schools</h5>
+          <ul class="space-y-4 text-sm text-gray-400">
+            <li><button data-cal-link="trackedu-a9dbpy/30min" class="hover:text-white transition text-left">Book a School Demo</button></li>
+            <li><a href="mailto:hello@trackedu.net?subject=TrackEDU%20Invoice%20Request" class="hover:text-white transition">Request an Invoice</a></li>
+            <li><a href="mailto:hello@trackedu.net?subject=TrackEDU%20DPA%20Request" class="hover:text-white transition">Request DPA</a></li>
+            <li><a href="#founding-video-section" class="hover:text-white transition">Founding Schools</a></li>
           </ul>
         </div>
         
@@ -3876,9 +3917,130 @@ setTimeout(function() {
           <h5 class="font-black text-xs uppercase tracking-widest text-brand-green mb-6">Support</h5>
           <ul class="space-y-4 text-sm text-gray-400">
             <li><a href="mailto:hello@trackedu.net" class="hover:text-white transition break-all">hello@trackedu.net</a></li>
-            <li><button data-cal-link="trackedu-a9dbpy/30min" class="hover:text-white transition text-left">Book 1 on 1 Demo</button></li>
+            <li><a href="#faq" class="hover:text-white transition">FAQ</a></li>
+            <li><a href="https://housepoint.trackedu.net/" target="_blank" class="hover:text-white transition">Login</a></li>
           </ul>
         </div>
+
+      </div>
+    </div>
+  </div>
+</footer><footer class="bg-brand-dark text-white pt-24 pb-12 overflow-hidden relative">
+  <div class="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] pointer-events-none"></div>
+  
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="grid lg:grid-cols-[1.2fr_1.8fr] gap-16 border-b border-white/10 pb-16 mb-12">
+      
+      <!-- Brand -->
+      <div>
+        <div class="font-display text-4xl font-black mb-6">
+          Track<span class="text-brand-green">EDU</span>
+        </div>
+
+        <p class="text-gray-400 text-lg max-w-md leading-relaxed mb-8">
+          A complete school culture operating system. Teacher App, Student Portal, and Behavior Tracker working together in one unified platform.
+        </p>
+        
+        <div class="flex items-center gap-4">
+          <a href="https://www.linkedin.com/company/trackedu/" target="_blank" class="w-11 h-11 rounded-xl bg-white/5 border border-white/10 text-gray-400 flex items-center justify-center hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all duration-300 shadow-lg" aria-label="TrackEDU on LinkedIn">
+            <i class="fab fa-linkedin-in text-xl"></i>
+          </a>
+          <span class="text-[10px] font-black text-gray-600 uppercase tracking-widest">Follow our journey</span>
+        </div>
+      </div>
+      
+      <!-- Footer Links -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-10">
+        
+        <div>
+          <h5 class="font-black text-xs uppercase tracking-widest text-brand-green mb-6">Platform</h5>
+          <ul class="space-y-4 text-sm text-gray-400">
+            <li>
+              <button onclick="showToolInfo('teacher')" class="hover:text-white transition text-left">
+                Teacher App
+              </button>
+            </li>
+            <li>
+              <button onclick="showToolInfo('student')" class="hover:text-white transition text-left">
+                Student Portal
+              </button>
+            </li>
+            <li>
+              <button onclick="showToolInfo('behavior')" class="hover:text-white transition text-left">
+                Behavior Tracker
+              </button>
+            </li>
+            <li>
+              <a href="#pricing" class="hover:text-white transition">
+                Plans
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+        <div>
+          <h5 class="font-black text-xs uppercase tracking-widest text-brand-green mb-6">Trust Centre</h5>
+          <ul class="space-y-4 text-sm text-gray-400">
+            <li>
+              <button onclick="openTrustModal()" class="hover:text-white transition text-left">
+                Data, Privacy & Security
+              </button>
+            </li>
+            <li>
+              <a href="/privacy.html" class="hover:text-white transition">
+                Privacy Policy
+              </a>
+            </li>
+            <li>
+              <a href="/terms.html" class="hover:text-white transition">
+                Terms of Use
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="font-black text-xs uppercase tracking-widest text-brand-green mb-6">For Schools</h5>
+          <ul class="space-y-4 text-sm text-gray-400">
+            <li>
+              <button data-cal-link="trackedu-a9dbpy/30min" class="hover:text-white transition text-left">
+                Book a School Demo
+              </button>
+            </li>
+            <li>
+              <button onclick="openInvoiceModal()" class="hover:text-white transition text-left">
+                Request an Invoice
+              </button>
+            </li>
+            <li>
+              <a href="#founding-video-section" class="hover:text-white transition">
+                Founding Schools
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+        <div>
+          <h5 class="font-black text-xs uppercase tracking-widest text-brand-green mb-6">Support</h5>
+          <ul class="space-y-4 text-sm text-gray-400">
+            <li>
+              <a href="mailto:hello@trackedu.net" class="hover:text-white transition break-all">
+                hello@trackedu.net
+              </a>
+            </li>
+            <li>
+              <a href="#faq" class="hover:text-white transition">
+                FAQ
+              </a>
+            </li>
+            <li>
+              <a href="https://housepoint.trackedu.net/" target="_blank" class="hover:text-white transition">
+                Login
+              </a>
+            </li>
+          </ul>
+        </div>
+
       </div>
     </div>
   </div>
@@ -3889,9 +4051,16 @@ setTimeout(function() {
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center text-xs leading-relaxed">
       <p class="font-semibold">
-        <span class="text-gray-900">© 2026 Track</span><span class="text-brand-green">EDU</span><span class="text-gray-900"> Ltd.</span>
+        <span class="text-gray-900">© 2026 Track</span><span class="text-brand-green">EDU</span><span class="text-gray-900"> Ltd. All rights reserved.</span>
       </p>
-      <p class="mt-1 text-gray-600">TrackEDU Ltd is a company registered in England and Wales. Company Number: 17216557. Registered Office: 128 City Road, London, United Kingdom, EC1V 2NX.</p>
+      <p class="mt-1 text-gray-600">
+        TrackEDU Ltd is registered in England &amp; Wales, No. 17216557. Registered Office: 128 City Road, London, United Kingdom, EC1V 2NX.
+      </p>
+      <p class="mt-1 text-gray-600">
+        Registered with the Information Commissioner’s Office, ICO, for data protection compliance. Ref: C1932322.
+      </p>
+      <!-- TODO: Once Wise account details are approved, replace the invoice email link with a proper invoice request form. -->
+      <!-- TODO: If a formal Data Processing Agreement page is created later, add it under Trust Centre. -->
     </div>
   </div>
 </div>
@@ -3997,6 +4166,188 @@ setTimeout(function() {
     </div>
   </div>
 </div>
+
+
+
+
+
+<!-- INVOICE SUCCESS MODAL -->
+<div id="invoiceSuccessModal" class="fixed inset-0 z-[10000] hidden">
+  <div class="absolute inset-0 bg-gray-900/70 backdrop-blur-sm" onclick="closeInvoiceSuccessModal()"></div>
+
+  <div class="relative w-full max-w-md mx-auto top-1/2 -translate-y-1/2 bg-white rounded-2xl shadow-2xl overflow-hidden">
+    <div class="p-8 text-center">
+      
+      <div class="w-16 h-16 rounded-full bg-green-100 text-brand-green flex items-center justify-center mx-auto mb-5">
+        <i class="fas fa-check text-2xl"></i>
+      </div>
+
+      <h3 class="font-display text-2xl font-black text-gray-900 mb-3">
+        Invoice request received
+      </h3>
+
+      <p class="text-gray-600 text-sm leading-relaxed mb-6">
+        Thank you. Your school invoice request has been sent to TrackEDU. We will review the billing details and email the official invoice once everything is confirmed.
+      </p>
+
+      <div class="bg-gray-50 border border-gray-100 rounded-xl p-4 text-left text-xs text-gray-500 leading-relaxed mb-6">
+        <p>
+          Please note: this is not yet an official invoice. It is a request for TrackEDU to prepare one manually.
+        </p>
+      </div>
+
+      <button onclick="closeInvoiceSuccessModal()" class="w-full py-3 bg-brand-green hover:bg-green-600 text-white font-bold rounded-xl transition">
+        Got it
+      </button>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- INVOICE REQUEST MODAL -->
+<div id="invoiceModal" class="fixed inset-0 z-[9999] hidden overflow-y-auto">
+  <div class="absolute inset-0 bg-gray-900/70 backdrop-blur-sm" onclick="closeInvoiceModal()"></div>
+
+  <div class="relative w-full h-full md:h-auto md:max-w-2xl md:m-auto md:top-1/2 md:-translate-y-1/2 bg-white md:rounded-2xl shadow-2xl flex flex-col overflow-hidden md:max-h-[90vh]">
+    
+    <!-- Header -->
+    <div class="px-6 py-5 border-b flex justify-between items-center bg-white shrink-0">
+      <div>
+        <h3 class="font-display text-xl font-bold text-gray-900">Request a School Invoice</h3>
+        <p class="text-xs text-gray-500 mt-0.5">
+          Submit your billing details and TrackEDU will issue an invoice manually.
+        </p>
+      </div>
+
+      <button onclick="closeInvoiceModal()" class="w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full transition flex items-center justify-center text-gray-500 hover:text-gray-700">
+        <i class="fas fa-times text-sm"></i>
+      </button>
+    </div>
+
+    <!-- Body -->
+    <div class="p-6 overflow-y-auto flex-1">
+      
+      <div class="mb-5 p-4 rounded-xl bg-blue-50 border border-blue-100">
+        <p class="text-sm text-gray-700 leading-relaxed">
+          Use this form if your school prefers to pay by invoice and bank transfer. 
+          This is an invoice request only. The official invoice will be emailed after TrackEDU reviews the details.
+        </p>
+        <p class="text-sm text-gray-700 leading-relaxed mt-2">
+          Once payment is confirmed, TrackEDU will issue a 1-year licence activation code for your school. 
+          The code unlocks full school access for the agreed licence period.
+        </p>
+      </div>
+
+      <form action="https://formsubmit.co/hello@trackedu.net" method="POST" id="invoiceRequestForm" class="space-y-4">
+        
+        <input type="hidden" name="_subject" value="TrackEDU Invoice Request">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="box">
+        <input type="hidden" name="_next" value="https://www.trackedu.net?invoice=requested">
+        <input type="hidden" name="_autoresponse" value="Thank you for requesting a TrackEDU school invoice. We have received your billing details and will review them before issuing the official invoice. - The TrackEDU Team">
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-gray-600 mb-1">Your full name *</label>
+            <input type="text" name="contact_name" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-gray-600 mb-1">Job title *</label>
+            <input type="text" name="job_title" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-gray-600 mb-1">School name *</label>
+            <input type="text" name="school_name" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-gray-600 mb-1">School country *</label>
+            <input type="text" name="school_country" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-gray-600 mb-1">Billing address *</label>
+          <textarea name="billing_address" rows="3" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm"></textarea>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-gray-600 mb-1">Finance contact email *</label>
+            <input type="email" name="finance_email" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-gray-600 mb-1">Purchase order number, if available</label>
+            <input type="text" name="purchase_order_number" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-gray-600 mb-1">Requested licence start date *</label>
+            <input type="date" name="licence_start_date" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-gray-600 mb-1">Licence type *</label>
+            <select name="licence_type" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm bg-white">
+              <option value="">Select licence type</option>
+              <option value="School Annual Licence">School Annual Licence</option>
+              <option value="Founding School Licence">Founding School Licence</option>
+              <option value="Pilot Extension">Pilot Extension</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-gray-600 mb-1">Estimated number of students *</label>
+            <input type="number" name="estimated_students" min="1" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-gray-600 mb-1">Estimated number of staff users *</label>
+            <input type="number" name="estimated_staff_users" min="1" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-gray-600 mb-1">Additional invoice notes</label>
+          <textarea name="invoice_notes" rows="3" placeholder="For example: required wording, department name, internal reference, payment terms, or procurement notes." class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm"></textarea>
+        </div>
+
+        <div class="p-4 rounded-xl bg-gray-50 border border-gray-100 text-xs text-gray-500 leading-relaxed">
+          <p>
+            TrackEDU Ltd is registered in England &amp; Wales, No. 17216557. Registered Office: 128 City Road, London, United Kingdom, EC1V 2NX.
+          </p>
+          <p class="mt-1">
+            Registered with the Information Commissioner’s Office, ICO, for data protection compliance. Ref: C1932322.
+          </p>
+        </div>
+
+        <button type="submit" class="w-full py-3.5 bg-brand-blue hover:bg-brand-blue/90 text-white font-bold rounded-xl transition-all duration-200 shadow-md flex items-center justify-center gap-2">
+          <i class="fas fa-file-invoice-dollar text-xs"></i>
+          Submit Invoice Request
+        </button>
+
+        <p class="text-center text-xs text-gray-400">
+          The official invoice will be emailed manually after review. Bank transfer details will be included once confirmed.
+        </p>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
 
 <div id="pilotModal" class="fixed inset-0 z-[9999] hidden overflow-y-auto">
   <div class="absolute inset-0 bg-gray-900/70 backdrop-blur-sm" onclick="closePilotModal()"></div>
@@ -6269,6 +6620,58 @@ function closeModalAndOpenHouseMasterToolkits() {
     }
   }
   </script>
+
+
+
+
+<script>
+  function openInvoiceModal() {
+    const modal = document.getElementById('invoiceModal');
+    if (modal) {
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeInvoiceModal() {
+    const modal = document.getElementById('invoiceModal');
+    if (modal) {
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+  }
+
+  function openInvoiceSuccessModal() {
+    const modal = document.getElementById('invoiceSuccessModal');
+    if (modal) {
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeInvoiceSuccessModal() {
+    const modal = document.getElementById('invoiceSuccessModal');
+    if (modal) {
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    const url = new URL(window.location.href);
+    url.searchParams.delete('invoice');
+    window.history.replaceState({}, document.title, url.pathname + url.search + url.hash);
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.get('invoice') === 'requested') {
+      openInvoiceSuccessModal();
+    }
+  });
+</script>
+
+
+
 
 
 
