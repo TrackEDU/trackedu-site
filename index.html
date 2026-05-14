@@ -4047,20 +4047,32 @@ setTimeout(function() {
 </footer>
 
 <!-- Full width white legal strip - sits OUTSIDE the dark footer -->
-<div class="w-full bg-white border-t border-gray-200 py-5">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center text-xs leading-relaxed">
-      <p class="font-semibold">
-        <span class="text-gray-900">© 2026 Track</span><span class="text-brand-green">EDU</span><span class="text-gray-900"> Ltd. All rights reserved.</span>
+<div class="w-full bg-white border-t border-gray-200 py-6">
+  <div class="max-w-5xl mx-auto px-5 sm:px-6">
+    
+    <div class="text-center text-xs sm:text-sm leading-relaxed text-gray-600 space-y-2">
+      
+      <p class="font-semibold text-gray-900">
+        © 2026 Track<span class="text-brand-green">EDU</span> Ltd. All rights reserved.
       </p>
-      <p class="mt-1 text-gray-600">
-        TrackEDU Ltd is registered in England &amp; Wales, No. 17216557. Registered Office: 128 City Road, London, United Kingdom, EC1V 2NX.
-      </p>
-      <p class="mt-1 text-gray-600">
+
+      <div class="flex flex-col sm:flex-row sm:flex-wrap items-center justify-center gap-y-1 gap-x-3">
+        <span>
+          Registered in England &amp; Wales, No. 17216557
+        </span>
+        <span class="hidden sm:inline text-gray-300">|</span>
+        <span>
+          Registered Office: 128 City Road, London, EC1V 2NX, United Kingdom
+        </span>
+      </div>
+
+      <p class="text-gray-500">
         Registered with the Information Commissioner’s Office, ICO, for data protection compliance. Ref: C1932322.
       </p>
+
       <!-- TODO: Once Wise account details are approved, replace the invoice email link with a proper invoice request form. -->
       <!-- TODO: If a formal Data Processing Agreement page is created later, add it under Trust Centre. -->
+
     </div>
   </div>
 </div>
@@ -4172,37 +4184,204 @@ setTimeout(function() {
 
 
 <!-- INVOICE SUCCESS MODAL -->
-<div id="invoiceSuccessModal" class="fixed inset-0 z-[10000] hidden">
-  <div class="absolute inset-0 bg-gray-900/70 backdrop-blur-sm" onclick="closeInvoiceSuccessModal()"></div>
+<div id="invoiceSuccessModal" class="fixed inset-0 z-[10000] hidden overflow-y-auto">
+  <div class="min-h-full flex items-center justify-center p-4 sm:p-6">
+    <div class="absolute inset-0 bg-gray-900/70 backdrop-blur-sm" onclick="closeInvoiceSuccessModal()"></div>
 
-  <div class="relative w-full max-w-md mx-auto top-1/2 -translate-y-1/2 bg-white rounded-2xl shadow-2xl overflow-hidden">
-    <div class="p-8 text-center">
-      
-      <div class="w-16 h-16 rounded-full bg-green-100 text-brand-green flex items-center justify-center mx-auto mb-5">
-        <i class="fas fa-check text-2xl"></i>
-      </div>
+    <div class="relative w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden">
+      <div class="p-6 sm:p-8 text-center">
+        
+        <div class="w-16 h-16 rounded-full bg-green-100 text-brand-green flex items-center justify-center mx-auto mb-5">
+          <i class="fas fa-check text-2xl"></i>
+        </div>
 
-      <h3 class="font-display text-2xl font-black text-gray-900 mb-3">
-        Invoice request received
-      </h3>
+        <h3 class="font-display text-2xl font-black text-gray-900 mb-3">
+          Invoice request received
+        </h3>
 
-      <p class="text-gray-600 text-sm leading-relaxed mb-6">
-        Thank you. Your school invoice request has been sent to TrackEDU. We will review the billing details and email the official invoice once everything is confirmed.
-      </p>
-
-      <div class="bg-gray-50 border border-gray-100 rounded-xl p-4 text-left text-xs text-gray-500 leading-relaxed mb-6">
-        <p>
-          Please note: this is not yet an official invoice. It is a request for TrackEDU to prepare one manually.
+        <p class="text-gray-600 text-sm leading-relaxed mb-5">
+          Thank you. Your school invoice request has been sent to TrackEDU. We will review the billing details and email the official invoice once everything is confirmed.
         </p>
+
+        <div class="bg-gray-50 border border-gray-100 rounded-xl p-4 text-left text-xs text-gray-500 leading-relaxed mb-6">
+          <p>
+            This is not yet an official invoice. It is a request for TrackEDU to prepare one manually. Bank transfer details will be included once confirmed.
+          </p>
+        </div>
+
+        <button onclick="closeInvoiceSuccessModal()" class="w-full py-3 bg-brand-green hover:bg-green-600 text-white font-bold rounded-xl transition">
+          Got it
+        </button>
+
       </div>
-
-      <button onclick="closeInvoiceSuccessModal()" class="w-full py-3 bg-brand-green hover:bg-green-600 text-white font-bold rounded-xl transition">
-        Got it
-      </button>
-
     </div>
   </div>
 </div>
+
+<!-- INVOICE REQUEST MODAL -->
+<div id="invoiceModal" class="fixed inset-0 z-[9999] hidden overflow-y-auto">
+  <div class="min-h-full flex items-start md:items-center justify-center p-0 md:p-6">
+    <div class="absolute inset-0 bg-gray-900/70 backdrop-blur-sm" onclick="closeInvoiceModal()"></div>
+
+    <div class="relative w-full min-h-screen md:min-h-0 md:max-w-2xl bg-white md:rounded-2xl shadow-2xl flex flex-col overflow-hidden md:max-h-[90vh]">
+      
+      <!-- Header -->
+      <div class="px-5 sm:px-6 py-4 sm:py-5 border-b flex justify-between items-start gap-4 bg-white shrink-0 sticky top-0 z-10">
+        <div>
+          <h3 class="font-display text-lg sm:text-xl font-bold text-gray-900">Request a School Invoice</h3>
+          <p class="text-xs text-gray-500 mt-1 leading-relaxed">
+            Submit your billing details and TrackEDU will prepare the invoice manually.
+          </p>
+        </div>
+
+        <button onclick="closeInvoiceModal()" class="w-9 h-9 bg-gray-100 hover:bg-gray-200 rounded-full transition flex items-center justify-center text-gray-500 hover:text-gray-700 shrink-0" aria-label="Close invoice request form">
+          <i class="fas fa-times text-sm"></i>
+        </button>
+      </div>
+
+      <!-- Body -->
+      <div class="p-5 sm:p-6 overflow-y-auto flex-1">
+        
+        <div class="mb-5 p-4 rounded-xl bg-blue-50 border border-blue-100 space-y-2">
+          <p class="text-sm text-gray-700 leading-relaxed">
+            Use this form if your school prefers to pay by invoice and bank transfer. This is an invoice request only. The official invoice will be emailed after TrackEDU reviews the details.
+          </p>
+          <p class="text-sm text-gray-700 leading-relaxed">
+            Once payment is confirmed, TrackEDU will issue a 1-year licence activation code for your school. The code unlocks full school access for the agreed licence period.
+          </p>
+        </div>
+
+        <form action="https://formsubmit.co/hello@trackedu.net" method="POST" id="invoiceRequestForm" class="space-y-5" target="invoiceHiddenFrame" onsubmit="handleInvoiceFormSubmit(event)">
+          
+          <input type="hidden" name="_subject" value="TrackEDU Invoice Request">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="box">
+          <input type="hidden" name="_autoresponse" value="Thank you for requesting a TrackEDU school invoice. We have received your billing details and will review them before issuing the official invoice. - The TrackEDU Team">
+
+          <!-- Contact details -->
+          <div>
+            <h4 class="text-xs font-black uppercase tracking-wider text-brand-blue mb-3">Your details</h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-gray-600 mb-1">Full name *</label>
+                <input type="text" name="contact_name" autocomplete="name" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-gray-600 mb-1">Job title *</label>
+                <input type="text" name="job_title" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
+              </div>
+            </div>
+          </div>
+
+          <!-- School details -->
+          <div>
+            <h4 class="text-xs font-black uppercase tracking-wider text-brand-blue mb-3">School details</h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-gray-600 mb-1">School name *</label>
+                <input type="text" name="school_name" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-gray-600 mb-1">School country *</label>
+                <input type="text" name="school_country" autocomplete="country-name" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
+              </div>
+            </div>
+          </div>
+
+          <!-- Billing details -->
+          <div>
+            <h4 class="text-xs font-black uppercase tracking-wider text-brand-blue mb-3">Billing details</h4>
+            <div class="space-y-4">
+              <div>
+                <label class="block text-xs font-semibold text-gray-600 mb-1">Billing address *</label>
+                <textarea name="billing_address" rows="3" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm"></textarea>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold text-gray-600 mb-1">Finance contact email *</label>
+                  <input type="email" name="finance_email" autocomplete="email" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
+                </div>
+
+                <div>
+                  <label class="block text-xs font-semibold text-gray-600 mb-1">Purchase order number, if available</label>
+                  <input type="text" name="purchase_order_number" placeholder="Optional" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Licence details -->
+          <div>
+            <h4 class="text-xs font-black uppercase tracking-wider text-brand-blue mb-3">Licence details</h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-gray-600 mb-1">Requested licence start date *</label>
+                <input type="date" name="licence_start_date" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-gray-600 mb-1">Licence type *</label>
+                <select name="licence_type" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm bg-white">
+                  <option value="">Select licence type</option>
+                  <option value="School Annual Licence">School Annual Licence</option>
+                  <option value="Founding School Licence">Founding School Licence</option>
+                  <option value="Pilot Extension">Pilot Extension</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Usage estimate -->
+          <div>
+            <h4 class="text-xs font-black uppercase tracking-wider text-brand-blue mb-3">Estimated school size</h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-gray-600 mb-1">Estimated number of students *</label>
+                <input type="number" name="estimated_students" min="1" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-gray-600 mb-1">Estimated number of staff users *</label>
+                <input type="number" name="estimated_staff_users" min="1" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-gray-600 mb-1">Additional invoice notes</label>
+            <textarea name="invoice_notes" rows="3" placeholder="For example: required wording, department name, internal reference, payment terms, or procurement notes." class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm"></textarea>
+          </div>
+
+          <div class="p-4 rounded-xl bg-gray-50 border border-gray-100 text-xs text-gray-500 leading-relaxed space-y-1">
+            <p>
+              TrackEDU Ltd is registered in England &amp; Wales, No. 17216557. Registered Office: 128 City Road, London, EC1V 2NX, United Kingdom.
+            </p>
+            <p>
+              Registered with the Information Commissioner’s Office, ICO, for data protection compliance. Ref: C1932322.
+            </p>
+          </div>
+
+          <button type="submit" id="invoiceSubmitButton" class="w-full py-3.5 bg-brand-blue hover:bg-brand-blue/90 text-white font-bold rounded-xl transition-all duration-200 shadow-md flex items-center justify-center gap-2">
+            <i class="fas fa-file-invoice-dollar text-xs"></i>
+            Submit Invoice Request
+          </button>
+
+          <p class="text-center text-xs text-gray-400 leading-relaxed">
+            The official invoice will be emailed manually after review. Bank transfer details will be included once confirmed.
+          </p>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Hidden iframe keeps the visitor on the TrackEDU site after FormSubmit sends the request. -->
+<iframe name="invoiceHiddenFrame" id="invoiceHiddenFrame" style="display:none;"></iframe>
+
 
 
 <!-- INVOICE REQUEST MODAL -->
@@ -4239,12 +4418,12 @@ setTimeout(function() {
         </p>
       </div>
 
-      <form action="https://formsubmit.co/hello@trackedu.net" method="POST" id="invoiceRequestForm" class="space-y-4">
+      <form action="https://formsubmit.co/hello@trackedu.net" method="POST" id="invoiceRequestForm" class="space-y-4" target="invoiceHiddenFrame" onsubmit="handleInvoiceFormSubmit(event)">
         
         <input type="hidden" name="_subject" value="TrackEDU Invoice Request">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="box">
-        <input type="hidden" name="_next" value="https://www.trackedu.net?invoice=requested">
+        
         <input type="hidden" name="_autoresponse" value="Thank you for requesting a TrackEDU school invoice. We have received your billing details and will review them before issuing the official invoice. - The TrackEDU Team">
 
         <div class="grid md:grid-cols-2 gap-4">
@@ -6655,19 +6834,31 @@ function closeModalAndOpenHouseMasterToolkits() {
       modal.classList.add('hidden');
       document.body.style.overflow = '';
     }
-
-    const url = new URL(window.location.href);
-    url.searchParams.delete('invoice');
-    window.history.replaceState({}, document.title, url.pathname + url.search + url.hash);
   }
 
-  document.addEventListener('DOMContentLoaded', function () {
-    const params = new URLSearchParams(window.location.search);
+  function handleInvoiceFormSubmit(event) {
+    const form = event.target;
+    const submitButton = form.querySelector('button[type="submit"]');
 
-    if (params.get('invoice') === 'requested') {
-      openInvoiceSuccessModal();
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.innerHTML = '<i class="fas fa-circle-notch fa-spin text-xs"></i> Sending request...';
     }
-  });
+
+    setTimeout(function () {
+      closeInvoiceModal();
+      openInvoiceSuccessModal();
+
+      if (form) {
+        form.reset();
+      }
+
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.innerHTML = '<i class="fas fa-file-invoice-dollar text-xs"></i> Submit Invoice Request';
+      }
+    }, 900);
+  }
 </script>
 
 
