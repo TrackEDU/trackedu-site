@@ -1221,10 +1221,11 @@ html { scroll-padding-top: 100px; }
   </div>
 </div>
 
-<!-- Right Side: Demo + Primary Conversion -->
+<!-- Right Side: Founding School CTA + Primary Conversion -->
 <div class="flex items-center gap-3">
-  <button data-cal-link="trackedu-a9dbpy/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view"}' class="px-4 py-2.5 rounded-full bg-gray-100 text-gray-700 text-sm font-bold hover:bg-gray-200 transition">
-    Book Demo
+  <button onclick="document.getElementById('founding-video-section').scrollIntoView({behavior: 'smooth', block: 'start'}); return false;" class="px-4 py-2.5 rounded-full bg-amber-500 text-white text-sm font-bold hover:bg-amber-600 transition shadow-md flex items-center gap-1.5">
+    <i class="fas fa-crown text-xs"></i>
+    Reserve Your Spot
   </button>
 
   <a href="https://housepoint.trackedu.net/" target="_blank" class="px-5 py-2.5 rounded-full bg-brand-green text-white text-sm font-black hover:bg-green-600 transition shadow-md flex items-center gap-1.5">
@@ -1287,9 +1288,7 @@ html { scroll-padding-top: 100px; }
         Start your 30-day pilot in 5 to 10 minutes. No credit card required.
       </p>
       
-      <p class="text-center text-xs text-gray-400 mt-2">
-        Paid annual school licences are activated with a secure licence code and do not auto-renew. Schools renew manually if they choose to continue.
-      </p>
+      
     </div>
 
     <!-- Menu Links -->
@@ -1333,15 +1332,15 @@ html { scroll-padding-top: 100px; }
     </div>
 
     <!-- Menu Footer -->
-    <div class="p-5 border-t border-gray-100 bg-gray-50/80">
+    <div class="p-4 border-t border-gray-100 bg-gray-50/80">
       <div class="grid grid-cols-2 gap-2">
-        <button data-cal-link="trackedu-a9dbpy/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view"}' onclick="closeMobileMenu();" class="w-full py-3 rounded-2xl bg-white border border-gray-200 text-gray-700 text-sm font-bold hover:bg-gray-100 transition flex items-center justify-center gap-2">
-          <i class="fas fa-calendar-alt text-xs"></i>
-          Book Demo
+        <button onclick="closeMobileMenu(); document.getElementById('founding-video-section').scrollIntoView({behavior: 'smooth', block: 'start'}); return false;" class="w-full py-2 rounded-xl bg-amber-500 text-white text-xs font-bold hover:bg-amber-600 transition flex items-center justify-center gap-1.5 shadow-md">
+          <i class="fas fa-crown text-[10px]"></i>
+          Reserve Your Spot
         </button>
 
-        <a href="https://housepoint.trackedu.net/" target="_blank" onclick="closeMobileMenu();" class="w-full py-3 rounded-2xl bg-brand-dark text-white text-sm font-bold hover:bg-gray-800 transition flex items-center justify-center gap-2">
-          <i class="fas fa-right-to-bracket text-xs"></i>
+        <a href="https://housepoint.trackedu.net/" target="_blank" onclick="closeMobileMenu();" class="w-full py-2 rounded-xl bg-brand-dark text-white text-xs font-bold hover:bg-gray-800 transition flex items-center justify-center gap-1.5">
+          <i class="fas fa-right-to-bracket text-[10px]"></i>
           Login
         </a>
       </div>
@@ -1464,358 +1463,629 @@ html { scroll-padding-top: 100px; }
 
 
 
-
-  <!-- ==========================================
-     HERO SECTION, DESKTOP + MOBILE OPTIMISED
-     Floating icons removed. Tool cards open existing modals.
-     ========================================== -->
-<section class="relative pt-24 sm:pt-24 lg:pt-20 pb-6 lg:pb-12 hero-mesh overflow-hidden">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-
-    <div class="grid lg:grid-cols-2 gap-5 lg:gap-10 items-center">
-
-      <!-- HERO TEXT -->
-      <div class="text-center lg:text-left" data-aos="fade-right">
-        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.05] text-brand-dark tracking-tighter mb-3 lg:mb-4">
-          <span class="school-culture-line">School Culture.</span><br>
-          <span class="house-points-line">House Points.</span><br>
-          <span class="behavior-tracking-line">Behavior Tracking.</span>
-        </h1>
-
-        <p class="text-base sm:text-xl lg:text-2xl text-gray-500 font-semibold mb-2 lg:mb-3">
-          One platform that does it all.
+<!-- ==========================================
+   HERO SECTION, DESKTOP + MOBILE OPTIMISED
+   Audience pathways added: Teacher + School Leader
+   ========================================== -->
+   <section class="relative pt-24 sm:pt-24 lg:pt-20 pb-6 lg:pb-12 hero-mesh overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+  
+      <div class="grid lg:grid-cols-2 gap-5 lg:gap-10 items-center">
+  
+        <!-- HERO TEXT -->
+        <div class="text-center lg:text-left" data-aos="fade-right">
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.05] text-brand-dark tracking-tighter mb-3 lg:mb-4">
+            <span class="school-culture-line">School Culture.</span><br>
+            <span class="house-points-line">House Points.</span><br>
+            <span class="behavior-tracking-line">Behavior Tracking.</span>
+          </h1>
+  
+          <p class="text-base sm:text-xl lg:text-2xl text-gray-500 font-semibold mb-2 lg:mb-3">
+            One platform. Three connected tools.
+          </p>
+  
+          <!-- ICO REGISTERED BADGE -->
+          <div class="lg:hidden flex justify-center mb-3 px-3">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-green-100 shadow-sm text-[9px] font-bold uppercase tracking-wide text-brand-green">
+              <i class="fas fa-shield-halved text-[9px]"></i>
+              <span>ICO registered · Ref: C1932322</span>
+            </div>
+          </div>
+  
+          <!-- AUDIENCE PATHWAY BUTTONS, MOBILE -->
+          <div class="lg:hidden mt-2 grid grid-cols-2 gap-2 w-full">
+            <button onclick="openTeacherStartModal()" class="audience-cta-card audience-teacher">
+              <span class="audience-cta-main">I’m a Teacher</span>
+            </button>
+  
+            <button onclick="openLeaderStartModal()" class="audience-cta-card audience-leader">
+              <span class="audience-cta-main">I’m a School Leader</span>
+            </button>
+          </div>
+  
+          <!-- DESKTOP TRUST BADGE -->
+          <div class="hidden md:inline-flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2 px-4 py-2 rounded-2xl bg-white border border-gray-200 shadow-sm text-xs font-bold uppercase tracking-wide mb-5 mx-auto lg:mx-0 max-w-fit">
+            <div class="flex items-center gap-2">
+              <span class="relative flex h-2.5 w-2.5">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-green"></span>
+              </span>
+              <span class="text-gray-600">Built for international schools</span>
+            </div>
+  
+            <span class="hidden sm:inline text-gray-300">|</span>
+  
+            <div class="flex items-center gap-1.5 text-brand-green">
+              <i class="fas fa-shield-halved text-[10px]"></i>
+              <span>ICO registered</span>
+            </div>
+          </div>
+  
+          <div class="hidden lg:flex items-center gap-3">
+            <button onclick="openTeacherStartModal()" class="audience-cta-card audience-teacher">
+              <span class="audience-cta-main">I’m a Teacher</span>
+            </button>
+          
+            <button onclick="openLeaderStartModal()" class="audience-cta-card audience-leader">
+              <span class="audience-cta-main">I’m a School Leader</span>
+            </button>
+          </div>
+  
+          <p class="hidden lg:block hero-teacher-note mt-2 text-[11px] text-gray-400 font-normal">
+            Choose the option that best describes you.
+          </p>
+        </div>
+  
+        <!-- HERO IMAGE -->
+        <div class="relative flex justify-center items-center w-full" data-aos="fade-left">
+          <img
+            src="https://trackedu.github.io/common-assets/mainheroimage.png"
+            alt="TrackEDU Teacher App dashboard with TrackEDU mascot"
+            class="hero-main-image w-full max-w-[720px] lg:max-w-[900px] xl:max-w-[960px] object-contain drop-shadow-2xl mx-auto"
+            loading="eager"
+            fetchpriority="high"
+          >
+        </div>
+      </div>
+  
+      <!-- 3 TOOL TABS, LINKED TO EXISTING MODALS -->
+      <div class="hero-tool-grid mt-4 lg:mt-5 grid grid-cols-3 gap-2 sm:gap-4 lg:gap-4">
+  
+        <button onclick="showToolInfo('teacher')" class="hero-tool-card hero-tool-card-active group bg-white/95 backdrop-blur-sm border border-gray-100 rounded-2xl p-4 shadow-card hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-left" aria-label="Open Teacher App information">
+          <div class="flex items-center gap-3">
+            <div class="hero-tool-icon w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center shrink-0 group-hover:bg-brand-green transition">
+              <i class="fas fa-chalkboard-user text-brand-green group-hover:text-white text-lg"></i>
+            </div>
+            <div class="hero-tool-copy min-w-0">
+              <h3 class="font-display text-lg font-black text-brand-dark leading-tight">Teacher App</h3>
+              <p class="hero-tool-desc text-xs text-gray-500 leading-snug mt-1">Manage classes, reward students, and track progress.</p>
+              <span class="hero-tool-link inline-flex items-center mt-2 text-xs font-bold text-brand-green">
+                Explore <i class="fas fa-arrow-right text-[10px] ml-1.5 group-hover:translate-x-1 transition"></i>
+              </span>
+            </div>
+          </div>
+        </button>
+  
+        <button onclick="showToolInfo('student')" class="hero-tool-card group bg-white/95 backdrop-blur-sm border border-gray-100 rounded-2xl p-4 shadow-card hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-left" aria-label="Open Student Portal information">
+          <div class="flex items-center gap-3">
+            <div class="hero-tool-icon w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center shrink-0 group-hover:bg-brand-blue transition">
+              <i class="fas fa-users text-brand-blue group-hover:text-white text-lg"></i>
+            </div>
+            <div class="hero-tool-copy min-w-0">
+              <h3 class="font-display text-lg font-black text-brand-dark leading-tight">Student Portal</h3>
+              <p class="hero-tool-desc text-xs text-gray-500 leading-snug mt-1">View points, badges, rewards, and house progress.</p>
+              <span class="hero-tool-link inline-flex items-center mt-2 text-xs font-bold text-brand-blue">
+                Explore <i class="fas fa-arrow-right text-[10px] ml-1.5 group-hover:translate-x-1 transition"></i>
+              </span>
+            </div>
+          </div>
+        </button>
+  
+        <button onclick="showToolInfo('behavior')" class="hero-tool-card group bg-white/95 backdrop-blur-sm border border-gray-100 rounded-2xl p-4 shadow-card hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-left" aria-label="Open Behavior Tracker information">
+          <div class="flex items-center gap-3">
+            <div class="hero-tool-icon w-10 h-10 rounded-xl bg-purple-50 flex items-center justify-center shrink-0 group-hover:bg-purple-600 transition">
+              <i class="fas fa-chart-line text-purple-600 group-hover:text-white text-lg"></i>
+            </div>
+            <div class="hero-tool-copy min-w-0">
+              <h3 class="font-display text-lg font-black text-brand-dark leading-tight">Behavior Tracker</h3>
+              <p class="hero-tool-desc text-xs text-gray-500 leading-snug mt-1">Monitor incidents, trends, and early support needs.</p>
+              <span class="hero-tool-link inline-flex items-center mt-2 text-xs font-bold text-purple-600">
+                Explore <i class="fas fa-arrow-right text-[10px] ml-1.5 group-hover:translate-x-1 transition"></i>
+              </span>
+            </div>
+          </div>
+        </button>
+  
+      </div>
+    </div>
+  </section>
+  
+  <!-- TEACHER START MODAL -->
+  <div id="teacherStartModal" class="fixed inset-0 z-[99999] hidden">
+    <div class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm" onclick="closeTeacherStartModal()"></div>
+  
+    <div class="start-modal-panel">
+      <button onclick="closeTeacherStartModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-gray-100 text-gray-500 hover:bg-gray-200 hover:text-gray-900 transition flex items-center justify-center z-10">
+        <i class="fas fa-times"></i>
+      </button>
+  
+      <div class="p-6 sm:p-8">
+        <div class="w-14 h-14 rounded-2xl bg-green-50 flex items-center justify-center text-brand-green mb-5">
+          <i class="fas fa-chalkboard-user text-2xl"></i>
+        </div>
+  
+        <h2 class="font-display text-3xl sm:text-4xl font-black text-brand-dark leading-tight mb-3">
+          Start free as a teacher
+        </h2>
+  
+        <p class="text-gray-600 leading-relaxed mb-6">
+          TrackEDU is free for individual teachers using one class. You do not need your whole school to sign up first.
         </p>
+  
+        <div class="bg-green-50 border border-green-100 rounded-2xl p-5 mb-5">
+          <h3 class="font-black text-brand-dark mb-3">What you get</h3>
+          <div class="grid sm:grid-cols-2 gap-3 text-sm text-gray-700">
+            <div class="flex gap-2"><i class="fas fa-check-circle text-brand-green mt-0.5"></i><span>Free Teacher Starter plan</span></div>
+            <div class="flex gap-2"><i class="fas fa-check-circle text-brand-green mt-0.5"></i><span>1 teacher account</span></div>
+            <div class="flex gap-2"><i class="fas fa-check-circle text-brand-green mt-0.5"></i><span>1 class</span></div>
+            <div class="flex gap-2"><i class="fas fa-check-circle text-brand-green mt-0.5"></i><span>Up to 30 students</span></div>
+            <div class="flex gap-2"><i class="fas fa-check-circle text-brand-green mt-0.5"></i><span>Magic Hat random picker</span></div>
+            <div class="flex gap-2"><i class="fas fa-check-circle text-brand-green mt-0.5"></i><span>Focus Timer</span></div>
+            <div class="flex gap-2"><i class="fas fa-check-circle text-brand-green mt-0.5"></i><span>Basic points and leaderboard</span></div>
+            <div class="flex gap-2"><i class="fas fa-check-circle text-brand-green mt-0.5"></i><span>No credit card required</span></div>
+          </div>
+        </div>
+  
+        <div class="bg-white border border-gray-200 rounded-2xl p-5 mb-5">
+          <h3 class="font-black text-brand-dark mb-3">How to get started</h3>
+          <ol class="space-y-3 text-sm text-gray-700">
+            <li class="flex gap-3"><span class="step-dot">1</span><span>Click <strong>Start Free as a Teacher</strong>.</span></li>
+            <li class="flex gap-3"><span class="step-dot">2</span><span>Sign in with Google.</span></li>
+            <li class="flex gap-3"><span class="step-dot">3</span><span>Create a school space. This is required so TrackEDU can organise your class, students, and points.</span></li>
+            <li class="flex gap-3"><span class="step-dot">4</span><span>If your school is not officially using TrackEDU yet, name the space after your class, for example <strong>Year 5 English</strong>, <strong>Ms Ahmed’s Class</strong>, or <strong>7B Science</strong>.</span></li>
+            <li class="flex gap-3"><span class="step-dot">5</span><span>Add your students and begin using the Teacher App.</span></li>
+          </ol>
+        </div>
+  
+        <div class="bg-amber-50 border border-amber-100 rounded-2xl p-4 mb-6 text-sm text-amber-900">
+          <i class="fas fa-triangle-exclamation mr-1"></i>
+          If you are using TrackEDU independently, only enter student information your school permits you to use. For whole-school use, ask your school leader to start a formal pilot.
+        </div>
+  
+        <div class="bg-gray-50 border border-gray-200 rounded-2xl p-4 mb-5">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div>
+              <h3 class="font-black text-brand-dark text-base mb-1">
+                New to TrackEDU?
+              </h3>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                Watch how to create your space, set it up, and start using TrackEDU with one class.
+              </p>
+            </div>
         
-        <!-- MOBILE CTA BUTTONS, PLACED AFTER IMAGE -->
-        <div class="lg:hidden mt-1 flex flex-row gap-2 justify-center w-full">
-          <button onclick="openPilotModal()" class="btn hero-cta-btn flex items-center justify-center gap-1.5 group bg-brand-green hover:bg-green-600 border-2 border-brand-green text-white shadow-sm whitespace-nowrap">
-            <i class="fas fa-crown text-white text-[10px] group-hover:translate-y-[-2px] transition"></i>
-            <span>Apply Now →</span>
-          </button>
-        
-          <button data-cal-link="trackedu-a9dbpy/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view"}' class="btn hero-cta-btn bg-brand-dark hover:bg-gray-800 text-white border-2 border-brand-dark shadow-sm flex items-center justify-center gap-1.5 whitespace-nowrap">
-            <i class="fas fa-calendar-alt text-[10px]"></i>
-            <span>Book Demo</span>
-          </button>
+            <button onclick="openCreateSchoolVideo()" class="shrink-0 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-gray-200 text-brand-blue text-sm font-black hover:bg-blue-50 transition">
+              <i class="fas fa-play-circle text-brand-blue text-xs"></i>
+              Watch Tutorial
+            </button>
+          </div>
         </div>
         
-        <p class="lg:hidden hero-teacher-note mt-0.5 text-center font-normal px-3 opacity-70" style="font-size: 6px; color: #9ca3af; letter-spacing: 0.2px;">
-         
-          Teachers: start free with one class
+        <a href="https://housepoint.trackedu.net/" target="_blank" class="w-full py-3.5 rounded-xl bg-brand-green text-white font-black hover:bg-green-600 transition flex items-center justify-center gap-2">
+          <i class="fas fa-rocket text-xs"></i>
+          Start Free as a Teacher
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- SCHOOL LEADER START MODAL -->
+  <div id="leaderStartModal" class="fixed inset-0 z-[99999] hidden">
+    <div class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm" onclick="closeLeaderStartModal()"></div>
+  
+    <div class="start-modal-panel">
+      <button onclick="closeLeaderStartModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-gray-100 text-gray-500 hover:bg-gray-200 hover:text-gray-900 transition flex items-center justify-center z-10">
+        <i class="fas fa-times"></i>
+      </button>
+  
+      <div class="p-6 sm:p-8">
+        <div class="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center text-brand-blue mb-5">
+          <i class="fas fa-school text-2xl"></i>
+        </div>
+  
+        <h2 class="font-display text-3xl sm:text-4xl font-black text-brand-dark leading-tight mb-3">
+          Start TrackEDU for your school
+        </h2>
+  
+        <p class="text-gray-600 leading-relaxed mb-6">
+          TrackEDU is designed for school leaders who want to pilot or adopt a connected platform for house points, behaviour tracking, student engagement, and pastoral visibility.
         </p>
-
-<div class="lg:hidden mt-2 flex justify-center px-3">
-  <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-green-100 shadow-sm text-[10px] font-bold uppercase tracking-wide text-brand-green">
-    <i class="fas fa-shield-halved text-[10px]"></i>
-    <span>ICO registered · Ref: C1932322</span>
-  </div>
-</div>
+  
+        <div class="bg-blue-50 border border-blue-100 rounded-2xl p-5 mb-5">
+          <h3 class="font-black text-brand-dark mb-3">What your school can do</h3>
+          <div class="grid sm:grid-cols-2 gap-3 text-sm text-gray-700">
+            <div class="flex gap-2"><i class="fas fa-check-circle text-brand-blue mt-0.5"></i><span>Start a 30-day pilot</span></div>
+            <div class="flex gap-2"><i class="fas fa-check-circle text-brand-blue mt-0.5"></i><span>Set up houses, classes, staff, and students</span></div>
+            <div class="flex gap-2"><i class="fas fa-check-circle text-brand-blue mt-0.5"></i><span>Use the Teacher App across classrooms</span></div>
+            <div class="flex gap-2"><i class="fas fa-check-circle text-brand-blue mt-0.5"></i><span>Give students access to the Student Portal</span></div>
+            <div class="flex gap-2"><i class="fas fa-check-circle text-brand-blue mt-0.5"></i><span>Use the Behavior Tracker for incidents and support needs</span></div>
+            <div class="flex gap-2"><i class="fas fa-check-circle text-brand-blue mt-0.5"></i><span>Export data for review and reporting</span></div>
+            <div class="flex gap-2"><i class="fas fa-check-circle text-brand-blue mt-0.5"></i><span>Request invoice and bank transfer payment</span></div>
+            <div class="flex gap-2"><i class="fas fa-check-circle text-brand-blue mt-0.5"></i><span>Discuss privacy and implementation before launch</span></div>
+          </div>
+        </div>
+  
+        <div class="bg-white border border-gray-200 rounded-2xl p-5 mb-6">
+          <h3 class="font-black text-brand-dark mb-3">What should I do first?</h3>
+          <div class="space-y-3 text-sm text-gray-700">
+            <div class="flex gap-3"><span class="step-dot-blue">1</span><span><strong>Book a demo</strong> if you want to ask questions first.</span></div>
+            <div class="flex gap-3"><span class="step-dot-blue">2</span><span><strong>Start a 30-day pilot</strong> if you are ready to test TrackEDU.</span></div>
+            <div class="flex gap-3"><span class="step-dot-blue">3</span><span><strong>Request an invoice</strong> if your school is ready to buy an annual licence.</span></div>
+          </div>
+        </div>
+  
+        <div class="bg-gray-50 border border-gray-200 rounded-2xl p-4 mb-5">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div>
+              <h3 class="font-black text-brand-dark text-base mb-1">
+                New to TrackEDU?
+              </h3>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                Watch how to create and set up your school before starting a pilot.
+              </p>
+            </div>
         
-<div class="hidden md:inline-flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2 px-4 py-2 rounded-2xl bg-white border border-gray-200 shadow-sm text-xs font-bold uppercase tracking-wide mb-6 mx-auto lg:mx-0 max-w-fit">
-  <div class="flex items-center gap-2">
-    <span class="relative flex h-2.5 w-2.5">
-      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-      <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-green"></span>
-    </span>
-    <span class="text-gray-600">Built for international schools</span>
+            <button onclick="openCreateSchoolVideo()" class="shrink-0 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-gray-200 text-brand-blue text-sm font-black hover:bg-blue-50 transition">
+              <i class="fas fa-play-circle text-brand-blue text-xs"></i>
+              Watch Tutorial
+            </button>
+          </div>
+        </div>
+        
+        <div class="grid sm:grid-cols-3 gap-3">
+          <a href="https://housepoint.trackedu.net/" target="_blank" class="w-full py-3.5 rounded-xl bg-brand-blue text-white font-black hover:bg-blue-700 transition flex items-center justify-center gap-2 text-sm">
+            <i class="fas fa-rocket text-xs"></i>
+            Start Pilot
+          </a>
+        
+          <button data-cal-link="trackedu-a9dbpy/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view"}' class="w-full py-3.5 rounded-xl bg-brand-dark text-white font-black hover:bg-gray-800 transition flex items-center justify-center gap-2 text-sm">
+            <i class="fas fa-calendar-alt text-xs"></i>
+            Book Demo
+          </button>
+        
+          <button onclick="closeLeaderStartModal(); openInvoiceModal();" class="w-full py-3.5 rounded-xl bg-gray-100 text-gray-700 font-black hover:bg-gray-200 transition flex items-center justify-center gap-2 text-sm">
+            <i class="fas fa-file-invoice-dollar text-xs"></i>
+            Invoice
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <span class="hidden sm:inline text-gray-300">|</span>
-
-  <div class="flex items-center gap-1.5 text-brand-green">
-    <i class="fas fa-shield-halved text-[10px]"></i>
-    <span>ICO registered</span>
-  </div>
-</div>
-
-        <!-- DESKTOP CTA BUTTONS -->
-<div class="hidden lg:flex flex-row gap-3 justify-start w-full sm:w-auto">
-  <button onclick="openPilotModal()" class="btn hero-cta-btn flex items-center justify-center gap-1.5 group bg-brand-green hover:bg-green-600 border-2 border-brand-green text-white shadow-sm whitespace-nowrap">
-    <i class="fas fa-crown text-white text-xs group-hover:translate-y-[-2px] transition"></i>
-    <span>Apply for Founding School →</span>
-  </button>
-
-  <button data-cal-link="trackedu-a9dbpy/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view"}' class="btn hero-cta-btn bg-brand-dark hover:bg-gray-800 text-white border-2 border-brand-dark shadow-sm flex items-center justify-center gap-1.5 whitespace-nowrap">
-    <i class="fas fa-calendar-alt text-xs"></i>
-    <span>Book Demo</span>
-  </button>
-</div>
-
-<p class="hidden lg:block hero-teacher-note mt-2 text-xs text-gray-400 font-normal">
-  <i class="fas fa-chalkboard-user mr-1 text-gray-300"></i> 
-  Teachers can start free with one class — even if their school isn't ready yet.
-</p>
-      </div>
-
-      <!-- HERO IMAGE -->
-      <div class="relative flex justify-center items-center w-full" data-aos="fade-left">
-        <img
-          src="https://trackedu.github.io/common-assets/mainheroimage.png"
-          alt="TrackEDU Teacher App dashboard with TrackEDU mascot"
-          class="hero-main-image w-full max-w-[720px] lg:max-w-[900px] xl:max-w-[960px] object-contain drop-shadow-2xl mx-auto"
-          loading="eager"
-          fetchpriority="high"
-        >
-      </div>
-    </div>
-
-
-    <!-- 3 TOOL TABS, LINKED TO EXISTING MODALS -->
-<div class="hero-tool-grid mt-4 lg:mt-5 grid grid-cols-3 gap-2 sm:gap-4 lg:gap-4">
-
-  <button onclick="showToolInfo('teacher')" class="hero-tool-card hero-tool-card-active group bg-white/95 backdrop-blur-sm border border-gray-100 rounded-2xl p-4 shadow-card hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-left" aria-label="Open Teacher App information">
-    <div class="flex items-center gap-3">
-      <div class="hero-tool-icon w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center shrink-0 group-hover:bg-brand-green transition">
-        <i class="fas fa-chalkboard-user text-brand-green group-hover:text-white text-lg"></i>
-      </div>
-      <div class="hero-tool-copy min-w-0">
-        <h3 class="font-display text-lg font-black text-brand-dark leading-tight">Teacher App</h3>
-        <p class="hero-tool-desc text-xs text-gray-500 leading-snug mt-1">Manage classes, reward students, and track progress.</p>
-        <span class="hero-tool-link inline-flex items-center mt-2 text-xs font-bold text-brand-green">
-          Explore <i class="fas fa-arrow-right text-[10px] ml-1.5 group-hover:translate-x-1 transition"></i>
-        </span>
-      </div>
-    </div>
-  </button>
-
-  <button onclick="showToolInfo('student')" class="hero-tool-card group bg-white/95 backdrop-blur-sm border border-gray-100 rounded-2xl p-4 shadow-card hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-left" aria-label="Open Student Portal information">
-    <div class="flex items-center gap-3">
-      <div class="hero-tool-icon w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center shrink-0 group-hover:bg-brand-blue transition">
-        <i class="fas fa-users text-brand-blue group-hover:text-white text-lg"></i>
-      </div>
-      <div class="hero-tool-copy min-w-0">
-        <h3 class="font-display text-lg font-black text-brand-dark leading-tight">Student Portal</h3>
-        <p class="hero-tool-desc text-xs text-gray-500 leading-snug mt-1">View points, badges, rewards, and house progress.</p>
-        <span class="hero-tool-link inline-flex items-center mt-2 text-xs font-bold text-brand-blue">
-          Explore <i class="fas fa-arrow-right text-[10px] ml-1.5 group-hover:translate-x-1 transition"></i>
-        </span>
-      </div>
-    </div>
-  </button>
-
-  <button onclick="showToolInfo('behavior')" class="hero-tool-card group bg-white/95 backdrop-blur-sm border border-gray-100 rounded-2xl p-4 shadow-card hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-left" aria-label="Open Behavior Tracker information">
-    <div class="flex items-center gap-3">
-      <div class="hero-tool-icon w-10 h-10 rounded-xl bg-purple-50 flex items-center justify-center shrink-0 group-hover:bg-purple-600 transition">
-        <i class="fas fa-chart-line text-purple-600 group-hover:text-white text-lg"></i>
-      </div>
-      <div class="hero-tool-copy min-w-0">
-        <h3 class="font-display text-lg font-black text-brand-dark leading-tight">Behavior Tracker</h3>
-        <p class="hero-tool-desc text-xs text-gray-500 leading-snug mt-1">Monitor incidents, trends, and early support needs.</p>
-        <span class="hero-tool-link inline-flex items-center mt-2 text-xs font-bold text-purple-600">
-          Explore <i class="fas fa-arrow-right text-[10px] ml-1.5 group-hover:translate-x-1 transition"></i>
-        </span>
-      </div>
-    </div>
-  </button>
-
-</div>
-  </div>
-</section>
-
-<style>
-  /* HERO BASE */
-  .hero-cta-btn {
-    font-size: 1rem;
-    padding: 0.75rem 1.5rem;
-  }
-
-  .hero-main-image {
-    display: block;
-  }
-
-  .hero-tool-card-active {
-    border-color: rgba(135, 194, 50, 0.45) !important;
-    background: rgba(240, 253, 244, 0.65) !important;
-    box-shadow: 0 18px 45px -20px rgba(135, 194, 50, 0.45) !important;
-  }
-
-  .school-culture-line {
-    color: #0C1E2C;
-  }
-
-  .house-points-line {
-    background: linear-gradient(135deg, #0f66c3 0%, #3B8F7A 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .behavior-tracking-line {
-    display: inline-block;
-    background: linear-gradient(135deg, #3B8F7A 0%, #8B5CF6 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-    font-size: 0.92em;
-    letter-spacing: -0.035em;
-  }
-
-  /* DESKTOP REBALANCE */
-  @media (min-width: 1025px) {
-    .hero-mesh {
-      min-height: 620px;
-    }
-
-    .hero-mesh h1 {
-      font-size: clamp(3.75rem, 4.55vw, 5.25rem) !important;
-      line-height: 1.04 !important;
-      max-width: 640px;
-    }
-
-    .hero-mesh h1 span {
-      white-space: nowrap;
-    }
-
-    .hero-mesh p {
-      max-width: 520px;
-    }
-
-    .hero-main-image {
-      max-width: 940px !important;
-      transform: translateX(-35px) !important;
-    }
-
-    .hero-tool-grid {
-      margin-top: 1rem !important;
-    }
-
-    .hero-tool-card {
-      padding: 1rem !important;
-      border-radius: 1rem !important;
-    }
-
-    .hero-tool-card > div {
-      align-items: center !important;
-      gap: 0.85rem !important;
-    }
-
-    .hero-tool-icon {
-      width: 2.5rem !important;
-      height: 2.5rem !important;
-      border-radius: 0.8rem !important;
-    }
-
-    .hero-tool-icon i {
-      font-size: 1rem !important;
-    }
-
-    .hero-tool-card h3 {
-      font-size: 1rem !important;
-      line-height: 1.1 !important;
-      margin-bottom: 0 !important;
-    }
-
-    .hero-tool-desc {
-      font-size: 0.75rem !important;
-      line-height: 1.25 !important;
-      margin-top: 0.3rem !important;
-    }
-
-    .hero-tool-link {
-      font-size: 0.75rem !important;
-      margin-top: 0.45rem !important;
-    }
-
-    .hero-tool-link i {
-      font-size: 0.65rem !important;
-      margin-left: 0.35rem !important;
-    }
-  }
-
-  /* COMPACT MOBILE HERO */
-  @media (max-width: 767px) {
-    .hero-mesh {
-      padding-top: 4.75rem !important;
-      padding-bottom: 1rem !important;
-    }
-
-    .hero-mesh h1 {
-      font-size: 2rem !important;
-      line-height: 1.05 !important;
-      margin-bottom: 0.55rem !important;
-    }
-
-    .hero-mesh p {
-      font-size: 1rem !important;
-      margin-bottom: 0 !important;
-    }
-
-    .hero-main-image {
-  max-width: 104% !important;
-  width: 104% !important;
-  margin: -0.35rem auto -0.2rem auto !important;
-  transform: none !important;
-  display: block !important;
-}
-
+  
+  <style>
+    /* HERO BASE */
     .hero-cta-btn {
-      font-size: 0.68rem !important;
-      padding: 0.5rem 0.55rem !important;
-      border-radius: 0.75rem !important;
-      min-width: 0;
-      flex: 1 1 0;
-      letter-spacing: 0;
+      font-size: 1rem;
+      padding: 0.75rem 1.5rem;
     }
-
-    .lg\:hidden.mb-3 {
-  margin-bottom: 0.75rem !important;
+  
+    .hero-main-image {
+      display: block;
+    }
+  
+    .audience-cta-card {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1rem;
+  border-radius: 0.75rem;
+  text-align: center;
+  transition: all 0.25s ease;
+  box-shadow: 0 8px 22px -16px rgba(0, 0, 0, 0.22);
+  min-height: 2.4rem;
+  width: auto;
+  min-width: 9rem;
 }
 
-    .hero-tool-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-      gap: 0.32rem !important;
-      margin-top: 0.45rem !important;
+.audience-cta-main {
+  font-weight: 900;
+  line-height: 1.05;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+  
+    .audience-cta-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 35px -18px rgba(0, 0, 0, 0.28);
     }
-
-    .hero-tool-card {
-      padding: 0.45rem 0.25rem !important;
-      border-radius: 0.75rem !important;
-      text-align: center !important;
-      min-height: 4.4rem !important;
+  
+  
+    .audience-teacher {
+      background: #ffffff;
+      border: 2px solid rgba(135, 194, 50, 0.35);
+      color: #0C1E2C;
     }
-
-    .hero-tool-card > div {
-      flex-direction: column !important;
-      align-items: center !important;
-      justify-content: center !important;
-      gap: 0.22rem !important;
+  
+    .audience-leader {
+      background: #0C1E2C;
+      border: 2px solid #0C1E2C;
+      color: #ffffff;
     }
-
-    .hero-tool-icon {
-      width: 1.65rem !important;
-      height: 1.65rem !important;
-      border-radius: 0.55rem !important;
+  
+    .start-modal-panel {
+      position: relative;
+      width: 94vw;
+      max-width: 42rem;
+      max-height: 90vh;
+      overflow-y: auto;
+      margin: 2rem auto 0 auto;
+      background: #ffffff;
+      border-radius: 1.5rem;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+      border: 1px solid #f1f5f9;
     }
-
-    .hero-tool-icon i {
-      font-size: 0.72rem !important;
+  
+    .step-dot,
+    .step-dot-blue {
+      width: 1.45rem;
+      height: 1.45rem;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 0.75rem;
+      flex-shrink: 0;
     }
-
-    .hero-tool-card h3 {
-      font-size: 0.58rem !important;
-      line-height: 1.05 !important;
-      margin-bottom: 0 !important;
+  
+    .step-dot {
+      background: #ecfdf5;
+      color: #16a34a;
     }
-
-    .hero-tool-desc {
-      display: none !important;
+  
+    .step-dot-blue {
+      background: #eff6ff;
+      color: #0f66c3;
     }
-
-    .hero-tool-link {
-      font-size: 0.54rem !important;
-      margin-top: 0.08rem !important;
+  
+    .hero-tool-card-active {
+      border-color: rgba(135, 194, 50, 0.45) !important;
+      background: rgba(240, 253, 244, 0.65) !important;
+      box-shadow: 0 18px 45px -20px rgba(135, 194, 50, 0.45) !important;
     }
-
-    .hero-tool-link i {
-      display: none !important;
+  
+    .school-culture-line {
+      color: #0C1E2C;
     }
+  
+    .house-points-line {
+      background: linear-gradient(135deg, #0f66c3 0%, #3B8F7A 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+  
+    .behavior-tracking-line {
+      display: inline-block;
+      background: linear-gradient(135deg, #3B8F7A 0%, #8B5CF6 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      font-size: 0.92em;
+      letter-spacing: -0.035em;
+    }
+  
+    /* DESKTOP REBALANCE */
+    @media (min-width: 1025px) {
+      .hero-mesh {
+        min-height: 620px;
+      }
+  
+      .hero-mesh h1 {
+        font-size: clamp(3.75rem, 4.55vw, 5.25rem) !important;
+        line-height: 1.04 !important;
+        max-width: 640px;
+      }
+  
+      .hero-mesh h1 span {
+        white-space: nowrap;
+      }
+  
+      .hero-mesh p {
+        max-width: 560px;
+      }
+  
+      .hero-main-image {
+        max-width: 940px !important;
+        transform: translateX(-35px) !important;
+      }
+  
+      .hero-tool-grid {
+        margin-top: 1rem !important;
+      }
+  
+      .hero-tool-card {
+        padding: 1rem !important;
+        border-radius: 1rem !important;
+      }
+  
+      .hero-tool-card > div {
+        align-items: center !important;
+        gap: 0.85rem !important;
+      }
+  
+      .hero-tool-icon {
+        width: 2.5rem !important;
+        height: 2.5rem !important;
+        border-radius: 0.8rem !important;
+      }
+  
+      .hero-tool-icon i {
+        font-size: 1rem !important;
+      }
+  
+      .hero-tool-card h3 {
+        font-size: 1rem !important;
+        line-height: 1.1 !important;
+        margin-bottom: 0 !important;
+      }
+  
+      .hero-tool-desc {
+        font-size: 0.75rem !important;
+        line-height: 1.25 !important;
+        margin-top: 0.3rem !important;
+      }
+  
+      .hero-tool-link {
+        font-size: 0.75rem !important;
+        margin-top: 0.45rem !important;
+      }
+  
+      .hero-tool-link i {
+        font-size: 0.65rem !important;
+        margin-left: 0.35rem !important;
+      }
+    }
+  
+    /* COMPACT MOBILE HERO */
+    @media (max-width: 767px) {
+      .hero-mesh {
+        padding-top: 4.75rem !important;
+        padding-bottom: 1rem !important;
+      }
+  
+      .hero-mesh h1 {
+        font-size: 2rem !important;
+        line-height: 1.05 !important;
+        margin-bottom: 0.55rem !important;
+      }
+  
+      .hero-mesh p {
+        font-size: 1rem !important;
+        margin-bottom: 0 !important;
+      }
+  
+      .hero-main-image {
+        max-width: 104% !important;
+        width: 104% !important;
+        margin: -0.2rem auto -0.2rem auto !important;
+        transform: none !important;
+        display: block !important;
+      }
+  
+      .audience-cta-card {
+    padding: 0.45rem 0.35rem !important;
+    border-radius: 0.65rem !important;
+    min-height: 2.25rem !important;
+    min-width: 0 !important;
+    width: 100% !important;
   }
 
-
-
-</style>
+  .audience-cta-main {
+    font-size: 0.66rem !important;
+    line-height: 1.05 !important;
+    white-space: normal !important;
+  }
+  
+      .start-modal-panel {
+        width: 100vw !important;
+        height: 100dvh !important;
+        max-width: none !important;
+        max-height: none !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+        border: none !important;
+        overflow-y: auto !important;
+      }
+  
+      .hero-tool-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 0.32rem !important;
+        margin-top: 0.45rem !important;
+      }
+  
+      .hero-tool-card {
+        padding: 0.45rem 0.25rem !important;
+        border-radius: 0.75rem !important;
+        text-align: center !important;
+        min-height: 4.4rem !important;
+      }
+  
+      .hero-tool-card > div {
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0.22rem !important;
+      }
+  
+      .hero-tool-icon {
+        width: 1.65rem !important;
+        height: 1.65rem !important;
+        border-radius: 0.55rem !important;
+      }
+  
+      .hero-tool-icon i {
+        font-size: 0.72rem !important;
+      }
+  
+      .hero-tool-card h3 {
+        font-size: 0.58rem !important;
+        line-height: 1.05 !important;
+        margin-bottom: 0 !important;
+      }
+  
+      .hero-tool-desc {
+        display: none !important;
+      }
+  
+      .hero-tool-link {
+        font-size: 0.54rem !important;
+        margin-top: 0.08rem !important;
+      }
+  
+      .hero-tool-link i {
+        display: none !important;
+      }
+    }
+  </style>
+  
+  <script>
+    function openTeacherStartModal() {
+      const modal = document.getElementById('teacherStartModal');
+      if (!modal) return;
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+  
+    function closeTeacherStartModal() {
+      const modal = document.getElementById('teacherStartModal');
+      if (!modal) return;
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+  
+    function openLeaderStartModal() {
+      const modal = document.getElementById('leaderStartModal');
+      if (!modal) return;
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+  
+    function closeLeaderStartModal() {
+      const modal = document.getElementById('leaderStartModal');
+      if (!modal) return;
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+  
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeTeacherStartModal();
+        closeLeaderStartModal();
+      }
+    });
+  </script>
         
 
 
@@ -2698,7 +2968,7 @@ setTimeout(function() {
               </h3>
               
               <button onclick="openPilotModal()" class="btn px-10 py-4 text-lg font-bold shadow-2xl hover:scale-105 transition-all">
-                Apply for Founding School →
+                Apply for a Founding School →
               </button>
             </div>
             
@@ -3367,9 +3637,10 @@ setTimeout(function() {
         </p>
       </div>
       
-      <a href="https://housepoint.trackedu.net/" target="_blank" class="inline-flex items-center justify-center gap-2 bg-white text-gray-900 hover:bg-gray-100 font-bold py-3 px-8 rounded-xl transition-all duration-200 shadow-lg w-full sm:w-auto">
-        Create Your School → <i class="fas fa-arrow-right"></i>
-      </a>
+      <button onclick="openPilotModal()" class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white font-bold py-3 px-8 rounded-xl transition-all duration-200 shadow-lg w-full sm:w-auto">
+        <i class="fas fa-crown text-sm"></i>
+        Apply for a Founding School →
+      </button>
     </div>
   </div>
 </div>
