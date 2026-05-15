@@ -5345,6 +5345,44 @@ setTimeout(function() {
 
 
 
+
+
+<!-- FOUNDING SCHOOLS SUCCESS MODAL -->
+<div id="foundingSuccessModal" class="fixed inset-0 z-[10000] hidden overflow-y-auto">
+  <div class="min-h-full flex items-center justify-center p-4 sm:p-6">
+    <div class="absolute inset-0 bg-gray-900/70 backdrop-blur-sm" onclick="closeFoundingSuccessModal()"></div>
+
+    <div class="relative w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden">
+      <div class="p-6 sm:p-8 text-center">
+        
+        <div class="w-16 h-16 rounded-full bg-green-100 text-brand-green flex items-center justify-center mx-auto mb-5">
+          <i class="fas fa-check text-2xl"></i>
+        </div>
+
+        <h3 class="font-display text-2xl font-black text-gray-900 mb-3">
+          Application submitted! 🎉
+        </h3>
+
+        <p class="text-gray-600 text-sm leading-relaxed mb-5">
+          Thank you for applying to the TrackEDU Founding Schools Programme. We will review your application and contact you within 48 hours.
+        </p>
+
+        <div class="bg-amber-50 border border-amber-100 rounded-xl p-4 text-left text-xs text-amber-800 leading-relaxed mb-6">
+          <i class="fas fa-crown text-amber-500 mr-1"></i>
+          <span>Selected schools receive 1 year of full access with the licence fee waived, plus training and priority support.</span>
+        </div>
+
+        <button onclick="closeFoundingSuccessModal()" class="w-full py-3 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl transition">
+          Got it
+        </button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 <!-- INVOICE REQUEST MODAL - SINGLE CORRECTED VERSION -->
 <div id="invoiceModal" class="fixed inset-0 z-[9999] hidden overflow-y-auto">
   <div class="min-h-full flex items-start md:items-center justify-center p-0 md:p-6">
@@ -5613,73 +5651,72 @@ class="group block p-5 rounded-xl border-2 border-gray-200 hover:border-brand-gr
         </div>
       </div>
       
-      <!-- Option 2: Founding Schools -->
-<div class="bg-gradient-to-br from-amber-50 to-orange-50/30 rounded-xl border-2 border-amber-300/50 overflow-hidden">
-  <!-- Scarcity banner -->
-  <div class="bg-amber-600 px-4 py-2 text-center">
-    <div class="flex items-center justify-center gap-2">
-      <i class="fas fa-crown text-white text-xs"></i>
-      <span class="text-white font-bold text-xs uppercase tracking-wider">Founding Schools Programme</span>
-      <span class="bg-white/20 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">3 spots left</span>
-    </div>
-  </div>
-  
-  <div class="p-5">
-    <div class="text-center mb-5">
-      <h4 class="font-bold text-gray-900 text-xl">Become a Founding School</h4>
-      <div class="flex flex-wrap items-center justify-center gap-2 mt-3">
-        <span class="inline-flex items-center gap-1 text-xs text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full"><i class="fas fa-gem text-[10px]"></i> 1 year full access</span>
-        <span class="inline-flex items-center gap-1 text-xs text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full"><i class="fas fa-file-invoice-dollar text-[10px]"></i> Licence fee waived</span>
-        <span class="inline-flex items-center gap-1 text-xs text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full"><i class="fas fa-chalkboard-user text-[10px]"></i> Training included</span>
-      </div>
-      <p class="text-xs text-amber-600 mt-3 font-semibold">⚠️ Limited to 5 schools worldwide · 3 spots remaining</p>
-    </div>
+      <div class="bg-gradient-to-br from-amber-50 to-orange-50/30 rounded-xl border-2 border-amber-300/50 overflow-hidden">
+        <div class="bg-amber-600 px-4 py-2 text-center">
+          <div class="flex items-center justify-center gap-2">
+            <i class="fas fa-crown text-white text-xs"></i>
+            <span class="text-white font-bold text-xs uppercase tracking-wider">Founding Schools Programme</span>
+            <span class="bg-white/20 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">3 spots left</span>
+          </div>
+        </div>
+        
+        <div class="p-5">
+          <div class="text-center mb-5">
+            <h4 class="font-bold text-gray-900 text-xl">Become a Founding School</h4>
+            <div class="flex flex-wrap items-center justify-center gap-2 mt-3">
+              <span class="inline-flex items-center gap-1 text-xs text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full"><i class="fas fa-gem text-[10px]"></i> 1 year full access</span>
+              <span class="inline-flex items-center gap-1 text-xs text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full"><i class="fas fa-file-invoice-dollar text-[10px]"></i> Licence fee waived</span>
+              <span class="inline-flex items-center gap-1 text-xs text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full"><i class="fas fa-chalkboard-user text-[10px]"></i> Training included</span>
+            </div>
+            <p class="text-xs text-amber-600 mt-3 font-semibold">⚠️ Limited to 5 schools worldwide · 3 spots remaining</p>
+          </div>
           
-            <!-- 🎬 Video Tutorial: How to Create a School -->
-  <div class="mb-5 p-4 bg-blue-50 rounded-xl border border-blue-200 flex flex-col items-center text-center gap-3 md:flex-row md:text-left md:justify-between">
-    <div>
-      <div class="font-bold text-sm text-gray-800">New to TrackEDU?</div>
-      <div class="text-xs text-gray-600">Watch: How to create & set up your school</div>
-    </div>
-    <button onclick="openTutorialVideo('create')" class="px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold text-xs hover:bg-blue-700 transition flex items-center gap-2">
-      <i class="fas fa-play-circle"></i> Watch Tutorial
-    </button>
-  </div>
+          <!-- Video Tutorial -->
+          <div class="mb-5 p-4 bg-blue-50 rounded-xl border border-blue-200 flex flex-col items-center text-center gap-3 md:flex-row md:text-left md:justify-between">
+            <div>
+              <div class="font-bold text-sm text-gray-800">New to TrackEDU?</div>
+              <div class="text-xs text-gray-600">Watch: How to create & set up your school</div>
+            </div>
+            <button onclick="openTutorialVideo('create')" class="px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold text-xs hover:bg-blue-700 transition flex items-center gap-2">
+              <i class="fas fa-play-circle"></i> Watch Tutorial
+            </button>
+          </div>
           
-  <form action="https://api.web3forms.com/submit" method="POST" id="foundingSchoolsForm" class="space-y-4">
-    <input type="hidden" name="access_key" value="7f87c71e-2098-42d8-816a-29de230264d7">
-    <input type="hidden" name="subject" value="🔥 Founding Schools Programme Application - TrackEDU">
-    <input type="hidden" name="redirect" value="https://www.trackedu.net">
-    <input type="hidden" name="_autoresponse" value="Thank you for applying to the TrackEDU Founding Schools Programme! We have received your application. Our team will review your submission and contact you within 48 hours about the 1-year licence fee waiver. - The TrackEDU Team">
-    
-    <!-- Your form fields here -->
-    <div class="grid grid-cols-2 gap-3">
-      <div>
-        <label class="block text-xs font-semibold text-gray-600 mb-1">Full name *</label>
-        <input type="text" name="name" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm">
-      </div>
-      <div>
-        <label class="block text-xs font-semibold text-gray-600 mb-1">Job title *</label>
-        <input type="text" name="title" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm">
-      </div>
-    </div>
-    
-    <div class="grid grid-cols-2 gap-3">
-      <div>
-        <label class="block text-xs font-semibold text-gray-600 mb-1">School email *</label>
-        <input type="email" name="email" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm">
-      </div>
-      <div>
-        <label class="block text-xs font-semibold text-gray-600 mb-1">School name *</label>
-        <input type="text" name="school" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm">
-      </div>
-    </div>
-    
-    <div class="grid grid-cols-2 gap-3">
-      <div>
-        <label class="block text-xs font-semibold text-gray-600 mb-1">Country *</label>
-        <select name="country" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm bg-white">
-          <option value="">Select country</option>
+          <!-- FORM - Web3Forms with standard submission -->
+          <form action="https://api.web3forms.com/submit" method="POST" id="foundingSchoolsForm" class="space-y-4">
+            <input type="hidden" name="access_key" value="7f87c71e-2098-42d8-816a-29de230264d7">
+            <input type="hidden" name="subject" value="🔥 Founding Schools Programme Application - TrackEDU">
+            <input type="hidden" name="redirect" value="https://www.trackedu.net">
+            <input type="hidden" name="_autoresponse" value="Thank you for applying to the TrackEDU Founding Schools Programme! We have received your application. Our team will review your submission and contact you within 48 hours. - The TrackEDU Team">
+            
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-gray-600 mb-1">Full name *</label>
+                <input type="text" name="name" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-gray-600 mb-1">Job title *</label>
+                <input type="text" name="title" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm">
+              </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-gray-600 mb-1">School email *</label>
+                <input type="email" name="email" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-gray-600 mb-1">School name *</label>
+                <input type="text" name="school" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm">
+              </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-gray-600 mb-1">Country *</label>
+                <select name="country" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm bg-white">
+                  <option value="">Select country</option>
+      
   
                   <option value="Afghanistan">Afghanistan</option>
                   <option value="Albania">Albania</option>
@@ -5892,8 +5929,11 @@ class="group block p-5 rounded-xl border-2 border-gray-200 hover:border-brand-gr
               </div>
             </div>
             
-            <button type="submit" class="w-full py-3 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl transition-all duration-200 flex items-center justify-center gap-2">
-              Reserve Your Spot →
+            <input type="hidden" name="timestamp" value="">
+            
+            <button type="submit" id="foundingSubmitBtn" class="w-full py-3 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl transition-all duration-200 flex items-center justify-center gap-2">
+              <span class="btn-text">Reserve Your Spot →</span>
+              <span class="btn-spinner hidden"><i class="fas fa-circle-notch fa-spin"></i></span>
             </button>
             
             <p class="text-[10px] text-gray-400 text-center">
@@ -5906,6 +5946,10 @@ class="group block p-5 rounded-xl border-2 border-gray-200 hover:border-brand-gr
     </div>
   </div>
 </div>
+
+
+
+
 
 
 
@@ -6091,6 +6135,71 @@ if (window.innerWidth < 768) {
 
 
 
+
+
+// FOUNDING SCHOOLS FORM - handles loading spinner and success modal
+(function() {
+  const foundingForm = document.getElementById('foundingSchoolsForm');
+  if (!foundingForm) return;
+  
+  // Remove any existing submit listeners and add our own
+  foundingForm.addEventListener('submit', function(e) {
+    const submitBtn = document.getElementById('foundingSubmitBtn');
+    const btnText = submitBtn.querySelector('.btn-text');
+    const btnSpinner = submitBtn.querySelector('.btn-spinner');
+    
+    // Show spinner, disable button
+    btnText.classList.add('hidden');
+    btnSpinner.classList.remove('hidden');
+    submitBtn.disabled = true;
+    submitBtn.classList.add('opacity-70');
+    
+    // Add timestamp
+    const tsField = foundingForm.querySelector('input[name="timestamp"]');
+    if (tsField) tsField.value = new Date().toISOString();
+    
+    // Let the form submit normally - Web3Forms will redirect
+    // The spinner will stay visible during redirect
+    
+    // Set a timeout to re-enable button if redirect fails (fallback)
+    setTimeout(() => {
+      if (submitBtn.disabled) {
+        btnText.classList.remove('hidden');
+        btnSpinner.classList.add('hidden');
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('opacity-70');
+      }
+    }, 10000);
+  });
+})();
+
+// Success modal functions for Founding Schools
+function openFoundingSuccessModal() {
+  const modal = document.getElementById('foundingSuccessModal');
+  if (modal) {
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeFoundingSuccessModal() {
+  const modal = document.getElementById('foundingSuccessModal');
+  if (modal) {
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+}
+
+// Check URL params for success (for Web3Forms redirect)
+(function checkFoundingSuccess() {
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('founding') === 'success') {
+    openFoundingSuccessModal();
+    // Clean URL without refreshing page
+    const newUrl = window.location.pathname;
+    window.history.replaceState({}, document.title, newUrl);
+  }
+})();
 
 
 
