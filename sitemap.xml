@@ -1,9 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-   <url>
-      <loc>https://www.trackedu.net/</loc>
-      <lastmod>2026-01-23</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>1.0</priority>
-   </url>
+
+  <url>
+    <loc>https://www.trackedu.net/</loc>
+    <lastmod>2026-05-16</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.trackedu.net/trackedu-vs-classdojo.html</loc>
+    <lastmod>2026-05-16</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.trackedu.net/trackedu-vs-spreadsheets.html</loc>
+    <lastmod>2026-05-16</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.trackedu.net/house-points-software-vs-manual-house-points.html</loc>
+    <lastmod>2026-05-16</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.trackedu.net/best-school-rewards-system-international-schools.html</loc>
+    <lastmod>2026-05-16</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.trackedu.net/behavior-tracking-software-pastoral-teams.html</loc>
+    <lastmod>2026-05-16</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.trackedu.net/help-center.html</loc>
+    <lastmod>2026-05-16</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.trackedu.net/privacy.html</loc>
+    <lastmod>2026-05-16</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.trackedu.net/dpa.html</loc>
+    <lastmod>2026-05-16</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.trackedu.net/terms.html</loc>
+    <lastmod>2026-05-16</lastmod>
+  </url>
+
 </urlset>
