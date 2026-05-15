@@ -5072,9 +5072,9 @@ setTimeout(function() {
         <div>
           <h5 class="font-black text-xs uppercase tracking-widest text-brand-green mb-6">Platform</h5>
           <ul class="space-y-4 text-sm text-gray-400">
-            <li><a href="#tools-section" class="hover:text-white transition">Teacher App</a></li>
-            <li><a href="#tools-section" class="hover:text-white transition">Student Portal</a></li>
-            <li><a href="#tools-section" class="hover:text-white transition">Behavior Tracker</a></li>
+            <li><button onclick="showToolInfo('teacher')" class="hover:text-white transition text-left w-full">Teacher App</button></li>
+            <li><button onclick="showToolInfo('student')" class="hover:text-white transition text-left w-full">Student Portal</button></li>
+            <li><button onclick="showToolInfo('behavior')" class="hover:text-white transition text-left w-full">Behavior Tracker</button></li>
             <li><a href="#pricing" class="hover:text-white transition">Plans</a></li>
           </ul>
         </div>
@@ -5105,8 +5105,8 @@ setTimeout(function() {
           <h5 class="font-black text-xs uppercase tracking-widest text-brand-green mb-6">For Schools</h5>
           <ul class="space-y-4 text-sm text-gray-400">
             <li><button data-cal-link="trackedu-a9dbpy/30min" class="hover:text-white transition text-left">Book a School Demo</button></li>
-            <li><a href="mailto:hello@trackedu.net?subject=TrackEDU%20Invoice%20Request" class="hover:text-white transition">Request an Invoice</a></li>
-            <li><a href="mailto:hello@trackedu.net?subject=TrackEDU%20DPA%20Request" class="hover:text-white transition">Request DPA</a></li>
+            <li><button onclick="openInvoiceModal()" class="hover:text-white transition text-left w-full">Request an Invoice</button></li>
+            <li><button onclick="openDPAModal()" class="hover:text-white transition text-left w-full">Request DPA</button></li>
             <li><a href="#founding-video-section" class="hover:text-white transition">Founding Schools</a></li>
           </ul>
         </div>
@@ -5541,7 +5541,7 @@ setTimeout(function() {
 </button>
 
 <p class="text-center text-xs text-gray-400 leading-relaxed">
-  The official invoice will be emailed manually after review. Bank transfer details or a secure card payment link will be included once confirmed. If the form does not work, email hello@trackedu.net directly.
+  The official invoice will be emailed manually after review. Our UK and International bank transfer details (via Wise) or a secure card payment link will be included on your invoice. If the form does not work, email hello@trackedu.net directly.
 </p>
 
 </form>
@@ -8478,10 +8478,181 @@ function closeModalAndOpenHouseMasterToolkits() {
   }
 </script>
 
-</body>
 
 
 
+<!-- DPA REQUEST MODAL -->
+<div id="dpaModal" class="fixed inset-0 z-[9999] hidden overflow-y-auto">
+  <div class="min-h-full flex items-start md:items-center justify-center p-0 md:p-6">
+    <div class="absolute inset-0 bg-gray-900/70 backdrop-blur-sm" onclick="closeDPAModal()"></div>
+
+    <div class="relative w-full min-h-screen md:min-h-0 md:max-w-xl bg-white md:rounded-2xl shadow-2xl flex flex-col overflow-hidden md:max-h-[85vh]">
+      
+      <!-- Header -->
+      <div class="px-6 py-5 border-b flex justify-between items-center bg-white shrink-0">
+        <div>
+          <h3 class="font-display text-xl font-bold text-gray-900">Request Data Processing Agreement</h3>
+          <p class="text-xs text-gray-500 mt-0.5">Fill in your details to receive the DPA</p>
+        </div>
+        <button onclick="closeDPAModal()" class="w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full transition flex items-center justify-center text-gray-500 hover:text-gray-700">
+          <i class="fas fa-times text-sm"></i>
+        </button>
+      </div>
+
+      <!-- Body -->
+      <div class="p-6 overflow-y-auto flex-1">
+        
+        <div class="mb-5 p-4 rounded-xl bg-blue-50 border border-blue-100 text-sm text-gray-700">
+          <p>TrackEDU provides a Data Processing Agreement (DPA) for schools that require one. Please complete this form and we will email you the signed DPA within 48 hours.</p>
+        </div>
+
+        <form id="dpaRequestForm" class="space-y-5" onsubmit="handleDPAFormSubmit(event)">
+          
+          <input type="hidden" name="_subject" value="TrackEDU DPA Request">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="box">
+          <input type="hidden" name="_next" value="https://www.trackedu.net">
+          <input type="hidden" name="_autoresponse" value="Thank you for requesting the TrackEDU Data Processing Agreement (DPA). We have received your request and will email you the signed DPA within 48 hours. - The TrackEDU Team">
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-gray-600 mb-1">Full name *</label>
+              <input type="text" name="full_name" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-gray-600 mb-1">Job title *</label>
+              <input type="text" name="job_title" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-gray-600 mb-1">Work email *</label>
+              <input type="email" name="email" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-gray-600 mb-1">School name *</label>
+              <input type="text" name="school_name" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-gray-600 mb-1">School country *</label>
+            <input type="text" name="school_country" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-gray-600 mb-1">Additional notes (optional)</label>
+            <textarea name="notes" rows="3" placeholder="Any specific requirements or questions about the DPA?" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm"></textarea>
+          </div>
+
+          <div class="p-3 rounded-xl bg-gray-50 border border-gray-100 text-xs text-gray-500">
+            <p>TrackEDU Ltd is registered in England & Wales, No. 17216557. Registered Office: 128 City Road, London, EC1V 2NX, United Kingdom.</p>
+          </div>
+
+          <button type="submit" class="w-full py-3.5 bg-brand-blue hover:bg-brand-blue/90 text-white font-bold rounded-xl transition-all duration-200 shadow-md flex items-center justify-center gap-2">
+            <i class="fas fa-file-contract text-xs"></i>
+            Request DPA
+          </button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DPA Success Modal -->
+<div id="dpaSuccessModal" class="fixed inset-0 z-[10000] hidden overflow-y-auto">
+  <div class="min-h-full flex items-center justify-center p-4">
+    <div class="absolute inset-0 bg-gray-900/70 backdrop-blur-sm" onclick="closeDPASuccessModal()"></div>
+    <div class="relative w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden">
+      <div class="p-6 text-center">
+        <div class="w-16 h-16 rounded-full bg-green-100 text-brand-green flex items-center justify-center mx-auto mb-4">
+          <i class="fas fa-check text-2xl"></i>
+        </div>
+        <h3 class="font-display text-xl font-black text-gray-900 mb-2">DPA request sent</h3>
+        <p class="text-gray-600 text-sm mb-4">Thank you. We will email you the signed Data Processing Agreement within 48 hours.</p>
+        <button onclick="closeDPASuccessModal()" class="w-full py-2.5 bg-brand-green text-white font-bold rounded-xl hover:bg-green-600 transition">Got it</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openDPAModal() {
+    const modal = document.getElementById('dpaModal');
+    if (modal) {
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeDPAModal() {
+    const modal = document.getElementById('dpaModal');
+    if (modal) {
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+  }
+
+  function openDPASuccessModal() {
+    const modal = document.getElementById('dpaSuccessModal');
+    if (modal) {
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeDPASuccessModal() {
+    const modal = document.getElementById('dpaSuccessModal');
+    if (modal) {
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+  }
+
+  function handleDPAFormSubmit(event) {
+    event.preventDefault();
+    
+    const form = event.target;
+    const submitButton = form.querySelector('button[type="submit"]');
+    const formData = new FormData(form);
+    
+    formData.set('_next', 'https://www.trackedu.net');
+    formData.set('_captcha', 'false');
+    
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.innerHTML = '<i class="fas fa-circle-notch fa-spin text-xs"></i> Sending...';
+    }
+    
+    fetch('https://formsubmit.co/ajax/hello@trackedu.net', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => {
+      if (response.ok) {
+        closeDPAModal();
+        openDPASuccessModal();
+        form.reset();
+      } else {
+        throw new Error('Form submission failed');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('There was an error sending your request. Please email hello@trackedu.net directly.');
+    })
+    .finally(() => {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.innerHTML = '<i class="fas fa-file-contract text-xs"></i> Request DPA';
+      }
+    });
+    
+    return false;
+  }
+</script>
 
 
 
