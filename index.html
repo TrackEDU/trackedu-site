@@ -7792,8 +7792,8 @@ function closeModalAndOpenHouseMasterToolkits() {
     const submitButton = form.querySelector('button[type="submit"]');
     const formData = new FormData(form);
     
-    // Add Web3Forms access key
-    formData.append("access_key", "7f87c71e-2098-42d8-816a-29de230264d7");
+    // ❌ REMOVE THIS LINE - access key already in HTML
+    // formData.append("access_key", "7f87c71e-2098-42d8-816a-29de230264d7");
     
     if (submitButton) {
         submitButton.disabled = true;
@@ -8574,43 +8574,38 @@ function closeModalAndOpenHouseMasterToolkits() {
     const submitButton = form.querySelector('button[type="submit"]');
     const formData = new FormData(form);
     
-    // Add Web3Forms access key (remove FormSubmit specific fields)
-    formData.append("access_key", "7f87c71e-2098-42d8-816a-29de230264d7");
-    // Remove these - not needed for Web3Forms
-    // formData.set('_next', 'https://www.trackedu.net');
-    // formData.set('_captcha', 'false');
+    // ❌ REMOVE THIS LINE - access key already in HTML
+    // formData.append("access_key", "7f87c71e-2098-42d8-816a-29de230264d7");
     
     if (submitButton) {
-      submitButton.disabled = true;
-      submitButton.innerHTML = '<i class="fas fa-circle-notch fa-spin text-xs"></i> Sending...';
+        submitButton.disabled = true;
+        submitButton.innerHTML = '<i class="fas fa-circle-notch fa-spin text-xs"></i> Sending...';
     }
     
-    fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      body: formData
+    fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
     })
     .then(response => response.json())
     .then(data => {
-      if (data.success) {
-        closeDPAModal();
-        openDPASuccessModal();
-        form.reset();
-      } else {
-        throw new Error(data.message || 'Form submission failed');
-      }
+        if (data.success) {
+            closeDPAModal();
+            openDPASuccessModal();
+            form.reset();
+        } else {
+            throw new Error(data.message || 'Form submission failed');
+        }
     })
     .catch(error => {
-      console.error('Error:', error);
-      alert('There was an error sending your request. Please email hello@trackedu.net directly.');
+        console.error('Error:', error);
+        alert('There was an error sending your request. Please email hello@trackedu.net directly.');
     })
     .finally(() => {
-      if (submitButton) {
-        submitButton.disabled = false;
-        submitButton.innerHTML = '<i class="fas fa-file-contract text-xs"></i> Request DPA';
-      }
+        if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.innerHTML = '<i class="fas fa-file-contract text-xs"></i> Request DPA';
+        }
     });
-    
-    return false;
 }
 </script>
 
