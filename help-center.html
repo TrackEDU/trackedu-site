@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="scroll-smooth">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WV79KN1XBY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WV79KN1XBY');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>TrackEDU Help Center | Teacher App, Student Portal, Behavior Tracker Guides</title>
+  <meta name="description" content="TrackEDU Help Center with guides for teachers, school leaders, students, pastoral teams, school setup, CSV import, behaviour tracking, house points, and student rewards.">
+  <meta name="keywords" content="TrackEDU help center, TrackEDU guide, teacher app guide, student portal guide, behavior tracker guide, school rewards software guide, house points software help, school culture platform support">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+  <link rel="canonical" href="https://www.trackedu.net/help-center.html">
+  <link rel="icon" type="image/png" href="https://i.imgur.com/3PR3SiC.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TrackEDU">
+  <meta property="og:title" content="TrackEDU Help Center">
+  <meta property="og:description" content="Guides and tutorials for TrackEDU Teacher App, Student Portal, Behavior Tracker, school setup, CSV import, and implementation.">
+  <meta property="og:url" content="https://www.trackedu.net/help-center.html">
+  <meta property="og:image" content="https://trackedu.github.io/common-assets/trackedulogono.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0f66c3">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "TrackEDU Help Center",
+    "url": "https://www.trackedu.net/help-center.html",
+    "description": "Help Center for TrackEDU, including guides for the Teacher App, Student Portal, Behavior Tracker, school setup, CSV import, billing, privacy, and implementation.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "TrackEDU Ltd",
+      "url": "https://www.trackedu.net",
+      "logo": "https://trackedu.github.io/common-assets/trackedulogono.png"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do teachers start using TrackEDU?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Teachers can sign in with Google, join or create a school space, add or import students, and begin using the Teacher App to award points, manage classes, and access classroom tools."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do students need email accounts to use TrackEDU?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Students can access the Student Portal using an auto-generated student ID token and a class passcode, so they do not need personal email addresses or passwords."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does the Behavior Tracker do?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Behavior Tracker helps schools log incidents, monitor patterns, track intervention tiers, manage follow-up tasks, record parent communication, and export reports."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can schools import students into TrackEDU?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. TrackEDU supports CSV student import for school setup, including student names, classes, grades, houses, and related school information."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              blue: '#0f66c3',
+              green: '#87C232',
+              dark: '#0C1E2C',
+              light: '#F8FAFC'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Poppins', 'sans-serif']
+          },
+          boxShadow: {
+            card: '0 10px 40px -10px rgba(0, 0, 0, 0.08)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --blue: #0f66c3;
+      --green: #87C232;
+      --dark: #0C1E2C;
+      --light: #F8FAFC;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .text-gradient {
+      background: linear-gradient(135deg, #0f66c3 0%, #87C232 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-bg {
+      background:
+        radial-gradient(circle at top right, rgba(135, 194, 50, 0.18), transparent 35%),
+        radial-gradient(circle at bottom left, rgba(15, 102, 195, 0.12), transparent 35%),
+        linear-gradient(135deg, #f0f9ff 0%, #f8fff3 100%);
+    }
+
+    .guide-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .guide-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 40px -20px rgba(0,0,0,0.25);
+    }
+
+    .video-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .video-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 40px -20px rgba(0,0,0,0.25);
+    }
+
+    .faq-details {
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      background: white;
+      margin-bottom: 1rem;
+    }
+
+    .faq-summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 1.25rem 1.5rem;
+      font-weight: 800;
+      color: #0C1E2C;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .faq-summary::after {
+      content: '+';
+      color: #87C232;
+      font-weight: 900;
+      font-size: 1.2rem;
+    }
+
+    .faq-details[open] .faq-summary::after {
+      content: '−';
+    }
+
+    .faq-content {
+      padding: 0 1.5rem 1.5rem 1.5rem;
+      color: #64748b;
+      line-height: 1.65;
+      font-size: 0.95rem;
+    }
+
+    html {
+      scroll-padding-top: 90px;
+    }
+  </style>
+</head>
+
+<body class="overflow-x-hidden">
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-b border-gray-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <img src="https://trackedu.github.io/common-assets/trackedulogono.png" alt="TrackEDU Logo" class="w-10 h-10 object-contain" style="transform: scale(1.55);">
+        <span class="font-display text-2xl sm:text-3xl font-black text-brand-dark tracking-tighter">
+          Track<span class="text-brand-green">EDU</span>
+        </span>
+      </a>
+
+      <div class="hidden lg:flex items-center gap-7 text-sm font-bold text-gray-700">
+        <a href="#teacher-guide" class="hover:text-brand-blue transition">Teacher Guide</a>
+        <a href="#student-guide" class="hover:text-brand-blue transition">Student Guide</a>
+        <a href="#behavior-guide" class="hover:text-brand-blue transition">Behavior Tracker</a>
+        <a href="#school-setup" class="hover:text-brand-blue transition">School Setup</a>
+        <a href="#faq" class="hover:text-brand-blue transition">FAQ</a>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <a href="https://housepoint.trackedu.net/" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-green text-white text-sm font-black hover:bg-green-600 transition">
+          <i class="fas fa-rocket text-xs"></i>
+          Create Your School
+        </a>
+
+        <a href="/" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 text-gray-700 text-sm font-black hover:bg-gray-200 transition">
+          <i class="fas fa-arrow-left text-xs"></i>
+          Home
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero-bg pt-28 pb-14 sm:pb-20 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
+        <div>
+          <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-green-100 shadow-sm text-brand-green text-xs font-black uppercase tracking-wide mb-5">
+            <i class="fas fa-life-ring"></i>
+            TrackEDU Help Center
+          </span>
+
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-brand-dark mb-5">
+            Guides for teachers, students, pastoral teams, and school leaders.
+          </h1>
+
+          <p class="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl mb-8">
+            Learn how to set up TrackEDU, award house points, import students, use the Student Portal, manage behaviour records, and support school-wide culture from one connected platform.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="#quick-start" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-brand-blue text-white font-black hover:bg-blue-700 transition shadow-lg">
+              <i class="fas fa-play-circle text-sm"></i>
+              Start with quick guides
+            </a>
+
+            <a href="https://housepoint.trackedu.net/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-brand-green text-white font-black hover:bg-green-600 transition shadow-lg">
+              <i class="fas fa-rocket text-sm"></i>
+              Open TrackEDU
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-[32px] p-6 shadow-2xl border border-gray-100">
+          <div class="grid grid-cols-2 gap-4">
+            <a href="#teacher-guide" class="guide-card bg-blue-50 rounded-2xl p-5 border border-blue-100">
+              <i class="fas fa-chalkboard-user text-brand-blue text-2xl mb-4"></i>
+              <h2 class="font-black text-brand-dark text-lg mb-1">Teacher App</h2>
+              <p class="text-xs text-gray-500">Award points, manage classes, run classroom tools.</p>
+            </a>
+
+            <a href="#student-guide" class="guide-card bg-green-50 rounded-2xl p-5 border border-green-100">
+              <i class="fas fa-user-graduate text-brand-green text-2xl mb-4"></i>
+              <h2 class="font-black text-brand-dark text-lg mb-1">Student Portal</h2>
+              <p class="text-xs text-gray-500">Badges, streaks, house boosts, and student access.</p>
+            </a>
+
+            <a href="#behavior-guide" class="guide-card bg-purple-50 rounded-2xl p-5 border border-purple-100">
+              <i class="fas fa-chart-line text-purple-600 text-2xl mb-4"></i>
+              <h2 class="font-black text-brand-dark text-lg mb-1">Behavior Tracker</h2>
+              <p class="text-xs text-gray-500">Incidents, tiers, follow-ups, and pastoral visibility.</p>
+            </a>
+
+            <a href="#school-setup" class="guide-card bg-amber-50 rounded-2xl p-5 border border-amber-100">
+              <i class="fas fa-school text-amber-600 text-2xl mb-4"></i>
+              <h2 class="font-black text-brand-dark text-lg mb-1">School Setup</h2>
+              <p class="text-xs text-gray-500">Create your school, import CSVs, and launch.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Quick Start -->
+  <section id="quick-start" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gray-100 text-gray-600 text-xs font-black uppercase tracking-wide mb-4">
+          <i class="fas fa-bolt text-brand-green"></i>
+          Quick Start
+        </span>
+
+        <h2 class="font-display text-3xl sm:text-4xl font-black text-brand-dark mb-4">
+          Choose the guide that matches your role.
+        </h2>
+
+        <p class="text-gray-500 text-lg leading-relaxed">
+          TrackEDU works across several school roles. These quick-start paths help each user begin from the right place.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <a href="#teacher-guide" class="guide-card bg-gray-50 rounded-3xl p-6 border border-gray-100 shadow-sm">
+          <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shadow-sm mb-5">
+            <i class="fas fa-chalkboard-user text-brand-blue text-xl"></i>
+          </div>
+          <h3 class="font-display text-xl font-black text-brand-dark mb-2">I am a teacher</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            Learn how to join a school, add students, award points, use the Teacher Toolkit, and manage daily classroom routines.
+          </p>
+        </a>
+
+        <a href="#school-setup" class="guide-card bg-gray-50 rounded-3xl p-6 border border-gray-100 shadow-sm">
+          <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shadow-sm mb-5">
+            <i class="fas fa-school text-brand-green text-xl"></i>
+          </div>
+          <h3 class="font-display text-xl font-black text-brand-dark mb-2">I am a school leader</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            Learn how to create a school, configure houses, import students, review data, and prepare a pilot.
+          </p>
+        </a>
+
+        <a href="#behavior-guide" class="guide-card bg-gray-50 rounded-3xl p-6 border border-gray-100 shadow-sm">
+          <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shadow-sm mb-5">
+            <i class="fas fa-chart-line text-purple-600 text-xl"></i>
+          </div>
+          <h3 class="font-display text-xl font-black text-brand-dark mb-2">I manage behaviour</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            Learn how to log incidents, review intervention tiers, manage follow-ups, and export behaviour records.
+          </p>
+        </a>
+
+        <a href="#student-guide" class="guide-card bg-gray-50 rounded-3xl p-6 border border-gray-100 shadow-sm">
+          <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shadow-sm mb-5">
+            <i class="fas fa-user-graduate text-brand-green text-xl"></i>
+          </div>
+          <h3 class="font-display text-xl font-black text-brand-dark mb-2">I am a student</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            Learn how to log in, check points, collect badges, use daily streaks, and support your house.
+          </p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teacher Guide -->
+  <section id="teacher-guide" class="py-16 bg-gray-50 border-y border-gray-100">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-[0.9fr_1.4fr] gap-10 items-start">
+        <div>
+          <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 text-brand-blue text-xs font-black uppercase tracking-wide mb-4">
+            <i class="fas fa-chalkboard-user"></i>
+            Teacher Guide
+          </span>
+
+          <h2 class="font-display text-3xl sm:text-4xl font-black text-brand-dark mb-4">
+            How teachers use TrackEDU day to day.
+          </h2>
+
+          <p class="text-gray-600 leading-relaxed mb-6">
+            The Teacher App is the classroom command centre. Teachers can award points, manage classes, use classroom tools, generate certificates, run activities, and support positive student participation.
+          </p>
+
+          <a href="https://housepoint.trackedu.net/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-brand-blue text-white font-black hover:bg-blue-700 transition">
+            <i class="fas fa-right-to-bracket text-sm"></i>
+            Open Teacher App
+          </a>
+        </div>
+
+        <div class="bg-white rounded-3xl p-6 border border-gray-100 shadow-card">
+          <h3 class="font-black text-brand-dark text-xl mb-5">Teacher quick steps</h3>
+
+          <div class="space-y-4">
+            <div class="flex gap-4">
+              <span class="w-8 h-8 rounded-full bg-blue-50 text-brand-blue flex items-center justify-center font-black shrink-0">1</span>
+              <div>
+                <h4 class="font-black text-brand-dark">Sign in or join your school</h4>
+                <p class="text-sm text-gray-600">Use your Google account. If your school already exists, join using the school join code provided by your administrator.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <span class="w-8 h-8 rounded-full bg-blue-50 text-brand-blue flex items-center justify-center font-black shrink-0">2</span>
+              <div>
+                <h4 class="font-black text-brand-dark">Open Student Management</h4>
+                <p class="text-sm text-gray-600">View students, filter by class or house, add students manually, or work from the imported roster.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <span class="w-8 h-8 rounded-full bg-blue-50 text-brand-blue flex items-center justify-center font-black shrink-0">3</span>
+              <div>
+                <h4 class="font-black text-brand-dark">Award points</h4>
+                <p class="text-sm text-gray-600">Tap a student, select multiple students, award a whole class, or award a whole house for shared achievements.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <span class="w-8 h-8 rounded-full bg-blue-50 text-brand-blue flex items-center justify-center font-black shrink-0">4</span>
+              <div>
+                <h4 class="font-black text-brand-dark">Use classroom tools</h4>
+                <p class="text-sm text-gray-600">Use Magic Hat, Focus Timer, Group Builder, Quick Quiz, Class Calm Meter, Certificate Studio, and other tools to support classroom routines.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <span class="w-8 h-8 rounded-full bg-blue-50 text-brand-blue flex items-center justify-center font-black shrink-0">5</span>
+              <div>
+                <h4 class="font-black text-brand-dark">Review history</h4>
+                <p class="text-sm text-gray-600">Check award history, review student progress, and correct mistakes when needed.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 bg-blue-50 border border-blue-100 rounded-2xl p-4">
+            <p class="text-sm text-gray-700 leading-relaxed">
+              Tip: use the Teacher App on a laptop, tablet, smartboard, or phone. TrackEDU works through the browser, so no app store download is required.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Student Guide -->
+  <section id="student-guide" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-[1.3fr_0.9fr] gap-10 items-start">
+        <div class="bg-green-50 rounded-3xl p-6 sm:p-8 border border-green-100">
+          <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white text-brand-green text-xs font-black uppercase tracking-wide mb-4">
+            <i class="fas fa-user-graduate"></i>
+            Student Guide
+          </span>
+
+          <h2 class="font-display text-3xl sm:text-4xl font-black text-brand-dark mb-4">
+            How students access points, badges, streaks, and house progress.
+          </h2>
+
+          <p class="text-gray-600 leading-relaxed mb-6">
+            The Student Portal helps students see recognition, understand house progress, collect rewards, and participate in school culture. Students do not need personal email accounts.
+          </p>
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="bg-white rounded-2xl p-5 border border-green-100 shadow-sm">
+              <i class="fas fa-id-card text-brand-green text-xl mb-3"></i>
+              <h3 class="font-black text-brand-dark mb-2">Student ID login</h3>
+              <p class="text-sm text-gray-600">Students use an auto-generated ID token and a class passcode provided by the teacher.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 border border-green-100 shadow-sm">
+              <i class="fas fa-medal text-brand-green text-xl mb-3"></i>
+              <h3 class="font-black text-brand-dark mb-2">Badge collection</h3>
+              <p class="text-sm text-gray-600">Students can view points, unlock badge tiers, and follow their progress.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 border border-green-100 shadow-sm">
+              <i class="fas fa-fire text-brand-green text-xl mb-3"></i>
+              <h3 class="font-black text-brand-dark mb-2">Daily streaks</h3>
+              <p class="text-sm text-gray-600">Students can check in and build routine participation through daily streaks.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 border border-green-100 shadow-sm">
+              <i class="fas fa-house text-brand-green text-xl mb-3"></i>
+              <h3 class="font-black text-brand-dark mb-2">House identity</h3>
+              <p class="text-sm text-gray-600">Students can see live house progress and support their house through participation features.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-3xl p-6 border border-gray-100 shadow-card">
+          <h3 class="font-black text-brand-dark text-xl mb-5">Student quick steps</h3>
+
+          <ol class="space-y-4 text-sm text-gray-700">
+            <li class="flex gap-3"><span class="font-black text-brand-green">1.</span><span>Open the Student Portal link provided by the teacher.</span></li>
+            <li class="flex gap-3"><span class="font-black text-brand-green">2.</span><span>Enter the student ID token and class passcode.</span></li>
+            <li class="flex gap-3"><span class="font-black text-brand-green">3.</span><span>Check your points, house, badge progress, and streaks.</span></li>
+            <li class="flex gap-3"><span class="font-black text-brand-green">4.</span><span>Participate in polls, mystery word missions, and house features when enabled by the school.</span></li>
+            <li class="flex gap-3"><span class="font-black text-brand-green">5.</span><span>Add TrackEDU to the home screen for faster access on mobile or tablet.</span></li>
+          </ol>
+
+          <div class="mt-6">
+            <a href="https://housepoint.trackedu.net/" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-brand-green text-white font-black hover:bg-green-600 transition">
+              <i class="fas fa-user-graduate text-sm"></i>
+              Open Student Portal
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Behavior Guide -->
+  <section id="behavior-guide" class="py-16 bg-gray-50 border-y border-gray-100">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-50 text-purple-600 text-xs font-black uppercase tracking-wide mb-4">
+          <i class="fas fa-chart-line"></i>
+          Behavior Tracker Guide
+        </span>
+
+        <h2 class="font-display text-3xl sm:text-4xl font-black text-brand-dark mb-4">
+          Track incidents, interventions, follow-ups, and pastoral patterns.
+        </h2>
+
+        <p class="text-gray-600 leading-relaxed text-lg">
+          The Behavior Tracker gives authorised staff a structured way to record behaviour information, identify patterns earlier, and support students through tiered intervention workflows.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-6">
+        <div class="bg-white rounded-3xl p-6 border border-gray-100 shadow-sm">
+          <div class="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center mb-5">
+            <i class="fas fa-pen-alt text-xl"></i>
+          </div>
+          <h3 class="font-display text-xl font-black text-brand-dark mb-3">Log incidents</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            Record incidents using structured fields, severity levels, student details, notes, and action taken. This reduces reliance on scattered emails or informal notes.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-3xl p-6 border border-gray-100 shadow-sm">
+          <div class="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center mb-5">
+            <i class="fas fa-layer-group text-xl"></i>
+          </div>
+          <h3 class="font-display text-xl font-black text-brand-dark mb-3">Track intervention tiers</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            Track behaviour support across stages such as classroom-managed concerns, pastoral follow-up, senior leadership involvement, and structured support planning.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-3xl p-6 border border-gray-100 shadow-sm">
+          <div class="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center mb-5">
+            <i class="fas fa-file-export text-xl"></i>
+          </div>
+          <h3 class="font-display text-xl font-black text-brand-dark mb-3">Export records</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            Export behaviour records and reports to support pastoral meetings, leadership review, parent communication, and school documentation.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-8 bg-white rounded-3xl p-6 sm:p-8 border border-gray-100 shadow-card">
+        <h3 class="font-display text-2xl font-black text-brand-dark mb-5">Suggested behaviour workflow</h3>
+
+        <div class="grid md:grid-cols-4 gap-4">
+          <div class="bg-gray-50 rounded-2xl p-4 border border-gray-100">
+            <p class="font-black text-brand-dark mb-1">1. Record</p>
+            <p class="text-xs text-gray-600">Log the incident with student, class, context, severity, and notes.</p>
+          </div>
+
+          <div class="bg-gray-50 rounded-2xl p-4 border border-gray-100">
+            <p class="font-black text-brand-dark mb-1">2. Review</p>
+            <p class="text-xs text-gray-600">Check patterns by student, class, grade, date, or repeated behaviour type.</p>
+          </div>
+
+          <div class="bg-gray-50 rounded-2xl p-4 border border-gray-100">
+            <p class="font-black text-brand-dark mb-1">3. Follow up</p>
+            <p class="text-xs text-gray-600">Add actions such as parent contact, reflection, counselling referral, or team meeting.</p>
+          </div>
+
+          <div class="bg-gray-50 rounded-2xl p-4 border border-gray-100">
+            <p class="font-black text-brand-dark mb-1">4. Export</p>
+            <p class="text-xs text-gray-600">Export records for review, reporting, or school documentation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- School Setup -->
+  <section id="school-setup" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-[0.95fr_1.4fr] gap-10 items-start">
+        <div>
+          <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 text-amber-700 text-xs font-black uppercase tracking-wide mb-4">
+            <i class="fas fa-school"></i>
+            School Setup
+          </span>
+
+          <h2 class="font-display text-3xl sm:text-4xl font-black text-brand-dark mb-4">
+            Create your school in 5 to 10 minutes.
+          </h2>
+
+          <p class="text-gray-600 leading-relaxed mb-6">
+            School leaders and administrators can set up a TrackEDU school space, configure houses, import students, add staff, and begin a 30-day pilot.
+          </p>
+
+          <a href="https://housepoint.trackedu.net/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-brand-green text-white font-black hover:bg-green-600 transition">
+            <i class="fas fa-rocket text-sm"></i>
+            Create Your School
+          </a>
+        </div>
+
+        <div class="bg-gray-50 rounded-3xl p-6 border border-gray-100">
+          <h3 class="font-black text-brand-dark text-xl mb-5">Setup checklist</h3>
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="bg-white rounded-2xl p-5 border border-gray-100">
+              <i class="fas fa-right-to-bracket text-brand-blue mb-3"></i>
+              <h4 class="font-black text-brand-dark mb-2">Sign in with Google</h4>
+              <p class="text-sm text-gray-600">Use a school Google account to begin setup.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 border border-gray-100">
+              <i class="fas fa-building text-brand-blue mb-3"></i>
+              <h4 class="font-black text-brand-dark mb-2">Create school space</h4>
+              <p class="text-sm text-gray-600">Add school name, country, school details, and initial settings.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 border border-gray-100">
+              <i class="fas fa-house text-brand-green mb-3"></i>
+              <h4 class="font-black text-brand-dark mb-2">Configure houses</h4>
+              <p class="text-sm text-gray-600">Add house names, colours, emojis, mottos, and structure.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 border border-gray-100">
+              <i class="fas fa-file-csv text-brand-green mb-3"></i>
+              <h4 class="font-black text-brand-dark mb-2">Import students</h4>
+              <p class="text-sm text-gray-600">Prepare a CSV file and import student details into TrackEDU.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 border border-gray-100">
+              <i class="fas fa-user-plus text-purple-600 mb-3"></i>
+              <h4 class="font-black text-brand-dark mb-2">Invite staff</h4>
+              <p class="text-sm text-gray-600">Provide teacher access and assign appropriate roles.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 border border-gray-100">
+              <i class="fas fa-play text-purple-600 mb-3"></i>
+              <h4 class="font-black text-brand-dark mb-2">Launch pilot</h4>
+              <p class="text-sm text-gray-600">Begin using Teacher App, Student Portal, and Behavior Tracker.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CSV Import -->
+  <section id="csv-import" class="py-16 bg-gray-50 border-y border-gray-100">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-4xl mx-auto text-center mb-10">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white text-brand-blue text-xs font-black uppercase tracking-wide mb-4">
+          <i class="fas fa-file-csv"></i>
+          CSV Import Guide
+        </span>
+
+        <h2 class="font-display text-3xl sm:text-4xl font-black text-brand-dark mb-4">
+          Prepare your student data before import.
+        </h2>
+
+        <p class="text-gray-600 leading-relaxed text-lg">
+          TrackEDU uses CSV import so schools can prepare student records in a spreadsheet before uploading them into the system.
+        </p>
+      </div>
+
+      <div class="max-w-5xl mx-auto bg-white rounded-3xl p-6 sm:p-8 border border-gray-100 shadow-card">
+        <div class="grid md:grid-cols-3 gap-5">
+          <div class="bg-gray-50 rounded-2xl p-5 border border-gray-100">
+            <p class="font-black text-brand-dark mb-2">Recommended fields</p>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li>Student first name</li>
+              <li>Student last name or initial</li>
+              <li>Class or homeroom</li>
+              <li>Grade or year group</li>
+              <li>House name</li>
+              <li>Optional student reference</li>
+            </ul>
+          </div>
+
+          <div class="bg-gray-50 rounded-2xl p-5 border border-gray-100">
+            <p class="font-black text-brand-dark mb-2">Before uploading</p>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li>Check spelling consistency</li>
+              <li>Keep house names consistent</li>
+              <li>Remove duplicate rows</li>
+              <li>Use one row per student</li>
+              <li>Remove unnecessary personal data</li>
+            </ul>
+          </div>
+
+          <div class="bg-gray-50 rounded-2xl p-5 border border-gray-100">
+            <p class="font-black text-brand-dark mb-2">After import</p>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li>Check student count</li>
+              <li>Review houses and classes</li>
+              <li>Generate student access details</li>
+              <li>Test with a small staff group</li>
+              <li>Begin pilot use</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-6 bg-blue-50 border border-blue-100 rounded-2xl p-4 text-sm text-gray-700 leading-relaxed">
+          Keep the import file simple. TrackEDU does not need unnecessary demographic data to operate the house points and student engagement system.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Tutorials -->
+  <section id="video-tutorials" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gray-100 text-gray-600 text-xs font-black uppercase tracking-wide mb-4">
+          <i class="fas fa-video text-brand-green"></i>
+          Video Tutorials
+        </span>
+
+        <h2 class="font-display text-3xl sm:text-4xl font-black text-brand-dark mb-4">
+          Watch TrackEDU in action.
+        </h2>
+
+        <p class="text-gray-600 leading-relaxed text-lg">
+          These short tutorials help staff and school leaders understand setup, student import, awarding points, and daily use.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <a href="https://www.youtube.com/watch?v=lyTC9Y62N2w" target="_blank" rel="noopener noreferrer" class="video-card bg-gray-50 rounded-3xl overflow-hidden border border-gray-100 shadow-sm">
+          <img src="https://img.youtube.com/vi/lyTC9Y62N2w/hqdefault.jpg" alt="TrackEDU school setup video" class="w-full aspect-video object-cover">
+          <div class="p-5">
+            <h3 class="font-black text-brand-dark mb-1">Create Your School</h3>
+            <p class="text-sm text-gray-600">How to create and set up a TrackEDU school space.</p>
+          </div>
+        </a>
+
+        <a href="https://www.youtube.com/watch?v=d7mdA-g_lX4" target="_blank" rel="noopener noreferrer" class="video-card bg-gray-50 rounded-3xl overflow-hidden border border-gray-100 shadow-sm">
+          <img src="https://img.youtube.com/vi/d7mdA-g_lX4/hqdefault.jpg" alt="TrackEDU CSV import video" class="w-full aspect-video object-cover">
+          <div class="p-5">
+            <h3 class="font-black text-brand-dark mb-1">CSV Student Import</h3>
+            <p class="text-sm text-gray-600">How to prepare and import student data.</p>
+          </div>
+        </a>
+
+        <a href="https://www.youtube.com/watch?v=saGDS8hTNbQ" target="_blank" rel="noopener noreferrer" class="video-card bg-gray-50 rounded-3xl overflow-hidden border border-gray-100 shadow-sm">
+          <img src="https://img.youtube.com/vi/saGDS8hTNbQ/hqdefault.jpg" alt="TrackEDU award points video" class="w-full aspect-video object-cover">
+          <div class="p-5">
+            <h3 class="font-black text-brand-dark mb-1">How to Award Points</h3>
+            <p class="text-sm text-gray-600">Quick click, bulk select, and whole-class point awarding.</p>
+          </div>
+        </a>
+
+        <a href="https://www.youtube.com/watch?v=XXGsGuO1t1s" target="_blank" rel="noopener noreferrer" class="video-card bg-gray-50 rounded-3xl overflow-hidden border border-gray-100 shadow-sm">
+          <img src="https://img.youtube.com/vi/XXGsGuO1t1s/hqdefault.jpg" alt="TrackEDU Teacher Toolkit video" class="w-full aspect-video object-cover">
+          <div class="p-5">
+            <h3 class="font-black text-brand-dark mb-1">Teacher Toolkit</h3>
+            <p class="text-sm text-gray-600">Magic Hat, Focus Timer, Group Builder, Quick Quiz, and more.</p>
+          </div>
+        </a>
+
+        <a href="https://www.youtube.com/watch?v=rDBz3GPZSFE" target="_blank" rel="noopener noreferrer" class="video-card bg-gray-50 rounded-3xl overflow-hidden border border-gray-100 shadow-sm">
+          <img src="https://img.youtube.com/vi/rDBz3GPZSFE/hqdefault.jpg" alt="TrackEDU Student Portal video" class="w-full aspect-video object-cover">
+          <div class="p-5">
+            <h3 class="font-black text-brand-dark mb-1">Student Portal</h3>
+            <p class="text-sm text-gray-600">Student points, badges, streaks, and house engagement.</p>
+          </div>
+        </a>
+
+        <a href="https://www.youtube.com/watch?v=_cXVZfvfPtQ" target="_blank" rel="noopener noreferrer" class="video-card bg-gray-50 rounded-3xl overflow-hidden border border-gray-100 shadow-sm">
+          <img src="https://img.youtube.com/vi/_cXVZfvfPtQ/hqdefault.jpg" alt="TrackEDU Behavior Tracker video" class="w-full aspect-video object-cover">
+          <div class="p-5">
+            <h3 class="font-black text-brand-dark mb-1">Behavior Tracker</h3>
+            <p class="text-sm text-gray-600">Tiered intervention tracking and pastoral visibility.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Billing and Trust -->
+  <section id="billing-trust" class="py-16 bg-gray-50 border-y border-gray-100">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-8">
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-gray-100 shadow-sm">
+          <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 text-brand-blue text-xs font-black uppercase tracking-wide mb-4">
+            <i class="fas fa-file-invoice-dollar"></i>
+            Billing and procurement
+          </span>
+
+          <h2 class="font-display text-3xl font-black text-brand-dark mb-4">
+            School payment and invoice support.
+          </h2>
+
+          <p class="text-gray-600 leading-relaxed mb-5">
+            Schools can begin with a free 30-day pilot. After the pilot, early adopter annual licences start from USD 3,000/year. Schools can request an invoice, pay by bank transfer, or request a secure card payment link.
+          </p>
+
+          <ul class="space-y-3 text-sm text-gray-700 mb-6">
+            <li class="flex gap-2"><i class="fas fa-check-circle text-brand-green mt-0.5"></i><span>Invoice request available</span></li>
+            <li class="flex gap-2"><i class="fas fa-check-circle text-brand-green mt-0.5"></i><span>Bank transfer and secure card payment link options</span></li>
+            <li class="flex gap-2"><i class="fas fa-check-circle text-brand-green mt-0.5"></i><span>Manual licence activation after payment confirmation</span></li>
+            <li class="flex gap-2"><i class="fas fa-check-circle text-brand-green mt-0.5"></i><span>No automatic renewal</span></li>
+          </ul>
+
+          <a href="mailto:hello@trackedu.net?subject=TrackEDU%20Invoice%20Request" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-brand-blue text-white font-black hover:bg-blue-700 transition">
+            <i class="fas fa-envelope text-sm"></i>
+            Request invoice support
+          </a>
+        </div>
+
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-gray-100 shadow-sm">
+          <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-50 text-brand-green text-xs font-black uppercase tracking-wide mb-4">
+            <i class="fas fa-shield-halved"></i>
+            Privacy and trust
+          </span>
+
+          <h2 class="font-display text-3xl font-black text-brand-dark mb-4">
+            Designed with student data in mind.
+          </h2>
+
+          <p class="text-gray-600 leading-relaxed mb-5">
+            TrackEDU uses secure cloud infrastructure, no advertising, no selling of student data, and student access without requiring personal student email accounts.
+          </p>
+
+          <ul class="space-y-3 text-sm text-gray-700 mb-6">
+            <li class="flex gap-2"><i class="fas fa-check-circle text-brand-green mt-0.5"></i><span>School-controlled exports</span></li>
+            <li class="flex gap-2"><i class="fas fa-check-circle text-brand-green mt-0.5"></i><span>Student access without email accounts</span></li>
+            <li class="flex gap-2"><i class="fas fa-check-circle text-brand-green mt-0.5"></i><span>Privacy-conscious architecture</span></li>
+            <li class="flex gap-2"><i class="fas fa-check-circle text-brand-green mt-0.5"></i><span>ICO registered, Ref: ZC146923</span></li>
+          </ul>
+
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="/privacy.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gray-100 text-gray-700 font-black hover:bg-gray-200 transition">
+              Privacy Policy
+            </a>
+
+            <a href="/dpa.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gray-100 text-gray-700 font-black hover:bg-gray-200 transition">
+              DPA
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gray-100 text-gray-600 text-xs font-black uppercase tracking-wide mb-4">
+          <i class="fas fa-question-circle text-brand-green"></i>
+          Help Center FAQ
+        </span>
+
+        <h2 class="font-display text-3xl sm:text-4xl font-black text-brand-dark mb-4">
+          Common support questions.
+        </h2>
+      </div>
+
+      <details class="faq-details">
+        <summary class="faq-summary">How do teachers join an existing TrackEDU school?</summary>
+        <div class="faq-content">
+          Teachers can sign in with Google and use the school join code provided by the school administrator. Once joined, they can access the Teacher App and relevant school tools.
+        </div>
+      </details>
+
+      <details class="faq-details">
+        <summary class="faq-summary">Can one teacher use TrackEDU without the whole school joining?</summary>
+        <div class="faq-content">
+          Yes. Individual teachers can use the free Teacher Starter option with one class. For whole-school use, a school leader should create or approve the school space.
+        </div>
+      </details>
+
+      <details class="faq-details">
+        <summary class="faq-summary">Do students need email accounts?</summary>
+        <div class="faq-content">
+          No. Students can access the Student Portal using an auto-generated student ID token and a class passcode. This helps reduce unnecessary student data exposure.
+        </div>
+      </details>
+
+      <details class="faq-details">
+        <summary class="faq-summary">Can TrackEDU replace spreadsheets for house points?</summary>
+        <div class="faq-content">
+          Yes. TrackEDU is designed to reduce manual spreadsheet tracking by connecting points, houses, students, classes, leaderboards, reports, and exports in one platform.
+        </div>
+      </details>
+
+      <details class="faq-details">
+        <summary class="faq-summary">Can behaviour data be exported?</summary>
+        <div class="faq-content">
+          Yes. Authorised users can export relevant behaviour records and reports for review, meetings, and school documentation.
+        </div>
+      </details>
+
+      <details class="faq-details">
+        <summary class="faq-summary">How does TrackEDU support school leaders?</summary>
+        <div class="faq-content">
+          TrackEDU gives leaders visibility across house points, student engagement, behaviour records, pastoral patterns, exports, and implementation workflows.
+        </div>
+      </details>
+
+      <details class="faq-details">
+        <summary class="faq-summary">How much does TrackEDU cost after the pilot?</summary>
+        <div class="faq-content">
+          TrackEDU offers a free 30-day school pilot. After the pilot, early adopter annual school licences start from USD 3,000/year. Final pricing may vary by school size, implementation needs, support requirements, and rollout scope.
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-brand-dark text-white">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <h2 class="font-display text-3xl sm:text-4xl font-black mb-4">
+        Ready to set up TrackEDU?
+      </h2>
+
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto mb-8">
+        Start a 30-day school pilot, explore the tools, and decide whether TrackEDU is the right fit for your school culture system.
+      </p>
+
+      <div class="flex flex-col sm:flex-row justify-center gap-3">
+        <a href="https://housepoint.trackedu.net/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-brand-green text-white font-black hover:bg-green-600 transition shadow-lg">
+          <i class="fas fa-rocket text-sm"></i>
+          Create Your School
+        </a>
+
+        <a href="mailto:hello@trackedu.net?subject=TrackEDU%20Help%20Center%20Question" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-white/10 border border-white/10 text-white font-black hover:bg-white/15 transition">
+          <i class="fas fa-envelope text-sm"></i>
+          Contact Support
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-brand-dark text-white pt-12 pb-10 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-[1.1fr_2fr] gap-10 lg:gap-16 border-b border-white/10 pb-10 mb-8">
+        
+        <div>
+          <div class="font-display text-4xl font-black mb-5">
+            Track<span class="text-brand-green">EDU</span>
+          </div>
+
+          <p class="text-gray-400 text-base max-w-md leading-relaxed">
+            A complete school culture operating system. Teacher App, Student Portal, and Behavior Tracker working together in one unified platform.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8">
+          <div>
+            <h5 class="font-black text-xs uppercase tracking-widest text-brand-green mb-5">Platform</h5>
+            <ul class="space-y-3 text-sm text-gray-400">
+              <li><a href="/#tools-section" class="hover:text-white transition">Teacher App</a></li>
+              <li><a href="/#tools-section" class="hover:text-white transition">Student Portal</a></li>
+              <li><a href="/#tools-section" class="hover:text-white transition">Behavior Tracker</a></li>
+              <li><a href="/#pricing" class="hover:text-white transition">Plans</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h5 class="font-black text-xs uppercase tracking-widest text-brand-green mb-5">Compare</h5>
+            <ul class="space-y-3 text-sm text-gray-400">
+              <li><a href="/trackedu-vs-classdojo.html" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">TrackEDU vs ClassDojo</a></li>
+              <li><a href="/trackedu-vs-spreadsheets.html" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">TrackEDU vs Spreadsheets</a></li>
+              <li><a href="/house-points-software-vs-manual-house-points.html" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">House Points Software</a></li>
+              <li><a href="/best-school-rewards-system-international-schools.html" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">International School Rewards</a></li>
+              <li><a href="/behavior-tracking-software-pastoral-teams.html" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Pastoral Behavior Tracking</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h5 class="font-black text-xs uppercase tracking-widest text-brand-green mb-5">Help</h5>
+            <ul class="space-y-3 text-sm text-gray-400">
+              <li><a href="#teacher-guide" class="hover:text-white transition">Teacher Guide</a></li>
+              <li><a href="#student-guide" class="hover:text-white transition">Student Guide</a></li>
+              <li><a href="#behavior-guide" class="hover:text-white transition">Behavior Guide</a></li>
+              <li><a href="#school-setup" class="hover:text-white transition">School Setup</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h5 class="font-black text-xs uppercase tracking-widest text-brand-green mb-5">Trust</h5>
+            <ul class="space-y-3 text-sm text-gray-400">
+              <li><a href="/privacy.html" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Privacy Policy</a></li>
+              <li><a href="/dpa.html" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">DPA</a></li>
+              <li><a href="/terms.html" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Terms of Use</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h5 class="font-black text-xs uppercase tracking-widest text-brand-green mb-5">Support</h5>
+            <ul class="space-y-3 text-sm text-gray-400">
+              <li><a href="mailto:hello@trackedu.net" class="hover:text-white transition">hello@trackedu.net</a></li>
+              <li><a href="https://housepoint.trackedu.net/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Login</a></li>
+              <li><a href="/" class="hover:text-white transition">Homepage</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center text-xs text-gray-500 space-y-2">
+        <p>© 2026 TrackEDU Ltd. All rights reserved.</p>
+        <p>Registered in England &amp; Wales, No. 17216557. Registered Office: 128 City Road, London, EC1V 2NX, United Kingdom.</p>
+        <p>ICO registered for data protection compliance. Ref: ZC146923.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
