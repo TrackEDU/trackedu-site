@@ -5650,36 +5650,37 @@ class="group block p-5 rounded-xl border-2 border-gray-200 hover:border-brand-gr
     <input type="hidden" name="access_key" value="7f87c71e-2098-42d8-816a-29de230264d7">
     <input type="hidden" name="subject" value="🔥 Founding Schools Programme Application - TrackEDU">
     <input type="hidden" name="redirect" value="https://www.trackedu.net">
+    <input type="hidden" name="_autoresponse" value="Thank you for applying to the TrackEDU Founding Schools Programme! We have received your application. Our team will review your submission and contact you within 48 hours about the 1-year licence fee waiver. - The TrackEDU Team">
+    
+    <!-- Your form fields here -->
+    <div class="grid grid-cols-2 gap-3">
+      <div>
+        <label class="block text-xs font-semibold text-gray-600 mb-1">Full name *</label>
+        <input type="text" name="name" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm">
+      </div>
+      <div>
+        <label class="block text-xs font-semibold text-gray-600 mb-1">Job title *</label>
+        <input type="text" name="title" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm">
+      </div>
+    </div>
+    
+    <div class="grid grid-cols-2 gap-3">
+      <div>
+        <label class="block text-xs font-semibold text-gray-600 mb-1">School email *</label>
+        <input type="email" name="email" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm">
+      </div>
+      <div>
+        <label class="block text-xs font-semibold text-gray-600 mb-1">School name *</label>
+        <input type="text" name="school" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm">
+      </div>
+    </div>
+    
+    <div class="grid grid-cols-2 gap-3">
+      <div>
+        <label class="block text-xs font-semibold text-gray-600 mb-1">Country *</label>
+        <select name="country" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm bg-white">
+          <option value="">Select country</option>
   
-            
-            
-            <div class="grid grid-cols-2 gap-3">
-              <div>
-                <label class="block text-xs font-semibold text-gray-600 mb-1">Full name *</label>
-                <input type="text" name="name" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm">
-              </div>
-              <div>
-                <label class="block text-xs font-semibold text-gray-600 mb-1">Job title *</label>
-                <input type="text" name="title" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm">
-              </div>
-            </div>
-            
-            <div class="grid grid-cols-2 gap-3">
-              <div>
-                <label class="block text-xs font-semibold text-gray-600 mb-1">School email *</label>
-                <input type="email" name="email" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm">
-              </div>
-              <div>
-                <label class="block text-xs font-semibold text-gray-600 mb-1">School name *</label>
-                <input type="text" name="school" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm">
-              </div>
-            </div>
-            
-            <div class="grid grid-cols-2 gap-3">
-              <div>
-                <label class="block text-xs font-semibold text-gray-600 mb-1">Country *</label>
-                <select name="country" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm bg-white">
-                  <option value="">Select country</option>
                   <option value="Afghanistan">Afghanistan</option>
                   <option value="Albania">Albania</option>
                   <option value="Algeria">Algeria</option>
@@ -5882,7 +5883,7 @@ class="group block p-5 rounded-xl border-2 border-gray-200 hover:border-brand-gr
                 <label class="block text-xs font-semibold text-gray-600 mb-1">Student count *</label>
                 <select name="student_count" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none transition text-sm bg-white">
                   <option value="">Select range</option>
-                  <option value="<100">&lt; 100</option>
+                  <option value="&lt;100">&lt; 100</option>
                   <option value="100-300">100 - 300</option>
                   <option value="300-600">300 - 600</option>
                   <option value="600-1000">600 - 1,000</option>
@@ -5891,12 +5892,8 @@ class="group block p-5 rounded-xl border-2 border-gray-200 hover:border-brand-gr
               </div>
             </div>
             
-            <input type="hidden" name="source" value="founding_schools_modal">
-            <input type="hidden" name="timestamp" value="">
-            
-            <button type="submit" id="foundingSubmitBtn" class="w-full py-3 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl transition-all duration-200 flex items-center justify-center gap-2">
-              <span class="btn-text">Reserve Your Spot →</span>
-              <span class="btn-spinner hidden"><i class="fas fa-circle-notch fa-spin"></i></span>
+            <button type="submit" class="w-full py-3 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl transition-all duration-200 flex items-center justify-center gap-2">
+              Reserve Your Spot →
             </button>
             
             <p class="text-[10px] text-gray-400 text-center">
@@ -5909,61 +5906,6 @@ class="group block p-5 rounded-xl border-2 border-gray-200 hover:border-brand-gr
     </div>
   </div>
 </div>
-<script>
-  // Founding Schools Form with Web3Forms (Reliable)
-  const foundingForm = document.getElementById('foundingSchoolsForm');
-  if (foundingForm) {
-    foundingForm.addEventListener('submit', function(e) {
-      e.preventDefault(); // IMPORTANT: Prevent default form submission
-      
-      const submitBtn = document.getElementById('foundingSubmitBtn');
-      const btnText = submitBtn.querySelector('.btn-text');
-      const btnSpinner = submitBtn.querySelector('.btn-spinner');
-      
-      // Show spinner, disable button
-      btnText.classList.add('hidden');
-      btnSpinner.classList.remove('hidden');
-      submitBtn.disabled = true;
-      submitBtn.classList.add('opacity-70');
-      
-      // Add timestamp
-      const tsField = foundingForm.querySelector('input[name="timestamp"]');
-      if (tsField) tsField.value = new Date().toISOString();
-      
-      // Collect form data
-      const formData = new FormData(foundingForm);
-      formData.append("access_key", "7f87c71e-2098-42d8-816a-29de230264d7");
-      
-      // Send to Web3Forms
-      fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.success) {
-          // Show success message
-          alert("✅ Application submitted! We will contact you within 48 hours.");
-          foundingForm.reset();
-        } else {
-          alert("❌ Error: " + data.message + "\n\nPlease email hello@trackedu.net directly.");
-        }
-      })
-      .catch(error => {
-        console.error("Web3Forms Error:", error);
-        alert("❌ Something went wrong. Please email hello@trackedu.net directly.");
-      })
-      .finally(() => {
-        // Re-enable button
-        btnText.classList.remove('hidden');
-        btnSpinner.classList.add('hidden');
-        submitBtn.disabled = false;
-        submitBtn.classList.remove('opacity-70');
-      });
-    });
-  }
-  </script>
-
 
 
 
