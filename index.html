@@ -5096,12 +5096,11 @@ setTimeout(function() {
 
 
 
-
 <footer class="bg-brand-dark text-white pt-12 sm:pt-16 lg:pt-20 pb-10 sm:pb-12 overflow-hidden relative">
   <div class="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] pointer-events-none"></div>
   
   <div class="max-w-7xl mx-auto px-6 relative z-10">
-    <div class="grid lg:grid-cols-[1.2fr_1.8fr] gap-10 lg:gap-16 border-b border-white/10 pb-10 lg:pb-16 mb-8 lg:mb-12">
+    <div class="grid lg:grid-cols-[1.1fr_2fr] gap-10 lg:gap-16 border-b border-white/10 pb-10 lg:pb-16 mb-8 lg:mb-12">
       
       <!-- Brand -->
       <div>
@@ -5114,7 +5113,7 @@ setTimeout(function() {
         </p>
         
         <div class="flex items-center gap-4">
-          <a href="https://www.linkedin.com/company/trackedu/" target="_blank" class="w-11 h-11 rounded-xl bg-white/5 border border-white/10 text-gray-400 flex items-center justify-center hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all duration-300 shadow-lg" aria-label="TrackEDU on LinkedIn">
+          <a href="https://www.linkedin.com/company/trackedu/" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl bg-white/5 border border-white/10 text-gray-400 flex items-center justify-center hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all duration-300 shadow-lg" aria-label="TrackEDU on LinkedIn">
             <i class="fab fa-linkedin-in text-xl"></i>
           </a>
           <span class="text-[10px] font-black text-gray-600 uppercase tracking-widest">Follow our journey</span>
@@ -5122,50 +5121,38 @@ setTimeout(function() {
       </div>
       
       <!-- Footer Links -->
-<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-10">
-  
-  <div>
-    <h5 class="font-black text-xs uppercase tracking-widest text-brand-green mb-6">Platform</h5>
-    <ul class="space-y-4 text-sm text-gray-400">
-      <li><button onclick="showToolInfo('teacher')" class="hover:text-white transition text-left w-full">Teacher App</button></li>
-      <li><button onclick="showToolInfo('student')" class="hover:text-white transition text-left w-full">Student Portal</button></li>
-      <li><button onclick="showToolInfo('behavior')" class="hover:text-white transition text-left w-full">Behavior Tracker</button></li>
-      <li><a href="#pricing" class="hover:text-white transition">Plans</a></li>
-    </ul>
-  </div>
-
-  <div>
-    <h5 class="font-black text-xs uppercase tracking-widest text-brand-green mb-6">Compare</h5>
-    <ul class="space-y-4 text-sm text-gray-400">
-      <li><a href="/trackedu-vs-classdojo.html" class="hover:text-white transition">TrackEDU vs ClassDojo</a></li>
-      <li><a href="/trackedu-vs-spreadsheets.html" class="hover:text-white transition">TrackEDU vs Spreadsheets</a></li>
-      <li><a href="/house-points-software-vs-manual-house-points.html" class="hover:text-white transition">House Points Software vs Manual House Points</a></li>
-      <li><a href="/best-school-rewards-system-international-schools.html" class="hover:text-white transition">Rewards System for International Schools</a></li>
-      <li><a href="/behavior-tracking-software-pastoral-teams.html" class="hover:text-white transition">Behavior Tracking for Pastoral Teams</a></li>
-    </ul>
-  </div>
-
-  <div>
-    <h5 class="font-black text-xs uppercase tracking-widest text-brand-green mb-6">Trust Centre</h5>
-    <ul class="space-y-4 text-sm text-gray-400">
-      <li><button onclick="openTrustModal()" class="hover:text-white transition text-left">Data and Trust</button></li>
-      <li>
-        <a href="/privacy.html" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">
-          Privacy Policy
-        </a>
-      </li>
-      <li>
-        <a href="/dpa.html" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">
-          Data Processing Agreement (DPA)
-        </a>
-      </li>
-      <li>
-        <a href="/terms.html" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">
-          Terms of Use
-        </a>
-      </li>
-    </ul>
-  </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-10">
+        
+        <div>
+          <h5 class="font-black text-xs uppercase tracking-widest text-brand-green mb-6">Platform</h5>
+          <ul class="space-y-4 text-sm text-gray-400">
+            <li><button onclick="showToolInfo('teacher')" class="hover:text-white transition text-left w-full">Teacher App</button></li>
+            <li><button onclick="showToolInfo('student')" class="hover:text-white transition text-left w-full">Student Portal</button></li>
+            <li><button onclick="showToolInfo('behavior')" class="hover:text-white transition text-left w-full">Behavior Tracker</button></li>
+            <li><a href="#pricing" class="hover:text-white transition">Plans</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h5 class="font-black text-xs uppercase tracking-widest text-brand-green mb-6">Compare</h5>
+          <ul class="space-y-4 text-sm text-gray-400">
+            <li><a href="/trackedu-vs-classdojo.html" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">TrackEDU vs ClassDojo</a></li>
+            <li><a href="/trackedu-vs-spreadsheets.html" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">TrackEDU vs Spreadsheets</a></li>
+            <li><a href="/house-points-software-vs-manual-house-points.html" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">House Points Software vs Manual House Points</a></li>
+            <li><a href="/best-school-rewards-system-international-schools.html" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Rewards System for International Schools</a></li>
+            <li><a href="/behavior-tracking-software-pastoral-teams.html" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Behavior Tracking for Pastoral Teams</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h5 class="font-black text-xs uppercase tracking-widest text-brand-green mb-6">Trust Centre</h5>
+          <ul class="space-y-4 text-sm text-gray-400">
+            <li><button onclick="openTrustModal()" class="hover:text-white transition text-left">Data and Trust</button></li>
+            <li><a href="/privacy.html" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Privacy Policy</a></li>
+            <li><a href="/dpa.html" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Data Processing Agreement</a></li>
+            <li><a href="/terms.html" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Terms of Use</a></li>
+          </ul>
+        </div>
 
         <div>
           <h5 class="font-black text-xs uppercase tracking-widest text-brand-green mb-6">For Schools</h5>
@@ -5181,9 +5168,9 @@ setTimeout(function() {
           <h5 class="font-black text-xs uppercase tracking-widest text-brand-green mb-6">Support</h5>
           <ul class="space-y-4 text-sm text-gray-400">
             <li>
-              <button onclick="openHelpCenter()" class="hover:text-white transition text-left w-full">
+              <a href="/help-center.html" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">
                 <i class="fas fa-life-ring text-brand-green mr-2 w-4"></i> Help Center
-              </button>
+              </a>
             </li>
             <li>
               <a href="mailto:hello@trackedu.net" class="hover:text-white transition break-all">
@@ -5196,7 +5183,7 @@ setTimeout(function() {
               </a>
             </li>
             <li>
-              <a href="https://housepoint.trackedu.net/" target="_blank" class="hover:text-white transition">
+              <a href="https://housepoint.trackedu.net/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">
                 Login
               </a>
             </li>
@@ -5206,16 +5193,9 @@ setTimeout(function() {
       </div>
     </div>
   </div>
-
-
-
 </footer>
 
-
-
-
-
-<!-- Full width white legal strip - sits OUTSIDE the dark footer -->
+<!-- Full width white legal strip -->
 <div class="w-full bg-white border-t border-gray-200 py-6">
   <div class="max-w-5xl mx-auto px-5 sm:px-6">
     
@@ -5242,9 +5222,6 @@ setTimeout(function() {
           </span>
         </div>
       </div>
-
-      <!-- TODO: Once Wise account details are approved, replace the invoice email link with a proper invoice request form. -->
-      <!-- TODO: If a formal Data Processing Agreement page is created later, add it under Trust Centre. -->
 
     </div>
   </div>
