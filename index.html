@@ -5686,7 +5686,7 @@ class="group block p-5 rounded-xl border-2 border-gray-200 hover:border-brand-gr
           <form action="https://api.web3forms.com/submit" method="POST" id="foundingSchoolsForm" class="space-y-4">
             <input type="hidden" name="access_key" value="7f87c71e-2098-42d8-816a-29de230264d7">
             <input type="hidden" name="subject" value="🔥 Founding Schools Programme Application - TrackEDU">
-            <input type="hidden" name="redirect" value="https://www.trackedu.net">
+            <input type="hidden" name="redirect" value="https://www.trackedu.net?founding=success">
             <input type="hidden" name="_autoresponse" value="Thank you for applying to the TrackEDU Founding Schools Programme! We have received your application. Our team will review your submission and contact you within 48 hours. - The TrackEDU Team">
             
             <div class="grid grid-cols-2 gap-3">
@@ -6142,15 +6142,20 @@ if (window.innerWidth < 768) {
   const foundingForm = document.getElementById('foundingSchoolsForm');
   if (!foundingForm) return;
   
-  // Remove any existing submit listeners and add our own
+  // Add submit listener
   foundingForm.addEventListener('submit', function(e) {
+    // DO NOT prevent default - let the form submit normally to Web3Forms
+    // e.preventDefault(); // <- This line is REMOVED
+    
     const submitBtn = document.getElementById('foundingSubmitBtn');
+    if (!submitBtn) return;
+    
     const btnText = submitBtn.querySelector('.btn-text');
     const btnSpinner = submitBtn.querySelector('.btn-spinner');
     
     // Show spinner, disable button
-    btnText.classList.add('hidden');
-    btnSpinner.classList.remove('hidden');
+    if (btnText) btnText.classList.add('hidden');
+    if (btnSpinner) btnSpinner.classList.remove('hidden');
     submitBtn.disabled = true;
     submitBtn.classList.add('opacity-70');
     
@@ -6158,14 +6163,15 @@ if (window.innerWidth < 768) {
     const tsField = foundingForm.querySelector('input[name="timestamp"]');
     if (tsField) tsField.value = new Date().toISOString();
     
-    // Let the form submit normally - Web3Forms will redirect
-    // The spinner will stay visible during redirect
+    // Form submits normally to Web3Forms
+    // Web3Forms will redirect to URL with ?founding=success
+    // The spinner stays visible during redirect
     
     // Set a timeout to re-enable button if redirect fails (fallback)
     setTimeout(() => {
       if (submitBtn.disabled) {
-        btnText.classList.remove('hidden');
-        btnSpinner.classList.add('hidden');
+        if (btnText) btnText.classList.remove('hidden');
+        if (btnSpinner) btnSpinner.classList.add('hidden');
         submitBtn.disabled = false;
         submitBtn.classList.remove('opacity-70');
       }
@@ -6200,7 +6206,6 @@ function closeFoundingSuccessModal() {
     window.history.replaceState({}, document.title, newUrl);
   }
 })();
-
 
 
 function showMascotMessage() {
