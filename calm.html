@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
   <title>Calm Meter | Classroom Noise Tool</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Fredoka+One&display=swap" rel="stylesheet">
@@ -19,13 +19,10 @@
       font-family: 'Outfit', sans-serif;
       background: #0f172a;
       min-height: 100vh;
-      overflow: hidden;
-      position: fixed;
-      width: 100%;
-      height: 100%;
+      overflow-x: hidden;
     }
 
-    /* Main Modal Container - Full Screen, No Scrolling */
+    /* Main Modal Container */
     #calmMeterApp {
       position: fixed;
       inset: 0;
@@ -38,6 +35,34 @@
                   linear-gradient(135deg, #07111f 0%, #0f172a 48%, #111827 100%);
       overflow: hidden;
       z-index: 10000;
+    }
+
+    /* Mobile: allow scrolling */
+    @media (max-width: 900px) {
+      #calmMeterApp {
+        overflow-y: auto;
+        position: relative;
+        height: auto;
+        min-height: 100dvh;
+      }
+      .main-layout {
+        flex-direction: column !important;
+        padding-bottom: 20px;
+      }
+      .character-area {
+        min-height: 320px !important;
+      }
+      .controls-area {
+        padding: 16px !important;
+      }
+    }
+
+    /* Desktop: no scrolling, fixed */
+    @media (min-width: 901px) {
+      #calmMeterApp {
+        overflow: hidden;
+        position: fixed;
+      }
     }
 
     /* State Backgrounds */
@@ -72,6 +97,8 @@
       justify-content: space-between;
       align-items: center;
       flex-shrink: 0;
+      flex-wrap: wrap;
+      gap: 10px;
       z-index: 20;
     }
 
@@ -101,7 +128,7 @@
     .points-badge i { color: #fbbf24; }
     .points-value { font-size: 1.3rem; color: #fbbf24; }
 
-    .sound-btn {
+    .sound-btn, .deduct-toggle-btn {
       background: rgba(255,255,255,0.1);
       border: 1px solid rgba(255,255,255,0.2);
       width: 38px;
@@ -111,7 +138,27 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: all 0.2s;
     }
+    .deduct-toggle-btn.active {
+      background: #ef4444;
+      border-color: #ef4444;
+      color: white;
+    }
+
+    .footer-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+    }
+    .footer-link a {
+      color: #10b981;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .footer-link a:hover { color: #fbbf24; }
+    .footer-link span { color: #475569; }
 
     /* Main Layout - Split Screen */
     .main-layout {
@@ -122,13 +169,14 @@
       overflow: hidden;
     }
 
-    /* Left Side - Character Area */
+    /* Left Side - Character Area (compact) */
     .character-area {
-      flex: 1.2;
+      flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
+      min-width: 0;
     }
 
     .stage {
@@ -138,14 +186,13 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      padding: 20px;
     }
 
     .stage-glow {
       position: absolute;
-      width: 45vw;
-      height: 45vw;
-      max-width: 500px;
-      max-height: 500px;
+      width: min(50vw, 400px);
+      height: min(50vw, 400px);
       border-radius: 50%;
       opacity: 0.25;
       filter: blur(8px);
@@ -158,15 +205,18 @@
       50% { transform: scale(1.04); opacity: 0.32; }
     }
 
+    /* LARGER character on desktop */
     .mascot-img {
-      width: 35vw;
-      height: 35vw;
-      max-width: 320px;
-      max-height: 320px;
+      width: min(35vw, 380px);
+      height: min(35vw, 380px);
       object-fit: contain;
       filter: drop-shadow(0 26px 35px rgba(0,0,0,0.42));
       transition: transform 0.3s ease;
       z-index: 2;
+    }
+
+    @media (min-width: 1200px) {
+      .mascot-img { width: min(30vw, 450px); height: min(30vw, 450px); }
     }
 
     .state-quiet .mascot-img { animation: floatCalm 3.8s ease-in-out infinite; }
@@ -180,45 +230,69 @@
     @keyframes bounceCelebrate { 0%, 100% { transform: translateY(0); } 45% { transform: translateY(-15px); } }
 
     .message-card {
-      margin-top: 20px;
+      margin-top: 12px;
       text-align: center;
-      padding: 12px 24px;
+      padding: 8px 20px;
       background: rgba(15, 23, 42, 0.64);
       backdrop-filter: blur(12px);
       border-radius: 60px;
       border: 1px solid rgba(255,255,255,0.14);
     }
-    .main-message { font-size: clamp(24px, 4vw, 48px); font-weight: 900; letter-spacing: -0.02em; }
-    .sub-message { font-size: clamp(12px, 1.5vw, 16px); color: #94a3b8; margin-top: 4px; }
+    .main-message { font-size: clamp(20px, 3vw, 36px); font-weight: 900; letter-spacing: -0.02em; }
+    .sub-message { font-size: clamp(11px, 1.2vw, 14px); color: #94a3b8; margin-top: 2px; }
 
-    /* Right Side - Controls Area */
+    /* Right Side - Controls Area (compact) */
     .controls-area {
-      flex: 0.8;
+      flex: 0.7;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 20px;
-      min-width: 320px;
+      min-width: 300px;
     }
 
     .control-card {
       width: 100%;
-      max-width: 500px;
+      max-width: 480px;
       background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.05));
       backdrop-filter: blur(18px);
       border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 32px;
-      padding: 24px;
+      border-radius: 28px;
+      padding: 20px;
     }
 
+    /* Current Character Badge */
+    .current-character-badge {
+      background: rgba(0,0,0,0.3);
+      border-radius: 40px;
+      padding: 8px 16px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .badge-left { display: flex; align-items: center; gap: 12px; }
+    .badge-avatar {
+      width: 48px; height: 48px;
+      background: #1e293b;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid #fbbf24;
+    }
+    .badge-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .badge-name { font-weight: 800; font-size: 14px; }
+    .badge-points { font-size: 11px; color: #fbbf24; font-weight: 700; }
+
     /* Volume Meter */
-    .volume-meter { margin-bottom: 24px; }
+    .volume-meter { margin-bottom: 20px; }
     .meter-bar {
-      height: 20px;
+      height: 16px;
       background: rgba(255,255,255,0.1);
       border-radius: 10px;
       overflow: hidden;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .meter-fill {
       height: 100%;
@@ -226,28 +300,28 @@
       transition: width 0.1s linear;
       border-radius: 10px;
     }
-    .meter-labels { display: flex; justify-content: space-between; font-size: 10px; color: #94a3b8; font-weight: 600; }
+    .meter-labels { display: flex; justify-content: space-between; font-size: 9px; color: #94a3b8; font-weight: 600; }
 
     /* Timer */
     .timer-section {
       background: rgba(0,0,0,0.3);
-      border-radius: 20px;
-      padding: 20px;
-      margin: 20px 0;
+      border-radius: 18px;
+      padding: 16px;
+      margin: 16px 0;
       text-align: center;
     }
     .timer-display {
       font-family: monospace;
-      font-size: 3.5rem;
+      font-size: 2.8rem;
       font-weight: 900;
       color: #fbbf24;
       letter-spacing: 4px;
     }
     .timer-progress {
-      height: 6px;
+      height: 5px;
       background: rgba(255,255,255,0.1);
       border-radius: 3px;
-      margin: 12px 0;
+      margin: 10px 0;
       overflow: hidden;
     }
     .timer-progress-fill {
@@ -256,113 +330,170 @@
       background: linear-gradient(90deg, #10b981, #fbbf24);
       transition: width 0.3s linear;
     }
-    .timer-label { font-size: 11px; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; }
+    .timer-label { font-size: 10px; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; }
 
-    /* Goal Selector Row */
+    /* Goal Row */
     .goal-row {
       display: flex;
-      gap: 12px;
-      margin: 16px 0;
+      gap: 10px;
+      margin: 12px 0;
       flex-wrap: wrap;
     }
     .goal-select {
-      flex: 2;
+      flex: 1;
       background: rgba(255,255,255,0.1);
       border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 12px;
-      padding: 10px;
+      border-radius: 10px;
+      padding: 8px;
       color: white;
       font-weight: 700;
-      font-size: 13px;
+      font-size: 12px;
       cursor: pointer;
     }
     .goal-select option { background: #1e293b; }
 
+    /* Deduct Toggle Row */
+    .deduct-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 12px 0;
+      padding: 8px 12px;
+      background: rgba(0,0,0,0.2);
+      border-radius: 40px;
+    }
+    .deduct-label {
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .deduct-toggle {
+      background: rgba(255,255,255,0.15);
+      border: none;
+      padding: 6px 16px;
+      border-radius: 30px;
+      color: white;
+      font-weight: 700;
+      font-size: 11px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .deduct-toggle.active {
+      background: #ef4444;
+      box-shadow: 0 0 10px #ef4444;
+    }
+
     /* Buttons */
     .button-group {
       display: flex;
-      gap: 12px;
-      margin-top: 20px;
+      gap: 10px;
+      margin-top: 16px;
       flex-wrap: wrap;
     }
     .btn {
       flex: 1;
-      padding: 14px;
+      padding: 10px;
       border-radius: 40px;
       font-weight: 800;
-      font-size: 14px;
+      font-size: 12px;
       cursor: pointer;
       border: none;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 6px;
       transition: all 0.2s;
     }
     .btn-primary { background: linear-gradient(135deg, #10b981, #059669); color: white; }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(16,185,129,0.4); }
+    .btn-primary:hover { transform: translateY(-2px); }
     .btn-danger { background: rgba(239,68,68,0.2); border: 1px solid rgba(248,113,113,0.3); color: #fecaca; }
     .btn-secondary { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; }
 
-    /* Next Unlocks Strip */
+    /* Next Unlocks Strip - larger clickable cards */
     .next-strip {
-      margin-top: 24px;
-      padding-top: 16px;
+      margin-top: 20px;
+      padding-top: 12px;
       border-top: 1px solid rgba(255,255,255,0.1);
     }
     .next-title { font-size: 10px; color: #94a3b8; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; text-align: center; }
-    .unlock-grid { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
-    .unlock-item { text-align: center; opacity: 0.6; transition: all 0.3s; }
+    .unlock-grid { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .unlock-item {
+      text-align: center;
+      opacity: 0.6;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: rgba(0,0,0,0.3);
+      padding: 8px 12px;
+      border-radius: 16px;
+      min-width: 80px;
+    }
     .unlock-item.soon { opacity: 0.9; }
+    .unlock-item:hover { transform: scale(1.05); background: rgba(0,0,0,0.5); }
     .unlock-avatar {
-      width: 50px; height: 50px;
+      width: 60px;
+      height: 60px;
       background: rgba(255,255,255,0.1);
       border-radius: 50%;
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 4px;
+      margin: 0 auto 6px;
+      border: 2px solid #fbbf24;
     }
     .unlock-avatar img { width: 100%; height: 100%; object-fit: cover; }
-    .unlock-name { font-size: 10px; font-weight: 700; }
-    .unlock-points { font-size: 8px; color: #fbbf24; }
+    .unlock-name { font-size: 11px; font-weight: 700; }
+    .unlock-points { font-size: 9px; color: #fbbf24; }
 
-    /* Footer */
-    .footer {
-      text-align: center;
-      padding: 12px;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      flex-shrink: 0;
+    /* Character Zoom Modal */
+    .zoom-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.95);
+      backdrop-filter: blur(10px);
+      z-index: 20000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      cursor: pointer;
     }
-    .footer a { color: #10b981; text-decoration: none; font-weight: 600; }
-    .footer a:hover { color: #fbbf24; }
-    .footer small { font-size: 10px; color: #475569; display: block; margin-top: 4px; }
+    .zoom-modal.active { display: flex; }
+    .zoom-img {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: white;
+      padding: 10px;
+      overflow: hidden;
+      border: 4px solid #fbbf24;
+    }
+    .zoom-img img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.2) translateY(5%); }
+    .zoom-name { font-family: 'Fredoka One'; font-size: 1.5rem; color: #fbbf24; margin-top: 20px; }
+    .zoom-points { color: #94a3b8; margin-top: 8px; }
 
-    /* Status */
     .status-text {
       margin-top: 16px;
-      padding: 10px;
+      padding: 8px;
       background: rgba(0,0,0,0.3);
       border-radius: 12px;
-      font-size: 11px;
+      font-size: 10px;
       color: #94a3b8;
       text-align: center;
     }
 
-    /* Responsive - Stack on mobile */
     @media (max-width: 900px) {
-      .main-layout { flex-direction: column; }
-      .character-area { flex: 1; min-height: 0; }
-      .controls-area { flex: 1; min-height: 0; padding: 10px; }
-      .control-card { padding: 16px; max-width: 100%; }
-      .mascot-img { width: 40vw; height: 40vw; max-width: 200px; max-height: 200px; }
-      .stage-glow { width: 60vw; height: 60vw; }
-      .timer-display { font-size: 2.5rem; }
-      .btn { padding: 10px; font-size: 11px; }
+      .character-area { min-height: 280px; }
+      .mascot-img { width: 50vw; height: 50vw; max-width: 220px; max-height: 220px; }
+      .control-card { padding: 16px; }
+      .timer-display { font-size: 2rem; }
       .btn span { display: none; }
       .btn i { margin: 0; }
-      .goal-select { font-size: 11px; }
+      .unlock-avatar { width: 50px; height: 50px; }
+      .unlock-item { min-width: 70px; padding: 6px 8px; }
+      .current-character-badge { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -374,14 +505,23 @@
       <div class="logo-icon"><i class="fas fa-leaf"></i></div>
       <div class="logo-text"><span>Calm</span><span>Meter</span></div>
     </div>
-    <div class="points-badge">
-      <i class="fas fa-star"></i>
-      <span class="points-value" id="totalPointsDisplay">0</span>
-      <span style="font-size: 0.7rem;">PTS</span>
+    
+    <!-- Desktop footer links moved to header -->
+    <div class="footer-link">
+      <a href="https://trackedu.net" target="_blank">🐘 TrackEDU</a>
+      <span>•</span>
+      <a href="https://trackedu.net" target="_blank">12+ Free Tools →</a>
     </div>
-    <button class="sound-btn" id="soundToggleBtn">
-      <i class="fas fa-volume-up"></i>
-    </button>
+
+    <div style="display: flex; gap: 8px;">
+      <div class="points-badge">
+        <i class="fas fa-star"></i>
+        <span class="points-value" id="totalPointsDisplay">0</span>
+      </div>
+      <button class="sound-btn" id="soundToggleBtn">
+        <i class="fas fa-volume-up"></i>
+      </button>
+    </div>
   </div>
 
   <div class="main-layout">
@@ -400,6 +540,21 @@
     <!-- RIGHT: Controls Area -->
     <div class="controls-area">
       <div class="control-card">
+        
+        <!-- Current Character Badge (at top of card) -->
+        <div class="current-character-badge">
+          <div class="badge-left">
+            <div class="badge-avatar" id="currentCharAvatar">
+              <img src="https://trackedu.github.io/common-assets/1b.png" alt="Character">
+            </div>
+            <div>
+              <div class="badge-name" id="currentCharName">Curious Explorer</div>
+              <div class="badge-points" id="currentCharPoints">0 pts</div>
+            </div>
+          </div>
+          <div style="font-size: 10px; color: #10b981;">✓ Current Level</div>
+        </div>
+
         <!-- Volume Meter -->
         <div class="volume-meter">
           <div class="meter-bar">
@@ -431,12 +586,20 @@
             <option value="1200">20 minutes</option>
             <option value="1800">30 minutes</option>
           </select>
-          <select id="pointsSelect" class="goal-select" style="flex:1;">
+          <select id="pointsSelect" class="goal-select">
             <option value="1">+1 pt per 10s</option>
             <option value="2" selected>+2 pts per 10s</option>
             <option value="3">+3 pts per 10s</option>
             <option value="4">+4 pts per 10s</option>
           </select>
+        </div>
+
+        <!-- Deduct Points Toggle -->
+        <div class="deduct-row">
+          <div class="deduct-label">
+            <i class="fas fa-minus-circle"></i> Lose points when loud?
+          </div>
+          <button id="deductToggleBtn" class="deduct-toggle">OFF</button>
         </div>
 
         <!-- Buttons -->
@@ -446,9 +609,9 @@
           <button id="resetPointsBtn" class="btn btn-secondary"><i class="fas fa-undo-alt"></i> <span>Reset</span></button>
         </div>
 
-        <!-- Next Unlocks -->
+        <!-- Next Unlocks (clickable) -->
         <div class="next-strip">
-          <div class="next-title">✦ NEXT UNLOCKS ✦</div>
+          <div class="next-title">✦ NEXT UNLOCKS (click to view) ✦</div>
           <div class="unlock-grid" id="nextUnlocksGrid"></div>
         </div>
 
@@ -459,20 +622,26 @@
     </div>
   </div>
 
-  <div class="footer">
-    <a href="https://trackedu.net" target="_blank">🐘 Made with love by TrackEDU</a>
-    <small>Explore 12+ free classroom tools →</small>
+  <!-- Character Zoom Modal -->
+  <div id="zoomModal" class="zoom-modal" onclick="closeZoomModal()">
+    <div class="zoom-img">
+      <img id="zoomImg" src="" alt="">
+    </div>
+    <div class="zoom-name" id="zoomName"></div>
+    <div class="zoom-points" id="zoomPoints"></div>
+    <div style="margin-top: 20px; font-size: 12px; color: #64748b;">Tap anywhere to close</div>
   </div>
 </div>
 
 <script>
   // ==========================================
-  // CALM METER - FULL SCREEN VERSION
-  // 4 states with PNG images, 30 character unlocks
-  // No scrolling, fully visible on all devices
+  // CALM METER - FULL SCREEN VERSION WITH ALL FIXES
+  // Fixes: scrollable on mobile, larger character, reward state fix,
+  // footer in header, larger clickable next characters, current char at top,
+  // compact card, state duration (5 sec minimum), deduct points toggle
   // ==========================================
 
-  // --- STATE IMAGES (4 states from your existing assets) ---
+  // --- STATE IMAGES (4 states) ---
   const STATE_IMAGES = {
     quiet: ['https://trackedu.github.io/common-assets/state1a.png', 'https://trackedu.github.io/common-assets/state1b.png'],
     warning: ['https://trackedu.github.io/common-assets/state2a.png', 'https://trackedu.github.io/common-assets/state2b.png'],
@@ -487,7 +656,7 @@
     reward: { main: 'Great job!', sub: 'You kept the class calm!' }
   };
 
-  // --- 30 CHARACTERS FOR POINTS UNLOCKS ---
+  // --- 30 CHARACTERS ---
   const CHARACTERS = [
     { url: "https://trackedu.github.io/common-assets/1b.png", name: "Curious Explorer", threshold: 0 },
     { url: "https://trackedu.github.io/common-assets/1.png", name: "Eager Investigator", threshold: 50 },
@@ -537,10 +706,20 @@
   let currentCalmSeconds = 0;
   let isInNoiseZone = false;
   let streakAwarded = false;
+  
+  // State duration tracking (minimum 5 seconds per state)
+  let stateStartTime = 0;
+  let pendingState = null;
+  let stateChangeTimeout = null;
 
   // Points state
   let totalPoints = 0;
   let pointsPer10Sec = 2;
+  let deductPointsEnabled = false;
+  let deductPointsAmount = 1;
+  let lastDeductTime = 0;
+  const DEDUCT_COOLDOWN_MS = 3000;
+
   let currentState = 'quiet';
   let lastState = null;
   let currentVolume = 0;
@@ -562,23 +741,27 @@
   const goalSelect = document.getElementById('goalSelect');
   const pointsSelect = document.getElementById('pointsSelect');
   const resetPointsBtn = document.getElementById('resetPointsBtn');
+  const deductToggleBtn = document.getElementById('deductToggleBtn');
+  const currentCharAvatar = document.getElementById('currentCharAvatar');
+  const currentCharName = document.getElementById('currentCharName');
+  const currentCharPoints = document.getElementById('currentCharPoints');
 
   // ==========================================
   // LOCALSTORAGE PERSISTENCE
   // ==========================================
   function loadPoints() {
-    const saved = localStorage.getItem('calmmeter_points_v2');
+    const saved = localStorage.getItem('calmmeter_points_v3');
     if (saved !== null) totalPoints = parseInt(saved);
     else totalPoints = 0;
     updatePointsDisplay();
-    updateCharacterByPoints();
+    updateCurrentCharacterDisplay();
     updateNextUnlocks();
   }
 
   function savePoints() {
-    localStorage.setItem('calmmeter_points_v2', totalPoints);
+    localStorage.setItem('calmmeter_points_v3', totalPoints);
     updatePointsDisplay();
-    updateCharacterByPoints();
+    updateCurrentCharacterDisplay();
     updateNextUnlocks();
   }
 
@@ -589,11 +772,26 @@
     const newCharIndex = getCharacterIndexForPoints(totalPoints);
     const oldCharIndex = getCharacterIndexForPoints(totalPoints - amount);
     if (newCharIndex > oldCharIndex) {
-      // New character unlocked!
       playFanfareSound();
       confetti({ particleCount: 200, spread: 100, origin: { y: 0.5 } });
-      showStatusMessage(`🎉 NEW CHARACTER UNLOCKED: ${CHARACTERS[newCharIndex].name}!`, 'success');
+      showStatusMessage(`🎉 NEW CHARACTER: ${CHARACTERS[newCharIndex].name}!`, 'success');
     }
+  }
+
+  function deductPoints(amount) {
+    if (!deductPointsEnabled) return;
+    const now = Date.now();
+    if (now - lastDeductTime < DEDUCT_COOLDOWN_MS) return;
+    lastDeductTime = now;
+    
+    totalPoints = Math.max(0, totalPoints - amount);
+    savePoints();
+    showFloatingPoints(-amount, '#ef4444');
+    playDeductSound();
+    showStatusMessage(`🔇 Too loud! -${amount} point${amount !== 1 ? 's' : ''}`, 'warning');
+    
+    // Update current character display if needed
+    updateCurrentCharacterDisplay();
   }
 
   function resetPoints() {
@@ -613,12 +811,12 @@
     return idx;
   }
 
-  function updateCharacterByPoints() {
+  function updateCurrentCharacterDisplay() {
     const idx = getCharacterIndexForPoints(totalPoints);
-    // Update the mascot image to show the unlocked character (but keep state animation separate)
-    // This is subtle - the character evolves in the background
     const char = CHARACTERS[idx];
-    // Don't override state image - state animation is separate
+    currentCharAvatar.querySelector('img').src = char.url;
+    currentCharName.textContent = char.name;
+    currentCharPoints.textContent = `${char.threshold} pts`;
   }
 
   function updatePointsDisplay() {
@@ -635,35 +833,72 @@
       return;
     }
     
-    container.innerHTML = nextChars.map(c => `
-      <div class="unlock-item soon">
-        <div class="unlock-avatar"><img src="${c.url}" alt="${c.name}"></div>
+    container.innerHTML = nextChars.map((c, i) => `
+      <div class="unlock-item soon" onclick="event.stopPropagation(); showCharacterZoom('${c.url}', '${c.name}', ${c.threshold})">
+        <div class="unlock-avatar"><img src="${c.url}" alt="${c.name}" loading="lazy"></div>
         <div class="unlock-name">${c.name}</div>
         <div class="unlock-points">${c.threshold} pts</div>
       </div>
     `).join('');
   }
 
+  // Character zoom function
+  window.showCharacterZoom = function(url, name, threshold) {
+    const modal = document.getElementById('zoomModal');
+    document.getElementById('zoomImg').src = url;
+    document.getElementById('zoomName').textContent = name;
+    document.getElementById('zoomPoints').textContent = `${threshold} points to unlock`;
+    modal.classList.add('active');
+  };
+
+  window.closeZoomModal = function() {
+    document.getElementById('zoomModal').classList.remove('active');
+  };
+
   // ==========================================
-  // STATE MANAGEMENT (4 states with images)
+  // STATE MANAGEMENT (with minimum 5 second duration)
   // ==========================================
-  function setState(state, force = false) {
-    if (!force && currentState === state) return;
-    if (state === 'reward' && currentState === 'reward') return;
+  function setState(newState, force = false) {
+    if (!force && currentState === newState) return;
     
-    currentState = state;
+    const now = Date.now();
+    const timeInCurrentState = now - stateStartTime;
+    const MIN_STATE_DURATION = 5000; // 5 seconds minimum per state
+    
+    // If we're trying to change state too quickly, schedule it
+    if (!force && timeInCurrentState < MIN_STATE_DURATION && currentState !== 'reward') {
+      if (pendingState !== newState) {
+        pendingState = newState;
+        if (stateChangeTimeout) clearTimeout(stateChangeTimeout);
+        stateChangeTimeout = setTimeout(() => {
+          applyStateChange(newState);
+          pendingState = null;
+        }, MIN_STATE_DURATION - timeInCurrentState);
+      }
+      return;
+    }
+    
+    applyStateChange(newState);
+  }
+
+  function applyStateChange(newState) {
+    if (stateChangeTimeout) clearTimeout(stateChangeTimeout);
+    pendingState = null;
+    
+    currentState = newState;
+    stateStartTime = Date.now();
     
     // Update CSS class for background
     app.classList.remove('state-quiet', 'state-warning', 'state-loud', 'state-reward');
-    app.classList.add(`state-${state}`);
+    app.classList.add(`state-${newState}`);
     
     // Update messages
-    const msg = STATE_MESSAGES[state];
+    const msg = STATE_MESSAGES[newState];
     mainMessageSpan.textContent = msg.main;
     subMessageSpan.textContent = msg.sub;
     
     // Animate image change
-    const images = STATE_IMAGES[state];
+    const images = STATE_IMAGES[newState];
     imageIndex = (imageIndex + 1) % images.length;
     stateMascot.style.opacity = '0';
     setTimeout(() => {
@@ -671,14 +906,15 @@
       stateMascot.style.opacity = '1';
     }, 100);
     
-    // If reward state, add points bonus (only once)
-    if (state === 'reward' && !streakAwarded) {
+    // If reward state, add bonus points (only once per streak)
+    if (newState === 'reward' && !streakAwarded && timerSeconds <= 0) {
       const bonus = parseInt(pointsSelect.value) * 5;
       addPoints(bonus);
       showStatusMessage(`🎉 Calm goal reached! +${bonus} bonus points!`, 'success');
+      streakAwarded = true;
     }
     
-    lastState = state;
+    lastState = newState;
   }
 
   // ==========================================
@@ -700,6 +936,7 @@
     timerLabel.textContent = `Goal: ${totalTargetSeconds / 60} minutes of calm`;
     currentCalmSeconds = 0;
     streakAwarded = false;
+    if (currentState === 'reward') setState('quiet', true);
   }
 
   function startTimer() {
@@ -707,7 +944,7 @@
     timerInterval = setInterval(() => {
       if (!isMonitoring) return;
       
-      // Only count down if not in noise zone
+      // Only count down if not in noise zone and not already awarded
       if (!isInNoiseZone && timerSeconds > 0 && !streakAwarded) {
         timerSeconds--;
         currentCalmSeconds++;
@@ -718,15 +955,20 @@
           const pointsToAdd = pointsPer10Sec;
           addPoints(pointsToAdd);
           currentCalmSeconds = 0;
-          showFloatingPoints(pointsToAdd);
+          showFloatingPoints(pointsToAdd, '#fbbf24');
           playTickSound();
         }
         
         if (timerSeconds <= 0 && !streakAwarded) {
-          streakAwarded = true;
           setState('reward', true);
           playFanfareSound();
           confetti({ particleCount: 300, spread: 120, origin: { y: 0.5 } });
+        }
+      } else if (isInNoiseZone && deductPointsEnabled && !streakAwarded) {
+        // Deduct points when noisy (with cooldown)
+        const now = Date.now();
+        if (now - lastDeductTime >= DEDUCT_COOLDOWN_MS) {
+          deductPoints(deductPointsAmount);
         }
       }
     }, 1000);
@@ -818,6 +1060,7 @@
     isMonitoring = true;
     startVolumeLoop();
     startTimer();
+    stateStartTime = Date.now();
     
     startBtn.style.display = 'none';
     stopBtn.style.display = 'flex';
@@ -876,6 +1119,24 @@
     } catch(e) {}
   }
 
+  function playDeductSound() {
+    if (!soundEnabled) return;
+    try {
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.value = 220;
+      gain.gain.value = 0.1;
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.3);
+      osc.stop(ctx.currentTime + 0.3);
+      setTimeout(() => ctx.close(), 400);
+    } catch(e) {}
+  }
+
   function playFanfareSound() {
     if (!soundEnabled) return;
     try {
@@ -902,6 +1163,13 @@
     btn.innerHTML = soundEnabled ? '<i class="fas fa-volume-up"></i>' : '<i class="fas fa-volume-mute"></i>';
   }
 
+  function toggleDeductMode() {
+    deductPointsEnabled = !deductPointsEnabled;
+    deductToggleBtn.textContent = deductPointsEnabled ? 'ON' : 'OFF';
+    deductToggleBtn.classList.toggle('active', deductPointsEnabled);
+    showStatusMessage(deductPointsEnabled ? 'Point deduction ENABLED. Students lose points when loud!' : 'Point deduction DISABLED. Only positive reinforcement.', 'info');
+  }
+
   // ==========================================
   // UI HELPERS
   // ==========================================
@@ -914,9 +1182,9 @@
     }, 4000);
   }
 
-  function showFloatingPoints(points) {
+  function showFloatingPoints(points, color = '#fbbf24') {
     const floatEl = document.createElement('div');
-    floatEl.textContent = `+${points}`;
+    floatEl.textContent = points > 0 ? `+${points}` : `${points}`;
     floatEl.style.cssText = `
       position: fixed;
       top: 30%;
@@ -924,8 +1192,8 @@
       transform: translate(-50%, -50%);
       font-size: 2rem;
       font-weight: 900;
-      color: #fbbf24;
-      text-shadow: 0 0 10px #fbbf24;
+      color: ${color};
+      text-shadow: 0 0 10px ${color};
       pointer-events: none;
       z-index: 1000;
       animation: floatUp 1.5s ease-out forwards;
@@ -952,6 +1220,7 @@
   goalSelect.addEventListener('change', () => { setGoal(); if (!isMonitoring) resetTimer(); });
   pointsSelect.addEventListener('change', () => { pointsPer10Sec = parseInt(pointsSelect.value); });
   resetPointsBtn.addEventListener('click', resetPoints);
+  deductToggleBtn.addEventListener('click', toggleDeductMode);
   document.getElementById('soundToggleBtn').addEventListener('click', toggleSound);
   
   startBtn.addEventListener('click', startMeter);
@@ -960,6 +1229,7 @@
   // Initialize
   loadPoints();
   setGoal();
+  stateStartTime = Date.now();
   
   showStatusMessage('Ready to start. Click Start and allow microphone.', 'info');
 </script>
