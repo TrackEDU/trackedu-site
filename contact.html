@@ -3,323 +3,953 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact TrackEDU | Get in Touch with Our Team</title>
-  <meta name="description" content="Contact the TrackEDU team for school demos, invoice requests, Founding Schools Programme, or general questions. We respond within 24 hours.">
-  
-  <!-- Favicon -->
+
+  <title>Contact TrackEDU | Demos, School Pilots & Founding Schools</title>
+  <meta name="description" content="Contact TrackEDU to book a school demo, start a 30-day pilot, apply for the Founding Schools Programme, request an invoice, or ask about school setup and data protection.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="TrackEDU Ltd">
+  <meta name="theme-color" content="#0f66c3">
+  <link rel="canonical" href="https://www.trackedu.net/contact.html">
   <link rel="icon" type="image/png" href="https://i.imgur.com/3PR3SiC.png">
-  
-  <!-- Fonts & Styles -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TrackEDU">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:title" content="Contact TrackEDU | Demos, School Pilots & Founding Schools">
+  <meta property="og:description" content="Speak with TrackEDU about school demos, pilots, invoices, Founding Schools, behaviour tracking, house points, and implementation.">
+  <meta property="og:url" content="https://www.trackedu.net/contact.html">
+  <meta property="og:image" content="https://trackedu.github.io/common-assets/trackedulogono.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact TrackEDU | Demos, School Pilots & Founding Schools">
+  <meta name="twitter:description" content="Book a demo, start a pilot, apply for Founding Schools, or ask about TrackEDU implementation.">
+  <meta name="twitter:image" content="https://trackedu.github.io/common-assets/trackedulogono.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact TrackEDU",
+    "url": "https://www.trackedu.net/contact.html",
+    "description": "Contact TrackEDU for school demos, pilot enquiries, Founding Schools applications, invoice requests, support, and implementation questions.",
+    "inLanguage": "en-GB",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "TrackEDU Ltd",
+      "url": "https://www.trackedu.net/",
+      "email": "hello@trackedu.net",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "128 City Road",
+        "addressLocality": "London",
+        "postalCode": "EC1V 2NX",
+        "addressCountry": "GB"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "email": "hello@trackedu.net",
+          "contactType": "sales and support",
+          "availableLanguage": "English"
+        }
+      ]
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdn.tailwindcss.com"></script>
-  
+
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            brand: { blue: '#0f66c3', green: '#87C232', dark: '#0C1E2C', light: '#F8FAFC' }
+            brand: {
+              blue: '#0f66c3',
+              green: '#87C232',
+              dark: '#0C1E2C',
+              light: '#F8FAFC'
+            }
           },
-          fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Poppins', 'sans-serif'] }
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Poppins', 'sans-serif']
+          },
+          boxShadow: {
+            soft: '0 18px 45px -24px rgba(15, 23, 42, 0.28)',
+            lift: '0 26px 60px -28px rgba(15, 23, 42, 0.35)',
+            green: '0 18px 40px -22px rgba(135, 194, 50, 0.65)',
+            blue: '0 18px 40px -22px rgba(15, 102, 195, 0.55)'
+          }
         }
       }
     }
   </script>
-  
+
   <style>
-    body { font-family: 'Inter', sans-serif; background-color: #F8FAFC; -webkit-font-smoothing: antialiased; }
-    .btn-primary { background: #87C232; color: white; border-radius: 14px; font-weight: 700; transition: all 0.2s ease; box-shadow: 0 4px 12px rgba(135,194,50,0.3); }
-    .btn-primary:hover { background: #74a82a; transform: translateY(-2px); }
-    .btn-secondary { background: transparent; border: 2px solid #0f66c3; color: #0f66c3; border-radius: 14px; font-weight: 700; transition: all 0.2s ease; }
-    .btn-secondary:hover { background: #0f66c3; color: white; }
-    .contact-card { transition: all 0.2s ease; }
-    .contact-card:hover { transform: translateY(-4px); box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1); }
+    :root {
+      --blue: #0f66c3;
+      --green: #87C232;
+      --dark: #0C1E2C;
+      --light: #F8FAFC;
+      --ink: #0f172a;
+      --muted: #64748b;
+      --line: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(135, 194, 50, 0.14), transparent 34rem),
+        radial-gradient(circle at 90% 10%, rgba(15, 102, 195, 0.12), transparent 32rem),
+        #F8FAFC;
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+    }
+
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.86);
+    }
+
+    .brand-gradient {
+      background: linear-gradient(135deg, var(--blue), #2d8c90 42%, var(--green));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .btn-primary,
+    .btn-blue,
+    .btn-dark,
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      border-radius: 1rem;
+      font-weight: 900;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: #fff;
+      box-shadow: 0 18px 38px -22px rgba(135, 194, 50, 0.8);
+    }
+
+    .btn-primary:hover {
+      background: #78ae2c;
+      transform: translateY(-2px);
+      box-shadow: 0 24px 44px -22px rgba(135, 194, 50, 0.92);
+    }
+
+    .btn-blue {
+      background: var(--blue);
+      color: #fff;
+      box-shadow: 0 18px 38px -22px rgba(15, 102, 195, 0.8);
+    }
+
+    .btn-blue:hover {
+      background: #0d57a8;
+      transform: translateY(-2px);
+    }
+
+    .btn-dark {
+      background: var(--dark);
+      color: #fff;
+    }
+
+    .btn-dark:hover {
+      background: #122b3d;
+      transform: translateY(-2px);
+    }
+
+    .btn-ghost {
+      background: #fff;
+      color: var(--dark);
+      border: 1px solid rgba(226, 232, 240, 0.95);
+      box-shadow: 0 14px 32px -24px rgba(15, 23, 42, 0.35);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(15, 102, 195, 0.35);
+      color: var(--blue);
+      transform: translateY(-2px);
+    }
+
+    .choice-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1.7rem;
+      border: 1px solid rgba(226, 232, 240, 0.95);
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: 0 20px 45px -32px rgba(15, 23, 42, 0.42);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+    }
+
+    .choice-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(15, 102, 195, 0.25);
+      box-shadow: 0 30px 70px -35px rgba(15, 23, 42, 0.52);
+    }
+
+    .choice-card::after {
+      content: '';
+      position: absolute;
+      inset: auto -4rem -5rem auto;
+      width: 12rem;
+      height: 12rem;
+      border-radius: 999px;
+      background: rgba(135, 194, 50, 0.08);
+      pointer-events: none;
+    }
+
+    .dark-card {
+      background:
+        radial-gradient(circle at top right, rgba(135, 194, 50, 0.24), transparent 16rem),
+        linear-gradient(135deg, #0C1E2C, #111827);
+      border-color: rgba(255, 255, 255, 0.12);
+      color: white;
+    }
+
+    .field {
+      width: 100%;
+      border: 1px solid #dbe3ee;
+      background: #fff;
+      border-radius: 1rem;
+      padding: 0.85rem 1rem;
+      font-size: 0.92rem;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .field:focus {
+      border-color: rgba(15, 102, 195, 0.82);
+      box-shadow: 0 0 0 4px rgba(15, 102, 195, 0.12);
+    }
+
+    .label {
+      display: block;
+      margin-bottom: 0.45rem;
+      font-size: 0.72rem;
+      font-weight: 900;
+      color: #334155;
+      text-transform: uppercase;
+      letter-spacing: 0.055em;
+    }
+
+    .micro-card {
+      border: 1px solid rgba(226, 232, 240, 0.95);
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 1.35rem;
+      box-shadow: 0 18px 38px -30px rgba(15, 23, 42, 0.35);
+    }
+
+    .hero-device {
+      position: relative;
+      border-radius: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background:
+        radial-gradient(circle at top left, rgba(135, 194, 50, 0.2), transparent 14rem),
+        linear-gradient(145deg, #0C1E2C, #152c3f);
+      box-shadow: 0 30px 80px -38px rgba(15, 23, 42, 0.72);
+      overflow: hidden;
+    }
+
+    .hero-device::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-size: 34px 34px;
+      mask-image: linear-gradient(to bottom, black, transparent);
+      pointer-events: none;
+    }
+
+    .signal-pill {
+      border: 1px solid rgba(226, 232, 240, 0.92);
+      background: rgba(255, 255, 255, 0.86);
+      border-radius: 999px;
+      padding: 0.55rem 0.85rem;
+      font-size: 0.75rem;
+      color: #475569;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      white-space: nowrap;
+    }
+
+    .modal-panel {
+      width: min(94vw, 44rem);
+      max-height: 88vh;
+      overflow-y: auto;
+      border-radius: 1.8rem;
+      background: #fff;
+      box-shadow: 0 34px 90px rgba(2, 6, 23, 0.48);
+      border: 1px solid rgba(226, 232, 240, 0.95);
+    }
+
+    @media (max-width: 767px) {
+      .hero-device {
+        border-radius: 1.4rem;
+      }
+
+      .modal-panel {
+        width: 100vw;
+        max-height: 100dvh;
+        min-height: 100dvh;
+        border-radius: 0;
+      }
+    }
   </style>
 </head>
-<body class="antialiased overflow-x-hidden">
 
-  <!-- Simple Navigation Bar -->
-  <nav class="bg-white/95 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-5 py-3 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-2">
-        <img src="https://trackedu.github.io/common-assets/trackedulogono.png" alt="TrackEDU" class="h-9 w-9 object-contain" style="transform: scale(1.4);">
-        <span class="font-display text-2xl font-black text-brand-dark tracking-tighter">Track<span class="text-brand-green">EDU</span></span>
+<body class="overflow-x-hidden">
+
+  <nav class="glass-nav sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-5 py-3 flex items-center justify-between gap-4">
+      <a href="/" class="flex items-center gap-2.5 shrink-0" aria-label="TrackEDU home">
+        <img src="https://trackedu.github.io/common-assets/trackedulogono.png" alt="TrackEDU logo" class="h-9 w-9 object-contain" style="transform: scale(1.38);">
+        <span class="font-display text-2xl font-black tracking-tighter text-brand-dark">Track<span class="text-brand-green">EDU</span></span>
       </a>
-      <div class="hidden md:flex items-center gap-6">
-        <a href="/#why-trackedu" class="text-sm font-bold text-gray-600 hover:text-brand-blue transition">Why TrackEDU</a>
-        <a href="/#solutions" class="text-sm font-bold text-gray-600 hover:text-brand-blue transition">Solutions</a>
-        <a href="/#pricing" class="text-sm font-bold text-gray-600 hover:text-brand-blue transition">Plans</a>
-        <a href="/contact.html" class="text-sm font-bold text-brand-blue border-b-2 border-brand-blue">Contact</a>
-        <a href="https://housepoint.trackedu.net/" target="_blank" class="px-4 py-2 rounded-xl bg-brand-green text-white text-sm font-bold hover:bg-green-600 transition shadow-md">Create Your School →</a>
+
+      <div class="hidden lg:flex items-center gap-7">
+        <a href="/#why-trackedu" class="text-sm font-extrabold text-slate-600 hover:text-brand-blue transition">Why TrackEDU</a>
+        <a href="/#tools-section" class="text-sm font-extrabold text-slate-600 hover:text-brand-blue transition">Tools</a>
+        <a href="/#pricing" class="text-sm font-extrabold text-slate-600 hover:text-brand-blue transition">Plans</a>
+        <a href="/#faq" class="text-sm font-extrabold text-slate-600 hover:text-brand-blue transition">FAQ</a>
+        <a href="/contact.html" class="text-sm font-black text-brand-blue">Contact</a>
       </div>
+
+      <div class="hidden sm:flex items-center gap-2">
+        <button data-cal-link="trackedu-a9dbpy/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view"}' class="btn-ghost px-4 py-2 text-sm">
+          <i class="fas fa-calendar-check text-brand-blue text-xs"></i>
+          Book demo
+        </button>
+        <a href="https://housepoint.trackedu.net/" target="_blank" rel="noopener" class="btn-primary px-4 py-2 text-sm">
+          Create your school
+          <i class="fas fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+
+      <a href="mailto:hello@trackedu.net" class="sm:hidden w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-brand-blue shadow-sm" aria-label="Email TrackEDU">
+        <i class="fas fa-envelope"></i>
+      </a>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="relative py-16 md:py-20 bg-gradient-to-br from-white to-gray-50">
-    <div class="max-w-6xl mx-auto px-5 text-center">
-      <span class="inline-flex items-center gap-2 bg-brand-green/10 text-brand-green px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wide mb-4">
-        <i class="fas fa-comment-dots"></i> Get in Touch
-      </span>
-      <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-black text-brand-dark leading-tight mb-4">
-        Let's talk<span class="text-brand-green">.</span>
-      </h1>
-      <p class="text-gray-500 text-lg max-w-2xl mx-auto">
-        Questions about TrackEDU for your school? Need a demo, an invoice, or support? We're here to help — typically within 24 hours.
-      </p>
-    </div>
-  </section>
+  <main>
 
-  <!-- Quick Action Cards - Audience Segmentation -->
-  <div class="max-w-6xl mx-auto px-5 -mt-8 mb-16">
-    <div class="grid md:grid-cols-3 gap-5">
-      
-      <!-- Card 1: Book a Demo -->
-      <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm contact-card">
-        <div class="w-12 h-12 rounded-xl bg-brand-blue/10 flex items-center justify-center mb-4">
-          <i class="fas fa-calendar-alt text-brand-blue text-xl"></i>
-        </div>
-        <h3 class="font-black text-xl text-brand-dark mb-2">Book a Demo</h3>
-        <p class="text-gray-500 text-sm mb-4">See TrackEDU in action with a personalised walkthrough for your school.</p>
-        <button data-cal-link="trackedu-a9dbpy/30min" class="w-full py-2.5 rounded-xl bg-brand-blue text-white font-bold text-sm hover:bg-blue-700 transition flex items-center justify-center gap-2">
-          <i class="fas fa-calendar-check"></i> Schedule 30-min demo
-        </button>
-      </div>
-      
-      <!-- Card 2: Founding Schools -->
-      <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-6 border border-white/10 contact-card">
-        <div class="w-12 h-12 rounded-xl bg-brand-green/20 flex items-center justify-center mb-4">
-          <i class="fas fa-crown text-brand-green text-xl"></i>
-        </div>
-        <h3 class="font-black text-xl text-white mb-2">Founding Schools</h3>
-        <p class="text-gray-300 text-sm mb-4">Limited spots: 1 year free access + training + priority support.</p>
-        <button onclick="openPilotModal()" class="w-full py-2.5 rounded-xl bg-amber-600 text-white font-bold text-sm hover:bg-amber-700 transition flex items-center justify-center gap-2">
-          <i class="fas fa-rocket"></i> Apply now → 
-        </button>
-      </div>
-      
-      <!-- Card 3: Invoice Request -->
-      <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm contact-card">
-        <div class="w-12 h-12 rounded-xl bg-brand-green/10 flex items-center justify-center mb-4">
-          <i class="fas fa-file-invoice-dollar text-brand-green text-xl"></i>
-        </div>
-        <h3 class="font-black text-xl text-brand-dark mb-2">Request an Invoice</h3>
-        <p class="text-gray-500 text-sm mb-4">Ready to purchase? Request an official invoice for your school.</p>
-        <button onclick="openInvoiceModal()" class="w-full py-2.5 rounded-xl bg-gray-100 text-gray-700 font-bold text-sm hover:bg-gray-200 transition flex items-center justify-center gap-2">
-          <i class="fas fa-file-invoice"></i> Request invoice
-        </button>
-      </div>
-      
-    </div>
-  </div>
+    <section class="relative pt-14 md:pt-20 pb-10 md:pb-14">
+      <div class="max-w-7xl mx-auto px-5">
+        <div class="grid lg:grid-cols-[1.02fr_0.98fr] gap-8 lg:gap-12 items-center">
 
-  <!-- Contact Form + Info Section -->
-  <div class="max-w-6xl mx-auto px-5 pb-20">
-    <div class="grid lg:grid-cols-2 gap-12">
-      
-      <!-- LEFT: Contact Form (Web3Forms) -->
-      <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-6 md:p-8">
-        <div class="mb-6">
-          <h2 class="font-display text-2xl font-black text-brand-dark">Send us a message</h2>
-          <p class="text-gray-500 text-sm mt-1">We'll get back to you within 24 hours (Mon-Fri).</p>
-        </div>
-        
-        <form id="contactForm" class="space-y-5">
-          <input type="hidden" name="access_key" value="7f87c71e-2098-42d8-816a-29de230264d7">
-          <input type="hidden" name="subject" value="TrackEDU Contact Form Submission">
-          <input type="hidden" name="redirect" value="https://www.trackedu.net/contact.html?success=true">
-          <input type="hidden" name="_autoresponse" value="Thank you for contacting TrackEDU. We have received your message and will respond within 24 hours. - The TrackEDU Team">
-          
-          <div class="grid sm:grid-cols-2 gap-4">
-            <div>
-              <label class="block text-xs font-bold text-gray-700 uppercase tracking-wide mb-1">First name *</label>
-              <input type="text" name="first_name" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-gray-700 uppercase tracking-wide mb-1">Last name *</label>
-              <input type="text" name="last_name" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
-            </div>
-          </div>
-          
-          <div class="grid sm:grid-cols-2 gap-4">
-            <div>
-              <label class="block text-xs font-bold text-gray-700 uppercase tracking-wide mb-1">Work email *</label>
-              <input type="email" name="email" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-gray-700 uppercase tracking-wide mb-1">School name *</label>
-              <input type="text" name="school_name" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm">
-            </div>
-          </div>
-          
           <div>
-            <label class="block text-xs font-bold text-gray-700 uppercase tracking-wide mb-1">What best describes you? *</label>
-            <select name="role" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm bg-white">
-              <option value="">Select your role</option>
-              <option value="School Leader / Principal">School Leader / Principal</option>
-              <option value="Teacher">Teacher</option>
-              <option value="Pastoral / Counsellor">Pastoral / Counsellor</option>
-              <option value="IT / Administrator">IT / Administrator</option>
-              <option value="Parent">Parent</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-          
-          <div>
-            <label class="block text-xs font-bold text-gray-700 uppercase tracking-wide mb-1">Subject *</label>
-            <select name="inquiry_type" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm bg-white">
-              <option value="">Select inquiry type</option>
-              <option value="Demo request">Demo request</option>
-              <option value="Pilot enquiry">Pilot enquiry</option>
-              <option value="Founding Schools application">Founding Schools application</option>
-              <option value="Invoice / Billing">Invoice / Billing</option>
-              <option value="Technical support">Technical support</option>
-              <option value="General question">General question</option>
-            </select>
-          </div>
-          
-          <div>
-            <label class="block text-xs font-bold text-gray-700 uppercase tracking-wide mb-1">Message *</label>
-            <textarea name="message" rows="4" required placeholder="Tell us how we can help..." class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm"></textarea>
-          </div>
-          
-          <button type="submit" id="contactSubmitBtn" class="w-full py-3.5 btn-primary text-base font-bold flex items-center justify-center gap-2">
-            <span class="btn-text">Send message →</span>
-            <span class="btn-spinner hidden"><i class="fas fa-circle-notch fa-spin"></i></span>
-          </button>
-          
-          <p class="text-center text-[11px] text-gray-400">
-            <i class="fas fa-lock text-brand-green text-xs"></i> Your data is secure. We'll never share your details.
-          </p>
-        </form>
-      </div>
-      
-      <!-- RIGHT: Contact Info + Trust Signals -->
-      <div class="space-y-6">
-        
-        <!-- Direct Contact Card -->
-        <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
-          <h3 class="font-black text-lg text-brand-dark mb-4 flex items-center gap-2">
-            <i class="fas fa-envelope text-brand-green"></i> Direct contact
-          </h3>
-          <div class="space-y-4">
-            <div>
-              <p class="text-xs text-gray-400 uppercase tracking-wide">General & Sales</p>
-              <a href="mailto:hello@trackedu.net" class="text-xl font-bold text-brand-blue hover:underline break-all">hello@trackedu.net</a>
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-green-100 shadow-sm text-[11px] font-black uppercase tracking-[0.16em] text-brand-green mb-5">
+              <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-green opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-green"></span>
+              </span>
+              Contact TrackEDU
             </div>
-            <div>
-              <p class="text-xs text-gray-400 uppercase tracking-wide">Response time</p>
-              <p class="text-gray-700 font-medium">Within 24 hours (Mon-Fri, UK time)</p>
+
+            <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.02] tracking-tight text-brand-dark">
+              Let’s get your school culture system moving.
+            </h1>
+
+            <p class="mt-5 text-base sm:text-lg lg:text-xl text-slate-600 leading-relaxed max-w-2xl">
+              Book a demo, start a pilot, request an invoice, or ask about data, implementation, house points, behaviour tracking, and student engagement.
+            </p>
+
+            <div class="mt-7 flex flex-col sm:flex-row gap-3">
+              <button data-cal-link="trackedu-a9dbpy/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view"}' class="btn-blue px-5 py-3.5 text-sm sm:text-base">
+                <i class="fas fa-calendar-check text-xs"></i>
+                Book a 30-minute demo
+              </button>
+              <button onclick="scrollToContactForm('Founding Schools application')" class="btn-primary px-5 py-3.5 text-sm sm:text-base">
+                <i class="fas fa-crown text-xs"></i>
+                Apply as a Founding School
+              </button>
+            </div>
+
+            <div class="mt-6 flex flex-wrap gap-2">
+              <span class="signal-pill"><i class="fas fa-clock text-brand-green"></i> Reply within 24 hours, Mon to Fri</span>
+              <span class="signal-pill"><i class="fas fa-shield-halved text-brand-blue"></i> ICO registered: ZC146923</span>
+              <span class="signal-pill"><i class="fas fa-building text-brand-green"></i> UK registered company</span>
             </div>
           </div>
-        </div>
-        
-        <!-- Office / Trust Card -->
-        <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
-          <h3 class="font-black text-lg text-brand-dark mb-4 flex items-center gap-2">
-            <i class="fas fa-building text-brand-blue"></i> Registered office
-          </h3>
-          <div class="space-y-3 text-gray-600 text-sm">
-            <p>128 City Road, London,<br>United Kingdom, EC1V 2NX</p>
-            <div class="pt-3 border-t border-gray-100">
-              <div class="flex items-center gap-2 text-brand-green text-sm font-medium">
-                <i class="fas fa-shield-halved"></i>
-                <span>ICO registered: ZC146923</span>
+
+          <div class="hero-device p-5 md:p-7">
+            <div class="relative z-10">
+              <div class="flex items-center justify-between mb-5">
+                <div>
+                  <p class="text-white/50 text-xs font-black uppercase tracking-[0.18em]">Choose the fastest route</p>
+                  <h2 class="font-display text-2xl md:text-3xl font-black text-white mt-1">What do you need?</h2>
+                </div>
+                <div class="w-12 h-12 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center">
+                  <i class="fas fa-route text-brand-green text-xl"></i>
+                </div>
               </div>
-              <p class="text-xs text-gray-400 mt-2">Company No. 17216557 | England & Wales</p>
+
+              <div class="grid gap-3">
+                <button onclick="setInquiryAndScroll('Demo request')" class="group bg-white/95 hover:bg-white rounded-2xl p-4 text-left transition shadow-soft">
+                  <div class="flex items-start gap-3">
+                    <div class="w-11 h-11 rounded-xl bg-blue-50 text-brand-blue flex items-center justify-center shrink-0">
+                      <i class="fas fa-display"></i>
+                    </div>
+                    <div class="min-w-0">
+                      <h3 class="font-black text-brand-dark">I want to see TrackEDU</h3>
+                      <p class="text-sm text-slate-500 mt-0.5">Book or request a demo for your school team.</p>
+                    </div>
+                    <i class="fas fa-arrow-right ml-auto text-slate-300 group-hover:text-brand-blue group-hover:translate-x-1 transition"></i>
+                  </div>
+                </button>
+
+                <button onclick="setInquiryAndScroll('Pilot enquiry')" class="group bg-white/95 hover:bg-white rounded-2xl p-4 text-left transition shadow-soft">
+                  <div class="flex items-start gap-3">
+                    <div class="w-11 h-11 rounded-xl bg-green-50 text-brand-green flex items-center justify-center shrink-0">
+                      <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="min-w-0">
+                      <h3 class="font-black text-brand-dark">I want to start a pilot</h3>
+                      <p class="text-sm text-slate-500 mt-0.5">Ask about a 30-day pilot, setup, or rollout.</p>
+                    </div>
+                    <i class="fas fa-arrow-right ml-auto text-slate-300 group-hover:text-brand-green group-hover:translate-x-1 transition"></i>
+                  </div>
+                </button>
+
+                <button onclick="setInquiryAndScroll('Invoice / Billing')" class="group bg-white/95 hover:bg-white rounded-2xl p-4 text-left transition shadow-soft">
+                  <div class="flex items-start gap-3">
+                    <div class="w-11 h-11 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
+                      <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <div class="min-w-0">
+                      <h3 class="font-black text-brand-dark">I need an invoice</h3>
+                      <p class="text-sm text-slate-500 mt-0.5">Request procurement details, payment route, or billing support.</p>
+                    </div>
+                    <i class="fas fa-arrow-right ml-auto text-slate-300 group-hover:text-amber-600 group-hover:translate-x-1 transition"></i>
+                  </div>
+                </button>
+              </div>
+
+              <div class="mt-5 rounded-2xl bg-white/8 border border-white/10 p-4">
+                <div class="grid grid-cols-3 gap-3 text-center">
+                  <div>
+                    <p class="text-white text-lg font-black">30 days</p>
+                    <p class="text-white/50 text-[11px] font-bold">school pilot</p>
+                  </div>
+                  <div>
+                    <p class="text-white text-lg font-black">1 year</p>
+                    <p class="text-white/50 text-[11px] font-bold">founding access</p>
+                  </div>
+                  <div>
+                    <p class="text-white text-lg font-black">USD 3k+</p>
+                    <p class="text-white/50 text-[11px] font-bold">annual licence</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="pb-10 md:pb-16">
+      <div class="max-w-7xl mx-auto px-5">
+        <div class="grid md:grid-cols-3 gap-4 lg:gap-5">
+
+          <article class="choice-card p-5 md:p-6">
+            <div class="w-12 h-12 rounded-2xl bg-blue-50 text-brand-blue flex items-center justify-center mb-5">
+              <i class="fas fa-school text-xl"></i>
+            </div>
+            <p class="text-xs font-black uppercase tracking-[0.16em] text-brand-blue mb-2">School leaders</p>
+            <h2 class="font-display text-2xl font-black text-brand-dark leading-tight">Evaluate TrackEDU for your school.</h2>
+            <p class="text-sm text-slate-600 leading-relaxed mt-3">
+              Discuss school-wide house points, behaviour tracking, onboarding, data protection, and pricing.
+            </p>
+            <button data-cal-link="trackedu-a9dbpy/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view"}' class="btn-blue w-full mt-5 py-3 text-sm">
+              Book a demo
+            </button>
+          </article>
+
+          <article class="choice-card dark-card p-5 md:p-6">
+            <div class="flex items-center justify-between mb-5">
+              <div class="w-12 h-12 rounded-2xl bg-white/10 text-brand-green flex items-center justify-center">
+                <i class="fas fa-crown text-xl"></i>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-red-500/20 text-red-200 text-[11px] font-black">Limited places</span>
+            </div>
+            <p class="text-xs font-black uppercase tracking-[0.16em] text-brand-green mb-2">Founding Schools</p>
+            <h2 class="font-display text-2xl font-black leading-tight">Apply for 1 year with the licence fee waived.</h2>
+            <p class="text-sm text-slate-300 leading-relaxed mt-3">
+              For selected schools willing to test TrackEDU, provide feedback, and help shape future workflows.
+            </p>
+            <button onclick="openFoundingModal()" class="btn-primary w-full mt-5 py-3 text-sm">
+              See what to include
+            </button>
+          </article>
+
+          <article class="choice-card p-5 md:p-6">
+            <div class="w-12 h-12 rounded-2xl bg-green-50 text-brand-green flex items-center justify-center mb-5">
+              <i class="fas fa-chalkboard-user text-xl"></i>
+            </div>
+            <p class="text-xs font-black uppercase tracking-[0.16em] text-brand-green mb-2">Teachers</p>
+            <h2 class="font-display text-2xl font-black text-brand-dark leading-tight">Try TrackEDU with one class.</h2>
+            <p class="text-sm text-slate-600 leading-relaxed mt-3">
+              Start free as an individual teacher, then share TrackEDU with your school when ready.
+            </p>
+            <a href="https://housepoint.trackedu.net/" target="_blank" rel="noopener" class="btn-primary w-full mt-5 py-3 text-sm">
+              Start free
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-12 md:py-18 bg-white border-y border-slate-100">
+      <div class="max-w-7xl mx-auto px-5">
+        <div class="grid lg:grid-cols-[1.15fr_0.85fr] gap-8 lg:gap-12">
+
+          <div class="bg-white rounded-[2rem] border border-slate-200 shadow-lift p-5 sm:p-7 md:p-8">
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-7">
+              <div>
+                <p class="text-xs font-black uppercase tracking-[0.16em] text-brand-blue mb-2">Contact form</p>
+                <h2 class="font-display text-3xl md:text-4xl font-black text-brand-dark leading-tight">Send the right message to the right place.</h2>
+                <p class="text-slate-500 mt-3 max-w-2xl">
+                  Use this form for demos, pilots, Founding Schools, invoice requests, procurement questions, or support.
+                </p>
+              </div>
+              <div class="shrink-0 inline-flex items-center gap-2 px-3 py-2 rounded-full bg-green-50 text-brand-green text-xs font-black">
+                <i class="fas fa-lock"></i>
+                Secure form
+              </div>
+            </div>
+
+            <form id="contactForm" class="space-y-5">
+              <input type="hidden" name="access_key" value="7f87c71e-2098-42d8-816a-29de230264d7">
+              <input type="hidden" name="subject" value="TrackEDU Contact Form Submission">
+              <input type="hidden" name="redirect" value="https://www.trackedu.net/contact.html?success=true">
+              <input type="hidden" name="_autoresponse" value="Thank you for contacting TrackEDU. We have received your message and will respond within 24 hours. - The TrackEDU Team">
+
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="label" for="first_name">First name *</label>
+                  <input id="first_name" type="text" name="first_name" required autocomplete="given-name" class="field">
+                </div>
+                <div>
+                  <label class="label" for="last_name">Last name *</label>
+                  <input id="last_name" type="text" name="last_name" required autocomplete="family-name" class="field">
+                </div>
+              </div>
+
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="label" for="email">Work email *</label>
+                  <input id="email" type="email" name="email" required autocomplete="email" placeholder="name@school.org" class="field">
+                </div>
+                <div>
+                  <label class="label" for="school_name">School name *</label>
+                  <input id="school_name" type="text" name="school_name" required autocomplete="organization" class="field">
+                </div>
+              </div>
+
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="label" for="role">Your role *</label>
+                  <select id="role" name="role" required class="field">
+                    <option value="">Select your role</option>
+                    <option value="School Leader / Principal">School Leader / Principal</option>
+                    <option value="Assistant Principal / Senior Leader">Assistant Principal / Senior Leader</option>
+                    <option value="House System Lead">House System Lead</option>
+                    <option value="Teacher">Teacher</option>
+                    <option value="Pastoral / Counsellor">Pastoral / Counsellor</option>
+                    <option value="IT / Administrator">IT / Administrator</option>
+                    <option value="Procurement / Finance">Procurement / Finance</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="label" for="inquiry_type">Reason for contacting *</label>
+                  <select id="inquiry_type" name="inquiry_type" required class="field">
+                    <option value="">Select enquiry type</option>
+                    <option value="Demo request">Demo request</option>
+                    <option value="Pilot enquiry">30-day pilot enquiry</option>
+                    <option value="Founding Schools application">Founding Schools application</option>
+                    <option value="Invoice / Billing">Invoice / billing</option>
+                    <option value="Data protection / Privacy">Data protection / privacy</option>
+                    <option value="Technical support">Technical support</option>
+                    <option value="General question">General question</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="label" for="school_size">Approximate school size</label>
+                  <select id="school_size" name="school_size" class="field">
+                    <option value="">Select size</option>
+                    <option value="Under 250 students">Under 250 students</option>
+                    <option value="250-500 students">250 to 500 students</option>
+                    <option value="501-1000 students">501 to 1,000 students</option>
+                    <option value="1001-2000 students">1,001 to 2,000 students</option>
+                    <option value="2000+ students">2,000+ students</option>
+                    <option value="Not sure">Not sure</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="label" for="timeline">Ideal timeline</label>
+                  <select id="timeline" name="timeline" class="field">
+                    <option value="">Select timeline</option>
+                    <option value="As soon as possible">As soon as possible</option>
+                    <option value="This term">This term</option>
+                    <option value="Next term">Next term</option>
+                    <option value="Next academic year">Next academic year</option>
+                    <option value="Exploring options">Exploring options</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label class="label" for="message">Message *</label>
+                <textarea id="message" name="message" rows="5" required placeholder="Tell us what you are trying to solve, for example house points, behaviour tracking, rewards, pastoral visibility, implementation, pricing, or procurement." class="field resize-y"></textarea>
+              </div>
+
+              <div class="rounded-2xl bg-slate-50 border border-slate-200 p-4">
+                <label class="flex items-start gap-3 text-sm text-slate-600 leading-relaxed">
+                  <input type="checkbox" required class="mt-1 w-4 h-4 rounded border-slate-300 text-brand-blue focus:ring-brand-blue">
+                  <span>I agree to be contacted by TrackEDU about my enquiry. I understand TrackEDU will use the information submitted to respond to this message.</span>
+                </label>
+              </div>
+
+              <div class="flex flex-col sm:flex-row gap-3">
+                <button type="submit" id="contactSubmitBtn" class="btn-blue flex-1 py-3.5 text-base">
+                  <span class="btn-text">Send message</span>
+                  <span class="btn-spinner hidden"><i class="fas fa-circle-notch fa-spin"></i></span>
+                  <i class="fas fa-arrow-right text-xs btn-arrow"></i>
+                </button>
+                <a href="mailto:hello@trackedu.net" class="btn-ghost px-5 py-3.5 text-sm">
+                  <i class="fas fa-envelope text-brand-blue text-xs"></i>
+                  Email instead
+                </a>
+              </div>
+
+              <p class="text-xs text-slate-400 leading-relaxed">
+                For urgent procurement or invoice questions, email <a href="mailto:hello@trackedu.net" class="text-brand-blue font-bold hover:underline">hello@trackedu.net</a>.
+              </p>
+            </form>
+          </div>
+
+          <aside class="space-y-5">
+            <div class="micro-card p-6 md:p-7">
+              <p class="text-xs font-black uppercase tracking-[0.16em] text-brand-green mb-2">Direct contact</p>
+              <h3 class="font-display text-2xl font-black text-brand-dark">Prefer email?</h3>
+              <a href="mailto:hello@trackedu.net" class="mt-4 inline-flex items-center gap-2 text-xl font-black text-brand-blue hover:underline break-all">
+                <i class="fas fa-envelope text-brand-green"></i>
+                hello@trackedu.net
+              </a>
+              <div class="mt-5 grid gap-3 text-sm text-slate-600">
+                <div class="flex gap-3">
+                  <i class="fas fa-clock text-brand-green mt-1"></i>
+                  <span>Responses are typically sent within 24 hours, Monday to Friday.</span>
+                </div>
+                <div class="flex gap-3">
+                  <i class="fas fa-calendar-check text-brand-blue mt-1"></i>
+                  <span>Demos are usually 30 minutes and can be tailored for senior leaders, teachers, pastoral teams, or IT.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="micro-card p-6 md:p-7">
+              <p class="text-xs font-black uppercase tracking-[0.16em] text-brand-blue mb-2">Procurement details</p>
+              <h3 class="font-display text-2xl font-black text-brand-dark">Registered company information</h3>
+              <div class="mt-4 space-y-4 text-sm text-slate-600">
+                <div>
+                  <p class="text-xs uppercase tracking-wider font-black text-slate-400 mb-1">Registered office</p>
+                  <p>128 City Road, London,<br>United Kingdom, EC1V 2NX</p>
+                </div>
+                <div class="border-t border-slate-100 pt-4">
+                  <p><span class="font-black text-brand-dark">Company No.</span> 17216557</p>
+                  <p><span class="font-black text-brand-dark">ICO registration.</span> ZC146923</p>
+                  <p><span class="font-black text-brand-dark">Jurisdiction.</span> England and Wales</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="micro-card p-6 md:p-7 bg-slate-950 text-white border-slate-800">
+              <p class="text-xs font-black uppercase tracking-[0.16em] text-brand-green mb-2">Before you write</p>
+              <h3 class="font-display text-2xl font-black">Helpful details to include</h3>
+              <ul class="mt-4 space-y-3 text-sm text-slate-300">
+                <li class="flex gap-3"><i class="fas fa-check-circle text-brand-green mt-0.5"></i><span>Your school name, country, and approximate student number.</span></li>
+                <li class="flex gap-3"><i class="fas fa-check-circle text-brand-green mt-0.5"></i><span>Whether you already use houses, points, rewards, or behaviour tracking.</span></li>
+                <li class="flex gap-3"><i class="fas fa-check-circle text-brand-green mt-0.5"></i><span>Your intended timeline for a pilot, rollout, or procurement decision.</span></li>
+              </ul>
+            </div>
+
+            <div class="micro-card p-6 md:p-7">
+              <p class="text-xs font-black uppercase tracking-[0.16em] text-purple-600 mb-2">Quick links</p>
+              <div class="grid gap-2">
+                <a href="/#pricing" class="flex items-center justify-between px-4 py-3 rounded-xl bg-slate-50 hover:bg-blue-50 text-sm font-black text-slate-700 hover:text-brand-blue transition">
+                  Plans and pricing <i class="fas fa-arrow-right text-xs"></i>
+                </a>
+                <a href="/#faq" class="flex items-center justify-between px-4 py-3 rounded-xl bg-slate-50 hover:bg-blue-50 text-sm font-black text-slate-700 hover:text-brand-blue transition">
+                  Frequently asked questions <i class="fas fa-arrow-right text-xs"></i>
+                </a>
+                <a href="/help-center.html" class="flex items-center justify-between px-4 py-3 rounded-xl bg-slate-50 hover:bg-blue-50 text-sm font-black text-slate-700 hover:text-brand-blue transition">
+                  Help Centre and guides <i class="fas fa-arrow-right text-xs"></i>
+                </a>
+              </div>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="py-12 md:py-16">
+      <div class="max-w-7xl mx-auto px-5">
+        <div class="rounded-[2rem] bg-brand-dark text-white overflow-hidden shadow-lift">
+          <div class="grid lg:grid-cols-[1.25fr_0.75fr]">
+            <div class="p-7 md:p-10">
+              <p class="text-xs font-black uppercase tracking-[0.16em] text-brand-green mb-3">A better first conversation</p>
+              <h2 class="font-display text-3xl md:text-5xl font-black leading-tight">
+                Tell us what is fragmented, and we’ll show how TrackEDU can connect it.
+              </h2>
+              <p class="mt-4 text-slate-300 leading-relaxed max-w-2xl">
+                Schools usually contact TrackEDU because house points, student rewards, behaviour incidents, pastoral follow-up, and leadership reporting are spread across too many places.
+              </p>
+            </div>
+            <div class="p-7 md:p-10 bg-white/5 border-t lg:border-t-0 lg:border-l border-white/10 flex flex-col justify-center gap-3">
+              <button onclick="setInquiryAndScroll('Pilot enquiry')" class="btn-primary w-full py-3.5 text-sm">
+                Start a pilot conversation
+              </button>
+              <button data-cal-link="trackedu-a9dbpy/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view"}' class="btn-ghost w-full py-3.5 text-sm">
+                Book demo
+              </button>
+              <a href="https://housepoint.trackedu.net/" target="_blank" rel="noopener" class="btn-dark w-full py-3.5 text-sm border border-white/10">
+                Create your school
+              </a>
             </div>
           </div>
         </div>
-        
-        <!-- FAQ Quick Links -->
-        <div class="bg-brand-dark rounded-2xl p-6 text-white">
-          <div class="flex items-center gap-3 mb-4">
-            <i class="fas fa-question-circle text-brand-green text-2xl"></i>
-            <h3 class="font-black text-lg">Quick answers</h3>
-          </div>
-          <ul class="space-y-2 text-sm">
-            <li><a href="/#faq" class="text-gray-300 hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-brand-green text-xs"></i> How much does TrackEDU cost?</a></li>
-            <li><a href="/#faq" class="text-gray-300 hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-brand-green text-xs"></i> Do students need email to log in?</a></li>
-            <li><a href="/#faq" class="text-gray-300 hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-brand-green text-xs"></i> What's the Founding Schools programme?</a></li>
-            <li><a href="/help-center.html" class="text-gray-300 hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-brand-green text-xs"></i> Visit Help Center →</a></li>
-          </ul>
-        </div>
-        
       </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- Success Toast / Modal (hidden by default) -->
-  <div id="successToast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-brand-dark text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-3 z-[1000] hidden">
-    <i class="fas fa-check-circle text-brand-green text-lg"></i>
-    <span class="text-sm font-medium">Message sent! We'll respond within 24 hours.</span>
-    <button onclick="document.getElementById('successToast').classList.add('hidden')" class="ml-3 text-gray-400 hover:text-white">&times;</button>
-  </div>
+  </main>
 
-  <!-- Simple Footer -->
-  <footer class="bg-white border-t border-gray-100 py-8 mt-8">
-    <div class="max-w-6xl mx-auto px-5 text-center text-sm text-gray-500">
-      <p>© 2026 Track<span class="text-brand-green">EDU</span> Ltd. All rights reserved.</p>
-      <div class="flex flex-wrap justify-center gap-4 mt-3 text-xs">
-        <a href="/privacy.html" class="hover:text-brand-blue">Privacy Policy</a>
-        <a href="/terms.html" class="hover:text-brand-blue">Terms of Use</a>
-        <a href="/contact.html" class="hover:text-brand-blue">Contact</a>
-        <a href="https://housepoint.trackedu.net/" target="_blank" class="hover:text-brand-blue">Login</a>
+  <footer class="bg-white border-t border-slate-100 py-8">
+    <div class="max-w-7xl mx-auto px-5">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <a href="/" class="flex items-center gap-2.5">
+          <img src="https://trackedu.github.io/common-assets/trackedulogono.png" alt="TrackEDU logo" class="h-8 w-8 object-contain" style="transform: scale(1.25);">
+          <span class="font-display text-xl font-black tracking-tighter text-brand-dark">Track<span class="text-brand-green">EDU</span></span>
+        </a>
+
+        <div class="flex flex-wrap justify-center gap-4 text-xs font-bold text-slate-500">
+          <a href="/privacy.html" class="hover:text-brand-blue">Privacy Policy</a>
+          <a href="/terms.html" class="hover:text-brand-blue">Terms of Use</a>
+          <a href="/contact.html" class="hover:text-brand-blue">Contact</a>
+          <a href="https://housepoint.trackedu.net/" target="_blank" rel="noopener" class="hover:text-brand-blue">Login</a>
+        </div>
+
+        <p class="text-xs text-slate-400">© 2026 TrackEDU Ltd.</p>
       </div>
     </div>
   </footer>
 
-  <!-- Cal.com script -->
+  <div id="successToast" class="fixed bottom-5 left-1/2 -translate-x-1/2 bg-brand-dark text-white px-5 py-3 rounded-full shadow-2xl flex items-center gap-3 z-[1000] hidden max-w-[92vw]">
+    <i class="fas fa-check-circle text-brand-green text-lg"></i>
+    <span class="text-sm font-bold">Message sent. We’ll respond within 24 hours.</span>
+    <button onclick="document.getElementById('successToast').classList.add('hidden')" class="ml-1 text-slate-400 hover:text-white" aria-label="Close success message">&times;</button>
+  </div>
+
+  <div id="foundingModal" class="fixed inset-0 z-[99999] hidden">
+    <div class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm" onclick="closeFoundingModal()"></div>
+    <div class="relative min-h-dvh flex items-center justify-center p-0 md:p-5">
+      <div class="modal-panel relative">
+        <button onclick="closeFoundingModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 transition flex items-center justify-center z-10" aria-label="Close modal">
+          <i class="fas fa-times"></i>
+        </button>
+
+        <div class="p-6 md:p-8">
+          <div class="w-14 h-14 rounded-2xl bg-green-50 text-brand-green flex items-center justify-center mb-5">
+            <i class="fas fa-crown text-2xl"></i>
+          </div>
+
+          <h2 class="font-display text-3xl md:text-4xl font-black text-brand-dark leading-tight">
+            Applying as a Founding School
+          </h2>
+
+          <p class="mt-3 text-slate-600 leading-relaxed">
+            Founding Schools are selected partner schools that receive 1 year of full access with the licence fee waived, in exchange for thoughtful early feedback on school workflows and implementation.
+          </p>
+
+          <div class="mt-6 grid sm:grid-cols-2 gap-3">
+            <div class="rounded-2xl bg-slate-50 border border-slate-200 p-4">
+              <h3 class="font-black text-brand-dark mb-2">Include in your message</h3>
+              <ul class="space-y-2 text-sm text-slate-600">
+                <li class="flex gap-2"><i class="fas fa-check text-brand-green mt-1"></i><span>School name and country</span></li>
+                <li class="flex gap-2"><i class="fas fa-check text-brand-green mt-1"></i><span>Approximate student number</span></li>
+                <li class="flex gap-2"><i class="fas fa-check text-brand-green mt-1"></i><span>Current house, rewards, or behaviour systems</span></li>
+                <li class="flex gap-2"><i class="fas fa-check text-brand-green mt-1"></i><span>Who would lead the pilot internally</span></li>
+              </ul>
+            </div>
+
+            <div class="rounded-2xl bg-slate-950 text-white border border-slate-800 p-4">
+              <h3 class="font-black mb-2">What happens next</h3>
+              <ul class="space-y-2 text-sm text-slate-300">
+                <li class="flex gap-2"><i class="fas fa-arrow-right text-brand-green mt-1"></i><span>TrackEDU reviews your school details.</span></li>
+                <li class="flex gap-2"><i class="fas fa-arrow-right text-brand-green mt-1"></i><span>We contact you to discuss fit and setup.</span></li>
+                <li class="flex gap-2"><i class="fas fa-arrow-right text-brand-green mt-1"></i><span>If selected, we confirm the licence waiver, onboarding, and support.</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mt-6 flex flex-col sm:flex-row gap-3">
+            <button onclick="closeFoundingModal(); setInquiryAndScroll('Founding Schools application')" class="btn-primary flex-1 py-3.5 text-sm">
+              Fill in the form
+            </button>
+            <a href="mailto:hello@trackedu.net?subject=Founding%20Schools%20Application" class="btn-ghost flex-1 py-3.5 text-sm">
+              Email directly
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script type="text/javascript">
-    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    (function (C, A, L) {
+      let p = function (a, ar) { a.q.push(ar); };
+      let d = C.document;
+      C.Cal = C.Cal || function () {
+        let cal = C.Cal;
+        let ar = arguments;
+        if (!cal.loaded) {
+          cal.ns = {};
+          cal.q = cal.q || [];
+          d.head.appendChild(d.createElement("script")).src = A;
+          cal.loaded = true;
+        }
+        if (ar[0] === L) {
+          const api = function () { p(api, arguments); };
+          const namespace = ar[1];
+          api.q = api.q || [];
+          if (typeof namespace === "string") {
+            cal.ns[namespace] = cal.ns[namespace] || api;
+            p(cal.ns[namespace], ar);
+            p(cal, ["initNamespace", namespace]);
+          } else {
+            p(cal, ar);
+          }
+          return;
+        }
+        p(cal, ar);
+      };
+    })(window, "https://app.cal.com/embed/embed.js", "init");
+
     Cal("init", "30min", { origin: "https://app.cal.com" });
-    Cal.ns["30min"]("ui", { cssVarsPerTheme: { light: { "cal-brand": "#87C232" } }, hideEventTypeDetails: true, layout: "month_view" });
+    Cal.ns["30min"]("ui", {
+      cssVarsPerTheme: {
+        light: { "cal-brand": "#87C232" }
+      },
+      hideEventTypeDetails: true,
+      layout: "month_view"
+    });
   </script>
 
-  <!-- Web3Forms Contact Submission -->
   <script>
     const contactForm = document.getElementById('contactForm');
     const submitBtn = document.getElementById('contactSubmitBtn');
     const btnText = submitBtn?.querySelector('.btn-text');
     const btnSpinner = submitBtn?.querySelector('.btn-spinner');
+    const btnArrow = submitBtn?.querySelector('.btn-arrow');
+
+    function scrollToContactForm(inquiryType) {
+      setInquiryAndScroll(inquiryType);
+    }
+
+    function setInquiryAndScroll(inquiryType) {
+      const select = document.getElementById('inquiry_type');
+      const contactSection = document.getElementById('contact');
+
+      if (select && inquiryType) {
+        select.value = inquiryType;
+      }
+
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      setTimeout(() => {
+        const message = document.getElementById('message');
+        if (message) message.focus({ preventScroll: true });
+      }, 550);
+    }
+
+    function openFoundingModal() {
+      const modal = document.getElementById('foundingModal');
+      if (!modal) return;
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeFoundingModal() {
+      const modal = document.getElementById('foundingModal');
+      if (!modal) return;
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
 
     async function handleContactSubmit(e) {
       e.preventDefault();
-      
-      if (!submitBtn) return;
-      
-      // Disable button & show spinner
+
+      if (!contactForm || !submitBtn) return;
+
       submitBtn.disabled = true;
-      if (btnText) btnText.classList.add('hidden');
+      submitBtn.classList.add('opacity-80', 'cursor-not-allowed');
+      if (btnText) btnText.textContent = 'Sending';
       if (btnSpinner) btnSpinner.classList.remove('hidden');
-      
+      if (btnArrow) btnArrow.classList.add('hidden');
+
       const formData = new FormData(contactForm);
-      // Add full name from first + last
       const firstName = formData.get('first_name') || '';
       const lastName = formData.get('last_name') || '';
       formData.append('name', `${firstName} ${lastName}`.trim());
-      
+
       try {
         const response = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           body: formData
         });
+
         const data = await response.json();
-        
+
         if (data.success) {
-          // Show success toast
           const toast = document.getElementById('successToast');
           if (toast) {
             toast.classList.remove('hidden');
-            setTimeout(() => toast.classList.add('hidden'), 5000);
+            setTimeout(() => toast.classList.add('hidden'), 5200);
           }
           contactForm.reset();
-          
-          // Optional: URL param success detection
-          if (window.location.search.includes('success=true')) {
-            // Already showing toast
-          }
         } else {
           alert('Something went wrong. Please email hello@trackedu.net directly.');
         }
@@ -328,44 +958,29 @@
         alert('Error sending message. Please email hello@trackedu.net directly.');
       } finally {
         submitBtn.disabled = false;
-        if (btnText) btnText.classList.remove('hidden');
+        submitBtn.classList.remove('opacity-80', 'cursor-not-allowed');
+        if (btnText) btnText.textContent = 'Send message';
         if (btnSpinner) btnSpinner.classList.add('hidden');
+        if (btnArrow) btnArrow.classList.remove('hidden');
       }
     }
-    
+
     if (contactForm) {
       contactForm.addEventListener('submit', handleContactSubmit);
     }
-    
-    // Show toast if URL has success param (redirect fallback)
+
     if (window.location.search.includes('success=true')) {
       const toast = document.getElementById('successToast');
       if (toast) {
         toast.classList.remove('hidden');
-        setTimeout(() => toast.classList.add('hidden'), 5000);
-        // Clean URL
-        const newUrl = window.location.pathname;
-        window.history.replaceState({}, document.title, newUrl);
+        setTimeout(() => toast.classList.add('hidden'), 5200);
+        window.history.replaceState({}, document.title, window.location.pathname);
       }
     }
-    
-    // Modal functions (reused from main site)
-    function openPilotModal() {
-      alert('Founding Schools application: Please email hello@trackedu.net with your school details, or use the contact form above. We will respond within 24 hours.');
-    }
-    function openInvoiceModal() {
-      alert('Invoice requests: Please use the contact form above and select "Invoice / Billing" as the subject. We will email you an official invoice within 24 hours.');
-    }
-  </script>
-  
-  <!-- Make modal functions globally available for buttons -->
-  <script>
-    window.openPilotModal = function() {
-      alert('Founding Schools application: Please email hello@trackedu.net with your school details, or use the contact form above. We will respond within 24 hours.');
-    };
-    window.openInvoiceModal = function() {
-      alert('Invoice requests: Please use the contact form above and select "Invoice / Billing" as the subject. We will email you an official invoice within 24 hours.');
-    };
+
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') closeFoundingModal();
+    });
   </script>
 
 </body>
