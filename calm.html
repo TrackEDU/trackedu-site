@@ -169,51 +169,98 @@
       overflow: hidden;
     }
 
-    /* Left Side - Character Area (compact) */
-    .character-area {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      min-width: 0;
-    }
+    /* Left Side - Character Area (FULL HEIGHT) */
+.character-area {
+  flex: 1.2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-width: 0;
+  height: 100%;
+}
 
-    .stage {
-      position: relative;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
+.stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
 
-    .stage-glow {
-      position: absolute;
-      width: min(50vw, 400px);
-      height: min(50vw, 400px);
-      border-radius: 50%;
-      opacity: 0.25;
-      filter: blur(8px);
-      background: radial-gradient(circle, var(--state-color, #10b981), transparent 70%);
-      animation: breatheGlow 2.8s ease-in-out infinite;
-    }
+.message-card {
+  margin-bottom: 20px;
+  text-align: center;
+  padding: 8px 20px;
+  background: rgba(15, 23, 42, 0.64);
+  backdrop-filter: blur(12px);
+  border-radius: 60px;
+  border: 1px solid rgba(255,255,255,0.14);
+  z-index: 3;
+}
+
+@media (max-width: 900px) {
+  .message-card {
+    margin-bottom: 12px;
+    padding: 6px 16px;
+  }
+  .main-message {
+    font-size: 18px !important;
+  }
+}
+
+.stage-glow {
+  position: absolute;
+  width: 60vh;
+  height: 60vh;
+  max-width: 500px;
+  max-height: 500px;
+  border-radius: 50%;
+  opacity: 0.25;
+  filter: blur(8px);
+  background: radial-gradient(circle, var(--state-color, #10b981), transparent 70%);
+  animation: breatheGlow 2.8s ease-in-out infinite;
+}
+
+@media (max-width: 900px) {
+  .stage-glow {
+    width: 40vh;
+    height: 40vh;
+  }
+}
 
     @keyframes breatheGlow {
       0%, 100% { transform: scale(0.94); opacity: 0.18; }
       50% { transform: scale(1.04); opacity: 0.32; }
     }
 
-    /* LARGER character on desktop */
-    .mascot-img {
-      width: min(35vw, 380px);
-      height: min(35vw, 380px);
-      object-fit: contain;
-      filter: drop-shadow(0 26px 35px rgba(0,0,0,0.42));
-      transition: transform 0.3s ease;
-      z-index: 2;
-    }
+    /* FULL HEIGHT character on desktop */
+.mascot-img {
+  width: auto;
+  height: 70vh;
+  max-height: 70vh;
+  object-fit: contain;
+  filter: drop-shadow(0 26px 35px rgba(0,0,0,0.42));
+  transition: transform 0.3s ease;
+  z-index: 2;
+}
+
+@media (max-width: 900px) {
+  .mascot-img {
+    height: 40vh;
+    width: auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .mascot-img {
+    height: 75vh;
+    max-height: 75vh;
+  }
+}
 
     @media (min-width: 1200px) {
       .mascot-img { width: min(30vw, 450px); height: min(30vw, 450px); }
@@ -229,15 +276,7 @@
     @keyframes shakeLoud { 0%, 100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
     @keyframes bounceCelebrate { 0%, 100% { transform: translateY(0); } 45% { transform: translateY(-15px); } }
 
-    .message-card {
-      margin-top: 12px;
-      text-align: center;
-      padding: 8px 20px;
-      background: rgba(15, 23, 42, 0.64);
-      backdrop-filter: blur(12px);
-      border-radius: 60px;
-      border: 1px solid rgba(255,255,255,0.14);
-    }
+    
     .main-message { font-size: clamp(20px, 3vw, 36px); font-weight: 900; letter-spacing: -0.02em; }
     .sub-message { font-size: clamp(11px, 1.2vw, 14px); color: #94a3b8; margin-top: 2px; }
 
@@ -495,6 +534,28 @@
       .unlock-item { min-width: 70px; padding: 6px 8px; }
       .current-character-badge { flex-direction: column; align-items: flex-start; }
     }
+
+
+
+    .current-character-badge {
+  background: rgba(0,0,0,0.3);
+  border-radius: 40px;
+  padding: 8px 16px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.current-character-badge:hover {
+  background: rgba(0,0,0,0.5);
+  transform: scale(1.01);
+}
+
+
   </style>
 </head>
 <body>
@@ -529,11 +590,12 @@
     <div class="character-area">
       <div class="stage">
         <div class="stage-glow"></div>
-        <img id="stateMascot" class="mascot-img" src="https://trackedu.github.io/common-assets/state1a.png" alt="Mascot">
+        <!-- MESSAGE NOW ABOVE THE CHARACTER -->
         <div class="message-card">
           <div class="main-message" id="mainMessage">Shhhhh...</div>
           <div class="sub-message" id="subMessage">Keep the calm going.</div>
         </div>
+        <img id="stateMascot" class="mascot-img" src="https://trackedu.github.io/common-assets/state1a.png" alt="Mascot">
       </div>
     </div>
 
@@ -541,19 +603,21 @@
     <div class="controls-area">
       <div class="control-card">
         
-        <!-- Current Character Badge (at top of card) -->
-        <div class="current-character-badge">
-          <div class="badge-left">
-            <div class="badge-avatar" id="currentCharAvatar">
-              <img src="https://trackedu.github.io/common-assets/1b.png" alt="Character">
-            </div>
-            <div>
-              <div class="badge-name" id="currentCharName">Curious Explorer</div>
-              <div class="badge-points" id="currentCharPoints">0 pts</div>
-            </div>
-          </div>
-          <div style="font-size: 10px; color: #10b981;">✓ Current Level</div>
-        </div>
+        <!-- Current Character Badge (at top of card) - CLICKABLE -->
+<div class="current-character-badge" onclick="showCurrentCharacterZoom()" style="cursor: pointer;">
+  <div class="badge-left">
+    <div class="badge-avatar" id="currentCharAvatar">
+      <img src="https://trackedu.github.io/common-assets/1b.png" alt="Character">
+    </div>
+    <div>
+      <div class="badge-name" id="currentCharName">Curious Explorer</div>
+      <div class="badge-points" id="currentCharPoints">0 pts</div>
+    </div>
+  </div>
+  <div style="font-size: 10px; color: #10b981;">
+    ✓ Current Level <i class="fas fa-search-plus" style="font-size: 10px; margin-left: 4px;"></i>
+  </div>
+</div>
 
         <!-- Volume Meter -->
         <div class="volume-meter">
@@ -854,6 +918,18 @@
   window.closeZoomModal = function() {
     document.getElementById('zoomModal').classList.remove('active');
   };
+
+
+  // Show current character zoom (click on current badge)
+window.showCurrentCharacterZoom = function() {
+  const idx = getCharacterIndexForPoints(totalPoints);
+  const char = CHARACTERS[idx];
+  const modal = document.getElementById('zoomModal');
+  document.getElementById('zoomImg').src = char.url;
+  document.getElementById('zoomName').textContent = char.name;
+  document.getElementById('zoomPoints').textContent = `Current • ${char.threshold} pts`;
+  modal.classList.add('active');
+};
 
   // ==========================================
   // STATE MANAGEMENT (with minimum 5 second duration)
