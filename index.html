@@ -1266,6 +1266,26 @@ html { scroll-padding-top: 100px; }
 }
 
 
+@media (max-width: 768px) {
+  #who-trackedu-is-for .grid {
+    gap: 1rem;
+  }
+  
+  #who-trackedu-is-for .rounded-2xl {
+    padding: 1.25rem;
+  }
+  
+  #who-trackedu-is-for .w-14 {
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  #who-trackedu-is-for .text-xl {
+    font-size: 1.125rem;
+  }
+}
+
+
   </style>
 </head>
 <body class="antialiased text-gray-800 overflow-x-hidden">
@@ -2766,6 +2786,33 @@ setTimeout(function() {
 
 
 
+
+
+
+<section class="py-12 bg-white border-t border-gray-100">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <span class="inline-flex items-center gap-2 bg-gray-100 text-gray-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wide mb-4">
+      <i class="fas fa-building text-brand-blue"></i>
+      About TrackEDU
+    </span>
+
+    <h2 class="font-display text-2xl md:text-3xl font-black text-brand-dark mb-3">
+      A UK-registered education technology company built around real school workflows.
+    </h2>
+
+    <p class="text-gray-600 text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
+      TrackEDU Ltd builds practical tools for school culture, house points, behaviour tracking, student engagement, and pastoral visibility. TrackEDU Ltd is registered in England and Wales, No. 17216557.
+    </p>
+
+    <p class="text-gray-400 text-xs mt-4">
+      Questions about procurement, privacy, or school setup? 
+      <a href="mailto:hello@trackedu.net" class="text-brand-blue font-bold hover:underline">hello@trackedu.net</a>
+    </p>
+  </div>
+</section>
+
+
+
 <!-- ==========================================
      WHY TRACKEDU SECTION
      Trust-building section, no repeated CTA buttons
@@ -2877,42 +2924,89 @@ setTimeout(function() {
 
 
 
-    <section id="who-trackedu-is-for">
-      <h2>Built for international schools, school leaders and teachers</h2>
-      <p>
-        TrackEDU supports international schools, British curriculum schools, independent schools and K-12 schools that want to manage house points, student rewards, behaviour tracking and pastoral visibility in one platform.
-      </p>
-      <ul>
-        <li>For school leaders who need visibility across behaviour, rewards and pastoral patterns.</li>
-        <li>For teachers who want faster classroom tools and simpler point awarding.</li>
-        <li>For students who need a more motivating way to see progress, badges and house identity.</li>
-      </ul>
+
+    
+
+
+
+    <section id="who-trackedu-is-for" class="py-20 bg-white border-t border-gray-100">
+      <div class="max-w-6xl mx-auto px-6">
+        
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          
+          
+          <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-black text-brand-dark tracking-tight leading-tight mb-4">
+            Who It's For
+          </h2>
+          
+          <p class="text-gray-500 text-base md:text-lg leading-relaxed">
+            TrackEDU supports international schools, British curriculum schools, independent schools and K-12 schools that want to manage house points, student rewards, behaviour tracking and pastoral visibility in one platform.
+          </p>
+        </div>
+    
+        <div class="grid md:grid-cols-3 gap-6">
+          
+          <!-- Card 1: School Leaders -->
+          <div class="bg-gradient-to-br from-brand-blue/5 to-blue-50/30 rounded-2xl p-6 border border-brand-blue/20 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
+            <div class="w-14 h-14 rounded-xl bg-brand-blue/15 flex items-center justify-center mb-5 group-hover:bg-brand-blue group-hover:scale-110 transition-all duration-300">
+              <i class="fas fa-chart-line text-2xl text-brand-blue group-hover:text-white"></i>
+            </div>
+            <h3 class="font-display text-xl font-black text-brand-dark mb-3">For School Leaders</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              Who need visibility across behaviour, rewards and pastoral patterns to make informed decisions and support students earlier.
+            </p>
+            <div class="mt-4 pt-4 border-t border-brand-blue/10">
+              <span class="text-xs font-bold text-brand-blue uppercase tracking-wider">Key benefit</span>
+              <p class="text-xs text-gray-500 mt-1">Real-time dashboards and exportable reports</p>
+            </div>
+          </div>
+    
+          <!-- Card 2: Teachers -->
+          <div class="bg-gradient-to-br from-brand-green/5 to-green-50/30 rounded-2xl p-6 border border-brand-green/20 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
+            <div class="w-14 h-14 rounded-xl bg-brand-green/15 flex items-center justify-center mb-5 group-hover:bg-brand-green group-hover:scale-110 transition-all duration-300">
+              <i class="fas fa-chalkboard-user text-2xl text-brand-green group-hover:text-white"></i>
+            </div>
+            <h3 class="font-display text-xl font-black text-brand-dark mb-3">For Teachers</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              Who want faster classroom tools, simpler point awarding, and less time spent on manual tracking.
+            </p>
+            <div class="mt-4 pt-4 border-t border-brand-green/10">
+              <span class="text-xs font-bold text-brand-green uppercase tracking-wider">Key benefit</span>
+              <p class="text-xs text-gray-500 mt-1">12+ classroom tools, save 4+ hours per week</p>
+            </div>
+          </div>
+    
+          <!-- Card 3: Students -->
+          <div class="bg-gradient-to-br from-purple-50 to-pink-50/30 rounded-2xl p-6 border border-purple-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
+            <div class="w-14 h-14 rounded-xl bg-purple-100 flex items-center justify-center mb-5 group-hover:bg-purple-600 group-hover:scale-110 transition-all duration-300">
+              <i class="fas fa-user-graduate text-2xl text-purple-600 group-hover:text-white"></i>
+            </div>
+            <h3 class="font-display text-xl font-black text-brand-dark mb-3">For Students</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              Who need a more motivating way to see progress, collect badges, and connect with their house identity.
+            </p>
+            <div class="mt-4 pt-4 border-t border-purple-200">
+              <span class="text-xs font-bold text-purple-600 uppercase tracking-wider">Key benefit</span>
+              <p class="text-xs text-gray-500 mt-1">Gamified experience with 3D badges and house boosts</p>
+            </div>
+          </div>
+    
+        </div>
+    
+        <!-- Trust indicator -->
+        <div class="mt-12 text-center">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 text-gray-600 text-xs font-medium">
+            <i class="fas fa-globe text-brand-green text-xs"></i>
+            Trusted by international schools worldwide
+            <i class="fas fa-check-circle text-brand-green text-xs ml-1"></i>
+          </div>
+        </div>
+    
+      </div>
     </section>
 
 
 
-
-<section class="py-12 bg-white border-t border-gray-100">
-  <div class="max-w-4xl mx-auto px-6 text-center">
-    <span class="inline-flex items-center gap-2 bg-gray-100 text-gray-600 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wide mb-4">
-      <i class="fas fa-building text-brand-blue"></i>
-      About TrackEDU
-    </span>
-
-    <h2 class="font-display text-2xl md:text-3xl font-black text-brand-dark mb-3">
-      A UK-registered education technology company built around real school workflows.
-    </h2>
-
-    <p class="text-gray-600 text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
-      TrackEDU Ltd builds practical tools for school culture, house points, behaviour tracking, student engagement, and pastoral visibility. TrackEDU Ltd is registered in England and Wales, No. 17216557.
-    </p>
-
-    <p class="text-gray-400 text-xs mt-4">
-      Questions about procurement, privacy, or school setup? 
-      <a href="mailto:hello@trackedu.net" class="text-brand-blue font-bold hover:underline">hello@trackedu.net</a>
-    </p>
-  </div>
-</section>
 
 
         
