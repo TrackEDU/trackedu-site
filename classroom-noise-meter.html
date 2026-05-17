@@ -3,7 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-  <title>Calm Meter | Classroom Noise Tool by TrackEDU</title>
+  <title>Free Classroom Noise Meter for Teachers | Class Calm Meter by TrackEDU</title>
+  <meta name="description" content="Use TrackEDU's free classroom noise meter to monitor class volume on a smartboard. No login, no setup and no student data required.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="TrackEDU">
+  <link rel="canonical" href="https://www.trackedu.net/classroom-noise-meter">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TrackEDU">
+  <meta property="og:title" content="Free Classroom Noise Meter for Teachers">
+  <meta property="og:description" content="A no-login classroom noise meter teachers can open instantly on a smartboard to help students self-regulate class volume.">
+  <meta property="og:url" content="https://www.trackedu.net/classroom-noise-meter">
+  <meta property="og:image" content="https://trackedu.github.io/common-assets/state1a.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Classroom Noise Meter for Teachers">
+  <meta name="twitter:description" content="Monitor classroom noise levels instantly with TrackEDU's free Class Calm Meter. No login, no setup and no student data.">
+  <meta name="twitter:image" content="https://trackedu.github.io/common-assets/state1a.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Class Calm Meter",
+    "alternateName": "TrackEDU Classroom Noise Meter",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Web browser",
+    "url": "https://www.trackedu.net/classroom-noise-meter",
+    "description": "A free classroom noise meter for teachers that monitors class volume in real time on a smartboard. It requires no login, no setup and no student personal data.",
+    "creator": {
+      "@type": "Organization",
+      "name": "TrackEDU",
+      "url": "https://www.trackedu.net"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "audience": {
+      "@type": "EducationalAudience",
+      "educationalRole": "teacher"
+    },
+    "featureList": [
+      "Real-time classroom noise monitoring",
+      "Smartboard-friendly display",
+      "No login required",
+      "No student names or personal data required",
+      "Local browser-based points and rewards"
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a classroom noise meter?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A classroom noise meter is a visual classroom management tool that helps teachers monitor noise levels and encourage students to self-regulate their volume."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the Class Calm Meter free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. TrackEDU's Class Calm Meter is a free classroom noise meter that can be opened instantly in a browser without a login."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the Class Calm Meter record classroom audio?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The tool uses microphone access only to estimate sound levels locally in the browser. It does not record, store or transmit classroom audio."
+        }
+      }
+    ]
+  }
+  </script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
@@ -160,6 +243,9 @@
       font-size: 1.25rem;
       color: #f8fafc;
       letter-spacing: 0.01em;
+      margin: 0;
+      line-height: 1;
+      font-weight: 400;
     }
 
     .tool-subtitle {
@@ -1943,10 +2029,45 @@
 }
 
 
+
+    .seo-mini-copy {
+      margin-top: 10px;
+      font-size: 11px;
+      line-height: 1.35;
+      color: #cbd5e1;
+      text-align: center;
+      font-weight: 700;
+      background: rgba(15, 23, 42, 0.46);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 8px 10px;
+    }
+
+    .seo-mini-copy strong {
+      color: #fbbf24;
+      font-weight: 900;
+    }
+
+    .seo-noscript {
+      padding: 24px;
+      max-width: 760px;
+      margin: 0 auto;
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+    }
+
   </style>
 </head>
 
 <body>
+  <noscript>
+    <main class="seo-noscript">
+      <h1>Free Classroom Noise Meter for Teachers</h1>
+      <p>TrackEDU's Class Calm Meter is a free online classroom noise meter for teachers. It helps monitor classroom volume on a smartboard without login, setup or student personal data.</p>
+      <p>Please enable JavaScript to use the live sound meter.</p>
+    </main>
+  </noscript>
+
   <div id="calmMeterApp" class="state-quiet">
 
     <div class="calm-header">
@@ -1954,8 +2075,8 @@
         <div class="logo-area">
           <div class="logo-icon"><i class="fas fa-leaf"></i></div>
           <div class="logo-text">
-            <div class="tool-title">Calm Meter</div>
-            <div class="tool-subtitle">Classroom noise rewards</div>
+            <h1 class="tool-title">Free Classroom Noise Meter</h1>
+            <div class="tool-subtitle">Class Calm Meter by TrackEDU</div>
           </div>
         </div>
       </div>
@@ -1976,7 +2097,7 @@
             <span class="track-word">Track</span><span class="edu-word">EDU</span>
           </a>
           <span>•</span>
-          <a href="https://trackedu.net" target="_blank" class="tools-link">12+ Free Tools →</a>
+          <a href="https://trackedu.net" target="_blank" class="tools-link" aria-label="Unlock more free teacher tools from TrackEDU">12+ Free Tools →</a>
         </div>
         <button class="privacy-trigger" id="privacyTriggerBtn">
           <i class="fas fa-lock"></i> Privacy & Data
@@ -2004,7 +2125,7 @@
             <div class="sub-message" id="subMessage">Keep the calm going.</div>
           </div>
 
-          <img id="stateMascot" class="mascot-img" src="https://trackedu.github.io/common-assets/state1a.png" alt="Calm Meter character">
+          <img id="stateMascot" class="mascot-img" src="https://trackedu.github.io/common-assets/state1a.png" alt="Friendly Class Calm Meter character reacting to classroom noise levels">
         </div>
       </div>
 
@@ -2014,7 +2135,7 @@
           <div class="current-character-badge" onclick="showCurrentCharacterZoom()" role="button" tabindex="0">
             <div class="achievement-layout-compact">
               <div class="badge-avatar-compact" id="currentCharAvatar">
-                <img src="https://trackedu.github.io/common-assets/1b.png" alt="Current character">
+                <img src="https://trackedu.github.io/common-assets/1b.png" alt="Current classroom noise reward character">
               </div>
               <div class="achievement-info-compact">
                 <div class="achievement-kicker-compact">Current achievement</div>
@@ -2097,6 +2218,10 @@
           <div class="status-text" id="statusText">
             <i class="fas fa-microphone-alt"></i> Ready to start. Click Start and allow microphone.
           </div>
+
+          <p class="seo-mini-copy">
+            <strong>Free online classroom noise meter</strong> for teachers, designed for smartboards, calm transitions and quick whole-class volume checks.
+          </p>
         </div>
       </div>
     </div>
