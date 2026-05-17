@@ -615,10 +615,10 @@
       z-index: 5;
     }
 
-        /* Desktop only spacing adjustments */
-        @media (min-width: 901px) {
+    /* Desktop only spacing adjustments */
+    @media (min-width: 901px) {
       .controls-area {
-        margin-top: 40px;
+        margin-top: 60px;
       }
       .character-area {
         margin-top: 20px;
@@ -2079,7 +2079,7 @@
 
         /* PWA Install Button */
         .install-pwa-btn {
-      background: linear-gradient(135deg, var(--brand-green), #6a9e28);
+      background: linear-gradient(135deg, #0f66c3, #0a4d93);
       border: none;
       border-radius: 999px;
       padding: 8px 20px;
@@ -2099,7 +2099,7 @@
 
     .install-pwa-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(135, 194, 50, 0.3);
+      box-shadow: 0 8px 20px rgba(15, 102, 195, 0.3);
     }
 
     @media (max-width: 500px) {
@@ -3403,15 +3403,20 @@
     if (installBtn) {
       installBtn.style.display = 'flex';
       
-      // Update button text based on support
-      if (!isPWAInstallSupported) {
-        installBtn.innerHTML = '<i class="fas fa-info-circle"></i> Install Available (Tap Share → Add to Home Screen)';
-        installBtn.style.background = 'linear-gradient(135deg, #475569, #334155)';
-        installBtn.style.cursor = 'default';
-        installBtn.style.opacity = '0.8';
-      } else {
+    // Listen for the beforeinstallprompt event (supported browsers only)
+    window.addEventListener('beforeinstallprompt', (e) => {
+      // Prevent Chrome from automatically showing the prompt
+      e.preventDefault();
+      // Stash the event so it can be triggered later
+      deferredPrompt = e;
+      // Update button for supported browsers
+      if (installBtn) {
         installBtn.innerHTML = '<i class="fas fa-download"></i> Download App';
+        installBtn.style.background = 'linear-gradient(135deg, #0f66c3, #0a4d93)';
+        installBtn.style.cursor = 'pointer';
+        installBtn.style.opacity = '1';
       }
+    });
     }
 
     // Listen for the beforeinstallprompt event (supported browsers only)
