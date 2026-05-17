@@ -2133,6 +2133,22 @@
     }
 
 
+    /* Desktop only: TrackEDU logo icon */
+    .trackedu-logo-icon {
+      display: none;
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+      vertical-align: middle;
+      margin-right: 6px;
+    }
+
+    @media (min-width: 901px) {
+      .trackedu-logo-icon {
+        display: inline-block;
+      }
+    }
+
   </style>
 </head>
 
@@ -2171,6 +2187,7 @@
       <div class="header-right">
         <div class="footer-link">
           <a href="https://trackedu.net" target="_blank" class="trackedu-wordmark">
+            <img src="https://trackedu.github.io/common-assets/teacherappnewlogo.png" alt="TrackEDU Logo" class="trackedu-logo-icon">
             <span class="track-word">Track</span><span class="edu-word">EDU</span>
           </a>
           <span>•</span>
