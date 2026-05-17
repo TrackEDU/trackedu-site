@@ -685,8 +685,15 @@
       border-radius: 22px;
       padding: 16px;
       margin: 14px 0;
-      text-align: center;
       border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .timer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
     }
 
     .timer-display {
@@ -696,13 +703,34 @@
       color: #fbbf24;
       letter-spacing: 2px;
       line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .timer-info {
+      text-align: right;
+      flex: 1;
+    }
+
+    .timer-label {
+      font-size: 10px;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 900;
+      margin-bottom: 4px;
+    }
+
+    .points-label {
+      font-size: 11px;
+      color: var(--brand-green);
+      font-weight: 800;
+      letter-spacing: 0.5px;
     }
 
     .timer-progress {
       height: 6px;
       background: rgba(255,255,255,0.10);
       border-radius: 999px;
-      margin: 12px 0 10px;
       overflow: hidden;
     }
 
@@ -713,20 +741,24 @@
       transition: width 0.3s linear;
     }
 
-    .timer-label {
-      font-size: 10px;
-      color: #94a3b8;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: 900;
-    }
-
     .settings-row {
       display: grid;
       grid-template-columns: 1fr 1fr auto;
       gap: 10px;
       margin: 12px 0;
       align-items: stretch;
+    }
+    
+    /* On mobile, settings row should be side by side for goal and points, deduct below */
+    @media (max-width: 600px) {
+      .settings-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+      
+      .deduct-inline {
+        grid-column: span 2;
+      }
     }
 
     .goal-select {
@@ -1193,51 +1225,84 @@
       }
 
       .character-area {
-        min-height: 360px;
-        height: 48vh;
+        min-height: auto;
+        height: auto;
+        flex: 0 0 auto;
+        margin-bottom: 5px;
       }
 
       .stage {
-        padding: 14px;
+        padding: 5px 8px;
+        margin-top: 5px;
       }
 
       .stage-glow {
-        width: 40vh;
-        height: 40vh;
+        width: 25vh;
+        height: 25vh;
       }
 
       .mascot-img {
-        height: 36vh;
-        max-height: 36vh;
+        height: 22vh;
+        max-height: 22vh;
+      }
+      
+      .mascot-img.normal-size {
+        height: 22vh;
+      }
+      
+      .mascot-img.expanded-size {
+        height: 35vh;
       }
 
       .message-card {
-        margin-bottom: 10px;
-        padding: 7px 16px;
+        margin-bottom: 4px;
+        padding: 4px 10px;
       }
 
       .main-message {
-        font-size: 20px !important;
+        font-size: 18px !important;
+      }
+      
+      .sub-message {
+        font-size: 9px !important;
       }
 
       .controls-area {
         min-width: 0;
         width: 100%;
-        padding: 14px;
+        padding: 8px 10px 10px 10px;
+        flex-shrink: 0;
       }
 
       .control-card {
-        padding: 16px;
+        padding: 10px;
         max-width: 100%;
+        width: 100%;
+      }
+      
+      /* Reduce bottom margin on current character badge */
+      .current-character-badge {
+        margin-bottom: 8px;
+        padding: 6px 10px;
       }
 
       .settings-row {
+        display: grid;
         grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin: 12px 0;
+        width: 100%;
+      }
+
+      .goal-select, .pointsSelect {
+        width: 100%;
+        min-width: 0;
       }
 
       .deduct-inline {
-        grid-column: 1 / -1;
+        grid-column: span 2;
         justify-content: space-between;
+        width: 100%;
       }
 
       .timer-display {
@@ -1287,6 +1352,53 @@
       }
     }
 
+
+    /* Force settings row side-by-side on all mobile devices */
+@media (max-width: 900px) {
+  .settings-row {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+  
+  .settings-row select {
+    width: 100% !important;
+    min-width: 0 !important;
+    font-size: 12px !important;
+    padding: 9px 8px !important;
+  }
+  
+  .deduct-inline {
+    grid-column: span 2 !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+}
+
+/* For very small screens, reduce gap and padding */
+@media (max-width: 480px) {
+  .settings-row {
+    gap: 6px !important;
+  }
+  
+  .settings-row select {
+    font-size: 11px !important;
+    padding: 8px 6px !important;
+  }
+  
+  .deduct-label span {
+    font-size: 9px !important;
+  }
+  
+  .deduct-toggle {
+    padding: 5px 10px !important;
+    font-size: 9px !important;
+  }
+}
+
     @media (max-width: 430px) {
       .footer-link {
         font-size: 11px;
@@ -1308,19 +1420,28 @@
 
       .settings-row {
         grid-template-columns: 1fr;
+        gap: 8px;
       }
 
       .deduct-inline {
         grid-column: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
 
       .button-group {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+      }
+
+      .button-group .btn {
+        flex: 1;
       }
 
       #resetPointsBtn {
-        grid-column: 1 / -1;
+        grid-column: auto;
       }
 
       .badge-avatar {
@@ -1337,6 +1458,24 @@
 
       .milestone-progress-text {
         text-align: left;
+      }
+      
+      /* Timer side-by-side on mobile */
+      .timer-row {
+        flex-direction: row;
+        align-items: center;
+      }
+      
+      .timer-display {
+        font-size: 2.2rem;
+      }
+      
+      .timer-label {
+        font-size: 9px;
+      }
+      
+      .points-label {
+        font-size: 10px;
       }
     }
 
@@ -1430,35 +1569,42 @@
 /* Responsive adjustments for mobile */
 @media (max-width: 500px) {
   .badge-avatar-compact {
-    width: 70px;
-    height: 70px;
-    border-radius: 20px;
+    width: 55px;
+    height: 55px;
+    border-radius: 16px;
   }
   
   .badge-name-compact {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
+    margin-bottom: 4px;
   }
   
   .badge-points-compact {
-    font-size: 11px;
-    padding: 4px 10px;
+    font-size: 9px;
+    padding: 2px 8px;
   }
   
   .current-level-pill-compact {
-    font-size: 10px;
-    padding: 4px 10px;
+    font-size: 8px;
+    padding: 2px 8px;
   }
   
   .achievement-hint-compact {
-    font-size: 10px;
+    font-size: 8px;
   }
   
   .achievement-kicker-compact {
-    font-size: 10px;
+    font-size: 8px;
+    margin-bottom: 2px;
   }
   
   .current-character-badge {
-    padding: 12px 14px;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+  }
+  
+  .achievement-layout-compact {
+    gap: 10px;
   }
 }
 
@@ -1522,6 +1668,90 @@
       margin-top: 0;
       padding-top: 0;
     }
+
+
+
+
+    /* Timer section compact for mobile */
+@media (max-width: 500px) {
+  .timer-section {
+    padding: 10px;
+    margin: 8px 0;
+  }
+  
+  .timer-row {
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  
+  .timer-display {
+    font-size: 1.8rem;
+  }
+  
+  .timer-label {
+    font-size: 8px;
+    margin-bottom: 2px;
+  }
+  
+  .points-label {
+    font-size: 9px;
+  }
+  
+  .timer-progress {
+    height: 4px;
+  }
+  
+  .volume-meter {
+    margin-bottom: 10px;
+  }
+  
+  .meter-bar {
+    height: 12px;
+  }
+  
+  .meter-labels span {
+    font-size: 8px;
+  }
+  
+  .button-group .btn {
+    padding: 8px;
+    font-size: 11px;
+    min-height: 36px;
+  }
+  
+  .status-text {
+    margin-top: 8px;
+    padding: 6px 8px;
+    font-size: 9px;
+  }
+}
+
+
+
+/* When header is hidden on mobile, give more space to character message */
+@media (max-width: 900px) {
+  #calmMeterApp:has(.calm-header.hidden) .character-area {
+    min-height: auto;
+    margin-top: 5px;
+  }
+  
+  #calmMeterApp:has(.calm-header.hidden) .message-card {
+    margin-bottom: 8px;
+    padding: 6px 12px;
+  }
+  
+  #calmMeterApp:has(.calm-header.hidden) .main-message {
+    font-size: 20px !important;
+  }
+  
+  #calmMeterApp:has(.calm-header.hidden) .sub-message {
+    font-size: 10px !important;
+  }
+  
+  #calmMeterApp:has(.calm-header.hidden) .mascot-img.normal-size {
+    height: 28vh;
+  }
+}
 
 
   </style>
@@ -1620,11 +1850,16 @@
           </div>
 
           <div class="timer-section">
-            <div class="timer-display" id="timerDisplay">03:00</div>
+            <div class="timer-row">
+              <div class="timer-display" id="timerDisplay">03:00</div>
+              <div class="timer-info">
+                <div class="timer-label" id="timerLabel">Goal: 3 minutes of calm</div>
+                <div class="points-label" id="pointsLabel">+2 pts per 10s</div>
+              </div>
+            </div>
             <div class="timer-progress">
               <div class="timer-progress-fill" id="timerProgress"></div>
             </div>
-            <div class="timer-label" id="timerLabel">Goal: 3 minutes of calm</div>
           </div>
 
           <div class="settings-row">
@@ -2606,7 +2841,18 @@
 
     pointsSelect.addEventListener('change', () => {
       pointsPer10Sec = parseInt(pointsSelect.value, 10);
+      // Update the points label dynamically
+      const pointsLabel = document.getElementById('pointsLabel');
+      if (pointsLabel) {
+        pointsLabel.textContent = `+${pointsPer10Sec} pts per 10s`;
+      }
     });
+    
+    // Also update points label on initial load
+    const pointsLabel = document.getElementById('pointsLabel');
+    if (pointsLabel) {
+      pointsLabel.textContent = `+${pointsPer10Sec} pts per 10s`;
+    }
 
     resetPointsBtn.addEventListener('click', resetPoints);
     deductToggleBtn.addEventListener('click', toggleDeductMode);
