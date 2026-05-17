@@ -89,26 +89,6 @@
         height: auto;
         min-height: 100dvh;
       }
-
-      .calm-header {
-        grid-template-columns: 1fr auto;
-        padding: 10px 14px;
-        position: sticky;
-        top: 0;
-        z-index: 100;
-      }
-      
-      /* Ensure body starts at top */
-      body {
-        margin: 0;
-        padding: 0;
-        min-height: 100vh;
-      }
-      
-      /* Force scroll position to top */
-      html {
-        scroll-behavior: auto;
-      }
     }
 
     @media (min-width: 901px) {
@@ -299,17 +279,6 @@
       padding-bottom: 104px;
       padding-top: 20px;
       transition: padding 0.3s ease;
-    }
-    
-    /* Prevent any element from being scrolled into view automatically */
-    .controls-area,
-    .control-card,
-    .current-character-badge,
-    button,
-    select,
-    .btn {
-      scroll-margin-top: 0;
-      scroll-margin-bottom: 0;
     }
 
     /* When header is hidden, reduce padding-top */
@@ -2053,15 +2022,27 @@
     }
 
     function centreCurrentMilestone() {
+      // Skip auto-scroll on mobile devices - bad UX
+      const isMobile = window.innerWidth <= 900;
+      if (isMobile) return;
+      
       const currentIdx = getCharacterIndexForPoints(totalPoints);
       const currentButton = milestoneRail.querySelector(`[data-index="${currentIdx}"]`);
       if (!currentButton) return;
 
-      currentButton.scrollIntoView({
-        behaviour: 'smooth',
-        block: 'nearest',
-        inline: 'center'
-      });
+      // Check if button is already visible in the scroll area
+      const rect = currentButton.getBoundingClientRect();
+      const railRect = milestoneRailContainer.getBoundingClientRect();
+      const isVisible = rect.left >= railRect.left && rect.right <= railRect.right;
+      
+      // Only scroll if not visible
+      if (!isVisible) {
+        currentButton.scrollIntoView({
+          behaviour: 'smooth',
+          block: 'nearest',
+          inline: 'center'
+        });
+      }
     }
 
     window.showMilestoneCharacter = function(index, remaining) {
@@ -2638,80 +2619,48 @@
       if (event.key === 'Escape') closeZoomModal();
     });
 
-    // Completely prevent auto-scroll to control card on mobile
-    // Disable browser's automatic focus scrolling
-    if ('scrollRestoration' in history) {
-      history.scrollRestoration = 'manual';
-    }
-    
-    // Prevent any element from stealing focus on load
-    const disableFocusScroll = (e) => {
-      e.preventDefault();
-      return false;
-    };
-    
-    // Remove tabindex from any element that might steal focus
-    document.querySelectorAll('[tabindex], button, select, .btn').forEach(el => {
-      el.removeAttribute('tabindex');
-    });
-    
     window.addEventListener('load', () => {
-      setTimeout(centreCurrentMilestone, 120);
+      // Setup hover functionality (doesn't cause scroll)
       setupHoverToShow();
       
-      // Force scroll to top AND prevent any scrolling to elements
-      // Use multiple techniques to ensure header is visible
-      
-      // Method 1: Direct scroll
-      window.scrollTo(0, 0);
-      
-      // Method 2: Scroll html element
-      document.documentElement.scrollTop = 0;
-      
-      // Method 3: Scroll body element
-      if (document.body) document.body.scrollTop = 0;
-      
-      // Method 4: Lock scroll position at 0 for first 500ms
-      let scrollLockCount = 0;
-      const lockScrollAtTop = () => {
-        if (window.scrollY !== 0 && scrollLockCount < 10) {
-          window.scrollTo(0, 0);
-          scrollLockCount++;
-          setTimeout(lockScrollAtTop, 50);
-        }
-      };
-      setTimeout(lockScrollAtTop, 100);
-      
-      // Also handle any hash or previous scroll position
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        document.documentElement.scrollTop = 0;
-        document.body.scrollTop = 0;
-      }, 50);
-    });
-    
-    // Also scroll to top when page becomes visible (for mobile back navigation)
-    document.addEventListener('visibilitychange', () => {
-      if (!document.hidden) {
-        window.scrollTo(0, 0);
-        document.documentElement.scrollTop = 0;
-        document.body.scrollTop = 0;
-      }
-    });
-    
-    // Prevent any click that might cause scroll to focused element
-    document.addEventListener('click', (e) => {
-      // Don't prevent all clicks, just ensure no auto-scroll after
-      setTimeout(() => {
-        if (window.scrollY < 0 || window.scrollY > 50) {
-          // If something scrolled away from header, bring it back
-          // unless user intentionally scrolled or meter is active
-          if (!isMonitoring) {
-            window.scrollTo(0, 0);
+      // CRITICAL: Do NOT auto-scroll to milestone on mobile
+      // Only center milestone if explicitly requested by user action
+      // Check if we're on mobile - if yes, skip auto-scroll entirely
+      const isMobile = window.innerWidth <= 900;
+      if (!isMobile) {
+        // Only on desktop, gentle center without forcing scroll
+        setTimeout(() => {
+          const currentIdx = getCharacterIndexForPoints(totalPoints);
+          const currentButton = milestoneRail.querySelector(`[data-index="${currentIdx}"]`);
+          if (currentButton && !isMobile) {
+            // Use scrollIntoView only if button is not already visible
+            const rect = currentButton.getBoundingClientRect();
+            const railRect = milestoneRailContainer.getBoundingClientRect();
+            const isVisible = rect.left >= railRect.left && rect.right <= railRect.right;
+            if (!isVisible) {
+              currentButton.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
           }
+        }, 100);
+      }
+      
+      // Ensure page starts at TOP (tool main header), not scrolled down
+      // Use instant, not smooth - prevents disorienting animation
+      if (window.scrollY > 0 || document.documentElement.scrollTop > 0 || document.body.scrollTop > 0) {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: 'instant'
+        });
+      }
+      
+      // Extra safety: force scroll to top after any layout shifts
+      setTimeout(() => {
+        if (window.scrollY > 10) {
+          window.scrollTo(0, 0);
         }
       }, 50);
-    }, true);
+    });
 
     loadPoints();
     setGoal();
