@@ -1,0 +1,3189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>Calm Meter | Classroom Noise Tool by TrackEDU</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+
+    
+
+    :root {
+      --brand-blue: #0f66c3;
+      --brand-green: #87C232;
+      --brand-dark: #0C1E2C;
+      --brand-light: #F8FAFC;
+      --quiet: #10b981;
+      --warning: #f59e0b;
+      --loud: #ef4444;
+      --reward: #facc15;
+      --state-color: #10b981;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--brand-dark);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    #calmMeterApp {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      color: #ffffff;
+      background: radial-gradient(circle at 22% 18%, rgba(135, 194, 50, 0.18), transparent 34%),
+                  linear-gradient(135deg, #07111f 0%, var(--brand-dark) 48%, #111827 100%);
+      overflow: hidden;
+      z-index: 10000;
+      transition: background 0.35s ease;
+    }
+
+    #calmMeterApp.state-quiet {
+      --state-color: #10b981;
+      background: radial-gradient(circle at 26% 24%, rgba(16, 185, 129, 0.30), transparent 36%),
+                  radial-gradient(circle at 80% 75%, rgba(16, 185, 129, 0.16), transparent 38%),
+                  linear-gradient(135deg, #071b16 0%, var(--brand-dark) 50%, #10251d 100%);
+    }
+
+    #calmMeterApp.state-warning {
+      --state-color: #f59e0b;
+      background: radial-gradient(circle at 26% 24%, rgba(245, 158, 11, 0.38), transparent 36%),
+                  radial-gradient(circle at 80% 75%, rgba(251, 191, 36, 0.20), transparent 38%),
+                  linear-gradient(135deg, #211608 0%, var(--brand-dark) 50%, #241804 100%);
+    }
+
+    #calmMeterApp.state-loud {
+      --state-color: #ef4444;
+      background: radial-gradient(circle at 26% 24%, rgba(239, 68, 68, 0.42), transparent 36%),
+                  radial-gradient(circle at 80% 75%, rgba(251, 113, 133, 0.18), transparent 38%),
+                  linear-gradient(135deg, #26070b 0%, #111827 48%, #2b0b11 100%);
+    }
+
+    #calmMeterApp.state-reward {
+      --state-color: #facc15;
+      background: radial-gradient(circle at 26% 20%, rgba(250, 204, 21, 0.42), transparent 36%),
+                  radial-gradient(circle at 80% 75%, rgba(34, 197, 94, 0.28), transparent 38%),
+                  linear-gradient(135deg, #0b2216 0%, var(--brand-dark) 48%, #251a05 100%);
+    }
+
+    @media (max-width: 900px) {
+      #calmMeterApp {
+        overflow-y: auto;
+        position: relative;
+        height: auto;
+        min-height: 100dvh;
+      }
+    }
+
+    @media (min-width: 901px) {
+      #calmMeterApp {
+        overflow: hidden;
+        position: fixed;
+      }
+    }
+
+    .calm-header {
+      background: rgba(7, 17, 31, 0.82);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      padding: 10px 20px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+      z-index: 30;
+    }
+
+    .header-left,
+    .header-center,
+    .header-right {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-left {
+      justify-content: flex-start;
+    }
+
+    .header-center {
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .header-right {
+      justify-content: flex-end;
+      gap: 12px;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--brand-green), #6a9e28);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(135, 194, 50, 0.22);
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .tool-title {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.25rem;
+      color: #f8fafc;
+      letter-spacing: 0.01em;
+    }
+
+    .tool-subtitle {
+      font-size: 10px;
+      color: #94a3b8;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-top: 2px;
+    }
+
+    .points-badge {
+      background: rgba(135, 194, 50, 0.20);
+      border: 1px solid rgba(135, 194, 50, 0.34);
+      border-radius: 40px;
+      padding: 7px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 900;
+      min-width: 94px;
+      justify-content: center;
+      box-shadow: 0 10px 28px rgba(135, 194, 50, 0.12);
+    }
+
+    .points-badge i {
+      color: #fbbf24;
+    }
+
+    .points-value {
+      font-size: 1.35rem;
+      color: #fbbf24;
+      font-family: 'Fredoka One', cursive;
+      line-height: 1;
+    }
+
+    .sound-btn {
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.20);
+      color: white;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .sound-btn:hover {
+      background: rgba(255,255,255,0.18);
+      transform: translateY(-1px);
+    }
+
+    .footer-link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .footer-link a {
+      text-decoration: none;
+      font-weight: 900;
+    }
+
+    .footer-link .trackedu-wordmark {
+      font-family: 'Fredoka One', cursive;
+      letter-spacing: 0.01em;
+      color: unset !important;
+      background: transparent !important;
+      font-size: 1.1rem;
+    }
+
+    .footer-link .trackedu-wordmark .track-word {
+      color: #ffffff !important;
+      -webkit-text-fill-color: #ffffff !important;
+    }
+
+    .footer-link .trackedu-wordmark .edu-word {
+      color: var(--brand-green) !important;
+      -webkit-text-fill-color: var(--brand-green) !important;
+    }
+
+    .tools-link {
+      color: #fbbf24;
+      background: rgba(251, 191, 36, 0.12);
+      border: 1px solid rgba(251, 191, 36, 0.24);
+      padding: 6px 11px;
+      border-radius: 999px;
+      box-shadow: 0 10px 24px rgba(251, 191, 36, 0.10);
+    }
+
+    .footer-link a:hover {
+      transform: translateY(-1px);
+    }
+
+    .trackedu-wordmark:hover .track-word {
+      color: #f8fafc;
+    }
+
+    .trackedu-wordmark:hover .edu-word,
+    .tools-link:hover {
+      color: #fde68a;
+    }
+
+    .footer-link span {
+      color: #475569;
+    }
+
+    .main-layout {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      min-height: 0;
+      overflow: hidden;
+      padding-bottom: 104px;
+      padding-top: 20px;
+      transition: padding 0.3s ease;
+    }
+
+    /* When header is hidden, reduce padding-top */
+    #calmMeterApp:has(.calm-header.hidden) .main-layout {
+      padding-top: 0;
+    }
+
+    .character-area {
+      flex: 1.2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      min-width: 0;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .stage {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      isolation: isolate;
+      padding: 20px;
+      overflow: visible;
+      margin-top: 30px;
+      transition: margin-top 0.3s ease;
+    }
+
+    /* When header is hidden, remove margin-top */
+    #calmMeterApp:has(.calm-header.hidden) .stage {
+      margin-top: 0;
+    }
+
+    .noise-field {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .sound-ring {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: var(--ring-size, 320px);
+      height: var(--ring-size, 320px);
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.10);
+      transform: translate(-50%, -50%) scale(var(--sound-scale, 1));
+      opacity: var(--sound-opacity, 0.28);
+      transition: transform 0.08s linear, opacity 0.08s linear, border-color 0.2s ease;
+      border-color: color-mix(in srgb, var(--state-color) 55%, rgba(255,255,255,0.15));
+    }
+
+    .sound-ring.ring-two {
+      --ring-size: 450px;
+      opacity: calc(var(--sound-opacity, 0.28) * 0.65);
+    }
+
+    .sound-ring.ring-three {
+      --ring-size: 600px;
+      opacity: calc(var(--sound-opacity, 0.28) * 0.42);
+    }
+
+    .floating-spark {
+      position: absolute;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--state-color);
+      opacity: 0.15;
+      filter: blur(0.2px);
+      animation: driftSpark 8s ease-in-out infinite;
+    }
+
+    .spark-one { top: 18%; left: 18%; animation-delay: 0s; }
+    .spark-two { top: 28%; right: 14%; animation-delay: 1.2s; }
+    .spark-three { bottom: 18%; left: 28%; animation-delay: 2.1s; }
+    .spark-four { bottom: 25%; right: 22%; animation-delay: 3s; }
+
+    @keyframes driftSpark {
+      0%, 100% { transform: translateY(0) scale(0.8); opacity: 0.12; }
+      50% { transform: translateY(-24px) scale(1.2); opacity: 0.32; }
+    }
+
+    .stage-glow {
+      position: absolute;
+      width: 60vh;
+      height: 60vh;
+      max-width: 520px;
+      max-height: 520px;
+      border-radius: 50%;
+      opacity: 0.25;
+      filter: blur(8px);
+      background: radial-gradient(circle, var(--state-color), transparent 70%);
+      animation: breatheGlow 2.8s ease-in-out infinite;
+      z-index: 1;
+    }
+
+    @keyframes breatheGlow {
+      0%, 100% { transform: scale(0.94); opacity: 0.18; }
+      50% { transform: scale(1.05); opacity: 0.34; }
+    }
+
+    .message-card {
+      margin-bottom: 18px;
+      text-align: center;
+      padding: 9px 22px;
+      background: rgba(15, 23, 42, 0.66);
+      backdrop-filter: blur(12px);
+      border-radius: 60px;
+      border: 1px solid rgba(255,255,255,0.14);
+      z-index: 4;
+      box-shadow: 0 18px 50px rgba(0,0,0,0.22);
+    }
+
+    .main-message {
+      font-size: clamp(20px, 3vw, 38px);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .sub-message {
+      font-size: clamp(11px, 1.2vw, 14px);
+      color: #94a3b8;
+      margin-top: 2px;
+      font-weight: 700;
+    }
+
+    .mascot-img {
+      width: auto;
+      height: 55vh;
+      object-fit: contain;
+      filter: drop-shadow(0 26px 35px rgba(0,0,0,0.42));
+      transition: all 0.3s ease-in-out;
+      z-index: 3;
+    }
+
+    /* When header and milestones are visible (normal state) */
+    .mascot-img.normal-size {
+      height: 55vh;
+    }
+
+    /* When header and milestones are hidden (full screen mode) */
+    .mascot-img.expanded-size {
+      height: 75vh;
+    }
+
+    @media (min-width: 1200px) {
+      .mascot-img.normal-size {
+        height: 58vh;
+      }
+      
+      .mascot-img.expanded-size {
+        height: 82vh;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .mascot-img.normal-size {
+        height: 40vh;
+      }
+      
+      .mascot-img.expanded-size {
+        height: 58vh;
+      }
+    }
+
+    /* When header and milestones are visible (normal state) */
+    .mascot-img.normal-size {
+      height: 55vh;
+      max-height: 55vh;
+    }
+
+    /* When header and milestones are hidden (full screen mode) */
+    .mascot-img.expanded-size {
+      height: 72vh;
+      max-height: 72vh;
+    }
+
+    @media (min-width: 1200px) {
+      .mascot-img.normal-size {
+        height: 58vh;
+        max-height: 58vh;
+      }
+      
+      .mascot-img.expanded-size {
+        height: 78vh;
+        max-height: 78vh;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .mascot-img.normal-size {
+        height: 40vh;
+        max-height: 40vh;
+      }
+      
+      .mascot-img.expanded-size {
+        height: 55vh;
+        max-height: 55vh;
+      }
+    }
+
+    .state-quiet .mascot-img { animation: floatCalm 3.8s ease-in-out infinite; }
+    .state-warning .mascot-img { animation: shakeWarning 1.1s ease-in-out infinite; }
+    .state-loud .mascot-img { animation: shakeLoud 0.48s ease-in-out infinite; }
+    .state-reward .mascot-img { animation: bounceCelebrate 0.9s ease-in-out infinite; }
+
+    @keyframes floatCalm {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes shakeWarning {
+      0%, 100% { transform: rotate(-1deg) translateX(-2px); }
+      50% { transform: rotate(1.5deg) translateX(2px); }
+    }
+
+    @keyframes shakeLoud {
+      0%, 100% { transform: rotate(-2deg) translateX(-4px); }
+      50% { transform: rotate(2deg) translateX(4px); }
+    }
+
+    @keyframes bounceCelebrate {
+      0%, 100% { transform: translateY(0) scale(1); }
+      45% { transform: translateY(-18px) scale(1.04); }
+    }
+
+    .controls-area {
+      flex: 0.72;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      min-width: 340px;
+      z-index: 5;
+    }
+
+    .control-card {
+      width: 100%;
+      max-width: 500px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.11), rgba(255,255,255,0.055));
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 30px;
+      padding: 20px;
+      box-shadow: 0 28px 90px rgba(0,0,0,0.32);
+    }
+
+    .current-character-badge {
+      background:
+        radial-gradient(circle at 50% 0%, rgba(250, 204, 21, 0.22), transparent 42%),
+        radial-gradient(circle at 18% 24%, rgba(135, 194, 50, 0.16), transparent 34%),
+        linear-gradient(135deg, rgba(15, 23, 42, 0.94), rgba(12, 30, 44, 0.90));
+      border: 1px solid rgba(250, 204, 21, 0.32);
+      border-radius: 26px;
+      padding: 18px;
+      margin-bottom: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .current-character-badge::after {
+      content: '';
+      position: absolute;
+      inset: -40%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.08), transparent);
+      transform: rotate(18deg) translateX(-72%);
+      transition: transform 0.6s ease;
+    }
+
+    .current-character-badge:hover {
+      transform: translateY(-2px);
+      border-color: rgba(250, 204, 21, 0.58);
+      box-shadow: 0 20px 45px rgba(250, 204, 21, 0.12);
+    }
+
+    .current-character-badge:hover::after {
+      transform: rotate(18deg) translateX(72%);
+    }
+
+    .achievement-layout {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .badge-avatar {
+      width: clamp(116px, 12vw, 150px);
+      height: clamp(116px, 12vw, 150px);
+      background: rgba(255,255,255,0.95);
+      border-radius: 34px;
+      overflow: hidden;
+      border: 4px solid #fbbf24;
+      box-shadow: 0 18px 42px rgba(0,0,0,0.34), 0 0 0 8px rgba(250, 204, 21, 0.08);
+      flex-shrink: 0;
+    }
+
+    .badge-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.04);
+    }
+
+    .achievement-kicker {
+      font-size: 10px;
+      color: #fbbf24;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 5px;
+    }
+
+    .badge-name {
+      font-family: 'Fredoka One', cursive;
+      font-size: clamp(1.25rem, 2vw, 1.65rem);
+      font-weight: 900;
+      line-height: 1.05;
+      color: #ffffff;
+    }
+
+    .achievement-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .badge-points {
+      font-size: 12px;
+      color: #fbbf24;
+      font-weight: 900;
+      padding: 5px 10px;
+      background: rgba(250, 204, 21, 0.12);
+      border-radius: 999px;
+      border: 1px solid rgba(250, 204, 21, 0.22);
+    }
+
+    .current-level-pill {
+      font-size: 10px;
+      color: #10b981;
+      font-weight: 900;
+      padding: 5px 10px;
+      background: rgba(16, 185, 129, 0.12);
+      border-radius: 999px;
+      border: 1px solid rgba(16, 185, 129, 0.22);
+    }
+
+    .achievement-hint {
+      font-size: 10px;
+      color: #94a3b8;
+      margin-top: 9px;
+      font-weight: 700;
+    }
+
+    .volume-meter {
+      margin-bottom: 18px;
+    }
+
+    .meter-bar {
+      height: 18px;
+      background: rgba(255,255,255,0.10);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 8px;
+      position: relative;
+    }
+
+    .meter-fill {
+      height: 100%;
+      width: 0%;
+      transition: width 0.08s linear, background 0.16s ease;
+      border-radius: 999px;
+      box-shadow: 0 0 18px rgba(255,255,255,0.12);
+    }
+
+    .meter-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      color: #94a3b8;
+      font-weight: 900;
+    }
+
+    .timer-section {
+      background: rgba(0,0,0,0.30);
+      border-radius: 22px;
+      padding: 16px;
+      margin: 14px 0;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .timer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .timer-display {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.9rem;
+      font-weight: 900;
+      color: #fbbf24;
+      letter-spacing: 2px;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .timer-info {
+      text-align: right;
+      flex: 1;
+    }
+
+    .timer-label {
+      font-size: 10px;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 900;
+      margin-bottom: 4px;
+    }
+
+    .points-label {
+      font-size: 11px;
+      color: var(--brand-green);
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    .timer-progress {
+      height: 6px;
+      background: rgba(255,255,255,0.10);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .timer-progress-fill {
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(90deg, var(--brand-green), #fbbf24);
+      transition: width 0.3s linear;
+    }
+
+    .settings-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: 10px;
+      margin: 12px 0;
+      align-items: stretch;
+    }
+    
+    /* On mobile, settings row should be side by side for goal and points, deduct below */
+    @media (max-width: 600px) {
+      .settings-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+      
+      .deduct-inline {
+        grid-column: span 2;
+      }
+    }
+
+    .goal-select {
+      width: 100%;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.20);
+      border-radius: 13px;
+      padding: 9px 10px;
+      color: white;
+      font-weight: 800;
+      font-size: 12px;
+      cursor: pointer;
+      min-height: 44px;
+    }
+
+    .goal-select option {
+      background: #1e293b;
+    }
+
+    .deduct-inline {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 7px 10px;
+      background: rgba(0,0,0,0.23);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 13px;
+      white-space: nowrap;
+    }
+
+    .deduct-label {
+      font-size: 10px;
+      font-weight: 900;
+      color: #cbd5e1;
+      line-height: 1.05;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .deduct-toggle {
+      background: rgba(255,255,255,0.15);
+      border: none;
+      padding: 7px 13px;
+      border-radius: 999px;
+      color: white;
+      font-weight: 900;
+      font-size: 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+      min-width: 48px;
+    }
+
+    .deduct-toggle.active {
+      background: #ef4444;
+      box-shadow: 0 0 16px rgba(239, 68, 68, 0.55);
+    }
+
+    .button-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 11px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 12px;
+      cursor: pointer;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      transition: all 0.2s;
+      min-height: 42px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--brand-green), #6a9e28);
+      color: white;
+      box-shadow: 0 14px 30px rgba(135, 194, 50, 0.22);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-danger {
+      background: rgba(239,68,68,0.20);
+      border: 1px solid rgba(248,113,113,0.32);
+      color: #fecaca;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.20);
+      color: white;
+    }
+
+    .status-text {
+      margin-top: 14px;
+      padding: 9px 10px;
+      background: rgba(0,0,0,0.30);
+      border-radius: 14px;
+      font-size: 10px;
+      color: #94a3b8;
+      text-align: center;
+      font-weight: 700;
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .milestone-rail {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 40;
+      padding: 10px 18px calc(10px + env(safe-area-inset-bottom));
+      background: linear-gradient(180deg, rgba(7, 17, 31, 0.42), rgba(7, 17, 31, 0.94));
+      backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 -18px 60px rgba(0,0,0,0.35);
+    }
+
+    .milestone-topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+      max-width: 1500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .milestone-title {
+      font-size: 10px;
+      color: #fbbf24;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      white-space: nowrap;
+    }
+
+    .milestone-progress-text {
+      font-size: 10px;
+      color: #94a3b8;
+      font-weight: 800;
+      text-align: right;
+    }
+
+    .milestone-scroll {
+      max-width: 1500px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(250, 204, 21, 0.55) rgba(255,255,255,0.08);
+      padding: 2px 2px 4px;
+    }
+
+    .milestone-scroll::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .milestone-scroll::-webkit-scrollbar-track {
+      background: rgba(255,255,255,0.08);
+      border-radius: 999px;
+    }
+
+    .milestone-scroll::-webkit-scrollbar-thumb {
+      background: rgba(250, 204, 21, 0.55);
+      border-radius: 999px;
+    }
+
+    .milestone-dot {
+      position: relative;
+      width: 52px;
+      min-width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(15, 23, 42, 0.74);
+      cursor: pointer;
+      overflow: hidden;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .milestone-dot:hover {
+      transform: translateY(-3px);
+      border-color: rgba(250, 204, 21, 0.58);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.22);
+    }
+
+    .milestone-dot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.08);
+      transition: filter 0.22s ease, transform 0.22s ease;
+    }
+
+    .milestone-dot.locked img {
+      filter: blur(5px) saturate(0.55) brightness(0.62);
+      transform: scale(1.18);
+    }
+
+    .milestone-dot.locked:hover img {
+      filter: blur(3px) saturate(0.70) brightness(0.78);
+      transform: scale(1.12);
+    }
+
+    .milestone-dot.unlocked img,
+    .milestone-dot.current img {
+      filter: none;
+    }
+
+    .milestone-dot.current {
+      border: 2px solid #fbbf24;
+      box-shadow: 0 0 0 4px rgba(250, 204, 21, 0.12), 0 14px 34px rgba(250, 204, 21, 0.14);
+    }
+
+    .milestone-dot.unlocked::after {
+      content: '✓';
+      position: absolute;
+      right: 3px;
+      bottom: 3px;
+      width: 17px;
+      height: 17px;
+      border-radius: 999px;
+      background: #10b981;
+      color: white;
+      font-size: 10px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,0.6);
+    }
+
+    .milestone-dot.locked::after {
+      content: '\f023';
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute;
+      right: 3px;
+      bottom: 3px;
+      width: 17px;
+      height: 17px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.88);
+      color: #fbbf24;
+      font-size: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,0.16);
+    }
+
+    .milestone-dot.current::before {
+      content: 'NOW';
+      position: absolute;
+      top: 3px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 2px 5px;
+      border-radius: 999px;
+      background: rgba(250, 204, 21, 0.95);
+      color: #422006;
+      font-size: 7px;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      z-index: 2;
+    }
+
+    .zoom-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.94);
+      backdrop-filter: blur(10px);
+      z-index: 20000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .zoom-modal.active {
+      display: flex;
+    }
+
+    .zoom-img {
+      width: min(320px, 78vw);
+      height: min(320px, 78vw);
+      border-radius: 34px;
+      background: white;
+      padding: 10px;
+      overflow: hidden;
+      border: 4px solid #fbbf24;
+      box-shadow: 0 30px 90px rgba(250, 204, 21, 0.18);
+      position: relative;
+    }
+
+    .zoom-img.locked {
+      background: #0f172a;
+      border-color: rgba(250, 204, 21, 0.55);
+    }
+
+    .zoom-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.05);
+      filter: none;
+    }
+
+    .zoom-img.locked img {
+      filter: blur(9px) saturate(0.58) brightness(0.64);
+      transform: scale(1.17);
+    }
+
+    .zoom-lock-badge {
+      position: absolute;
+      left: 50%;
+      bottom: 16px;
+      transform: translateX(-50%);
+      background: rgba(15, 23, 42, 0.88);
+      border: 1px solid rgba(250, 204, 21, 0.34);
+      color: #fbbf24;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 900;
+      display: none;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.28);
+    }
+
+    .zoom-img.locked .zoom-lock-badge {
+      display: flex;
+    }
+
+    .zoom-name {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.6rem;
+      color: #fbbf24;
+      margin-top: 20px;
+    }
+
+    .zoom-points {
+      color: #cbd5e1;
+      margin-top: 8px;
+      font-weight: 800;
+    }
+
+    .coin-burst {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 19000;
+      overflow: hidden;
+    }
+
+    .coin {
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #fff7ad, #fbbf24 58%, #d97706);
+      box-shadow: 0 8px 20px rgba(251, 191, 36, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #92400e;
+      font-size: 12px;
+      font-weight: 900;
+      animation: coinFly 1.15s ease-out forwards;
+    }
+
+    .coin::before {
+      content: '★';
+    }
+
+    @keyframes coinFly {
+      0% {
+        opacity: 0;
+        transform: translate(var(--start-x), var(--start-y)) scale(0.35) rotate(0deg);
+      }
+      18% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform: translate(var(--end-x), var(--end-y)) scale(1.08) rotate(520deg);
+      }
+    }
+
+    @keyframes floatUp {
+      0% { transform: translate(-50%, -50%) scale(0.8); opacity: 1; }
+      50% { transform: translate(-50%, -70%) scale(1.22); }
+      100% { transform: translate(-50%, -120%) scale(1); opacity: 0; }
+    }
+
+    @media (max-width: 1100px) and (min-width: 901px) {
+      .main-layout {
+        padding-bottom: 98px;
+      }
+
+      .controls-area {
+        flex: 0.82;
+      }
+
+      .badge-avatar {
+        width: 118px;
+        height: 118px;
+      }
+
+      .timer-display {
+        font-size: 2.45rem;
+      }
+
+      .milestone-dot {
+        width: 48px;
+        min-width: 48px;
+        height: 48px;
+        border-radius: 16px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .calm-header {
+        grid-template-columns: 1fr auto;
+        padding: 10px 14px;
+      }
+
+      .header-center {
+        grid-column: 2;
+        grid-row: 1;
+      }
+
+      .header-right {
+        grid-column: 1 / -1;
+        justify-content: center;
+        border-top: 1px solid rgba(255,255,255,0.08);
+        padding-top: 8px;
+      }
+
+      .main-layout {
+        flex-direction: column;
+        overflow: visible;
+        padding-bottom: 0;
+      }
+
+      .character-area {
+        min-height: auto;
+        height: auto;
+        flex: 0 0 auto;
+        margin-bottom: 5px;
+      }
+
+      .stage {
+        padding: 5px 8px;
+        margin-top: 5px;
+      }
+
+      .stage-glow {
+        width: 25vh;
+        height: 25vh;
+      }
+
+      .mascot-img {
+        height: 22vh;
+        max-height: 22vh;
+      }
+      
+      .mascot-img.normal-size {
+        height: 22vh;
+      }
+      
+      .mascot-img.expanded-size {
+        height: 35vh;
+      }
+
+      .message-card {
+        margin-bottom: 4px;
+        padding: 4px 10px;
+      }
+
+      .main-message {
+        font-size: 18px !important;
+      }
+      
+      .sub-message {
+        font-size: 9px !important;
+      }
+
+      .controls-area {
+        min-width: 0;
+        width: 100%;
+        padding: 8px 10px 10px 10px;
+        flex-shrink: 0;
+      }
+
+      .control-card {
+        padding: 10px;
+        max-width: 100%;
+        width: 100%;
+      }
+      
+      /* Reduce bottom margin on current character badge */
+      .current-character-badge {
+        margin-bottom: 8px;
+        padding: 6px 10px;
+      }
+
+      .settings-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin: 12px 0;
+        width: 100%;
+      }
+
+      .goal-select, .pointsSelect {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .deduct-inline {
+        grid-column: span 2;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .timer-display {
+        font-size: 2.2rem;
+      }
+
+      .achievement-layout {
+        gap: 9px;
+      }
+
+      .badge-avatar {
+        width: 118px;
+        height: 118px;
+        border-radius: 30px;
+      }
+
+      .badge-name {
+        font-size: 1.25rem;
+      }
+
+      .milestone-rail {
+        position: relative;
+        padding: 10px 14px calc(12px + env(safe-area-inset-bottom));
+      }
+
+      .milestone-topline {
+        margin-bottom: 8px;
+      }
+
+      .milestone-title {
+        font-size: 9px;
+      }
+
+      .milestone-progress-text {
+        font-size: 9px;
+      }
+
+      .milestone-dot {
+        width: 48px;
+        min-width: 48px;
+        height: 48px;
+        border-radius: 16px;
+      }
+
+      .btn span {
+        display: inline;
+      }
+    }
+
+
+    /* Force settings row side-by-side on all mobile devices */
+@media (max-width: 900px) {
+  .settings-row {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+  
+  .settings-row select {
+    width: 100% !important;
+    min-width: 0 !important;
+    font-size: 12px !important;
+    padding: 9px 8px !important;
+  }
+  
+  .deduct-inline {
+    grid-column: span 2 !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+}
+
+/* For very small screens, reduce gap and padding */
+@media (max-width: 480px) {
+  .settings-row {
+    gap: 6px !important;
+  }
+  
+  .settings-row select {
+    font-size: 11px !important;
+    padding: 8px 6px !important;
+  }
+  
+  .deduct-label span {
+    font-size: 9px !important;
+  }
+  
+  .deduct-toggle {
+    padding: 5px 10px !important;
+    font-size: 9px !important;
+  }
+}
+
+    @media (max-width: 430px) {
+      .footer-link {
+        font-size: 12px;
+        gap: 10px;
+      }
+      
+      .footer-link .trackedu-wordmark {
+        font-size: 1rem;
+      }
+
+      .tool-title {
+        font-size: 1.1rem;
+      }
+
+      .points-badge {
+        min-width: 84px;
+        padding: 6px 12px;
+      }
+
+      .points-value {
+        font-size: 1.15rem;
+      }
+
+      .settings-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .deduct-inline {
+        grid-column: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .button-group {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+      }
+
+      .button-group .btn {
+        flex: 1;
+      }
+
+      #resetPointsBtn {
+        grid-column: auto;
+      }
+
+      .badge-avatar {
+        width: 104px;
+        height: 104px;
+        border-radius: 28px;
+      }
+
+      .milestone-topline {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .milestone-progress-text {
+        text-align: left;
+      }
+      
+      /* Timer side-by-side on mobile */
+      .timer-row {
+        flex-direction: row;
+        align-items: center;
+      }
+      
+      .timer-display {
+        font-size: 2.2rem;
+      }
+      
+      .timer-label {
+        font-size: 9px;
+      }
+      
+      .points-label {
+        font-size: 10px;
+      }
+    }
+
+
+
+/* Compact version for current character badge */
+.achievement-layout-compact {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  position: relative;
+  z-index: 2;
+}
+
+.badge-avatar-compact {
+  width: 88px;
+  height: 88px;
+  background: rgba(255,255,255,0.95);
+  border-radius: 26px;
+  overflow: hidden;
+  border: 3px solid #fbbf24;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.25), 0 0 0 4px rgba(250, 204, 21, 0.1);
+  flex-shrink: 0;
+}
+
+.badge-avatar-compact img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.04);
+}
+
+.achievement-info-compact {
+  flex: 1;
+  text-align: left;
+}
+
+.achievement-kicker-compact {
+  font-size: 11px;
+  color: #fbbf24;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 5px;
+}
+
+.badge-name-compact {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.35rem;
+  font-weight: 900;
+  line-height: 1.2;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.achievement-row-compact {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.badge-points-compact {
+  font-size: 13px;
+  color: #fbbf24;
+  font-weight: 900;
+  padding: 5px 12px;
+  background: rgba(250, 204, 21, 0.12);
+  border-radius: 999px;
+  border: 1px solid rgba(250, 204, 21, 0.22);
+}
+
+.current-level-pill-compact {
+  font-size: 12px;
+  color: #10b981;
+  font-weight: 900;
+  padding: 5px 12px;
+  background: rgba(16, 185, 129, 0.12);
+  border-radius: 999px;
+  border: 1px solid rgba(16, 185, 129, 0.22);
+}
+
+.achievement-hint-compact {
+  font-size: 11px;
+  color: #94a3b8;
+  font-weight: 700;
+  margin-top: 0px;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 500px) {
+  .badge-avatar-compact {
+    width: 55px;
+    height: 55px;
+    border-radius: 16px;
+  }
+  
+  .badge-name-compact {
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+  }
+  
+  .badge-points-compact {
+    font-size: 9px;
+    padding: 2px 8px;
+  }
+  
+  .current-level-pill-compact {
+    font-size: 8px;
+    padding: 2px 8px;
+  }
+  
+  .achievement-hint-compact {
+    font-size: 8px;
+  }
+  
+  .achievement-kicker-compact {
+    font-size: 8px;
+    margin-bottom: 2px;
+  }
+  
+  .current-character-badge {
+    padding: 8px 12px;
+    margin-bottom: 10px;
+  }
+  
+  .achievement-layout-compact {
+    gap: 10px;
+  }
+}
+
+/* Update the current-character-badge padding to match compact layout */
+.current-character-badge {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.94), rgba(12, 30, 44, 0.90));
+  border: 1px solid rgba(250, 204, 21, 0.32);
+  border-radius: 22px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 500px) {
+  .badge-avatar-compact {
+    width: 60px;
+    height: 60px;
+    border-radius: 18px;
+  }
+  
+  .badge-name-compact {
+    font-size: 0.95rem;
+  }
+  
+  .achievement-row-compact {
+    gap: 5px;
+  }
+  
+  .badge-points-compact {
+    font-size: 9px;
+    padding: 2px 6px;
+  }
+  
+  .current-level-pill-compact {
+    font-size: 8px;
+    padding: 2px 6px;
+  }
+  
+  .achievement-hint-compact {
+    font-size: 8px;
+  }
+  
+  .current-character-badge {
+    padding: 12px 14px;
+  }
+}
+
+
+.character-area {
+      flex: 1.2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      min-width: 0;
+      height: 100%;
+      overflow: visible;
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+
+
+
+    /* Timer section compact for mobile */
+@media (max-width: 500px) {
+  .timer-section {
+    padding: 10px;
+    margin: 8px 0;
+  }
+  
+  .timer-row {
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  
+  .timer-display {
+    font-size: 1.8rem;
+  }
+  
+  .timer-label {
+    font-size: 8px;
+    margin-bottom: 2px;
+  }
+  
+  .points-label {
+    font-size: 9px;
+  }
+  
+  .timer-progress {
+    height: 4px;
+  }
+  
+  .volume-meter {
+    margin-bottom: 10px;
+  }
+  
+  .meter-bar {
+    height: 12px;
+  }
+  
+  .meter-labels span {
+    font-size: 8px;
+  }
+  
+  .button-group .btn {
+    padding: 8px;
+    font-size: 11px;
+    min-height: 36px;
+  }
+  
+  .status-text {
+    margin-top: 8px;
+    padding: 6px 8px;
+    font-size: 9px;
+  }
+}
+
+
+
+/* When header is hidden on mobile, give more space to character message */
+@media (max-width: 900px) {
+  #calmMeterApp:has(.calm-header.hidden) .character-area {
+    min-height: auto;
+    margin-top: 5px;
+  }
+  
+  #calmMeterApp:has(.calm-header.hidden) .message-card {
+    margin-bottom: 8px;
+    padding: 6px 12px;
+  }
+  
+  #calmMeterApp:has(.calm-header.hidden) .main-message {
+    font-size: 20px !important;
+  }
+  
+  #calmMeterApp:has(.calm-header.hidden) .sub-message {
+    font-size: 10px !important;
+  }
+  
+  #calmMeterApp:has(.calm-header.hidden) .mascot-img.normal-size {
+    height: 28vh;
+  }
+}
+
+
+/* Privacy Modal Styles */
+.privacy-trigger {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 40px;
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Outfit', sans-serif;
+}
+
+.privacy-trigger:hover {
+  background: rgba(255,255,255,0.15);
+  color: #fbbf24;
+  border-color: rgba(250, 204, 21, 0.3);
+}
+
+.privacy-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 30000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.privacy-modal-overlay.active {
+  display: flex;
+}
+
+.privacy-modal {
+  background: linear-gradient(135deg, #0f172a 0%, #0c1e2c 100%);
+  border: 1px solid rgba(135, 194, 50, 0.3);
+  border-radius: 32px;
+  max-width: 520px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 28px 24px;
+  cursor: default;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.privacy-modal::-webkit-scrollbar {
+  width: 6px;
+}
+
+.privacy-modal::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.08);
+  border-radius: 999px;
+}
+
+.privacy-modal::-webkit-scrollbar-thumb {
+  background: rgba(135, 194, 50, 0.5);
+  border-radius: 999px;
+}
+
+.privacy-modal h2 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.6rem;
+  color: #fbbf24;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.privacy-section {
+  margin-bottom: 24px;
+  border-left: 3px solid var(--brand-green);
+  padding-left: 16px;
+}
+
+.privacy-section h3 {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.privacy-section h3 i {
+  color: var(--brand-green);
+  font-size: 1rem;
+}
+
+.privacy-section p {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+.privacy-highlight {
+  background: rgba(135, 194, 50, 0.1);
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin: 20px 0;
+  text-align: center;
+  border: 1px solid rgba(135, 194, 50, 0.2);
+}
+
+.privacy-highlight p {
+  font-size: 0.85rem;
+  color: #fbbf24;
+  font-weight: 700;
+  margin: 0;
+}
+
+.privacy-footer-note {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.7rem;
+  color: #64748b;
+  text-align: center;
+}
+
+.privacy-footer-note a {
+  color: #fbbf24;
+  text-decoration: none;
+}
+
+.privacy-footer-note a:hover {
+  text-decoration: underline;
+}
+
+.close-privacy-btn {
+  background: linear-gradient(135deg, var(--brand-green), #6a9e28);
+  border: none;
+  border-radius: 999px;
+  padding: 12px 24px;
+  font-weight: 900;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+  margin-top: 20px;
+  font-family: 'Outfit', sans-serif;
+}
+
+.close-privacy-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(135, 194, 50, 0.3);
+}
+
+/* Mobile adjustments */
+@media (max-width: 500px) {
+  .privacy-modal {
+    padding: 20px 16px;
+  }
+  
+  .privacy-modal h2 {
+    font-size: 1.3rem;
+  }
+  
+  .privacy-section h3 {
+    font-size: 0.9rem;
+  }
+  
+  .privacy-section p {
+    font-size: 0.75rem;
+  }
+  
+  .privacy-trigger {
+    padding: 4px 10px;
+    font-size: 9px;
+  }
+}
+
+
+  </style>
+</head>
+
+<body>
+  <div id="calmMeterApp" class="state-quiet">
+
+    <div class="calm-header">
+      <div class="header-left">
+        <div class="logo-area">
+          <div class="logo-icon"><i class="fas fa-leaf"></i></div>
+          <div class="logo-text">
+            <div class="tool-title">Calm Meter</div>
+            <div class="tool-subtitle">Classroom noise rewards</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-center">
+        <div class="points-badge">
+          <i class="fas fa-star"></i>
+          <span class="points-value" id="totalPointsDisplay">0</span>
+        </div>
+        <button class="sound-btn" id="soundToggleBtn" aria-label="Toggle sound">
+          <i class="fas fa-volume-up"></i>
+        </button>
+      </div>
+
+      <div class="header-right">
+        <div class="footer-link">
+          <a href="https://trackedu.net" target="_blank" class="trackedu-wordmark">
+            <span class="track-word">Track</span><span class="edu-word">EDU</span>
+          </a>
+          <span>•</span>
+          <a href="https://trackedu.net" target="_blank" class="tools-link">12+ Free Tools →</a>
+        </div>
+        <button class="privacy-trigger" id="privacyTriggerBtn">
+          <i class="fas fa-lock"></i> Privacy & Data
+        </button>
+      </div>
+    </div>
+
+    <div class="main-layout">
+      <div class="character-area">
+        <div class="stage">
+          <div class="noise-field" aria-hidden="true">
+            <div class="sound-ring ring-one"></div>
+            <div class="sound-ring ring-two"></div>
+            <div class="sound-ring ring-three"></div>
+            <div class="floating-spark spark-one"></div>
+            <div class="floating-spark spark-two"></div>
+            <div class="floating-spark spark-three"></div>
+            <div class="floating-spark spark-four"></div>
+          </div>
+
+          <div class="stage-glow"></div>
+
+          <div class="message-card">
+            <div class="main-message" id="mainMessage">Shhhhh...</div>
+            <div class="sub-message" id="subMessage">Keep the calm going.</div>
+          </div>
+
+          <img id="stateMascot" class="mascot-img" src="https://trackedu.github.io/common-assets/state1a.png" alt="Calm Meter character">
+        </div>
+      </div>
+
+      <div class="controls-area">
+        <div class="control-card">
+
+          <div class="current-character-badge" onclick="showCurrentCharacterZoom()" role="button" tabindex="0">
+            <div class="achievement-layout-compact">
+              <div class="badge-avatar-compact" id="currentCharAvatar">
+                <img src="https://trackedu.github.io/common-assets/1b.png" alt="Current character">
+              </div>
+              <div class="achievement-info-compact">
+                <div class="achievement-kicker-compact">Current achievement</div>
+                <div class="badge-name-compact" id="currentCharName">Curious Explorer</div>
+                <div class="achievement-row-compact">
+                  <div class="badge-points-compact" id="currentCharPoints">46 pts</div>
+                  <div class="current-level-pill-compact"><i class="fas fa-check"></i> Current</div>
+                  <div class="achievement-hint-compact">
+                    <i class="fas fa-search-plus"></i> Tap to view larger
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="volume-meter">
+            <div class="meter-bar">
+              <div class="meter-fill" id="volumeFill"></div>
+            </div>
+            <div class="meter-labels">
+              <span>🌱 Quiet</span>
+              <span>⚠️ Getting loud</span>
+              <span>🔴 Too loud</span>
+            </div>
+          </div>
+
+          <div class="timer-section">
+            <div class="timer-row">
+              <div class="timer-display" id="timerDisplay">03:00</div>
+              <div class="timer-info">
+                <div class="timer-label" id="timerLabel">Goal: 3 minutes of calm</div>
+                <div class="points-label" id="pointsLabel">+2 pts per 10s</div>
+              </div>
+            </div>
+            <div class="timer-progress">
+              <div class="timer-progress-fill" id="timerProgress"></div>
+            </div>
+          </div>
+
+          <div class="settings-row">
+            <select id="goalSelect" class="goal-select" aria-label="Calm goal duration">
+              <option value="60">1 minute</option>
+              <option value="180" selected>3 minutes</option>
+              <option value="300">5 minutes</option>
+              <option value="600">10 minutes</option>
+              <option value="1200">20 minutes</option>
+              <option value="1800">30 minutes</option>
+            </select>
+
+            <select id="pointsSelect" class="goal-select" aria-label="Points awarded per ten seconds">
+              <option value="1">+1 pt per 10s</option>
+              <option value="2" selected>+2 pts per 10s</option>
+              <option value="3">+3 pts per 10s</option>
+              <option value="4">+4 pts per 10s</option>
+            </select>
+
+            <div class="deduct-inline">
+              <div class="deduct-label">
+                <i class="fas fa-minus-circle"></i>
+                <span>Lose points when loud?</span>
+              </div>
+              <button id="deductToggleBtn" class="deduct-toggle" type="button">OFF</button>
+            </div>
+          </div>
+
+          <div class="button-group">
+            <button id="startBtn" class="btn btn-primary" type="button">
+              <i class="fas fa-play"></i> <span>Start</span>
+            </button>
+
+            <button id="stopBtn" class="btn btn-danger" type="button" style="display:none;">
+              <i class="fas fa-stop"></i> <span>Stop</span>
+            </button>
+
+            <button id="resetPointsBtn" class="btn btn-secondary" type="button">
+              <i class="fas fa-undo-alt"></i> <span>Reset</span>
+            </button>
+          </div>
+
+          <div class="status-text" id="statusText">
+            <i class="fas fa-microphone-alt"></i> Ready to start. Click Start and allow microphone.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="milestone-rail" aria-label="Character milestone progress">
+      <div class="milestone-topline">
+        <div class="milestone-title">Character milestones</div>
+        <div class="milestone-progress-text" id="milestoneProgressText">1 of 30 unlocked • Tap a character to preview</div>
+      </div>
+      <div class="milestone-scroll" id="milestoneRail"></div>
+    </div>
+
+    <div id="zoomModal" class="zoom-modal" onclick="closeZoomModal()">
+      <div class="zoom-img" id="zoomImgWrap">
+        <img id="zoomImg" src="" alt="">
+        <div class="zoom-lock-badge"><i class="fas fa-lock"></i> Locked preview</div>
+      </div>
+      <div class="zoom-name" id="zoomName"></div>
+      <div class="zoom-points" id="zoomPoints"></div>
+      <div style="margin-top: 20px; font-size: 12px; color: #64748b;">Tap anywhere to close</div>
+    </div>
+
+    <!-- Privacy Modal -->
+    <div id="privacyModal" class="privacy-modal-overlay">
+      <div class="privacy-modal" onclick="event.stopPropagation()">
+        <h2><i class="fas fa-shield-alt"></i> How we protect your classroom</h2>
+        
+        <p style="margin-bottom: 20px; color: #cbd5e1; font-size: 0.9rem; text-align: center;">
+          The Class Calm Meter is designed to be <strong>100% safe</strong> for classroom use. 
+          Because this is a free, standalone tool, it operates differently from our main TrackEDU platform.
+        </p>
+        
+        <div class="privacy-section">
+          <h3><i class="fas fa-microphone"></i> Microphone & Audio <span style="color:#10b981; font-size:0.7rem;">(Zero Recording)</span></h3>
+          <p>To measure sound levels, your browser will ask for microphone access. <strong>We never record, listen to, or transmit classroom audio.</strong> The sound levels are processed mathematically in real-time directly on your computer's browser, and the audio data is instantly discarded.</p>
+        </div>
+        
+        <div class="privacy-section">
+          <h3><i class="fas fa-database"></i> Data Storage <span style="color:#10b981; font-size:0.7rem;">(100% Local)</span></h3>
+          <p>This tool does not connect to a database or a server. Any settings you change or points you track are saved locally in your own browser's cache. If you clear your browser history, the data disappears.</p>
+        </div>
+        
+        <div class="privacy-section">
+          <h3><i class="fas fa-child"></i> Student Privacy <span style="color:#10b981; font-size:0.7rem;">(No Names Collected)</span></h3>
+          <p>We do not collect student names, email addresses, or any personally identifiable information (PII) to use this free tool.</p>
+        </div>
+        
+        <div class="privacy-highlight">
+          <p><i class="fas fa-check-circle"></i> 100% Classroom Safe • No Recordings • No Cloud Storage • No Personal Data</p>
+        </div>
+        
+        <button id="closePrivacyBtn" class="close-privacy-btn">Got it, let's go! <i class="fas fa-arrow-right"></i></button>
+        
+        <div class="privacy-footer-note">
+          The Class Calm Meter is a free tool provided by TrackEDU Ltd. To read our full corporate Privacy Policy regarding our whole-school enterprise software, 
+          <a href="https://www.trackedu.net/privacy.html" target="_blank">click here <i class="fas fa-external-link-alt"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const STATE_IMAGES = {
+      quiet: [
+        'https://trackedu.github.io/common-assets/state1a.png',
+        'https://trackedu.github.io/common-assets/state1b.png'
+      ],
+      warning: [
+        'https://trackedu.github.io/common-assets/state2a.png',
+        'https://trackedu.github.io/common-assets/state2b.png'
+      ],
+      loud: [
+        'https://trackedu.github.io/common-assets/state3a.png',
+        'https://trackedu.github.io/common-assets/state3b.png'
+      ],
+      reward: [
+        'https://trackedu.github.io/common-assets/state4a.png',
+        'https://trackedu.github.io/common-assets/state4b.png'
+      ]
+    };
+
+    const STATE_MESSAGES = {
+      quiet: { main: 'Shhhhh...', sub: 'Keep the calm going.' },
+      warning: { main: 'Getting loud...', sub: 'Bring voices down to keep earning points.' },
+      loud: { main: 'Pause!', sub: 'Let’s reset our voices.' },
+      reward: { main: 'Great job!', sub: 'You kept the class calm and earned a bonus!' }
+    };
+
+    const CHARACTERS = [
+      { url: "https://trackedu.github.io/common-assets/1b.png", name: "Curious Explorer", threshold: 0 },
+      { url: "https://trackedu.github.io/common-assets/1.png", name: "Eager Investigator", threshold: 50 },
+      { url: "https://trackedu.github.io/common-assets/2.png", name: "Lifelong Inquirer", threshold: 100 },
+      { url: "https://trackedu.github.io/common-assets/3.png", name: "Knowledge Seeker", threshold: 150 },
+      { url: "https://trackedu.github.io/common-assets/5.png", name: "Global Learner", threshold: 200 },
+      { url: "https://trackedu.github.io/common-assets/6.png", name: "Wisdom Keeper", threshold: 250 },
+      { url: "https://trackedu.github.io/common-assets/7.png", name: "Creative Thinker", threshold: 300 },
+      { url: "https://trackedu.github.io/common-assets/8.png", name: "Problem Solver", threshold: 350 },
+      { url: "https://trackedu.github.io/common-assets/9.png", name: "Reasoned Analyst", threshold: 400 },
+      { url: "https://trackedu.github.io/common-assets/10.png", name: "Clear Communicator", threshold: 450 },
+      { url: "https://trackedu.github.io/common-assets/11.png", name: "Active Listener", threshold: 500 },
+      { url: "https://trackedu.github.io/common-assets/12.png", name: "Voice of Unity", threshold: 550 },
+      { url: "https://trackedu.github.io/common-assets/13.png", name: "Honest Ally", threshold: 600 },
+      { url: "https://trackedu.github.io/common-assets/14.png", name: "Fairness Champion", threshold: 650 },
+      { url: "https://trackedu.github.io/common-assets/15.png", name: "Principled Leader", threshold: 700 },
+      { url: "https://trackedu.github.io/common-assets/16.png", name: "Open Mind", threshold: 750 },
+      { url: "https://trackedu.github.io/common-assets/17.png", name: "Perspective Seeker", threshold: 800 },
+      { url: "https://trackedu.github.io/common-assets/18.png", name: "Global Citizen", threshold: 850 },
+      { url: "https://trackedu.github.io/common-assets/19.png", name: "Caring Peer", threshold: 900 },
+      { url: "https://trackedu.github.io/common-assets/20.png", name: "Community Helper", threshold: 950 },
+      { url: "https://trackedu.github.io/common-assets/21.png", name: "Compassionate Heart", threshold: 1000 },
+      { url: "https://trackedu.github.io/common-assets/22.png", name: "Brave Pioneer", threshold: 1100 },
+      { url: "https://trackedu.github.io/common-assets/23.png", name: "Resilient Spirit", threshold: 1200 },
+      { url: "https://trackedu.github.io/common-assets/24.png", name: "Fearless Innovator", threshold: 1300 },
+      { url: "https://trackedu.github.io/common-assets/25.png", name: "Balanced Scholar", threshold: 1400 },
+      { url: "https://trackedu.github.io/common-assets/29.png", name: "Well-rounded Peer", threshold: 1500 },
+      { url: "https://trackedu.github.io/common-assets/26.png", name: "Harmony Builder", threshold: 1600 },
+      { url: "https://trackedu.github.io/common-assets/27.png", name: "Reflective Thinker", threshold: 1700 },
+      { url: "https://trackedu.github.io/common-assets/28.png", name: "Mindful Mentor", threshold: 1800 },
+      { url: "https://trackedu.github.io/common-assets/30.png", name: "Global Luminary", threshold: 2000 }
+    ];
+
+    let soundEnabled = true;
+    let mediaStream = null;
+    let audioContext = null;
+    let sourceNode = null;
+    let analyserNode = null;
+    let animationId = null;
+    let isMonitoring = false;
+
+    let timerInterval = null;
+    let timerSeconds = 180;
+    let totalTargetSeconds = 180;
+    let currentCalmSeconds = 0;
+    let isInNoiseZone = false;
+    let streakAwarded = false;
+    let celebrationLock = false;
+
+    let totalPoints = 0;
+    let pointsPer10Sec = 2;
+    let deductPointsEnabled = false;
+    let deductPointsAmount = 1;
+    let lastDeductTime = 0;
+
+    const DEDUCT_COOLDOWN_MS = 3000;
+
+    let currentState = 'quiet';
+    let imageIndex = 0;
+    let stateStartTime = 0;
+    let pendingState = null;
+    let stateChangeTimeout = null;
+    const MIN_STATE_DURATION = 1400;
+
+    const app = document.getElementById('calmMeterApp');
+    const volumeFill = document.getElementById('volumeFill');
+    const timerDisplay = document.getElementById('timerDisplay');
+    const timerProgress = document.getElementById('timerProgress');
+    const timerLabel = document.getElementById('timerLabel');
+    const startBtn = document.getElementById('startBtn');
+    const stopBtn = document.getElementById('stopBtn');
+    const totalPointsSpan = document.getElementById('totalPointsDisplay');
+    const stateMascot = document.getElementById('stateMascot');
+    const mainMessageSpan = document.getElementById('mainMessage');
+    const subMessageSpan = document.getElementById('subMessage');
+    const statusTextSpan = document.getElementById('statusText');
+    const goalSelect = document.getElementById('goalSelect');
+    const pointsSelect = document.getElementById('pointsSelect');
+    const resetPointsBtn = document.getElementById('resetPointsBtn');
+    const deductToggleBtn = document.getElementById('deductToggleBtn');
+    const currentCharAvatar = document.getElementById('currentCharAvatar');
+    const currentCharName = document.getElementById('currentCharName');
+    const currentCharPoints = document.getElementById('currentCharPoints');
+    const milestoneRail = document.getElementById('milestoneRail');
+    const milestoneProgressText = document.getElementById('milestoneProgressText');
+    
+    // Get header and milestone rail elements for auto-hide
+    const calmHeader = document.querySelector('.calm-header');
+    const milestoneRailContainer = document.querySelector('.milestone-rail');
+    
+    // Add CSS for smooth transitions
+    const style = document.createElement('style');
+    style.textContent = `
+      .calm-header, .milestone-rail {
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        position: relative;
+        z-index: 50;
+      }
+      .calm-header.hidden {
+        transform: translateY(-100%);
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+      }
+      .milestone-rail.hidden {
+        transform: translateY(100%);
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+      .calm-header.hover-show, .milestone-rail.hover-show {
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        position: relative !important;
+      }
+      /* Adjust main layout when header is hidden */
+      #calmMeterApp:has(.calm-header.hidden) .main-layout {
+        padding-top: 0;
+      }
+      #calmMeterApp:has(.milestone-rail.hidden) .main-layout {
+        padding-bottom: 0;
+      }
+    `;
+    document.head.appendChild(style);
+    
+    function hideHeaderAndMilestone() {
+      if (!calmHeader || !milestoneRailContainer) return;
+      calmHeader.classList.add('hidden');
+      milestoneRailContainer.classList.add('hidden');
+      // Expand character size when hidden
+      stateMascot.classList.add('expanded-size');
+      stateMascot.classList.remove('normal-size');
+    }
+    
+    function showHeaderAndMilestone() {
+      if (!calmHeader || !milestoneRailContainer) return;
+      calmHeader.classList.remove('hidden', 'hover-show');
+      milestoneRailContainer.classList.remove('hidden', 'hover-show');
+      // Shrink character back to normal when visible
+      stateMascot.classList.add('normal-size');
+      stateMascot.classList.remove('expanded-size');
+    }
+    
+    // Initialize character size class
+    stateMascot.classList.add('normal-size');
+    
+    function setupHoverToShow() {
+      if (!calmHeader || !milestoneRailContainer) return;
+      
+      const handleMouseEnter = () => {
+        if (isMonitoring) {
+          calmHeader.classList.add('hover-show');
+          milestoneRailContainer.classList.add('hover-show');
+          // Shrink character when hover shows the UI
+          stateMascot.classList.add('normal-size');
+          stateMascot.classList.remove('expanded-size');
+        }
+      };
+      
+      const handleMouseLeave = () => {
+        if (isMonitoring) {
+          calmHeader.classList.remove('hover-show');
+          milestoneRailContainer.classList.remove('hover-show');
+          // Expand character again when UI hides on mouse leave
+          stateMascot.classList.add('expanded-size');
+          stateMascot.classList.remove('normal-size');
+        }
+      };
+      
+      // Apply to entire app container
+      app.addEventListener('mouseenter', handleMouseEnter);
+      app.addEventListener('mouseleave', handleMouseLeave);
+      
+      // Also allow hover on the elements themselves to keep them visible
+      calmHeader.addEventListener('mouseenter', handleMouseEnter);
+      milestoneRailContainer.addEventListener('mouseenter', handleMouseEnter);
+      calmHeader.addEventListener('mouseleave', handleMouseLeave);
+      milestoneRailContainer.addEventListener('mouseleave', handleMouseLeave);
+    }
+
+    function loadPoints() {
+      const saved = localStorage.getItem('calmmeter_points_v4');
+      totalPoints = saved !== null ? parseInt(saved, 10) || 0 : 0;
+      updatePointsDisplay();
+      updateCurrentCharacterDisplay();
+      updateMilestoneRail();
+    }
+
+    function savePoints() {
+      localStorage.setItem('calmmeter_points_v4', totalPoints);
+      updatePointsDisplay();
+      updateCurrentCharacterDisplay();
+      updateMilestoneRail();
+    }
+
+    function addPoints(amount) {
+      const oldPoints = totalPoints;
+      totalPoints += amount;
+      savePoints();
+
+      showFloatingPoints(amount, '#fbbf24');
+      showCoinBurst(amount);
+
+      const newCharIndex = getCharacterIndexForPoints(totalPoints);
+      const oldCharIndex = getCharacterIndexForPoints(oldPoints);
+
+      if (newCharIndex > oldCharIndex) {
+        playFanfareSound();
+        confetti({ particleCount: 220, spread: 100, origin: { y: 0.48 } });
+        showStatusMessage(`🎉 New character unlocked: ${CHARACTERS[newCharIndex].name}!`, 'success');
+        centreCurrentMilestone();
+      }
+    }
+
+    function deductPoints(amount) {
+      if (!deductPointsEnabled || celebrationLock) return;
+
+      const now = Date.now();
+      if (now - lastDeductTime < DEDUCT_COOLDOWN_MS) return;
+
+      lastDeductTime = now;
+      totalPoints = Math.max(0, totalPoints - amount);
+      savePoints();
+
+      showFloatingPoints(-amount, '#ef4444');
+      playDeductSound();
+      showStatusMessage(`🔇 Too loud. -${amount} point${amount !== 1 ? 's' : ''}.`, 'warning');
+    }
+
+    function resetPoints() {
+      if (confirm('Reset all points and character progress?')) {
+        totalPoints = 0;
+        savePoints();
+        showStatusMessage('Points reset to 0.', 'info');
+        playPopSound();
+        centreCurrentMilestone();
+      }
+    }
+
+    function getCharacterIndexForPoints(points) {
+      let idx = 0;
+      for (let i = CHARACTERS.length - 1; i >= 0; i--) {
+        if (points >= CHARACTERS[i].threshold) {
+          idx = i;
+          break;
+        }
+      }
+      return idx;
+    }
+
+    function updateCurrentCharacterDisplay() {
+      const idx = getCharacterIndexForPoints(totalPoints);
+      const char = CHARACTERS[idx];
+
+      currentCharAvatar.querySelector('img').src = char.url;
+      currentCharName.textContent = char.name;
+      currentCharPoints.textContent = `${totalPoints.toLocaleString()} pts`;
+    }
+
+    function updatePointsDisplay() {
+      totalPointsSpan.textContent = totalPoints.toLocaleString();
+    }
+
+    function updateMilestoneRail() {
+      const currentIdx = getCharacterIndexForPoints(totalPoints);
+      const unlockedCount = currentIdx + 1;
+      const nextChar = CHARACTERS[currentIdx + 1];
+      const nextText = nextChar
+        ? `${Math.max(0, nextChar.threshold - totalPoints)} pts until ${nextChar.name}`
+        : 'All characters unlocked';
+
+      milestoneProgressText.textContent = `${unlockedCount} of ${CHARACTERS.length} unlocked • ${nextText}`;
+
+      milestoneRail.innerHTML = CHARACTERS.map((char, index) => {
+        const isUnlocked = totalPoints >= char.threshold;
+        const isCurrent = index === currentIdx;
+        const className = isCurrent ? 'current' : isUnlocked ? 'unlocked' : 'locked';
+        const remaining = Math.max(0, char.threshold - totalPoints);
+
+        return `
+          <button
+            type="button"
+            class="milestone-dot ${className}"
+            data-index="${index}"
+            aria-label="${isUnlocked ? 'Unlocked' : 'Locked'} character: ${char.name}"
+            title="${char.name} • ${char.threshold} pts"
+            onclick="showMilestoneCharacter(${index}, ${remaining})"
+          >
+            <img src="${char.url}" alt="${char.name}" loading="lazy">
+          </button>
+        `;
+      }).join('');
+    }
+
+    function centreCurrentMilestone() {
+      // Skip auto-scroll on mobile devices - bad UX
+      const isMobile = window.innerWidth <= 900;
+      if (isMobile) return;
+      
+      const currentIdx = getCharacterIndexForPoints(totalPoints);
+      const currentButton = milestoneRail.querySelector(`[data-index="${currentIdx}"]`);
+      if (!currentButton) return;
+
+      // Check if button is already visible in the scroll area
+      const rect = currentButton.getBoundingClientRect();
+      const railRect = milestoneRailContainer.getBoundingClientRect();
+      const isVisible = rect.left >= railRect.left && rect.right <= railRect.right;
+      
+      // Only scroll if not visible
+      if (!isVisible) {
+        currentButton.scrollIntoView({
+          behaviour: 'smooth',
+          block: 'nearest',
+          inline: 'center'
+        });
+      }
+    }
+
+    window.showMilestoneCharacter = function(index, remaining) {
+      const char = CHARACTERS[index];
+      const isUnlocked = totalPoints >= char.threshold;
+
+      playPreviewSound(isUnlocked);
+      showCharacterZoom(char.url, char.name, char.threshold, remaining, !isUnlocked);
+    };
+
+    window.showCharacterZoom = function(url, name, threshold, remaining, locked = false) {
+      const modal = document.getElementById('zoomModal');
+      const zoomImgWrap = document.getElementById('zoomImgWrap');
+
+      document.getElementById('zoomImg').src = url;
+      document.getElementById('zoomName').textContent = name;
+
+      if (locked) {
+        zoomImgWrap.classList.add('locked');
+        document.getElementById('zoomPoints').textContent = `${remaining} points needed to reveal this character`;
+      } else {
+        zoomImgWrap.classList.remove('locked');
+        document.getElementById('zoomPoints').textContent = threshold === 0
+          ? `Unlocked • Starter character`
+          : `Unlocked at ${threshold} points`;
+      }
+
+      modal.classList.add('active');
+    };
+
+    window.showCurrentCharacterZoom = function() {
+      const idx = getCharacterIndexForPoints(totalPoints);
+      const char = CHARACTERS[idx];
+      const modal = document.getElementById('zoomModal');
+      const zoomImgWrap = document.getElementById('zoomImgWrap');
+
+      zoomImgWrap.classList.remove('locked');
+      document.getElementById('zoomImg').src = char.url;
+      document.getElementById('zoomName').textContent = char.name;
+      document.getElementById('zoomPoints').textContent = `Current level • ${totalPoints.toLocaleString()} points`;
+      modal.classList.add('active');
+
+      playPreviewSound(true);
+    };
+
+    window.closeZoomModal = function() {
+      document.getElementById('zoomModal').classList.remove('active');
+    };
+
+    function setState(newState, force = false) {
+      if (celebrationLock && newState !== 'reward' && !force) return;
+      if (!force && currentState === newState) return;
+
+      const now = Date.now();
+      const timeInCurrentState = now - stateStartTime;
+
+      if (!force && timeInCurrentState < MIN_STATE_DURATION && currentState !== 'reward') {
+        if (pendingState !== newState) {
+          pendingState = newState;
+          if (stateChangeTimeout) clearTimeout(stateChangeTimeout);
+          stateChangeTimeout = setTimeout(() => {
+            applyStateChange(newState);
+            pendingState = null;
+          }, MIN_STATE_DURATION - timeInCurrentState);
+        }
+        return;
+      }
+
+      applyStateChange(newState);
+    }
+
+    function applyStateChange(newState) {
+      if (stateChangeTimeout) clearTimeout(stateChangeTimeout);
+      pendingState = null;
+
+      currentState = newState;
+      stateStartTime = Date.now();
+
+      app.classList.remove('state-quiet', 'state-warning', 'state-loud', 'state-reward');
+      app.classList.add(`state-${newState}`);
+
+      const msg = STATE_MESSAGES[newState];
+      mainMessageSpan.textContent = msg.main;
+      subMessageSpan.textContent = msg.sub;
+
+      const images = STATE_IMAGES[newState];
+      imageIndex = (imageIndex + 1) % images.length;
+
+      stateMascot.style.opacity = '0';
+      setTimeout(() => {
+        stateMascot.src = images[imageIndex];
+        stateMascot.style.opacity = '1';
+      }, 90);
+    }
+
+    function triggerCelebration() {
+      if (streakAwarded) return;
+
+      streakAwarded = true;
+      celebrationLock = true;
+      isInNoiseZone = false;
+      currentCalmSeconds = 0;
+
+      setState('reward', true);
+
+      const bonus = parseInt(pointsSelect.value, 10) * 5;
+      addPoints(bonus);
+
+      playFanfareSound();
+      showStatusMessage(`🎉 Calm goal reached! +${bonus} bonus points.`, 'success');
+
+      confetti({ particleCount: 320, spread: 125, origin: { y: 0.48 } });
+      setTimeout(() => confetti({ particleCount: 160, spread: 80, origin: { y: 0.35 } }), 550);
+      showCoinBurst(bonus + 10);
+
+      setTimeout(() => {
+        celebrationLock = false;
+        resetTimer();
+        setState('quiet', true);
+        showStatusMessage('New round ready. Press Start when you want to begin again.', 'success');
+        stopMeter(false);
+      }, 5200);
+    }
+
+    function updateTimerDisplay() {
+      const mins = Math.floor(timerSeconds / 60);
+      const secs = timerSeconds % 60;
+
+      timerDisplay.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+
+      const percent = totalTargetSeconds > 0 ? (timerSeconds / totalTargetSeconds) * 100 : 0;
+      timerProgress.style.width = `${Math.max(0, percent)}%`;
+    }
+
+    function setGoal() {
+      totalTargetSeconds = parseInt(goalSelect.value, 10);
+      timerSeconds = totalTargetSeconds;
+      pointsPer10Sec = parseInt(pointsSelect.value, 10);
+
+      updateTimerDisplay();
+
+      const minutes = totalTargetSeconds / 60;
+      timerLabel.textContent = `Goal: ${minutes} minute${minutes === 1 ? '' : 's'} of calm`;
+
+      currentCalmSeconds = 0;
+      streakAwarded = false;
+      celebrationLock = false;
+
+      if (currentState === 'reward') setState('quiet', true);
+    }
+
+    function startTimer() {
+      if (timerInterval) clearInterval(timerInterval);
+
+      timerInterval = setInterval(() => {
+        if (!isMonitoring || celebrationLock) return;
+
+        if (!isInNoiseZone && timerSeconds > 0 && !streakAwarded) {
+          timerSeconds--;
+          currentCalmSeconds++;
+          updateTimerDisplay();
+
+          if (currentCalmSeconds >= 10) {
+            addPoints(pointsPer10Sec);
+            currentCalmSeconds = 0;
+            playTickSound();
+          }
+
+          if (timerSeconds <= 0 && !streakAwarded) {
+            timerSeconds = 0;
+            updateTimerDisplay();
+            triggerCelebration();
+          }
+        } else if (isInNoiseZone && deductPointsEnabled && !streakAwarded) {
+          const now = Date.now();
+          if (now - lastDeductTime >= DEDUCT_COOLDOWN_MS) {
+            deductPoints(deductPointsAmount);
+          }
+        }
+      }, 1000);
+    }
+
+    function resetTimer() {
+      timerSeconds = totalTargetSeconds;
+      currentCalmSeconds = 0;
+      streakAwarded = false;
+      celebrationLock = false;
+      updateTimerDisplay();
+      if (currentState === 'reward') setState('quiet', true);
+    }
+
+    async function initAudio() {
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        showStatusMessage('This browser does not support microphone access.', 'error');
+        return false;
+      }
+
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({
+          audio: {
+            echoCancellation: false,
+            noiseSuppression: false,
+            autoGainControl: false
+          }
+        });
+
+        mediaStream = stream;
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+        analyserNode = audioContext.createAnalyser();
+        analyserNode.fftSize = 256;
+        analyserNode.smoothingTimeConstant = 0.62;
+
+        sourceNode = audioContext.createMediaStreamSource(stream);
+        sourceNode.connect(analyserNode);
+
+        if (audioContext.state === 'suspended') await audioContext.resume();
+
+        return true;
+      } catch (error) {
+        showStatusMessage('Microphone access denied. Please allow microphone to use Calm Meter.', 'error');
+        return false;
+      }
+    }
+
+    function startVolumeLoop() {
+      if (!isMonitoring || !analyserNode) return;
+
+      const dataArray = new Uint8Array(analyserNode.frequencyBinCount);
+
+      function updateVolume() {
+        if (!isMonitoring || !analyserNode) return;
+
+        analyserNode.getByteFrequencyData(dataArray);
+
+        let sum = 0;
+        for (let i = 0; i < dataArray.length; i++) sum += dataArray[i];
+
+        let percent = Math.min(100, Math.round((sum / dataArray.length / 255) * 100));
+        percent = Math.round(Math.pow(percent / 100, 0.68) * 100);
+
+        updateInteractiveBackground(percent);
+        volumeFill.style.width = `${percent}%`;
+
+        if (!celebrationLock) {
+          if (percent < 28) {
+            volumeFill.style.background = '#10b981';
+            isInNoiseZone = false;
+            setState('quiet');
+          } else if (percent < 62) {
+            volumeFill.style.background = '#f59e0b';
+            isInNoiseZone = true;
+            setState('warning');
+          } else {
+            volumeFill.style.background = '#ef4444';
+            isInNoiseZone = true;
+            setState('loud');
+          }
+        }
+
+        animationId = requestAnimationFrame(updateVolume);
+      }
+
+      updateVolume();
+    }
+
+    function updateInteractiveBackground(percent) {
+      const scale = 1 + (percent / 100) * 0.45;
+      const opacity = 0.18 + (percent / 100) * 0.34;
+
+      document.documentElement.style.setProperty('--sound-scale', scale.toFixed(2));
+      document.documentElement.style.setProperty('--sound-opacity', opacity.toFixed(2));
+    }
+
+    function stopVolumeLoop() {
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+        animationId = null;
+      }
+
+      volumeFill.style.width = '0%';
+      updateInteractiveBackground(0);
+    }
+
+    async function startMeter() {
+      if (timerSeconds <= 0 || streakAwarded) resetTimer();
+
+      const audioReady = await initAudio();
+      if (!audioReady) return;
+
+      isMonitoring = true;
+      stateStartTime = Date.now();
+
+      startVolumeLoop();
+      startTimer();
+
+      startBtn.style.display = 'none';
+      stopBtn.style.display = 'flex';
+
+      // Auto-hide header and milestone rail when started
+      hideHeaderAndMilestone();
+
+      showStatusMessage('Calm Meter started. Stay quiet to earn points.', 'success');
+    }
+
+    function stopMeter(showMessage = true) {
+      isMonitoring = false;
+
+      stopVolumeLoop();
+
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+      }
+
+      if (audioContext) {
+        audioContext.close();
+        audioContext = null;
+      }
+
+      if (mediaStream) {
+        mediaStream.getTracks().forEach(t => t.stop());
+        mediaStream = null;
+      }
+
+      startBtn.style.display = 'flex';
+      stopBtn.style.display = 'none';
+
+      if (!celebrationLock) setState('quiet', true);
+
+      // Show header and milestone rail when stopped
+      showHeaderAndMilestone();
+
+      if (showMessage) {
+        showStatusMessage('Stopped. Click Start to resume.', 'info');
+      }
+    }
+
+    function createSoundContext() {
+      return new (window.AudioContext || window.webkitAudioContext)();
+    }
+
+    function playTickSound() {
+      if (!soundEnabled) return;
+
+      try {
+        const ctx = createSoundContext();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.value = 880;
+        gain.gain.value = 0.075;
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start();
+        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.1);
+        osc.stop(ctx.currentTime + 0.1);
+
+        setTimeout(() => ctx.close(), 200);
+      } catch(e) {}
+    }
+
+    function playPopSound() {
+      if (!soundEnabled) return;
+
+      try {
+        const ctx = createSoundContext();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.value = 523.25;
+        gain.gain.value = 0.10;
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start();
+        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.15);
+        osc.stop(ctx.currentTime + 0.15);
+
+        setTimeout(() => ctx.close(), 220);
+      } catch(e) {}
+    }
+
+    function playPreviewSound(isUnlocked) {
+      if (!soundEnabled) return;
+
+      try {
+        const ctx = createSoundContext();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = isUnlocked ? 'sine' : 'triangle';
+        osc.frequency.value = isUnlocked ? 660 : 330;
+        gain.gain.value = isUnlocked ? 0.07 : 0.045;
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start();
+        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.18);
+        osc.stop(ctx.currentTime + 0.18);
+
+        setTimeout(() => ctx.close(), 260);
+      } catch(e) {}
+    }
+
+    function playDeductSound() {
+      if (!soundEnabled) return;
+
+      try {
+        const ctx = createSoundContext();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = 'sawtooth';
+        osc.frequency.value = 220;
+        gain.gain.value = 0.09;
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start();
+        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.3);
+        osc.stop(ctx.currentTime + 0.3);
+
+        setTimeout(() => ctx.close(), 420);
+      } catch(e) {}
+    }
+
+    function playFanfareSound() {
+      if (!soundEnabled) return;
+
+      try {
+        const ctx = createSoundContext();
+
+        [523.25, 659.25, 783.99, 1046.50].forEach((freq, i) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+
+          osc.type = 'sine';
+          osc.frequency.value = freq;
+          gain.gain.value = 0.08;
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+
+          osc.start(ctx.currentTime + (i * 0.12));
+          gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.65);
+          osc.stop(ctx.currentTime + 0.65);
+        });
+
+        setTimeout(() => ctx.close(), 900);
+      } catch(e) {}
+    }
+
+    function toggleSound() {
+      soundEnabled = !soundEnabled;
+
+      const btn = document.getElementById('soundToggleBtn');
+      btn.innerHTML = soundEnabled
+        ? '<i class="fas fa-volume-up"></i>'
+        : '<i class="fas fa-volume-mute"></i>';
+    }
+
+    function toggleDeductMode() {
+      deductPointsEnabled = !deductPointsEnabled;
+
+      deductToggleBtn.textContent = deductPointsEnabled ? 'ON' : 'OFF';
+      deductToggleBtn.classList.toggle('active', deductPointsEnabled);
+
+      showStatusMessage(
+        deductPointsEnabled
+          ? 'Point deduction enabled. Students lose points when loud.'
+          : 'Point deduction disabled. Positive reinforcement only.',
+        'info'
+      );
+    }
+
+    function showStatusMessage(msg, type = 'info') {
+      const icon = type === 'error'
+        ? 'fa-exclamation-circle'
+        : type === 'success'
+          ? 'fa-check-circle'
+          : type === 'warning'
+            ? 'fa-triangle-exclamation'
+            : 'fa-info-circle';
+
+      statusTextSpan.innerHTML = `<i class="fas ${icon}"></i> ${msg}`;
+
+      setTimeout(() => {
+        if (statusTextSpan.innerHTML.includes(msg)) {
+          statusTextSpan.innerHTML = '<i class="fas fa-microphone-alt"></i> ' + (
+            isMonitoring
+              ? 'Listening. Stay quiet to earn points.'
+              : 'Ready to start. Click Start and allow microphone.'
+          );
+        }
+      }, 4200);
+    }
+
+    function showFloatingPoints(points, color = '#fbbf24') {
+      const floatEl = document.createElement('div');
+
+      floatEl.textContent = points > 0 ? `+${points}` : `${points}`;
+      floatEl.style.cssText = `
+        position: fixed;
+        top: 31%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 2.4rem;
+        font-weight: 900;
+        color: ${color};
+        text-shadow: 0 0 14px ${color};
+        pointer-events: none;
+        z-index: 19000;
+        animation: floatUp 1.5s ease-out forwards;
+        font-family: 'Fredoka One', cursive;
+      `;
+
+      document.body.appendChild(floatEl);
+      setTimeout(() => floatEl.remove(), 1500);
+    }
+
+    function showCoinBurst(amount = 8) {
+      const burst = document.createElement('div');
+      burst.className = 'coin-burst';
+
+      const coinCount = Math.min(18, Math.max(8, amount));
+
+      for (let i = 0; i < coinCount; i++) {
+        const coin = document.createElement('div');
+        coin.className = 'coin';
+
+        const angle = (Math.PI * 2 * i) / coinCount;
+        const distance = 90 + Math.random() * 110;
+
+        coin.style.left = '50%';
+        coin.style.top = '42%';
+        coin.style.setProperty('--start-x', '-50%');
+        coin.style.setProperty('--start-y', '-50%');
+        coin.style.setProperty('--end-x', `calc(-50% + ${Math.cos(angle) * distance}px)`);
+        coin.style.setProperty('--end-y', `calc(-50% + ${Math.sin(angle) * distance}px)`);
+        coin.style.animationDelay = `${Math.random() * 0.12}s`;
+
+        burst.appendChild(coin);
+      }
+
+      document.body.appendChild(burst);
+      setTimeout(() => burst.remove(), 1500);
+    }
+
+    goalSelect.addEventListener('change', () => {
+      setGoal();
+      if (!isMonitoring) resetTimer();
+    });
+
+    pointsSelect.addEventListener('change', () => {
+      pointsPer10Sec = parseInt(pointsSelect.value, 10);
+      // Update the points label dynamically
+      const pointsLabel = document.getElementById('pointsLabel');
+      if (pointsLabel) {
+        pointsLabel.textContent = `+${pointsPer10Sec} pts per 10s`;
+      }
+    });
+    
+    // Also update points label on initial load
+    const pointsLabel = document.getElementById('pointsLabel');
+    if (pointsLabel) {
+      pointsLabel.textContent = `+${pointsPer10Sec} pts per 10s`;
+    }
+
+    resetPointsBtn.addEventListener('click', resetPoints);
+    deductToggleBtn.addEventListener('click', toggleDeductMode);
+    document.getElementById('soundToggleBtn').addEventListener('click', toggleSound);
+
+    startBtn.addEventListener('click', startMeter);
+    stopBtn.addEventListener('click', () => stopMeter(true));
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeZoomModal();
+    });
+
+    window.addEventListener('load', () => {
+      // Setup hover functionality (doesn't cause scroll)
+      setupHoverToShow();
+      
+      // CRITICAL: Do NOT auto-scroll to milestone on mobile
+      // Only center milestone if explicitly requested by user action
+      // Check if we're on mobile - if yes, skip auto-scroll entirely
+      const isMobile = window.innerWidth <= 900;
+      if (!isMobile) {
+        // Only on desktop, gentle center without forcing scroll
+        setTimeout(() => {
+          const currentIdx = getCharacterIndexForPoints(totalPoints);
+          const currentButton = milestoneRail.querySelector(`[data-index="${currentIdx}"]`);
+          if (currentButton && !isMobile) {
+            // Use scrollIntoView only if button is not already visible
+            const rect = currentButton.getBoundingClientRect();
+            const railRect = milestoneRailContainer.getBoundingClientRect();
+            const isVisible = rect.left >= railRect.left && rect.right <= railRect.right;
+            if (!isVisible) {
+              currentButton.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
+          }
+        }, 100);
+      }
+      
+      // Ensure page starts at TOP (tool main header), not scrolled down
+      // Use instant, not smooth - prevents disorienting animation
+      if (window.scrollY > 0 || document.documentElement.scrollTop > 0 || document.body.scrollTop > 0) {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: 'instant'
+        });
+      }
+      
+      // Extra safety: force scroll to top after any layout shifts
+      setTimeout(() => {
+        if (window.scrollY > 10) {
+          window.scrollTo(0, 0);
+        }
+      }, 50);
+    });
+
+    loadPoints();
+    setGoal();
+    stateStartTime = Date.now();
+    showStatusMessage('Ready to start. Click Start and allow microphone.', 'info');
+
+
+
+
+
+    // Privacy Modal Logic
+    const privacyModal = document.getElementById('privacyModal');
+    const privacyTrigger = document.getElementById('privacyTriggerBtn');
+    const closePrivacyBtn = document.getElementById('closePrivacyBtn');
+    
+    function openPrivacyModal() {
+      privacyModal.classList.add('active');
+    }
+    
+    function closePrivacyModal() {
+      privacyModal.classList.remove('active');
+    }
+    
+    if (privacyTrigger) {
+      privacyTrigger.addEventListener('click', openPrivacyModal);
+    }
+    
+    if (closePrivacyBtn) {
+      closePrivacyBtn.addEventListener('click', closePrivacyModal);
+    }
+    
+    // Close modal when clicking overlay (already handled by onclick on overlay)
+    // The overlay has onclick="closePrivacyModal()" but we'll add it via JS as backup
+    if (privacyModal) {
+      privacyModal.addEventListener('click', function(e) {
+        if (e.target === privacyModal) {
+          closePrivacyModal();
+        }
+      });
+    }
+
+
+
+
+  </script>
+
+
+
+</body>
+</html>
