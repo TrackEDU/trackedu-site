@@ -2111,6 +2111,39 @@
 
 
 
+        /* Lazy loading and image optimization */
+        .mascot-img,
+    .badge-avatar-compact img,
+    .milestone-dot img,
+    .zoom-img img {
+      content-visibility: auto;
+      contain: paint;
+    }
+    
+    /* Low quality image placeholder while loading */
+    .mascot-img {
+      background: linear-gradient(135deg, rgba(135, 194, 50, 0.15), rgba(15, 102, 195, 0.1));
+      background-size: cover;
+    }
+    
+    /* Fade in images when loaded */
+    .mascot-img,
+    .badge-avatar-compact img,
+    .milestone-dot img,
+    .zoom-img img {
+      opacity: 0;
+      transition: opacity 0.2s ease-in-out;
+    }
+    
+    .mascot-img.loaded,
+    .badge-avatar-compact img.loaded,
+    .milestone-dot img.loaded,
+    .zoom-img img.loaded {
+      opacity: 1;
+    }
+
+
+
   </style>
 </head>
 
@@ -2180,7 +2213,7 @@
             <div class="sub-message" id="subMessage">Keep the calm going.</div>
           </div>
 
-          <img id="stateMascot" class="mascot-img" src="https://trackedu.github.io/common-assets/state1a.png" alt="Friendly Class Calm Meter character reacting to classroom noise levels">
+          <img id="stateMascot" class="mascot-img" src="https://trackedu.github.io/common-assets/state1a.png" alt="Friendly Class Calm Meter character reacting to classroom noise levels" fetchpriority="high" decoding="async">
         </div>
       </div>
 
@@ -2190,7 +2223,7 @@
           <div class="current-character-badge" onclick="showCurrentCharacterZoom()" role="button" tabindex="0">
             <div class="achievement-layout-compact">
               <div class="badge-avatar-compact" id="currentCharAvatar">
-                <img src="https://trackedu.github.io/common-assets/1b.png" alt="Current classroom noise reward character">
+                <img src="https://trackedu.github.io/common-assets/1b.png" alt="Current classroom noise reward character" loading="lazy" decoding="async">
               </div>
               <div class="achievement-info-compact">
                 <div class="achievement-kicker-compact">Current achievement</div>
@@ -3472,6 +3505,66 @@
       }
       console.log('PWA was installed');
     });
+
+
+
+
+
+
+    // ==============================================
+    // Image Optimization - Lazy Loading & Fallbacks
+    // ==============================================
+    
+    // Add loading="lazy" to all milestone images
+    document.querySelectorAll('.milestone-dot img, .badge-avatar-compact img').forEach(img => {
+      img.setAttribute('loading', 'lazy');
+      img.setAttribute('decoding', 'async');
+    });
+    
+    // Add fade-in effect when images load
+    const allImages = document.querySelectorAll('.mascot-img, .badge-avatar-compact img, .milestone-dot img, .zoom-img img');
+    
+    allImages.forEach(img => {
+      if (img.complete) {
+        img.classList.add('loaded');
+      } else {
+        img.addEventListener('load', () => {
+          img.classList.add('loaded');
+        });
+        // Add fallback for slow internet - timeout after 5 seconds
+        setTimeout(() => {
+          if (!img.classList.contains('loaded')) {
+            img.classList.add('loaded');
+            // Optional: Add a subtle indicator that image is still loading
+            img.style.opacity = '0.7';
+          }
+        }, 5000);
+      }
+    });
+    
+    // Preload critical images (first character only)
+    const criticalImages = [
+      'https://trackedu.github.io/common-assets/state1a.png',
+      'https://trackedu.github.io/common-assets/1b.png'
+    ];
+    
+    criticalImages.forEach(src => {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = src;
+      document.head.appendChild(link);
+    });
+    
+    // Add connection hints for faster DNS lookup
+    const preconnect = document.createElement('link');
+    preconnect.rel = 'preconnect';
+    preconnect.href = 'https://trackedu.github.io';
+    document.head.appendChild(preconnect);
+
+
+
+
 
   </script>
 
