@@ -1,0 +1,25 @@
+{
+  "name": "Class Calm Meter",
+  "short_name": "Calm Meter",
+  "description": "Free classroom noise meter for teachers. Monitor class volume with rewards and character progression. No login or student data required.",
+  "start_url": "/classroom-noise-meter",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0C1E2C",
+  "theme_color": "#87C232",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/noise-meter-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/noise-meter-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
