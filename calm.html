@@ -17,6 +17,9 @@
       -webkit-tap-highlight-color: transparent;
     }
 
+
+    
+
     :root {
       --brand-blue: #0f66c3;
       --brand-green: #87C232;
@@ -85,6 +88,26 @@
         position: relative;
         height: auto;
         min-height: 100dvh;
+      }
+
+      .calm-header {
+        grid-template-columns: 1fr auto;
+        padding: 10px 14px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      
+      /* Ensure body starts at top */
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+      }
+      
+      /* Force scroll position to top */
+      html {
+        scroll-behavior: auto;
       }
     }
 
@@ -276,6 +299,17 @@
       padding-bottom: 104px;
       padding-top: 20px;
       transition: padding 0.3s ease;
+    }
+    
+    /* Prevent any element from being scrolled into view automatically */
+    .controls-area,
+    .control-card,
+    .current-character-badge,
+    button,
+    select,
+    .btn {
+      scroll-margin-top: 0;
+      scroll-margin-bottom: 0;
     }
 
     /* When header is hidden, reduce padding-top */
@@ -2604,10 +2638,80 @@
       if (event.key === 'Escape') closeZoomModal();
     });
 
+    // Completely prevent auto-scroll to control card on mobile
+    // Disable browser's automatic focus scrolling
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    
+    // Prevent any element from stealing focus on load
+    const disableFocusScroll = (e) => {
+      e.preventDefault();
+      return false;
+    };
+    
+    // Remove tabindex from any element that might steal focus
+    document.querySelectorAll('[tabindex], button, select, .btn').forEach(el => {
+      el.removeAttribute('tabindex');
+    });
+    
     window.addEventListener('load', () => {
       setTimeout(centreCurrentMilestone, 120);
       setupHoverToShow();
+      
+      // Force scroll to top AND prevent any scrolling to elements
+      // Use multiple techniques to ensure header is visible
+      
+      // Method 1: Direct scroll
+      window.scrollTo(0, 0);
+      
+      // Method 2: Scroll html element
+      document.documentElement.scrollTop = 0;
+      
+      // Method 3: Scroll body element
+      if (document.body) document.body.scrollTop = 0;
+      
+      // Method 4: Lock scroll position at 0 for first 500ms
+      let scrollLockCount = 0;
+      const lockScrollAtTop = () => {
+        if (window.scrollY !== 0 && scrollLockCount < 10) {
+          window.scrollTo(0, 0);
+          scrollLockCount++;
+          setTimeout(lockScrollAtTop, 50);
+        }
+      };
+      setTimeout(lockScrollAtTop, 100);
+      
+      // Also handle any hash or previous scroll position
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+      }, 50);
     });
+    
+    // Also scroll to top when page becomes visible (for mobile back navigation)
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) {
+        window.scrollTo(0, 0);
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+      }
+    });
+    
+    // Prevent any click that might cause scroll to focused element
+    document.addEventListener('click', (e) => {
+      // Don't prevent all clicks, just ensure no auto-scroll after
+      setTimeout(() => {
+        if (window.scrollY < 0 || window.scrollY > 50) {
+          // If something scrolled away from header, bring it back
+          // unless user intentionally scrolled or meter is active
+          if (!isMonitoring) {
+            window.scrollTo(0, 0);
+          }
+        }
+      }, 50);
+    }, true);
 
     loadPoints();
     setGoal();
