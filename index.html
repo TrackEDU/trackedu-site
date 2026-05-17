@@ -3502,110 +3502,57 @@ setTimeout(function() {
 
 
 
-
-<!-- ========================================== -->
-<!-- CLASS CALM METER - POSITIVE REINFORCEMENT   -->
-<!-- ========================================== -->
-<section class="relative overflow-hidden py-16 bg-gradient-to-br from-slate-950 via-[#0C1E2C] to-slate-900 border-t border-slate-800">
-  <!-- Background accents -->
-  <div class="absolute inset-0 opacity-30 pointer-events-none">
-    <div class="absolute -top-24 -left-24 w-72 h-72 bg-brand-green/20 rounded-full blur-3xl"></div>
-    <div class="absolute top-1/3 -right-20 w-80 w-80 bg-brand-blue/20 rounded-full blur-3xl"></div>
-  </div>
-
-  <div class="relative max-w-6xl mx-auto px-6">
-    
-    <!-- Header - Problem-first messaging -->
-    <div class="text-center mb-10">
-      <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-green/15 text-brand-green text-[10px] font-black uppercase tracking-wider mb-4 border border-brand-green/25">
-        <i class="fas fa-gift text-[10px]"></i>
-        Free classroom tool
-      </span>
-      <h2 class="font-display text-3xl md:text-4xl font-black text-white mb-3">
-        Not another noise meter<br>
-        <span class="text-brand-green">that becomes a game.</span>
-      </h2>
-      <p class="text-slate-300 text-base max-w-2xl mx-auto">
-        Positive reinforcement that works. Points, character milestones, and teacher-controlled goals — not a challenge to break.
-      </p>
-    </div>
-
-    <!-- Main Card: Calm Meter Feature -->
-    <div class="bg-white/5 backdrop-blur-xl rounded-2xl overflow-hidden border border-white/10 max-w-4xl mx-auto">
+<section class="py-20 bg-slate-50 border-y border-slate-100">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="grid lg:grid-cols-2 gap-8 items-center">
       
-      <!-- Clickable Image with Lightbox -->
-      <div class="relative bg-slate-950 cursor-pointer" onclick="openImageLightbox('https://trackedu.github.io/common-assets/c3.png', 'Class Calm Meter - Interactive noise meter interface with timer, points and character rewards')">
-        <img
-          src="https://trackedu.github.io/common-assets/c3.png"
-          alt="Free classroom noise meter showing timer, class points, volume levels and character rewards"
-          class="w-full object-cover transition duration-500 hover:scale-[1.02] desktop-image"
-          style="height: 280px; object-fit: cover; object-position: top;"
-        >
-        <div class="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 hover:opacity-100 transition">
-          <div class="bg-black/70 rounded-full p-3">
-            <i class="fas fa-search-plus text-white text-xl"></i>
-          </div>
+      <!-- Left: Text -->
+      <div>
+        <span class="inline-flex items-center gap-2 text-brand-green text-xs font-black uppercase tracking-wider mb-4">
+          <i class="fas fa-volume-down"></i> Free classroom tool
+        </span>
+        <h2 class="font-display text-3xl sm:text-5xl font-black text-brand-dark mt-2">
+          Not another noise meter<br>
+          <span class="text-brand-green">that becomes a game.</span>
+        </h2>
+        <p class="mt-5 text-lg text-slate-600 leading-relaxed">
+          Students earn points for staying calm — not a challenge to make noise. 
+          <strong>30 progressive character milestones</strong> keep them engaged beyond day one.
+          No login, no recordings, no student data.
+        </p>
+        
+        <!-- Feature badges -->
+        <div class="flex flex-wrap gap-3 mt-6">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 text-xs font-bold"><i class="fas fa-trophy text-yellow-500"></i> Positive only</span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 text-xs font-bold"><i class="fas fa-chart-line text-brand-green"></i> 30 milestones</span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 text-xs font-bold"><i class="fas fa-stopwatch text-brand-green"></i> Teacher controls</span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 text-xs font-bold"><i class="fas fa-display text-brand-green"></i> Any device</span>
         </div>
-        <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded-full">
-          Click to enlarge
-        </div>
-      </div>
-
-      <!-- Content Row -->
-      <div class="p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-        <div class="flex-1">
-          <div class="flex items-center gap-2 mb-2">
-            <i class="fas fa-volume-down text-brand-green text-lg"></i>
-            <h3 class="font-display text-2xl font-black text-white">Class Calm Meter</h3>
-          </div>
-          <p class="text-slate-300 text-sm leading-relaxed">
-            Students earn points for staying calm — not a challenge to make noise. Progressive character unlocks keep them engaged beyond day one.
-          </p>
-        </div>
-
-        <a
-          href="/classroom-noise-meter.html"
-          target="_blank"
-          class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-brand-green text-white font-black text-sm hover:bg-green-600 transition shadow-lg whitespace-nowrap"
-        >
-          Try it free
+        
+        <a href="/classroom-noise-meter.html" target="_blank" class="inline-flex items-center gap-2 mt-8 px-6 py-3.5 rounded-xl bg-brand-green text-white font-black hover:bg-green-600 transition shadow-md">
+          Try the Free Classroom Noise Meter
           <i class="fas fa-arrow-right text-xs"></i>
         </a>
+        
+        <p class="text-slate-400 text-xs mt-4">
+          <i class="fas fa-shield-alt"></i> No login · No student data · No recordings
+        </p>
       </div>
-
-      <!-- Feature Strip - Updated benefits -->
-      <div class="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-white/10 border-t border-white/10">
-        <div class="bg-slate-950/50 p-4 text-center">
-          <i class="fas fa-trophy text-yellow-400 text-base mb-1"></i>
-          <p class="text-white font-bold text-xs">Positive only</p>
-          <p class="text-slate-400 text-[10px]">No punishment, just rewards</p>
-        </div>
-        <div class="bg-slate-950/50 p-4 text-center">
-          <i class="fas fa-chart-line text-brand-green text-base mb-1"></i>
-          <p class="text-white font-bold text-xs">30 milestones</p>
-          <p class="text-slate-400 text-[10px]">Stays engaging all year</p>
-        </div>
-        <div class="bg-slate-950/50 p-4 text-center">
-          <i class="fas fa-stopwatch text-brand-green text-base mb-1"></i>
-          <p class="text-white font-bold text-xs">Teacher controls</p>
-          <p class="text-slate-400 text-[10px]">Start when you need focus</p>
-        </div>
-        <div class="bg-slate-950/50 p-4 text-center">
-          <i class="fas fa-display text-brand-green text-base mb-1"></i>
-          <p class="text-white font-bold text-xs">Any device</p>
-          <p class="text-slate-400 text-[10px]">Smartboard or tablet</p>
-        </div>
+      
+      <!-- Right: Image (Clickable for lightbox) -->
+      <div class="cursor-pointer group" onclick="openImageLightbox('https://trackedu.github.io/common-assets/c3.png', 'Class Calm Meter - Free classroom noise meter interface with timer, points and character rewards')">
+        <img 
+          src="https://trackedu.github.io/common-assets/c3.png" 
+          alt="Class Calm Meter: Free classroom noise meter showing timer, points, volume levels and 30 character milestones" 
+          class="rounded-3xl shadow-2xl border border-slate-200 w-full transition duration-300 group-hover:scale-[1.02]"
+          loading="lazy"
+        >
+        <p class="text-center text-slate-400 text-xs mt-2 opacity-0 group-hover:opacity-100 transition">Click to enlarge</p>
       </div>
+      
     </div>
-
-    <!-- Minimal SEO support copy -->
-    <p class="text-slate-500 text-xs text-center mt-8">
-      Free classroom noise meter that rewards calm, not noise. No login, no student data, no recordings.
-    </p>
-
   </div>
 </section>
-
 
 
 
