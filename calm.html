@@ -1,1313 +1,3064 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-  <title>Calm Meter | Classroom Noise Tool</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Fredoka+One&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
-    }
+<!-- ==========================================
+     TRACKEDU CLASS CALM METER
+     Full-screen, no-scroll classroom display
+     Four PNG states, configurable calm goal
+     ========================================== -->
 
-    body {
-      font-family: 'Outfit', sans-serif;
-      background: #0f172a;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    /* Main Modal Container */
-    #calmMeterApp {
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100dvh;
-      display: flex;
-      flex-direction: column;
-      color: #ffffff;
-      background: radial-gradient(circle at 22% 18%, rgba(52, 211, 153, 0.18), transparent 34%),
-                  linear-gradient(135deg, #07111f 0%, #0f172a 48%, #111827 100%);
-      overflow: hidden;
-      z-index: 10000;
-    }
-
-    /* Mobile: allow scrolling */
-    @media (max-width: 900px) {
-      #calmMeterApp {
-        overflow-y: auto;
-        position: relative;
-        height: auto;
-        min-height: 100dvh;
+     <style>
+      :root {
+        --calmnoise-quiet: #10b981;
+        --calmnoise-quiet-2: #34d399;
+        --calmnoise-warning: #f59e0b;
+        --calmnoise-warning-2: #fbbf24;
+        --calmnoise-loud: #ef4444;
+        --calmnoise-loud-2: #fb7185;
+        --calmnoise-reward: #facc15;
+        --calmnoise-reward-2: #22c55e;
+        --calmnoise-dark: #07111f;
+        --calmnoise-card: rgba(15, 23, 42, 0.72);
+        --calmnoise-muted: #a7b0c2;
+        --calmnoise-text: #ffffff;
       }
-      .main-layout {
-        flex-direction: column !important;
-        padding-bottom: 20px;
+    
+      #calmnoiseModal,
+      #calmnoiseModal * {
+        box-sizing: border-box;
       }
-      .character-area {
-        min-height: 320px !important;
-      }
-      .controls-area {
-        padding: 16px !important;
-      }
-    }
-
-    /* Desktop: no scrolling, fixed */
-    @media (min-width: 901px) {
-      #calmMeterApp {
-        overflow: hidden;
+    
+      #calmnoiseModal {
         position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100dvh;
+        display: none;
+        flex-direction: column;
+        z-index: 99999 !important;
+        overflow: hidden !important;
+        color: var(--calmnoise-text);
+        font-family: 'Lexend', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background:
+          radial-gradient(circle at 22% 18%, rgba(52, 211, 153, 0.18), transparent 34%),
+          linear-gradient(135deg, #07111f 0%, #0f172a 48%, #111827 100%);
+        transition: background 360ms ease;
       }
-    }
-
-    /* State Backgrounds */
-    #calmMeterApp.state-quiet {
-      background: radial-gradient(circle at 26% 24%, rgba(52, 211, 153, 0.30), transparent 36%),
-                  radial-gradient(circle at 80% 75%, rgba(16, 185, 129, 0.16), transparent 38%),
-                  linear-gradient(135deg, #071b16 0%, #0f172a 50%, #10251d 100%);
-    }
-    #calmMeterApp.state-warning {
-      background: radial-gradient(circle at 26% 24%, rgba(245, 158, 11, 0.36), transparent 36%),
-                  radial-gradient(circle at 80% 75%, rgba(251, 191, 36, 0.18), transparent 38%),
-                  linear-gradient(135deg, #211608 0%, #0f172a 50%, #241804 100%);
-    }
-    #calmMeterApp.state-loud {
-      background: radial-gradient(circle at 26% 24%, rgba(239, 68, 68, 0.40), transparent 36%),
-                  radial-gradient(circle at 80% 75%, rgba(251, 113, 133, 0.16), transparent 38%),
-                  linear-gradient(135deg, #26070b 0%, #111827 48%, #2b0b11 100%);
-    }
-    #calmMeterApp.state-reward {
-      background: radial-gradient(circle at 26% 20%, rgba(250, 204, 21, 0.38), transparent 36%),
-                  radial-gradient(circle at 80% 75%, rgba(34, 197, 94, 0.25), transparent 38%),
-                  linear-gradient(135deg, #0b2216 0%, #0f172a 48%, #251a05 100%);
-    }
-
-    /* Header */
-    .calm-header {
-      background: rgba(7, 17, 31, 0.78);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      padding: 10px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-shrink: 0;
-      flex-wrap: wrap;
-      gap: 10px;
-      z-index: 20;
-    }
-
-    .logo-area { display: flex; align-items: center; gap: 12px; }
-    .logo-icon {
-      width: 36px; height: 36px;
-      background: linear-gradient(135deg, #10b981, #059669);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .logo-text { font-family: 'Fredoka One', cursive; font-size: 1.2rem; }
-    .logo-text span:first-child { color: #f8fafc; }
-    .logo-text span:last-child { color: #10b981; }
-
-    .points-badge {
-      background: rgba(16, 185, 129, 0.2);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      border-radius: 40px;
-      padding: 6px 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 800;
-    }
-    .points-badge i { color: #fbbf24; }
-    .points-value { font-size: 1.3rem; color: #fbbf24; }
-
-    .sound-btn, .deduct-toggle-btn {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s;
-    }
-    .deduct-toggle-btn.active {
-      background: #ef4444;
-      border-color: #ef4444;
-      color: white;
-    }
-
-    .footer-link {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 12px;
-    }
-    .footer-link a {
-      color: #10b981;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .footer-link a:hover { color: #fbbf24; }
-    .footer-link span { color: #475569; }
-
-    /* Main Layout - Split Screen */
-    .main-layout {
-      flex: 1;
-      display: flex;
-      flex-direction: row;
-      min-height: 0;
-      overflow: hidden;
-    }
-
-    /* Left Side - Character Area (FULL HEIGHT) */
-.character-area {
-  flex: 1.2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  min-width: 0;
-  height: 100%;
-}
-
-.stage {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-
-.message-card {
-  margin-bottom: 20px;
-  text-align: center;
-  padding: 8px 20px;
-  background: rgba(15, 23, 42, 0.64);
-  backdrop-filter: blur(12px);
-  border-radius: 60px;
-  border: 1px solid rgba(255,255,255,0.14);
-  z-index: 3;
-}
-
-@media (max-width: 900px) {
-  .message-card {
-    margin-bottom: 12px;
-    padding: 6px 16px;
-  }
-  .main-message {
-    font-size: 18px !important;
-  }
-}
-
-.stage-glow {
-  position: absolute;
-  width: 60vh;
-  height: 60vh;
-  max-width: 500px;
-  max-height: 500px;
-  border-radius: 50%;
-  opacity: 0.25;
-  filter: blur(8px);
-  background: radial-gradient(circle, var(--state-color, #10b981), transparent 70%);
-  animation: breatheGlow 2.8s ease-in-out infinite;
-}
-
-@media (max-width: 900px) {
-  .stage-glow {
-    width: 40vh;
-    height: 40vh;
-  }
-}
-
-    @keyframes breatheGlow {
-      0%, 100% { transform: scale(0.94); opacity: 0.18; }
-      50% { transform: scale(1.04); opacity: 0.32; }
-    }
-
-    /* FULL HEIGHT character on desktop */
-.mascot-img {
-  width: auto;
-  height: 70vh;
-  max-height: 70vh;
-  object-fit: contain;
-  filter: drop-shadow(0 26px 35px rgba(0,0,0,0.42));
-  transition: transform 0.3s ease;
-  z-index: 2;
-}
-
-@media (max-width: 900px) {
-  .mascot-img {
-    height: 40vh;
-    width: auto;
-  }
-}
-
-@media (min-width: 1200px) {
-  .mascot-img {
-    height: 75vh;
-    max-height: 75vh;
-  }
-}
-
-    @media (min-width: 1200px) {
-      .mascot-img { width: min(30vw, 450px); height: min(30vw, 450px); }
-    }
-
-    .state-quiet .mascot-img { animation: floatCalm 3.8s ease-in-out infinite; }
-    .state-warning .mascot-img { animation: shakeWarning 1.1s ease-in-out infinite; }
-    .state-loud .mascot-img { animation: shakeLoud 0.48s ease-in-out infinite; }
-    .state-reward .mascot-img { animation: bounceCelebrate 0.9s ease-in-out infinite; }
-
-    @keyframes floatCalm { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-    @keyframes shakeWarning { 0%, 100% { transform: rotate(-1deg); } 50% { transform: rotate(1.5deg); } }
-    @keyframes shakeLoud { 0%, 100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
-    @keyframes bounceCelebrate { 0%, 100% { transform: translateY(0); } 45% { transform: translateY(-15px); } }
-
     
-    .main-message { font-size: clamp(20px, 3vw, 36px); font-weight: 900; letter-spacing: -0.02em; }
-    .sub-message { font-size: clamp(11px, 1.2vw, 14px); color: #94a3b8; margin-top: 2px; }
-
-    /* Right Side - Controls Area (compact) */
-    .controls-area {
-      flex: 0.7;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      min-width: 300px;
-    }
-
-    .control-card {
-      width: 100%;
-      max-width: 480px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.05));
-      backdrop-filter: blur(18px);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 28px;
-      padding: 20px;
-    }
-
-    /* Current Character Badge */
-    .current-character-badge {
-      background: rgba(0,0,0,0.3);
-      border-radius: 40px;
-      padding: 8px 16px;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .badge-left { display: flex; align-items: center; gap: 12px; }
-    .badge-avatar {
-      width: 48px; height: 48px;
-      background: #1e293b;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 2px solid #fbbf24;
-    }
-    .badge-avatar img { width: 100%; height: 100%; object-fit: cover; }
-    .badge-name { font-weight: 800; font-size: 14px; }
-    .badge-points { font-size: 11px; color: #fbbf24; font-weight: 700; }
-
-    /* Volume Meter */
-    .volume-meter { margin-bottom: 20px; }
-    .meter-bar {
-      height: 16px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 10px;
-      overflow: hidden;
-      margin-bottom: 6px;
-    }
-    .meter-fill {
-      height: 100%;
-      width: 0%;
-      transition: width 0.1s linear;
-      border-radius: 10px;
-    }
-    .meter-labels { display: flex; justify-content: space-between; font-size: 9px; color: #94a3b8; font-weight: 600; }
-
-    /* Timer */
-    .timer-section {
-      background: rgba(0,0,0,0.3);
-      border-radius: 18px;
-      padding: 16px;
-      margin: 16px 0;
-      text-align: center;
-    }
-    .timer-display {
-      font-family: monospace;
-      font-size: 2.8rem;
-      font-weight: 900;
-      color: #fbbf24;
-      letter-spacing: 4px;
-    }
-    .timer-progress {
-      height: 5px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 3px;
-      margin: 10px 0;
-      overflow: hidden;
-    }
-    .timer-progress-fill {
-      height: 100%;
-      width: 100%;
-      background: linear-gradient(90deg, #10b981, #fbbf24);
-      transition: width 0.3s linear;
-    }
-    .timer-label { font-size: 10px; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; }
-
-    /* Goal Row */
-    .goal-row {
-      display: flex;
-      gap: 10px;
-      margin: 12px 0;
-      flex-wrap: wrap;
-    }
-    .goal-select {
-      flex: 1;
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 10px;
-      padding: 8px;
-      color: white;
-      font-weight: 700;
-      font-size: 12px;
-      cursor: pointer;
-    }
-    .goal-select option { background: #1e293b; }
-
-    /* Deduct Toggle Row */
-    .deduct-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin: 12px 0;
-      padding: 8px 12px;
-      background: rgba(0,0,0,0.2);
-      border-radius: 40px;
-    }
-    .deduct-label {
-      font-size: 11px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .deduct-toggle {
-      background: rgba(255,255,255,0.15);
-      border: none;
-      padding: 6px 16px;
-      border-radius: 30px;
-      color: white;
-      font-weight: 700;
-      font-size: 11px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .deduct-toggle.active {
-      background: #ef4444;
-      box-shadow: 0 0 10px #ef4444;
-    }
-
-    /* Buttons */
-    .button-group {
-      display: flex;
-      gap: 10px;
-      margin-top: 16px;
-      flex-wrap: wrap;
-    }
-    .btn {
-      flex: 1;
-      padding: 10px;
-      border-radius: 40px;
-      font-weight: 800;
-      font-size: 12px;
-      cursor: pointer;
-      border: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      transition: all 0.2s;
-    }
-    .btn-primary { background: linear-gradient(135deg, #10b981, #059669); color: white; }
-    .btn-primary:hover { transform: translateY(-2px); }
-    .btn-danger { background: rgba(239,68,68,0.2); border: 1px solid rgba(248,113,113,0.3); color: #fecaca; }
-    .btn-secondary { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; }
-
-    /* Next Unlocks Strip - larger clickable cards */
-    .next-strip {
-      margin-top: 20px;
-      padding-top: 12px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-    }
-    .next-title { font-size: 10px; color: #94a3b8; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; text-align: center; }
-    .unlock-grid { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
-    .unlock-item {
-      text-align: center;
-      opacity: 0.6;
-      cursor: pointer;
-      transition: all 0.2s;
-      background: rgba(0,0,0,0.3);
-      padding: 8px 12px;
-      border-radius: 16px;
-      min-width: 80px;
-    }
-    .unlock-item.soon { opacity: 0.9; }
-    .unlock-item:hover { transform: scale(1.05); background: rgba(0,0,0,0.5); }
-    .unlock-avatar {
-      width: 60px;
-      height: 60px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 50%;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 6px;
-      border: 2px solid #fbbf24;
-    }
-    .unlock-avatar img { width: 100%; height: 100%; object-fit: cover; }
-    .unlock-name { font-size: 11px; font-weight: 700; }
-    .unlock-points { font-size: 9px; color: #fbbf24; }
-
-    /* Character Zoom Modal */
-    .zoom-modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.95);
-      backdrop-filter: blur(10px);
-      z-index: 20000;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      cursor: pointer;
-    }
-    .zoom-modal.active { display: flex; }
-    .zoom-img {
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      background: white;
-      padding: 10px;
-      overflow: hidden;
-      border: 4px solid #fbbf24;
-    }
-    .zoom-img img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.2) translateY(5%); }
-    .zoom-name { font-family: 'Fredoka One'; font-size: 1.5rem; color: #fbbf24; margin-top: 20px; }
-    .zoom-points { color: #94a3b8; margin-top: 8px; }
-
-    .status-text {
-      margin-top: 16px;
-      padding: 8px;
-      background: rgba(0,0,0,0.3);
-      border-radius: 12px;
-      font-size: 10px;
-      color: #94a3b8;
-      text-align: center;
-    }
-
-    @media (max-width: 900px) {
-      .character-area { min-height: 280px; }
-      .mascot-img { width: 50vw; height: 50vw; max-width: 220px; max-height: 220px; }
-      .control-card { padding: 16px; }
-      .timer-display { font-size: 2rem; }
-      .btn span { display: none; }
-      .btn i { margin: 0; }
-      .unlock-avatar { width: 50px; height: 50px; }
-      .unlock-item { min-width: 70px; padding: 6px 8px; }
-      .current-character-badge { flex-direction: column; align-items: flex-start; }
-    }
-
-
-
-    .current-character-badge {
-  background: rgba(0,0,0,0.3);
-  border-radius: 40px;
-  padding: 8px 16px;
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 10px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-.current-character-badge:hover {
-  background: rgba(0,0,0,0.5);
-  transform: scale(1.01);
-}
-
-
-  </style>
-</head>
-<body>
-
-<div id="calmMeterApp" class="state-quiet">
-  <div class="calm-header">
-    <div class="logo-area">
-      <div class="logo-icon"><i class="fas fa-leaf"></i></div>
-      <div class="logo-text"><span>Calm</span><span>Meter</span></div>
-    </div>
-    
-    <!-- Desktop footer links moved to header -->
-    <div class="footer-link">
-      <a href="https://trackedu.net" target="_blank">🐘 TrackEDU</a>
-      <span>•</span>
-      <a href="https://trackedu.net" target="_blank">12+ Free Tools →</a>
-    </div>
-
-    <div style="display: flex; gap: 8px;">
-      <div class="points-badge">
-        <i class="fas fa-star"></i>
-        <span class="points-value" id="totalPointsDisplay">0</span>
-      </div>
-      <button class="sound-btn" id="soundToggleBtn">
-        <i class="fas fa-volume-up"></i>
-      </button>
-    </div>
-  </div>
-
-  <div class="main-layout">
-    <!-- LEFT: Character Area -->
-    <div class="character-area">
-      <div class="stage">
-        <div class="stage-glow"></div>
-        <!-- MESSAGE NOW ABOVE THE CHARACTER -->
-        <div class="message-card">
-          <div class="main-message" id="mainMessage">Shhhhh...</div>
-          <div class="sub-message" id="subMessage">Keep the calm going.</div>
-        </div>
-        <img id="stateMascot" class="mascot-img" src="https://trackedu.github.io/common-assets/state1a.png" alt="Mascot">
-      </div>
-    </div>
-
-    <!-- RIGHT: Controls Area -->
-    <div class="controls-area">
-      <div class="control-card">
-        
-        <!-- Current Character Badge (at top of card) - CLICKABLE -->
-<div class="current-character-badge" onclick="showCurrentCharacterZoom()" style="cursor: pointer;">
-  <div class="badge-left">
-    <div class="badge-avatar" id="currentCharAvatar">
-      <img src="https://trackedu.github.io/common-assets/1b.png" alt="Character">
-    </div>
-    <div>
-      <div class="badge-name" id="currentCharName">Curious Explorer</div>
-      <div class="badge-points" id="currentCharPoints">0 pts</div>
-    </div>
-  </div>
-  <div style="font-size: 10px; color: #10b981;">
-    ✓ Current Level <i class="fas fa-search-plus" style="font-size: 10px; margin-left: 4px;"></i>
-  </div>
-</div>
-
-        <!-- Volume Meter -->
-        <div class="volume-meter">
-          <div class="meter-bar">
-            <div class="meter-fill" id="volumeFill"></div>
-          </div>
-          <div class="meter-labels">
-            <span>🌱 Quiet</span>
-            <span>⚠️ Getting loud</span>
-            <span>🔴 Too loud</span>
-          </div>
-        </div>
-
-        <!-- Timer -->
-        <div class="timer-section">
-          <div class="timer-display" id="timerDisplay">03:00</div>
-          <div class="timer-progress">
-            <div class="timer-progress-fill" id="timerProgress"></div>
-          </div>
-          <div class="timer-label" id="timerLabel">Goal: 3 minutes of calm</div>
-        </div>
-
-        <!-- Goal Selector -->
-        <div class="goal-row">
-          <select id="goalSelect" class="goal-select">
-            <option value="60">1 minute</option>
-            <option value="180" selected>3 minutes</option>
-            <option value="300">5 minutes</option>
-            <option value="600">10 minutes</option>
-            <option value="1200">20 minutes</option>
-            <option value="1800">30 minutes</option>
-          </select>
-          <select id="pointsSelect" class="goal-select">
-            <option value="1">+1 pt per 10s</option>
-            <option value="2" selected>+2 pts per 10s</option>
-            <option value="3">+3 pts per 10s</option>
-            <option value="4">+4 pts per 10s</option>
-          </select>
-        </div>
-
-        <!-- Deduct Points Toggle -->
-        <div class="deduct-row">
-          <div class="deduct-label">
-            <i class="fas fa-minus-circle"></i> Lose points when loud?
-          </div>
-          <button id="deductToggleBtn" class="deduct-toggle">OFF</button>
-        </div>
-
-        <!-- Buttons -->
-        <div class="button-group">
-          <button id="startBtn" class="btn btn-primary"><i class="fas fa-play"></i> <span>Start</span></button>
-          <button id="stopBtn" class="btn btn-danger" style="display:none;"><i class="fas fa-stop"></i> <span>Stop</span></button>
-          <button id="resetPointsBtn" class="btn btn-secondary"><i class="fas fa-undo-alt"></i> <span>Reset</span></button>
-        </div>
-
-        <!-- Next Unlocks (clickable) -->
-        <div class="next-strip">
-          <div class="next-title">✦ NEXT UNLOCKS (click to view) ✦</div>
-          <div class="unlock-grid" id="nextUnlocksGrid"></div>
-        </div>
-
-        <div class="status-text" id="statusText">
-          <i class="fas fa-microphone-alt"></i> Ready to start. Click Start and allow microphone.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Character Zoom Modal -->
-  <div id="zoomModal" class="zoom-modal" onclick="closeZoomModal()">
-    <div class="zoom-img">
-      <img id="zoomImg" src="" alt="">
-    </div>
-    <div class="zoom-name" id="zoomName"></div>
-    <div class="zoom-points" id="zoomPoints"></div>
-    <div style="margin-top: 20px; font-size: 12px; color: #64748b;">Tap anywhere to close</div>
-  </div>
-</div>
-
-<script>
-  // ==========================================
-  // CALM METER - FULL SCREEN VERSION WITH ALL FIXES
-  // Fixes: scrollable on mobile, larger character, reward state fix,
-  // footer in header, larger clickable next characters, current char at top,
-  // compact card, state duration (5 sec minimum), deduct points toggle
-  // ==========================================
-
-  // --- STATE IMAGES (4 states) ---
-  const STATE_IMAGES = {
-    quiet: ['https://trackedu.github.io/common-assets/state1a.png', 'https://trackedu.github.io/common-assets/state1b.png'],
-    warning: ['https://trackedu.github.io/common-assets/state2a.png', 'https://trackedu.github.io/common-assets/state2b.png'],
-    loud: ['https://trackedu.github.io/common-assets/state3a.png', 'https://trackedu.github.io/common-assets/state3b.png'],
-    reward: ['https://trackedu.github.io/common-assets/state4a.png', 'https://trackedu.github.io/common-assets/state4b.png']
-  };
-
-  const STATE_MESSAGES = {
-    quiet: { main: 'Shhhhh...', sub: 'Keep the calm going.' },
-    warning: { main: 'Too loud...', sub: 'Bring voices down.' },
-    loud: { main: 'Pause!', sub: 'Let\'s reset our voices.' },
-    reward: { main: 'Great job!', sub: 'You kept the class calm!' }
-  };
-
-  // --- 30 CHARACTERS ---
-  const CHARACTERS = [
-    { url: "https://trackedu.github.io/common-assets/1b.png", name: "Curious Explorer", threshold: 0 },
-    { url: "https://trackedu.github.io/common-assets/1.png", name: "Eager Investigator", threshold: 50 },
-    { url: "https://trackedu.github.io/common-assets/2.png", name: "Lifelong Inquirer", threshold: 100 },
-    { url: "https://trackedu.github.io/common-assets/3.png", name: "Knowledge Seeker", threshold: 150 },
-    { url: "https://trackedu.github.io/common-assets/5.png", name: "Global Learner", threshold: 200 },
-    { url: "https://trackedu.github.io/common-assets/6.png", name: "Wisdom Keeper", threshold: 250 },
-    { url: "https://trackedu.github.io/common-assets/7.png", name: "Creative Thinker", threshold: 300 },
-    { url: "https://trackedu.github.io/common-assets/8.png", name: "Problem Solver", threshold: 350 },
-    { url: "https://trackedu.github.io/common-assets/9.png", name: "Reasoned Analyst", threshold: 400 },
-    { url: "https://trackedu.github.io/common-assets/10.png", name: "Clear Communicator", threshold: 450 },
-    { url: "https://trackedu.github.io/common-assets/11.png", name: "Active Listener", threshold: 500 },
-    { url: "https://trackedu.github.io/common-assets/12.png", name: "Voice of Unity", threshold: 550 },
-    { url: "https://trackedu.github.io/common-assets/13.png", name: "Honest Ally", threshold: 600 },
-    { url: "https://trackedu.github.io/common-assets/14.png", name: "Fairness Champion", threshold: 650 },
-    { url: "https://trackedu.github.io/common-assets/15.png", name: "Principled Leader", threshold: 700 },
-    { url: "https://trackedu.github.io/common-assets/16.png", name: "Open Mind", threshold: 750 },
-    { url: "https://trackedu.github.io/common-assets/17.png", name: "Perspective Seeker", threshold: 800 },
-    { url: "https://trackedu.github.io/common-assets/18.png", name: "Global Citizen", threshold: 850 },
-    { url: "https://trackedu.github.io/common-assets/19.png", name: "Caring Peer", threshold: 900 },
-    { url: "https://trackedu.github.io/common-assets/20.png", name: "Community Helper", threshold: 950 },
-    { url: "https://trackedu.github.io/common-assets/21.png", name: "Compassionate Heart", threshold: 1000 },
-    { url: "https://trackedu.github.io/common-assets/22.png", name: "Brave Pioneer", threshold: 1100 },
-    { url: "https://trackedu.github.io/common-assets/23.png", name: "Resilient Spirit", threshold: 1200 },
-    { url: "https://trackedu.github.io/common-assets/24.png", name: "Fearless Innovator", threshold: 1300 },
-    { url: "https://trackedu.github.io/common-assets/25.png", name: "Balanced Scholar", threshold: 1400 },
-    { url: "https://trackedu.github.io/common-assets/29.png", name: "Well-rounded Peer", threshold: 1500 },
-    { url: "https://trackedu.github.io/common-assets/26.png", name: "Harmony Builder", threshold: 1600 },
-    { url: "https://trackedu.github.io/common-assets/27.png", name: "Reflective Thinker", threshold: 1700 },
-    { url: "https://trackedu.github.io/common-assets/28.png", name: "Mindful Mentor", threshold: 1800 },
-    { url: "https://trackedu.github.io/common-assets/30.png", name: "Global Luminary", threshold: 2000 }
-  ];
-
-  // Audio state
-  let soundEnabled = true;
-  let mediaStream = null;
-  let audioContext = null;
-  let sourceNode = null;
-  let analyserNode = null;
-  let animationId = null;
-  let isMonitoring = false;
-
-  // Timer state
-  let timerInterval = null;
-  let timerSeconds = 180;
-  let totalTargetSeconds = 180;
-  let currentCalmSeconds = 0;
-  let isInNoiseZone = false;
-  let streakAwarded = false;
-  
-  // State duration tracking (minimum 5 seconds per state)
-  let stateStartTime = 0;
-  let pendingState = null;
-  let stateChangeTimeout = null;
-
-  // Points state
-  let totalPoints = 0;
-  let pointsPer10Sec = 2;
-  let deductPointsEnabled = false;
-  let deductPointsAmount = 1;
-  let lastDeductTime = 0;
-  const DEDUCT_COOLDOWN_MS = 3000;
-
-  let currentState = 'quiet';
-  let lastState = null;
-  let currentVolume = 0;
-  let imageIndex = 0;
-
-  // DOM elements
-  const app = document.getElementById('calmMeterApp');
-  const volumeFill = document.getElementById('volumeFill');
-  const timerDisplay = document.getElementById('timerDisplay');
-  const timerProgress = document.getElementById('timerProgress');
-  const timerLabel = document.getElementById('timerLabel');
-  const startBtn = document.getElementById('startBtn');
-  const stopBtn = document.getElementById('stopBtn');
-  const totalPointsSpan = document.getElementById('totalPointsDisplay');
-  const stateMascot = document.getElementById('stateMascot');
-  const mainMessageSpan = document.getElementById('mainMessage');
-  const subMessageSpan = document.getElementById('subMessage');
-  const statusTextSpan = document.getElementById('statusText');
-  const goalSelect = document.getElementById('goalSelect');
-  const pointsSelect = document.getElementById('pointsSelect');
-  const resetPointsBtn = document.getElementById('resetPointsBtn');
-  const deductToggleBtn = document.getElementById('deductToggleBtn');
-  const currentCharAvatar = document.getElementById('currentCharAvatar');
-  const currentCharName = document.getElementById('currentCharName');
-  const currentCharPoints = document.getElementById('currentCharPoints');
-
-  // ==========================================
-  // LOCALSTORAGE PERSISTENCE
-  // ==========================================
-  function loadPoints() {
-    const saved = localStorage.getItem('calmmeter_points_v3');
-    if (saved !== null) totalPoints = parseInt(saved);
-    else totalPoints = 0;
-    updatePointsDisplay();
-    updateCurrentCharacterDisplay();
-    updateNextUnlocks();
-  }
-
-  function savePoints() {
-    localStorage.setItem('calmmeter_points_v3', totalPoints);
-    updatePointsDisplay();
-    updateCurrentCharacterDisplay();
-    updateNextUnlocks();
-  }
-
-  function addPoints(amount) {
-    totalPoints += amount;
-    savePoints();
-    
-    const newCharIndex = getCharacterIndexForPoints(totalPoints);
-    const oldCharIndex = getCharacterIndexForPoints(totalPoints - amount);
-    if (newCharIndex > oldCharIndex) {
-      playFanfareSound();
-      confetti({ particleCount: 200, spread: 100, origin: { y: 0.5 } });
-      showStatusMessage(`🎉 NEW CHARACTER: ${CHARACTERS[newCharIndex].name}!`, 'success');
-    }
-  }
-
-  function deductPoints(amount) {
-    if (!deductPointsEnabled) return;
-    const now = Date.now();
-    if (now - lastDeductTime < DEDUCT_COOLDOWN_MS) return;
-    lastDeductTime = now;
-    
-    totalPoints = Math.max(0, totalPoints - amount);
-    savePoints();
-    showFloatingPoints(-amount, '#ef4444');
-    playDeductSound();
-    showStatusMessage(`🔇 Too loud! -${amount} point${amount !== 1 ? 's' : ''}`, 'warning');
-    
-    // Update current character display if needed
-    updateCurrentCharacterDisplay();
-  }
-
-  function resetPoints() {
-    if (confirm('Reset all points? This will reset your character progress too.')) {
-      totalPoints = 0;
-      savePoints();
-      showStatusMessage('Points reset to 0!', 'info');
-      playPopSound();
-    }
-  }
-
-  function getCharacterIndexForPoints(points) {
-    let idx = 0;
-    for (let i = CHARACTERS.length - 1; i >= 0; i--) {
-      if (points >= CHARACTERS[i].threshold) { idx = i; break; }
-    }
-    return idx;
-  }
-
-  function updateCurrentCharacterDisplay() {
-    const idx = getCharacterIndexForPoints(totalPoints);
-    const char = CHARACTERS[idx];
-    currentCharAvatar.querySelector('img').src = char.url;
-    currentCharName.textContent = char.name;
-    currentCharPoints.textContent = `${char.threshold} pts`;
-  }
-
-  function updatePointsDisplay() {
-    totalPointsSpan.textContent = totalPoints.toLocaleString();
-  }
-
-  function updateNextUnlocks() {
-    const container = document.getElementById('nextUnlocksGrid');
-    const currentIdx = getCharacterIndexForPoints(totalPoints);
-    const nextChars = CHARACTERS.slice(currentIdx + 1, currentIdx + 4);
-    
-    if (nextChars.length === 0) {
-      container.innerHTML = '<div style="color: #fbbf24;">🏆 MAX LEVEL REACHED! 🏆</div>';
-      return;
-    }
-    
-    container.innerHTML = nextChars.map((c, i) => `
-      <div class="unlock-item soon" onclick="event.stopPropagation(); showCharacterZoom('${c.url}', '${c.name}', ${c.threshold})">
-        <div class="unlock-avatar"><img src="${c.url}" alt="${c.name}" loading="lazy"></div>
-        <div class="unlock-name">${c.name}</div>
-        <div class="unlock-points">${c.threshold} pts</div>
-      </div>
-    `).join('');
-  }
-
-  // Character zoom function
-  window.showCharacterZoom = function(url, name, threshold) {
-    const modal = document.getElementById('zoomModal');
-    document.getElementById('zoomImg').src = url;
-    document.getElementById('zoomName').textContent = name;
-    document.getElementById('zoomPoints').textContent = `${threshold} points to unlock`;
-    modal.classList.add('active');
-  };
-
-  window.closeZoomModal = function() {
-    document.getElementById('zoomModal').classList.remove('active');
-  };
-
-
-  // Show current character zoom (click on current badge)
-window.showCurrentCharacterZoom = function() {
-  const idx = getCharacterIndexForPoints(totalPoints);
-  const char = CHARACTERS[idx];
-  const modal = document.getElementById('zoomModal');
-  document.getElementById('zoomImg').src = char.url;
-  document.getElementById('zoomName').textContent = char.name;
-  document.getElementById('zoomPoints').textContent = `Current • ${char.threshold} pts`;
-  modal.classList.add('active');
-};
-
-  // ==========================================
-  // STATE MANAGEMENT (with minimum 5 second duration)
-  // ==========================================
-  function setState(newState, force = false) {
-    if (!force && currentState === newState) return;
-    
-    const now = Date.now();
-    const timeInCurrentState = now - stateStartTime;
-    const MIN_STATE_DURATION = 5000; // 5 seconds minimum per state
-    
-    // If we're trying to change state too quickly, schedule it
-    if (!force && timeInCurrentState < MIN_STATE_DURATION && currentState !== 'reward') {
-      if (pendingState !== newState) {
-        pendingState = newState;
-        if (stateChangeTimeout) clearTimeout(stateChangeTimeout);
-        stateChangeTimeout = setTimeout(() => {
-          applyStateChange(newState);
-          pendingState = null;
-        }, MIN_STATE_DURATION - timeInCurrentState);
+      #calmnoiseModal.active {
+        display: flex !important;
       }
-      return;
-    }
     
-    applyStateChange(newState);
-  }
-
-  function applyStateChange(newState) {
-    if (stateChangeTimeout) clearTimeout(stateChangeTimeout);
-    pendingState = null;
+      #calmnoiseModal.state-quiet {
+        --calmnoise-state-color: var(--calmnoise-quiet);
+        --calmnoise-state-color-2: var(--calmnoise-quiet-2);
+        background:
+          radial-gradient(circle at 24% 24%, rgba(52, 211, 153, 0.30), transparent 34%),
+          radial-gradient(circle at 82% 74%, rgba(16, 185, 129, 0.18), transparent 36%),
+          linear-gradient(135deg, #071b16 0%, #0f172a 50%, #10251d 100%);
+      }
     
-    currentState = newState;
-    stateStartTime = Date.now();
+      #calmnoiseModal.state-warning {
+        --calmnoise-state-color: var(--calmnoise-warning);
+        --calmnoise-state-color-2: var(--calmnoise-warning-2);
+        background:
+          radial-gradient(circle at 24% 24%, rgba(245, 158, 11, 0.36), transparent 34%),
+          radial-gradient(circle at 82% 74%, rgba(251, 191, 36, 0.20), transparent 36%),
+          linear-gradient(135deg, #211608 0%, #0f172a 50%, #241804 100%);
+      }
     
-    // Update CSS class for background
-    app.classList.remove('state-quiet', 'state-warning', 'state-loud', 'state-reward');
-    app.classList.add(`state-${newState}`);
+      #calmnoiseModal.state-loud {
+        --calmnoise-state-color: var(--calmnoise-loud);
+        --calmnoise-state-color-2: var(--calmnoise-loud-2);
+        background:
+          radial-gradient(circle at 24% 24%, rgba(239, 68, 68, 0.42), transparent 34%),
+          radial-gradient(circle at 82% 74%, rgba(251, 113, 133, 0.18), transparent 36%),
+          linear-gradient(135deg, #26070b 0%, #111827 48%, #2b0b11 100%);
+      }
     
-    // Update messages
-    const msg = STATE_MESSAGES[newState];
-    mainMessageSpan.textContent = msg.main;
-    subMessageSpan.textContent = msg.sub;
+      #calmnoiseModal.state-reward {
+        --calmnoise-state-color: var(--calmnoise-reward);
+        --calmnoise-state-color-2: var(--calmnoise-reward-2);
+        background:
+          radial-gradient(circle at 24% 20%, rgba(250, 204, 21, 0.38), transparent 34%),
+          radial-gradient(circle at 82% 74%, rgba(34, 197, 94, 0.25), transparent 36%),
+          linear-gradient(135deg, #0b2216 0%, #0f172a 48%, #251a05 100%);
+      }
     
-    // Animate image change
-    const images = STATE_IMAGES[newState];
-    imageIndex = (imageIndex + 1) % images.length;
-    stateMascot.style.opacity = '0';
-    setTimeout(() => {
-      stateMascot.src = images[imageIndex];
-      stateMascot.style.opacity = '1';
-    }, 100);
+      .calmnoise-header {
+        flex: 0 0 auto;
+        position: relative;
+        z-index: 20;
+        height: clamp(48px, 7dvh, 66px);
+        min-height: 48px;
+        padding: 8px clamp(12px, 2vw, 28px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        background: rgba(7, 17, 31, 0.78);
+        border-bottom: 1px solid rgba(255,255,255,0.10);
+        backdrop-filter: blur(18px);
+      }
     
-    // If reward state, add bonus points (only once per streak)
-    if (newState === 'reward' && !streakAwarded && timerSeconds <= 0) {
-      const bonus = parseInt(pointsSelect.value) * 5;
-      addPoints(bonus);
-      showStatusMessage(`🎉 Calm goal reached! +${bonus} bonus points!`, 'success');
-      streakAwarded = true;
-    }
+      .calmnoise-title-wrap {
+        min-width: 0;
+        display: grid;
+        gap: 2px;
+      }
     
-    lastState = newState;
-  }
-
-  // ==========================================
-  // TIMER FUNCTIONS
-  // ==========================================
-  function updateTimerDisplay() {
-    const mins = Math.floor(timerSeconds / 60);
-    const secs = timerSeconds % 60;
-    timerDisplay.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-    const percent = (timerSeconds / totalTargetSeconds) * 100;
-    timerProgress.style.width = `${Math.max(0, percent)}%`;
-  }
-
-  function setGoal() {
-    totalTargetSeconds = parseInt(goalSelect.value);
-    timerSeconds = totalTargetSeconds;
-    pointsPer10Sec = parseInt(pointsSelect.value);
-    updateTimerDisplay();
-    timerLabel.textContent = `Goal: ${totalTargetSeconds / 60} minutes of calm`;
-    currentCalmSeconds = 0;
-    streakAwarded = false;
-    if (currentState === 'reward') setState('quiet', true);
-  }
-
-  function startTimer() {
-    if (timerInterval) clearInterval(timerInterval);
-    timerInterval = setInterval(() => {
-      if (!isMonitoring) return;
-      
-      // Only count down if not in noise zone and not already awarded
-      if (!isInNoiseZone && timerSeconds > 0 && !streakAwarded) {
-        timerSeconds--;
-        currentCalmSeconds++;
-        updateTimerDisplay();
-        
-        // Award points every 10 seconds of calm
-        if (currentCalmSeconds >= 10) {
-          const pointsToAdd = pointsPer10Sec;
-          addPoints(pointsToAdd);
-          currentCalmSeconds = 0;
-          showFloatingPoints(pointsToAdd, '#fbbf24');
-          playTickSound();
+      .calmnoise-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: clamp(15px, 1.35vw, 23px);
+        font-weight: 950;
+        letter-spacing: -0.03em;
+        white-space: nowrap;
+      }
+    
+      .calmnoise-title i {
+        color: var(--calmnoise-state-color, var(--calmnoise-quiet-2));
+      }
+    
+      .calmnoise-subtitle {
+        display: block;
+        font-size: clamp(9px, 0.8vw, 11px);
+        font-weight: 750;
+        color: var(--calmnoise-muted);
+      }
+    
+      .calmnoise-header-actions {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+    
+      .calmnoise-icon-btn {
+        width: clamp(34px, 4.5dvh, 42px);
+        height: clamp(34px, 4.5dvh, 42px);
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,0.14);
+        background: rgba(255,255,255,0.10);
+        color: #ffffff;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+      }
+    
+      .calmnoise-icon-btn:hover {
+        transform: translateY(-1px);
+        background: rgba(255,255,255,0.18);
+      }
+    
+      .calmnoise-close-btn {
+        border-color: rgba(248, 113, 113, 0.32);
+        background: rgba(239, 68, 68, 0.18);
+        color: #fecaca;
+      }
+    
+      .calmnoise-close-btn:hover {
+        transform: rotate(90deg) scale(1.04);
+        background: #ef4444;
+        color: #ffffff;
+      }
+    
+      .calmnoise-bg-effects,
+      .calmnoise-state-particles {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
+    
+      .calmnoise-bg-effects {
+        z-index: 0;
+      }
+    
+      .calmnoise-state-particles {
+        z-index: 1;
+        opacity: 0.72;
+      }
+    
+      .calmnoise-bg-effects::before,
+      .calmnoise-bg-effects::after {
+        content: "";
+        position: absolute;
+        border-radius: 999px;
+        opacity: 0.24;
+        filter: blur(2px);
+      }
+    
+      .calmnoise-bg-effects::before {
+        width: 44vw;
+        height: 44vw;
+        left: -13vw;
+        top: 16vh;
+        background: radial-gradient(circle, rgba(255,255,255,0.18), transparent 62%);
+        animation: calmnoiseFloatBlob 9s ease-in-out infinite;
+      }
+    
+      .calmnoise-bg-effects::after {
+        width: 34vw;
+        height: 34vw;
+        right: -9vw;
+        bottom: -8vh;
+        background: radial-gradient(circle, rgba(255,255,255,0.14), transparent 62%);
+        animation: calmnoiseFloatBlob 11s ease-in-out infinite reverse;
+      }
+    
+      @keyframes calmnoiseFloatBlob {
+        0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+        50% { transform: translate3d(18px, -20px, 0) scale(1.06); }
+      }
+    
+      .calmnoise-state-particles span {
+        position: absolute;
+        display: block;
+        opacity: 0.9;
+      }
+    
+      .calmnoise-state-particles .calmnoise-spark {
+        width: 9px;
+        height: 9px;
+        border-radius: 3px;
+        background: currentColor;
+        box-shadow: 0 0 18px currentColor;
+        animation: calmnoiseTwinkle 2.8s ease-in-out infinite;
+      }
+    
+      .calmnoise-state-particles .calmnoise-star::before {
+        content: "★";
+        font-size: 22px;
+        color: currentColor;
+        filter: drop-shadow(0 0 10px currentColor);
+        animation: calmnoiseTwinkle 3.2s ease-in-out infinite;
+      }
+    
+      .calmnoise-state-particles .calmnoise-wave {
+        width: 42px;
+        height: 42px;
+        border: 5px solid currentColor;
+        border-left-color: transparent;
+        border-bottom-color: transparent;
+        border-radius: 50%;
+        transform: rotate(45deg);
+        animation: calmnoiseWavePulse 1.35s ease-in-out infinite;
+      }
+    
+      .calmnoise-state-particles .calmnoise-bolt::before {
+        content: "⚡";
+        font-size: 54px;
+        color: currentColor;
+        filter: drop-shadow(0 0 14px currentColor);
+        animation: calmnoiseShakeBolt 0.8s ease-in-out infinite;
+      }
+    
+      .calmnoise-state-particles .calmnoise-confetti {
+        width: 11px;
+        height: 21px;
+        border-radius: 4px;
+        background: currentColor;
+        animation: calmnoiseDriftConfetti 3.4s ease-in-out infinite;
+      }
+    
+      @keyframes calmnoiseTwinkle {
+        0%, 100% { transform: scale(0.84) rotate(0deg); opacity: 0.42; }
+        50% { transform: scale(1.18) rotate(12deg); opacity: 1; }
+      }
+    
+      @keyframes calmnoiseWavePulse {
+        0%, 100% { transform: rotate(45deg) scale(0.82); opacity: 0.32; }
+        50% { transform: rotate(45deg) scale(1.12); opacity: 0.9; }
+      }
+    
+      @keyframes calmnoiseShakeBolt {
+        0%, 100% { transform: translate(0, 0) rotate(-8deg); }
+        35% { transform: translate(3px, -2px) rotate(4deg); }
+        70% { transform: translate(-2px, 2px) rotate(-2deg); }
+      }
+    
+      @keyframes calmnoiseDriftConfetti {
+        0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.55; }
+        50% { transform: translateY(16px) rotate(26deg); opacity: 1; }
+      }
+    
+      .calmnoise-container {
+        position: relative;
+        z-index: 4;
+        flex: 1 1 auto;
+        min-height: 0;
+        width: 100%;
+        height: calc(100dvh - clamp(48px, 7dvh, 66px));
+        padding: clamp(8px, 1.5vw, 24px);
+        overflow: hidden !important;
+      }
+    
+      .calmnoise-layout {
+        width: min(100%, 1800px);
+        height: 100%;
+        min-height: 0;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: minmax(360px, 1.25fr) minmax(390px, 0.75fr);
+        gap: clamp(14px, 3vw, 54px);
+        align-items: center;
+        overflow: hidden;
+      }
+    
+      .calmnoise-character-area,
+      .calmnoise-controls-area {
+        min-width: 0;
+        min-height: 0;
+      }
+    
+      .calmnoise-character-area {
+        display: grid;
+        place-items: center;
+        height: 100%;
+        overflow: hidden;
+      }
+    
+      .calmnoise-stage {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        min-height: 0;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+      }
+    
+      .calmnoise-stage-glow {
+        position: absolute;
+        width: clamp(220px, 40vw, 650px);
+        height: clamp(220px, 40vw, 650px);
+        border-radius: 999px;
+        opacity: 0.25;
+        filter: blur(8px);
+        background: radial-gradient(circle, var(--calmnoise-state-color), transparent 67%);
+        animation: calmnoiseBreatheGlow 2.8s ease-in-out infinite;
+      }
+    
+      @keyframes calmnoiseBreatheGlow {
+        0%, 100% { transform: scale(0.94); opacity: 0.18; }
+        50% { transform: scale(1.04); opacity: 0.32; }
+      }
+    
+      .calmnoise-character {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        display: grid;
+        justify-items: center;
+        text-align: center;
+        transform: translateY(-1.5dvh);
+      }
+    
+      .calmnoise-mascot {
+        width: min(39vw, calc(100dvh - 230px), 620px);
+        height: min(39vw, calc(100dvh - 230px), 620px);
+        min-width: 220px;
+        min-height: 220px;
+        display: grid;
+        place-items: center;
+      }
+    
+      .calmnoise-mascot img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        filter:
+          drop-shadow(0 26px 35px rgba(0, 0, 0, 0.42))
+          drop-shadow(0 0 26px color-mix(in srgb, var(--calmnoise-state-color) 48%, transparent));
+        transform-origin: center bottom;
+        transition: transform 260ms ease, filter 260ms ease, opacity 160ms ease;
+      }
+    
+      #calmnoiseModal.state-quiet .calmnoise-mascot img {
+        animation: calmnoiseMascotCalm 3.8s ease-in-out infinite;
+      }
+    
+      #calmnoiseModal.state-warning .calmnoise-mascot img {
+        animation: calmnoiseMascotWarning 1.1s ease-in-out infinite;
+      }
+    
+      #calmnoiseModal.state-loud .calmnoise-mascot img {
+        animation: calmnoiseMascotAlarm 0.48s ease-in-out infinite;
+      }
+    
+      #calmnoiseModal.state-reward .calmnoise-mascot img {
+        animation: calmnoiseMascotCelebrate 0.9s ease-in-out infinite;
+      }
+    
+      @keyframes calmnoiseMascotCalm {
+        0%, 100% { transform: translateY(0) scale(1); }
+        50% { transform: translateY(-4px) scale(1.01); }
+      }
+    
+      @keyframes calmnoiseMascotWarning {
+        0%, 100% { transform: rotate(-1deg) translateY(0); }
+        50% { transform: rotate(1.5deg) translateY(-5px); }
+      }
+    
+      @keyframes calmnoiseMascotAlarm {
+        0%, 100% { transform: rotate(-2deg) translateX(-2px); }
+        50% { transform: rotate(2deg) translateX(3px); }
+      }
+    
+      @keyframes calmnoiseMascotCelebrate {
+        0%, 100% { transform: translateY(0) scale(1); }
+        45% { transform: translateY(-12px) scale(1.035); }
+      }
+    
+      .calmnoise-message-card {
+        width: min(94%, 560px);
+        padding: clamp(10px, 1.2vw, 17px) clamp(14px, 1.5vw, 22px);
+        border-radius: clamp(20px, 2vw, 30px);
+        background: rgba(15, 23, 42, 0.64);
+        border: 1px solid rgba(255,255,255,0.14);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 16px 34px rgba(0,0,0,0.24);
+      }
+    
+      .calmnoise-main-message {
+        font-size: clamp(34px, 4.8vw, 76px);
+        line-height: 0.92;
+        font-weight: 1000;
+        letter-spacing: -0.055em;
+        color: var(--calmnoise-state-color);
+        text-shadow: 0 0 24px color-mix(in srgb, var(--calmnoise-state-color) 46%, transparent);
+      }
+    
+      .calmnoise-sub-message {
+        margin-top: 7px;
+        font-size: clamp(13px, 1.25vw, 19px);
+        font-weight: 900;
+        color: rgba(255,255,255,0.80);
+      }
+    
+      .calmnoise-controls-area {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        align-items: center;
+        overflow: hidden;
+      }
+    
+      .calmnoise-card {
+        position: relative;
+        width: 100%;
+        max-width: 560px;
+        margin-left: auto;
+        background:
+          linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.05)),
+          var(--calmnoise-card);
+        border: 1px solid color-mix(in srgb, var(--calmnoise-state-color) 42%, rgba(255,255,255,0.12));
+        border-radius: clamp(22px, 2vw, 34px);
+        padding: clamp(13px, 1.5vw, 22px);
+        backdrop-filter: blur(18px);
+        box-shadow: 0 24px 62px rgba(0,0,0,0.34), inset 0 1px 0 rgba(255,255,255,0.08);
+        overflow: hidden;
+      }
+    
+      .calmnoise-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--calmnoise-state-color) 20%, transparent), transparent 48%);
+        pointer-events: none;
+      }
+    
+      .calmnoise-card > * {
+        position: relative;
+        z-index: 2;
+      }
+    
+      .calmnoise-top-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+    
+      .calmnoise-state-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: color-mix(in srgb, var(--calmnoise-state-color) 18%, rgba(15,23,42,0.8));
+        border: 1px solid color-mix(in srgb, var(--calmnoise-state-color) 38%, rgba(255,255,255,0.12));
+        color: #ffffff;
+        font-size: 10.5px;
+        font-weight: 950;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+    
+      .calmnoise-state-pill-dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 999px;
+        background: var(--calmnoise-state-color);
+        box-shadow: 0 0 18px var(--calmnoise-state-color);
+      }
+    
+      .calmnoise-top-right {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+      }
+    
+      .calmnoise-class-points {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(0, 0, 0, 0.35);
+        padding: 6px 12px;
+        border-radius: 40px;
+        font-size: 13px;
+        font-weight: 900;
+        cursor: pointer;
+        backdrop-filter: blur(4px);
+        transition: all 0.2s ease;
+      }
+    
+      .calmnoise-class-points:hover {
+        background: rgba(0, 0, 0, 0.5);
+        transform: scale(1.02);
+      }
+    
+      .calmnoise-class-points span:first-of-type {
+        color: #facc15;
+        font-weight: 1000;
+      }
+    
+      .calmnoise-current-level {
+        display: flex;
+        align-items: baseline;
+        justify-content: flex-end;
+        gap: 5px;
+        font-weight: 950;
+        letter-spacing: -0.055em;
+        color: #ffffff;
+        text-shadow: 0 0 24px color-mix(in srgb, var(--calmnoise-state-color) 46%, transparent);
+      }
+    
+      .calmnoise-current-level #calmnoiseCurrentVolume {
+        font-size: clamp(40px, 5vw, 76px);
+        line-height: 0.88;
+      }
+    
+      .calmnoise-current-level .calmnoise-percent-symbol {
+        font-size: clamp(18px, 2vw, 30px);
+        color: var(--calmnoise-muted);
+      }
+    
+      #calmnoiseModal.hide-percent .calmnoise-current-level {
+        display: none;
+      }
+    
+      .calmnoise-volume-meter-wrap {
+        margin-top: 13px;
+        display: grid;
+        gap: 7px;
+      }
+    
+      .calmnoise-volume-meter {
+        position: relative;
+        width: 100%;
+        height: clamp(15px, 1.5vw, 23px);
+        padding: 4px;
+        border-radius: 999px;
+        background: rgba(2, 6, 23, 0.52);
+        border: 1px solid rgba(255,255,255,0.12);
+        overflow: hidden;
+      }
+    
+      .calmnoise-volume-fill {
+        height: 100%;
+        width: 0%;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--calmnoise-state-color), color-mix(in srgb, var(--calmnoise-state-color) 62%, #ffffff));
+        box-shadow: 0 0 20px var(--calmnoise-state-color);
+        transition: width 120ms linear, background 260ms ease;
+      }
+    
+      .calmnoise-meter-labels {
+        display: flex;
+        justify-content: space-between;
+        color: rgba(255,255,255,0.58);
+        font-size: 10px;
+        font-weight: 850;
+      }
+    
+      .calmnoise-quick-settings {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-top: 14px;
+        margin-bottom: 12px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid rgba(255,255,255,0.10);
+      }
+    
+      .calmnoise-quick-setting {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        min-width: 0;
+      }
+    
+      .calmnoise-quick-setting label,
+      .calmnoise-points-section label {
+        display: block;
+        font-size: 10px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--calmnoise-muted);
+      }
+    
+      .calmnoise-quick-setting select {
+        width: 100%;
+        height: 36px;
+        border-radius: 12px;
+        padding: 0 8px;
+        background: rgba(255,255,255,0.10);
+        border: 1px solid rgba(255,255,255,0.14);
+        color: #ffffff;
+        font-weight: 850;
+        font-size: 12px;
+        cursor: pointer;
+        outline: none;
+      }
+    
+      .calmnoise-quick-setting select option {
+        color: #0f172a;
+      }
+    
+      .calmnoise-quiet-timer {
+        margin-top: 12px;
+        display: grid;
+        gap: 12px;
+        padding: clamp(12px, 1.3vw, 17px);
+        border-radius: 24px;
+        background: rgba(2, 6, 23, 0.50);
+        border: 1px solid rgba(255,255,255,0.15);
+      }
+    
+      .calmnoise-timer-line {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
+    
+      .calmnoise-timer-label {
+        text-align: center;
+      }
+    
+      .calmnoise-timer-label strong {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        font-size: clamp(13px, 1.05vw, 17px);
+        font-weight: 950;
+      }
+    
+      .calmnoise-timer-label span {
+        color: var(--calmnoise-muted);
+        font-size: 11px;
+        font-weight: 850;
+      }
+    
+      .calmnoise-timer-value {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: clamp(42px, 5vw, 78px);
+        font-weight: 1000;
+        line-height: 1;
+        color: var(--calmnoise-state-color);
+        text-shadow: 0 0 30px color-mix(in srgb, var(--calmnoise-state-color) 60%, transparent);
+        background: rgba(0,0,0,0.25);
+        padding: 6px 18px;
+        border-radius: 60px;
+        letter-spacing: 3px;
+        width: fit-content;
+        margin: 0 auto;
+      }
+    
+      .calmnoise-timer-value.paused {
+        animation: calmnoisePulseRed 1s ease-in-out infinite;
+        border: 2px solid #ef4444;
+        box-shadow: 0 0 15px #ef4444;
+      }
+    
+      @keyframes calmnoisePulseRed {
+        0%, 100% { border-color: #ef4444; box-shadow: 0 0 5px #ef4444; }
+        50% { border-color: #ff8888; box-shadow: 0 0 20px #ef4444; }
+      }
+    
+      .calmnoise-target-progress {
+        height: 11px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.15);
+        overflow: hidden;
+      }
+    
+      .calmnoise-target-progress-fill {
+        width: 0%;
+        height: 100%;
+        border-radius: inherit;
+        background: var(--calmnoise-state-color);
+        box-shadow: 0 0 20px var(--calmnoise-state-color);
+        transition: width 180ms ease;
+      }
+    
+      .calmnoise-points-section {
+        margin-top: 12px;
+        padding-top: 8px;
+        border-top: 1px solid rgba(255,255,255,0.08);
+      }
+    
+      .calmnoise-points-grid-quick {
+        display: flex;
+        gap: 6px;
+        margin-top: 8px;
+      }
+    
+      .calmnoise-points-preset-btn-quick,
+      .calmnoise-points-preset-btn {
+        flex: 1;
+        padding: 7px 0;
+        border-radius: 10px;
+        background: rgba(255,255,255,0.10);
+        border: 1px solid rgba(255,255,255,0.20);
+        color: #ffffff;
+        font-weight: 950;
+        font-size: 13px;
+        cursor: pointer;
+        transition: all 0.15s ease;
+      }
+    
+      .calmnoise-points-preset-btn-quick.active,
+      .calmnoise-points-preset-btn.active {
+        background: rgba(16,185,129,0.35);
+        border-color: #10b981;
+        box-shadow: 0 0 8px rgba(16,185,129,0.3);
+      }
+    
+      .calmnoise-controls {
+        margin-top: 13px;
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 7px;
+      }
+    
+      .calmnoise-btn {
+        min-height: 41px;
+        border-radius: 15px;
+        border: 1px solid rgba(255,255,255,0.14);
+        background: rgba(255,255,255,0.10);
+        color: #ffffff;
+        padding: 9px 5px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        font-size: 10.5px;
+        font-weight: 950;
+        cursor: pointer;
+        transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+        white-space: nowrap;
+      }
+    
+      .calmnoise-btn:hover {
+        transform: translateY(-2px);
+        background: rgba(255,255,255,0.16);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.18);
+      }
+    
+      .calmnoise-btn-primary {
+        background: linear-gradient(135deg, #10b981, #059669);
+        border-color: rgba(52,211,153,0.34);
+        box-shadow: 0 12px 28px rgba(16,185,129,0.26);
+      }
+    
+      .calmnoise-btn-danger {
+        background: rgba(239,68,68,0.22);
+        border-color: rgba(248,113,113,0.28);
+        color: #fecaca;
+      }
+    
+      .calmnoise-btn-warning {
+        background: rgba(245,158,11,0.22);
+        border-color: rgba(251,191,36,0.30);
+        color: #fde68a;
+      }
+    
+      .calmnoise-btn-secondary {
+        background: rgba(148,163,184,0.14);
+      }
+    
+      .calmnoise-btn-purple {
+        background: rgba(139,92,246,0.74);
+        border-color: rgba(196,181,253,0.34);
+      }
+    
+      .calmnoise-status {
+        margin-top: 10px;
+        display: flex;
+        align-items: flex-start;
+        gap: 9px;
+        min-height: 36px;
+        padding: 9px 11px;
+        border-radius: 15px;
+        background: rgba(2,6,23,0.30);
+        border: 1px solid rgba(255,255,255,0.08);
+        color: rgba(255,255,255,0.78);
+        font-size: 10.5px;
+        font-weight: 800;
+        line-height: 1.28;
+      }
+    
+      .calmnoise-status-dot {
+        flex: 0 0 auto;
+        width: 8px;
+        height: 8px;
+        margin-top: 3px;
+        border-radius: 999px;
+        background: #3b82f6;
+        box-shadow: 0 0 15px currentColor;
+        animation: calmnoisePulseDot 1.4s ease-in-out infinite;
+      }
+    
+      @keyframes calmnoisePulseDot {
+        0%, 100% { opacity: 0.45; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.28); }
+      }
+    
+      .calmnoise-privacy-note {
+        margin-top: 7px;
+        color: rgba(255,255,255,0.52);
+        font-size: 10px;
+        line-height: 1.3;
+        text-align: center;
+      }
+    
+      .calmnoise-modal-layer {
+        position: fixed;
+        inset: 0;
+        z-index: 100010;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 18px;
+      }
+    
+      .calmnoise-modal-layer.open {
+        display: flex;
+      }
+    
+      .calmnoise-modal-scrim {
+        position: absolute;
+        inset: 0;
+        background: rgba(2, 6, 23, 0.72);
+        backdrop-filter: blur(12px);
+      }
+    
+      .calmnoise-modal-dialog {
+        position: relative;
+        z-index: 1;
+        width: min(940px, calc(100vw - 36px));
+        max-height: calc(100dvh - 44px);
+        overflow: hidden;
+        border-radius: 28px;
+        background:
+          linear-gradient(180deg, rgba(255,255,255,0.11), rgba(255,255,255,0.045)),
+          rgba(15, 23, 42, 0.96);
+        border: 1px solid rgba(255,255,255,0.14);
+        box-shadow: 0 30px 90px rgba(0,0,0,0.45);
+        color: #ffffff;
+        display: flex;
+        flex-direction: column;
+      }
+    
+      .calmnoise-how-dialog {
+        width: min(760px, calc(100vw - 36px));
+      }
+    
+      .calmnoise-modal-header {
+        flex: 0 0 auto;
+        padding: 16px 18px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        border-bottom: 1px solid rgba(255,255,255,0.10);
+        background: rgba(2, 6, 23, 0.28);
+      }
+    
+      .calmnoise-modal-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: clamp(18px, 2vw, 24px);
+        font-weight: 1000;
+        letter-spacing: -0.03em;
+      }
+    
+      .calmnoise-modal-title i {
+        color: var(--calmnoise-state-color, #34d399);
+      }
+    
+      .calmnoise-modal-subtitle {
+        margin-top: 3px;
+        color: var(--calmnoise-muted);
+        font-size: 12px;
+        font-weight: 750;
+      }
+    
+      .calmnoise-modal-body {
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow-y: auto;
+        padding: 18px;
+      }
+    
+      .calmnoise-modal-actions-row {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        margin-bottom: 16px;
+      }
+    
+      .calmnoise-modal-action {
+        min-height: 42px;
+        border-radius: 14px;
+        border: 1px solid rgba(255,255,255,0.14);
+        background: rgba(255,255,255,0.10);
+        color: #ffffff;
+        font-weight: 950;
+        cursor: pointer;
+      }
+    
+      .calmnoise-modal-section-title {
+        margin: 18px 0 10px;
+        font-size: 13px;
+        color: rgba(255,255,255,0.78);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+    
+      .calmnoise-settings {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+    
+      .calmnoise-setting-item {
+        min-width: 0;
+        display: grid;
+        gap: 7px;
+        padding: 10px;
+        border-radius: 16px;
+        background: rgba(2,6,23,0.35);
+        border: 1px solid rgba(255,255,255,0.09);
+      }
+    
+      .calmnoise-setting-item label {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--calmnoise-muted);
+        font-size: 10px;
+        font-weight: 950;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+    
+      .calmnoise-setting-item select,
+      .calmnoise-setting-item input[type="number"],
+      .calmnoise-setting-item input[type="range"] {
+        width: 100%;
+        min-width: 0;
+      }
+    
+      .calmnoise-setting-item select,
+      .calmnoise-setting-item input[type="number"] {
+        height: 35px;
+        border-radius: 12px;
+        padding: 0 10px;
+        color: #ffffff;
+        background: rgba(255,255,255,0.10);
+        border: 1px solid rgba(255,255,255,0.14);
+        font-weight: 900;
+        outline: none;
+      }
+    
+      .calmnoise-setting-item select option {
+        color: #0f172a;
+      }
+    
+      .calmnoise-setting-inline {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+      }
+    
+      .calmnoise-setting-inline input[type="checkbox"] {
+        width: 40px;
+        height: 21px;
+        accent-color: var(--calmnoise-quiet);
+      }
+    
+      .calmnoise-summary-grid,
+      .calmnoise-privacy-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+      }
+    
+      .calmnoise-summary-item,
+      .calmnoise-privacy-item {
+        padding: 10px;
+        border-radius: 14px;
+        background: rgba(2,6,23,0.34);
+        border: 1px solid rgba(255,255,255,0.09);
+      }
+    
+      .calmnoise-summary-item span,
+      .calmnoise-privacy-item span {
+        display: block;
+        color: var(--calmnoise-muted);
+        font-size: 9.5px;
+        font-weight: 950;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+    
+      .calmnoise-summary-item strong,
+      .calmnoise-privacy-item strong {
+        display: block;
+        margin-top: 4px;
+        font-size: 17px;
+        font-weight: 1000;
+        color: #ffffff;
+      }
+    
+      .calmnoise-how-steps {
+        display: grid;
+        gap: 10px;
+      }
+    
+      .calmnoise-how-step {
+        display: grid;
+        grid-template-columns: 34px 1fr;
+        column-gap: 12px;
+        padding: 13px;
+        border-radius: 18px;
+        background: rgba(2,6,23,0.32);
+        border: 1px solid rgba(255,255,255,0.09);
+      }
+    
+      .calmnoise-how-step span {
+        grid-row: span 2;
+        width: 34px;
+        height: 34px;
+        border-radius: 999px;
+        display: grid;
+        place-items: center;
+        background: var(--calmnoise-state-color, #10b981);
+        color: #06120d;
+        font-weight: 1000;
+      }
+    
+      .calmnoise-how-step strong {
+        font-size: 14px;
+        font-weight: 1000;
+      }
+    
+      .calmnoise-how-step p {
+        margin: 4px 0 0;
+        color: rgba(255,255,255,0.72);
+        font-size: 12px;
+        line-height: 1.45;
+        font-weight: 700;
+      }
+    
+      .calmnoise-how-tip {
+        margin-top: 14px;
+        padding: 13px;
+        border-radius: 18px;
+        background: color-mix(in srgb, var(--calmnoise-state-color, #10b981) 18%, rgba(2,6,23,0.5));
+        border: 1px solid color-mix(in srgb, var(--calmnoise-state-color, #10b981) 30%, rgba(255,255,255,0.12));
+        color: rgba(255,255,255,0.88);
+        font-size: 12px;
+        font-weight: 800;
+        line-height: 1.45;
+      }
+    
+      @media (max-height: 760px) and (min-width: 900px) {
+        .calmnoise-header {
+          height: 48px;
         }
-        
-        if (timerSeconds <= 0 && !streakAwarded) {
-          setState('reward', true);
-          playFanfareSound();
-          confetti({ particleCount: 300, spread: 120, origin: { y: 0.5 } });
+    
+        .calmnoise-container {
+          height: calc(100dvh - 48px);
+          padding: 8px 14px;
         }
-      } else if (isInNoiseZone && deductPointsEnabled && !streakAwarded) {
-        // Deduct points when noisy (with cooldown)
+    
+        .calmnoise-mascot {
+          width: min(34vw, calc(100dvh - 210px), 520px);
+          height: min(34vw, calc(100dvh - 210px), 520px);
+        }
+    
+        .calmnoise-message-card {
+          padding: 9px 14px;
+        }
+    
+        .calmnoise-main-message {
+          font-size: clamp(30px, 3.6vw, 52px);
+        }
+    
+        .calmnoise-sub-message {
+          font-size: 12px;
+          margin-top: 4px;
+        }
+    
+        .calmnoise-card {
+          padding: 12px;
+          max-width: 540px;
+        }
+    
+        .calmnoise-quick-settings {
+          margin-top: 10px;
+          margin-bottom: 9px;
+          padding-bottom: 9px;
+        }
+    
+        .calmnoise-quiet-timer {
+          margin-top: 9px;
+          padding: 10px;
+          gap: 8px;
+        }
+    
+        .calmnoise-timer-value {
+          font-size: clamp(36px, 4.2vw, 60px);
+        }
+    
+        .calmnoise-controls {
+          margin-top: 9px;
+          gap: 5px;
+        }
+    
+        .calmnoise-btn {
+          min-height: 36px;
+          font-size: 9.5px;
+          padding: 7px 4px;
+        }
+    
+        .calmnoise-status {
+          margin-top: 8px;
+          padding: 8px 10px;
+          min-height: 32px;
+          font-size: 10px;
+        }
+    
+        .calmnoise-privacy-note {
+          display: none;
+        }
+      }
+    
+      @media (max-width: 980px) {
+        .calmnoise-container {
+          height: calc(100dvh - clamp(48px, 7dvh, 60px));
+          padding: 8px;
+        }
+    
+        .calmnoise-layout {
+          grid-template-columns: 1fr;
+          grid-template-rows: minmax(0, 0.43fr) minmax(0, 0.57fr);
+          gap: 8px;
+          align-items: stretch;
+        }
+    
+        .calmnoise-character-area {
+          height: 100%;
+        }
+    
+        .calmnoise-character {
+          transform: translateY(0);
+        }
+    
+        .calmnoise-mascot {
+          width: min(42vw, 28dvh, 310px);
+          height: min(42vw, 28dvh, 310px);
+          min-width: 150px;
+          min-height: 150px;
+        }
+    
+        .calmnoise-stage-glow {
+          width: min(44vw, 30dvh, 330px);
+          height: min(44vw, 30dvh, 330px);
+        }
+    
+        .calmnoise-message-card {
+          width: min(92%, 500px);
+          padding: 8px 12px;
+          border-radius: 20px;
+        }
+    
+        .calmnoise-main-message {
+          font-size: clamp(26px, 6vw, 44px);
+        }
+    
+        .calmnoise-sub-message {
+          font-size: clamp(10px, 2vw, 13px);
+          margin-top: 3px;
+        }
+    
+        .calmnoise-controls-area {
+          align-items: start;
+        }
+    
+        .calmnoise-card {
+          max-width: 720px;
+          margin: 0 auto;
+          padding: 11px;
+          border-radius: 20px;
+        }
+    
+        .calmnoise-current-level #calmnoiseCurrentVolume {
+          font-size: 42px;
+        }
+    
+        .calmnoise-quick-settings {
+          margin-top: 9px;
+          margin-bottom: 8px;
+          padding-bottom: 8px;
+        }
+    
+        .calmnoise-quiet-timer {
+          margin-top: 8px;
+          padding: 10px;
+          gap: 8px;
+        }
+    
+        .calmnoise-timer-value {
+          font-size: clamp(34px, 7vw, 52px);
+          padding: 4px 12px;
+        }
+    
+        .calmnoise-controls {
+          margin-top: 8px;
+          grid-template-columns: repeat(5, minmax(0, 1fr));
+          gap: 4px;
+        }
+    
+        .calmnoise-btn {
+          min-height: 35px;
+          font-size: 9px;
+          padding: 6px 2px;
+        }
+    
+        .calmnoise-btn i {
+          font-size: 10px;
+        }
+    
+        .calmnoise-status {
+          margin-top: 7px;
+          min-height: 30px;
+          padding: 7px 9px;
+          font-size: 9.5px;
+        }
+    
+        .calmnoise-privacy-note {
+          display: none;
+        }
+      }
+    
+      @media (max-width: 560px) {
+        .calmnoise-header {
+          height: 46px;
+          min-height: 46px;
+          padding: 6px 9px;
+        }
+    
+        .calmnoise-title {
+          font-size: 14px;
+          gap: 7px;
+        }
+    
+        .calmnoise-subtitle {
+          display: none;
+        }
+    
+        .calmnoise-header-actions {
+          gap: 4px;
+        }
+    
+        .calmnoise-icon-btn {
+          width: 32px;
+          height: 32px;
+          font-size: 12px;
+        }
+    
+        .calmnoise-container {
+          height: calc(100dvh - 46px);
+          padding: 6px;
+        }
+    
+        .calmnoise-layout {
+          grid-template-rows: minmax(0, 0.34fr) minmax(0, 0.66fr);
+          gap: 5px;
+        }
+    
+        .calmnoise-mascot {
+          width: min(43vw, 20dvh, 190px);
+          height: min(43vw, 20dvh, 190px);
+          min-width: 118px;
+          min-height: 118px;
+        }
+    
+        .calmnoise-message-card {
+          width: min(96%, 340px);
+          padding: 6px 9px;
+          border-radius: 17px;
+        }
+    
+        .calmnoise-main-message {
+          font-size: clamp(22px, 7vw, 32px);
+        }
+    
+        .calmnoise-sub-message {
+          font-size: 10px;
+        }
+    
+        .calmnoise-card {
+          padding: 8px;
+          border-radius: 18px;
+        }
+    
+        .calmnoise-state-pill {
+          padding: 6px 8px;
+          font-size: 8.5px;
+          gap: 5px;
+        }
+    
+        .calmnoise-class-points {
+          padding: 4px 8px;
+          font-size: 11px;
+        }
+    
+        .calmnoise-current-level #calmnoiseCurrentVolume {
+          font-size: 32px;
+        }
+    
+        .calmnoise-current-level .calmnoise-percent-symbol {
+          font-size: 14px;
+        }
+    
+        .calmnoise-volume-meter-wrap {
+          margin-top: 7px;
+          gap: 4px;
+        }
+    
+        .calmnoise-volume-meter {
+          height: 15px;
+          padding: 3px;
+        }
+    
+        .calmnoise-meter-labels {
+          font-size: 8.5px;
+        }
+    
+        .calmnoise-quick-settings {
+          gap: 7px;
+          margin-top: 7px;
+          margin-bottom: 6px;
+          padding-bottom: 6px;
+        }
+    
+        .calmnoise-quick-setting label,
+        .calmnoise-points-section label {
+          font-size: 8.5px;
+          margin-bottom: 4px;
+        }
+    
+        .calmnoise-quick-setting select {
+          height: 30px;
+          font-size: 10px;
+          border-radius: 10px;
+          padding: 0 5px;
+        }
+    
+        .calmnoise-quiet-timer {
+          margin-top: 6px;
+          padding: 7px;
+          border-radius: 17px;
+          gap: 6px;
+        }
+    
+        .calmnoise-timer-label strong {
+          font-size: 10px;
+          gap: 5px;
+        }
+    
+        .calmnoise-timer-label span {
+          font-size: 9px;
+        }
+    
+        .calmnoise-timer-value {
+          font-size: 32px;
+          padding: 3px 10px;
+          letter-spacing: 1px;
+        }
+    
+        .calmnoise-target-progress {
+          height: 8px;
+        }
+    
+        .calmnoise-points-section {
+          margin-top: 6px;
+          padding-top: 6px;
+        }
+    
+        .calmnoise-points-grid-quick {
+          gap: 4px;
+          margin-top: 5px;
+        }
+    
+        .calmnoise-points-preset-btn-quick {
+          padding: 5px 0;
+          font-size: 10px;
+          border-radius: 8px;
+        }
+    
+        .calmnoise-controls {
+          margin-top: 6px;
+          gap: 3px;
+        }
+    
+        .calmnoise-btn {
+          min-height: 31px;
+          font-size: 0;
+          padding: 5px 0;
+          border-radius: 10px;
+        }
+    
+        .calmnoise-btn i {
+          font-size: 12px;
+        }
+    
+        .calmnoise-status {
+          margin-top: 5px;
+          padding: 6px 7px;
+          font-size: 8.8px;
+          min-height: 28px;
+          border-radius: 12px;
+        }
+    
+        .calmnoise-modal-layer {
+          padding: 0;
+          align-items: stretch;
+          justify-content: stretch;
+        }
+    
+        .calmnoise-modal-dialog,
+        .calmnoise-how-dialog {
+          width: 100vw;
+          height: 100dvh;
+          max-height: 100dvh;
+          border-radius: 0;
+          border-left: 0;
+          border-right: 0;
+        }
+    
+        .calmnoise-modal-header {
+          padding: 12px;
+        }
+    
+        .calmnoise-modal-body {
+          padding: 12px;
+        }
+    
+        .calmnoise-settings,
+        .calmnoise-summary-grid,
+        .calmnoise-privacy-grid,
+        .calmnoise-modal-actions-row {
+          grid-template-columns: 1fr;
+        }
+      }
+    
+      @media (max-height: 620px) and (max-width: 980px) {
+        .calmnoise-layout {
+          grid-template-columns: minmax(220px, 0.8fr) minmax(320px, 1.2fr);
+          grid-template-rows: 1fr;
+          gap: 8px;
+        }
+    
+        .calmnoise-mascot {
+          width: min(31vw, calc(100dvh - 140px), 260px);
+          height: min(31vw, calc(100dvh - 140px), 260px);
+          min-width: 130px;
+          min-height: 130px;
+        }
+    
+        .calmnoise-main-message {
+          font-size: clamp(22px, 4vw, 36px);
+        }
+    
+        .calmnoise-sub-message {
+          font-size: 10px;
+        }
+    
+        .calmnoise-current-level #calmnoiseCurrentVolume {
+          font-size: 32px;
+        }
+    
+        .calmnoise-timer-value {
+          font-size: 34px;
+        }
+      }
+    
+      @media (prefers-reduced-motion: reduce) {
+        .calmnoise-bg-effects::before,
+        .calmnoise-bg-effects::after,
+        .calmnoise-state-particles span,
+        .calmnoise-mascot img,
+        .calmnoise-stage-glow,
+        .calmnoise-status-dot {
+          animation: none !important;
+        }
+      }
+    </style>
+    
+    <div id="calmnoiseModal" class="app-module-overlay state-quiet" style="display: none;">
+      <div class="calmnoise-bg-effects" aria-hidden="true"></div>
+      <div class="calmnoise-state-particles" id="calmnoiseParticles" aria-hidden="true"></div>
+    
+      <div class="calmnoise-header">
+        <div class="calmnoise-title-wrap">
+          <div class="calmnoise-title">
+            <i class="fas fa-microphone-alt" aria-hidden="true"></i>
+            <span>Class Calm Meter</span>
+          </div>
+          <span class="calmnoise-subtitle">Sound level only. No words or recordings are saved.</span>
+        </div>
+    
+        <div class="calmnoise-header-actions">
+          <button class="calmnoise-icon-btn" onclick="calmnoiseOpenTeacherSettings()" aria-label="Open teacher settings" title="Teacher settings">
+            <i class="fas fa-cog" aria-hidden="true"></i>
+          </button>
+    
+          <button class="calmnoise-icon-btn" onclick="calmnoiseOpenHowTo()" aria-label="How to use Class Calm Meter" title="How to use">
+            <i class="fas fa-question" aria-hidden="true"></i>
+          </button>
+    
+          <button class="calmnoise-icon-btn" onclick="calmnoiseToggleFullscreen()" aria-label="Toggle full screen" title="Full screen">
+            <i class="fas fa-expand" aria-hidden="true"></i>
+          </button>
+    
+          <button class="calmnoise-icon-btn calmnoise-close-btn" onclick="calmnoiseClose()" aria-label="Close Class Calm Meter">
+            <i class="fas fa-times" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    
+      <div class="calmnoise-container">
+        <div class="calmnoise-layout">
+          <section class="calmnoise-character-area" aria-label="Classroom sound state">
+            <div class="calmnoise-stage">
+              <div class="calmnoise-stage-glow" aria-hidden="true"></div>
+    
+              <div class="calmnoise-character">
+                <div class="calmnoise-mascot" id="calmnoiseMascot">
+                  <img id="calmnoiseMascotImage" src="https://trackedu.github.io/common-assets/state1a.png" alt="TrackEDU mascot showing quiet mode">
+                </div>
+    
+                <div class="calmnoise-message-card" aria-live="polite">
+                  <div class="calmnoise-main-message" id="calmnoiseCharacterName">Shhhhh...</div>
+                  <div class="calmnoise-sub-message" id="calmnoiseCharacterQuote">Keep the calm going.</div>
+                </div>
+              </div>
+            </div>
+          </section>
+    
+          <section class="calmnoise-controls-area" aria-label="Noise monitor controls">
+            <div class="calmnoise-card" id="calmnoiseCard">
+              <div class="calmnoise-top-row">
+                <div class="calmnoise-state-pill" id="calmnoiseStatePill">
+                  <span class="calmnoise-state-pill-dot"></span>
+                  <span id="calmnoiseStateLabel">Quiet Mode</span>
+                </div>
+    
+                <div class="calmnoise-top-right">
+                  <div class="calmnoise-class-points" id="calmnoiseClassPoints" onclick="calmnoiseOpenClassPointsDetails()" title="Click to view class points breakdown">
+                    <i class="fas fa-trophy" style="color: #facc15; font-size: 11px;" aria-hidden="true"></i>
+                    <span id="calmnoiseClassPointsValue">0</span>
+                    <span style="font-size: 9px; opacity: 0.7;">pts</span>
+                  </div>
+    
+                  <div class="calmnoise-current-level" aria-live="polite">
+                    <span id="calmnoiseCurrentVolume">0</span>
+                    <span class="calmnoise-percent-symbol">%</span>
+                  </div>
+                </div>
+              </div>
+    
+              <div class="calmnoise-volume-meter-wrap">
+                <div class="calmnoise-volume-meter" aria-label="Current classroom volume">
+                  <div class="calmnoise-volume-fill" id="calmnoiseVolumeFill"></div>
+                </div>
+    
+                <div class="calmnoise-meter-labels">
+                  <span>Quiet</span>
+                  <span>Getting louder</span>
+                  <span>Too loud</span>
+                </div>
+              </div>
+    
+              <div class="calmnoise-quick-settings">
+                <div class="calmnoise-quick-setting">
+                  <label for="calmnoisePresetSelectQuick">
+                    <i class="fas fa-school" aria-hidden="true"></i> Activity Mode
+                  </label>
+                  <select id="calmnoisePresetSelectQuick" onchange="calmnoiseHandlePresetChangeQuick()">
+                    <option value="silent" selected>Silent Reading</option>
+                    <option value="pair">Pair Work</option>
+                    <option value="group">Group Work</option>
+                    <option value="presentation">Presentation</option>
+                    <option value="exam">Exam Mode</option>
+                  </select>
+                </div>
+    
+                <div class="calmnoise-quick-setting">
+                  <label for="calmnoiseDurationSelectQuick">
+                    <i class="fas fa-bullseye" aria-hidden="true"></i> Calm Goal
+                  </label>
+                  <select id="calmnoiseDurationSelectQuick" onchange="calmnoiseHandleDurationChangeQuick()">
+                    <option value="60" selected>1 minute</option>
+                    <option value="180">3 minutes</option>
+                    <option value="300">5 minutes</option>
+                    <option value="600">10 minutes</option>
+                    <option value="1200">20 minutes</option>
+                    <option value="1800">30 minutes</option>
+                  </select>
+                </div>
+              </div>
+    
+              <div class="calmnoise-quiet-timer">
+                <div class="calmnoise-timer-line">
+                  <div class="calmnoise-timer-label">
+                    <strong>
+                      <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+                      Calm Goal <span id="calmnoiseTargetText">Goal: 1 minute of calm</span>
+                    </strong>
+                  </div>
+    
+                  <div class="calmnoise-timer-value" id="calmnoiseTimerDisplay">01:00</div>
+                </div>
+    
+                <div class="calmnoise-target-progress" aria-hidden="true">
+                  <div class="calmnoise-target-progress-fill" id="calmnoiseTargetProgressFill"></div>
+                </div>
+              </div>
+    
+              <div class="calmnoise-points-section">
+                <label><i class="fas fa-star" aria-hidden="true"></i> Points per Student</label>
+                <div class="calmnoise-points-grid-quick">
+                  <button type="button" class="calmnoise-points-preset-btn-quick" data-points="1" onclick="calmnoiseSetPointsQuick(1)">+1</button>
+                  <button type="button" class="calmnoise-points-preset-btn-quick active" data-points="2" onclick="calmnoiseSetPointsQuick(2)">+2</button>
+                  <button type="button" class="calmnoise-points-preset-btn-quick" data-points="3" onclick="calmnoiseSetPointsQuick(3)">+3</button>
+                  <button type="button" class="calmnoise-points-preset-btn-quick" data-points="4" onclick="calmnoiseSetPointsQuick(4)">+4</button>
+                </div>
+                <input type="hidden" id="calmnoisePointsInputQuick" value="2">
+              </div>
+    
+              <div class="calmnoise-controls">
+                <button id="calmnoiseStartBtn" class="calmnoise-btn calmnoise-btn-primary" onclick="calmnoiseStart()">
+                  <i class="fas fa-play" aria-hidden="true"></i> <span class="calmnoise-btn-text">Start</span>
+                </button>
+    
+                <button id="calmnoiseStopBtn" class="calmnoise-btn calmnoise-btn-danger" onclick="calmnoiseStop()" style="display: none;">
+                  <i class="fas fa-stop" aria-hidden="true"></i> <span class="calmnoise-btn-text">Stop</span>
+                </button>
+    
+                <button class="calmnoise-btn calmnoise-btn-warning" onclick="calmnoiseManualReward()">
+                  <i class="fas fa-gift" aria-hidden="true"></i> <span class="calmnoise-btn-text">Reward</span>
+                </button>
+    
+                <button class="calmnoise-btn calmnoise-btn-secondary" onclick="calmnoiseResetTimer(true)">
+                  <i class="fas fa-rotate-right" aria-hidden="true"></i> <span class="calmnoise-btn-text">Reset</span>
+                </button>
+    
+                <button class="calmnoise-btn calmnoise-btn-purple" onclick="calmnoiseTestMicrophone()">
+                  <i class="fas fa-microphone" aria-hidden="true"></i> <span class="calmnoise-btn-text">Test</span>
+                </button>
+              </div>
+    
+              <div class="calmnoise-status" id="calmnoiseStatus">
+                <span class="calmnoise-status-dot" id="calmnoiseStatusDot"></span>
+                <span id="calmnoiseStatusText">Ready to start. The meter analyses volume only, not speech.</span>
+              </div>
+    
+              <div class="calmnoise-privacy-note">
+                Audio is used locally for live volume feedback. No speech or recordings are saved.
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    
+    <div class="calmnoise-modal-layer" id="calmnoiseTeacherModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Teacher settings">
+      <div class="calmnoise-modal-scrim" onclick="calmnoiseCloseTeacherSettings()" aria-hidden="true"></div>
+    
+      <div class="calmnoise-modal-dialog calmnoise-settings-dialog" role="document">
+        <div class="calmnoise-modal-header">
+          <div>
+            <div class="calmnoise-modal-title">
+              <i class="fas fa-cog" aria-hidden="true"></i> Teacher Settings
+            </div>
+            <div class="calmnoise-modal-subtitle">Set the goal, activity mode, display and reward behaviour.</div>
+          </div>
+    
+          <button class="calmnoise-icon-btn calmnoise-close-btn" onclick="calmnoiseCloseTeacherSettings()" aria-label="Close teacher settings">
+            <i class="fas fa-times" aria-hidden="true"></i>
+          </button>
+        </div>
+    
+        <div class="calmnoise-modal-body">
+          <div class="calmnoise-modal-actions-row">
+            <button class="calmnoise-modal-action" onclick="calmnoiseOpenHowTo()">
+              <i class="fas fa-circle-question" aria-hidden="true"></i> How to use
+            </button>
+    
+            <button class="calmnoise-modal-action" onclick="calmnoiseToggleFullscreen()">
+              <i class="fas fa-expand" aria-hidden="true"></i> Full screen
+            </button>
+    
+            <button class="calmnoise-modal-action" onclick="calmnoiseResetSessionSummary()">
+              <i class="fas fa-chart-simple" aria-hidden="true"></i> Reset summary
+            </button>
+          </div>
+    
+          <h3 class="calmnoise-modal-section-title">Quick setup</h3>
+    
+          <div class="calmnoise-settings" id="calmnoiseSettingsPanel">
+            <div class="calmnoise-setting-item">
+              <label for="calmnoisePresetSelect">
+                <i class="fas fa-school" aria-hidden="true"></i> Activity Mode
+              </label>
+              <select id="calmnoisePresetSelect" onchange="calmnoiseHandlePresetChange()">
+                <option value="silent" selected>Silent Reading</option>
+                <option value="pair">Pair Work</option>
+                <option value="group">Group Work</option>
+                <option value="presentation">Presentation</option>
+                <option value="exam">Exam Mode</option>
+              </select>
+            </div>
+    
+            <div class="calmnoise-setting-item">
+              <label for="calmnoiseDurationSelect">
+                <i class="fas fa-bullseye" aria-hidden="true"></i> Calm Goal
+              </label>
+              <select id="calmnoiseDurationSelect" onchange="calmnoiseHandleDurationChange()">
+                <option value="60" selected>1 minute</option>
+                <option value="180">3 minutes</option>
+                <option value="300">5 minutes</option>
+                <option value="600">10 minutes</option>
+                <option value="1200">20 minutes</option>
+                <option value="1800">30 minutes</option>
+              </select>
+            </div>
+    
+            <div class="calmnoise-setting-item">
+              <label for="calmnoisePointsInput">
+                <i class="fas fa-star" aria-hidden="true"></i> Points per Student
+              </label>
+              <div class="calmnoise-points-grid-quick">
+                <button type="button" class="calmnoise-points-preset-btn" data-points="1" onclick="calmnoiseSetPoints(1)">+1</button>
+                <button type="button" class="calmnoise-points-preset-btn active" data-points="2" onclick="calmnoiseSetPoints(2)">+2</button>
+                <button type="button" class="calmnoise-points-preset-btn" data-points="3" onclick="calmnoiseSetPoints(3)">+3</button>
+                <button type="button" class="calmnoise-points-preset-btn" data-points="4" onclick="calmnoiseSetPoints(4)">+4</button>
+              </div>
+              <input type="hidden" id="calmnoisePointsInput" value="2">
+            </div>
+    
+            <div class="calmnoise-setting-item">
+              <label for="calmnoiseSensitivityRange">
+                <i class="fas fa-sliders-h" aria-hidden="true"></i> Sensitivity
+              </label>
+              <input type="range" id="calmnoiseSensitivityRange" value="1" min="0.6" max="1.8" step="0.1">
+            </div>
+    
+            <div class="calmnoise-setting-item">
+              <label for="calmnoiseConsequenceSelect">
+                <i class="fas fa-balance-scale" aria-hidden="true"></i> If It Gets Loud
+              </label>
+              <select id="calmnoiseConsequenceSelect">
+                <option value="pause" selected>Pause timer first</option>
+                <option value="add">Add seconds</option>
+                <option value="reset">Reset only if sustained</option>
+              </select>
+            </div>
+    
+            <div class="calmnoise-setting-item">
+              <label for="calmnoiseDisplayModeSelect">
+                <i class="fas fa-eye" aria-hidden="true"></i> Student Display
+              </label>
+              <select id="calmnoiseDisplayModeSelect" onchange="calmnoiseHandleDisplayModeChange()">
+                <option value="simple" selected>Simple, no percentage</option>
+                <option value="detailed">Show percentage</option>
+              </select>
+            </div>
+    
+            <div class="calmnoise-setting-item">
+              <label for="calmnoiseSoundToggle">
+                <i class="fas fa-volume-up" aria-hidden="true"></i> Reward Sound
+              </label>
+              <div class="calmnoise-setting-inline">
+                <input type="checkbox" id="calmnoiseSoundToggle" checked>
+                <span style="font-size:11px;color:rgba(255,255,255,0.72);font-weight:850;">Positive chime only</span>
+              </div>
+            </div>
+    
+            <div class="calmnoise-setting-item">
+              <label for="calmnoiseAutoRepeatToggle">
+                <i class="fas fa-repeat" aria-hidden="true"></i> Auto-repeat
+              </label>
+              <div class="calmnoise-setting-inline">
+                <input type="checkbox" id="calmnoiseAutoRepeatToggle">
+                <span style="font-size:11px;color:rgba(255,255,255,0.72);font-weight:850;">Start a new streak after reward</span>
+              </div>
+            </div>
+          </div>
+    
+          <h3 class="calmnoise-modal-section-title">Privacy</h3>
+    
+          <div class="calmnoise-privacy-grid">
+            <div class="calmnoise-privacy-item"><span>Checks</span><strong>Sound level only</strong></div>
+            <div class="calmnoise-privacy-item"><span>Does not save</span><strong>Words</strong></div>
+            <div class="calmnoise-privacy-item"><span>Does not save</span><strong>Recordings</strong></div>
+            <div class="calmnoise-privacy-item"><span>Used for</span><strong>Live feedback</strong></div>
+          </div>
+    
+          <h3 class="calmnoise-modal-section-title">Session summary</h3>
+    
+          <div class="calmnoise-summary-grid">
+            <div class="calmnoise-summary-item"><span>Rewards</span><strong id="calmnoiseSummaryRewards">0</strong></div>
+            <div class="calmnoise-summary-item"><span>Longest Calm</span><strong id="calmnoiseSummaryLongest">00:00</strong></div>
+            <div class="calmnoise-summary-item"><span>Warnings</span><strong id="calmnoiseSummaryWarnings">0</strong></div>
+            <div class="calmnoise-summary-item"><span>Loud Moments</span><strong id="calmnoiseSummaryLoud">0</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="calmnoise-modal-layer" id="calmnoiseHowToModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="How to use Class Calm Meter">
+      <div class="calmnoise-modal-scrim" onclick="calmnoiseCloseHowTo()" aria-hidden="true"></div>
+    
+      <div class="calmnoise-modal-dialog calmnoise-how-dialog" role="document">
+        <div class="calmnoise-modal-header">
+          <div>
+            <div class="calmnoise-modal-title">
+              <i class="fas fa-circle-question" aria-hidden="true"></i> How to Use
+            </div>
+            <div class="calmnoise-modal-subtitle">A simple classroom calm challenge for students.</div>
+          </div>
+    
+          <button class="calmnoise-icon-btn calmnoise-close-btn" onclick="calmnoiseCloseHowTo()" aria-label="Close how to use">
+            <i class="fas fa-times" aria-hidden="true"></i>
+          </button>
+        </div>
+    
+        <div class="calmnoise-modal-body">
+          <div class="calmnoise-how-steps">
+            <div class="calmnoise-how-step">
+              <span>1</span>
+              <strong>Choose an activity mode.</strong>
+              <p>Use Silent Reading, Pair Work, Group Work, Presentation, or Exam Mode. This makes the meter fair for the lesson.</p>
+            </div>
+    
+            <div class="calmnoise-how-step">
+              <span>2</span>
+              <strong>Set a calm goal.</strong>
+              <p>Start with 1 minute. Increase the goal once the class understands the routine.</p>
+            </div>
+    
+            <div class="calmnoise-how-step">
+              <span>3</span>
+              <strong>Press Start.</strong>
+              <p>The tool checks sound level only. It does not save words or recordings.</p>
+            </div>
+    
+            <div class="calmnoise-how-step">
+              <span>4</span>
+              <strong>Let students follow the big message.</strong>
+              <p>Green says “Shhhhh...”, yellow says “Too loud...”, red says “Pause!”, and reward says “Great job!”.</p>
+            </div>
+    
+            <div class="calmnoise-how-step">
+              <span>5</span>
+              <strong>Reward calm teamwork.</strong>
+              <p>Use automatic rewards when the goal is reached, or press Reward when you want to recognise the class manually.</p>
+            </div>
+          </div>
+    
+          <div class="calmnoise-how-tip">
+            <i class="fas fa-lightbulb" aria-hidden="true"></i>
+            Tip: use Full Screen on a smartboard so students can focus on the mascot, message, timer and main controls.
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+      let calmnoiseModal;
+      let calmnoiseVolumeFill;
+      let calmnoiseCurrentVolumeSpan;
+      let calmnoiseTimerDisplay;
+      let calmnoiseTargetProgressFill;
+      let calmnoiseTargetText;
+      let calmnoiseStatusText;
+      let calmnoiseStatusDot;
+      let calmnoiseMascotImg;
+      let calmnoiseCharacterNameSpan;
+      let calmnoiseCharacterQuoteSpan;
+      let calmnoiseStateLabel;
+      let calmnoiseDurationSelect;
+      let calmnoiseDurationSelectQuick;
+      let calmnoisePointsInput;
+      let calmnoisePointsInputQuick;
+      let calmnoiseSensitivityRange;
+      let calmnoiseSoundToggle;
+      let calmnoiseAutoRepeatToggle;
+      let calmnoiseStartBtn;
+      let calmnoiseStopBtn;
+      let calmnoiseParticlesLayer;
+      let calmnoisePresetSelect;
+      let calmnoisePresetSelectQuick;
+      let calmnoiseConsequenceSelect;
+      let calmnoiseDisplayModeSelect;
+    
+      let calmnoiseMediaStream = null;
+      let calmnoiseAudioContext = null;
+      let calmnoiseSourceNode = null;
+      let calmnoiseAnalyserNode = null;
+      let calmnoiseAnimationId = null;
+      let calmnoiseQuietInterval = null;
+      let calmnoiseRewardTimeout = null;
+    
+      let calmnoiseIsMonitoring = false;
+      let calmnoiseQuietTimer = 60;
+      let calmnoiseCurrentTargetSeconds = 60;
+      let calmnoiseLastAwardTime = 0;
+      let calmnoiseCurrentState = 'quiet';
+      let calmnoiseLastState = null;
+      let calmnoiseSmoothedVolume = 0;
+      let calmnoiseStreakAwarded = false;
+    
+      let calmnoiseConsecutiveNoiseStart = 0;
+      let calmnoiseIsInNoiseZone = false;
+      let calmnoiseLastPenaltyApplied = 0;
+      let calmnoisePendingVisualState = null;
+      let calmnoisePendingVisualStateSince = 0;
+      let calmnoiseLastVisualStateChangeAt = 0;
+    
+      let calmnoiseSessionRewards = 0;
+      let calmnoiseSessionWarnings = 0;
+      let calmnoiseSessionLoudMoments = 0;
+      let calmnoiseCurrentCalmRun = 0;
+      let calmnoiseLongestCalmRun = 0;
+      let calmnoiseLastCountedWarningAt = 0;
+      let calmnoiseLastCountedLoudAt = 0;
+    
+      const CALMNOISE_PENALTY_COOLDOWN_MS = 3000;
+      const CALMNOISE_STATE_CONFIRM_MS = 650;
+      const CALMNOISE_AWARD_COOLDOWN_MS = 8000;
+      const CALMNOISE_NOISE_COUNT_COOLDOWN_MS = 6000;
+    
+      const CALMNOISE_STATE_MIN_HOLD_MS = {
+        quiet: 1800,
+        warning: 1600,
+        loud: 1900,
+        reward: 3600
+      };
+    
+      const CALMNOISE_PRESETS = {
+        silent: {
+          label: 'Silent Reading',
+          warningEnter: 18,
+          warningExit: 12,
+          loudEnter: 55,
+          loudExit: 45,
+          sensitivity: 1.0,
+          message: 'Silent Reading mode is active.'
+        },
+        pair: {
+          label: 'Pair Work',
+          warningEnter: 28,
+          warningExit: 20,
+          loudEnter: 68,
+          loudExit: 58,
+          sensitivity: 0.9,
+          message: 'Pair Work mode allows soft partner voices.'
+        },
+        group: {
+          label: 'Group Work',
+          warningEnter: 35,
+          warningExit: 28,
+          loudEnter: 78,
+          loudExit: 68,
+          sensitivity: 0.82,
+          message: 'Group Work mode allows more classroom energy.'
+        },
+        presentation: {
+          label: 'Presentation',
+          warningEnter: 24,
+          warningExit: 16,
+          loudEnter: 62,
+          loudExit: 52,
+          sensitivity: 0.95,
+          message: 'Presentation mode supports one speaker at a time.'
+        },
+        exam: {
+          label: 'Exam Mode',
+          warningEnter: 15,
+          warningExit: 8,
+          loudEnter: 45,
+          loudExit: 38,
+          sensitivity: 1.08,
+          message: 'Exam Mode is strict and quiet.'
+        }
+      };
+    
+      let calmnoiseThresholds = {
+        warningEnter: 18,
+        warningExit: 12,
+        loudEnter: 55,
+        loudExit: 45
+      };
+    
+      const CALMNOISE_STATE1_IMAGES = [
+        'https://trackedu.github.io/common-assets/state1a.png',
+        'https://trackedu.github.io/common-assets/state1b.png'
+      ];
+    
+      const CALMNOISE_STATE2_IMAGES = [
+        'https://trackedu.github.io/common-assets/state2a.png',
+        'https://trackedu.github.io/common-assets/state2b.png'
+      ];
+    
+      const CALMNOISE_STATE3_IMAGES = [
+        'https://trackedu.github.io/common-assets/state3a.png',
+        'https://trackedu.github.io/common-assets/state3b.png'
+      ];
+    
+      const CALMNOISE_STATE4_IMAGES = [
+        'https://trackedu.github.io/common-assets/state4a.png',
+        'https://trackedu.github.io/common-assets/state4b.png'
+      ];
+    
+      const CALMNOISE_STATE_CONFIG = {
+        quiet: {
+          label: 'Quiet Mode',
+          name: 'Shhhhh...',
+          quote: 'Keep the calm going.',
+          images: CALMNOISE_STATE1_IMAGES,
+          nextImageIndex: 0,
+          alt: 'TrackEDU mascot showing quiet mode'
+        },
+        warning: {
+          label: 'Careful',
+          name: 'Too loud...',
+          quote: 'Bring voices down.',
+          images: CALMNOISE_STATE2_IMAGES,
+          nextImageIndex: 0,
+          alt: 'TrackEDU mascot asking the class to lower voices'
+        },
+        loud: {
+          label: 'Too Loud',
+          name: 'Pause!',
+          quote: 'Let’s reset our voices.',
+          images: CALMNOISE_STATE3_IMAGES,
+          nextImageIndex: 0,
+          alt: 'TrackEDU mascot reacting to loud noise'
+        },
+        reward: {
+          label: 'Great Job',
+          name: 'Great job!',
+          quote: 'You kept the class calm.',
+          images: CALMNOISE_STATE4_IMAGES,
+          nextImageIndex: 0,
+          alt: 'TrackEDU mascot celebrating a calm streak'
+        }
+      };
+    
+      function calmnoiseInitDOM() {
+        calmnoiseModal = document.getElementById('calmnoiseModal');
+        calmnoiseVolumeFill = document.getElementById('calmnoiseVolumeFill');
+        calmnoiseCurrentVolumeSpan = document.getElementById('calmnoiseCurrentVolume');
+        calmnoiseTimerDisplay = document.getElementById('calmnoiseTimerDisplay');
+        calmnoiseTargetProgressFill = document.getElementById('calmnoiseTargetProgressFill');
+        calmnoiseTargetText = document.getElementById('calmnoiseTargetText');
+        calmnoiseStatusText = document.getElementById('calmnoiseStatusText');
+        calmnoiseStatusDot = document.getElementById('calmnoiseStatusDot');
+        calmnoiseMascotImg = document.getElementById('calmnoiseMascotImage');
+        calmnoiseCharacterNameSpan = document.getElementById('calmnoiseCharacterName');
+        calmnoiseCharacterQuoteSpan = document.getElementById('calmnoiseCharacterQuote');
+        calmnoiseStateLabel = document.getElementById('calmnoiseStateLabel');
+        calmnoiseDurationSelect = document.getElementById('calmnoiseDurationSelect');
+        calmnoiseDurationSelectQuick = document.getElementById('calmnoiseDurationSelectQuick');
+        calmnoisePointsInput = document.getElementById('calmnoisePointsInput');
+        calmnoisePointsInputQuick = document.getElementById('calmnoisePointsInputQuick');
+        calmnoiseSensitivityRange = document.getElementById('calmnoiseSensitivityRange');
+        calmnoiseSoundToggle = document.getElementById('calmnoiseSoundToggle');
+        calmnoiseAutoRepeatToggle = document.getElementById('calmnoiseAutoRepeatToggle');
+        calmnoiseStartBtn = document.getElementById('calmnoiseStartBtn');
+        calmnoiseStopBtn = document.getElementById('calmnoiseStopBtn');
+        calmnoiseParticlesLayer = document.getElementById('calmnoiseParticles');
+        calmnoisePresetSelect = document.getElementById('calmnoisePresetSelect');
+        calmnoisePresetSelectQuick = document.getElementById('calmnoisePresetSelectQuick');
+        calmnoiseConsequenceSelect = document.getElementById('calmnoiseConsequenceSelect');
+        calmnoiseDisplayModeSelect = document.getElementById('calmnoiseDisplayModeSelect');
+    
+        const selectedDuration = parseInt(calmnoiseDurationSelectQuick?.value || calmnoiseDurationSelect?.value || '60', 10);
+        calmnoiseCurrentTargetSeconds = Number.isFinite(selectedDuration) ? selectedDuration : 60;
+        calmnoiseQuietTimer = Math.min(calmnoiseQuietTimer || calmnoiseCurrentTargetSeconds, calmnoiseCurrentTargetSeconds);
+    
+        calmnoiseApplyPreset(calmnoisePresetSelectQuick?.value || calmnoisePresetSelect?.value || 'silent', false);
+        calmnoiseSyncControls();
+        calmnoiseUpdateMascotAndCharacter('quiet', true);
+        calmnoiseUpdateParticles('quiet');
+        calmnoiseUpdateTargetText();
+        calmnoiseUpdateTimerDisplay();
+        calmnoiseUpdateSummaryUI();
+        calmnoiseHandleDisplayModeChange();
+        calmnoiseSetPoints(parseInt(calmnoisePointsInput?.value || calmnoisePointsInputQuick?.value || '2', 10), false);
+      }
+    
+      document.addEventListener('DOMContentLoaded', calmnoiseInitDOM);
+    
+      function calmnoiseSyncControls() {
+        if (calmnoisePresetSelect && calmnoisePresetSelectQuick) calmnoisePresetSelect.value = calmnoisePresetSelectQuick.value;
+        if (calmnoiseDurationSelect && calmnoiseDurationSelectQuick) calmnoiseDurationSelect.value = calmnoiseDurationSelectQuick.value;
+    
+        const points = parseInt(calmnoisePointsInputQuick?.value || calmnoisePointsInput?.value || '2', 10);
+        if (calmnoisePointsInput) calmnoisePointsInput.value = points;
+        if (calmnoisePointsInputQuick) calmnoisePointsInputQuick.value = points;
+      }
+    
+      function calmnoiseFormatDuration(seconds) {
+        seconds = Math.max(0, Math.round(seconds));
+        if (seconds < 60) return `${seconds} seconds`;
+        const minutes = seconds / 60;
+        if (Number.isInteger(minutes)) return `${minutes} minute${minutes === 1 ? '' : 's'}`;
+        return `${Math.floor(seconds / 60)} min ${seconds % 60}s`;
+      }
+    
+      function calmnoiseFormatClock(seconds) {
+        const remaining = Math.max(0, Math.round(seconds));
+        const minutes = Math.floor(remaining / 60);
+        const secs = remaining % 60;
+        return `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+      }
+    
+      function calmnoiseUpdateParticles(state) {
+        if (!calmnoiseParticlesLayer) return;
+    
+        const sets = {
+          quiet: [
+            { cls: 'calmnoise-star', left: '10%', top: '20%', color: '#d9f99d', delay: '0s' },
+            { cls: 'calmnoise-spark', left: '18%', top: '72%', color: '#bbf7d0', delay: '0.6s' },
+            { cls: 'calmnoise-star', left: '78%', top: '28%', color: '#fef3c7', delay: '1s' },
+            { cls: 'calmnoise-spark', left: '84%', top: '67%', color: '#86efac', delay: '1.4s' }
+          ],
+          warning: [
+            { cls: 'calmnoise-wave', left: '8%', top: '42%', color: '#fbbf24', delay: '0s' },
+            { cls: 'calmnoise-wave', left: '84%', top: '48%', color: '#fde047', delay: '0.2s' },
+            { cls: 'calmnoise-bolt', left: '78%', top: '22%', color: '#fb923c', delay: '0.4s' },
+            { cls: 'calmnoise-star', left: '16%', top: '24%', color: '#fde68a', delay: '1s' }
+          ],
+          loud: [
+            { cls: 'calmnoise-bolt', left: '9%', top: '18%', color: '#ef4444', delay: '0s' },
+            { cls: 'calmnoise-bolt', left: '80%', top: '18%', color: '#f97316', delay: '0.1s' },
+            { cls: 'calmnoise-wave', left: '6%', top: '47%', color: '#fb7185', delay: '0.2s' },
+            { cls: 'calmnoise-wave', left: '86%', top: '49%', color: '#f97316', delay: '0.25s' },
+            { cls: 'calmnoise-spark', left: '19%', top: '74%', color: '#f97316', delay: '0.6s' }
+          ],
+          reward: [
+            { cls: 'calmnoise-confetti', left: '12%', top: '18%', color: '#38bdf8', delay: '0s' },
+            { cls: 'calmnoise-confetti', left: '22%', top: '70%', color: '#f472b6', delay: '0.2s' },
+            { cls: 'calmnoise-confetti', left: '72%', top: '24%', color: '#facc15', delay: '0.4s' },
+            { cls: 'calmnoise-confetti', left: '84%', top: '66%', color: '#22c55e', delay: '0.6s' },
+            { cls: 'calmnoise-star', left: '14%', top: '44%', color: '#fde047', delay: '0.8s' },
+            { cls: 'calmnoise-star', left: '78%', top: '42%', color: '#fef08a', delay: '1s' }
+          ]
+        };
+    
+        const items = sets[state] || sets.quiet;
+        calmnoiseParticlesLayer.innerHTML = items.map(item => `<span class="${item.cls}" style="left:${item.left};top:${item.top};color:${item.color};animation-delay:${item.delay};"></span>`).join('');
+      }
+    
+      function calmnoiseSetModalStateClass(state) {
+        if (!calmnoiseModal) return;
+        calmnoiseModal.classList.remove('state-quiet', 'state-warning', 'state-loud', 'state-reward');
+        calmnoiseModal.classList.add(`state-${state}`);
+      }
+    
+      function calmnoiseUpdateMascotAndCharacter(state, forceResetIndex = false) {
+        if (!CALMNOISE_STATE_CONFIG[state]) state = 'quiet';
+    
+        const config = CALMNOISE_STATE_CONFIG[state];
+    
+        if (calmnoiseLastState !== state || forceResetIndex) {
+          config.nextImageIndex = (config.nextImageIndex + 1) % config.images.length;
+        }
+    
+        const imageUrl = config.images[config.nextImageIndex];
+    
+        if (calmnoiseMascotImg && imageUrl) {
+          calmnoiseMascotImg.style.opacity = '0';
+          setTimeout(() => {
+            calmnoiseMascotImg.src = imageUrl;
+            calmnoiseMascotImg.alt = config.alt;
+            calmnoiseMascotImg.style.opacity = '1';
+          }, 80);
+        }
+    
+        if (calmnoiseCharacterNameSpan) calmnoiseCharacterNameSpan.textContent = config.name;
+        if (calmnoiseCharacterQuoteSpan) calmnoiseCharacterQuoteSpan.textContent = config.quote;
+        if (calmnoiseStateLabel) calmnoiseStateLabel.textContent = config.label;
+    
+        calmnoiseSetModalStateClass(state);
+        calmnoiseUpdateParticles(state);
+    
+        calmnoiseLastState = state;
+        calmnoiseCurrentState = state;
+    
+        if (forceResetIndex) {
+          calmnoiseLastVisualStateChangeAt = Date.now();
+          calmnoisePendingVisualState = null;
+          calmnoisePendingVisualStateSince = 0;
+        }
+      }
+    
+      function calmnoiseGetDesiredNoiseState(volumePercent) {
+        if (calmnoiseCurrentState === 'loud') {
+          if (volumePercent >= calmnoiseThresholds.loudExit) return 'loud';
+          if (volumePercent >= calmnoiseThresholds.warningExit) return 'warning';
+          return 'quiet';
+        }
+    
+        if (calmnoiseCurrentState === 'warning') {
+          if (volumePercent >= calmnoiseThresholds.loudEnter) return 'loud';
+          if (volumePercent >= calmnoiseThresholds.warningExit) return 'warning';
+          return 'quiet';
+        }
+    
+        if (volumePercent >= calmnoiseThresholds.loudEnter) return 'loud';
+        if (volumePercent >= calmnoiseThresholds.warningEnter) return 'warning';
+        return 'quiet';
+      }
+    
+      function calmnoiseUpdateMascotByVolume(volumePercent, force = false) {
+        if (calmnoiseCurrentState === 'reward' && !force) return;
+    
+        const desiredState = calmnoiseGetDesiredNoiseState(volumePercent);
+    
+        if (desiredState === calmnoiseCurrentState && !force) {
+          calmnoisePendingVisualState = null;
+          calmnoisePendingVisualStateSince = 0;
+          return;
+        }
+    
         const now = Date.now();
-        if (now - lastDeductTime >= DEDUCT_COOLDOWN_MS) {
-          deductPoints(deductPointsAmount);
+        const holdTime = CALMNOISE_STATE_MIN_HOLD_MS[calmnoiseCurrentState] || 0;
+    
+        if (!force && now - calmnoiseLastVisualStateChangeAt < holdTime) return;
+    
+        if (!force) {
+          if (calmnoisePendingVisualState !== desiredState) {
+            calmnoisePendingVisualState = desiredState;
+            calmnoisePendingVisualStateSince = now;
+            return;
+          }
+    
+          if (now - calmnoisePendingVisualStateSince < CALMNOISE_STATE_CONFIRM_MS) return;
+        }
+    
+        if (desiredState === 'warning' && calmnoiseLastState !== 'warning' && now - calmnoiseLastCountedWarningAt > CALMNOISE_NOISE_COUNT_COOLDOWN_MS) {
+          calmnoiseSessionWarnings += 1;
+          calmnoiseLastCountedWarningAt = now;
+          calmnoiseUpdateSummaryUI();
+        }
+    
+        if (desiredState === 'loud' && calmnoiseLastState !== 'loud' && now - calmnoiseLastCountedLoudAt > CALMNOISE_NOISE_COUNT_COOLDOWN_MS) {
+          calmnoiseSessionLoudMoments += 1;
+          calmnoiseLastCountedLoudAt = now;
+          calmnoiseUpdateSummaryUI();
+        }
+    
+        calmnoiseLastVisualStateChangeAt = now;
+        calmnoiseUpdateMascotAndCharacter(desiredState);
+      }
+    
+      function calmnoiseUpdateTimerDisplay() {
+        const remaining = Math.max(0, calmnoiseQuietTimer);
+        const totalTarget = Math.max(1, calmnoiseCurrentTargetSeconds);
+    
+        if (calmnoiseTimerDisplay) {
+          calmnoiseTimerDisplay.textContent = calmnoiseFormatClock(remaining);
+    
+          if (remaining <= 10 && !calmnoiseStreakAwarded) {
+            calmnoiseTimerDisplay.style.color = '#ef4444';
+          } else if (remaining <= 30 && !calmnoiseStreakAwarded) {
+            calmnoiseTimerDisplay.style.color = '#f59e0b';
+          } else {
+            calmnoiseTimerDisplay.style.color = 'var(--calmnoise-state-color, #10b981)';
+          }
+        }
+    
+        if (calmnoiseTargetProgressFill) {
+          const completed = Math.max(0, totalTarget - remaining);
+          const progress = Math.min(100, (completed / totalTarget) * 100);
+          calmnoiseTargetProgressFill.style.width = `${progress}%`;
         }
       }
-    }, 1000);
-  }
-
-  function resetTimer() {
-    timerSeconds = totalTargetSeconds;
-    currentCalmSeconds = 0;
-    streakAwarded = false;
-    updateTimerDisplay();
-    if (currentState === 'reward') setState('quiet', true);
-  }
-
-  // ==========================================
-  // VOLUME METER & AUDIO
-  // ==========================================
-  async function initAudio() {
-    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-      showStatusMessage('This browser does not support microphone access.', 'error');
-      return false;
-    }
     
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({
-        audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false }
-      });
-      mediaStream = stream;
-      
-      audioContext = new (window.AudioContext || window.webkitAudioContext)();
-      analyserNode = audioContext.createAnalyser();
-      analyserNode.fftSize = 256;
-      analyserNode.smoothingTimeConstant = 0.7;
-      
-      sourceNode = audioContext.createMediaStreamSource(stream);
-      sourceNode.connect(analyserNode);
-      
-      if (audioContext.state === 'suspended') await audioContext.resume();
-      return true;
-    } catch (error) {
-      showStatusMessage('Microphone access denied. Please allow microphone to use Calm Meter.', 'error');
-      return false;
-    }
-  }
-
-  function startVolumeLoop() {
-    if (!isMonitoring || !analyserNode) return;
-    const dataArray = new Uint8Array(analyserNode.frequencyBinCount);
-    
-    function updateVolume() {
-      if (!isMonitoring || !analyserNode) return;
-      analyserNode.getByteFrequencyData(dataArray);
-      let sum = 0;
-      for (let i = 0; i < dataArray.length; i++) sum += dataArray[i];
-      let percent = Math.min(100, Math.round((sum / dataArray.length / 255) * 100));
-      percent = Math.round(Math.pow(percent / 100, 0.7) * 100);
-      currentVolume = percent;
-      
-      volumeFill.style.width = `${percent}%`;
-      
-      // Determine state based on volume
-      if (percent < 30) {
-        volumeFill.style.background = '#10b981';
-        isInNoiseZone = false;
-        setState('quiet');
-      } else if (percent < 65) {
-        volumeFill.style.background = '#f59e0b';
-        isInNoiseZone = true;
-        setState('warning');
-      } else {
-        volumeFill.style.background = '#ef4444';
-        isInNoiseZone = true;
-        setState('loud');
+      function calmnoiseUpdateVolumeUI(percent) {
+        if (calmnoiseCurrentVolumeSpan) calmnoiseCurrentVolumeSpan.textContent = String(percent);
+        if (calmnoiseVolumeFill) calmnoiseVolumeFill.style.width = `${percent}%`;
       }
-      
-      animationId = requestAnimationFrame(updateVolume);
-    }
-    updateVolume();
-  }
-
-  function stopVolumeLoop() {
-    if (animationId) { cancelAnimationFrame(animationId); animationId = null; }
-    volumeFill.style.width = '0%';
-  }
-
-  async function startMeter() {
-    const audioReady = await initAudio();
-    if (!audioReady) return;
     
-    isMonitoring = true;
-    startVolumeLoop();
-    startTimer();
-    stateStartTime = Date.now();
+      function calmnoiseUpdateStatus(message, type = 'info') {
+        if (calmnoiseStatusText) calmnoiseStatusText.textContent = message;
     
-    startBtn.style.display = 'none';
-    stopBtn.style.display = 'flex';
-    showStatusMessage('Calm Meter started! Stay quiet to earn points.', 'success');
-  }
-
-  function stopMeter() {
-    isMonitoring = false;
-    stopVolumeLoop();
-    if (timerInterval) { clearInterval(timerInterval); timerInterval = null; }
-    if (audioContext) { audioContext.close(); audioContext = null; }
-    if (mediaStream) { mediaStream.getTracks().forEach(t => t.stop()); mediaStream = null; }
-    
-    startBtn.style.display = 'flex';
-    stopBtn.style.display = 'none';
-    setState('quiet', true);
-    showStatusMessage('Stopped. Click Start to resume.', 'info');
-  }
-
-  // ==========================================
-  // SOUND EFFECTS
-  // ==========================================
-  function playTickSound() {
-    if (!soundEnabled) return;
-    try {
-      const ctx = new (window.AudioContext || window.webkitAudioContext)();
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      osc.type = 'sine';
-      osc.frequency.value = 880;
-      gain.gain.value = 0.08;
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-      osc.start();
-      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.1);
-      osc.stop(ctx.currentTime + 0.1);
-      setTimeout(() => ctx.close(), 200);
-    } catch(e) {}
-  }
-
-  function playPopSound() {
-    if (!soundEnabled) return;
-    try {
-      const ctx = new (window.AudioContext || window.webkitAudioContext)();
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      osc.type = 'sine';
-      osc.frequency.value = 523.25;
-      gain.gain.value = 0.1;
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-      osc.start();
-      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.15);
-      osc.stop(ctx.currentTime + 0.15);
-      setTimeout(() => ctx.close(), 200);
-    } catch(e) {}
-  }
-
-  function playDeductSound() {
-    if (!soundEnabled) return;
-    try {
-      const ctx = new (window.AudioContext || window.webkitAudioContext)();
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      osc.type = 'sawtooth';
-      osc.frequency.value = 220;
-      gain.gain.value = 0.1;
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-      osc.start();
-      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.3);
-      osc.stop(ctx.currentTime + 0.3);
-      setTimeout(() => ctx.close(), 400);
-    } catch(e) {}
-  }
-
-  function playFanfareSound() {
-    if (!soundEnabled) return;
-    try {
-      const ctx = new (window.AudioContext || window.webkitAudioContext)();
-      [523.25, 659.25, 783.99].forEach((freq, i) => {
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.type = 'sine';
-        osc.frequency.value = freq;
-        gain.gain.value = 0.08;
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        osc.start(ctx.currentTime + (i * 0.12));
-        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.5);
-        osc.stop(ctx.currentTime + 0.5);
-      });
-      setTimeout(() => ctx.close(), 800);
-    } catch(e) {}
-  }
-
-  function toggleSound() {
-    soundEnabled = !soundEnabled;
-    const btn = document.getElementById('soundToggleBtn');
-    btn.innerHTML = soundEnabled ? '<i class="fas fa-volume-up"></i>' : '<i class="fas fa-volume-mute"></i>';
-  }
-
-  function toggleDeductMode() {
-    deductPointsEnabled = !deductPointsEnabled;
-    deductToggleBtn.textContent = deductPointsEnabled ? 'ON' : 'OFF';
-    deductToggleBtn.classList.toggle('active', deductPointsEnabled);
-    showStatusMessage(deductPointsEnabled ? 'Point deduction ENABLED. Students lose points when loud!' : 'Point deduction DISABLED. Only positive reinforcement.', 'info');
-  }
-
-  // ==========================================
-  // UI HELPERS
-  // ==========================================
-  function showStatusMessage(msg, type = 'info') {
-    statusTextSpan.innerHTML = `<i class="fas ${type === 'error' ? 'fa-exclamation-circle' : type === 'success' ? 'fa-check-circle' : 'fa-info-circle'}"></i> ${msg}`;
-    setTimeout(() => {
-      if (statusTextSpan.innerHTML.includes(msg)) {
-        statusTextSpan.innerHTML = '<i class="fas fa-microphone-alt"></i> ' + (isMonitoring ? 'Listening. Stay quiet to earn points.' : 'Ready to start. Click Start and allow microphone.');
+        if (calmnoiseStatusDot) {
+          if (type === 'error') calmnoiseStatusDot.style.background = '#ef4444';
+          else if (type === 'success') calmnoiseStatusDot.style.background = '#10b981';
+          else if (type === 'warning') calmnoiseStatusDot.style.background = '#f59e0b';
+          else calmnoiseStatusDot.style.background = '#3b82f6';
+        }
       }
-    }, 4000);
-  }
-
-  function showFloatingPoints(points, color = '#fbbf24') {
-    const floatEl = document.createElement('div');
-    floatEl.textContent = points > 0 ? `+${points}` : `${points}`;
-    floatEl.style.cssText = `
-      position: fixed;
-      top: 30%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 2rem;
-      font-weight: 900;
-      color: ${color};
-      text-shadow: 0 0 10px ${color};
-      pointer-events: none;
-      z-index: 1000;
-      animation: floatUp 1.5s ease-out forwards;
-      font-family: 'Fredoka One', cursive;
-    `;
-    document.body.appendChild(floatEl);
-    setTimeout(() => floatEl.remove(), 1500);
-  }
-
-  // Add animation keyframes
-  const style = document.createElement('style');
-  style.textContent = `
-    @keyframes floatUp {
-      0% { transform: translate(-50%, -50%) scale(0.8); opacity: 1; }
-      50% { transform: translate(-50%, -70%) scale(1.2); }
-      100% { transform: translate(-50%, -120%) scale(1); opacity: 0; }
-    }
-  `;
-  document.head.appendChild(style);
-
-  // ==========================================
-  // EVENT LISTENERS & INIT
-  // ==========================================
-  goalSelect.addEventListener('change', () => { setGoal(); if (!isMonitoring) resetTimer(); });
-  pointsSelect.addEventListener('change', () => { pointsPer10Sec = parseInt(pointsSelect.value); });
-  resetPointsBtn.addEventListener('click', resetPoints);
-  deductToggleBtn.addEventListener('click', toggleDeductMode);
-  document.getElementById('soundToggleBtn').addEventListener('click', toggleSound);
-  
-  startBtn.addEventListener('click', startMeter);
-  stopBtn.addEventListener('click', stopMeter);
-
-  // Initialize
-  loadPoints();
-  setGoal();
-  stateStartTime = Date.now();
-  
-  showStatusMessage('Ready to start. Click Start and allow microphone.', 'info');
-</script>
-</body>
-</html>
+    
+      function calmnoiseHandlePresetChange() {
+        const presetKey = calmnoisePresetSelect?.value || 'silent';
+    
+        if (calmnoisePresetSelectQuick) calmnoisePresetSelectQuick.value = presetKey;
+        calmnoiseApplyPreset(presetKey, true);
+      }
+    
+      function calmnoiseHandlePresetChangeQuick() {
+        const presetKey = calmnoisePresetSelectQuick?.value || 'silent';
+    
+        if (calmnoisePresetSelect) calmnoisePresetSelect.value = presetKey;
+        calmnoiseApplyPreset(presetKey, true);
+      }
+    
+      function calmnoiseApplyPreset(presetKey, showMessage = true) {
+        const preset = CALMNOISE_PRESETS[presetKey] || CALMNOISE_PRESETS.silent;
+    
+        calmnoiseThresholds = {
+          warningEnter: preset.warningEnter,
+          warningExit: preset.warningExit,
+          loudEnter: preset.loudEnter,
+          loudExit: preset.loudExit
+        };
+    
+        if (calmnoiseSensitivityRange) calmnoiseSensitivityRange.value = preset.sensitivity;
+        if (showMessage) calmnoiseUpdateStatus(preset.message, 'info');
+      }
+    
+      function calmnoiseHandleDurationChange() {
+        const newTarget = parseInt(calmnoiseDurationSelect?.value || '60', 10);
+        if (!Number.isFinite(newTarget)) return;
+    
+        if (calmnoiseDurationSelectQuick) calmnoiseDurationSelectQuick.value = String(newTarget);
+    
+        calmnoiseCurrentTargetSeconds = newTarget;
+        calmnoiseQuietTimer = newTarget;
+        calmnoiseCurrentCalmRun = 0;
+        calmnoiseStreakAwarded = false;
+    
+        calmnoiseUpdateTargetText();
+        calmnoiseUpdateTimerDisplay();
+        calmnoiseUpdateStatus(`Calm goal changed to ${calmnoiseFormatDuration(newTarget)}. Timer reset.`, 'success');
+      }
+    
+      function calmnoiseHandleDurationChangeQuick() {
+        const newTarget = parseInt(calmnoiseDurationSelectQuick?.value || '60', 10);
+        if (!Number.isFinite(newTarget)) return;
+    
+        if (calmnoiseDurationSelect) calmnoiseDurationSelect.value = String(newTarget);
+    
+        calmnoiseCurrentTargetSeconds = newTarget;
+        calmnoiseQuietTimer = newTarget;
+        calmnoiseCurrentCalmRun = 0;
+        calmnoiseStreakAwarded = false;
+    
+        calmnoiseUpdateTargetText();
+        calmnoiseUpdateTimerDisplay();
+        calmnoiseUpdateStatus(`Calm goal changed to ${calmnoiseFormatDuration(newTarget)}. Timer reset.`, 'success');
+      }
+    
+      function calmnoiseUpdateTargetText() {
+        if (calmnoiseTargetText) {
+          calmnoiseTargetText.textContent = `Goal: ${calmnoiseFormatDuration(calmnoiseCurrentTargetSeconds)} of calm`;
+        }
+      }
+    
+      function calmnoiseHandleDisplayModeChange() {
+        if (!calmnoiseModal || !calmnoiseDisplayModeSelect) return;
+        calmnoiseModal.classList.toggle('hide-percent', calmnoiseDisplayModeSelect.value === 'simple');
+      }
+    
+      function calmnoiseResetTimer(playSoundEffect = false) {
+        calmnoiseQuietTimer = calmnoiseCurrentTargetSeconds;
+        calmnoiseCurrentCalmRun = 0;
+        calmnoiseStreakAwarded = false;
+        calmnoiseLastAwardTime = 0;
+        calmnoisePendingVisualState = null;
+        calmnoisePendingVisualStateSince = 0;
+        calmnoiseConsecutiveNoiseStart = 0;
+        calmnoiseIsInNoiseZone = false;
+        calmnoiseLastPenaltyApplied = 0;
+    
+        calmnoiseUpdateTimerDisplay();
+    
+        if (calmnoiseTimerDisplay) calmnoiseTimerDisplay.classList.remove('paused');
+        if (playSoundEffect && calmnoiseSoundToggle?.checked) calmnoisePlaySound('reset');
+    
+        if (calmnoiseIsMonitoring) {
+          calmnoiseUpdateMascotByVolume(calmnoiseSmoothedVolume, true);
+          calmnoiseUpdateStatus(`Calm goal reset. Need ${Math.ceil(calmnoiseQuietTimer)} seconds of calm.`, 'info');
+        } else {
+          calmnoiseUpdateMascotAndCharacter('quiet', true);
+          calmnoiseUpdateStatus('Timer reset.', 'info');
+        }
+      }
+    
+      function calmnoisePlaySound(type) {
+        if (!calmnoiseSoundToggle?.checked) return;
+    
+        try {
+          const ctx = new (window.AudioContext || window.webkitAudioContext)();
+          const master = ctx.createGain();
+          master.connect(ctx.destination);
+          master.gain.value = 0.12;
+    
+          function tone(freq, start, duration, gainValue = 0.13) {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+    
+            osc.type = 'sine';
+            osc.frequency.value = freq;
+            gain.gain.setValueAtTime(0.0001, ctx.currentTime + start);
+            gain.gain.exponentialRampToValueAtTime(gainValue, ctx.currentTime + start + 0.02);
+            gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + start + duration);
+    
+            osc.connect(gain);
+            gain.connect(master);
+            osc.start(ctx.currentTime + start);
+            osc.stop(ctx.currentTime + start + duration + 0.02);
+          }
+    
+          if (type === 'award' || type === 'manualReward') {
+            tone(523.25, 0, 0.18);
+            tone(659.25, 0.12, 0.20);
+            tone(783.99, 0.25, 0.26);
+          } else if (type === 'reset') {
+            tone(392.0, 0, 0.12, 0.08);
+          }
+    
+          setTimeout(() => ctx.close().catch(() => {}), 900);
+        } catch (error) {
+          console.warn('Reward sound unavailable:', error);
+        }
+      }
+    
+      function calmnoiseCelebrateReward() {
+        if (calmnoiseSoundToggle?.checked) calmnoisePlaySound('award');
+    
+        if (typeof confetti === 'function') {
+          confetti({
+            particleCount: 170,
+            spread: 110,
+            origin: { y: 0.6 },
+            colors: ['#10b981', '#34d399', '#facc15', '#ffffff', '#38bdf8']
+          });
+        }
+      }
+    
+      function calmnoiseClearRewardTimeout() {
+        if (calmnoiseRewardTimeout) {
+          clearTimeout(calmnoiseRewardTimeout);
+          calmnoiseRewardTimeout = null;
+        }
+      }
+    
+      async function calmnoiseTriggerQuietAward(manual = false) {
+        const now = Date.now();
+    
+        if (!manual && now - calmnoiseLastAwardTime < CALMNOISE_AWARD_COOLDOWN_MS) return;
+        if (!manual && calmnoiseStreakAwarded && !calmnoiseAutoRepeatToggle?.checked) return;
+    
+        calmnoiseLastAwardTime = now;
+        calmnoiseStreakAwarded = true;
+        calmnoiseSessionRewards += 1;
+        calmnoiseUpdateSummaryUI();
+    
+        const points = parseInt(calmnoisePointsInput?.value || calmnoisePointsInputQuick?.value || '2', 10);
+    
+        calmnoiseUpdateMascotAndCharacter('reward');
+        calmnoiseCelebrateReward();
+    
+        if (typeof awardClassPoints === 'function') {
+          const amountEl = document.getElementById('classPointsAmount');
+          const reasonEl = document.getElementById('classPointsReason');
+          const originalPoints = amountEl ? amountEl.value : null;
+          const originalReason = reasonEl ? reasonEl.value : null;
+    
+          if (amountEl) amountEl.value = points;
+          if (reasonEl) {
+            reasonEl.value = manual
+              ? 'Class Calm Meter: Teacher reward'
+              : `Class Calm Meter: ${calmnoiseFormatDuration(calmnoiseCurrentTargetSeconds)} calm goal`;
+          }
+    
+          try {
+            await awardClassPoints();
+            calmnoiseUpdateStatus(`Great job. ${points} point${points === 1 ? '' : 's'} awarded.`, 'success');
+          } catch (error) {
+            console.error('Award error:', error);
+            calmnoiseUpdateStatus('The reward animation played, but points could not be awarded automatically.', 'error');
+          }
+    
+          if (amountEl && originalPoints !== null) amountEl.value = originalPoints;
+          if (reasonEl && originalReason !== null) reasonEl.value = originalReason;
+        } else {
+          calmnoiseUpdateStatus(manual ? 'Teacher reward shown.' : 'Goal reached. Reward shown.', 'success');
+        }
+    
+        await calmnoiseFetchClassPoints();
+    
+        calmnoiseClearRewardTimeout();
+    
+        if (calmnoiseAutoRepeatToggle?.checked && !manual) {
+          calmnoiseQuietTimer = calmnoiseCurrentTargetSeconds;
+          calmnoiseCurrentCalmRun = 0;
+          calmnoiseStreakAwarded = false;
+          calmnoiseUpdateTimerDisplay();
+    
+          calmnoiseRewardTimeout = setTimeout(() => {
+            if (!calmnoiseIsMonitoring) calmnoiseUpdateMascotAndCharacter('quiet', true);
+            else calmnoiseUpdateMascotByVolume(calmnoiseSmoothedVolume, true);
+    
+            calmnoiseUpdateStatus('A new calm goal has started.', 'info');
+          }, CALMNOISE_STATE_MIN_HOLD_MS.reward);
+        } else {
+          calmnoiseQuietTimer = calmnoiseCurrentTargetSeconds;
+          calmnoiseUpdateTimerDisplay();
+    
+          calmnoiseRewardTimeout = setTimeout(() => {
+            if (!calmnoiseIsMonitoring) calmnoiseUpdateMascotAndCharacter('quiet', true);
+            else calmnoiseUpdateMascotByVolume(calmnoiseSmoothedVolume, true);
+          }, CALMNOISE_STATE_MIN_HOLD_MS.reward);
+        }
+      }
+    
+      function calmnoiseStartVolumeMeterLoop() {
+        if (!calmnoiseIsMonitoring || !calmnoiseAnalyserNode) return;
+    
+        const timeData = new Uint8Array(calmnoiseAnalyserNode.fftSize);
+    
+        function updateVolume() {
+          if (!calmnoiseIsMonitoring || !calmnoiseAnalyserNode) return;
+    
+          calmnoiseAnalyserNode.getByteTimeDomainData(timeData);
+    
+          let sumSquares = 0;
+    
+          for (let i = 0; i < timeData.length; i++) {
+            const normalised = (timeData[i] - 128) / 128;
+            sumSquares += normalised * normalised;
+          }
+    
+          const rms = Math.sqrt(sumSquares / timeData.length);
+          const sensitivity = parseFloat(calmnoiseSensitivityRange?.value || '1');
+          const rawPercent = Math.round(Math.min(100, rms * 360 * sensitivity));
+    
+          calmnoiseSmoothedVolume = Math.round(calmnoiseSmoothedVolume * 0.5 + rawPercent * 0.5);
+          calmnoiseSmoothedVolume = Math.max(0, Math.min(100, calmnoiseSmoothedVolume));
+    
+          calmnoiseUpdateVolumeUI(calmnoiseSmoothedVolume);
+          calmnoiseUpdateMascotByVolume(calmnoiseSmoothedVolume);
+    
+          calmnoiseAnimationId = requestAnimationFrame(updateVolume);
+        }
+    
+        updateVolume();
+      }
+    
+      function calmnoiseStartQuietTimer() {
+        if (calmnoiseQuietInterval) clearInterval(calmnoiseQuietInterval);
+    
+        calmnoiseQuietInterval = setInterval(() => {
+          if (!calmnoiseIsMonitoring) return;
+          if (calmnoiseStreakAwarded && !calmnoiseAutoRepeatToggle?.checked) return;
+    
+          const currentVolume = calmnoiseSmoothedVolume;
+          const isQuiet = currentVolume < calmnoiseThresholds.warningEnter;
+          const isLoud = currentVolume >= calmnoiseThresholds.loudEnter;
+          const consequence = calmnoiseConsequenceSelect?.value || 'pause';
+          const now = Date.now();
+    
+          if (isQuiet && calmnoiseCurrentState !== 'reward') {
+            if (calmnoiseTimerDisplay) calmnoiseTimerDisplay.classList.remove('paused');
+    
+            calmnoiseIsInNoiseZone = false;
+            calmnoiseConsecutiveNoiseStart = 0;
+            calmnoiseQuietTimer = Math.max(0, calmnoiseQuietTimer - 0.1);
+            calmnoiseCurrentCalmRun += 0.1;
+            calmnoiseLongestCalmRun = Math.max(calmnoiseLongestCalmRun, calmnoiseCurrentCalmRun);
+    
+            calmnoiseUpdateTimerDisplay();
+            calmnoiseUpdateSummaryUI();
+    
+            if (calmnoiseQuietTimer <= 0 && !calmnoiseStreakAwarded) {
+              calmnoiseTriggerQuietAward(false);
+            }
+    
+            return;
+          }
+    
+          if (!isQuiet && calmnoiseQuietTimer > 0 && !calmnoiseStreakAwarded) {
+            if (calmnoiseTimerDisplay) calmnoiseTimerDisplay.classList.add('paused');
+    
+            calmnoiseCurrentCalmRun = 0;
+    
+            if (!calmnoiseIsInNoiseZone) {
+              calmnoiseIsInNoiseZone = true;
+              calmnoiseConsecutiveNoiseStart = now;
+              calmnoiseUpdateStatus(isLoud ? 'Pause. Let’s reset our voices.' : 'Too loud. Bring voices down.', isLoud ? 'warning' : 'info');
+            }
+    
+            const noiseDuration = (now - calmnoiseConsecutiveNoiseStart) / 1000;
+            const timeSinceLastPenalty = now - calmnoiseLastPenaltyApplied;
+    
+            if (consequence === 'pause') {
+              calmnoiseUpdateTimerDisplay();
+              return;
+            }
+    
+            if (timeSinceLastPenalty < CALMNOISE_PENALTY_COOLDOWN_MS) return;
+    
+            if (consequence === 'add') {
+              let penalty = 2;
+    
+              if (isLoud && noiseDuration >= 3) penalty = 8;
+              else if (noiseDuration >= 2) penalty = 5;
+    
+              calmnoiseQuietTimer = Math.min(calmnoiseCurrentTargetSeconds, calmnoiseQuietTimer + penalty);
+              calmnoiseLastPenaltyApplied = now;
+              calmnoiseUpdateTimerDisplay();
+              calmnoiseUpdateStatus(`Still loud: ${penalty} seconds added.`, 'warning');
+              return;
+            }
+    
+            if (consequence === 'reset') {
+              if ((isLoud && noiseDuration >= 3) || noiseDuration >= 5) {
+                calmnoiseQuietTimer = calmnoiseCurrentTargetSeconds;
+                calmnoiseLastPenaltyApplied = now;
+                calmnoiseUpdateTimerDisplay();
+                calmnoiseUpdateStatus('Calm goal reset after sustained noise.', 'warning');
+              }
+            }
+          }
+        }, 100);
+      }
+    
+      async function calmnoiseStart() {
+        calmnoiseInitDOM();
+    
+        if (typeof selectedClassId !== 'undefined' && !selectedClassId) {
+          calmnoiseUpdateStatus('Please select a class in Student Management first.', 'error');
+          return;
+        }
+    
+        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+          calmnoiseUpdateStatus('This browser does not support microphone access. Try Chrome, Edge, or Safari on a secure HTTPS page.', 'error');
+          return;
+        }
+    
+        calmnoiseUpdateStatus('Requesting microphone access...', 'info');
+    
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia({
+            audio: {
+              echoCancellation: false,
+              noiseSuppression: false,
+              autoGainControl: false
+            }
+          });
+    
+          calmnoiseMediaStream = stream;
+          calmnoiseAudioContext = new (window.AudioContext || window.webkitAudioContext)();
+          calmnoiseAnalyserNode = calmnoiseAudioContext.createAnalyser();
+          calmnoiseAnalyserNode.fftSize = 512;
+          calmnoiseAnalyserNode.smoothingTimeConstant = 0.78;
+          calmnoiseSourceNode = calmnoiseAudioContext.createMediaStreamSource(stream);
+          calmnoiseSourceNode.connect(calmnoiseAnalyserNode);
+    
+          if (calmnoiseAudioContext.state === 'suspended') await calmnoiseAudioContext.resume();
+    
+          calmnoiseIsMonitoring = true;
+          calmnoiseQuietTimer = calmnoiseCurrentTargetSeconds;
+          calmnoiseCurrentCalmRun = 0;
+          calmnoiseSmoothedVolume = 0;
+          calmnoiseStreakAwarded = false;
+    
+          calmnoiseUpdateTimerDisplay();
+          calmnoiseUpdateVolumeUI(0);
+          calmnoiseUpdateMascotAndCharacter('quiet', true);
+          calmnoiseStartQuietTimer();
+          calmnoiseStartVolumeMeterLoop();
+    
+          if (calmnoiseStartBtn) calmnoiseStartBtn.style.display = 'none';
+          if (calmnoiseStopBtn) calmnoiseStopBtn.style.display = 'inline-flex';
+    
+          calmnoiseUpdateStatus('Listening. The timer runs while the room stays calm.', 'success');
+        } catch (error) {
+          console.error('Microphone error:', error);
+    
+          if (error.name === 'NotAllowedError') {
+            calmnoiseUpdateStatus('Microphone access was denied. Please allow microphone access and try again.', 'error');
+          } else if (error.name === 'NotFoundError') {
+            calmnoiseUpdateStatus('No microphone was found. Please connect or enable a microphone.', 'error');
+          } else if (location.protocol !== 'https:' && location.hostname !== 'localhost') {
+            calmnoiseUpdateStatus('Microphone access usually requires HTTPS. Please test on the secure site, not a local file.', 'error');
+          } else {
+            calmnoiseUpdateStatus('Could not access the microphone. Please check browser permissions.', 'error');
+          }
+        }
+      }
+    
+      function calmnoiseStop() {
+        calmnoiseIsMonitoring = false;
+    
+        if (calmnoiseAnimationId) {
+          cancelAnimationFrame(calmnoiseAnimationId);
+          calmnoiseAnimationId = null;
+        }
+    
+        if (calmnoiseQuietInterval) {
+          clearInterval(calmnoiseQuietInterval);
+          calmnoiseQuietInterval = null;
+        }
+    
+        if (calmnoiseRewardTimeout) {
+          clearTimeout(calmnoiseRewardTimeout);
+          calmnoiseRewardTimeout = null;
+        }
+    
+        if (calmnoiseSourceNode) {
+          try {
+            calmnoiseSourceNode.disconnect();
+          } catch (error) {}
+          calmnoiseSourceNode = null;
+        }
+    
+        if (calmnoiseAudioContext) {
+          calmnoiseAudioContext.close().catch(console.error);
+          calmnoiseAudioContext = null;
+        }
+    
+        if (calmnoiseMediaStream) {
+          calmnoiseMediaStream.getTracks().forEach(track => track.stop());
+          calmnoiseMediaStream = null;
+        }
+    
+        calmnoiseAnalyserNode = null;
+    
+        if (calmnoiseStartBtn) calmnoiseStartBtn.style.display = 'inline-flex';
+        if (calmnoiseStopBtn) calmnoiseStopBtn.style.display = 'none';
+    
+        calmnoiseSmoothedVolume = 0;
+        calmnoiseUpdateVolumeUI(0);
+        calmnoiseUpdateSummaryUI();
+        calmnoiseUpdateMascotAndCharacter('quiet', true);
+        calmnoiseUpdateStatus('Stopped. Session summary is available in teacher settings.', 'info');
+    
+        if (calmnoiseTimerDisplay) calmnoiseTimerDisplay.classList.remove('paused');
+      }
+    
+      async function calmnoiseManualReward() {
+        await calmnoiseTriggerQuietAward(true);
+    
+        calmnoiseClearRewardTimeout();
+    
+        calmnoiseRewardTimeout = setTimeout(() => {
+          if (!calmnoiseIsMonitoring) calmnoiseUpdateMascotAndCharacter('quiet', true);
+          else calmnoiseUpdateMascotByVolume(calmnoiseSmoothedVolume, true);
+        }, CALMNOISE_STATE_MIN_HOLD_MS.reward);
+      }
+    
+      function calmnoiseOpen() {
+        calmnoiseInitDOM();
+    
+        if (!calmnoiseModal) return;
+    
+        const teacherToolkit = document.getElementById('teacherToolkitModal');
+    
+        if (teacherToolkit && teacherToolkit.classList.contains('show') && typeof closeTeacherToolkit === 'function') {
+          closeTeacherToolkit();
+        }
+    
+        calmnoiseQuietTimer = calmnoiseCurrentTargetSeconds;
+        calmnoiseSmoothedVolume = 0;
+        calmnoiseStreakAwarded = false;
+    
+        calmnoiseUpdateTimerDisplay();
+        calmnoiseUpdateVolumeUI(0);
+        calmnoiseUpdateMascotAndCharacter('quiet', true);
+        calmnoiseUpdateStatus('Ready to start. The meter analyses volume only, not speech.', 'info');
+    
+        calmnoiseFetchClassPoints();
+    
+        calmnoiseModal.style.display = 'flex';
+    
+        requestAnimationFrame(() => {
+          calmnoiseModal.classList.add('active');
+        });
+    
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
+      }
+    
+      function calmnoiseClose() {
+        calmnoiseStop();
+    
+        if (document.fullscreenElement) {
+          document.exitFullscreen().catch(() => {});
+        }
+    
+        if (calmnoiseModal) {
+          calmnoiseModal.classList.remove('active');
+    
+          setTimeout(() => {
+            calmnoiseModal.style.display = 'none';
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+          }, 220);
+        }
+      }
+    
+      function calmnoiseOpenTeacherSettings() {
+        const modal = document.getElementById('calmnoiseTeacherModal');
+        if (!modal) return;
+    
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+      }
+    
+      function calmnoiseCloseTeacherSettings() {
+        const modal = document.getElementById('calmnoiseTeacherModal');
+        if (!modal) return;
+    
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+    
+      function calmnoiseOpenHowTo() {
+        const modal = document.getElementById('calmnoiseHowToModal');
+        if (!modal) return;
+    
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+      }
+    
+      function calmnoiseCloseHowTo() {
+        const modal = document.getElementById('calmnoiseHowToModal');
+        if (!modal) return;
+    
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+    
+      function calmnoiseToggleFullscreen() {
+        const target = document.getElementById('calmnoiseModal');
+        if (!target) return;
+    
+        if (!document.fullscreenElement) {
+          target.requestFullscreen?.().catch(() => {
+            calmnoiseUpdateStatus('Full screen is not available in this browser.', 'error');
+          });
+        } else {
+          document.exitFullscreen?.().catch(() => {});
+        }
+      }
+    
+      function calmnoiseSetPoints(points, showMessage = true) {
+        points = Math.min(4, Math.max(1, points));
+    
+        if (calmnoisePointsInput) calmnoisePointsInput.value = points;
+        if (calmnoisePointsInputQuick) calmnoisePointsInputQuick.value = points;
+    
+        document.querySelectorAll('.calmnoise-points-preset-btn, .calmnoise-points-preset-btn-quick').forEach(btn => {
+          const btnPoints = parseInt(btn.getAttribute('data-points'), 10);
+          btn.classList.toggle('active', btnPoints === points);
+        });
+    
+        if (showMessage) calmnoiseUpdateStatus(`Points set to ${points} per student.`, 'success');
+      }
+    
+      function calmnoiseSetPointsQuick(points) {
+        calmnoiseSetPoints(points, true);
+      }
+    
+      function calmnoiseTestMicrophone() {
+        if (!calmnoiseIsMonitoring) {
+          calmnoiseUpdateStatus('Please start the monitor first, then click Test.', 'error');
+          return;
+        }
+    
+        calmnoiseUpdateStatus(`Voice energy: ${calmnoiseSmoothedVolume}% | Careful: ${calmnoiseThresholds.warningEnter}% | Too loud: ${calmnoiseThresholds.loudEnter}%`, 'info');
+      }
+    
+      function calmnoiseUpdateSummaryUI() {
+        const rewards = document.getElementById('calmnoiseSummaryRewards');
+        const longest = document.getElementById('calmnoiseSummaryLongest');
+        const warnings = document.getElementById('calmnoiseSummaryWarnings');
+        const loud = document.getElementById('calmnoiseSummaryLoud');
+    
+        if (rewards) rewards.textContent = String(calmnoiseSessionRewards);
+        if (longest) longest.textContent = calmnoiseFormatClock(calmnoiseLongestCalmRun);
+        if (warnings) warnings.textContent = String(calmnoiseSessionWarnings);
+        if (loud) loud.textContent = String(calmnoiseSessionLoudMoments);
+      }
+    
+      function calmnoiseResetSessionSummary() {
+        calmnoiseSessionRewards = 0;
+        calmnoiseSessionWarnings = 0;
+        calmnoiseSessionLoudMoments = 0;
+        calmnoiseCurrentCalmRun = 0;
+        calmnoiseLongestCalmRun = 0;
+        calmnoiseLastCountedWarningAt = 0;
+        calmnoiseLastCountedLoudAt = 0;
+    
+        calmnoiseUpdateSummaryUI();
+        calmnoiseUpdateStatus('Session summary reset.', 'success');
+      }
+    
+      async function calmnoiseFetchClassPoints() {
+        const classId = typeof selectedClassId !== 'undefined' ? selectedClassId : null;
+        const pointsSpan = document.getElementById('calmnoiseClassPointsValue');
+    
+        if (!classId || classId === 'all') {
+          if (pointsSpan) pointsSpan.textContent = '0';
+          return;
+        }
+    
+        if (typeof db === 'undefined' || typeof GLOBAL_SCHOOL_ID === 'undefined') {
+          if (pointsSpan) pointsSpan.textContent = '0';
+          return;
+        }
+    
+        try {
+          const studentsSnapshot = await db.collection('schools').doc(GLOBAL_SCHOOL_ID)
+            .collection('students')
+            .where('classId', '==', classId)
+            .where('status', '==', 'Active')
+            .get();
+    
+          let totalPoints = 0;
+    
+          studentsSnapshot.docs.forEach(doc => {
+            const student = doc.data();
+            totalPoints += student.points || 0;
+          });
+    
+          if (pointsSpan) pointsSpan.textContent = totalPoints.toLocaleString();
+        } catch (error) {
+          console.error('Error fetching class points:', error);
+          if (pointsSpan) pointsSpan.textContent = '?';
+        }
+      }
+    
+      function calmnoiseRefreshClassPoints() {
+        calmnoiseFetchClassPoints();
+      }
+    
+      function calmnoiseOpenClassPointsDetails() {
+        const classId = typeof selectedClassId !== 'undefined' ? selectedClassId : null;
+    
+        if (!classId || classId === 'all') {
+          if (typeof showToast === 'function') {
+            showToast('Please select a specific class in Student Management first.', 'info');
+          }
+          return;
+        }
+    
+        let className = 'Selected Class';
+    
+        if (typeof availableClasses !== 'undefined') {
+          const classObj = availableClasses.find(c => c.classId === classId);
+          if (classObj) className = classObj.name;
+        }
+    
+        const pointsSpan = document.getElementById('calmnoiseClassPointsValue');
+        const points = pointsSpan ? pointsSpan.textContent : '0';
+    
+        if (typeof showToast === 'function') {
+          showToast(`🏆 ${className}: ${points} total class points`, 'success');
+        } else {
+          alert(`${className} total points: ${points}`);
+        }
+      }
+    
+      document.addEventListener('keydown', function(event) {
+        const modal = document.getElementById('calmnoiseModal');
+    
+        if (!modal || !modal.classList.contains('active')) return;
+    
+        if (event.key === 'Escape') calmnoiseClose();
+    
+        if (event.key.toLowerCase() === 'f') calmnoiseToggleFullscreen();
+    
+        if (event.key === ' ') {
+          event.preventDefault();
+    
+          if (calmnoiseIsMonitoring) calmnoiseStop();
+          else calmnoiseStart();
+        }
+      });
+    
+      window.calmnoiseOpen = calmnoiseOpen;
+      window.calmnoiseClose = calmnoiseClose;
+      window.calmnoiseStart = calmnoiseStart;
+      window.calmnoiseStop = calmnoiseStop;
+      window.calmnoiseResetTimer = calmnoiseResetTimer;
+      window.calmnoiseManualReward = calmnoiseManualReward;
+      window.calmnoiseOpenTeacherSettings = calmnoiseOpenTeacherSettings;
+      window.calmnoiseCloseTeacherSettings = calmnoiseCloseTeacherSettings;
+      window.calmnoiseOpenHowTo = calmnoiseOpenHowTo;
+      window.calmnoiseCloseHowTo = calmnoiseCloseHowTo;
+      window.calmnoiseHandleDurationChange = calmnoiseHandleDurationChange;
+      window.calmnoiseHandleDurationChangeQuick = calmnoiseHandleDurationChangeQuick;
+      window.calmnoiseSetPoints = calmnoiseSetPoints;
+      window.calmnoiseSetPointsQuick = calmnoiseSetPointsQuick;
+      window.calmnoiseTestMicrophone = calmnoiseTestMicrophone;
+      window.calmnoiseToggleFullscreen = calmnoiseToggleFullscreen;
+      window.calmnoiseHandlePresetChange = calmnoiseHandlePresetChange;
+      window.calmnoiseHandlePresetChangeQuick = calmnoiseHandlePresetChangeQuick;
+      window.calmnoiseHandleDisplayModeChange = calmnoiseHandleDisplayModeChange;
+      window.calmnoiseResetSessionSummary = calmnoiseResetSessionSummary;
+      window.calmnoiseFetchClassPoints = calmnoiseFetchClassPoints;
+      window.calmnoiseRefreshClassPoints = calmnoiseRefreshClassPoints;
+      window.calmnoiseOpenClassPointsDetails = calmnoiseOpenClassPointsDetails;
+    </script>
