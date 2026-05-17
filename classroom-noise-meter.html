@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <meta name="theme-color" content="#87C232">
+  <link rel="manifest" href="noise-meter-manifest.json">
   <title>Free Classroom Noise Meter for Teachers | Class Calm Meter by TrackEDU</title>
   <meta name="description" content="Use TrackEDU's free classroom noise meter to monitor class volume on a smartboard. No login, no setup and no student data required.">
   <meta name="robots" content="index, follow, max-image-preview:large">
@@ -3309,6 +3311,30 @@
   </script>
 
 
+
+  <!-- Service Worker Registration for Class Calm Meter (standalone) -->
+  <script>
+    // Check if service workers are supported
+    if ('serviceWorker' in navigator) {
+      // Check if this specific service worker is already registered
+      navigator.serviceWorker.getRegistrations().then(function(registrations) {
+        var alreadyRegistered = false;
+        for (var i = 0; i < registrations.length; i++) {
+          if (registrations[i].active && registrations[i].active.scriptURL.includes('noise-meter-sw.js')) {
+            alreadyRegistered = true;
+            console.log('Class Calm Meter service worker already registered');
+          }
+        }
+        if (!alreadyRegistered) {
+          navigator.serviceWorker.register('/noise-meter-sw.js').then(function(registration) {
+            console.log('Class Calm Meter service worker registered successfully:', registration.scope);
+          }).catch(function(error) {
+            console.log('Class Calm Meter service worker registration failed:', error);
+          });
+        }
+      });
+    }
+  </script>
 
 </body>
 </html>
