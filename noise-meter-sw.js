@@ -7,8 +7,7 @@ var FILES_TO_CACHE = [
   '/classroom-noise-meter',
   '/index.html',
   '/noise-meter-manifest.json',
-  '/noise-meter-icon-192.png',
-  '/noise-meter-icon-512.png'
+  'https://trackedu.github.io/common-assets/teacherapp.png'
 ];
 
 // Install - cache files
