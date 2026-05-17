@@ -2058,6 +2058,14 @@
       line-height: 1.5;
     }
 
+
+        /* Hide subtitle on mobile only */
+    @media (max-width: 900px) {
+      .tool-subtitle.hide-on-mobile {
+        display: none;
+      }
+    }
+
   </style>
 </head>
 
@@ -2078,7 +2086,7 @@
           <div class="logo-icon"><i class="fas fa-leaf"></i></div>
           <div class="logo-text">
             <h1 class="tool-title">Free Classroom Noise Meter</h1>
-            <div class="tool-subtitle">Class Calm Meter by TrackEDU</div>
+            <div class="tool-subtitle hide-on-mobile">Class Calm Meter by TrackEDU</div>
           </div>
         </div>
       </div>
@@ -2451,6 +2459,15 @@
       // Expand character size when hidden
       stateMascot.classList.add('expanded-size');
       stateMascot.classList.remove('normal-size');
+      
+      // On mobile, hide the "Lose points when loud?" row when started
+      const isMobile = window.innerWidth <= 900;
+      if (isMobile) {
+        const deductRow = document.querySelector('.deduct-inline');
+        if (deductRow) {
+          deductRow.style.display = 'none';
+        }
+      }
     }
     
     function showHeaderAndMilestone() {
@@ -2460,6 +2477,15 @@
       // Shrink character back to normal when visible
       stateMascot.classList.add('normal-size');
       stateMascot.classList.remove('expanded-size');
+      
+      // On mobile, show the "Lose points when loud?" row again when stopped
+      const isMobile = window.innerWidth <= 900;
+      if (isMobile) {
+        const deductRow = document.querySelector('.deduct-inline');
+        if (deductRow) {
+          deductRow.style.display = 'flex';
+        }
+      }
     }
     
     // Initialize character size class
