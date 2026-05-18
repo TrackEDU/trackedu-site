@@ -250,16 +250,16 @@
       font-weight: 400;
     }
 
-        /* Mobile: Smaller title */
-        @media (max-width: 500px) {
+               /* Mobile: Smaller title */
+               @media (max-width: 500px) {
       .tool-title {
-        font-size: 0.9rem !important;
+        font-size: 0.8rem !important;
       }
     }
 
     @media (max-width: 400px) {
       .tool-title {
-        font-size: 0.8rem !important;
+        font-size: 0.7rem !important;
       }
     }
 
@@ -1451,20 +1451,83 @@
 
     @media (max-width: 900px) {
       .calm-header {
-        grid-template-columns: 1fr auto;
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        gap: 16px;
         padding: 10px 14px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        flex-wrap: nowrap;
+      }
+      
+      .calm-header::-webkit-scrollbar {
+        height: 3px;
+      }
+      
+      .calm-header::-webkit-scrollbar-track {
+        background: rgba(255,255,255,0.08);
+        border-radius: 999px;
+      }
+      
+      .calm-header::-webkit-scrollbar-thumb {
+        background: var(--brand-green);
+        border-radius: 999px;
       }
 
-      .header-center {
-        grid-column: 2;
-        grid-row: 1;
+      /* Hide the logo-text (title) on mobile since we have mobile-title row */
+      .logo-text {
+        display: none !important;
+      }
+      
+      /* Hide the TrackEDU link in header on mobile - moved to title row */
+      .footer-link .trackedu-wordmark {
+        display: none !important;
+      }
+      
+      /* Hide the dot separator as well */
+      .footer-link span {
+        display: none !important;
       }
 
+      .header-left,
+      .header-center,
       .header-right {
-        grid-column: 1 / -1;
-        justify-content: center;
-        border-top: 1px solid rgba(255,255,255,0.08);
-        padding-top: 8px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      
+      /* Reorder on mobile */
+      .header-left {
+        order: 1;
+      }
+      
+      .header-right {
+        order: 2;
+        border-top: none;
+        padding-top: 0;
+      }
+      
+      .header-center {
+        order: 3;
+      }
+      
+      .footer-link {
+        white-space: nowrap;
+      }
+      
+      /* Make points badge more compact on mobile */
+      .points-badge {
+        min-width: auto;
+        padding: 5px 12px;
+      }
+      
+      .points-value {
+        font-size: 1rem;
       }
 
       .main-layout {
@@ -1688,6 +1751,77 @@
     font-size: 9px !important;
   }
 }
+
+
+
+    /* Mobile Title Row - Below Header */
+    .mobile-title-row {
+      display: none;
+    }
+    
+    @media (max-width: 900px) {
+      .mobile-title-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        background: rgba(7, 17, 31, 0.82);
+        backdrop-filter: blur(18px);
+        border-bottom: 1px solid rgba(255,255,255,0.10);
+        padding: 8px 14px;
+        flex-wrap: wrap;
+        text-align: center;
+      }
+      
+      .mobile-title-row h1 {
+        font-family: 'Fredoka One', cursive;
+        font-size: 0.9rem;
+        color: #f8fafc;
+        margin: 0;
+        line-height: 1.3;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+      
+      .mobile-title-row .mobile-by {
+        font-family: 'Fredoka One', cursive;
+        font-size: 0.9rem;
+        color: #ffffff;
+        font-weight: normal;
+      }
+      
+      .mobile-title-row .mobile-track {
+        font-family: 'Fredoka One', cursive;
+        font-size: 0.9rem;
+        color: #ffffff;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+      
+      .mobile-title-row .mobile-edu {
+        font-family: 'Fredoka One', cursive;
+        font-size: 0.9rem;
+        color: var(--brand-green);
+        text-decoration: none;
+        white-space: nowrap;
+      }
+      
+      .mobile-title-row a {
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+      }
+      
+      .mobile-title-row a:hover .mobile-track {
+        color: #f8fafc;
+      }
+      
+      .mobile-title-row a:hover .mobile-edu {
+        color: #fde68a;
+      }
+    }
 
     @media (max-width: 430px) {
       .footer-link {
@@ -3219,6 +3353,20 @@
     }
 
 
+           /* Desktop header - ensure all elements visible */
+    @media (min-width: 901px) {
+      .logo-text {
+        display: flex !important;
+      }
+      .tool-subtitle {
+        display: block !important;
+      }
+      .mobile-title-row {
+        display: none !important;
+      }
+    }
+
+
   </style>
 </head>
 <body>
@@ -3235,10 +3383,9 @@
     <div class="calm-header">
       <div class="header-left">
         <div class="logo-area">
-          
           <div class="logo-text">
             <h1 class="tool-title">Free Classroom Noise Meter</h1>
-            <div class="tool-subtitle hide-on-mobile">Class Calm Meter by TrackEDU</div>
+            <div class="tool-subtitle">Class Calm Meter by TrackEDU</div>
           </div>
         </div>
       </div>
@@ -3267,6 +3414,14 @@
         </button>
       </div>
     </div>
+
+                       <!-- Mobile Title Row - appears below header on mobile only -->
+        <div class="mobile-title-row">
+          <h1>Free Classroom Noise Meter <span class="mobile-by">by</span></h1>
+          <a href="https://trackedu.net" target="_blank">
+            <span class="mobile-track">Track</span><span class="mobile-edu">EDU</span>
+          </a>
+        </div>
 
     <div class="main-layout">
       <div class="character-area">
@@ -3518,6 +3673,31 @@
                   <p class="privacy-link-modal">
                     <a href="https://www.trackedu.net/privacy.html" target="_blank">View full privacy policy <i class="fas fa-external-link-alt"></i></a>
                   </p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <div class="settings-divider"></div>
+
+              <!-- Keyboard Shortcuts Info -->
+              <div class="settings-group settings-group-full">
+                <label class="settings-label">
+                  <i class="fas fa-keyboard"></i> Keyboard Shortcuts
+                </label>
+                <div class="privacy-info-modal" style="background: rgba(135, 194, 50, 0.05);">
+                  <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 12px 16px; font-size: 0.8rem;">
+                    <div style="color: #fbbf24; font-weight: 800;">␣ Spacebar</div>
+                    <div style="color: #cbd5e1;">Start / Stop monitoring</div>
+                    <div style="color: #fbbf24; font-weight: 800;">R</div>
+                    <div style="color: #cbd5e1;">Reset all points (with confirmation)</div>
+                    <div style="color: #fbbf24; font-weight: 800;">S</div>
+                    <div style="color: #cbd5e1;">Toggle sound ON/OFF</div>
+                    <div style="color: #fbbf24; font-weight: 800;">ESC</div>
+                    <div style="color: #cbd5e1;">Close any open modal</div>
+                    <div style="color: #fbbf24; font-weight: 800;">?</div>
+                    <div style="color: #cbd5e1;">Show shortcuts menu</div>
+                  </div>
+                  <p class="settings-hint" style="margin-top: 12px; margin-left: 0;">💡 Shortcuts work even when the meter is running!</p>
                 </div>
               </div>
             </div>
@@ -5352,9 +5532,140 @@
     startBtn.addEventListener('click', startMeter);
     stopBtn.addEventListener('click', () => stopMeter(true));
 
+    // Keyboard Shortcuts for Teachers
     document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') closeZoomModal();
+      // Escape - Close any open modal
+      if (event.key === 'Escape') {
+        closeZoomModal();
+        closeSettingsModal();
+        return;
+      }
+      
+      // Spacebar - Start/Stop monitoring
+      if (event.code === 'Space' || event.key === ' ' || event.key === 'Spacebar') {
+        event.preventDefault(); // Prevent page scrolling
+        if (isMonitoring) {
+          stopMeter(true);
+          showStatusMessage('⏹️ Stopped via keyboard (Spacebar)', 'info');
+          // Visual feedback - flash stop button
+          const stopBtn = document.getElementById('stopBtn');
+          if (stopBtn) {
+            stopBtn.style.transform = 'scale(0.95)';
+            setTimeout(() => { stopBtn.style.transform = ''; }, 200);
+          }
+        } else {
+          startMeter();
+          showStatusMessage('▶️ Started via keyboard (Spacebar)', 'success');
+          // Visual feedback - flash start button
+          const startBtn = document.getElementById('startBtn');
+          if (startBtn) {
+            startBtn.style.transform = 'scale(0.95)';
+            setTimeout(() => { startBtn.style.transform = ''; }, 200);
+          }
+        }
+        return;
+      }
+      
+      // R key - Reset Points (with confirmation)
+      if (event.key === 'r' || event.key === 'R') {
+        event.preventDefault();
+        if (confirm('⚠️ Keyboard shortcut: Reset ALL points? This cannot be undone.')) {
+          resetPoints();
+          showStatusMessage('🔄 Points reset via keyboard (R)', 'warning');
+          // Visual feedback
+          const resetBtn = document.getElementById('resetPointsBtnModal');
+          if (resetBtn) {
+            resetBtn.style.transform = 'scale(0.95)';
+            setTimeout(() => { resetBtn.style.transform = ''; }, 200);
+          }
+        }
+        return;
+      }
+      
+      // S key - Toggle Sound
+      if (event.key === 's' || event.key === 'S') {
+        event.preventDefault();
+        toggleSound();
+        showStatusMessage(soundEnabled ? '🔊 Sound ON (S key)' : '🔇 Sound OFF (S key)', 'info');
+        // Visual feedback
+        const soundBtn = document.getElementById('soundToggleBtn');
+        if (soundBtn) {
+          soundBtn.style.transform = 'scale(0.95)';
+          setTimeout(() => { soundBtn.style.transform = ''; }, 200);
+        }
+        return;
+      }
+      
+      // Optional: ? key - Show keyboard shortcuts help
+      if (event.key === '?' || (event.shiftKey && event.key === '/')) {
+        event.preventDefault();
+        showKeyboardShortcutsHelp();
+        return;
+      }
     });
+    
+    // Show keyboard shortcuts help modal/message
+    function showKeyboardShortcutsHelp() {
+      const helpMessage = `
+🎹 Keyboard Shortcuts for Teachers:
+
+␣ Spacebar  - Start / Stop monitoring
+R           - Reset all points (with confirmation)
+S           - Toggle sound ON/OFF
+ESC         - Close any open modal
+?           - Show this help menu
+
+Tip: Shortcuts work even when the meter is running!
+      `;
+      showStatusMessage(helpMessage.replace(/\n/g, ' • '), 'info');
+      
+      // Also show a temporary toast/alert for better visibility
+      const toast = document.createElement('div');
+      toast.innerHTML = `
+        <div style="
+          position: fixed;
+          bottom: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: #1e293b;
+          color: #fbbf24;
+          padding: 16px 24px;
+          border-radius: 16px;
+          font-size: 14px;
+          font-weight: bold;
+          z-index: 40000;
+          border: 1px solid rgba(135,194,50,0.5);
+          box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+          backdrop-filter: blur(10px);
+          text-align: center;
+          line-height: 1.5;
+          pointer-events: none;
+          animation: fadeOut 3s ease forwards;
+        ">
+          <div style="font-family: 'Fredoka One', cursive; margin-bottom: 8px;">🎹 Keyboard Shortcuts</div>
+          <div style="display: grid; grid-template-columns: auto auto; gap: 8px 20px; text-align: left;">
+            <span style="color: white;">␣ Spacebar:</span><span>Start / Stop</span>
+            <span style="color: white;">R:</span><span>Reset Points</span>
+            <span style="color: white;">S:</span><span>Toggle Sound</span>
+            <span style="color: white;">ESC:</span><span>Close Modals</span>
+            <span style="color: white;">?:</span><span>Show this menu</span>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 4000);
+    }
+    
+    // Add animation for the toast
+    const toastStyle = document.createElement('style');
+    toastStyle.textContent = `
+      @keyframes fadeOut {
+        0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+        70% { opacity: 1; transform: translateX(-50%) translateY(0); }
+        100% { opacity: 0; transform: translateX(-50%) translateY(-20px); visibility: hidden; }
+      }
+    `;
+    document.head.appendChild(toastStyle);
 
     window.addEventListener('load', () => {
       // Setup hover functionality (doesn't cause scroll)
