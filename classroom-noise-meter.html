@@ -585,39 +585,14 @@
 
 
 
-    /* Quiet state: No cycling — calm and stable */
-    .state-quiet .mascot-img { 
-      animation: floatCalm 3.8s ease-in-out infinite; 
-    }
-    
-    /* Warning state: Slow pulse (cycles every 2 seconds) */
-    .state-warning .mascot-img { 
-      animation: warningPulse 2s ease-in-out infinite, shakeWarning 1.1s ease-in-out infinite;
-    }
-    
-    /* Loud state: Faster pulse (cycles every 1 second) */
-    .state-loud .mascot-img { 
-      animation: loudPulse 1s ease-in-out infinite, shakeLoud 0.48s ease-in-out infinite;
-    }
-    
-    /* Reward state: Celebration bounce */
-    .state-reward .mascot-img { 
-      animation: bounceCelebrate 0.9s ease-in-out infinite; 
-    }
+    .state-quiet .mascot-img { animation: floatCalm 3.8s ease-in-out infinite; }
+    .state-warning .mascot-img { animation: shakeWarning 1.1s ease-in-out infinite; }
+    .state-loud .mascot-img { animation: shakeLoud 0.48s ease-in-out infinite; }
+    .state-reward .mascot-img { animation: bounceCelebrate 0.9s ease-in-out infinite; }
 
     @keyframes floatCalm {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-8px); }
-    }
-
-    @keyframes warningPulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.85; transform: scale(1.02); }
-    }
-
-    @keyframes loudPulse {
-      0%, 100% { opacity: 1; transform: scale(1); filter: brightness(1); }
-      50% { opacity: 0.75; transform: scale(1.05); filter: brightness(1.15); }
     }
 
     @keyframes shakeWarning {
@@ -626,8 +601,8 @@
     }
 
     @keyframes shakeLoud {
-      0%, 100% { transform: rotate(-3deg) translateX(-5px); }
-      50% { transform: rotate(3deg) translateX(5px); }
+      0%, 100% { transform: rotate(-2deg) translateX(-4px); }
+      50% { transform: rotate(2deg) translateX(4px); }
     }
 
     @keyframes bounceCelebrate {
@@ -1295,18 +1270,32 @@
 
     .coin {
       position: absolute;
-      width: 28px;
-      height: 28px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       background: radial-gradient(circle at 30% 30%, #fff7ad, #fbbf24 58%, #d97706);
-      box-shadow: 0 8px 20px rgba(251, 191, 36, 0.35);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 0 15px rgba(251, 191, 36, 0.8);
       display: flex;
       align-items: center;
       justify-content: center;
       color: #92400e;
-      font-size: 12px;
+      font-size: 16px;
       font-weight: 900;
-      animation: coinFly 1.15s ease-out forwards;
+      animation: coinFly 1.8s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
+      backdrop-filter: blur(2px);
+    }
+    
+    /* Add a subtle shine to coins */
+    .coin::after {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 8px;
+      width: 10px;
+      height: 10px;
+      background: radial-gradient(circle, rgba(255,255,255,0.8), transparent);
+      border-radius: 50%;
+      opacity: 0.6;
     }
 
     .coin::before {
@@ -1316,18 +1305,21 @@
     @keyframes coinFly {
       0% {
         opacity: 0;
-        transform: translate(var(--start-x), var(--start-y)) scale(0.3) rotate(0deg);
+        transform: translate(var(--start-x), var(--start-y)) scale(0.2) rotate(0deg);
       }
-      10% {
+      15% {
         opacity: 1;
       }
-      50% {
+      40% {
         opacity: 1;
-        transform: translate(calc(var(--start-x) * 0.5), calc(var(--start-y) * 0.5)) scale(1.0) rotate(260deg);
+        transform: translate(calc(var(--start-x) * 0.4), calc(var(--start-y) * 0.4)) scale(1.1) rotate(var(--rotate-end, 360deg));
+      }
+      70% {
+        opacity: 0.9;
       }
       100% {
         opacity: 0;
-        transform: translate(var(--end-x), var(--end-y)) scale(1.2) rotate(720deg);
+        transform: translate(var(--end-x), var(--end-y)) scale(1.3) rotate(calc(var(--rotate-end, 360deg) * 2));
       }
     }
 
@@ -2470,6 +2462,22 @@
     }
 
 
+        /* Lose effect animation */
+        @keyframes loseEffect {
+      0% {
+        opacity: 0;
+        transform: translateY(0) scale(0.5);
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(60px) scale(1.2);
+      }
+    }
+
+
   </style>
 </head>
 
@@ -2816,7 +2824,23 @@
     let stateStartTime = 0;
     let pendingState = null;
     let stateChangeTimeout = null;
-    const MIN_STATE_DURATION = 1400;
+    
+    // Student-friendly state durations (milliseconds)
+    // Longer recovery times teach lasting consequences
+    const STATE_DURATIONS = {
+      'quiet_to_warning': 1400,   // Quick feedback
+      'warning_to_loud': 1400,     // Immediate consequence
+      'loud_to_warning': 3000,     // 3 seconds — "You were loud, stay calm to recover"
+      'warning_to_quiet': 2000,    // 2 seconds — rewards recovery
+      'quiet_to_quiet': 1000,
+      'warning_to_warning': 1000,
+      'loud_to_loud': 1000
+    };
+    
+    function getStateDuration(from, to) {
+      const key = `${from}_to_${to}`;
+      return STATE_DURATIONS[key] || 1400;
+    }
 
     const app = document.getElementById('calmMeterApp');
     const volumeFill = document.getElementById('volumeFill');
@@ -3010,51 +3034,7 @@
         
         // Show celebration banner
         showMilestoneBanner(CHARACTERS[newCharIndex].name, CHARACTERS[newCharIndex].url);
-        
-        // TEMPORARILY CHANGE CHARACTER TO THE NEWLY UNLOCKED AVATAR
-        showUnlockedCharacterAvatar(CHARACTERS[newCharIndex].url);
       }
-    }
-
-
-
-
-        // Temporarily show the unlocked character avatar
-        let characterAvatarTimeout = null;
-    let originalMascotSrc = null;
-    
-    function showUnlockedCharacterAvatar(avatarUrl) {
-      const mascot = document.getElementById('stateMascot');
-      if (!mascot) return;
-      
-      // Store the current state-based image source
-      const currentState = currentState || 'quiet';
-      const currentImages = STATE_IMAGES[currentState];
-      originalMascotSrc = mascot.src;
-      
-      // Change to the unlocked character avatar
-      mascot.src = avatarUrl;
-      
-      // Add a special glow effect
-      mascot.style.filter = 'drop-shadow(0 0 15px #fbbf24)';
-      mascot.style.transition = 'filter 0.3s ease';
-      
-      // Clear existing timeout
-      if (characterAvatarTimeout) {
-        clearTimeout(characterAvatarTimeout);
-      }
-      
-      // Return to normal state-based character after 3 seconds
-      characterAvatarTimeout = setTimeout(() => {
-        // Restore the original state-based image
-        const currentStateImages = STATE_IMAGES[currentState || 'quiet'];
-        mascot.src = currentStateImages[0];
-        mascot.style.filter = '';
-        
-        // Reset the stored original source
-        originalMascotSrc = null;
-        characterAvatarTimeout = null;
-      }, 3000);
     }
 
 
@@ -3118,8 +3098,66 @@
       savePoints();
 
       showFloatingPoints(-amount, '#ef4444');
+      showLoseEffect();  // NEW: Visual consequence
       playDeductSound();
       showStatusMessage(`🔇 Too loud. -${amount} point${amount !== 1 ? 's' : ''}.`, 'warning');
+    }
+
+
+
+        // Show negative visual effect when losing points
+        function showLoseEffect() {
+      const burst = document.createElement('div');
+      burst.className = 'lose-burst';
+      burst.style.cssText = `
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 19000;
+        overflow: hidden;
+      `;
+      
+      // Create red X marks and broken fragments
+      const effectCount = 15;
+      
+      for (let i = 0; i < effectCount; i++) {
+        const effect = document.createElement('div');
+        
+        // Randomly choose between X mark or broken coin
+        const isX = Math.random() > 0.5;
+        
+        if (isX) {
+          effect.innerHTML = '✕';
+          effect.style.cssText = `
+            position: absolute;
+            color: #ef4444;
+            font-size: ${24 + Math.random() * 16}px;
+            font-weight: 900;
+            text-shadow: 0 0 8px rgba(239, 68, 68, 0.8);
+            left: ${10 + Math.random() * 80}%;
+            top: ${20 + Math.random() * 60}%;
+            animation: loseEffect 0.8s ease-out forwards;
+            opacity: 0;
+          `;
+        } else {
+          effect.innerHTML = '💔';
+          effect.style.cssText = `
+            position: absolute;
+            font-size: ${28 + Math.random() * 12}px;
+            left: ${5 + Math.random() * 90}%;
+            top: ${10 + Math.random() * 80}%;
+            animation: loseEffect 0.9s ease-out forwards;
+            opacity: 0;
+            filter: drop-shadow(0 0 6px rgba(239, 68, 68, 0.6));
+          `;
+        }
+        
+        effect.style.animationDelay = `${Math.random() * 0.3}s`;
+        burst.appendChild(effect);
+      }
+      
+      document.body.appendChild(burst);
+      setTimeout(() => burst.remove(), 1000);
     }
 
     function resetPoints() {
@@ -3286,50 +3324,40 @@
     };
 
     function setState(newState, force = false) {
+      // Reward state always takes priority (celebration!)
       if (celebrationLock && newState !== 'reward' && !force) return;
       if (!force && currentState === newState) return;
 
       const now = Date.now();
       const timeInCurrentState = now - stateStartTime;
+      
+      // Get the minimum duration for this specific transition
+      let minDuration = getStateDuration(currentState, newState);
+      
+      // Reward state has no delay — celebrate immediately
+      if (newState === 'reward') {
+        minDuration = 0;
+      }
 
-      if (!force && timeInCurrentState < MIN_STATE_DURATION && currentState !== 'reward') {
+      if (!force && timeInCurrentState < minDuration && currentState !== 'reward') {
+        // Queue this state change for later
         if (pendingState !== newState) {
           pendingState = newState;
           if (stateChangeTimeout) clearTimeout(stateChangeTimeout);
           stateChangeTimeout = setTimeout(() => {
             applyStateChange(newState);
             pendingState = null;
-          }, MIN_STATE_DURATION - timeInCurrentState);
+          }, minDuration - timeInCurrentState);
         }
         return;
       }
 
       applyStateChange(newState);
     }
+
     function applyStateChange(newState) {
       if (stateChangeTimeout) clearTimeout(stateChangeTimeout);
       pendingState = null;
-
-      // If we're currently showing a milestone avatar, don't override it
-      if (characterAvatarTimeout && characterAvatarTimeout._idleTimeout !== -1) {
-        // Still allow state to change internally, but don't update the image yet
-        currentState = newState;
-        stateStartTime = Date.now();
-
-        app.classList.remove('state-quiet', 'state-warning', 'state-loud', 'state-reward');
-        app.classList.add(`state-${newState}`);
-
-        const msg = STATE_MESSAGES[newState];
-        mainMessageSpan.textContent = msg.main;
-        subMessageSpan.textContent = msg.sub;
-        return;
-      }
-
-      // Clear previous image cycling interval
-      if (window.imageCycleInterval) {
-        clearInterval(window.imageCycleInterval);
-        window.imageCycleInterval = null;
-      }
 
       currentState = newState;
       stateStartTime = Date.now();
@@ -3342,26 +3370,11 @@
       subMessageSpan.textContent = msg.sub;
 
       const images = STATE_IMAGES[newState];
-      
-      // Set cycle speed based on state
-      let cycleSpeed = 3000; // Default: 3 seconds for quiet
-      if (newState === 'warning') cycleSpeed = 2000; // 2 seconds for warning
-      if (newState === 'loud') cycleSpeed = 1000; // 1 second for loud
-      if (newState === 'reward') cycleSpeed = 800; // 0.8 seconds for reward
-      
-      // Start new cycle interval
-      window.imageCycleInterval = setInterval(() => {
-        if (currentState === newState && !characterAvatarTimeout) {
-          const currentImages = STATE_IMAGES[currentState];
-          imageIndex = (imageIndex + 1) % currentImages.length;
-          stateMascot.src = currentImages[imageIndex];
-        }
-      }, cycleSpeed);
-      
-      // Set initial image
+      imageIndex = (imageIndex + 1) % images.length;
+
       stateMascot.style.opacity = '0';
       setTimeout(() => {
-        stateMascot.src = images[imageIndex % images.length];
+        stateMascot.src = images[imageIndex];
         stateMascot.style.opacity = '1';
       }, 90);
     }
@@ -3858,28 +3871,85 @@
       const burst = document.createElement('div');
       burst.className = 'coin-burst';
 
-      const coinCount = Math.min(18, Math.max(8, amount));
+      // MUCH MORE COINS FOR BETTER VISIBILITY
+      let coinCount = Math.min(50, Math.max(25, amount * 2));
+      
+      // For milestone unlocks, even more coins
+      const isMilestone = amount > 15;
+      if (isMilestone) coinCount = 60;
 
       for (let i = 0; i < coinCount; i++) {
         const coin = document.createElement('div');
         coin.className = 'coin';
-
-        const angle = (Math.PI * 2 * i) / coinCount;
-        const distance = 90 + Math.random() * 110;
-
-        coin.style.left = '50%';
-        coin.style.top = '42%';
-        coin.style.setProperty('--start-x', '-50%');
-        coin.style.setProperty('--start-y', '-50%');
-        coin.style.setProperty('--end-x', `calc(-50% + ${Math.cos(angle) * distance}px)`);
-        coin.style.setProperty('--end-y', `calc(-50% + ${Math.sin(angle) * distance}px)`);
-        coin.style.animationDelay = `${Math.random() * 0.12}s`;
-
+        
+        // Randomly choose burst pattern
+        const pattern = Math.random();
+        
+        let startX, startY, endX, endY;
+        let size = 32 + Math.random() * 12; // Larger coins (32-44px)
+        
+        if (pattern < 0.25) {
+          // Pattern 1: From left side flying right
+          startX = '-15%';
+          startY = `${10 + Math.random() * 80}%`;
+          endX = `${115 + Math.random() * 30}%`;
+          endY = `${startY + (Math.random() - 0.5) * 120}%`;
+        } 
+        else if (pattern < 0.5) {
+          // Pattern 2: From right side flying left
+          startX = '115%';
+          startY = `${10 + Math.random() * 80}%`;
+          endX = `-${15 + Math.random() * 20}%`;
+          endY = `${startY + (Math.random() - 0.5) * 120}%`;
+        }
+        else if (pattern < 0.75) {
+          // Pattern 3: From top falling down
+          startX = `${5 + Math.random() * 90}%`;
+          startY = '-15%';
+          endX = `${startX + (Math.random() - 0.5) * 100}%`;
+          endY = `${105 + Math.random() * 30}%`;
+        }
+        else {
+          // Pattern 4: From bottom rising up (new!)
+          startX = `${5 + Math.random() * 90}%`;
+          startY = '115%';
+          endX = `${startX + (Math.random() - 0.5) * 100}%`;
+          endY = `-${15 + Math.random() * 20}%`;
+        }
+        
+        // Add coins that burst from character (30% of them)
+        if (i < coinCount * 0.35) {
+          const angle = (Math.PI * 2 * Math.random());
+          const distance = 100 + Math.random() * 200;
+          startX = '50%';
+          startY = '45%';
+          endX = `calc(50% + ${Math.cos(angle) * distance}px)`;
+          endY = `calc(45% + ${Math.sin(angle) * distance}px)`;
+        }
+        
+        coin.style.left = startX;
+        coin.style.top = startY;
+        coin.style.width = `${size}px`;
+        coin.style.height = `${size}px`;
+        coin.style.fontSize = `${size * 0.45}px`;
+        coin.style.setProperty('--start-x', startX);
+        coin.style.setProperty('--start-y', startY);
+        coin.style.setProperty('--end-x', endX);
+        coin.style.setProperty('--end-y', endY);
+        coin.style.animationDelay = `${Math.random() * 0.2}s`;
+        
+        // Random rotation direction
+        const rotateDirection = Math.random() > 0.5 ? 1 : -1;
+        coin.style.setProperty('--rotate-end', `${rotateDirection * (360 + Math.random() * 540)}deg`);
+        
         burst.appendChild(coin);
       }
 
       document.body.appendChild(burst);
-      setTimeout(() => burst.remove(), 1500);
+      
+      // Longer animation for better visibility
+      const duration = isMilestone ? 3000 : 2200;
+      setTimeout(() => burst.remove(), duration);
     }
 
     goalSelect.addEventListener('change', () => {
