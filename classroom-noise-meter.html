@@ -989,6 +989,15 @@
       background: rgba(239,68,68,0.20);
       border: 1px solid rgba(248,113,113,0.32);
       color: #fecaca;
+      transition: all 0.2s ease;
+    }
+    
+    .btn-danger:hover {
+      background: #ef4444;
+      border-color: #ef4444;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
     }
 
     .btn-secondary {
@@ -2645,8 +2654,8 @@
               <i class="fas fa-stop"></i> <span>Stop</span>
             </button>
 
-            <button id="resetPointsBtn" class="btn btn-secondary" type="button">
-              <i class="fas fa-undo-alt"></i> <span>Reset</span>
+            <button id="resetPointsBtn" class="btn btn-danger" type="button">
+              <i class="fas fa-trash-alt"></i> <span>Reset Points</span>
             </button>
           </div>
 
@@ -3161,12 +3170,18 @@
     }
 
     function resetPoints() {
-      if (confirm('Reset all points and character progress?')) {
+      if (confirm('⚠️ WARNING: This will reset ALL class points to 0 and reset character progress. This cannot be undone. Are you sure?')) {
         totalPoints = 0;
         savePoints();
-        showStatusMessage('Points reset to 0.', 'info');
+        showStatusMessage('Points reset to 0. Character progress reset.', 'warning');
         playPopSound();
         centreCurrentMilestone();
+        
+        // Also refresh all displays
+        updatePointsDisplay();
+        updateCurrentCharacterDisplay();
+        updateMilestoneRail();
+        updateClassPointsBar();
       }
     }
 
