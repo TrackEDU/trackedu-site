@@ -412,13 +412,13 @@
       isolation: isolate;
       padding: 20px;
       overflow: visible;
-      margin-top: 80px;
+      margin-top: 60px;
       transition: margin-top 0.3s ease;
     }
 
     /* When header is hidden, reduce margin-top but keep some spacing */
     #calmMeterApp:has(.calm-header.hidden) .stage {
-      margin-top: 40px;
+      margin-top: 30px;
     }
 
     .noise-field {
@@ -496,10 +496,10 @@
 
     .stage-glow {
       position: absolute;
-      width: 60vh;
-      height: 60vh;
-      max-width: 520px;
-      max-height: 520px;
+      width: 50vh;
+      height: 50vh;
+      max-width: 420px;
+      max-height: 420px;
       border-radius: 50%;
       opacity: 0.25;
       filter: blur(8px);
@@ -514,9 +514,9 @@
     }
 
     .message-card {
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       text-align: center;
-      padding: 9px 22px;
+      padding: 12px 28px;
       background: rgba(15, 23, 42, 0.66);
       backdrop-filter: blur(12px);
       border-radius: 60px;
@@ -526,21 +526,21 @@
     }
 
     .main-message {
-      font-size: clamp(20px, 3vw, 38px);
+      font-size: clamp(28px, 4vw, 48px);
       font-weight: 900;
       letter-spacing: -0.02em;
     }
 
     .sub-message {
-      font-size: clamp(11px, 1.2vw, 14px);
+      font-size: clamp(13px, 1.5vw, 16px);
       color: #94a3b8;
-      margin-top: 2px;
+      margin-top: 4px;
       font-weight: 700;
     }
 
     .mascot-img {
       width: auto;
-      height: 55vh;
+      height: 45vh;
       object-fit: contain;
       filter: drop-shadow(0 26px 35px rgba(0,0,0,0.42));
       transition: all 0.3s ease-in-out;
@@ -549,37 +549,50 @@
 
     /* When header and milestones are visible (normal state) */
     .mascot-img.normal-size {
-      height: 55vh;
-      max-height: 55vh;
+      height: 45vh;
+      max-height: 45vh;
     }
 
     /* When header and milestones are hidden (full screen mode) */
     .mascot-img.expanded-size {
-      height: 75vh;
-      max-height: 75vh;
+      height: 62vh;
+      max-height: 62vh;
     }
 
     @media (min-width: 1200px) {
       .mascot-img.normal-size {
-        height: 58vh;
-        max-height: 58vh;
+        height: 48vh;
+        max-height: 48vh;
       }
       
       .mascot-img.expanded-size {
-        height: 82vh;
-        max-height: 82vh;
+        height: 68vh;
+        max-height: 68vh;
       }
     }
 
     @media (max-width: 900px) {
       .mascot-img.normal-size {
-        height: 40vh;
-        max-height: 40vh;
+        height: 32vh;
+        max-height: 32vh;
       }
       
       .mascot-img.expanded-size {
-        height: 58vh;
-        max-height: 58vh;
+        height: 48vh;
+        max-height: 48vh;
+      }
+      
+      .main-message {
+        font-size: clamp(22px, 3.5vw, 36px);
+      }
+      
+      .sub-message {
+        font-size: clamp(11px, 1.3vw, 13px);
+      }
+      
+      .message-card {
+        padding: 8px 20px;
+        margin-bottom: 10px;
       }
     }
 
@@ -883,7 +896,7 @@
       align-items: stretch;
     }
     
-    /* On mobile, settings row should be side by side for goal and points, deduct below */
+    /* On mobile phones, settings row stacks differently */
     @media (max-width: 600px) {
       .settings-row {
         grid-template-columns: 1fr 1fr;
@@ -892,6 +905,38 @@
       
       .deduct-inline {
         grid-column: span 2;
+      }
+    }
+    
+    /* On iPad (portrait and landscape) - keep all three side by side on one line */
+    @media (min-width: 601px) and (max-width: 1024px) {
+      .settings-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr auto;
+        gap: 8px;
+        margin: 12px 0;
+      }
+      
+      .goal-select {
+        font-size: 11px;
+        padding: 8px 6px;
+        min-width: 0;
+      }
+      
+      .deduct-inline {
+        white-space: nowrap;
+        padding: 6px 8px;
+        gap: 6px;
+      }
+      
+      .deduct-label span {
+        font-size: 9px;
+      }
+      
+      .deduct-toggle {
+        padding: 5px 10px;
+        font-size: 9px;
+        min-width: 42px;
       }
     }
 
@@ -1519,8 +1564,8 @@
     }
 
 
-    /* Force settings row side-by-side on all mobile devices */
-@media (max-width: 900px) {
+    /* Force settings row layout based on device width */
+@media (max-width: 600px) {
   .settings-row {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
@@ -1544,7 +1589,48 @@
   }
 }
 
-/* For very small screens, reduce gap and padding */
+/* iPad (601px to 1024px) - keep 3 columns side by side */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .settings-row {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr auto !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+  
+  .settings-row select {
+    width: 100% !important;
+    min-width: 0 !important;
+    font-size: 11px !important;
+    padding: 8px 6px !important;
+  }
+  
+  .deduct-inline {
+    grid-column: auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 6px !important;
+    white-space: nowrap !important;
+    padding: 6px 10px !important;
+  }
+  
+  .deduct-label span {
+    font-size: 10px !important;
+  }
+  
+  .deduct-toggle {
+    padding: 5px 10px !important;
+    font-size: 10px !important;
+    min-width: 44px !important;
+  }
+  
+  .goal-select option {
+    font-size: 11px !important;
+  }
+}
+
+/* For very small phones, reduce gap and padding */
 @media (max-width: 480px) {
   .settings-row {
     gap: 6px !important;
@@ -3883,15 +3969,25 @@
     }
 
     function showCoinBurst(amount = 8) {
+      // Remove any existing coin burst to prevent overlap
+      const existingBurst = document.querySelector('.coin-burst');
+      if (existingBurst) existingBurst.remove();
+      
       const burst = document.createElement('div');
       burst.className = 'coin-burst';
 
-      // MUCH MORE COINS FOR BETTER VISIBILITY
-      let coinCount = Math.min(50, Math.max(25, amount * 2));
-      
-      // For milestone unlocks, even more coins
+      // Regular point rewards (every 30 seconds): 5-8 coins only
+      // Milestone unlocks (amount > 15): 35-45 coins for celebration
       const isMilestone = amount > 15;
-      if (isMilestone) coinCount = 60;
+      let coinCount;
+      
+      if (isMilestone) {
+        // Milestone unlock: 35-45 coins (exciting but not overwhelming)
+        coinCount = Math.floor(35 + Math.random() * 10);
+      } else {
+        // Regular 30-second reward: just 5-8 coins (subtle reinforcement)
+        coinCount = Math.floor(5 + Math.random() * 4);
+      }
 
       for (let i = 0; i < coinCount; i++) {
         const coin = document.createElement('div');
@@ -3901,7 +3997,8 @@
         const pattern = Math.random();
         
         let startX, startY, endX, endY;
-        let size = 32 + Math.random() * 12; // Larger coins (32-44px)
+        // Smaller coins for regular rewards, normal size for milestones
+        let size = isMilestone ? (28 + Math.random() * 12) : (20 + Math.random() * 10);
         
         if (pattern < 0.25) {
           // Pattern 1: From left side flying right
@@ -3925,17 +4022,18 @@
           endY = `${105 + Math.random() * 30}%`;
         }
         else {
-          // Pattern 4: From bottom rising up (new!)
+          // Pattern 4: From bottom rising up
           startX = `${5 + Math.random() * 90}%`;
           startY = '115%';
           endX = `${startX + (Math.random() - 0.5) * 100}%`;
           endY = `-${15 + Math.random() * 20}%`;
         }
         
-        // Add coins that burst from character (30% of them)
-        if (i < coinCount * 0.35) {
+        // Add coins that burst from character - fewer for regular rewards
+        const burstFromCharChance = isMilestone ? 0.35 : 0.15;
+        if (i < coinCount * burstFromCharChance) {
           const angle = (Math.PI * 2 * Math.random());
-          const distance = 100 + Math.random() * 200;
+          const distance = isMilestone ? (80 + Math.random() * 180) : (50 + Math.random() * 100);
           startX = '50%';
           startY = '45%';
           endX = `calc(50% + ${Math.cos(angle) * distance}px)`;
@@ -3951,20 +4049,22 @@
         coin.style.setProperty('--start-y', startY);
         coin.style.setProperty('--end-x', endX);
         coin.style.setProperty('--end-y', endY);
-        coin.style.animationDelay = `${Math.random() * 0.2}s`;
+        coin.style.animationDelay = `${Math.random() * 0.15}s`;
         
         // Random rotation direction
         const rotateDirection = Math.random() > 0.5 ? 1 : -1;
-        coin.style.setProperty('--rotate-end', `${rotateDirection * (360 + Math.random() * 540)}deg`);
+        coin.style.setProperty('--rotate-end', `${rotateDirection * (180 + Math.random() * 360)}deg`);
         
         burst.appendChild(coin);
       }
 
       document.body.appendChild(burst);
       
-      // Longer animation for better visibility
-      const duration = isMilestone ? 3000 : 2200;
-      setTimeout(() => burst.remove(), duration);
+      // Match animation duration to CSS (1.8s)
+      const duration = isMilestone ? 2000 : 1800;
+      setTimeout(() => {
+        if (burst && burst.parentNode) burst.remove();
+      }, duration);
     }
 
     goalSelect.addEventListener('change', () => {
