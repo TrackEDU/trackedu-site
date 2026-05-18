@@ -585,14 +585,39 @@
 
 
 
-    .state-quiet .mascot-img { animation: floatCalm 3.8s ease-in-out infinite; }
-    .state-warning .mascot-img { animation: shakeWarning 1.1s ease-in-out infinite; }
-    .state-loud .mascot-img { animation: shakeLoud 0.48s ease-in-out infinite; }
-    .state-reward .mascot-img { animation: bounceCelebrate 0.9s ease-in-out infinite; }
+    /* Quiet state: No cycling — calm and stable */
+    .state-quiet .mascot-img { 
+      animation: floatCalm 3.8s ease-in-out infinite; 
+    }
+    
+    /* Warning state: Slow pulse (cycles every 2 seconds) */
+    .state-warning .mascot-img { 
+      animation: warningPulse 2s ease-in-out infinite, shakeWarning 1.1s ease-in-out infinite;
+    }
+    
+    /* Loud state: Faster pulse (cycles every 1 second) */
+    .state-loud .mascot-img { 
+      animation: loudPulse 1s ease-in-out infinite, shakeLoud 0.48s ease-in-out infinite;
+    }
+    
+    /* Reward state: Celebration bounce */
+    .state-reward .mascot-img { 
+      animation: bounceCelebrate 0.9s ease-in-out infinite; 
+    }
 
     @keyframes floatCalm {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-8px); }
+    }
+
+    @keyframes warningPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.85; transform: scale(1.02); }
+    }
+
+    @keyframes loudPulse {
+      0%, 100% { opacity: 1; transform: scale(1); filter: brightness(1); }
+      50% { opacity: 0.75; transform: scale(1.05); filter: brightness(1.15); }
     }
 
     @keyframes shakeWarning {
@@ -601,8 +626,8 @@
     }
 
     @keyframes shakeLoud {
-      0%, 100% { transform: rotate(-2deg) translateX(-4px); }
-      50% { transform: rotate(2deg) translateX(4px); }
+      0%, 100% { transform: rotate(-3deg) translateX(-5px); }
+      50% { transform: rotate(3deg) translateX(5px); }
     }
 
     @keyframes bounceCelebrate {
@@ -2985,7 +3010,51 @@
         
         // Show celebration banner
         showMilestoneBanner(CHARACTERS[newCharIndex].name, CHARACTERS[newCharIndex].url);
+        
+        // TEMPORARILY CHANGE CHARACTER TO THE NEWLY UNLOCKED AVATAR
+        showUnlockedCharacterAvatar(CHARACTERS[newCharIndex].url);
       }
+    }
+
+
+
+
+        // Temporarily show the unlocked character avatar
+        let characterAvatarTimeout = null;
+    let originalMascotSrc = null;
+    
+    function showUnlockedCharacterAvatar(avatarUrl) {
+      const mascot = document.getElementById('stateMascot');
+      if (!mascot) return;
+      
+      // Store the current state-based image source
+      const currentState = currentState || 'quiet';
+      const currentImages = STATE_IMAGES[currentState];
+      originalMascotSrc = mascot.src;
+      
+      // Change to the unlocked character avatar
+      mascot.src = avatarUrl;
+      
+      // Add a special glow effect
+      mascot.style.filter = 'drop-shadow(0 0 15px #fbbf24)';
+      mascot.style.transition = 'filter 0.3s ease';
+      
+      // Clear existing timeout
+      if (characterAvatarTimeout) {
+        clearTimeout(characterAvatarTimeout);
+      }
+      
+      // Return to normal state-based character after 3 seconds
+      characterAvatarTimeout = setTimeout(() => {
+        // Restore the original state-based image
+        const currentStateImages = STATE_IMAGES[currentState || 'quiet'];
+        mascot.src = currentStateImages[0];
+        mascot.style.filter = '';
+        
+        // Reset the stored original source
+        originalMascotSrc = null;
+        characterAvatarTimeout = null;
+      }, 3000);
     }
 
 
@@ -3237,10 +3306,30 @@
 
       applyStateChange(newState);
     }
-
     function applyStateChange(newState) {
       if (stateChangeTimeout) clearTimeout(stateChangeTimeout);
       pendingState = null;
+
+      // If we're currently showing a milestone avatar, don't override it
+      if (characterAvatarTimeout && characterAvatarTimeout._idleTimeout !== -1) {
+        // Still allow state to change internally, but don't update the image yet
+        currentState = newState;
+        stateStartTime = Date.now();
+
+        app.classList.remove('state-quiet', 'state-warning', 'state-loud', 'state-reward');
+        app.classList.add(`state-${newState}`);
+
+        const msg = STATE_MESSAGES[newState];
+        mainMessageSpan.textContent = msg.main;
+        subMessageSpan.textContent = msg.sub;
+        return;
+      }
+
+      // Clear previous image cycling interval
+      if (window.imageCycleInterval) {
+        clearInterval(window.imageCycleInterval);
+        window.imageCycleInterval = null;
+      }
 
       currentState = newState;
       stateStartTime = Date.now();
@@ -3253,11 +3342,26 @@
       subMessageSpan.textContent = msg.sub;
 
       const images = STATE_IMAGES[newState];
-      imageIndex = (imageIndex + 1) % images.length;
-
+      
+      // Set cycle speed based on state
+      let cycleSpeed = 3000; // Default: 3 seconds for quiet
+      if (newState === 'warning') cycleSpeed = 2000; // 2 seconds for warning
+      if (newState === 'loud') cycleSpeed = 1000; // 1 second for loud
+      if (newState === 'reward') cycleSpeed = 800; // 0.8 seconds for reward
+      
+      // Start new cycle interval
+      window.imageCycleInterval = setInterval(() => {
+        if (currentState === newState && !characterAvatarTimeout) {
+          const currentImages = STATE_IMAGES[currentState];
+          imageIndex = (imageIndex + 1) % currentImages.length;
+          stateMascot.src = currentImages[imageIndex];
+        }
+      }, cycleSpeed);
+      
+      // Set initial image
       stateMascot.style.opacity = '0';
       setTimeout(() => {
-        stateMascot.src = images[imageIndex];
+        stateMascot.src = images[imageIndex % images.length];
         stateMascot.style.opacity = '1';
       }, 90);
     }
