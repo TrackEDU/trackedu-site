@@ -1263,6 +1263,17 @@ html { scroll-padding-top: 100px; }
     font-size: 6px !important;
     line-height: 1.1 !important;
   }
+
+
+  .hero-feature-pill {
+    padding: 0.2rem 0.6rem;
+    font-size: 0.55rem;
+    gap: 0.3rem;
+  }
+  
+  .hero-feature-pill i {
+    font-size: 0.5rem;
+  }
 }
 
 
@@ -1718,6 +1729,107 @@ html { scroll-padding-top: 100px; }
 }
 
 
+
+
+
+/* Hero Tab Active States */
+.hero-tab-btn.active {
+  background: #ffffff !important;
+  color: #0C1E2C !important;
+  border-color: #87C232 !important;
+  box-shadow: 0 8px 20px rgba(135, 194, 50, 0.25) !important;
+  transform: translateY(-2px);
+}
+
+.hero-tab-btn.active i {
+  color: #87C232 !important;
+}
+
+/* Feature Pills - Smaller and more subtle */
+.hero-feature-list {
+  margin-top: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.hero-feature-pill {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(135, 194, 50, 0.2);
+  border-radius: 999px;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #475569;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  backdrop-filter: blur(4px);
+  white-space: nowrap;
+}
+
+.hero-feature-pill i {
+  font-size: 0.6rem;
+  color: #87C232;
+}
+
+/* Video Container */
+.hero-video-container {
+  background: #0f172a;
+  transition: all 0.3s ease;
+}
+
+.hero-video-player {
+  transition: opacity 0.3s ease;
+}
+
+/* Hide feature list by default */
+.hero-feature-list.hidden {
+  display: none;
+}
+
+
+
+
+
+/* Hero image clean display - no background, no borders, no edges */
+.hero-v2-image-wrap .hero-v2-main-image {
+  width: 100%;
+  max-width: 920px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  filter: none;
+}
+
+.hero-video-container {
+  background: transparent;
+  transition: all 0.3s ease;
+  width: 100%;
+  border-radius: 0;
+}
+
+.hero-video-container iframe,
+.hero-video-container img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+}
+
+/* Remove transform on default image */
+.hero-v2-main-image {
+  transform: none !important;
+}
+
+
+/* Smooth background transition for hero section */
+.trackedu-hero-v2 {
+  transition: background 0.3s ease-in-out;
+}
+
+
   </style>
 </head>
 <body class="antialiased text-gray-800 overflow-x-hidden">
@@ -2042,200 +2154,1251 @@ html { scroll-padding-top: 100px; }
 
 
 
-
 <!-- ==========================================
-   HERO SECTION, DESKTOP + MOBILE OPTIMISED
+   HERO SECTION WITH DYNAMIC TOOL TABS
    ========================================== -->
-   <section class="relative pt-24 sm:pt-24 lg:pt-20 pb-6 lg:pb-12 hero-mesh overflow-hidden">
+   <section class="trackedu-hero-v2 relative overflow-hidden">
+    <div class="hero-v2-bg"></div>
+  
     <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="hero-v2-grid">
   
-      <div class="grid lg:grid-cols-[0.92fr_1.08fr] gap-5 lg:gap-8 items-center">
+        <!-- LEFT: HERO COPY -->
+        <div class="hero-v2-copy" data-aos="fade-right">
   
-        <!-- HERO TEXT -->
-        <div class="text-center lg:text-left" data-aos="fade-right">
-          <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.05] text-brand-dark tracking-tighter mb-3 lg:mb-4">
-            <span class="school-culture-line">One platform for</span><br>
-            <span class="house-points-line">school culture,</span><br>
-            <span class="house-points-line">house points <span class="and-word">and</span></span><br>
-            <span class="behavior-tracking-line">behavior tracking.</span>
+          <!-- Dynamic Title -->
+          <h1 id="heroDynamicTitle" class="hero-v2-title">
+            <span class="hero-title-lead">One platform for</span>
+            <span class="hero-title-gradient-blue">school culture,</span>
+            <span class="hero-title-gradient-blue">house points </span>
+            <span class="hero-title-gradient-purple">behavior tracking.</span>
           </h1>
   
-          <!-- ICO REGISTERED BADGE -->
-          <div class="lg:hidden flex justify-center mb-3 px-3">
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-green-100 shadow-sm text-[9px] font-bold uppercase tracking-wide text-brand-green">
-              <i class="fas fa-shield-halved text-[9px]"></i>
-              <span>ICO registered · Ref: ZC146923</span>
-            </div>
-          </div>
-  
-          <!-- DESKTOP TRUST BADGE -->
-          <div class="hidden md:inline-flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2 px-4 py-2 rounded-2xl bg-white border border-gray-200 shadow-sm text-xs font-bold uppercase tracking-wide mb-5 mx-auto lg:mx-0 max-w-fit">
-            <div class="flex items-center gap-2">
-              <span class="relative flex h-2.5 w-2.5">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-green"></span>
-              </span>
-              <span class="text-gray-600">Built for international schools</span>
-            </div>
-  
-            <span class="hidden sm:inline text-gray-300">|</span>
-  
-            <div class="flex items-center gap-1.5 text-brand-green">
-              <i class="fas fa-shield-halved text-[10px]"></i>
-              <span>ICO registered · Ref: ZC146923</span>
-            </div>
-          </div>
-  
-          <!-- AUDIENCE PATHWAY BUTTONS, DESKTOP -->
-          <div class="hidden lg:flex items-center gap-3">
-            <button onclick="openTeacherStartModal()" class="audience-cta-card audience-teacher">
-              <span class="audience-cta-main">I’m a Teacher</span>
-            </button>
-  
-            <button onclick="openLeaderStartModal()" class="audience-cta-card audience-leader">
-              <span class="audience-cta-main">I’m a School Leader</span>
-            </button>
-          </div>
-  
-          <p class="hidden lg:block hero-teacher-note mt-2 text-[11px] text-gray-400 font-normal">
-            Choose the option that best describes you.
+          <!-- Dynamic Subtitle -->
+          <p id="heroDynamicSubtitle" class="hero-v2-subtitle">
+            TrackEDU unifies house points, student rewards and behaviour tracking in one secure platform, so schools can celebrate success, act early and support every student.
           </p>
   
-          <!-- AUDIENCE PATHWAY BUTTONS, MOBILE -->
-          <div class="lg:hidden mt-2 grid grid-cols-2 gap-2 w-full">
-            <button onclick="openTeacherStartModal()" class="audience-cta-card audience-teacher">
-              <span class="audience-cta-main">I’m a Teacher</span>
+          <!-- PRODUCT PILL ROW - DYNAMIC TOGGLE -->
+          <div class="hero-v2-tool-pills" aria-label="TrackEDU platform tools">
+            <button id="heroTabTeacher" data-tool="teacher" class="hero-v2-pill hero-tab-btn">
+              <i class="fas fa-chalkboard-user"></i>
+              <span>Teacher App</span>
             </button>
   
-            <button onclick="openLeaderStartModal()" class="audience-cta-card audience-leader">
-              <span class="audience-cta-main">I’m a School Leader</span>
+            <button id="heroTabStudent" data-tool="student" class="hero-v2-pill hero-tab-btn">
+              <i class="fas fa-users"></i>
+              <span>Student Portal</span>
+            </button>
+  
+            <button id="heroTabBehavior" data-tool="behavior" class="hero-v2-pill hero-tab-btn">
+              <i class="fas fa-chart-line"></i>
+              <span>Behavior Tracker</span>
             </button>
           </div>
   
-          <!-- PLATFORM INCLUDES, DESKTOP ONLY -->
-<div class="hero-platform-includes hero-platform-desktop mt-5 lg:mt-6">
-  <p class="platform-title">Platform includes</p>
-
-  <div class="hero-tool-grid mt-2">
-    <div class="grid grid-cols-3 gap-2">
-
-      <button onclick="showToolInfo('teacher')" class="hero-tool-card hero-tool-card-active group bg-white/95 backdrop-blur-sm border border-gray-100 rounded-xl p-3 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 text-left" aria-label="Open Teacher App information">
-        <div class="flex items-center gap-2">
-          <div class="hero-tool-icon w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center shrink-0 group-hover:bg-brand-green transition">
-            <i class="fas fa-chalkboard-user text-brand-green group-hover:text-white text-sm"></i>
+          <!-- Dynamic Feature List (appears only when a tab is active) -->
+          <div id="heroFeatureList" class="hero-feature-list hidden">
+            <div class="flex flex-wrap gap-2 mt-4">
+              <div id="heroFeature1" class="hero-feature-pill"></div>
+              <div id="heroFeature2" class="hero-feature-pill"></div>
+              <div id="heroFeature3" class="hero-feature-pill"></div>
+            </div>
           </div>
-          <div class="hero-tool-copy min-w-0">
-            <h3 class="font-display text-sm font-black text-brand-dark leading-tight">Teacher App</h3>
-            <span class="hero-tool-link inline-flex items-center text-[11px] font-bold text-brand-green">
-              Explore <i class="fas fa-arrow-right text-[9px] ml-1 group-hover:translate-x-0.5 transition"></i>
-            </span>
+  
+          <!-- AUDIENCE PATHWAY BUTTONS -->
+          <div class="hero-v2-audience-row">
+            <button onclick="openTeacherStartModal()" class="hero-v2-audience-card">
+              <i class="fas fa-chalkboard-user"></i>
+              <span>I’m a Teacher</span>
+            </button>
+  
+            <button onclick="openLeaderStartModal()" class="hero-v2-audience-card hero-v2-audience-dark">
+              <i class="fas fa-school"></i>
+              <span>I’m a School Leader</span>
+            </button>
           </div>
-        </div>
-      </button>
-
-      <button onclick="showToolInfo('student')" class="hero-tool-card group bg-white/95 backdrop-blur-sm border border-gray-100 rounded-xl p-3 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 text-left" aria-label="Open Student Portal information">
-        <div class="flex items-center gap-2">
-          <div class="hero-tool-icon w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center shrink-0 group-hover:bg-brand-blue transition">
-            <i class="fas fa-users text-brand-blue group-hover:text-white text-sm"></i>
-          </div>
-          <div class="hero-tool-copy min-w-0">
-            <h3 class="font-display text-sm font-black text-brand-dark leading-tight">Student Portal</h3>
-            <span class="hero-tool-link inline-flex items-center text-[11px] font-bold text-brand-blue">
-              Explore <i class="fas fa-arrow-right text-[9px] ml-1 group-hover:translate-x-0.5 transition"></i>
-            </span>
-          </div>
-        </div>
-      </button>
-
-      <button onclick="showToolInfo('behavior')" class="hero-tool-card group bg-white/95 backdrop-blur-sm border border-gray-100 rounded-xl p-3 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 text-left" aria-label="Open Behavior Tracker information">
-        <div class="flex items-center gap-2">
-          <div class="hero-tool-icon w-8 h-8 rounded-lg bg-purple-50 flex items-center justify-center shrink-0 group-hover:bg-purple-600 transition">
-            <i class="fas fa-chart-line text-purple-600 group-hover:text-white text-sm"></i>
-          </div>
-          <div class="hero-tool-copy min-w-0">
-            <h3 class="font-display text-sm font-black text-brand-dark leading-tight">Behavior Tracker</h3>
-            <span class="hero-tool-link inline-flex items-center text-[11px] font-bold text-purple-600">
-              Explore <i class="fas fa-arrow-right text-[9px] ml-1 group-hover:translate-x-0.5 transition"></i>
-            </span>
-          </div>
-        </div>
-      </button>
-
-    </div>
-  </div>
-</div>
         </div>
   
-        <!-- HERO IMAGE -->
-<div class="relative flex flex-col justify-center items-center w-full" data-aos="fade-left">
-  <img
-    src="https://trackedu.github.io/common-assets/newimagelow1.png"
-    alt="TrackEDU Teacher App dashboard with TrackEDU mascot"
-    class="hero-main-image w-full max-w-[760px] lg:max-w-[1040px] xl:max-w-[1120px] object-contain drop-shadow-2xl mx-auto"
-    loading="eager"
-    fetchpriority="high"
-  >
-
-  <!-- PLATFORM INCLUDES, MOBILE ONLY -->
-  <div class="hero-platform-includes hero-platform-mobile mt-3 w-full">
-    <p class="platform-title">Platform includes</p>
-
-    <div class="hero-tool-grid mt-2">
-      <div class="grid grid-cols-3 gap-2">
-
-        <button onclick="showToolInfo('teacher')" class="hero-tool-card hero-tool-card-active group bg-white/95 backdrop-blur-sm border border-gray-100 rounded-xl p-3 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 text-left" aria-label="Open Teacher App information">
-          <div class="flex items-center gap-2">
-            <div class="hero-tool-icon w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center shrink-0 group-hover:bg-brand-green transition">
-              <i class="fas fa-chalkboard-user text-brand-green group-hover:text-white text-sm"></i>
-            </div>
-            <div class="hero-tool-copy min-w-0">
-              <h3 class="font-display text-sm font-black text-brand-dark leading-tight">Teacher App</h3>
-              <span class="hero-tool-link inline-flex items-center text-[11px] font-bold text-brand-green">
-                Explore <i class="fas fa-arrow-right text-[9px] ml-1 group-hover:translate-x-0.5 transition"></i>
-              </span>
-            </div>
+        <!-- RIGHT: DYNAMIC VIDEO/IMAGE CONTAINER -->
+        <div class="hero-v2-image-wrap" data-aos="fade-left">
+          <div id="heroVideoContainer" class="hero-video-container relative w-full">
+            <!-- Default Image (Main Overview) -->
+            <img 
+              src="https://trackedu.github.io/common-assets/newimagelow1.png"
+              alt="TrackEDU platform dashboard showing house points, student rewards and behaviour tracking across laptop and mobile"
+              class="hero-v2-main-image"
+              style="width: 100%; height: auto; display: block; object-fit: contain;">
           </div>
-        </button>
-
-        <button onclick="showToolInfo('student')" class="hero-tool-card group bg-white/95 backdrop-blur-sm border border-gray-100 rounded-xl p-3 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 text-left" aria-label="Open Student Portal information">
-          <div class="flex items-center gap-2">
-            <div class="hero-tool-icon w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center shrink-0 group-hover:bg-brand-blue transition">
-              <i class="fas fa-users text-brand-blue group-hover:text-white text-sm"></i>
-            </div>
-            <div class="hero-tool-copy min-w-0">
-              <h3 class="font-display text-sm font-black text-brand-dark leading-tight">Student Portal</h3>
-              <span class="hero-tool-link inline-flex items-center text-[11px] font-bold text-brand-blue">
-                Explore <i class="fas fa-arrow-right text-[9px] ml-1 group-hover:translate-x-0.5 transition"></i>
-              </span>
-            </div>
-          </div>
-        </button>
-
-        <button onclick="showToolInfo('behavior')" class="hero-tool-card group bg-white/95 backdrop-blur-sm border border-gray-100 rounded-xl p-3 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 text-left" aria-label="Open Behavior Tracker information">
-          <div class="flex items-center gap-2">
-            <div class="hero-tool-icon w-8 h-8 rounded-lg bg-purple-50 flex items-center justify-center shrink-0 group-hover:bg-purple-600 transition">
-              <i class="fas fa-chart-line text-purple-600 group-hover:text-white text-sm"></i>
-            </div>
-            <div class="hero-tool-copy min-w-0">
-              <h3 class="font-display text-sm font-black text-brand-dark leading-tight">Behavior Tracker</h3>
-              <span class="hero-tool-link inline-flex items-center text-[11px] font-bold text-purple-600">
-                Explore <i class="fas fa-arrow-right text-[9px] ml-1 group-hover:translate-x-0.5 transition"></i>
-              </span>
-            </div>
-          </div>
-        </button>
-
-      </div>
-    </div>
-  </div>
-</div>
-      </div>
+        </div>
   
+      </div>
     </div>
   </section>
 
 
 
+
+
+
+
+
+<!-- TEACHER START MODAL -->
+<div id="teacherStartModal" class="fixed inset-0 z-[99999] hidden">
+  <div class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm" onclick="closeTeacherStartModal()"></div>
+
+  <div class="start-modal-panel">
+    <button onclick="closeTeacherStartModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-gray-100 text-gray-500 hover:bg-gray-200 hover:text-gray-900 transition flex items-center justify-center z-10">
+      <i class="fas fa-times"></i>
+    </button>
+
+    <div class="p-6 sm:p-8">
+      <div class="w-14 h-14 rounded-2xl bg-green-50 flex items-center justify-center text-brand-green mb-5">
+        <i class="fas fa-chalkboard-user text-2xl"></i>
+      </div>
+
+      <h2 class="font-display text-3xl sm:text-4xl font-black text-brand-dark leading-tight mb-3">
+        Start free as a teacher
+      </h2>
+
+      <p class="text-gray-600 leading-relaxed mb-6">
+        TrackEDU is free for individual teachers using one class. You do not need your whole school to sign up first.
+      </p>
+
+      <div class="bg-green-50 border border-green-100 rounded-2xl p-5 mb-5">
+        <h3 class="font-black text-brand-dark mb-3">What you get</h3>
+        <div class="grid sm:grid-cols-2 gap-3 text-sm text-gray-700">
+          <div class="flex gap-2"><i class="fas fa-check-circle text-brand-green mt-0.5"></i><span>Free Teacher Starter plan</span></div>
+          <div class="flex gap-2"><i class="fas fa-check-circle text-brand-green mt-0.5"></i><span>1 teacher account</span></div>
+          <div class="flex gap-2"><i class="fas fa-check-circle text-brand-green mt-0.5"></i><span>1 class</span></div>
+          <div class="flex gap-2"><i class="fas fa-check-circle text-brand-green mt-0.5"></i><span>Up to 30 students</span></div>
+          <div class="flex gap-2"><i class="fas fa-check-circle text-brand-green mt-0.5"></i><span>Magic Hat random picker</span></div>
+          <div class="flex gap-2"><i class="fas fa-check-circle text-brand-green mt-0.5"></i><span>Focus Timer</span></div>
+          <div class="flex gap-2"><i class="fas fa-check-circle text-brand-green mt-0.5"></i><span>Basic points and leaderboard</span></div>
+          <div class="flex gap-2"><i class="fas fa-check-circle text-brand-green mt-0.5"></i><span>No credit card required</span></div>
+        </div>
+      </div>
+
+      <div class="bg-white border border-gray-200 rounded-2xl p-5 mb-5">
+        <h3 class="font-black text-brand-dark mb-3">How to get started</h3>
+        <ol class="space-y-3 text-sm text-gray-700">
+          <li class="flex gap-3"><span class="step-dot">1</span><span>Click <strong>Start Free as a Teacher</strong>.</span></li>
+          <li class="flex gap-3"><span class="step-dot">2</span><span>Sign in with Google.</span></li>
+          <li class="flex gap-3"><span class="step-dot">3</span><span>Create a school space.</span></li>
+          <li class="flex gap-3"><span class="step-dot">4</span><span>Name the space after your class, e.g., <strong>Year 5 English</strong>.</span></li>
+          <li class="flex gap-3"><span class="step-dot">5</span><span>Add your students and begin.</span></li>
+        </ol>
+      </div>
+
+      <div class="bg-amber-50 border border-amber-100 rounded-2xl p-4 mb-6 text-sm text-amber-900">
+        <i class="fas fa-triangle-exclamation mr-1"></i>
+        If using independently, only enter student information your school permits.
+      </div>
+
+      <a href="https://housepoint.trackedu.net/" target="_blank" class="w-full py-3.5 rounded-xl bg-brand-green text-white font-black hover:bg-green-600 transition flex items-center justify-center gap-2">
+        <i class="fas fa-rocket text-xs"></i>
+        Start Free as a Teacher
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- SCHOOL LEADER START MODAL -->
+<div id="leaderStartModal" class="fixed inset-0 z-[99999] hidden">
+  <div class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm" onclick="closeLeaderStartModal()"></div>
+
+  <div class="start-modal-panel">
+    <button onclick="closeLeaderStartModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-gray-100 text-gray-500 hover:bg-gray-200 hover:text-gray-900 transition flex items-center justify-center z-10">
+      <i class="fas fa-times"></i>
+    </button>
+
+    <div class="p-6 sm:p-8">
+      <div class="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center text-brand-blue mb-5">
+        <i class="fas fa-school text-2xl"></i>
+      </div>
+
+      <h2 class="font-display text-3xl sm:text-4xl font-black text-brand-dark leading-tight mb-3">
+        Start TrackEDU for your school
+      </h2>
+
+      <p class="text-gray-600 leading-relaxed mb-6">
+        TrackEDU is designed for school leaders who want to pilot or adopt a connected platform.
+      </p>
+
+      <div class="bg-blue-50 border border-blue-100 rounded-2xl p-5 mb-5">
+        <h3 class="font-black text-brand-dark mb-3">What your school can do</h3>
+        <div class="grid sm:grid-cols-2 gap-3 text-sm text-gray-700">
+          <div class="flex gap-2"><i class="fas fa-check-circle text-brand-blue mt-0.5"></i><span>Start a 30-day pilot</span></div>
+          <div class="flex gap-2"><i class="fas fa-check-circle text-brand-blue mt-0.5"></i><span>Set up houses, classes, staff, students</span></div>
+          <div class="flex gap-2"><i class="fas fa-check-circle text-brand-blue mt-0.5"></i><span>Use Teacher App across classrooms</span></div>
+          <div class="flex gap-2"><i class="fas fa-check-circle text-brand-blue mt-0.5"></i><span>Give students access to Student Portal</span></div>
+          <div class="flex gap-2"><i class="fas fa-check-circle text-brand-blue mt-0.5"></i><span>Use Behavior Tracker for support needs</span></div>
+          <div class="flex gap-2"><i class="fas fa-check-circle text-brand-blue mt-0.5"></i><span>Request invoice and bank transfer payment</span></div>
+        </div>
+      </div>
+
+      <div class="bg-white border border-gray-200 rounded-2xl p-5 mb-6">
+        <h3 class="font-black text-brand-dark mb-3">What should I do first?</h3>
+        <div class="space-y-3 text-sm text-gray-700">
+          <div class="flex gap-3"><span class="step-dot-blue">1</span><span><strong>Book a demo</strong> to ask questions first.</span></div>
+          <div class="flex gap-3"><span class="step-dot-blue">2</span><span><strong>Start a 30-day pilot</strong> to test TrackEDU.</span></div>
+          <div class="flex gap-3"><span class="step-dot-blue">3</span><span><strong>Request an invoice</strong> to buy an annual licence.</span></div>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-3">
+        <a href="https://housepoint.trackedu.net/" target="_blank" class="w-full py-3.5 rounded-xl bg-brand-blue text-white font-black hover:bg-blue-700 transition flex items-center justify-center gap-2 text-sm">
+          <i class="fas fa-rocket text-xs"></i>
+          Start Pilot
+        </a>
+
+        <button data-cal-link="trackedu-a9dbpy/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view"}' class="w-full py-3.5 rounded-xl bg-brand-dark text-white font-black hover:bg-gray-800 transition flex items-center justify-center gap-2 text-sm">
+          <i class="fas fa-calendar-alt text-xs"></i>
+          Book Demo
+        </button>
+
+        <button onclick="closeLeaderStartModal(); openInvoiceModal();" class="w-full py-3.5 rounded-xl bg-gray-100 text-gray-700 font-black hover:bg-gray-200 transition flex items-center justify-center gap-2 text-sm">
+          <i class="fas fa-file-invoice-dollar text-xs"></i>
+          Invoice
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.start-modal-panel {
+  position: relative;
+  width: 94vw;
+  max-width: 42rem;
+  max-height: 90vh;
+  overflow-y: auto;
+  margin: 2rem auto 0 auto;
+  background: #ffffff;
+  border-radius: 1.5rem;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+  border: 1px solid #f1f5f9;
+}
+
+.step-dot,
+.step-dot-blue {
+  width: 1.45rem;
+  height: 1.45rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.step-dot {
+  background: #ecfdf5;
+  color: #16a34a;
+}
+
+.step-dot-blue {
+  background: #eff6ff;
+  color: #0f66c3;
+}
+
+@media (max-width: 767px) {
+  .start-modal-panel {
+    width: 100vw !important;
+    height: 100dvh !important;
+    max-width: none !important;
+    max-height: none !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    border: none !important;
+    overflow-y: auto !important;
+  }
+}
+</style>
+
+<script>
+  function openTeacherStartModal() {
+    const modal = document.getElementById('teacherStartModal');
+    if (!modal) return;
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeTeacherStartModal() {
+    const modal = document.getElementById('teacherStartModal');
+    if (!modal) return;
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  function openLeaderStartModal() {
+    const modal = document.getElementById('leaderStartModal');
+    if (!modal) return;
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLeaderStartModal() {
+    const modal = document.getElementById('leaderStartModal');
+    if (!modal) return;
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      closeTeacherStartModal();
+      closeLeaderStartModal();
+    }
+  });
+</script>
+
+
+
+
+
+    <!-- ==========================================
+     TRUST FOUNDATION BAND - REDESIGNED (COMPACT)
+     ========================================== -->
+     <section class="trackedu-trust-foundation">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    
+        <!-- ROW 1: TRUST BADGES - HORIZONTAL SCROLL ON MOBILE -->
+        <div class="trust-badges-row">
+          <div class="trust-badge">
+            <span class="trust-badge-icon uk-flag-icon">
+              <svg class="uk-flag-svg" viewBox="0 0 60 36" xmlns="http://www.w3.org/2000/svg">
+                <clipPath id="ukFlagClip">
+                  <rect width="60" height="36" rx="4" />
+                </clipPath>
+                <g clip-path="url(#ukFlagClip)">
+                  <rect width="60" height="36" fill="#012169" />
+                  <path d="M0 0L60 36M60 0L0 36" stroke="#ffffff" stroke-width="8" />
+                  <path d="M0 0L60 36M60 0L0 36" stroke="#C8102E" stroke-width="4" />
+                  <path d="M30 0V36M0 18H60" stroke="#ffffff" stroke-width="12" />
+                  <path d="M30 0V36M0 18H60" stroke="#C8102E" stroke-width="7" />
+                </g>
+              </svg>
+            </span>
+            <div>
+              <strong>UK Registered</strong>
+              <span>Company #17216557</span>
+            </div>
+          </div>
+  
+          <div class="trust-badge">
+            <span class="trust-badge-icon"><i class="fas fa-shield-halved"></i></span>
+            <div>
+              <strong>ICO Registered</strong>
+              <span>ZC146923</span>
+            </div>
+          </div>
+  
+          <div class="trust-badge">
+            <span class="trust-badge-icon"><i class="fas fa-lock"></i></span>
+            <div>
+              <strong>Privacy First</strong>
+              <span>No student emails</span>
+            </div>
+          </div>
+  
+          <div class="trust-badge">
+            <span class="trust-badge-icon"><i class="fas fa-ban"></i></span>
+            <div>
+              <strong>No Ads. Ever.</strong>
+              <span>Education focused</span>
+            </div>
+          </div>
+        </div>
+  
+        <!-- ROW 2: EDUCATION PARTNER + INFRASTRUCTURE - SIDE BY SIDE -->
+        <div class="trust-partner-row">
+          
+          <!-- Education Partner -->
+          <div class="trust-partner-card">
+            <div class="trust-partner-header">
+              <i class="fas fa-handshake"></i>
+              <span>Education Partner</span>
+            </div>
+            <div class="trust-partner-content">
+              <img src="https://trackedu.github.io/common-assets/Pathwiseacademy.jpg" alt="Pathwise Academy">
+              <div>
+                <h4>Pathwise Academy</h4>
+                <p>AI learning & digital education projects</p>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Infrastructure -->
+          <div class="trust-infra-card">
+            <div class="trust-infra-header">
+              <i class="fas fa-microchip"></i>
+              <span>Enterprise infrastructure</span>
+            </div>
+            <div class="trust-infra-logos">
+              <div class="infra-item">
+                <div class="infra-icon google">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                  </svg>
+                </div>
+                <div>
+                  <strong>Google Sign-In</strong>
+                  <span>Authentication</span>
+                </div>
+              </div>
+              <div class="infra-item">
+                <div class="infra-icon firebase">
+                  <svg viewBox="0 0 32 32" fill="none">
+                    <path d="M16 2L2 24L6 30L26 30L30 24L16 2Z" fill="#FFCA28"/>
+                    <path d="M16 2L2 24L6 30L16 2Z" fill="#FFA000"/>
+                    <path d="M26 30L30 24L16 2L26 30Z" fill="#FFCA28"/>
+                    <path d="M26 30L16 2L6 30H26Z" fill="#FFA000"/>
+                    <path d="M6 30L16 22L26 30H6Z" fill="#FF8F00"/>
+                  </svg>
+                </div>
+                <div>
+                  <strong>Firebase</strong>
+                  <span>Cloud database</span>
+                </div>
+              </div>
+            </div>
+            <p class="trust-legal-note">Google and Firebase are trademarks of Google LLC. TrackEDU is not affiliated.</p>
+          </div>
+  
+        </div>
+      </div>
+    </section>
+  
+  <style>
+  /* ==========================================
+     PREMIUM HERO V2
+     ========================================== */
+  
+  .trackedu-hero-v2 {
+    position: relative;
+    padding: 5.25rem 0 1.35rem;
+    background: #ffffff;
+  }
+  
+  .hero-v2-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(15, 102, 195, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15, 102, 195, 0.04) 1px, transparent 1px);
+    background-size: 42px 42px;
+    mask-image: radial-gradient(circle at 64% 42%, black 0%, transparent 72%);
+    opacity: 0.8;
+  }
+  
+  .hero-v2-grid {
+    display: grid;
+    grid-template-columns: 0.86fr 1.14fr;
+    gap: 1.75rem;
+    align-items: center;
+  }
+  
+  .hero-v2-copy {
+    position: relative;
+    z-index: 3;
+  }
+  
+  .hero-v2-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+  color: #0C1E2C;
+  font-size: clamp(3.05rem, 3.65vw, 4.35rem);
+  line-height: 1.03;
+  letter-spacing: -0.055em;
+  margin: 0 0 1.15rem;
+  max-width: 620px;
+}
+
+.hero-v2-title span {
+  display: block;
+  white-space: nowrap;
+}
+
+.hero-title-lead {
+  color: #0C1E2C;
+  font-size: 0.82em;
+  line-height: 1.04;
+  letter-spacing: -0.052em;
+}
+  
+  .hero-title-gradient-blue {
+    display: inline-block;
+    background: linear-gradient(135deg, #0f66c3 0%, #3B8F7A 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .hero-title-gradient-purple {
+    display: inline-block;
+    background: linear-gradient(135deg, #3B8F7A 0%, #8B5CF6 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .hero-title-and {
+    color: #0C1E2C !important;
+    -webkit-text-fill-color: #0C1E2C !important;
+  }
+  
+  .hero-v2-subtitle {
+    max-width: 34rem;
+    color: #475569;
+    font-size: 1.03rem;
+    line-height: 1.72;
+    margin: 0 0 1.35rem;
+  }
+  
+  .hero-v2-audience-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin: 0.75rem 0 1rem;
+  }
+  
+  .hero-v2-audience-card {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    padding: 0.65rem 0.95rem;
+    border-radius: 0.85rem;
+    font-size: 0.82rem;
+    font-weight: 900;
+    box-shadow: 0 12px 24px -20px rgba(15, 23, 42, 0.42);
+    transition: all 0.22s ease;
+  }
+  
+  .hero-v2-audience-card i {
+    font-size: 0.78rem;
+  }
+  
+  .hero-v2-audience-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 30px -22px rgba(15, 23, 42, 0.52);
+  }
+  
+  /* I'm a Teacher - Green theme */
+  .hero-v2-audience-card:first-child {
+    background: #10b981;
+    color: #ffffff;
+    border: 1px solid #10b981;
+  }
+  
+  .hero-v2-audience-card:first-child i {
+    color: #ffffff;
+  }
+  
+  .hero-v2-audience-card:first-child:hover {
+    background: #059669;
+    border-color: #059669;
+  }
+  
+  /* I'm a School Leader - Blue theme */
+  .hero-v2-audience-card:last-child {
+    background: #0f66c3;
+    color: #ffffff;
+    border: 1px solid #0f66c3;
+  }
+  
+  .hero-v2-audience-card:last-child i {
+    color: #ffffff;
+  }
+  
+  .hero-v2-audience-card:last-child:hover {
+    background: #1e40af;
+    border-color: #1e40af;
+  }
+  
+  .hero-v2-tool-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin: 1rem 0 0;
+  }
+  
+  .hero-v2-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.52rem 0.72rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    color: #334155;
+    font-size: 0.72rem;
+    font-weight: 900;
+    box-shadow: 0 10px 24px -22px rgba(15, 23, 42, 0.45);
+    transition: all 0.22s ease;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  /* Add play icon indicator for clickability */
+  .hero-v2-pill::after {
+    content: '\f04b';
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 0.55rem;
+    margin-left: 0.25rem;
+    opacity: 0.5;
+    transition: opacity 0.2s ease;
+  }
+  
+  .hero-v2-pill i {
+    color: #0f66c3;
+    font-size: 0.72rem;
+  }
+  
+  .hero-v2-pill:hover {
+    transform: translateY(-2px);
+    background: #ffffff;
+    border-color: #0f66c3;
+    box-shadow: 0 8px 20px rgba(15, 102, 195, 0.15);
+    cursor: pointer;
+  }
+  
+  .hero-v2-pill:hover::after {
+    opacity: 1;
+  }
+  
+  /* Active state for clicked tabs - Teacher App */
+  .hero-tab-btn[data-tool="teacher"].active {
+    background: #0f66c3 !important;
+    color: #ffffff !important;
+    border-color: #0f66c3 !important;
+  }
+  
+  .hero-tab-btn[data-tool="teacher"].active i {
+    color: #ffffff !important;
+  }
+  
+  /* Active state for clicked tabs - Student Portal */
+  .hero-tab-btn[data-tool="student"].active {
+    background: #87C232 !important;
+    color: #ffffff !important;
+    border-color: #87C232 !important;
+  }
+  
+  .hero-tab-btn[data-tool="student"].active i {
+    color: #ffffff !important;
+  }
+  
+  /* Active state for clicked tabs - Behavior Tracker */
+  .hero-tab-btn[data-tool="behavior"].active {
+    background: #8B5CF6 !important;
+    color: #ffffff !important;
+    border-color: #8B5CF6 !important;
+  }
+  
+  .hero-tab-btn[data-tool="behavior"].active i {
+    color: #ffffff !important;
+  }
+  
+  /* Close icon for all active tabs */
+  .hero-tab-btn.active::after {
+    content: '\f00d';
+    opacity: 1;
+  }
+  
+  .hero-v2-image-wrap {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+  }
+  
+  .hero-v2-main-image {
+    width: 100%;
+    max-width: 920px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    transform: translateX(2rem) scale(1.1);
+    filter: drop-shadow(0 28px 48px rgba(15, 23, 42, 0.15));
+  }
+  
+  /* ==========================================
+   TRUST FOUNDATION BAND - REDESIGNED
+   ========================================== */
+
+.trackedu-trust-foundation {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding: 1rem 0;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* Row 1: Trust Badges */
+.trust-badges-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.trust-badge {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: white;
+  border-radius: 0.75rem;
+  border: 1px solid #e2e8f0;
+  min-width: 0;
+}
+
+.trust-badge-icon {
+  width: 1.8rem;
+  height: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.trust-badge-icon i {
+  font-size: 1rem;
+  color: #0f66c3;
+}
+
+.uk-flag-svg {
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 0.3rem;
+}
+
+.trust-badge strong {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #0C1E2C;
+  display: block;
+  line-height: 1.2;
+}
+
+.trust-badge span {
+  font-size: 0.55rem;
+  color: #64748b;
+  display: block;
+}
+
+/* Row 2: Partner + Infrastructure */
+.trust-partner-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.trust-partner-card,
+.trust-infra-card {
+  background: white;
+  border-radius: 0.75rem;
+  border: 1px solid #e2e8f0;
+  padding: 0.6rem 0.75rem;
+}
+
+.trust-partner-header,
+.trust-infra-header {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.trust-partner-header i,
+.trust-infra-header i {
+  font-size: 0.7rem;
+  color: #15803d;
+}
+
+.trust-partner-header span,
+.trust-infra-header span {
+  font-size: 0.6rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #15803d;
+}
+
+.trust-partner-content {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.trust-partner-content img {
+  width: 2.2rem;
+  height: 2.2rem;
+  object-fit: contain;
+  border-radius: 0.5rem;
+}
+
+.trust-partner-content h4 {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #0C1E2C;
+  margin: 0 0 0.1rem;
+}
+
+.trust-partner-content p {
+  font-size: 0.55rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.trust-infra-logos {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.infra-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.4rem;
+  background: #f8fafc;
+  border-radius: 0.5rem;
+}
+
+.infra-icon {
+  width: 1.4rem;
+  height: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.infra-icon svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.infra-item strong {
+  font-size: 0.6rem;
+  font-weight: 800;
+  color: #0C1E2C;
+  display: block;
+  line-height: 1.1;
+}
+
+.infra-item span {
+  font-size: 0.5rem;
+  color: #64748b;
+  display: block;
+}
+
+.trust-legal-note {
+  font-size: 0.45rem;
+  color: #94a3b8;
+  margin-top: 0.4rem;
+  text-align: center;
+}
+
+/* Mobile (≤767px) */
+@media (max-width: 767px) {
+  .trust-badges-row {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 0.3rem;
+    padding-bottom: 0.3rem;
+  }
+  
+  .trust-badge {
+    min-width: 5.5rem;
+    scroll-snap-align: start;
+    flex-direction: column;
+    text-align: center;
+    gap: 0.2rem;
+    padding: 0.35rem 0.25rem;
+  }
+  
+  .trust-badge-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin: 0 auto;
+  }
+  
+  .trust-badge-icon i {
+    font-size: 0.65rem;
+  }
+  
+  .uk-flag-svg {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+  
+  .trust-badge div {
+    text-align: center;
+  }
+  
+  .trust-badge span {
+    display: none;
+  }
+  
+  .trust-badge strong {
+    font-size: 0.55rem;
+  }
+  
+  .trust-partner-row {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+  
+  .trust-partner-content p {
+    font-size: 0.5rem;
+  }
+  
+  .infra-item strong {
+    font-size: 0.55rem;
+  }
+  
+  .infra-item span {
+    font-size: 0.45rem;
+  }
+}
+  
+  /* DESKTOP FINE TUNING */
+  @media (min-width: 1025px) {
+    .trackedu-hero-v2 {
+      min-height: auto;
+      padding-top: 4.75rem;
+    }
+  }
+  
+  /* TABLET */
+  @media (max-width: 1024px) {
+    .trackedu-hero-v2 {
+      padding: 4.9rem 0 1.4rem;
+    }
+  
+    .hero-v2-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  
+    .hero-v2-copy {
+      text-align: center;
+      max-width: 46rem;
+      margin: 0 auto;
+    }
+  
+    .hero-v2-title {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+    .hero-v2-audience-row,
+    .hero-v2-tool-pills {
+      justify-content: center;
+    }
+  
+    .hero-v2-subtitle {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+    .hero-v2-main-image {
+      max-width: 920px;
+      transform: none;
+    }
+  
+    .trust-foundation-badges {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      max-width: 46rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+    .trust-foundation-proof {
+      grid-template-columns: 1fr;
+      max-width: 46rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  
+  /* MOBILE */
+  @media (max-width: 767px) {
+    .trackedu-hero-v2 {
+      padding: 4.2rem 0 1rem;
+    }
+  
+    .hero-v2-title {
+  font-size: clamp(2.05rem, 9.3vw, 2.55rem);
+  line-height: 0.98;
+  margin: 0 auto 0.85rem;
+  letter-spacing: -0.058em;
+  max-width: 21rem;
+  text-align: center;
+}
+
+.hero-title-lead {
+  font-size: 0.68em;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  margin-bottom: 0.12rem;
+}
+
+.hero-title-gradient-blue,
+.hero-title-gradient-purple {
+  line-height: 0.98;
+}
+
+.hero-title-and {
+  font-size: 0.78em;
+  letter-spacing: -0.025em;
+}
+  
+    .hero-v2-subtitle {
+      display: none;
+    }
+  
+    .hero-v2-audience-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+    }
+  
+    .hero-v2-audience-card {
+      padding: 0.56rem 0.45rem;
+      font-size: 0.66rem;
+      border-radius: 0.72rem;
+    }
+  
+    .hero-v2-tool-pills {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.35rem;
+    }
+  
+    .hero-v2-pill {
+      justify-content: center;
+      padding: 0.45rem 0.25rem;
+      font-size: 0.56rem;
+      gap: 0.25rem;
+    }
+  
+    .hero-v2-pill i {
+      font-size: 0.6rem;
+    }
+  
+    .hero-v2-image-wrap {
+      margin-top: 0.7rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .hero-v2-main-image {
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+      display: block;
+    }
+  
+    #heroVideoContainer {
+      display: flex;
+      justify-content: center;
+    }
+  
+    #heroVideoContainer img {
+      margin: 0 auto;
+    }
+  
+    .trackedu-trust-foundation {
+      padding: 0.75rem 0 0.85rem;
+    }
+  
+    .trust-foundation-badges {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.1rem 0.1rem 0.55rem;
+      margin-bottom: 0.45rem;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+  
+    .trust-foundation-badges::-webkit-scrollbar {
+      display: none;
+    }
+  
+
+    .trust-foundation-badge {
+      min-width: auto;
+      scroll-snap-align: start;
+      min-height: auto;
+      padding: 0.6rem 0.5rem;
+      gap: 0.3rem;
+      border-radius: 1rem;
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .trust-foundation-badge div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .trust-foundation-icon {
+      font-size: 1.1rem;
+      width: auto;
+      height: auto;
+      margin-bottom: 0.2rem;
+    }
+  
+    .uk-flag-svg {
+      width: 1.3rem;
+      height: 1.3rem;
+      border-radius: 0.3rem;
+      margin-bottom: 0.2rem;
+    }
+  
+    .trust-foundation-badge strong {
+      font-size: 0.7rem;
+      line-height: 1.2;
+      text-align: center;
+      display: block;
+    }
+  
+    .trust-foundation-badge span {
+      display: none;
+    }
+  
+    .trust-foundation-proof {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.55rem !important;
+  }
+
+  .trust-proof-card {
+    padding: 0.55rem !important;
+    margin: 0 !important;
+    min-width: 0 !important;
+  }
+
+  .trust-proof-partner {
+    grid-column: span 1 !important;
+  }
+
+  .trust-proof-infra {
+    grid-column: span 1 !important;
+  }
+
+  .trust-proof-label {
+    font-size: 0.45rem !important;
+    margin-bottom: 0.3rem !important;
+  }
+
+  .trust-proof-content {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 0.4rem !important;
+  }
+
+  .trust-proof-logo {
+    width: 2.8rem !important;
+    height: 2.2rem !important;
+    margin: 0 auto !important;
+  }
+
+  .trust-proof-card h3 {
+    font-size: 0.62rem !important;
+  }
+
+  .trust-proof-partner p {
+    display: none !important;
+  }
+
+  .trust-tech-row {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.4rem !important;
+  }
+
+  .trust-tech-item {
+    justify-content: center !important;
+    padding: 0.4rem 0.35rem !important;
+    gap: 0.35rem !important;
+  }
+
+  .trust-tech-logo {
+    width: 1.4rem !important;
+    height: 1.4rem !important;
+  }
+
+  .trust-tech-logo svg {
+    width: 0.85rem !important;
+    height: 0.85rem !important;
+  }
+
+  .trust-tech-item strong {
+    font-size: 0.5rem !important;
+  }
+
+  .trust-tech-item span {
+    font-size: 0.42rem !important;
+  }
+
+  .trust-legal-note {
+    display: none !important;
+  }
+  }
+  
+  @media (max-width: 420px) {
+  .trust-tech-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .trust-tech-item {
+    padding: 0.42rem 0.36rem;
+    gap: 0.34rem;
+  }
+
+  .trust-tech-logo {
+    width: 1.42rem;
+    height: 1.42rem;
+  }
+
+  .trust-tech-logo svg {
+    width: 0.84rem;
+    height: 0.84rem;
+  }
+
+  .trust-tech-item strong {
+    font-size: 0.48rem;
+  }
+
+  .trust-tech-item span {
+    font-size: 0.4rem;
+  }
+}
+  </style>
 
 
 
@@ -2407,340 +3570,6 @@ html { scroll-padding-top: 100px; }
     </div>
   </div>
   
-  <style>
-    /* HERO BASE */
-.hero-cta-btn {
-  font-size: 1rem;
-  padding: 0.75rem 1.5rem;
-}
-
-.hero-main-image {
-  display: block;
-}
-
-.audience-cta-card {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.6rem 1rem;
-  border-radius: 0.75rem;
-  text-align: center;
-  transition: all 0.25s ease;
-  box-shadow: 0 8px 22px -16px rgba(0, 0, 0, 0.22);
-  min-height: 2.4rem;
-  width: auto;
-  min-width: 9rem;
-}
-
-.audience-cta-main {
-  font-weight: 900;
-  line-height: 1.05;
-  font-size: 0.85rem;
-  white-space: nowrap;
-}
-
-.audience-cta-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 18px 35px -18px rgba(0, 0, 0, 0.28);
-}
-
-.audience-teacher {
-  background: #ffffff;
-  border: 2px solid rgba(135, 194, 50, 0.35);
-  color: #0C1E2C;
-}
-
-.audience-leader {
-  background: #0C1E2C;
-  border: 2px solid #0C1E2C;
-  color: #ffffff;
-}
-
-.start-modal-panel {
-  position: relative;
-  width: 94vw;
-  max-width: 42rem;
-  max-height: 90vh;
-  overflow-y: auto;
-  margin: 2rem auto 0 auto;
-  background: #ffffff;
-  border-radius: 1.5rem;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
-  border: 1px solid #f1f5f9;
-}
-
-.step-dot,
-.step-dot-blue {
-  width: 1.45rem;
-  height: 1.45rem;
-  border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  font-size: 0.75rem;
-  flex-shrink: 0;
-}
-
-.step-dot {
-  background: #ecfdf5;
-  color: #16a34a;
-}
-
-.step-dot-blue {
-  background: #eff6ff;
-  color: #0f66c3;
-}
-
-.hero-tool-card-active {
-  border-color: rgba(135, 194, 50, 0.45) !important;
-  background: rgba(240, 253, 244, 0.75) !important;
-  box-shadow: 0 14px 34px -22px rgba(135, 194, 50, 0.5) !important;
-}
-
-.school-culture-line {
-  color: #0C1E2C;
-}
-
-.house-points-line {
-  display: inline-block;
-  background: linear-gradient(135deg, #0f66c3 0%, #3B8F7A 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-}
-
-.and-word {
-  color: #0C1E2C !important;
-  -webkit-text-fill-color: #0C1E2C !important;
-}
-
-.behavior-tracking-line {
-  display: inline-block;
-  background: linear-gradient(135deg, #3B8F7A 0%, #8B5CF6 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  letter-spacing: -0.035em;
-}
-
-.platform-title {
-  font-size: 0.68rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: #64748b;
-  margin-bottom: 0.5rem;
-}
-
-.hero-platform-includes {
-  max-width: 34rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.hero-platform-mobile {
-  display: none;
-}
-
-.hero-platform-desktop {
-  display: block;
-}
-
-@media (min-width: 1025px) {
-  .hero-platform-includes {
-    margin-left: 0;
-    margin-right: 0;
-    max-width: 34rem;
-  }
-}
-
-/* DESKTOP REBALANCE */
-@media (min-width: 1025px) {
-  .hero-mesh {
-    min-height: 620px;
-  }
-
-  .hero-mesh h1 {
-  font-size: clamp(3.05rem, 3.65vw, 4.35rem) !important;
-  line-height: 1.03 !important;
-  max-width: 620px;
-}
-
-  .hero-mesh h1 span {
-    white-space: nowrap;
-  }
-
-  .hero-main-image {
-  max-width: 1160px !important;
-  transform: translateX(38px) scale(1.1) !important;
-}
-
-  .hero-tool-grid {
-    width: 100%;
-  }
-
-  .hero-tool-card {
-    padding: 0.7rem 0.75rem !important;
-    border-radius: 0.85rem !important;
-    min-height: 4rem !important;
-  }
-
-  .hero-tool-card > div {
-    align-items: center !important;
-    gap: 0.55rem !important;
-  }
-
-  .hero-tool-icon {
-    width: 2rem !important;
-    height: 2rem !important;
-    border-radius: 0.65rem !important;
-  }
-
-  .hero-tool-icon i {
-    font-size: 0.82rem !important;
-  }
-
-  .hero-tool-card h3 {
-    font-size: 0.8rem !important;
-    line-height: 1.08 !important;
-    margin-bottom: 0 !important;
-  }
-
-  .hero-tool-link {
-    font-size: 0.64rem !important;
-    margin-top: 0.18rem !important;
-  }
-
-  .hero-tool-link i {
-    font-size: 0.55rem !important;
-    margin-left: 0.25rem !important;
-  }
-}
-
-/* TABLET */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .hero-platform-includes {
-    max-width: 42rem;
-  }
-
-  .hero-tool-card {
-    min-height: 4rem;
-  }
-}
-
-/* COMPACT MOBILE HERO */
-@media (max-width: 767px) {
-  .hero-mesh {
-    padding-top: 4.75rem !important;
-    padding-bottom: 1rem !important;
-  }
-
-  .hero-mesh h1 {
-    font-size: 2rem !important;
-    line-height: 1.05 !important;
-    margin-bottom: 0.55rem !important;
-  }
-
-  .hero-main-image {
-    max-width: 108% !important;
-    width: 108% !important;
-    margin: 0 auto -0.2rem auto !important;
-    transform: none !important;
-    display: block !important;
-  }
-
-  .audience-cta-card {
-    padding: 0.45rem 0.35rem !important;
-    border-radius: 0.65rem !important;
-    min-height: 2.25rem !important;
-    min-width: 0 !important;
-    width: 100% !important;
-  }
-
-  .audience-cta-main {
-    font-size: 0.66rem !important;
-    line-height: 1.05 !important;
-    white-space: normal !important;
-  }
-
-  .start-modal-panel {
-    width: 100vw !important;
-    height: 100dvh !important;
-    max-width: none !important;
-    max-height: none !important;
-    margin: 0 !important;
-    border-radius: 0 !important;
-    border: none !important;
-    overflow-y: auto !important;
-  }
-
-  .hero-platform-desktop {
-  display: none !important;
-}
-
-.hero-platform-mobile {
-  display: block !important;
-  margin-top: 0.75rem !important;
-}
-
-.hero-platform-includes {
-  max-width: 100% !important;
-}
-
-  .platform-title {
-    text-align: center;
-    font-size: 0.58rem;
-    margin-bottom: 0.35rem;
-  }
-
-  .hero-tool-grid .grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 0.32rem !important;
-  }
-
-  .hero-tool-card {
-    padding: 0.45rem 0.25rem !important;
-    border-radius: 0.75rem !important;
-    text-align: center !important;
-    min-height: 4.1rem !important;
-  }
-
-  .hero-tool-card > div {
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 0.2rem !important;
-  }
-
-  .hero-tool-icon {
-    width: 1.55rem !important;
-    height: 1.55rem !important;
-    border-radius: 0.5rem !important;
-  }
-
-  .hero-tool-icon i {
-    font-size: 0.68rem !important;
-  }
-
-  .hero-tool-card h3 {
-    font-size: 0.55rem !important;
-    line-height: 1.05 !important;
-    margin-bottom: 0 !important;
-  }
-
-  .hero-tool-link {
-    font-size: 0.5rem !important;
-    margin-top: 0.05rem !important;
-  }
-
-  .hero-tool-link i {
-    display: none !important;
-  }
-}
-  </style>
   
   <script>
     function openTeacherStartModal() {
@@ -4997,7 +5826,7 @@ setTimeout(function() {
       </div>
     </div>
 
-    <!-- CARD 2: Q3–Q4 2027 -->
+    <!-- CARD 2: Q4 2027 -->
     <div class="bg-white rounded-2xl border-l-4 border-l-brand-blue border border-gray-200 shadow-sm overflow-hidden hover:shadow-md transition">
       <div class="p-5">
         <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
@@ -5011,6 +5840,14 @@ setTimeout(function() {
         </div>
         
         <div class="space-y-3 ml-2">
+          <div class="flex items-start gap-3">
+            <i class="fas fa-door-open text-brand-blue text-base mt-0.5 w-5"></i>
+            <div>
+              <p class="font-bold text-gray-800">Smart Facility Booking Engine</p>
+              <p class="text-sm text-gray-500">Schedule computer labs, gyms, auditoriums, and makerspaces — end the spreadsheet chaos</p>
+            </div>
+          </div>
+
           <div class="flex items-start gap-3">
             <i class="fab fa-google text-brand-blue text-base mt-0.5 w-5"></i>
             <div>
@@ -9417,7 +10254,278 @@ function closeModalAndOpenHouseMasterToolkits() {
         }
     });
 }
+
+
+
+
+
+
+
+
+
+
+
+// ==========================================
+// DYNAMIC HERO TAB TOGGLE (Option A - Toggle behavior)
+// ==========================================
+(function() {
+  const tabButtons = document.querySelectorAll('.hero-tab-btn');
+  const dynamicTitle = document.getElementById('heroDynamicTitle');
+  const dynamicSubtitle = document.getElementById('heroDynamicSubtitle');
+  const featureList = document.getElementById('heroFeatureList');
+  const feature1 = document.getElementById('heroFeature1');
+  const feature2 = document.getElementById('heroFeature2');
+  const feature3 = document.getElementById('heroFeature3');
+  const videoPlayer = document.getElementById('heroVideoPlayer');
+  
+  let activeTool = null; // null = default/main view
+  
+
+    // Tool content configurations - SHORTER FOR MOBILE
+    const toolContent = {
+    teacher: {
+      title: `<span class="hero-title-lead">Save 4+ hours weekly</span>
+              <span class="hero-title-gradient-blue">with teacher tools</span>
+              <span class="hero-title-gradient-blue">teachers actually</span>
+              <span class="hero-title-gradient-purple">love using.</span>`,
+      subtitle: "Magic Hat, Certificate maker, Quick Quiz, and house points — all in one dashboard.",
+      features: [
+        { icon: "fa-cube", text: "12+ tools" },
+        { icon: "fa-certificate", text: "Certificates" },
+        { icon: "fa-question-circle", text: "250+ quizzes" }
+      ],
+      videoUrl: "https://www.youtube.com/embed/5ZtD6QWo_Kg?autoplay=1&mute=1&rel=0&modestbranding=1&playsinline=1"
+    },
+    student: {
+      title: `<span class="hero-title-lead">Recognise positive choices.</span>
+              <span class="hero-title-gradient-blue">Build belonging.</span>
+              <span class="hero-title-gradient-blue">Celebrate every</span>
+              <span class="hero-title-gradient-purple">student.</span>`,
+      subtitle: "Badges, streaks, and house boosts — students feel a sense of belonging.",
+      features: [
+        { icon: "fa-star", text: "3D badges" },
+        { icon: "fa-calendar-day", text: "Streaks" },
+        { icon: "fa-bolt", text: "House boosts" }
+      ],
+      videoUrl: "https://www.youtube.com/embed/rDBz3GPZSFE?autoplay=1&mute=1&rel=0&modestbranding=1&playsinline=1"
+    },
+    behavior: {
+      title: `<span class="hero-title-lead">Spot patterns earlier.</span>
+              <span class="hero-title-gradient-blue">Support students</span>
+              <span class="hero-title-gradient-blue">faster.</span>
+              <span class="hero-title-gradient-purple">Track interventions.</span>`,
+      subtitle: "Tiered interventions, parent logs, and real-time analytics for school leaders.",
+      features: [
+        { icon: "fa-chart-line", text: "Analytics" },
+        { icon: "fa-comments", text: "Parent logs" },
+        { icon: "fa-arrow-trend-up", text: "Auto-escalation" }
+      ],
+      videoUrl: "https://www.youtube.com/embed/_cXVZfvfPtQ?autoplay=1&mute=1&rel=0&modestbranding=1&playsinline=1"
+    }
+  };
+  
+  // Default/main content - SHORTER
+  const defaultContent = {
+    title: `<span class="hero-title-lead">One platform for</span>
+            <span class="hero-title-gradient-blue">school culture,</span>
+            <span class="hero-title-gradient-blue">house points &</span>
+            <span class="hero-title-gradient-purple">behavior tracking.</span>`,
+    subtitle: "TrackEDU unifies house points, rewards and behaviour tracking in one secure platform.",
+    isImage: true,
+    imageUrl: "https://trackedu.github.io/common-assets/newimagelow1.png"
+  };
+  
+  function resetActiveStyles() {
+    tabButtons.forEach(btn => {
+      btn.classList.remove('active');
+    });
+  }
+  
+  function showFeatureList(show) {
+    if (show) {
+      featureList.classList.remove('hidden');
+    } else {
+      featureList.classList.add('hidden');
+    }
+  }
+  
+  function updateHeroContent(tool) {
+    const videoContainer = document.getElementById('heroVideoContainer');
+    const heroSection = document.querySelector('.trackedu-hero-v2');
+    
+    if (!tool) {
+      // Return to default/main view - show image
+      dynamicTitle.innerHTML = defaultContent.title;
+      dynamicSubtitle.innerHTML = defaultContent.subtitle;
+      showFeatureList(false);
+      activeTool = null;
+      
+      // Reset hero background to white
+      if (heroSection) {
+        heroSection.style.background = '#ffffff';
+      }
+      
+      // Switch to image instead of video - no container styling
+      if (videoContainer) {
+        videoContainer.innerHTML = `<img 
+          src="${defaultContent.imageUrl}" 
+          alt="TrackEDU platform dashboard showing house points, student rewards and behaviour tracking across laptop and mobile"
+          class="hero-v2-main-image"
+          style="width: 100%; height: auto; display: block; object-fit: contain;">`;
+        // Remove any container styling that might have been added
+        videoContainer.classList.remove('rounded-xl', 'overflow-hidden', 'shadow-2xl');
+        videoContainer.style.background = 'transparent';
+      }
+      return;
+    }
+    
+    const content = toolContent[tool];
+    if (content) {
+      dynamicTitle.innerHTML = content.title;
+      dynamicSubtitle.innerHTML = content.subtitle;
+      
+      // Change hero background based on tool - DISTINCT COLORS
+      if (heroSection) {
+        switch(tool) {
+          case 'teacher':
+            heroSection.style.background = '#e0f2fe'; // Sky blue (lighter, distinct)
+            break;
+          case 'student':
+            heroSection.style.background = '#dcfce7'; // Emerald green (light, fresh)
+            break;
+          case 'behavior':
+            heroSection.style.background = '#f3e8ff'; // Lavender purple (soft, distinct)
+            break;
+          default:
+            heroSection.style.background = '#ffffff';
+        }
+      }
+      
+      // Switch to video iframe
+      if (videoContainer) {
+        videoContainer.innerHTML = `<iframe 
+          id="heroVideoPlayer"
+          class="hero-video-player w-full aspect-video"
+          src="${content.videoUrl}"
+          title="${tool} Demo"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>`;
+        // Add styling back for videos only
+        videoContainer.classList.add('rounded-xl', 'overflow-hidden', 'shadow-2xl');
+      }
+      
+      // Update feature pills
+      if (content.features.length >= 3) {
+        feature1.innerHTML = `<i class="fas ${content.features[0].icon}"></i> ${content.features[0].text}`;
+        feature2.innerHTML = `<i class="fas ${content.features[1].icon}"></i> ${content.features[1].text}`;
+        feature3.innerHTML = `<i class="fas ${content.features[2].icon}"></i> ${content.features[2].text}`;
+      }
+      showFeatureList(true);
+    }
+  }
+  
+  function handleTabClick(tool) {
+    if (activeTool === tool) {
+      // Same tab clicked again - return to default view
+      resetActiveStyles();
+      updateHeroContent(null);
+      activeTool = null;
+    } else {
+      // Different tab clicked - switch to that tool
+      resetActiveStyles();
+      const clickedBtn = document.querySelector(`.hero-tab-btn[data-tool="${tool}"]`);
+      if (clickedBtn) clickedBtn.classList.add('active');
+      updateHeroContent(tool);
+      activeTool = tool;
+    }
+  }
+  
+  // Attach event listeners
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const tool = btn.getAttribute('data-tool');
+      handleTabClick(tool);
+    });
+  });
+  
+  // Ensure default state on load (no active tab, default content)
+  resetActiveStyles();
+  updateHeroContent(null);
+  activeTool = null;
+})();
+
+
+
+
+// Ensure modal functions are accessible and not overridden
+window.openTeacherStartModal = window.openTeacherStartModal || function() {
+  const modal = document.getElementById('teacherStartModal');
+  if (modal) {
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+};
+
+window.closeTeacherStartModal = window.closeTeacherStartModal || function() {
+  const modal = document.getElementById('teacherStartModal');
+  if (modal) {
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+};
+
+window.openLeaderStartModal = window.openLeaderStartModal || function() {
+  const modal = document.getElementById('leaderStartModal');
+  if (modal) {
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+};
+
+window.closeLeaderStartModal = window.closeLeaderStartModal || function() {
+  const modal = document.getElementById('leaderStartModal');
+  if (modal) {
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+};
+
+// Also ensure the buttons have their onclick handlers properly set
+document.addEventListener('DOMContentLoaded', function() {
+  const teacherBtn = document.querySelector('.hero-v2-audience-card:first-child');
+  const leaderBtn = document.querySelector('.hero-v2-audience-card:last-child');
+  
+  if (teacherBtn && !teacherBtn.hasAttribute('data-listener-attached')) {
+    teacherBtn.setAttribute('data-listener-attached', 'true');
+    // Keep the onclick attribute, but also add event listener as backup
+    teacherBtn.addEventListener('click', function(e) {
+      // Don't prevent default, let the onclick fire
+      console.log('Teacher button clicked');
+    });
+  }
+  
+  if (leaderBtn && !leaderBtn.hasAttribute('data-listener-attached')) {
+    leaderBtn.setAttribute('data-listener-attached', 'true');
+    leaderBtn.addEventListener('click', function(e) {
+      console.log('Leader button clicked');
+    });
+  }
+});
+
+
 </script>
+
+
+
+
+
+
+
+
 
 
 
