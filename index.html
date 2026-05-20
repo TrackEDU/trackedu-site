@@ -1902,8 +1902,8 @@ html { scroll-padding-top: 100px; }
 /* Mobile audience buttons - reduce spacing */
 @media (max-width: 767px) {
   .hero-v2-audience-row.mobile-audience {
-    margin-top: 0.25rem !important;
-    margin-bottom: 0.25rem !important;
+    margin-top: -0.5rem !important;
+    margin-bottom: -0.5rem !important;
   }
 }
 
@@ -2311,17 +2311,17 @@ html { scroll-padding-top: 100px; }
         </div>
         
         <!-- AUDIENCE PATHWAY BUTTONS (Mobile only - appears below image) -->
-        <div class="hero-v2-audience-row mobile-audience" style="display: none;">
-          <button onclick="openTeacherStartModal()" class="hero-v2-audience-card">
-            <i class="fas fa-chalkboard-user"></i>
-            <span>I’m a Teacher</span>
-          </button>
-  
-          <button onclick="openLeaderStartModal()" class="hero-v2-audience-card hero-v2-audience-dark">
-            <i class="fas fa-school"></i>
-            <span>I’m a School Leader</span>
-          </button>
-        </div>
+<div class="hero-v2-audience-row mobile-audience" style="display: none; margin-top: -0.75rem; margin-bottom: -0.75rem;">
+  <button onclick="openTeacherStartModal()" class="hero-v2-audience-card">
+    <i class="fas fa-chalkboard-user"></i>
+    <span>I’m a Teacher</span>
+  </button>
+
+  <button onclick="openLeaderStartModal()" class="hero-v2-audience-card hero-v2-audience-dark">
+    <i class="fas fa-school"></i>
+    <span>I’m a School Leader</span>
+  </button>
+</div>
   
       </div>
     </div>
@@ -3292,12 +3292,12 @@ html { scroll-padding-top: 100px; }
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 0.5rem;
-      margin-top: 0;
-      margin-bottom: 0;
+      margin-top: -0.25rem;
+      margin-bottom: -0.25rem;
     }
   
     .hero-v2-audience-card {
-      padding: 0.4rem 0.45rem;
+      padding: 0.3rem 0.45rem;
       font-size: 0.66rem;
       border-radius: 0.72rem;
     }
@@ -3320,15 +3320,17 @@ html { scroll-padding-top: 100px; }
     }
   
     .hero-v2-image-wrap {
-      margin-top: 0.2rem;
+      margin-top: -0.3rem;
+      margin-left: -1rem;
+      margin-right: -1rem;
       display: flex;
       justify-content: center;
       align-items: center;
     }
   
     .hero-v2-main-image {
-      width: 100%;
-      max-width: 100%;
+      width: 100vw;
+      max-width: none;
       margin: 0 auto;
       display: block;
     }
