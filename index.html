@@ -1274,6 +1274,16 @@ html { scroll-padding-top: 100px; }
   .hero-feature-pill i {
     font-size: 0.5rem;
   }
+
+  /* Center feature pills on mobile */
+  .hero-feature-list .flex {
+    justify-content: center !important;
+  }
+  
+  .hero-feature-pill {
+    justify-content: center !important;
+    text-align: center !important;
+  }
 }
 
 
@@ -1751,9 +1761,10 @@ html { scroll-padding-top: 100px; }
   transition: all 0.3s ease;
 }
 
+/* Feature Pills - Clean and neutral */
 .hero-feature-pill {
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(135, 194, 50, 0.2);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 999px;
   padding: 0.3rem 0.8rem;
   font-size: 0.65rem;
@@ -1764,11 +1775,42 @@ html { scroll-padding-top: 100px; }
   gap: 0.4rem;
   backdrop-filter: blur(4px);
   white-space: nowrap;
+  transition: all 0.2s ease;
 }
 
 .hero-feature-pill i {
   font-size: 0.6rem;
+  transition: color 0.2s ease;
+}
+
+/* Teacher App (Blue) theme for pills */
+.hero-feature-pill.teacher-active {
+  border-color: rgba(15, 102, 195, 0.4);
+  background: rgba(15, 102, 195, 0.08);
+}
+
+.hero-feature-pill.teacher-active i {
+  color: #0f66c3;
+}
+
+/* Student Portal (Green) theme for pills */
+.hero-feature-pill.student-active {
+  border-color: rgba(135, 194, 50, 0.5);
+  background: rgba(135, 194, 50, 0.1);
+}
+
+.hero-feature-pill.student-active i {
   color: #87C232;
+}
+
+/* Behavior Tracker (Purple) theme for pills */
+.hero-feature-pill.behavior-active {
+  border-color: rgba(139, 92, 246, 0.4);
+  background: rgba(139, 92, 246, 0.08);
+}
+
+.hero-feature-pill.behavior-active i {
+  color: #8B5CF6;
 }
 
 /* Video Container */
@@ -2225,10 +2267,10 @@ html { scroll-padding-top: 100px; }
           <div id="heroVideoContainer" class="hero-video-container relative w-full">
             <!-- Default Image (Main Overview) -->
             <img 
-              src="https://trackedu.github.io/common-assets/newimagelow4.png"
-              alt="TrackEDU platform dashboard showing house points, student rewards and behaviour tracking across laptop and mobile"
-              class="hero-v2-main-image"
-              style="width: 100%; height: auto; display: block; object-fit: contain;">
+            src="https://trackedu.github.io/common-assets/newimagelow4.png"
+            alt="TrackEDU platform dashboard showing house points, student rewards and behaviour tracking across laptop and mobile"
+            class="hero-v2-main-image"
+            style="width: 100%; height: auto; display: block; object-fit: contain; transform: scale(1.1);">
           </div>
         </div>
   
@@ -2893,14 +2935,20 @@ html { scroll-padding-top: 100px; }
   font-size: 0.7rem;
   font-weight: 800;
   color: #0C1E2C;
-  display: block;
+  display: inline;
   line-height: 1.2;
 }
 
 .trust-badge span {
   font-size: 0.55rem;
   color: #64748b;
-  display: block;
+  display: inline;
+}
+
+/* Add space between strong and span on desktop */
+.trust-badge strong::after {
+  content: " ";
+  white-space: pre;
 }
 
 /* Row 2: Partner + Infrastructure */
@@ -3023,45 +3071,47 @@ html { scroll-padding-top: 100px; }
     flex-wrap: nowrap;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    gap: 0.3rem;
-    padding-bottom: 0.3rem;
+    gap: 0.2rem;
+    padding-bottom: 0.2rem;
   }
   
   .trust-badge {
-    min-width: 5.5rem;
+    min-width: 4rem;
     scroll-snap-align: start;
     flex-direction: column;
     text-align: center;
-    gap: 0.2rem;
-    padding: 0.35rem 0.25rem;
+    gap: 0.1rem;
+    padding: 0.2rem 0.15rem;
   }
   
   .trust-badge-icon {
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 0.9rem;
+    height: 0.9rem;
     margin: 0 auto;
   }
   
   .trust-badge-icon i {
-    font-size: 0.65rem;
+    font-size: 0.5rem;
   }
   
   .uk-flag-svg {
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 0.9rem;
+    height: 0.9rem;
   }
   
   .trust-badge div {
     text-align: center;
   }
   
+  /* Hide subtitles on mobile */
   .trust-badge span {
     display: none;
   }
   
   .trust-badge strong {
-    font-size: 0.55rem;
+    font-size: 0.45rem;
   }
+
   
   .trust-partner-row {
     grid-template-columns: 1fr;
@@ -10376,6 +10426,11 @@ function closeModalAndOpenHouseMasterToolkits() {
         videoContainer.classList.remove('rounded-xl', 'overflow-hidden', 'shadow-2xl');
         videoContainer.style.background = 'transparent';
       }
+      
+      // Reset icon colors to default neutral gray when no tool is active
+      const icons = document.querySelectorAll('.hero-feature-pill i');
+      icons.forEach(icon => icon.style.color = '#64748b');
+      
       return;
     }
     
@@ -10418,12 +10473,24 @@ function closeModalAndOpenHouseMasterToolkits() {
       }
       
       // Update feature pills
-      if (content.features.length >= 3) {
-        feature1.innerHTML = `<i class="fas ${content.features[0].icon}"></i> ${content.features[0].text}`;
-        feature2.innerHTML = `<i class="fas ${content.features[1].icon}"></i> ${content.features[1].text}`;
-        feature3.innerHTML = `<i class="fas ${content.features[2].icon}"></i> ${content.features[2].text}`;
-      }
-      showFeatureList(true);
+if (content.features.length >= 3) {
+  feature1.innerHTML = `<i class="fas ${content.features[0].icon}"></i> ${content.features[0].text}`;
+  feature2.innerHTML = `<i class="fas ${content.features[1].icon}"></i> ${content.features[1].text}`;
+  feature3.innerHTML = `<i class="fas ${content.features[2].icon}"></i> ${content.features[2].text}`;
+  
+  // Get all icons inside the feature pills
+  const icons = document.querySelectorAll('.hero-feature-pill i');
+  
+  // Set icon color based on active tool (keep pill background white)
+  if (tool === 'teacher') {
+    icons.forEach(icon => icon.style.color = '#0f66c3');
+  } else if (tool === 'student') {
+    icons.forEach(icon => icon.style.color = '#87C232');
+  } else if (tool === 'behavior') {
+    icons.forEach(icon => icon.style.color = '#8B5CF6');
+  }
+}
+showFeatureList(true);
     }
   }
   
