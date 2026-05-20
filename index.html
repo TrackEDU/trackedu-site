@@ -1852,6 +1852,17 @@ html { scroll-padding-top: 100px; }
   border-radius: 0;
 }
 
+/* Mobile only: remove curved edges from hero videos */
+@media (max-width: 767px) {
+  .hero-video-container {
+    border-radius: 0 !important;
+  }
+  .hero-video-container iframe,
+  .hero-video-container .rounded-xl {
+    border-radius: 0 !important;
+  }
+}
+
 .hero-video-container iframe,
 .hero-video-container img {
   display: block;
@@ -10522,20 +10533,25 @@ function closeModalAndOpenHouseMasterToolkits() {
       }
       
       // Switch to video iframe
-      if (videoContainer) {
-        videoContainer.innerHTML = `<iframe 
-          id="heroVideoPlayer"
-          class="hero-video-player w-full aspect-video"
-          src="${content.videoUrl}"
-          title="${tool} Demo"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen>
-        </iframe>`;
-        // Add styling back for videos only
-        videoContainer.classList.add('rounded-xl', 'overflow-hidden', 'shadow-2xl');
-      }
+if (videoContainer) {
+  videoContainer.innerHTML = `<iframe 
+    id="heroVideoPlayer"
+    class="hero-video-player w-full aspect-video"
+    src="${content.videoUrl}"
+    title="${tool} Demo"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen>
+  </iframe>`;
+  // Add styling back for videos only - NO rounded corners on mobile
+  if (window.innerWidth <= 767) {
+    videoContainer.classList.remove('rounded-xl', 'overflow-hidden');
+    videoContainer.classList.add('shadow-2xl');
+  } else {
+    videoContainer.classList.add('rounded-xl', 'overflow-hidden', 'shadow-2xl');
+  }
+}
       
       // Update feature pills
 if (content.features.length >= 3) {
