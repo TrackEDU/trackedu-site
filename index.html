@@ -10449,17 +10449,16 @@ function closeModalAndOpenHouseMasterToolkits() {
       videoUrl: "https://www.youtube.com/embed/_cXVZfvfPtQ?autoplay=1&mute=1&rel=0&modestbranding=1&playsinline=1"
     }
   };
-  
   // Default/main content - SHORTER
-  const defaultContent = {
-    title: `<span class="hero-title-lead">One platform for</span>
-            <span class="hero-title-gradient-blue">school culture,</span>
-            <span class="hero-title-gradient-blue">house points &</span>
-            <span class="hero-title-gradient-purple">behavior tracking.</span>`,
-    subtitle: "TrackEDU unifies house points, rewards and behaviour tracking in one secure platform.",
-    isImage: true,
-    imageUrl: "https://trackedu.github.io/common-assets/newheroimage7low.png"
-  };
+const defaultContent = {
+  title: `<span class="hero-title-lead">One platform for</span>
+          <span class="hero-title-gradient-blue">school culture,</span>
+          <span class="hero-title-gradient-blue">house points &</span>
+          <span class="hero-title-gradient-purple">behavior tracking.</span>`,
+  subtitle: "TrackEDU unifies house points, rewards <br> and behaviour tracking in one secure platform.",
+  isImage: true,
+  imageUrl: "https://trackedu.github.io/common-assets/newheroimage7low.png"
+};
   
   function resetActiveStyles() {
     tabButtons.forEach(btn => {
