@@ -260,6 +260,7 @@
         <form id="contactForm" class="space-y-5">
           <input type="hidden" name="access_key" value="7f87c71e-2098-42d8-816a-29de230264d7">
           <input type="hidden" name="subject" value="TrackEDU Contact Form Submission">
+          <input type="hidden" name="promo_code" class="promo-code-input" value="">
           <input type="hidden" name="redirect" value="https://www.trackedu.net/contact.html?success=true">
           <input type="hidden" name="_autoresponse" value="Thank you for contacting TrackEDU. We have received your message and will respond as soon as possible. - The TrackEDU Team">
 
@@ -498,6 +499,23 @@
         window.history.replaceState({}, document.title, window.location.pathname);
       }
     }
+  </script>
+
+  <script>
+  (function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const refCode = urlParams.get('ref');
+      if (refCode) {
+          localStorage.setItem('trackedu_ref', refCode);
+      }
+      const savedRef = localStorage.getItem('trackedu_ref');
+      if (savedRef) {
+          const promoFields = document.querySelectorAll('.promo-code-input');
+          promoFields.forEach(field => {
+              field.value = savedRef.toUpperCase();
+          });
+      }
+  })();
   </script>
 
 </body>
