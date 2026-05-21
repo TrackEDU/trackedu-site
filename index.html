@@ -7087,6 +7087,7 @@ setTimeout(function() {
         <form id="invoiceRequestForm" class="space-y-5" onsubmit="handleInvoiceFormSubmit(event)">
           <input type="hidden" name="access_key" value="7f87c71e-2098-42d8-816a-29de230264d7">
           <input type="hidden" name="subject" value="TrackEDU Invoice Request">
+          <input type="hidden" name="promo_code" class="promo-code-input" value="">
           <input type="hidden" name="redirect" value="https://www.trackedu.net">
           <input type="hidden" name="_autoresponse" value="Thank you for requesting a TrackEDU school invoice. We have received your billing details and will review them before issuing the official invoice. - The TrackEDU Team">
 
@@ -7353,6 +7354,7 @@ class="group block p-5 rounded-xl border-2 border-gray-200 hover:border-brand-gr
           <form action="https://api.web3forms.com/submit" method="POST" id="foundingSchoolsForm" class="space-y-4">
             <input type="hidden" name="access_key" value="7f87c71e-2098-42d8-816a-29de230264d7">
             <input type="hidden" name="subject" value="🔥 Founding Schools Programme Application - TrackEDU">
+            <input type="hidden" name="promo_code" class="promo-code-input" value="">
             <input type="hidden" name="redirect" value="https://www.trackedu.net?founding=success">
             <input type="hidden" name="_autoresponse" value="Thank you for applying to the TrackEDU Founding Schools Programme! We have received your application. Our team will review your submission and contact you within 48 hours. - The TrackEDU Team">
             
@@ -10683,7 +10685,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
+<script>
+  (function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const refCode = urlParams.get('ref');
+      
+      if (refCode) {
+          localStorage.setItem('trackedu_ref', refCode);
+      }
+      
+      const savedRef = localStorage.getItem('trackedu_ref');
+      if (savedRef) {
+          // Finds all tracking fields across multiple forms safely
+          const promoFields = document.querySelectorAll('.promo-code-input');
+          promoFields.forEach(field => {
+              field.value = savedRef.toUpperCase();
+          });
+      }
+  })();
+  </script>
 
 
 
