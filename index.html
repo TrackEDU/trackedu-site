@@ -5795,41 +5795,53 @@ setTimeout(function() {
 
         <div class="space-y-10">
           
-          <!-- FEATURE 1: Class Calm Meter -->
-          <div class="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
-            <div class="grid md:grid-cols-5 gap-0">
-              <!-- Image Preview - CLICKABLE -->
-              <div class="md:col-span-2 bg-gradient-to-br from-blue-50 to-indigo-50 p-4 flex items-center justify-center border-b md:border-b-0 md:border-r border-gray-100 cursor-pointer" onclick="openImageLightbox('https://trackedu.github.io/common-assets/cn1.png', 'Class Calm Meter - Interactive noise meter interface')">
-                <img src="https://trackedu.github.io/common-assets/cn1.png" alt="Class Calm Meter interface preview" class="max-w-full h-auto rounded-lg shadow-md transform group-hover:scale-105 transition duration-500">
-                <div class="absolute bottom-2 right-2 bg-black/60 text-white text-[10px] px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition">Click to enlarge</div>
-              </div>
-              <!-- Content -->
-              <div class="md:col-span-3 p-6">
-                <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-                  <div class="flex items-center gap-2">
-                    <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center">
-                      <i class="fas fa-volume-down text-blue-600 text-sm"></i>
-                    </div>
-                    <h4 class="font-black text-xl text-gray-900">Class Calm Meter</h4>
-                  </div>
-                  <span class="text-xs font-bold bg-green-100 text-green-700 px-3 py-1 rounded-full">Just shipped</span>
-                </div>
-                <p class="text-gray-600 text-sm mb-4">An interactive noise meter that helps students self-regulate volume through friendly visual feedback. Perfect for maintaining focus during different activities.</p>
-                
-                <details class="text-sm group">
-                  <summary class="cursor-pointer text-brand-blue font-semibold inline-flex items-center gap-1 hover:gap-2 transition-all">How to use it <i class="fas fa-chevron-down text-xs transition-transform group-open:rotate-180"></i></summary>
-                  <div class="mt-3 p-4 bg-gray-50 rounded-xl space-y-2 text-gray-600 text-sm">
-                    <p><span class="font-bold">1.</span> Choose an activity mode (Silent Reading, Pair Work, etc.)</p>
-                    <p><span class="font-bold">2.</span> Set a calm goal (start with 1 minute)</p>
-                    <p><span class="font-bold">3.</span> Press Start — only sound level is monitored</p>
-                    <p><span class="font-bold">4.</span> Students follow the big message: Green ✅, Yellow ⚠️, Red 🛑</p>
-                    <p><span class="font-bold">5.</span> Reward calm teamwork automatically or manually</p>
-                    <p class="text-brand-blue text-xs mt-2">💡 Tip: Use Classroom View + Full Screen on smartboards.</p>
-                  </div>
-                </details>
-              </div>
-            </div>
+          <!-- FEATURE 1: Class Calm Meter (with Try it now button) -->
+<div class="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+  <div class="grid md:grid-cols-5 gap-0">
+    <!-- Image Preview - CLICKABLE -->
+    <div class="md:col-span-2 bg-gradient-to-br from-blue-50 to-indigo-50 p-4 flex items-center justify-center border-b md:border-b-0 md:border-r border-gray-100 cursor-pointer relative" onclick="openImageLightbox('https://trackedu.github.io/common-assets/cn1.png', 'Class Calm Meter - Interactive noise meter interface')">
+      <img src="https://trackedu.github.io/common-assets/cn1.png" alt="Class Calm Meter interface preview" class="max-w-full h-auto rounded-lg shadow-md transform group-hover:scale-105 transition duration-500">
+      <div class="absolute bottom-2 right-2 bg-black/60 text-white text-[10px] px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition">Click to enlarge</div>
+    </div>
+    <!-- Content -->
+    <div class="md:col-span-3 p-6">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center">
+            <i class="fas fa-volume-down text-blue-600 text-sm"></i>
           </div>
+          <h4 class="font-black text-xl text-gray-900">Class Calm Meter</h4>
+        </div>
+        <span class="text-xs font-bold bg-green-100 text-green-700 px-3 py-1 rounded-full">Just shipped</span>
+      </div>
+      <p class="text-gray-600 text-sm mb-4">An interactive noise meter that helps students self-regulate volume through friendly visual feedback. Perfect for maintaining focus during different activities.</p>
+      
+      <!-- NEW BUTTON SECTION -->
+      <div class="mb-4">
+        <a href="https://www.trackedu.net/classroom-noise-meter" 
+           target="_blank" 
+           rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 px-4 py-2 bg-brand-green hover:bg-green-600 text-white text-sm font-bold rounded-lg transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5">
+          <i class="fas fa-volume-up text-xs"></i>
+          Try the Free Noise Meter →
+        </a>
+        <span class="text-xs text-gray-400 ml-3">No login required • Works on any device</span>
+      </div>
+      
+      <details class="text-sm group">
+        <summary class="cursor-pointer text-brand-blue font-semibold inline-flex items-center gap-1 hover:gap-2 transition-all">How to use it <i class="fas fa-chevron-down text-xs transition-transform group-open:rotate-180"></i></summary>
+        <div class="mt-3 p-4 bg-gray-50 rounded-xl space-y-2 text-gray-600 text-sm">
+          <p><span class="font-bold">1.</span> Choose an activity mode (Silent Reading, Pair Work, etc.)</p>
+          <p><span class="font-bold">2.</span> Set a calm goal (start with 1 minute)</p>
+          <p><span class="font-bold">3.</span> Press Start — only sound level is monitored</p>
+          <p><span class="font-bold">4.</span> Students follow the big message: Green ✅, Yellow ⚠️, Red 🛑</p>
+          <p><span class="font-bold">5.</span> Reward calm teamwork automatically or manually</p>
+          <p class="text-brand-blue text-xs mt-2">💡 Tip: Use Classroom View + Full Screen on smartboards.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</div>
 
           <!-- FEATURE 2: Certificate Studio -->
           <div class="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
