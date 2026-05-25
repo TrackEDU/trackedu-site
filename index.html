@@ -5099,13 +5099,13 @@ setTimeout(function() {
     <li class="flex items-center gap-2"><i class="fas fa-check-circle text-teal-600 text-xs"></i> Export custodian schedules</li>
   </ul>
   
-  <div class="rounded-xl overflow-hidden cursor-pointer bg-gray-100" onclick="openFacilityModal()">
+  <a href="https://www.trackedu.net/facilities" target="_blank" rel="noopener noreferrer" class="rounded-xl overflow-hidden cursor-pointer bg-gray-100 block">
     <img src="https://trackedu.github.io/common-assets/facility1.png" alt="Facility Booking preview" class="w-full h-24 object-cover">
-  </div>
+  </a>
   
-  <button onclick="openFacilityModal()" class="mt-3 w-full py-1.5 bg-teal-50 text-teal-700 rounded-lg font-semibold text-sm hover:bg-teal-600 hover:text-white transition">
-    Preview Module →
-  </button>
+  <a href="https://www.trackedu.net/facilities" target="_blank" rel="noopener noreferrer" class="mt-3 w-full py-1.5 bg-teal-50 text-teal-700 rounded-lg font-semibold text-sm hover:bg-teal-600 hover:text-white transition text-center block">
+  Open Facility Management →
+</a>
 </div>
           
     </div>
@@ -5545,178 +5545,201 @@ setTimeout(function() {
             </div>
         
             <!-- THREE-COLUMN MODERN LAYOUT: School Pilot + Founding Schools + Teacher Starter -->
-            <div class="max-w-7xl mx-auto grid lg:grid-cols-3 gap-8">
-              
-              <!-- CARD 1: SCHOOL PILOT - CLEAN WITH TWO CTAS -->
-<div class="plan-card relative bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col h-full">
-  <div class="p-6 flex flex-col flex-grow">
-    <div class="mb-4">
-      <div class="flex justify-between items-start gap-4">
-        <div>
-          <h3 class="text-2xl font-bold text-gray-900">School Pilot</h3>
-          <p class="text-gray-500 text-sm mt-1">30 days · No credit card needed</p>
-        </div>
-        <span class="bg-brand-blue/10 text-brand-blue text-xs font-bold px-3 py-1 rounded-full">Whole School</span>
-      </div>
-    </div>
-    
-    <div class="border-t border-gray-100 my-4"></div>
-
-    <p class="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">
-      Test house points, behaviour tracking, and student engagement across your school.
-    </p>
-    
-    <div class="bg-gray-50 rounded-xl p-4 mb-6 text-center">
-      <div class="text-2xl font-black text-brand-dark">USD 3,000<span class="text-sm font-normal text-gray-500">/year</span></div>
-      <p class="text-xs text-gray-400 mt-1">After 30-day pilot</p>
-    </div>
-
-    <button onclick="togglePlanDetails(this)" class="plan-toggle-btn w-full mb-4 py-2.5 rounded-xl bg-gray-100 text-gray-600 text-sm font-bold flex items-center justify-center gap-2">
-      <span class="plan-toggle-label">What's included</span>
-      <i class="fas fa-chevron-down plan-toggle-icon transition-transform text-xs"></i>
-    </button>
-    
-    <div class="plan-mobile-details hidden md:block space-y-2 text-sm mb-6">
-      <ul class="space-y-2 text-gray-600">
-        <li class="flex gap-2"><i class="fas fa-check-circle text-brand-green text-sm mt-0.5"></i> <span>Teacher App + Student Portal</span></li>
-        <li class="flex gap-2"><i class="fas fa-check-circle text-brand-green text-sm mt-0.5"></i> <span>Behavior Tracker & dashboards</span></li>
-        <li class="flex gap-2"><i class="fas fa-check-circle text-brand-green text-sm mt-0.5"></i> <span>CSV import & implementation support</span></li>
-      </ul>
-    </div>
-
-    <!-- Primary CTA: Request Invoice -->
-    <button onclick="openInvoiceModal()" class="w-full py-3 bg-brand-green hover:bg-green-600 text-white font-bold rounded-xl transition shadow-md flex items-center justify-center gap-2">
-      <i class="fas fa-file-invoice-dollar text-sm"></i>
-      Request Invoice
-    </button>
-
-    <!-- Payment methods - CLEAR: only credit card says coming soon -->
-    <div class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 mt-3 text-xs">
-      <span class="text-gray-500">Purchase orders</span>
-      <span class="text-gray-300">•</span>
-      <span class="text-gray-500">Bank transfers</span>
-      <span class="text-gray-300">•</span>
-      <span class="text-gray-400">Credit card <span class="text-brand-green text-[10px] ml-0.5">(Coming Soon)</span></span>
-    </div>
-  </div>
-</div>
-              
-              <!-- CARD 2: FOUNDING SCHOOLS (Premium Card) -->
-              <div class="founding-card relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl shadow-2xl overflow-hidden border border-white/10 flex flex-col h-full transform hover:scale-[1.02] transition-all duration-300">
-                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-green via-amber-500 to-brand-green"></div>
-                <div class="p-6 flex flex-col flex-grow">
-                  <div class="flex flex-wrap justify-between items-center gap-2 mb-4">
-                    <div class="inline-flex items-center gap-2 bg-brand-green/20 backdrop-blur-sm px-3 py-1 rounded-full">
-                      <span class="text-brand-green font-bold text-xs">🤝 Founding Schools</span>
-                    </div>
-                    <div class="inline-flex items-center gap-2 bg-red-500/20 backdrop-blur-sm px-3 py-1 rounded-full">
-                      <span class="text-red-400 font-bold text-xs">⚠️ 3 spots left</span>
-                    </div>
-                  </div>
-                  
-                  <h3 class="text-2xl font-bold text-white mb-2 leading-tight">
-                    1 year free
-                  </h3>
-                  <p class="text-gray-300 text-sm mb-4">
-                    Selected schools receive full access with licence fee waived.
-                  </p>
-                  
-                  <div class="border-t border-white/10 my-4"></div>
-        
-                  <div class="grid grid-cols-3 gap-2 mb-6">
-                    <div class="bg-white/10 rounded-xl px-2 py-2 text-center">
-                      <i class="fas fa-gem text-brand-green text-base mb-1"></i>
-                      <p class="text-white font-bold text-xs">Full access</p>
-                      <p class="text-gray-400 text-[9px]">Licence waived</p>
-                    </div>
-                    <div class="bg-white/10 rounded-xl px-2 py-2 text-center">
-                      <i class="fas fa-chalkboard-user text-brand-green text-base mb-1"></i>
-                      <p class="text-white font-bold text-xs">Training</p>
-                      <p class="text-gray-400 text-[9px]">Staff support</p>
-                    </div>
-                    <div class="bg-white/10 rounded-xl px-2 py-2 text-center">
-                      <i class="fas fa-headset text-brand-green text-base mb-1"></i>
-                      <p class="text-white font-bold text-xs">Priority</p>
-                      <p class="text-gray-400 text-[9px]">Support</p>
-                    </div>
-                  </div>
-        
-                  <ul class="space-y-2 text-sm text-gray-300 mb-6 flex-grow">
-                    <li class="flex gap-2"><i class="fas fa-check-circle text-brand-green mt-0.5 text-xs"></i><span>Trial with real staff & students</span></li>
-                    <li class="flex gap-2"><i class="fas fa-check-circle text-brand-green mt-0.5 text-xs"></i><span>Give feedback on workflows</span></li>
-                    <li class="flex gap-2"><i class="fas fa-check-circle text-brand-green mt-0.5 text-xs"></i><span>Closer onboarding support</span></li>
-                    <li class="flex gap-2"><i class="fas fa-check-circle text-brand-green mt-0.5 text-xs"></i><span>Shape future features</span></li>
-                  </ul>
-        
-                  <button onclick="openPilotModal()" class="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white font-bold py-3 rounded-xl transition-all duration-200 shadow-lg mt-auto">
-                    <i class="fas fa-crown text-sm"></i>
-                    Apply for Founding School →
-                  </button>
-                  <p class="text-center text-xs text-gray-400 mt-3">
-                    Apply after pilot or direct.
-                  </p>
-                </div>
-              </div>
-              
-              <!-- CARD 3: TEACHER STARTER -->
-              <div class="plan-card relative bg-white rounded-2xl border border-brand-green/25 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col h-full">
-                <div class="p-6 flex flex-col flex-grow">
-                  <div class="mb-4">
-                    <div class="flex justify-between items-start gap-4">
-                      <div>
-                        <h3 class="text-2xl font-bold text-gray-900">Teacher Starter</h3>
-                        <p class="text-brand-green font-medium mt-1 text-sm">For individual teachers</p>
-                        <p class="text-gray-400 text-[11px] font-bold uppercase tracking-wider mt-1">Free forever · One class</p>
-                      </div>
-                      <span class="bg-brand-green/10 text-brand-green text-xs font-bold px-3 py-1 rounded-full shrink-0">Free</span>
-                    </div>
-                  </div>
-                  
-                  <div class="border-t border-brand-green/20 my-5"></div>
-        
-                  <div class="bg-white rounded-2xl border border-green-100 p-3 mb-6">
-                    <p class="text-gray-700 text-sm leading-relaxed">
-                      Start with one class, try the core teacher tools, and share TrackEDU with your school when ready.
-                    </p>
-                  </div>
-        
-                  <button onclick="togglePlanDetails(this)" class="plan-toggle-btn w-full mb-5 py-2.5 rounded-xl bg-green-50 text-brand-green text-sm font-bold flex items-center justify-center gap-2">
-                    <span class="plan-toggle-label">View what is included</span>
-                    <i class="fas fa-chevron-down plan-toggle-icon transition-transform text-xs"></i>
-                  </button>
-                  
-                  <div class="plan-mobile-details hidden md:block space-y-2 text-sm mb-6">
-                    <ul class="space-y-2 text-gray-600">
-                      <li class="flex gap-2"><i class="fas fa-check-circle text-brand-green text-sm mt-0.5"></i> <span>1 teacher account / 1 class</span></li>
-                      <li class="flex gap-2"><i class="fas fa-check-circle text-brand-green text-sm mt-0.5"></i> <span>Magic Hat & Focus Timer</span></li>
-                      <li class="flex gap-2"><i class="fas fa-check-circle text-brand-green text-sm mt-0.5"></i> <span>Basic house points & leaderboard</span></li>
-                    </ul>
-                  </div>
-                  
-                  <a href="https://housepoint.trackedu.net/" target="_blank" class="w-full py-3 bg-brand-green hover:bg-green-600 text-white font-bold rounded-xl transition-all duration-200 shadow-md flex items-center justify-center gap-2 mt-auto">
-                    <i class="fas fa-chalkboard-user text-xs"></i>
-                    Start Free as a Teacher →
-                  </a>
-                  <p class="text-center text-xs text-gray-400 mt-3">
-                    No credit card required.
-                  </p>
-                </div>
-              </div>
-              
-            </div>
+            <div class="max-w-5xl mx-auto space-y-12">
             
-            <!-- Trust footer -->
-            <div class="text-center mt-16">
-              <div class="inline-flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-gray-400">
-                <span class="flex items-center gap-2"><i class="fas fa-lock text-brand-green text-xs"></i> Privacy-conscious architecture</span>
-                <span class="flex items-center gap-2"><i class="fas fa-database text-brand-green text-xs"></i> School-controlled exports</span>
-                <span class="flex items-center gap-2"><i class="fas fa-file-export text-brand-green text-xs"></i> Export anytime</span>
+            <div class="plan-card relative bg-[#0C1E2C] rounded-[40px] p-8 md:p-12 shadow-[0_30px_100px_-20px_rgba(0,0,0,0.5)] border border-white/10 overflow-hidden transform hover:scale-[1.005] transition-all duration-500">
+              <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-green/10 rounded-full blur-[100px] pointer-events-none"></div>
+              <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-brand-blue/10 rounded-full blur-[100px] pointer-events-none"></div>
+              
+              <div class="flex flex-col lg:flex-row lg:items-start justify-between gap-10 relative z-10">
+                <div class="max-w-2xl">
+                  <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full mb-6">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-green opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-green"></span>
+                    </span>
+                    <span class="text-white text-[10px] font-black uppercase tracking-[0.2em]">Connected School System</span>
+                  </div>
+                  
+                  <h3 class="text-4xl md:text-5xl font-display font-black text-white tracking-tight leading-[0.95] mb-6">
+                    School Management <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-emerald-400">Pro Plan</span>
+                  </h3>
+                  
+                  <p class="text-gray-400 text-lg leading-relaxed mb-8">
+                    The definitive operations and culture standard for modern school leadership. Seamlessly synchronize your <span class="text-white font-bold">Student Rewards, Positive Behavior, and Room Scheduling</span> under one secure whole-school account. Eliminate manual software fragmentation and manage your entire campus with absolute clarity.
+                  </p>
+
+                  <div class="flex flex-col sm:flex-row gap-4 items-center">
+                    <button onclick="openPilotModal()" class="w-full sm:w-auto px-10 py-4 bg-brand-green hover:bg-green-500 text-[#0C1E2C] font-black rounded-2xl transition-all duration-300 shadow-xl shadow-brand-green/20 hover:-translate-y-1 flex items-center justify-center gap-3 text-lg">
+                      <i class="fas fa-rocket"></i> Launch Free 30-Day Pilot
+                    </button>
+                    <button onclick="openInvoiceModal(); document.getElementsByName('licence_type')[0].value='School Annual Licence'; document.getElementsByName('invoice_request_reason')[0].value='Annual school licence';" class="w-full sm:w-auto px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-bold rounded-2xl transition-all text-sm flex items-center justify-center gap-2">
+                      <i class="fas fa-file-invoice-dollar"></i> Request Institutional Quote
+                    </button>
+                  </div>
+                </div>
+
+                <div class="lg:w-[320px] shrink-0 w-full">
+                  <div class="bg-white/[0.03] backdrop-blur-md border border-white/10 rounded-[32px] p-8 shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0">
+                      <div class="bg-brand-green text-[#0C1E2C] text-[10px] font-black px-4 py-1 rounded-bl-xl uppercase tracking-tighter">
+                        Save $500 Bundle
+                      </div>
+                    </div>
+
+                    <span class="text-gray-500 text-xs font-bold uppercase tracking-widest block mb-2">Annual Access Pass</span>
+                    <div class="flex items-baseline gap-1 mb-4">
+                      <span class="text-5xl font-black text-white tracking-tighter">2,499</span>
+                      <span class="text-gray-400 font-bold">USD</span>
+                    </div>
+
+                    <div class="space-y-4 mb-6">
+                      <div class="flex items-center gap-3 text-brand-green text-sm font-bold">
+                        <i class="fas fa-check-circle"></i>
+                        <span>House Point Management</span>
+                      </div>
+                      <div class="flex items-center gap-3 text-brand-green text-sm font-bold">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Behavior Management</span>
+                      </div>
+                      <div class="flex items-center gap-3 text-brand-green text-sm font-bold">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Facilities Management</span>
+                      </div>
+                    </div>
+
+                    <div class="pt-6 border-t border-white/10">
+                       <p class="text-[10px] text-gray-500 leading-tight italic">
+                         Includes unlimited students, unlimited staff profiles, and priority data-protection support.
+                       </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="border-t border-white/10 my-8"></div>
+              
+              <h4 class="text-xs font-black uppercase tracking-wider text-brand-green mb-4 flex items-center gap-2 relative z-10">
+                <i class="fas fa-network-wired"></i> Three fully synchronized operational system frameworks:
+              </h4>
+              
+              <div class="grid md:grid-cols-3 gap-6 text-sm text-gray-200 relative z-10">
+                <div class="p-5 bg-white/[0.02] rounded-2xl border border-white/5 hover:border-brand-blue/30 transition">
+                  <div class="font-bold text-white flex items-center gap-2 mb-1">
+                    <i class="fas fa-trophy text-brand-blue"></i> House Point Management
+                  </div>
+                  <p class="text-xs text-gray-400 leading-normal">Teacher App &amp; Student Portal linked</p>
+                </div>
+                <div class="p-5 bg-white/[0.02] rounded-2xl border border-white/5 hover:border-purple-500/30 transition">
+                  <div class="font-bold text-white flex items-center gap-2 mb-1">
+                    <i class="fas fa-chart-line text-purple-400"></i> Behavior Management
+                  </div>
+                  <p class="text-xs text-gray-400 leading-normal">Tiered tracker dashboard workflows</p>
+                </div>
+                <div class="p-5 bg-white/[0.02] rounded-2xl border border-white/5 hover:border-teal-500/30 transition">
+                  <div class="font-bold text-white flex items-center gap-2 mb-1">
+                    <i class="fas fa-calendar-alt text-teal-400"></i> Facilities Management
+                  </div>
+                  <p class="text-xs text-gray-400 leading-normal">Matrix schedule grids &amp; blocks rules</p>
+                </div>
               </div>
             </div>
-        
+
+            <div>
+              <div class="text-center max-w-3xl mx-auto mb-12">
+                <div class="flex justify-center mb-3">
+                  <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-blue/10 text-brand-blue text-[10px] font-black uppercase tracking-wider">Targeted Deployment Options</span>
+                </div>
+                <h4 class="font-display text-2xl md:text-3xl font-black text-brand-dark tracking-tight leading-tight">
+                  Implement Specialized Management Pillars <span class="text-brand-blue">Standalone</span>
+                </h4>
+                <p class="text-gray-500 text-sm mt-2 max-w-xl mx-auto leading-relaxed">
+                  Address your campus's most immediate operational priorities by deploying any of our standalone systems individually—with full integration options open down the line.
+                </p>
+              </div>
+              
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full group">
+                  <div class="flex items-center justify-between mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-brand-green/10 flex items-center justify-center text-brand-green group-hover:bg-brand-green/20 transition">
+                      <i class="fas fa-trophy text-lg"></i>
+                    </div>
+                    <span class="bg-brand-green/10 text-brand-green text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md">Culture Framework</span>
+                  </div>
+                  <h5 class="text-xl font-black text-slate-900 mb-1">House Point Management</h5>
+                  <span class="text-sm font-bold text-brand-green mb-3 block">USD 1,999 / year</span>
+                  <p class="text-gray-500 text-xs leading-relaxed flex-grow mb-4">
+                    Ignite community spirit and pride. Celebrate student successes transparently, drive engaging house point rivalries, and maximize classroom participation without forcing your teaching staff to maintain complex, repetitive spreadsheets.
+                  </p>
+                  <div class="bg-gray-50 rounded-xl p-3 text-[11px] text-gray-500 border border-gray-100 mb-4">
+                    <span class="font-bold text-gray-700 block mb-0.5">Connected Core Module:</span>
+                    House Point Management (Teacher App &amp; Student Portal linked)
+                  </div>
+                  <button onclick="openInvoiceModal(); document.getElementsByName('licence_type')[0].value='School Annual Licence'; document.getElementsByName('invoice_request_reason')[0].value='Annual school licence';" class="w-full py-2.5 bg-green-50 hover:bg-brand-green text-brand-green hover:text-white font-bold text-xs rounded-lg transition text-center">Procure Culture Framework</button>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full group">
+                  <div class="flex items-center justify-between mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-purple-100 flex items-center justify-center text-purple-600 group-hover:bg-purple-200 transition">
+                      <i class="fas fa-chart-line text-lg"></i>
+                    </div>
+                    <span class="bg-purple-100 text-purple-700 text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md">Pastoral Framework</span>
+                  </div>
+                  <h5 class="text-xl font-black text-slate-900 mb-1">Behavior Management</h5>
+                  <span class="text-sm font-bold text-purple-600 mb-3 block">USD 499 / year</span>
+                  <p class="text-gray-500 text-xs leading-relaxed flex-grow mb-4">
+                    Secure institutional peace of mind. Safeguard full regulatory and safeguarding compliance across your campus, establish bulletproof data histories, connect family touchpoints, and export audit-ready intervention analyses in seconds.
+                  </p>
+                  <div class="bg-gray-50 rounded-xl p-3 text-[11px] text-gray-500 border border-gray-100 mb-4">
+                    <span class="font-bold text-gray-700 block mb-0.5">Connected Core Module:</span>
+                    Behavior Management (Tiered tracker dashboard workflows)
+                  </div>
+                  <button onclick="openInvoiceModal(); document.getElementsByName('licence_type')[0].value='School Annual Licence'; document.getElementsByName('invoice_request_reason')[0].value='Annual school licence';" class="w-full py-2.5 bg-purple-50 hover:bg-purple-600 text-purple-700 hover:text-white font-bold text-xs rounded-lg transition text-center">Procure Pastoral Framework</button>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full group">
+                  <div class="flex items-center justify-between mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-teal-100 flex items-center justify-center text-teal-600 group-hover:bg-teal-200 transition">
+                      <i class="fas fa-calendar-alt text-lg"></i>
+                    </div>
+                    <span class="bg-teal-100 text-teal-700 text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md">Logistics Framework</span>
+                  </div>
+                  <h5 class="text-xl font-black text-slate-900 mb-1">Facilities Management</h5>
+                  <span class="text-sm font-bold text-teal-600 mb-3 block">USD 499 / year</span>
+                  <p class="text-gray-500 text-xs leading-relaxed flex-grow mb-4">
+                    Establish smooth campus coordination. Ensure complete booking visibility across all shared facilities, prevent calendar friction with smart scheduling guidelines, and instantly map out tasks for logistics personnel.
+                  </p>
+                  <div class="bg-gray-50 rounded-xl p-3 text-[11px] text-gray-500 border border-gray-100 mb-4">
+                    <span class="font-bold text-gray-700 block mb-0.5">Connected Core Module:</span>
+                    Facilities Management (Matrix schedule grids &amp; blocks rules)
+                  </div>
+                  <button onclick="openInvoiceModal(); document.getElementsByName('licence_type')[0].value='School Annual Licence'; document.getElementsByName('invoice_request_reason')[0].value='Annual school licence';" class="w-full py-2.5 bg-teal-50 hover:bg-teal-600 text-teal-700 hover:text-white font-bold text-xs rounded-lg transition text-center">Procure Logistics Framework</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4 pt-6 border-t border-gray-200 text-left">
+              <div class="bg-amber-50/60 rounded-xl p-4 border border-amber-100 flex items-center justify-between gap-4">
+                <div class="min-w-0">
+                  <span class="text-[9px] font-black uppercase text-amber-600 tracking-wider bg-amber-100 px-2 py-0.5 rounded">Strategic Engagement</span>
+                  <h6 class="font-bold text-sm text-slate-800 mt-1">🤝 Founding Schools Initiative</h6>
+                  <p class="text-xs text-gray-500 mt-0.5 truncate">1 Year Free • Operational Support • <strong>3 spots left</strong></p>
+                </div>
+                <button onclick="openPilotModal()" class="px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs rounded-lg shrink-0 transition shadow-sm">Apply</button>
+              </div>
+              <div class="bg-slate-100 rounded-xl p-4 border border-slate-200 flex items-center justify-between gap-4">
+                <div class="min-w-0">
+                  <span class="text-[9px] font-black uppercase text-slate-500 tracking-wider bg-slate-200 px-2 py-0.5 rounded">Grassroots Access</span>
+                  <h6 class="font-bold text-sm text-slate-800 mt-1">🍎 Teacher Starter Account</h6>
+                  <p class="text-xs text-gray-500 mt-0.5 truncate">Free forever • Evaluation layer for single classrooms</p>
+                </div>
+                <a href="https://housepoint.trackedu.net/" target="_blank" class="px-4 py-2 bg-slate-700 hover:bg-slate-800 text-white font-bold text-xs rounded-lg shrink-0 text-center transition">Launch Free</a>
+              </div>
+            </div>
+
           </div>
         </section>
-
 
 
         <!-- IMPLEMENTATION SUPPORT - SIMPLIFIED WITH MOBILE 2+1 LAYOUT -->
@@ -7045,6 +7068,7 @@ setTimeout(function() {
             <li><button onclick="showToolInfo('teacher')" class="hover:text-white transition">Teacher App</button></li>
             <li><button onclick="showToolInfo('student')" class="hover:text-white transition">Student Portal</button></li>
             <li><button onclick="showToolInfo('behavior')" class="hover:text-white transition">Behavior Tracker</button></li>
+            <li><a href="facilities.html" class="hover:text-brand-teal transition">Facility Booking</a></li>
             <li><a href="#pricing" class="hover:text-white transition">Plans</a></li>
           </ul>
         </div>
@@ -10991,196 +11015,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
-
-
-// ==========================================
-// FACILITY BOOKING MODAL WITH CAROUSEL
-// ==========================================
-
-// Image array for carousel
-const facilityImages = [
-  { src: "https://trackedu.github.io/common-assets/facility1.png", alt: "Interactive weekly timetable view" },
-  { src: "https://trackedu.github.io/common-assets/facility2.png", alt: "Facility booking dashboard" },
-  { src: "https://trackedu.github.io/common-assets/facility3.png", alt: "Approval workflow management" },
-  { src: "https://trackedu.github.io/common-assets/facility4.png", alt: "Conflict detection and alerts" },
-  { src: "https://trackedu.github.io/common-assets/facility5.png", alt: "Maintenance blocking mode" },
-  { src: "https://trackedu.github.io/common-assets/facility6.png", alt: "Custodian schedule export" },
-  { src: "https://trackedu.github.io/common-assets/facility7.png", alt: "Multi-facility overview" }
-];
-
-let currentImageIndex = 0;
-let lightboxCurrentIndex = 0;
-
-function openFacilityModal() {
-  let modal = document.getElementById('facilityModal');
-  if (!modal) {
-    modal = document.createElement('div');
-    modal.id = 'facilityModal';
-    modal.className = 'fixed inset-0 z-[100000] bg-black/80 overflow-y-auto';
-    modal.onclick = (e) => { if (e.target === modal) closeFacilityModal(); };
-    document.body.appendChild(modal);
-  }
-  
-  modal.innerHTML = `
-  <div class="bg-white w-full h-screen md:h-auto md:max-w-4xl md:mx-auto md:my-8 md:rounded-2xl overflow-hidden shadow-2xl animate-modal-slide-up flex flex-col" onclick="event.stopPropagation()" style="max-height: 100vh; height: 100dvh;">
-    <!-- Header with Teal/Emerald Green gradient -->
-    <div class="bg-gradient-to-r from-teal-700 to-emerald-600 px-5 py-3 text-white shrink-0">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-4">
-          <img src="https://trackedu.github.io/common-assets/facility.png" class="w-10 h-10 object-contain rounded-xl">
-          <div>
-            <h3 class="text-xl font-black">Facility Booking</h3>
-            <p class="text-white/80 text-sm">Smart scheduling. Zero double-booking.</p>
-          </div>
-        </div>
-        <button onclick="closeFacilityModal()" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition text-xl">✕</button>
-      </div>
-    </div>
-    
-    <!-- Scrollable Body -->
-    <div class="overflow-y-auto flex-1 p-4" style="-webkit-overflow-scrolling: touch;">
-      
-      <!-- Image Carousel -->
-      <div class="facility-carousel-container mb-3">
-        <div class="facility-carousel-main aspect-square" onclick="openFacilityLightbox(currentImageIndex)">
-          <img id="facilityMainImage" src="${facilityImages[0].src}" alt="${facilityImages[0].alt}" class="w-full h-full object-contain">
-          <button class="facility-carousel-nav facility-carousel-prev" onclick="event.stopPropagation(); changeFacilityImage(-1)">
-            <i class="fas fa-chevron-left text-gray-800"></i>
-          </button>
-          <button class="facility-carousel-nav facility-carousel-next" onclick="event.stopPropagation(); changeFacilityImage(1)">
-            <i class="fas fa-chevron-right text-gray-800"></i>
-          </button>
-        </div>
-        <div class="facility-carousel-dots" id="facilityCarouselDots"></div>
-        <div class="facility-thumbnails" id="facilityThumbnails"></div>
-      </div>
-      
-      <!-- Tech Stack Note -->
-      <div class="bg-teal-50 border border-teal-200 rounded-xl p-2 text-center">
-        <p class="text-sm text-teal-800"><i class="fas fa-firebase mr-2 text-teal-600"></i> Built on Firebase · Real-time sync · Works on all devices</p>
-      </div>
-    </div>
-    
-    <!-- Footer CTA -->
-    <div class="border-t border-gray-200 bg-gray-50 px-5 py-3 shrink-0 flex flex-col sm:flex-row items-center justify-between gap-2">
-      <p class="text-sm text-gray-500"><i class="fas fa-calendar-plus text-teal-600 mr-1"></i> Available now for TrackEDU schools</p>
-      <div class="flex gap-3">
-        <button onclick="closeFacilityModal(); openPilotModal();" class="px-6 py-2.5 rounded-xl bg-teal-600 text-white font-bold text-sm hover:bg-teal-700 transition shadow-md">Start 30-Day Pilot →</button>
-        <button onclick="closeFacilityModal()" class="px-5 py-2.5 rounded-xl border border-gray-300 text-gray-600 font-bold text-sm hover:bg-gray-100 transition">Close</button>
-      </div>
-    </div>
-  </div>
-`;
-  
-  currentImageIndex = 0;
-  updateFacilityCarousel();
-  modal.classList.remove('hidden');
-  modal.style.display = 'block';
-  document.body.style.overflow = 'hidden';
-}
-
-function closeFacilityModal() {
-  const modal = document.getElementById('facilityModal');
-  if (modal) {
-    modal.classList.add('hidden');
-    modal.style.display = 'none';
-    document.body.style.overflow = '';
-  }
-  closeFacilityLightbox();
-}
-
-function updateFacilityCarousel() {
-  const mainImg = document.getElementById('facilityMainImage');
-  if (mainImg) {
-    mainImg.src = facilityImages[currentImageIndex].src;
-    mainImg.alt = facilityImages[currentImageIndex].alt;
-  }
-  
-  const dotsContainer = document.getElementById('facilityCarouselDots');
-  if (dotsContainer) {
-    dotsContainer.innerHTML = facilityImages.map((img, idx) => 
-      `<button class="facility-carousel-dot ${idx === currentImageIndex ? 'active' : ''}" onclick="changeFacilityImageTo(${idx})"></button>`
-    ).join('');
-  }
-  
-  const thumbsContainer = document.getElementById('facilityThumbnails');
-  if (thumbsContainer) {
-    thumbsContainer.innerHTML = facilityImages.map((img, idx) => 
-      `<img src="${img.src}" alt="${img.alt}" class="facility-thumb ${idx === currentImageIndex ? 'active' : ''}" onclick="changeFacilityImageTo(${idx})">`
-    ).join('');
-  }
-}
-
-function changeFacilityImage(delta) {
-  currentImageIndex = (currentImageIndex + delta + facilityImages.length) % facilityImages.length;
-  updateFacilityCarousel();
-}
-
-function changeFacilityImageTo(index) {
-  currentImageIndex = index;
-  updateFacilityCarousel();
-}
-
-// Fullscreen lightbox functions
-function openFacilityLightbox(startIndex) {
-  lightboxCurrentIndex = startIndex;
-  
-  let lightbox = document.getElementById('facilityLightbox');
-  if (!lightbox) {
-    lightbox = document.createElement('div');
-    lightbox.id = 'facilityLightbox';
-    lightbox.className = 'facility-lightbox';
-    lightbox.onclick = (e) => { if (e.target === lightbox) closeFacilityLightbox(); };
-    document.body.appendChild(lightbox);
-  }
-  
-  lightbox.innerHTML = `
-    <button class="facility-lightbox-close" onclick="closeFacilityLightbox()"><i class="fas fa-times"></i></button>
-    <button class="facility-lightbox-nav facility-lightbox-prev" onclick="event.stopPropagation(); changeLightboxImage(-1)"><i class="fas fa-chevron-left"></i></button>
-    <button class="facility-lightbox-nav facility-lightbox-next" onclick="event.stopPropagation(); changeLightboxImage(1)"><i class="fas fa-chevron-right"></i></button>
-    <img id="facilityLightboxImg" src="${facilityImages[lightboxCurrentIndex].src}" alt="${facilityImages[lightboxCurrentIndex].alt}">
-    <div class="facility-lightbox-counter">${lightboxCurrentIndex + 1} / ${facilityImages.length}</div>
-  `;
-  
-  lightbox.classList.add('active');
-  document.body.style.overflow = 'hidden';
-  
-  // Add keyboard navigation
-  document.addEventListener('keydown', facilityLightboxKeyHandler);
-}
-
-function closeFacilityLightbox() {
-  const lightbox = document.getElementById('facilityLightbox');
-  if (lightbox) {
-    lightbox.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-  document.removeEventListener('keydown', facilityLightboxKeyHandler);
-}
-
-function changeLightboxImage(delta) {
-  lightboxCurrentIndex = (lightboxCurrentIndex + delta + facilityImages.length) % facilityImages.length;
-  const img = document.getElementById('facilityLightboxImg');
-  const counter = document.querySelector('.facility-lightbox-counter');
-  if (img) {
-    img.src = facilityImages[lightboxCurrentIndex].src;
-    img.alt = facilityImages[lightboxCurrentIndex].alt;
-  }
-  if (counter) {
-    counter.textContent = `${lightboxCurrentIndex + 1} / ${facilityImages.length}`;
-  }
-}
-
-function facilityLightboxKeyHandler(e) {
-  if (e.key === 'ArrowLeft') {
-    changeLightboxImage(-1);
-  } else if (e.key === 'ArrowRight') {
-    changeLightboxImage(1);
-  } else if (e.key === 'Escape') {
-    closeFacilityLightbox();
-  }
-}
 
 
 
