@@ -1919,6 +1919,217 @@ html { scroll-padding-top: 100px; }
 }
 
 
+
+/* Facility Booking Modal - Image Carousel Styles */
+.facility-carousel-container {
+  position: relative;
+  width: 100%;
+  background: #f8fafc;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.facility-carousel-main {
+  position: relative;
+  aspect-ratio: 16/9;
+  background: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.facility-carousel-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #0f172a;
+}
+
+.facility-carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background: rgba(255,255,255,0.9);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  z-index: 10;
+}
+
+.facility-carousel-nav:hover {
+  background: white;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.facility-carousel-prev {
+  left: 16px;
+}
+
+.facility-carousel-next {
+  right: 16px;
+}
+
+.facility-carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px;
+  background: white;
+  border-top: 1px solid #e2e8f0;
+}
+
+.facility-carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.facility-carousel-dot.active {
+  background: #0d9488;
+  width: 24px;
+  border-radius: 4px;
+}
+
+.facility-thumbnails {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  background: #f1f5f9;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.facility-thumb {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.facility-thumb.active {
+  border-color: #f97316;
+  transform: scale(1.02);
+}
+
+.facility-thumb:hover {
+  transform: scale(1.05);
+}
+
+/* Fullscreen lightbox for images */
+.facility-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200000;
+  background: rgba(0,0,0,0.95);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.facility-lightbox.active {
+  display: flex;
+}
+
+.facility-lightbox img {
+  max-width: 90vw;
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+.facility-lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  background: rgba(255,255,255,0.2);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.facility-lightbox-close:hover {
+  background: rgba(255,255,255,0.3);
+  transform: scale(1.05);
+}
+
+.facility-lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  background: rgba(255,255,255,0.2);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.facility-lightbox-nav:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+.facility-lightbox-prev {
+  left: 20px;
+}
+
+.facility-lightbox-next {
+  right: 20px;
+}
+
+.facility-lightbox-counter {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 14px;
+  background: rgba(0,0,0,0.6);
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+  .facility-carousel-nav {
+    width: 32px;
+    height: 32px;
+  }
+  .facility-thumb {
+    width: 50px;
+    height: 38px;
+  }
+}
+
+
   </style>
 </head>
 <body class="antialiased text-gray-800 overflow-x-hidden">
@@ -4621,6 +4832,9 @@ setTimeout(function() {
 </section>
 
 
+<!-- ========================================== -->
+<!-- CHAPTER 3: Three Tools. One Ecosystem.      -->
+<!-- ========================================== -->
 <section id="three-tools" class="py-16 bg-white overflow-hidden border-b border-gray-100">
   
   <!-- Founding Schools Section - Compact Premium Design -->
@@ -4735,7 +4949,7 @@ setTimeout(function() {
         <span class="inline-flex items-center gap-2">
           <span class="text-xs font-black uppercase tracking-wider text-brand-green">Chapter 3</span>
           <span class="text-xs text-gray-400">/</span>
-          <span class="text-xs font-medium text-gray-500">Three Tools. One Ecosystem.</span>
+          <span class="text-xs font-medium text-gray-500">Four Tools. One Ecosystem.</span>
         </span>
         <div class="h-px w-8 bg-brand-green/30 hidden sm:block"></div>
       </div>
@@ -4750,92 +4964,116 @@ setTimeout(function() {
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-green">who shape school culture every day.</span>
       </h2>
       <p class="text-gray-500 text-base md:text-lg max-w-2xl mx-auto mt-4 leading-relaxed">
-        Teachers can award points and manage classes. Students can see progress and stay engaged. School leaders can track behaviour, patterns, and support needs in one connected system.
+        Teachers can award points and manage classes. Students can see progress and stay engaged. School leaders can track behaviour, patterns, and now manage facilities — all in one connected system.
       </p>
     </div>
 
-    <div id="tools-section" class="grid md:grid-cols-3 gap-6 relative">
+    <div id="tools-section" class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 relative items-stretch">
       
       <!-- TOOL 1: Teacher App -->
-      <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 group" data-aos="fade-up">
-        <div class="w-14 h-14 bg-brand-blue/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-          <i class="fas fa-chalkboard-user text-2xl text-brand-blue"></i>
-        </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-2">Teacher App</h3>
-        <p class="text-gray-500 text-sm mb-3">12+ classroom tools. One dashboard.</p>
-        
-        <ul class="space-y-1.5 text-sm text-gray-600 mb-4">
-          <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Magic Hat random picker</li>
-          <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Focus Timer for lessons</li>
-          <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Quick Quiz library (250+ questions)</li>
-          <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> One-click house points</li>
-        </ul>
-        
-        <div onclick="showToolInfo('teacher')" class="rounded-xl overflow-hidden cursor-pointer group relative">
-          <img src="https://img.youtube.com/vi/XXGsGuO1t1s/hqdefault.jpg" class="w-full h-24 object-cover group-hover:scale-105 transition duration-300">
-          <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/50 transition">
-            <div class="w-8 h-8 bg-white/90 rounded-full flex items-center justify-center">
-              <i class="fas fa-play text-brand-blue text-xs ml-0.5"></i>
-            </div>
-          </div>
-        </div>
-        
-        <button onclick="showToolInfo('teacher')" class="mt-3 w-full py-1.5 bg-brand-blue/10 text-brand-blue rounded-lg font-semibold text-sm hover:bg-brand-blue hover:text-white transition">Watch demo</button>
+<div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 group flex flex-col h-full" data-aos="fade-up">
+  <div class="w-14 h-14 bg-brand-blue/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+    <i class="fas fa-chalkboard-user text-2xl text-brand-blue"></i>
+  </div>
+  <h3 class="text-xl font-bold text-gray-900 mb-2">Teacher App</h3>
+  <p class="text-gray-500 text-sm mb-3">12+ classroom tools. One dashboard.</p>
+  
+  <ul class="space-y-1.5 text-sm text-gray-600 mb-4 flex-1">
+    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Magic Hat random picker</li>
+    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Focus Timer for lessons</li>
+    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Quick Quiz library (250+ questions)</li>
+    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> One-click house points</li>
+  </ul>
+  
+  <div onclick="showToolInfo('teacher')" class="rounded-xl overflow-hidden cursor-pointer group relative bg-gray-100">
+    <img src="https://img.youtube.com/vi/XXGsGuO1t1s/hqdefault.jpg" class="w-full h-24 object-cover group-hover:scale-105 transition duration-300">
+    <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/50 transition">
+      <div class="w-8 h-8 bg-white/90 rounded-full flex items-center justify-center">
+        <i class="fas fa-play text-brand-blue text-xs ml-0.5"></i>
       </div>
+    </div>
+  </div>
+  
+  <button onclick="showToolInfo('teacher')" class="mt-3 w-full py-1.5 bg-brand-blue/10 text-brand-blue rounded-lg font-semibold text-sm hover:bg-brand-blue hover:text-white transition">Watch demo</button>
+</div>
           
-      <!-- TOOL 2: Student Portal -->
-      <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 group" data-aos="fade-up" data-aos-delay="100">
-        <div class="w-14 h-14 bg-brand-green/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-          <i class="fas fa-user-graduate text-2xl text-brand-green"></i>
-        </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-2">Student Portal</h3>
-        <p class="text-gray-500 text-sm mb-3">Recognition, participation, collaboration.</p>
-        
-        <ul class="space-y-1.5 text-sm text-gray-600 mb-4">
-          <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Visible recognition system</li>
-          <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Track daily participation</li>
-          <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Live house leaderboards</li>
-          <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> House collaboration tools</li>
-        </ul>
-        
-        <div onclick="showToolInfo('student')" class="rounded-xl overflow-hidden cursor-pointer group relative">
-          <img src="https://img.youtube.com/vi/rDBz3GPZSFE/hqdefault.jpg" class="w-full h-24 object-cover group-hover:scale-105 transition duration-300">
-          <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/50 transition">
-            <div class="w-8 h-8 bg-white/90 rounded-full flex items-center justify-center">
-              <i class="fas fa-play text-brand-green text-xs ml-0.5"></i>
-            </div>
-          </div>
-        </div>
-        
-        <button onclick="showToolInfo('student')" class="mt-3 w-full py-1.5 bg-brand-green/10 text-brand-green rounded-lg font-semibold text-sm hover:bg-brand-green hover:text-white transition">Watch demo</button>
+     <!-- TOOL 2: Student Portal -->
+<div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 group flex flex-col h-full" data-aos="fade-up" data-aos-delay="100">
+  <div class="w-14 h-14 bg-brand-green/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+    <i class="fas fa-user-graduate text-2xl text-brand-green"></i>
+  </div>
+  <h3 class="text-xl font-bold text-gray-900 mb-2">Student Portal</h3>
+  <p class="text-gray-500 text-sm mb-3">Recognition, participation, collaboration.</p>
+  
+  <ul class="space-y-1.5 text-sm text-gray-600 mb-4 flex-1">
+    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Visible recognition system</li>
+    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Track daily participation</li>
+    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Live house leaderboards</li>
+    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> House collaboration tools</li>
+  </ul>
+  
+  <div onclick="showToolInfo('student')" class="rounded-xl overflow-hidden cursor-pointer group relative bg-gray-100">
+    <img src="https://img.youtube.com/vi/rDBz3GPZSFE/hqdefault.jpg" class="w-full h-24 object-cover group-hover:scale-105 transition duration-300">
+    <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/50 transition">
+      <div class="w-8 h-8 bg-white/90 rounded-full flex items-center justify-center">
+        <i class="fas fa-play text-brand-green text-xs ml-0.5"></i>
       </div>
+    </div>
+  </div>
+  
+  <button onclick="showToolInfo('student')" class="mt-3 w-full py-1.5 bg-brand-green/10 text-brand-green rounded-lg font-semibold text-sm hover:bg-brand-green hover:text-white transition">Watch demo</button>
+</div>
           
-      <!-- TOOL 3: Behavior Tracker -->
-      <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 group" data-aos="fade-up" data-aos-delay="200">
-        <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-          <i class="fas fa-chart-line text-2xl text-purple-600"></i>
-        </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-2">Behavior Tracker</h3>
-        <p class="text-gray-500 text-sm mb-3">Tiered interventions. Complete visibility.</p>
-        
-        <ul class="space-y-1.5 text-sm text-gray-600 mb-4">
-          <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Pre-Tier 1 to Tier 3 tracking</li>
-          <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Parent communication logs</li>
-          <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Real-time behavior analytics</li>
-          <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Export incident reports</li>
-        </ul>
-        
-        <div onclick="showToolInfo('behavior')" class="rounded-xl overflow-hidden cursor-pointer group relative">
-          <img src="https://img.youtube.com/vi/_cXVZfvfPtQ/hqdefault.jpg" class="w-full h-24 object-cover group-hover:scale-105 transition duration-300">
-          <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/50 transition">
-            <div class="w-8 h-8 bg-white/90 rounded-full flex items-center justify-center">
-              <i class="fas fa-play text-purple-600 text-xs ml-0.5"></i>
-            </div>
-          </div>
-        </div>
-        
-        <button onclick="showToolInfo('behavior')" class="mt-3 w-full py-1.5 bg-purple-100 text-purple-600 rounded-lg font-semibold text-sm hover:bg-purple-600 hover:text-white transition">Watch demo</button>
+     <!-- TOOL 3: Behavior Tracker -->
+<div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 group flex flex-col h-full" data-aos="fade-up" data-aos-delay="200">
+  <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+    <i class="fas fa-chart-line text-2xl text-purple-600"></i>
+  </div>
+  <h3 class="text-xl font-bold text-gray-900 mb-2">Behavior Tracker</h3>
+  <p class="text-gray-500 text-sm mb-3">Tiered interventions. Complete visibility.</p>
+  
+  <ul class="space-y-1.5 text-sm text-gray-600 mb-4 flex-1">
+    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Pre-Tier 1 to Tier 3 tracking</li>
+    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Parent communication logs</li>
+    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Real-time behavior analytics</li>
+    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-green text-xs"></i> Export incident reports</li>
+  </ul>
+  
+  <div onclick="showToolInfo('behavior')" class="rounded-xl overflow-hidden cursor-pointer group relative bg-gray-100">
+    <img src="https://img.youtube.com/vi/_cXVZfvfPtQ/hqdefault.jpg" class="w-full h-24 object-cover group-hover:scale-105 transition duration-300">
+    <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/50 transition">
+      <div class="w-8 h-8 bg-white/90 rounded-full flex items-center justify-center">
+        <i class="fas fa-play text-purple-600 text-xs ml-0.5"></i>
       </div>
+    </div>
+  </div>
+  
+  <button onclick="showToolInfo('behavior')" class="mt-3 w-full py-1.5 bg-purple-100 text-purple-600 rounded-lg font-semibold text-sm hover:bg-purple-600 hover:text-white transition">Watch demo</button>
+</div>
+
+     <!-- TOOL 4: Facility Booking -->
+<div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 group flex flex-col h-full" data-aos="fade-up" data-aos-delay="300">
+  <div class="mb-4 group-hover:scale-110 transition-transform">
+    <img src="https://trackedu.github.io/common-assets/facility.png" alt="Facility Booking" class="w-12 h-12 object-contain rounded-xl">
+  </div>
+  <h3 class="text-xl font-bold text-gray-900 mb-2">Facility Booking</h3>
+  <p class="text-gray-500 text-sm mb-3">Smart scheduling. Zero double-booking.</p>
+  
+  <ul class="space-y-1.5 text-sm text-gray-600 mb-4 flex-1">
+    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-teal-600 text-xs"></i> Interactive weekly timetable</li>
+    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-teal-600 text-xs"></i> Approval workflows & conflict alerts</li>
+    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-teal-600 text-xs"></i> Facility maintenance blocking</li>
+    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-teal-600 text-xs"></i> Export custodian schedules</li>
+  </ul>
+  
+  <div class="rounded-xl overflow-hidden cursor-pointer bg-gray-100" onclick="openFacilityModal()">
+    <img src="https://trackedu.github.io/common-assets/facility1.png" alt="Facility Booking preview" class="w-full h-24 object-cover">
+  </div>
+  
+  <button onclick="openFacilityModal()" class="mt-3 w-full py-1.5 bg-teal-50 text-teal-700 rounded-lg font-semibold text-sm hover:bg-teal-600 hover:text-white transition">
+    Preview Module →
+  </button>
+</div>
           
     </div>
 
@@ -4844,7 +5082,7 @@ setTimeout(function() {
       <div class="h-px w-10 bg-gray-200"></div>
       <div class="flex items-center gap-2 text-[11px] text-gray-400">
         <i class="fas fa-sync-alt text-brand-green"></i>
-        <span>Real-time sync across all three tools</span>
+        <span>Real-time sync across all four tools</span>
       </div>
       <div class="h-px w-10 bg-gray-200"></div>
     </div>
@@ -10715,6 +10953,210 @@ document.addEventListener('DOMContentLoaded', function() {
           });
       }
   })();
+
+
+
+
+
+
+
+
+// ==========================================
+// FACILITY BOOKING MODAL WITH CAROUSEL
+// ==========================================
+
+// Image array for carousel
+const facilityImages = [
+  { src: "https://trackedu.github.io/common-assets/facility1.png", alt: "Interactive weekly timetable view" },
+  { src: "https://trackedu.github.io/common-assets/facility2.png", alt: "Facility booking dashboard" },
+  { src: "https://trackedu.github.io/common-assets/facility3.png", alt: "Approval workflow management" },
+  { src: "https://trackedu.github.io/common-assets/facility4.png", alt: "Conflict detection and alerts" },
+  { src: "https://trackedu.github.io/common-assets/facility5.png", alt: "Maintenance blocking mode" },
+  { src: "https://trackedu.github.io/common-assets/facility6.png", alt: "Custodian schedule export" },
+  { src: "https://trackedu.github.io/common-assets/facility7.png", alt: "Multi-facility overview" }
+];
+
+let currentImageIndex = 0;
+let lightboxCurrentIndex = 0;
+
+function openFacilityModal() {
+  let modal = document.getElementById('facilityModal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'facilityModal';
+    modal.className = 'fixed inset-0 z-[100000] bg-black/80 overflow-y-auto';
+    modal.onclick = (e) => { if (e.target === modal) closeFacilityModal(); };
+    document.body.appendChild(modal);
+  }
+  
+  modal.innerHTML = `
+    <div class="bg-white w-full md:max-w-4xl md:mx-auto md:my-8 md:rounded-2xl overflow-hidden shadow-2xl animate-modal-slide-up flex flex-col" onclick="event.stopPropagation()" style="max-height: 85vh;">
+      <!-- Header with Teal/Emerald Green gradient -->
+      <div class="bg-gradient-to-r from-teal-700 to-emerald-600 px-5 py-3 text-white shrink-0">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-4">
+            <img src="https://trackedu.github.io/common-assets/facility.png" class="w-10 h-10 object-contain rounded-xl">
+            <div>
+              <h3 class="text-xl font-black">Facility Booking System</h3>
+              <p class="text-white/80 text-sm">Smart scheduling for modern schools</p>
+            </div>
+          </div>
+          <button onclick="closeFacilityModal()" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition text-xl">✕</button>
+        </div>
+      </div>
+      
+      <div class="overflow-y-auto flex-1 p-4">
+        
+        
+        <div class="facility-carousel-container mb-3">
+  <div class="facility-carousel-main aspect-square" onclick="openFacilityLightbox(currentImageIndex)">
+    <img id="facilityMainImage" src="${facilityImages[0].src}" alt="${facilityImages[0].alt}" class="w-full h-full object-contain">
+    <button class="facility-carousel-nav facility-carousel-prev" onclick="event.stopPropagation(); changeFacilityImage(-1)">
+      <i class="fas fa-chevron-left text-gray-800"></i>
+    </button>
+    <button class="facility-carousel-nav facility-carousel-next" onclick="event.stopPropagation(); changeFacilityImage(1)">
+      <i class="fas fa-chevron-right text-gray-800"></i>
+    </button>
+  </div>
+  <div class="facility-carousel-dots" id="facilityCarouselDots"></div>
+  <!-- Thumbnails row - horizontal scrollable -->
+  <div class="facility-thumbnails" id="facilityThumbnails"></div>
+</div>
+        
+        <!-- Feature Grid with Teal icons -->
+        
+        
+        <!-- Tech Stack Note with Teal theme -->
+        <div class="bg-teal-50 border border-teal-200 rounded-xl p-2 text-center">
+          <p class="text-sm text-teal-800"><i class="fas fa-firebase mr-2 text-teal-600"></i> Built on Firebase · Real-time sync · Works on all devices</p>
+        </div>
+      </div>
+      
+      <!-- Footer CTA with Teal button -->
+      <div class="border-t border-gray-200 bg-gray-50 px-5 py-3 shrink-0 flex flex-col sm:flex-row items-center justify-between gap-2">
+        <p class="text-sm text-gray-500"><i class="fas fa-calendar-plus text-teal-600 mr-1"></i> Available now for TrackEDU schools</p>
+        <div class="flex gap-3">
+          <button onclick="closeFacilityModal(); openPilotModal();" class="px-6 py-2.5 rounded-xl bg-teal-600 text-white font-bold text-sm hover:bg-teal-700 transition shadow-md">Start 30-Day Pilot →</button>
+          <button onclick="closeFacilityModal()" class="px-5 py-2.5 rounded-xl border border-gray-300 text-gray-600 font-bold text-sm hover:bg-gray-100 transition">Close</button>
+        </div>
+      </div>
+    </div>
+  `;
+  
+  currentImageIndex = 0;
+  updateFacilityCarousel();
+  modal.classList.remove('hidden');
+  modal.style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeFacilityModal() {
+  const modal = document.getElementById('facilityModal');
+  if (modal) {
+    modal.classList.add('hidden');
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  closeFacilityLightbox();
+}
+
+function updateFacilityCarousel() {
+  const mainImg = document.getElementById('facilityMainImage');
+  if (mainImg) {
+    mainImg.src = facilityImages[currentImageIndex].src;
+    mainImg.alt = facilityImages[currentImageIndex].alt;
+  }
+  
+  const dotsContainer = document.getElementById('facilityCarouselDots');
+  if (dotsContainer) {
+    dotsContainer.innerHTML = facilityImages.map((img, idx) => 
+      `<button class="facility-carousel-dot ${idx === currentImageIndex ? 'active' : ''}" onclick="changeFacilityImageTo(${idx})"></button>`
+    ).join('');
+  }
+  
+  const thumbsContainer = document.getElementById('facilityThumbnails');
+  if (thumbsContainer) {
+    thumbsContainer.innerHTML = facilityImages.map((img, idx) => 
+      `<img src="${img.src}" alt="${img.alt}" class="facility-thumb ${idx === currentImageIndex ? 'active' : ''}" onclick="changeFacilityImageTo(${idx})">`
+    ).join('');
+  }
+}
+
+function changeFacilityImage(delta) {
+  currentImageIndex = (currentImageIndex + delta + facilityImages.length) % facilityImages.length;
+  updateFacilityCarousel();
+}
+
+function changeFacilityImageTo(index) {
+  currentImageIndex = index;
+  updateFacilityCarousel();
+}
+
+// Fullscreen lightbox functions
+function openFacilityLightbox(startIndex) {
+  lightboxCurrentIndex = startIndex;
+  
+  let lightbox = document.getElementById('facilityLightbox');
+  if (!lightbox) {
+    lightbox = document.createElement('div');
+    lightbox.id = 'facilityLightbox';
+    lightbox.className = 'facility-lightbox';
+    lightbox.onclick = (e) => { if (e.target === lightbox) closeFacilityLightbox(); };
+    document.body.appendChild(lightbox);
+  }
+  
+  lightbox.innerHTML = `
+    <button class="facility-lightbox-close" onclick="closeFacilityLightbox()"><i class="fas fa-times"></i></button>
+    <button class="facility-lightbox-nav facility-lightbox-prev" onclick="event.stopPropagation(); changeLightboxImage(-1)"><i class="fas fa-chevron-left"></i></button>
+    <button class="facility-lightbox-nav facility-lightbox-next" onclick="event.stopPropagation(); changeLightboxImage(1)"><i class="fas fa-chevron-right"></i></button>
+    <img id="facilityLightboxImg" src="${facilityImages[lightboxCurrentIndex].src}" alt="${facilityImages[lightboxCurrentIndex].alt}">
+    <div class="facility-lightbox-counter">${lightboxCurrentIndex + 1} / ${facilityImages.length}</div>
+  `;
+  
+  lightbox.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  
+  // Add keyboard navigation
+  document.addEventListener('keydown', facilityLightboxKeyHandler);
+}
+
+function closeFacilityLightbox() {
+  const lightbox = document.getElementById('facilityLightbox');
+  if (lightbox) {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  document.removeEventListener('keydown', facilityLightboxKeyHandler);
+}
+
+function changeLightboxImage(delta) {
+  lightboxCurrentIndex = (lightboxCurrentIndex + delta + facilityImages.length) % facilityImages.length;
+  const img = document.getElementById('facilityLightboxImg');
+  const counter = document.querySelector('.facility-lightbox-counter');
+  if (img) {
+    img.src = facilityImages[lightboxCurrentIndex].src;
+    img.alt = facilityImages[lightboxCurrentIndex].alt;
+  }
+  if (counter) {
+    counter.textContent = `${lightboxCurrentIndex + 1} / ${facilityImages.length}`;
+  }
+}
+
+function facilityLightboxKeyHandler(e) {
+  if (e.key === 'ArrowLeft') {
+    changeLightboxImage(-1);
+  } else if (e.key === 'ArrowRight') {
+    changeLightboxImage(1);
+  } else if (e.key === 'Escape') {
+    closeFacilityLightbox();
+  }
+}
+
+
+
+
+
+
   </script>
 
 
