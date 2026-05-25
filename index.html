@@ -2130,6 +2130,39 @@ html { scroll-padding-top: 100px; }
 }
 
 
+
+/* Mobile full-height modal fix */
+@media (max-width: 768px) {
+  #facilityModal {
+    position: fixed !important;
+    inset: 0 !important;
+    background: rgba(0, 0, 0, 0.8) !important;
+    z-index: 100000 !important;
+  }
+  
+  #facilityModal > div {
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+  }
+  
+  .facility-carousel-main {
+    min-height: 280px;
+  }
+  
+  .facility-thumbnails {
+    padding: 8px;
+    gap: 6px;
+  }
+  
+  .facility-thumb {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+
   </style>
 </head>
 <body class="antialiased text-gray-800 overflow-x-hidden">
@@ -10990,58 +11023,55 @@ function openFacilityModal() {
   }
   
   modal.innerHTML = `
-    <div class="bg-white w-full md:max-w-4xl md:mx-auto md:my-8 md:rounded-2xl overflow-hidden shadow-2xl animate-modal-slide-up flex flex-col" onclick="event.stopPropagation()" style="max-height: 85vh;">
-      <!-- Header with Teal/Emerald Green gradient -->
-      <div class="bg-gradient-to-r from-teal-700 to-emerald-600 px-5 py-3 text-white shrink-0">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center gap-4">
-            <img src="https://trackedu.github.io/common-assets/facility.png" class="w-10 h-10 object-contain rounded-xl">
-            <div>
-              <h3 class="text-xl font-black">Facility Booking System</h3>
-              <p class="text-white/80 text-sm">Smart scheduling for modern schools</p>
-            </div>
+  <div class="bg-white w-full h-screen md:h-auto md:max-w-4xl md:mx-auto md:my-8 md:rounded-2xl overflow-hidden shadow-2xl animate-modal-slide-up flex flex-col" onclick="event.stopPropagation()" style="max-height: 100vh; height: 100dvh;">
+    <!-- Header with Teal/Emerald Green gradient -->
+    <div class="bg-gradient-to-r from-teal-700 to-emerald-600 px-5 py-3 text-white shrink-0">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-4">
+          <img src="https://trackedu.github.io/common-assets/facility.png" class="w-10 h-10 object-contain rounded-xl">
+          <div>
+            <h3 class="text-xl font-black">Facility Booking</h3>
+            <p class="text-white/80 text-sm">Smart scheduling. Zero double-booking.</p>
           </div>
-          <button onclick="closeFacilityModal()" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition text-xl">✕</button>
         </div>
-      </div>
-      
-      <div class="overflow-y-auto flex-1 p-4">
-        
-        
-        <div class="facility-carousel-container mb-3">
-  <div class="facility-carousel-main aspect-square" onclick="openFacilityLightbox(currentImageIndex)">
-    <img id="facilityMainImage" src="${facilityImages[0].src}" alt="${facilityImages[0].alt}" class="w-full h-full object-contain">
-    <button class="facility-carousel-nav facility-carousel-prev" onclick="event.stopPropagation(); changeFacilityImage(-1)">
-      <i class="fas fa-chevron-left text-gray-800"></i>
-    </button>
-    <button class="facility-carousel-nav facility-carousel-next" onclick="event.stopPropagation(); changeFacilityImage(1)">
-      <i class="fas fa-chevron-right text-gray-800"></i>
-    </button>
-  </div>
-  <div class="facility-carousel-dots" id="facilityCarouselDots"></div>
-  <!-- Thumbnails row - horizontal scrollable -->
-  <div class="facility-thumbnails" id="facilityThumbnails"></div>
-</div>
-        
-        <!-- Feature Grid with Teal icons -->
-        
-        
-        <!-- Tech Stack Note with Teal theme -->
-        <div class="bg-teal-50 border border-teal-200 rounded-xl p-2 text-center">
-          <p class="text-sm text-teal-800"><i class="fas fa-firebase mr-2 text-teal-600"></i> Built on Firebase · Real-time sync · Works on all devices</p>
-        </div>
-      </div>
-      
-      <!-- Footer CTA with Teal button -->
-      <div class="border-t border-gray-200 bg-gray-50 px-5 py-3 shrink-0 flex flex-col sm:flex-row items-center justify-between gap-2">
-        <p class="text-sm text-gray-500"><i class="fas fa-calendar-plus text-teal-600 mr-1"></i> Available now for TrackEDU schools</p>
-        <div class="flex gap-3">
-          <button onclick="closeFacilityModal(); openPilotModal();" class="px-6 py-2.5 rounded-xl bg-teal-600 text-white font-bold text-sm hover:bg-teal-700 transition shadow-md">Start 30-Day Pilot →</button>
-          <button onclick="closeFacilityModal()" class="px-5 py-2.5 rounded-xl border border-gray-300 text-gray-600 font-bold text-sm hover:bg-gray-100 transition">Close</button>
-        </div>
+        <button onclick="closeFacilityModal()" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition text-xl">✕</button>
       </div>
     </div>
-  `;
+    
+    <!-- Scrollable Body -->
+    <div class="overflow-y-auto flex-1 p-4" style="-webkit-overflow-scrolling: touch;">
+      
+      <!-- Image Carousel -->
+      <div class="facility-carousel-container mb-3">
+        <div class="facility-carousel-main aspect-square" onclick="openFacilityLightbox(currentImageIndex)">
+          <img id="facilityMainImage" src="${facilityImages[0].src}" alt="${facilityImages[0].alt}" class="w-full h-full object-contain">
+          <button class="facility-carousel-nav facility-carousel-prev" onclick="event.stopPropagation(); changeFacilityImage(-1)">
+            <i class="fas fa-chevron-left text-gray-800"></i>
+          </button>
+          <button class="facility-carousel-nav facility-carousel-next" onclick="event.stopPropagation(); changeFacilityImage(1)">
+            <i class="fas fa-chevron-right text-gray-800"></i>
+          </button>
+        </div>
+        <div class="facility-carousel-dots" id="facilityCarouselDots"></div>
+        <div class="facility-thumbnails" id="facilityThumbnails"></div>
+      </div>
+      
+      <!-- Tech Stack Note -->
+      <div class="bg-teal-50 border border-teal-200 rounded-xl p-2 text-center">
+        <p class="text-sm text-teal-800"><i class="fas fa-firebase mr-2 text-teal-600"></i> Built on Firebase · Real-time sync · Works on all devices</p>
+      </div>
+    </div>
+    
+    <!-- Footer CTA -->
+    <div class="border-t border-gray-200 bg-gray-50 px-5 py-3 shrink-0 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <p class="text-sm text-gray-500"><i class="fas fa-calendar-plus text-teal-600 mr-1"></i> Available now for TrackEDU schools</p>
+      <div class="flex gap-3">
+        <button onclick="closeFacilityModal(); openPilotModal();" class="px-6 py-2.5 rounded-xl bg-teal-600 text-white font-bold text-sm hover:bg-teal-700 transition shadow-md">Start 30-Day Pilot →</button>
+        <button onclick="closeFacilityModal()" class="px-5 py-2.5 rounded-xl border border-gray-300 text-gray-600 font-bold text-sm hover:bg-gray-100 transition">Close</button>
+      </div>
+    </div>
+  </div>
+`;
   
   currentImageIndex = 0;
   updateFacilityCarousel();
