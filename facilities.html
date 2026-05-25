@@ -1,0 +1,673 @@
+ <!DOCTYPE html>
+<html lang="en" data-theme="light" class="scroll-smooth">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WV79KN1XBY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WV79KN1XBY');
+  </script>
+ 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="icon" type="image/png" href="https://i.imgur.com/3PR3SiC.png">
+  <title>Facilities Management Framework | TrackEDU Smart School Scheduling</title>
+ 
+  <meta name="description" content="TrackEDU standalone Facilities Management system. Secure, conflict-free room scheduling for schools, labs, gyms, and auditoriums. Unlimited spaces and staff accounts for USD 499/year.">
+  <meta name="keywords" content="TrackEDU facilities, school room booking software, school room scheduling, campus facility management, international school scheduling system, lab booking software, gym scheduler, conflict-free school booking">
+ 
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+ 
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              blue: '#0f66c3',
+              green: '#87C232',
+              dark: '#0C1E2C',
+              light: '#F8FAFC',
+              teal: '#0d9488',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Poppins', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --blue: #0f66c3;
+      --green: #87C232;
+      --dark: #0C1E2C;
+      --light: #F8FAFC;
+      --teal: #0d9488;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: var(--dark);
+      -webkit-font-smoothing: antialiased;
+    }
+    .text-gradient-teal {
+      background: linear-gradient(135deg, #0d9488 0%, #10b981 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-bg-mesh {
+      background: radial-gradient(circle at 80% 20%, rgba(13, 148, 136, 0.06) 0%, transparent 50%),
+                  radial-gradient(circle at 20% 80%, rgba(15, 102, 195, 0.04) 0%, transparent 50%),
+                  #f8fafc;
+    }
+    .glass-nav {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.85);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      height: 4px;
+      width: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 99px;
+    }
+    /* Whatspot-inspired visual active states */
+    .visual-tab-btn.active {
+      background: #ffffff;
+      border-color: var(--teal);
+      color: var(--teal);
+      box-shadow: 0 10px 25px -5px rgba(13, 148, 136, 0.15);
+    }
+    .visual-tab-btn.active i {
+      color: var(--teal);
+    }
+    /* FAQ summary arrow reset */
+    .faq-summary { list-style: none; }
+    .faq-summary::-webkit-details-marker { display: none; }
+    .faq-summary::after {
+      content: '\2b';
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      font-size: 0.85rem;
+      color: var(--teal);
+      transition: transform 0.2s ease;
+    }
+    details[open] .faq-summary::after {
+      content: '\f068';
+      transform: rotate(180deg);
+    }
+  </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+  <nav class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-gray-200/60 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 lg:px-8 h-16 flex items-center justify-between">
+      
+      <a href="index.html" class="flex items-center gap-2.5">
+        <img src="https://trackedu.github.io/common-assets/trackedulogono.png" alt="TrackEDU Platform Logo" class="w-8 h-8 object-contain transform scale-120">
+        <span class="font-display text-2xl font-black text-brand-dark tracking-tighter">
+          Track<span class="text-brand-green">EDU</span><span class="text-gray-400 font-normal text-base ml-1.5 tracking-normal">Facilities</span>
+        </span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-6">
+        <a href="#features" class="text-sm font-bold text-gray-600 hover:text-brand-teal transition">Platform Features</a>
+        <a href="#workflow" class="text-sm font-bold text-gray-600 hover:text-brand-teal transition">How It Works</a>
+        <a href="#pricing" class="text-sm font-bold text-gray-600 hover:text-brand-teal transition">Pricing Plans</a>
+        <a href="#faq" class="text-sm font-bold text-gray-600 hover:text-brand-teal transition">FAQ</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="https://facilities.trackedu.net/" target="_blank" class="hidden sm:inline-flex text-sm font-bold text-gray-700 hover:text-brand-teal transition px-3 py-1.5">
+          Portal Login
+        </a>
+        <a href="https://facilities.trackedu.net/" target="_blank" class="px-4 py-2 bg-brand-teal hover:bg-teal-700 text-white text-xs font-bold rounded-xl transition shadow-md shadow-teal-600/10">
+          Launch App Portal
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero-bg-mesh pt-32 pb-20 border-b border-gray-200/50">
+    <div class="max-w-7xl mx-auto px-4 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-5 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 bg-teal-50 border border-teal-100 px-3 py-1 rounded-full mb-4">
+            <span class="w-1.5 h-1.5 bg-brand-teal rounded-full animate-pulse"></span>
+            <span class="text-brand-teal text-[10px] font-black uppercase tracking-wider">Independent Outcome Pillar</span>
+          </div>
+          <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-black text-brand-dark tracking-tight leading-[0.98] mb-6">
+            Frictionless room scheduling. <br><span class="text-gradient-teal">Zero booking conflicts.</span>
+          </h1>
+          <p class="text-gray-600 text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
+            End the spreadsheet chaos. TrackEDU Facilities gives your teachers a visual, 1-click weekly scheduling calendar to book halls, labs, courts, and fields instantly while protecting your operational workflows.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+            <a href="https://facilities.trackedu.net/" target="_blank" class="px-8 py-3.5 bg-brand-teal hover:bg-teal-700 text-white font-bold rounded-xl transition shadow-lg shadow-teal-600/20 text-center">
+              Start Free 30-Day Pilot
+            </a>
+            <a href="#features" class="px-6 py-3.5 border-2 border-gray-200 hover:border-brand-teal text-gray-700 font-bold rounded-xl transition text-center bg-white">
+              Explore System Features
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 relative">
+          <div class="bg-slate-900 border-[12px] border-slate-800 rounded-[32px] shadow-2xl p-2 relative overflow-hidden aspect-[16/10] w-full max-w-3xl mx-auto">
+            <img id="heroViewImage" src="https://trackedu.github.io/common-assets/facility1.png" alt="TrackEDU Interactive weekly scheduling grid" class="w-full h-full object-cover rounded-xl transition-opacity duration-300">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="py-24 bg-white border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-black text-brand-teal uppercase tracking-widest bg-teal-50 border border-teal-100 px-3 py-1 rounded-full">Designed For Outcomes</span>
+        <h2 class="font-display text-3xl md:text-5xl font-black text-brand-dark mt-4 tracking-tight leading-tight">
+          Everything your campus coordinates.<br>Managed in one clean grid.
+        </h2>
+        <p class="text-gray-500 text-sm md:text-base mt-2">
+          Click any process layout button below to see the custom execution dashboards we built to save hours across your school team.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-10 items-stretch">
+        
+        <div class="lg:col-span-4 flex flex-col gap-3 justify-center">
+          
+          <button onclick="switchVisualTab(0, 'https://trackedu.github.io/common-assets/facility1.png')" class="visual-tab-btn active w-full p-4 border border-gray-200 rounded-2xl text-left flex items-start gap-4 transition hover:bg-gray-50">
+            <div class="w-10 h-10 rounded-xl bg-teal-50 flex items-center justify-center shrink-0"><i class="fas fa-calendar-alt text-gray-500"></i></div>
+            <div>
+              <h4 class="font-bold text-gray-900 text-sm">Interactive Weekly Schedule</h4>
+              <p class="text-xs text-gray-500 mt-0.5">High-contrast rotation tracking calendar blocks.</p>
+            </div>
+          </button>
+
+          <button onclick="switchVisualTab(1, 'https://trackedu.github.io/common-assets/facility4.png')" class="visual-tab-btn w-full p-4 border border-gray-200 rounded-2xl text-left flex items-start gap-4 transition hover:bg-gray-50">
+            <div class="w-10 h-10 rounded-xl bg-teal-50 flex items-center justify-center shrink-0"><i class="fas fa-shield-halved text-gray-500"></i></div>
+            <div>
+              <h4 class="font-bold text-gray-900 text-sm">Smart Conflict Warnings</h4>
+              <p class="text-xs text-gray-500 mt-0.5">Flags and blocks overlapping double-bookings instantly.</p>
+            </div>
+          </button>
+
+          <button onclick="switchVisualTab(2, 'https://trackedu.github.io/common-assets/facility5.png')" class="visual-tab-btn w-full p-4 border border-gray-200 rounded-2xl text-left flex items-start gap-4 transition hover:bg-gray-50">
+            <div class="w-10 h-10 rounded-xl bg-teal-50 flex items-center justify-center shrink-0"><i class="fas fa-ban text-gray-500"></i></div>
+            <div>
+              <h4 class="font-bold text-gray-900 text-sm">Maintenance Block Out</h4>
+              <p class="text-xs text-gray-500 mt-0.5">Isolate spaces for repairs or specialized school events.</p>
+            </div>
+          </button>
+
+          <button onclick="switchVisualTab(3, 'https://trackedu.github.io/common-assets/facility6.png')" class="visual-tab-btn w-full p-4 border border-gray-200 rounded-2xl text-left flex items-start gap-4 transition hover:bg-gray-50">
+            <div class="w-10 h-10 rounded-xl bg-teal-50 flex items-center justify-center shrink-0"><i class="fas fa-file-csv text-gray-500"></i></div>
+            <div>
+              <h4 class="font-bold text-gray-900 text-sm">Custodian CSV Exporter</h4>
+              <p class="text-xs text-gray-500 mt-0.5">Generates chronological setup manifests for facility staff.</p>
+            </div>
+          </button>
+
+        </div>
+
+        <div class="lg:col-span-8">
+          <div class="bg-gray-50 border border-gray-200 rounded-[32px] p-4 h-full flex flex-col justify-between shadow-inner">
+            <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm aspect-[16/10] w-full flex items-center justify-center">
+              <img id="featuresTabImage" src="https://trackedu.github.io/common-assets/facility1.png" alt="Platform execution view" class="w-full h-full object-cover transition-opacity duration-300">
+            </div>
+            <div class="mt-4 px-2 flex items-center justify-between text-xs text-gray-400">
+              <span id="tabMetaLabel"><i class="fas fa-info-circle text-brand-teal mr-1"></i> Showing Weekly Timetable Matrix</span>
+              <span>TrackEDU Cloud Infrastructure Security</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="workflow" class="py-24 bg-gray-50 border-b border-gray-200/60">
+    <div class="max-w-7xl mx-auto px-4 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-black text-brand-teal uppercase tracking-widest bg-teal-50 border border-teal-100 px-3 py-1 rounded-full">Deployment Blueprint</span>
+        <h2 class="font-display text-3xl md:text-4xl font-black text-brand-dark mt-4 tracking-tight">Four simple steps to complete campus control</h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm relative">
+          <div class="text-6xl font-black text-gray-100 absolute top-2 right-4 select-none">01</div>
+          <div class="w-9 h-9 bg-teal-50 border border-teal-100 text-brand-teal font-black text-sm rounded-xl flex items-center justify-center mb-5">1</div>
+          <h3 class="font-bold text-gray-900 text-lg mb-2">Map Your Locations</h3>
+          <p class="text-gray-500 text-xs leading-relaxed">
+            Input your auditoriums, IT spaces, labs, and gym zones. Flag which premium spaces require administrative sign-off before being approved.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm relative">
+          <div class="text-6xl font-black text-gray-100 absolute top-2 right-4 select-none">02</div>
+          <div class="w-9 h-9 bg-teal-50 border border-teal-100 text-brand-teal font-black text-sm rounded-xl flex items-center justify-center mb-5">2</div>
+          <h3 class="font-bold text-gray-900 text-lg mb-2">Lock School Hours</h3>
+          <p class="text-gray-500 text-xs leading-relaxed">
+            Customize your school's rotational structural schedule boundaries—set period slots and map cycle lengths to match your calendar rules.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm relative">
+          <div class="text-6xl font-black text-gray-100 absolute top-2 right-4 select-none">03</div>
+          <div class="w-9 h-9 bg-teal-50 border border-teal-100 text-brand-teal font-black text-sm rounded-xl flex items-center justify-center mb-5">3</div>
+          <h3 class="font-bold text-gray-900 text-lg mb-2">Distribute Access Links</h3>
+          <p class="text-gray-500 text-xs leading-relaxed">
+            Teachers log in instantly via Google authentication. One secure link gives your entire staff access to browse vacancies and claim slots.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm relative">
+          <div class="text-6xl font-black text-gray-100 absolute top-2 right-4 select-none">04</div>
+          <div class="w-9 h-9 bg-teal-50 border border-teal-100 text-brand-teal font-black text-sm rounded-xl flex items-center justify-center mb-5">4</div>
+          <h3 class="font-bold text-gray-900 text-lg mb-2">Unify Campus Logistics</h3>
+          <p class="text-gray-500 text-xs leading-relaxed">
+            Approve queued high-demand rows, update maintenance blockades, and export clean room manifests for custodial setup teams automatically.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="pricing" class="py-24 bg-white border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-4 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-black text-brand-teal uppercase tracking-widest bg-teal-50 border border-teal-100 px-3 py-1 rounded-full">Predictable Budgeting</span>
+        <h2 class="font-display text-4xl font-black text-brand-dark mt-4 tracking-tight">Flexible modular pricing. Zero corporate user caps.</h2>
+        <p class="text-gray-500 text-sm mt-2">
+          Deploy the specialized Logistics system standalone, or combine your campus parameters under the complete unified Pro Plan bundle.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 items-stretch max-w-4xl mx-auto">
+        
+        <div class="bg-white rounded-3xl border-2 border-teal-500/30 p-8 shadow-xl flex flex-col h-full transform hover:scale-[1.01] transition-all duration-300 relative">
+          <div class="absolute top-0 left-0 w-full h-1 bg-brand-teal"></div>
+          <div class="flex justify-between items-start gap-4 mb-4">
+            <div>
+              <span class="bg-teal-50 text-brand-teal text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md">Logistics System Only</span>
+              <h3 class="text-2xl font-black text-brand-dark mt-2">Facilities Management</h3>
+            </div>
+          </div>
+          <p class="text-gray-500 text-sm leading-relaxed mb-6 flex-grow">
+            Fix room scheduling conflicts entirely. Secure lab, sports, hall, and campus zone booking transparency, run administrative workflow approvals, and automate chronological roadmap sheets for setup staff.
+          </p>
+          <div class="bg-teal-50/50 border border-teal-100 rounded-2xl p-4 mb-6 text-center">
+            <span class="text-xs text-gray-500 font-bold uppercase tracking-wider block">Campus Flat Rate Pass</span>
+            <div class="text-4xl font-black text-brand-dark mt-1">USD 499<span class="text-sm font-normal text-gray-500">/year</span></div>
+            <span class="text-[10px] font-bold text-brand-teal block mt-1.5"><i class="fas fa-infinity"></i> Unlimited Bookable Spaces &amp; Staff Users Included</span>
+          </div>
+          <button onclick="openInvoiceModalFromFacilities('Facilities Management Standalone', 'USD 499/year')" class="w-full py-3 bg-brand-teal hover:bg-teal-700 text-white font-bold rounded-xl transition shadow-md flex items-center justify-center gap-2 text-sm">
+            <i class="fas fa-file-invoice-dollar"></i> Request Standalone Invoice
+          </button>
+        </div>
+
+        <div class="bg-[#0C1E2C] rounded-3xl p-8 shadow-2xl flex flex-col h-full relative border border-white/5 overflow-hidden">
+          <div class="absolute -top-12 -right-12 w-48 h-48 bg-brand-green/10 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="flex justify-between items-start gap-4 mb-4">
+            <div>
+              <span class="bg-brand-green/20 text-brand-green text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md">Total School Platform</span>
+              <h3 class="text-2xl font-black text-white mt-2">School Management Pro Plan</h3>
+            </div>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
+            The complete outcome suite. Unify your Student Rewards, Positive Behavior Tracking, and Room Scheduling modules under a single, deeply connected organizational standard. 
+          </p>
+          <div class="bg-white/[0.03] border border-white/10 rounded-2xl p-4 mb-6 text-center">
+            <span class="text-xs text-gray-400 font-bold uppercase tracking-wider block">Bundle License</span>
+            <div class="text-4xl font-black text-white mt-1">USD 2,499<span class="text-sm font-normal text-gray-500">/year</span></div>
+            <span class="text-[10px] font-bold text-brand-green block mt-1.5"><i class="fas fa-tags"></i> Saves $500 Bundle Discount (Includes 30-Day Pilot)</span>
+          </div>
+          <button onclick="openInvoiceModalFromFacilities('School Management Pro Plan Bundle', 'USD 2,499/year')" class="w-full py-3 bg-brand-green hover:bg-green-600 text-brand-dark font-black rounded-xl transition shadow-md flex items-center justify-center gap-2 text-sm">
+            <i class="fas fa-network-wired"></i> Request Comprehensive Invoice
+          </button>
+        </div>
+
+      </div>
+
+      <div class="mt-12 bg-gray-50 border border-gray-200 rounded-2xl p-5 max-w-4xl mx-auto flex flex-col sm:flex-row items-center gap-4 justify-between">
+        <p class="text-xs text-gray-500 max-w-xl text-center sm:text-left leading-normal">
+          <strong class="text-brand-dark">SaaS Buyer Note:</strong> Corporate office alternatives cap user permissions and spot lines, trapping schools inside expensive enterprise tiers. TrackEDU standalone runs on a flat, predictable budgeting model with <strong>unlimited assets and staff logs per campus.</strong>
+        </p>
+        <a href="mailto:hello@trackedu.net?subject=School%20Procurement%20Question" class="text-xs font-bold text-brand-teal hover:underline shrink-0 whitespace-nowrap">
+          Contact Procurement Support <i class="fas fa-arrow-right text-[10px]"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="faq" class="py-24 bg-gray-50 border-b border-gray-200/60">
+    <div class="max-w-4xl mx-auto px-4 lg:px-8">
+      
+      <div class="text-center max-w-xl mx-auto mb-16">
+        <span class="text-xs font-black text-brand-teal uppercase tracking-widest bg-teal-50 border border-teal-100 px-3 py-1 rounded-full">System Knowledge</span>
+        <h2 class="font-display text-3xl md:text-4xl font-black text-brand-dark mt-4 tracking-tight">Frequently Asked Questions</h2>
+        <p class="text-gray-500 text-sm mt-1">Clear operational logic for school administrators and finance leads.</p>
+      </div>
+
+      <div class="space-y-4 bg-white p-6 md:p-8 rounded-3xl border border-gray-200/80 shadow-sm">
+        
+        <details class="group border-b border-gray-100 pb-4 last:border-0 last:pb-0">
+          <summary class="faq-summary font-bold text-gray-900 text-base md:text-lg cursor-pointer flex justify-between items-center outline-none py-2">
+            How does the system calculate different week rotation cycles?
+          </summary>
+          <div class="mt-2 text-sm text-gray-600 leading-relaxed pl-2">
+            The core configuration engine adapts to your structural timetable setup parameters. School administrators can adjust cycle lengths (e.g., standard 5-day blocks or specific variations) and instruct the engine rules to skip Saturdays, Sundays, and public holiday logs automatically.
+          </div>
+        </details>
+
+        <details class="group border-b border-gray-100 pb-4 last:border-0 last:pb-0">
+          <summary class="faq-summary font-bold text-gray-900 text-base md:text-lg cursor-pointer flex justify-between items-center outline-none py-2">
+            Can we restrict who can approve bookings for high-demand spaces?
+          </summary>
+          <div class="mt-2 text-sm text-gray-600 leading-relaxed pl-2">
+            Yes. When setting up your facility access entries list, you toggle whether a location requires admin approval. Standard rows (like typical classrooms) can be booked with 1 click instantly, while high-demand resources (like the main auditorium or swimming pool) automatically hold requests in a pending queue until authorized by designated staff.
+          </div>
+        </details>
+
+        <details class="group border-b border-gray-100 pb-4 last:border-0 last:pb-0">
+          <summary class="faq-summary font-bold text-gray-900 text-base md:text-lg cursor-pointer flex justify-between items-center outline-none py-2">
+            How do maintenance blocks and holiday closures handle active bookings?
+          </summary>
+          <div class="mt-2 text-sm text-gray-600 leading-relaxed pl-2">
+            Saving an active maintenance blockade or custom holiday parameter will automatically flag any concurrent requests. Overlapping records are cascade-cancelled cleanly, and the system logs clear administrative notices (e.g., "Air Conditioning Repair") onto affected dashboards.
+          </div>
+        </details>
+
+        <details class="group border-b border-gray-100 pb-4 last:border-0 last:pb-0">
+          <summary class="faq-summary font-bold text-gray-900 text-base md:text-lg cursor-pointer flex justify-between items-center outline-none py-2">
+            Does data sovereignty and export access remain under our school's control?
+          </summary>
+          <div class="mt-2 text-sm text-gray-600 leading-relaxed pl-2">
+            Absolutely. Administrators can compile and download clean, full CSV manifests of your entire school booking history, custodian shifts, and usage summaries at any time. Your database remains insulated, and full system wipe controls are accessible directly inside your secure profile dashboard.
+          </div>
+        </details>
+
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="bg-brand-dark text-white pt-16 pb-8 overflow-hidden relative">
+    <div class="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-4 lg:px-8 relative z-10">
+      
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 border-b border-white/10 pb-12 mb-10">
+        
+        <div>
+          <h5 class="font-bold text-xs uppercase tracking-wider text-brand-green mb-4">Platform Suite</h5>
+          <ul class="space-y-2.5 text-sm text-gray-400">
+            <li><a href="index.html" class="hover:text-white transition">Teacher App Core</a></li>
+            <li><a href="index.html" class="hover:text-white transition">Student Hero Portal</a></li>
+            <li><a href="index.html" class="hover:text-white transition">Behavior Tracker Workflow</a></li>
+            <li><a href="#pricing" class="hover:text-white transition">Modular Pricing</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="font-bold text-xs uppercase tracking-wider text-brand-green mb-4">Compare</h5>
+          <ul class="space-y-2.5 text-sm text-gray-400">
+            <li><a href="/compare/classdojo.html" target="_blank" class="hover:text-white transition">TrackEDU vs ClassDojo</a></li>
+            <li><a href="/trackedu-vs-spreadsheets.html" target="_blank" class="hover:text-white transition">TrackEDU vs Spreadsheets</a></li>
+            <li><a href="/house-points-software-vs-manual-house-points.html" target="_blank" class="hover:text-white transition">House Points vs Manual</a></li>
+            <li><a href="/behavior-tracking-software-pastoral-teams.html" target="_blank" class="hover:text-white transition">TrackEDU vs Behavior Tracking</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="font-bold text-xs uppercase tracking-wider text-brand-green mb-4">Trust Centre</h5>
+          <ul class="space-y-2.5 text-sm text-gray-400">
+            <li><a href="#" onclick="openTrustModal(); return false;" class="hover:text-white transition">Data &amp; Governance Trust</a></li>
+            <li><a href="/privacy.html" target="_blank" class="hover:text-white transition">Privacy Statement</a></li>
+            <li><a href="/dpa.html" target="_blank" class="hover:text-white transition">Data Processing Agreement</a></li>
+            <li><a href="/terms.html" target="_blank" class="hover:text-white transition">Terms of Service</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="font-bold text-xs uppercase tracking-wider text-brand-green mb-4">Institutional Channels</h5>
+          <ul class="space-y-2.5 text-sm text-gray-400">
+            <li><a href="https://facilities.trackedu.net/" target="_blank" class="hover:text-white transition">Portal Login Gateway</a></li>
+            <li><a href="#" onclick="openInvoiceModalFromFacilities('General Inquiry', 'Standard Tier'); return false;" class="hover:text-white transition">Request Invoice Copy</a></li>
+            <li><a href="/contact.html" class="hover:text-white transition">Contact School Support</a></li>
+            <li><a href="ambassadors.html" class="hover:text-white text-brand-green font-semibold transition"><i class="fas fa-handshake text-xs mr-1"></i> Ambassadors</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="font-bold text-xs uppercase tracking-wider text-brand-green mb-4">Direct Help Desk</h5>
+          <ul class="space-y-2.5 text-sm text-gray-400">
+            <li><a href="/help-center.html" target="_blank" class="hover:text-white transition"><i class="fas fa-life-ring text-brand-green mr-1"></i> Help Center</a></li>
+            <li><a href="mailto:hello@trackedu.net" class="hover:text-white transition break-all">hello@trackedu.net</a></li>
+            <li><span class="text-xs text-gray-500 block pt-1">Response Target: &lt; 24 Hours</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pt-2 border-t border-white/5 text-center md:text-left">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-xs text-gray-500">
+          <p class="font-semibold text-gray-300">© 2026 TrackEDU Ltd.</p>
+          <div class="hidden sm:block text-white/10">|</div>
+          <p>Registered in England &amp; Wales, Co. No. 17216557</p>
+          <div class="hidden sm:block text-white/10">|</div>
+          <p>128 City Road, London, EC1V 2NX, United Kingdom</p>
+        </div>
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-950/40 border border-blue-900/50 text-[11px] font-semibold text-sky-400">
+          <i class="fas fa-shield-halved shrink-0"></i>
+          <span>ICO Registered Security Standard · Ref: ZC146923</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <div id="facilitiesInvoiceModal" class="fixed inset-0 z-[99999] hidden overflow-y-auto">
+    <div class="min-h-screen flex items-center justify-center p-4 bg-brand-dark/60 backdrop-blur-sm" onclick="closeInvoiceModal()">
+      <div class="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl p-6 md:p-8 overflow-hidden transform transition-all" onclick="event.stopPropagation()">
+        
+        <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-teal-600 to-emerald-500"></div>
+        <div class="flex justify-between items-start mb-6">
+          <div>
+            <h3 class="font-display text-xl font-black text-brand-dark">Request School Framework License</h3>
+            <p class="text-xs text-gray-500 mt-1">Submit institutional details for manual verification processing loops.</p>
+          </div>
+          <button onclick="closeInvoiceModal()" class="w-8 h-8 rounded-full bg-gray-100 text-gray-500 flex items-center justify-center hover:bg-gray-200">✕</button>
+        </div>
+
+        <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4" onsubmit="handleModalSuccess(event)">
+          <input type="hidden" name="access_key" value="7f87c71e-2098-42d8-816a-29de230264d7">
+          <input type="hidden" name="subject" value="TrackEDU Facilities License Processing Request">
+          <input type="hidden" id="formSelectedPlan" name="selected_plan" value="">
+          <input type="hidden" id="formSelectedCost" name="selected_cost" value="">
+
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-[11px] font-bold text-gray-500 uppercase mb-1">Full Name</label>
+              <input type="text" name="name" required class="w-full px-3 py-2 border border-gray-200 rounded-xl focus:border-brand-teal outline-none text-sm bg-gray-50/50">
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-gray-500 uppercase mb-1">Job Title / Authority</label>
+              <input type="text" name="title" required class="w-full px-3 py-2 border border-gray-200 rounded-xl focus:border-brand-teal outline-none text-sm bg-gray-50/50">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-[11px] font-bold text-gray-500 uppercase mb-1">School Email Address</label>
+            <input type="email" name="email" required class="w-full px-3 py-2 border border-gray-200 rounded-xl focus:border-brand-teal outline-none text-sm bg-gray-50/50">
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-[11px] font-bold text-gray-500 uppercase mb-1">School Instance Name</label>
+              <input type="text" name="school" required class="w-full px-3 py-2 border border-gray-200 rounded-xl focus:border-brand-teal outline-none text-sm bg-gray-50/50">
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-gray-500 uppercase mb-1">Campus Location Country</label>
+              <input type="text" name="country" required class="w-full px-3 py-2 border border-gray-200 rounded-xl focus:border-brand-teal outline-none text-sm bg-gray-50/50">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-[11px] font-bold text-gray-500 uppercase mb-1">Administrative Delivery Notes</label>
+            <textarea name="notes" rows="2" placeholder="Provide purchase orders references or deployment requirements details if applicable..." class="w-full px-3 py-2 border border-gray-200 rounded-xl focus:border-brand-teal outline-none text-sm bg-gray-50/50"></textarea>
+          </div>
+
+          <div class="p-3 bg-gray-50 rounded-xl border border-gray-100 text-[10px] text-gray-400 leading-normal">
+            <i class="fas fa-info-circle text-brand-teal mr-1"></i> Tracks invoice generation data manually. Official secure processing codes will be dispatched directly to your finance email upon payment verification clearance via institutional bank transfer rails.
+          </div>
+
+          <button type="submit" class="w-full py-3 bg-brand-teal hover:bg-teal-700 text-white font-bold rounded-xl transition text-sm shadow-md">
+            Submit Framework Processing Request
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="facilitiesSuccessModal" class="fixed inset-0 z-[100000] hidden items-center justify-center p-4 bg-brand-dark/70 backdrop-blur-md">
+    <div class="bg-white rounded-3xl p-6 md:p-8 max-w-md w-full text-center shadow-2xl relative border border-gray-100">
+      <div class="w-14 h-14 bg-green-50 rounded-full flex items-center justify-center text-brand-green text-2xl mx-auto mb-4 border border-green-200"><i class="fas fa-check-circle"></i></div>
+      <h3 class="font-display text-2xl font-black text-brand-dark">Request Logged Successfully</h3>
+      <p class="text-sm text-gray-500 mt-2 leading-relaxed">
+        Thank you. Your school's framework licensing payload has been stored. TrackEDU financial operations will deliver your official billing documentation file along with SWIFT/IBAN wire specifications within 24 hours.
+      </p>
+      <button onclick="closeSuccessModal()" class="mt-6 w-full py-2.5 bg-brand-dark hover:bg-gray-800 text-white font-bold text-xs rounded-xl transition uppercase tracking-widest">Acknowledge</button>
+    </div>
+  </div>
+
+  <script>
+    // Visual tab switcher mechanics matching the pure Whatspot UI standard
+    function switchVisualTab(index, imageSource) {
+      const buttons = document.querySelectorAll('.visual-tab-btn');
+      const previewImg = document.getElementById('featuresTabImage');
+      const heroImg = document.getElementById('heroViewImage');
+      const labelText = document.getElementById('tabMetaLabel');
+      
+      const labels = [
+        "Showing Weekly Timetable Matrix View",
+        "Showing Live Clash Alert Conflict Flag System",
+        "Showing Administrative Maintenance Resource Lockout Mode",
+        "Showing Exported Custodian Manifest Spreadsheet Grid"
+      ];
+
+      buttons.forEach((btn, idx) => {
+        if(idx === index) {
+          btn.classList.add('active');
+          btn.style.borderColor = 'var(--teal)';
+        } else {
+          btn.classList.remove('active');
+          btn.style.borderColor = '#e2e8f0';
+        }
+      });
+
+      // Quick fade animation transitions loops paths
+      if(previewImg) {
+        previewImg.style.opacity = '0.3';
+        setTimeout(() => {
+          previewImg.src = imageSource;
+          previewImg.style.opacity = '1';
+        }, 150);
+      }
+      
+      if(heroImg) {
+        heroImg.style.opacity = '0.3';
+        setTimeout(() => {
+          heroImg.src = imageSource;
+          heroImg.style.opacity = '1';
+        }, 150);
+      }
+
+      if(labelText) labelText.innerHTML = `<i class="fas fa-info-circle text-brand-teal mr-1"></i> ${labels[index]}`;
+    }
+
+    // Modal view visibility manipulation wrappers
+    function openInvoiceModalFromFacilities(planName, priceString) {
+      const modal = document.getElementById('facilitiesInvoiceModal');
+      document.getElementById('formSelectedPlan').value = planName;
+      document.getElementById('formSelectedCost').value = priceString;
+      if(modal) {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeInvoiceModal() {
+      const modal = document.getElementById('facilitiesInvoiceModal');
+      if(modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function handleModalSuccess(event) {
+      event.preventDefault();
+      const form = event.target;
+      const data = new FormData(form);
+      const submitBtn = form.querySelector('button[type="submit"]');
+      
+      if(submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-circle-notch fa-spin mr-1"></i> Logging System Request...';
+      }
+
+      fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(response => {
+        closeInvoiceModal();
+        const successModal = document.getElementById('facilitiesSuccessModal');
+        if(successModal) successModal.classList.remove('hidden');
+        if(successModal) successModal.style.display = 'flex';
+        form.reset();
+      })
+      .catch(error => {
+        alert('Transmission error. Direct dispatch to hello@trackedu.net is open.');
+      })
+      .finally(() => {
+        if(submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = 'Submit Framework Processing Request';
+        }
+      });
+    }
+
+    function closeSuccessModal() {
+      const successModal = document.getElementById('facilitiesSuccessModal');
+      if(successModal) successModal.classList.add('hidden');
+      if(successModal) successModal.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  </script>
+
+</body>
+</html>
