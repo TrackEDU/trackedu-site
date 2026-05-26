@@ -776,8 +776,8 @@
               TrackEDU Facilities helps staff book classrooms, halls, labs, sports spaces and shared rooms, so everyone knows what is available, who booked it and what needs approval.
             </p>
             <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-6">
-              <a href="https://facilities.trackedu.net/" target="_blank" rel="noopener" class="btn-primary">Open Facility Portal <i class="fas fa-arrow-right text-xs"></i></a>
-              <button onclick="openInvoiceModal('TrackEDU Facilities Demo Request', 'Demo request')" class="btn-secondary">Request Demo</button>
+              <a href="https://facilities.trackedu.net/" target="_blank" rel="noopener" class="btn-primary">Start 14-Day Pilot <i class="fas fa-arrow-right text-xs"></i></a>
+              <button onclick="openInvoiceModal('TrackEDU Facilities Demo Request', 'Demo request')" class="btn-secondary">Request Invoice</button>
             </div>
             <div class="grid grid-cols-3 gap-2 max-w-lg mx-auto lg:mx-0 text-left">
               <div class="rounded-2xl bg-white/85 border border-slate-200 p-3 shadow-sm">
@@ -1372,8 +1372,8 @@
           <h2 class="font-display text-3xl sm:text-5xl font-black leading-tight">Give every shared space a clear place to be booked.</h2>
           <p class="text-slate-300 mt-4 max-w-2xl mx-auto">Start with Facility Management System only, or discuss how it fits into the wider TrackEDU ecosystem.</p>
           <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="https://facilities.trackedu.net/" target="_blank" rel="noopener" class="btn-primary bg-brand-green text-brand-dark hover:bg-lime-400">Open Facility Portal</a>
-            <button onclick="openInvoiceModal('TrackEDU Facilities Demo Request', 'Demo request')" class="btn-secondary bg-white text-brand-dark border-white">Request Demo</button>
+            <a href="https://facilities.trackedu.net/" target="_blank" rel="noopener" class="btn-primary bg-brand-green text-brand-dark hover:bg-lime-400">Start 14-Day Pilot</a>
+            <button onclick="openInvoiceModal('TrackEDU Facilities Demo Request', 'Invoice request')" class="btn-secondary bg-white text-brand-dark border-white">Request Invoice</button>
           </div>
         </div>
       </div>
@@ -1426,7 +1426,7 @@
     </div>
   </footer>
 
-  <!-- Invoice Modal -->
+  <!-- Invoice Modal - Comprehensive School Invoice Request -->
   <div id="invoiceModal" class="fixed inset-0 z-[9999] hidden">
     <div class="absolute inset-0 bg-slate-950/70 backdrop-blur-sm" onclick="closeInvoiceModal()"></div>
     <div class="relative invoice-panel mx-auto mt-6 sm:mt-10">
@@ -1434,67 +1434,71 @@
       <div class="p-6 sm:p-8">
         <div class="flex justify-between items-start gap-4 mb-6">
           <div>
-            <h3 class="font-display text-2xl font-black text-brand-dark">Request TrackEDU Facilities</h3>
-            <p class="text-sm text-slate-500 mt-1">Send your school details and the TrackEDU team will follow up.</p>
+            <h3 class="font-display text-2xl font-black text-brand-dark">Request a School Invoice</h3>
+            <p class="text-sm text-slate-500 mt-1">Submit your billing details and TrackEDU will prepare the invoice manually.</p>
           </div>
           <button onclick="closeInvoiceModal()" class="w-9 h-9 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center hover:bg-slate-200" aria-label="Close modal"><i class="fas fa-times"></i></button>
         </div>
 
-        <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4" onsubmit="handleModalSubmit(event)">
+        <p class="text-sm text-slate-600 mb-5 bg-slate-50 p-3 rounded-xl">Use this form if your school is ready to continue after the pilot, needs a purchase order invoice, or wants to discuss payment by bank transfer or secure card payment link. This is an invoice request only. The official invoice will be emailed after TrackEDU reviews the details.</p>
+
+        <form action="https://api.web3forms.com/submit" method="POST" class="space-y-5" onsubmit="handleModalSubmit(event)">
           <input type="hidden" name="access_key" value="7f87c71e-2098-42d8-816a-29de230264d7">
-          <input type="hidden" name="subject" value="TrackEDU Facilities Request">
-          <input type="hidden" id="formSelectedPlan" name="selected_plan" value="TrackEDU Facilities Demo Request">
-          <input type="hidden" id="formSelectedCost" name="selected_cost" value="Demo request">
+          <input type="hidden" name="subject" value="TrackEDU Facilities School Invoice Request">
+          <input type="hidden" id="formSelectedPlan" name="selected_plan" value="TrackEDU Facilities - School Annual Licence">
+          <input type="hidden" id="formSelectedCost" name="selected_cost" value="Invoice request">
 
-          <div class="grid sm:grid-cols-2 gap-3">
-            <div>
-              <label class="block text-xs font-black text-slate-500 uppercase tracking-wide mb-1">Full name</label>
-              <input type="text" name="name" required class="w-full rounded-xl border border-slate-200 px-3 py-2.5 focus:outline-none focus:border-brand-teal" autocomplete="name">
-            </div>
-            <div>
-              <label class="block text-xs font-black text-slate-500 uppercase tracking-wide mb-1">Job title</label>
-              <input type="text" name="title" required class="w-full rounded-xl border border-slate-200 px-3 py-2.5 focus:outline-none focus:border-brand-teal">
-            </div>
+          <!-- Your details -->
+          <div class="border-b border-slate-200 pb-3"><h4 class="font-bold text-brand-dark">Your details</h4></div>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div><label class="block text-xs font-black text-slate-500 uppercase tracking-wide mb-1">Full name *</label><input type="text" name="name" required class="w-full rounded-xl border border-slate-200 px-3 py-2.5 focus:outline-none focus:border-brand-teal" autocomplete="name"></div>
+            <div><label class="block text-xs font-black text-slate-500 uppercase tracking-wide mb-1">Job title *</label><input type="text" name="title" required class="w-full rounded-xl border border-slate-200 px-3 py-2.5 focus:outline-none focus:border-brand-teal"></div>
+          </div>
+          <div><label class="block text-xs font-black text-slate-500 uppercase tracking-wide mb-1">School email *</label><input type="email" name="email" required class="w-full rounded-xl border border-slate-200 px-3 py-2.5 focus:outline-none focus:border-brand-teal" autocomplete="email"></div>
+
+          <!-- School details -->
+          <div class="border-b border-slate-200 pb-3 mt-2"><h4 class="font-bold text-brand-dark">School details</h4></div>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div><label class="block text-xs font-black text-slate-500 uppercase tracking-wide mb-1">School name *</label><input type="text" name="school" required class="w-full rounded-xl border border-slate-200 px-3 py-2.5 focus:outline-none focus:border-brand-teal"></div>
+            <div><label class="block text-xs font-black text-slate-500 uppercase tracking-wide mb-1">School country *</label><input type="text" name="country" required class="w-full rounded-xl border border-slate-200 px-3 py-2.5 focus:outline-none focus:border-brand-teal"></div>
           </div>
 
-          <div>
-            <label class="block text-xs font-black text-slate-500 uppercase tracking-wide mb-1">School email</label>
-            <input type="email" name="email" required class="w-full rounded-xl border border-slate-200 px-3 py-2.5 focus:outline-none focus:border-brand-teal" autocomplete="email">
+          <!-- Billing details -->
+          <div class="border-b border-slate-200 pb-3 mt-2"><h4 class="font-bold text-brand-dark">Billing details</h4></div>
+          <div><label class="block text-xs font-black text-slate-500 uppercase tracking-wide mb-1">Billing address *</label><textarea name="billing_address" rows="2" required class="w-full rounded-xl border border-slate-200 px-3 py-2.5 focus:outline-none focus:border-brand-teal"></textarea></div>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div><label class="block text-xs font-black text-slate-500 uppercase tracking-wide mb-1">Finance contact email *</label><input type="email" name="finance_email" required class="w-full rounded-xl border border-slate-200 px-3 py-2.5 focus:outline-none focus:border-brand-teal"></div>
+            <div><label class="block text-xs font-black text-slate-500 uppercase tracking-wide mb-1">Purchase order number, if available</label><input type="text" name="po_number" class="w-full rounded-xl border border-slate-200 px-3 py-2.5 focus:outline-none focus:border-brand-teal"></div>
           </div>
 
-          <div class="grid sm:grid-cols-2 gap-3">
-            <div>
-              <label class="block text-xs font-black text-slate-500 uppercase tracking-wide mb-1">School name</label>
-              <input type="text" name="school" required class="w-full rounded-xl border border-slate-200 px-3 py-2.5 focus:outline-none focus:border-brand-teal">
-            </div>
-            <div>
-              <label class="block text-xs font-black text-slate-500 uppercase tracking-wide mb-1">Country</label>
-              <input type="text" name="country" required class="w-full rounded-xl border border-slate-200 px-3 py-2.5 focus:outline-none focus:border-brand-teal">
-            </div>
+          <!-- Licence details -->
+          <div class="border-b border-slate-200 pb-3 mt-2"><h4 class="font-bold text-brand-dark">Licence details</h4></div>
+          <div><label class="block text-xs font-black text-slate-500 uppercase tracking-wide mb-1">Requested licence start date *</label><input type="date" name="start_date" required class="w-full rounded-xl border border-slate-200 px-3 py-2.5 focus:outline-none focus:border-brand-teal"></div>
+          <div><label class="block text-xs font-black text-slate-500 uppercase tracking-wide mb-1">Licence type *</label><select name="licence_type" required class="w-full rounded-xl border border-slate-200 px-3 py-2.5 focus:outline-none focus:border-brand-teal"><option>School Annual Licence</option></select></div>
+          <div><label class="block text-xs font-black text-slate-500 uppercase tracking-wide mb-1">Preferred payment method *</label><select name="payment_method" required class="w-full rounded-xl border border-slate-200 px-3 py-2.5 focus:outline-none focus:border-brand-teal"><option value="">Select payment method</option><option>Bank Transfer</option><option>Secure card payment link</option><option>Purchase Order</option></select></div>
+
+          <div class="bg-amber-50 p-3 rounded-xl border border-amber-200">
+            <p class="text-sm text-amber-800">Annual licence: <strong>USD 499/year</strong> for unlimited bookable spaces and staff users. Once payment is confirmed, TrackEDU will issue a 1-year licence activation code.</p>
           </div>
 
-          <div>
-            <label class="block text-xs font-black text-slate-500 uppercase tracking-wide mb-1">What do you need?</label>
-            <select name="interest" class="w-full rounded-xl border border-slate-200 px-3 py-2.5 focus:outline-none focus:border-brand-teal">
-              <option>Standalone Facility Management System</option>
-              <option>Facility Management System inside TrackEDU ecosystem</option>
-              <option>Demo before deciding</option>
-              <option>Invoice or procurement information</option>
-            </select>
+          <!-- Estimated school size -->
+          <div class="border-b border-slate-200 pb-3 mt-2"><h4 class="font-bold text-brand-dark">Estimated school size</h4></div>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div><label class="block text-xs font-black text-slate-500 uppercase tracking-wide mb-1">Estimated number of students *</label><input type="number" name="student_count" required class="w-full rounded-xl border border-slate-200 px-3 py-2.5 focus:outline-none focus:border-brand-teal"></div>
+            <div><label class="block text-xs font-black text-slate-500 uppercase tracking-wide mb-1">Estimated number of staff users *</label><input type="number" name="staff_count" required class="w-full rounded-xl border border-slate-200 px-3 py-2.5 focus:outline-none focus:border-brand-teal"></div>
           </div>
 
-          <div>
-            <label class="block text-xs font-black text-slate-500 uppercase tracking-wide mb-1">Message</label>
-            <textarea name="message" rows="4" class="w-full rounded-xl border border-slate-200 px-3 py-2.5 focus:outline-none focus:border-brand-teal" placeholder="Tell us about your school spaces, booking challenges or rollout needs."></textarea>
+          <!-- Additional notes -->
+          <div><label class="block text-xs font-black text-slate-500 uppercase tracking-wide mb-1">Additional invoice notes</label><textarea name="message" rows="2" class="w-full rounded-xl border border-slate-200 px-3 py-2.5 focus:outline-none focus:border-brand-teal" placeholder="Required wording, department name, internal reference, payment terms, or procurement notes."></textarea></div>
+
+          <div class="bg-slate-50 p-3 rounded-xl text-xs text-slate-500">
+            <p>TrackEDU Ltd · Registered in England & Wales, No. 17216557 · ICO Registered: ZC146923</p>
           </div>
 
-          <button type="submit" class="w-full rounded-xl bg-brand-teal text-white font-black py-3.5 hover:bg-teal-700 transition">Send Request</button>
-          <p class="text-xs text-slate-400 text-center">No payment is taken from this form.</p>
+          <button type="submit" class="w-full rounded-xl bg-brand-teal text-white font-black py-3.5 hover:bg-teal-700 transition">Submit Invoice Request</button>
+          <p class="text-xs text-slate-400 text-center">The official invoice will be emailed manually. If the form does not work, email hello@trackedu.net directly.</p>
         </form>
-
-        <div id="formSuccess" class="hidden mt-5 rounded-2xl bg-emerald-50 border border-emerald-100 p-4 text-sm text-emerald-800">
-          <i class="fas fa-check-circle mr-1"></i> Thank you. Your request has been prepared for submission.
-        </div>
+        <div id="formSuccess" class="hidden mt-5 rounded-2xl bg-emerald-50 border border-emerald-100 p-4 text-sm text-emerald-800"><i class="fas fa-check-circle mr-1"></i> Thank you. Your invoice request has been submitted. We'll email you within 24 hours.</div>
       </div>
     </div>
   </div>
