@@ -1287,45 +1287,65 @@
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl mx-auto text-center mb-12">
           <div class="section-label">Simple pricing</div>
-          <h2 class="font-display text-3xl sm:text-5xl font-black text-brand-dark leading-tight">Start with facilities or build the full ecosystem.</h2>
-          <p class="text-slate-600 mt-4 text-lg">Clear options for schools that want a focused system now, with room to grow later.</p>
+          <h2 class="font-display text-3xl sm:text-5xl font-black text-brand-dark leading-tight">Predictable pricing for single departments or complete campuses.</h2>
+          <p class="text-slate-600 mt-4 text-lg">Clear options for schools that want a focused scheduling system. No hidden implementation setup fees.</p>
         </div>
 
         <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          <div class="rounded-3xl bg-white border-2 border-brand-teal p-8 shadow-premium relative overflow-hidden">
-            <div class="absolute top-0 left-0 right-0 h-2 bg-brand-teal"></div>
-            <span class="text-xs font-black uppercase tracking-widest text-brand-teal bg-teal-50 border border-teal-100 rounded-full px-3 py-1">Standalone</span>
-            <h3 class="font-display text-3xl font-black text-brand-dark mt-5">Facilities Management</h3>
-            <p class="text-slate-500 mt-3 text-sm">For schools that want to fix shared space booking first.</p>
-            <div class="mt-7 mb-7 rounded-2xl bg-slate-50 border border-slate-200 p-5 text-center">
-              <div class="text-4xl font-black text-brand-dark">USD 499<span class="text-base font-semibold text-slate-500">/year</span></div>
-              <p class="text-xs text-brand-teal font-black mt-2"><i class="fas fa-infinity mr-1"></i> Unlimited bookable spaces and staff users</p>
+          
+          <div class="rounded-3xl bg-white border border-slate-200 p-8 shadow-soft relative overflow-hidden flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-black uppercase tracking-widest text-slate-500 bg-slate-100 border border-slate-200 rounded-full px-3 py-1">Standard</span>
+              <h3 class="font-display text-3xl font-black text-brand-dark mt-5">Standard Plan</h3>
+              <p class="text-slate-500 mt-3 text-sm"><strong>Perfect for small schools, or targeted departments</strong> like the Library, PE department, and science labs looking to fix resource-clashing.</p>
+              
+              <div class="mt-7 mb-7 rounded-2xl bg-slate-50 border border-slate-200 p-5 text-center">
+                <div class="text-4xl font-black text-brand-dark">USD 199<span class="text-base font-semibold text-slate-500">/year</span></div>
+                <p class="text-xs text-brand-teal font-black mt-2"><i class="fas fa-check-circle mr-1"></i> Up to 20 staff & 10 bookable spaces</p>
+              </div>
+              
+              <ul class="space-y-3 text-sm text-slate-600 mb-7">
+                <li><i class="fas fa-check text-brand-teal mr-2"></i> Weekly facility booking calendar</li>
+                <li><i class="fas fa-check text-brand-teal mr-2"></i> Conflict prevention engine</li>
+                <li><i class="fas fa-check text-brand-teal mr-2"></i> Admin approval authorization logic</li>
+                <li><i class="fas fa-check text-brand-teal mr-2"></i> Maintenance blocks & closures</li>
+                <li><i class="fas fa-check text-brand-teal mr-2"></i> Custodian CSV schedule exports</li>
+              </ul>
             </div>
-            <ul class="space-y-3 text-sm text-slate-600 mb-7">
-              <li><i class="fas fa-check text-brand-teal mr-2"></i> Weekly booking calendar</li>
-              <li><i class="fas fa-check text-brand-teal mr-2"></i> Approval workflows</li>
-              <li><i class="fas fa-check text-brand-teal mr-2"></i> Maintenance blocks</li>
-              <li><i class="fas fa-check text-brand-teal mr-2"></i> CSV exports for setup teams</li>
-            </ul>
-            <button onclick="openInvoiceModal('Facilities Management System Standalone', 'USD 499/year')" class="w-full rounded-xl bg-brand-teal text-white font-black py-3.5">Request Invoice</button>
+            
+            <div class="text-center">
+              <a href="https://buy.stripe.com/7sYdR9cWdb6U3DZ4NI93y00" target="_blank" rel="noopener noreferrer" class="w-full rounded-xl bg-brand-teal text-white font-black py-3.5 block transition hover:bg-teal-700 shadow-md">Purchase Annual License</a>
+              <button onclick="openInvoiceModal('TrackEDU Facilities - Standard Plan', 'USD 199/year')" class="text-xs text-slate-500 underline mt-3 hover:text-brand-teal bg-transparent border-none cursor-pointer">Or request manual school invoice</button>
+            </div>
           </div>
 
-          <div class="rounded-3xl bg-brand-dark text-white p-8 shadow-premium relative overflow-hidden">
-            <div class="absolute -top-20 -right-20 w-56 h-56 rounded-full bg-brand-green/15 blur-3xl"></div>
-            <span class="text-xs font-black uppercase tracking-widest text-brand-green bg-white/10 border border-white/10 rounded-full px-3 py-1">Complete Suite</span>
-            <h3 class="font-display text-3xl font-black mt-5">TrackEDU Platform</h3>
-            <p class="text-slate-300 mt-3 text-sm">For schools that want connected systems for culture, behaviour, rewards and operations.</p>
-            <div class="mt-7 mb-7 rounded-2xl bg-white/5 border border-white/10 p-5 text-center">
-              <div class="text-4xl font-black">USD 2,499<span class="text-base font-semibold text-slate-400">/year</span></div>
-              <p class="text-xs text-brand-green font-black mt-2"><i class="fas fa-cubes mr-1"></i> All modules included</p>
+          <div class="rounded-3xl bg-brand-dark text-white p-8 shadow-premium border-2 border-brand-green relative overflow-hidden flex flex-col justify-between">
+            <div class="absolute -top-20 -right-20 w-56 h-56 rounded-full bg-brand-green/15 blur-3xl pointer-events-none"></div>
+            <div>
+              <span class="text-xs font-black uppercase tracking-widest text-brand-green bg-white/10 border border-white/10 rounded-full px-3 py-1">Recommended</span>
+              <h3 class="font-display text-3xl font-black mt-5">Pro Plan</h3>
+              <p class="text-slate-300 mt-3 text-sm"><strong>Built for whole-school deployment.</strong> Complete campus-wide scheduling freedom across every room, field, hall, and internal asset.</p>
+              
+              <div class="mt-7 mb-7 rounded-2xl bg-white/5 border border-white/10 p-5 text-center">
+                <div class="text-4xl font-black text-brand-green">USD 499<span class="text-base font-semibold text-slate-400">/year</span></div>
+                <p class="text-xs text-brand-green font-black mt-2"><i class="fas fa-infinity mr-1"></i> Unlimited facilities & staff users</p>
+              </div>
+              
+              <ul class="space-y-3 text-sm text-slate-300 mb-7">
+                <li><i class="fas fa-check text-brand-green mr-2"></i> <strong>Everything included in Standard</strong></li>
+                <li><i class="fas fa-check text-brand-green mr-2"></i> Unlimited staff deployment profiles</li>
+                <li><i class="fas fa-check text-brand-green mr-2"></i> Unlimited bookable facilities/rooms</li>
+                <li><i class="fas fa-check text-brand-green mr-2"></i> Multi-space request groups</li>
+                <li><i class="fas fa-check text-brand-green mr-2"></i> Priority database cluster sync</li>
+              </ul>
             </div>
-            <ul class="space-y-3 text-sm text-slate-300 mb-7">
-              <li><i class="fas fa-check text-brand-green mr-2"></i> House Point Management</li>
-              <li><i class="fas fa-check text-brand-green mr-2"></i> Behavior Management</li>
-              <li><i class="fas fa-check text-brand-green mr-2"></i> Facilities Management</li>
-            </ul>
-            <button onclick="openInvoiceModal('TrackEDU Complete Platform', 'USD 2499/year')" class="w-full rounded-xl bg-brand-green text-brand-dark font-black py-3.5">Request Invoice</button>
+            
+            <div class="text-center relative z-10">
+              <a href="https://buy.stripe.com/5kQcN59K1caYgqL93Y93y01" target="_blank" rel="noopener noreferrer" class="w-full rounded-xl bg-brand-green text-brand-dark font-black py-3.5 block transition hover:bg-lime-400 shadow-md">Purchase Annual License</a>
+              <button onclick="openInvoiceModal('TrackEDU Facilities - Pro Plan', 'USD 499/year')" class="text-xs text-slate-400 underline mt-3 hover:text-brand-green bg-transparent border-none cursor-pointer">Or request manual school invoice</button>
+            </div>
           </div>
+
         </div>
       </div>
     </section>
