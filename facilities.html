@@ -11,12 +11,13 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="canonical" href="https://www.trackedu.net/facilities.html">
-  <link rel="icon" type="image/png" href="https://i.imgur.com/3PR3SiC.png">
+    <link rel="icon" type="image/png" href="https://i.imgur.com/3PR3SiC.png">
 
   <title>Facility Management System for Schools | TrackEDU Facilities</title>
   <meta name="description" content="TrackEDU Facilities is a Facility Management System for schools. Book classrooms, halls, labs, sports spaces and shared rooms in one clear calendar, with approvals, maintenance blocks and setup exports.">
-  <meta name="keywords" content="facility management system for schools, school facility management system, school room booking system, school room scheduling software, school facilities booking, lab booking software, hall booking system, sports facility booking, TrackEDU Facilities">
+  <link rel="canonical" href="https://www.trackedu.net/facilities.html">
+<!-- Add this line below -->
+<link rel="alternate" hreflang="en-gb" href="https://www.trackedu.net/facilities.html">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="author" content="TrackEDU Ltd">
   <meta name="theme-color" content="#0d9488">
@@ -27,13 +28,13 @@
   <meta property="og:title" content="TrackEDU Facilities | Facility Management System for Schools">
   <meta property="og:description" content="Book classrooms, halls, labs, sports spaces and shared rooms in one clear calendar.">
   <meta property="og:url" content="https://www.trackedu.net/facilities.html">
-  <meta property="og:image" content="https://trackedu.github.io/common-assets/facility1.png">
+  <meta property="og:image" content="https://trackedu.github.io/common-assets/siteqrcode.png">
   <meta property="og:image:alt" content="TrackEDU Facilities school facility calendar">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="TrackEDU Facilities | Facility Management System for Schools">
   <meta name="twitter:description" content="One clear calendar for rooms, halls, labs, sports spaces, approvals and setup teams.">
-  <meta name="twitter:image" content="https://trackedu.github.io/common-assets/facility1.png">
+  <meta name="twitter:image" content="https://trackedu.github.io/common-assets/siteqrcode.png">
 
   <script type="application/ld+json">
   {
@@ -45,7 +46,7 @@
     "applicationSubCategory": "School Facility Management System",
     "operatingSystem": "Web Browser",
     "url": "https://www.trackedu.net/facilities.html",
-    "image": "https://trackedu.github.io/common-assets/facility1.png",
+    "image": "https://trackedu.github.io/common-assets/siteqrcode.png",
     "description": "TrackEDU Facilities is a Facility Management System for schools. It supports room booking, facility scheduling, approval workflows, recurring bookings, maintenance blocks, booking states, utilisation visibility and custodian CSV exports.",
     "publisher": {
       "@type": "Organization",
@@ -723,11 +724,12 @@
         <a href="#ecosystem" class="text-sm font-bold text-slate-600 hover:text-brand-teal transition">Standalone or ecosystem</a>
         <a href="#pricing" class="text-sm font-bold text-slate-600 hover:text-brand-teal transition">Pricing</a>
       </div>
-
-      <div class="hidden md:flex items-center gap-2">
-        <a href="https://facilities.trackedu.net/" target="_blank" rel="noopener" class="text-sm font-black text-slate-600 hover:text-brand-teal px-3 py-2">Login</a>
-        <button onclick="openInvoiceModal('TrackEDU Facilities Demo Request', 'Demo request')" class="btn-primary text-sm py-2.5 px-4">Request Demo</button>
-      </div>
+<div class="hidden md:flex items-center gap-2">
+  <a href="https://facilities.trackedu.net/" target="_blank" rel="noopener" class="text-sm font-black text-slate-600 hover:text-brand-teal px-3 py-2">Login</a>
+  <a href="https://facilities.trackedu.net/" target="_blank" rel="noopener" class="btn-primary text-sm py-2.5 px-4">
+Free 14-Day Pilot
+<i class="fas fa-arrow-right text-xs ml-1"></i></a>
+</div>
 
       <button id="hamburgerBtn" class="lg:hidden w-10 h-10 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center hover:bg-brand-teal hover:text-white transition" aria-label="Open menu">
         <i class="fas fa-bars"></i>
@@ -762,48 +764,95 @@
 
   <main>
     <!-- Hero Section with 7-Image Carousel -->
-    <section class="mesh-bg pt-20 sm:pt-28 pb-12 sm:pb-16 lg:pt-34 lg:pb-24 overflow-hidden">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-12 gap-12 items-center">
-          <div class="lg:col-span-5 text-center lg:text-left">
-            <div class="chip mb-3 md:mb-5"><i class="fas fa-school"></i> Facility Management <span class="hidden sm:inline">System for Schools</span></div>
-            <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-brand-dark leading-[0.96] tracking-[-0.02em] mb-5">
-              Book every shared school space in <span class="text-gradient-facilities">one clear calendar</span>.
-            </h1>
-            <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0 mb-7">
-              TrackEDU Facilities helps staff book classrooms, halls, labs, sports spaces and shared rooms, so everyone knows what is available, who booked it and what needs approval.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-6">
-              <a href="https://facilities.trackedu.net/" target="_blank" rel="noopener" class="btn-primary">Start 14-Day Pilot <i class="fas fa-arrow-right text-xs"></i></a>
-              <button onclick="openInvoiceModal('TrackEDU Facilities Demo Request', 'Demo request')" class="btn-secondary">Request Invoice</button>
-            </div>
-            
-          </div>
+    <!-- Hero Section with 7-Image Carousel -->
+<section class="mesh-bg pt-20 sm:pt-28 pb-12 sm:pb-16 lg:pt-34 lg:pb-24 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-5 text-center lg:text-left">
+        <div class="chip mb-3 md:mb-5"><i class="fas fa-school"></i> Facility Management <span class="hidden sm:inline">System for Schools</span></div>
+        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-brand-dark leading-[0.96] tracking-[-0.02em] mb-5">
+          Book every shared school space in <span class="text-gradient-facilities">one clear calendar</span>.
+        </h1>
+        <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0 mb-7">
+          TrackEDU Facilities helps staff book classrooms, halls, labs, sports spaces and shared rooms, so everyone knows what is available, who booked it and what needs approval.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-4">
+          <a href="https://facilities.trackedu.net/" target="_blank" rel="noopener" class="btn-primary">Free 14-Day Pilot <i class="fas fa-arrow-right text-xs"></i></a>
+          <a href="#pricing" class="btn-secondary">View Pricing <i class="fas fa-chevron-right text-xs"></i></a>
+        </div>
+        <div class="flex items-center justify-center lg:justify-start gap-2 text-xs text-slate-500">
+          <span class="flex items-center gap-1"><i class="fas fa-check-circle text-brand-teal text-[10px]"></i> No credit card</span>
+          <span class="text-slate-300">•</span>
+          <span class="flex items-center gap-1"><i class="fas fa-calendar-alt text-brand-teal text-[10px]"></i> Expires after 14 days</span>
+          <span class="text-slate-300">•</span>
+          <span class="flex items-center gap-1"><i class="fas fa-arrow-right text-brand-teal text-[10px]"></i> Pay only if you continue</span>
+        </div>
+      </div>
 
-          <!-- 7-Image Carousel -->
-          <div class="lg:col-span-7">
-            <div class="relative">
-              <div class="carousel-container screen-shell aspect-[16/10] max-w-4xl mx-auto">
-              <div class="carousel-track" id="carouselTrack">
-  <div class="carousel-slide screen-inner"><img src="https://trackedu.github.io/common-assets/facility1.png" alt="Weekly calendar view" class="cursor-pointer" onclick="openCarouselLightbox(0)"></div>
-  <div class="carousel-slide screen-inner"><img src="https://trackedu.github.io/common-assets/facility2.png" alt="Booking form with location selector" class="cursor-pointer" onclick="openCarouselLightbox(1)"></div>
-  <div class="carousel-slide screen-inner"><img src="https://trackedu.github.io/common-assets/facility3.png" alt="Approval workflow interface" class="cursor-pointer" onclick="openCarouselLightbox(2)"></div>
-  <div class="carousel-slide screen-inner"><img src="https://trackedu.github.io/common-assets/facility4.png" alt="Conflict detection and alerts" class="cursor-pointer" onclick="openCarouselLightbox(3)"></div>
-  <div class="carousel-slide screen-inner"><img src="https://trackedu.github.io/common-assets/facility5.png" alt="Maintenance blocking mode" class="cursor-pointer" onclick="openCarouselLightbox(4)"></div>
-  <div class="carousel-slide screen-inner"><img src="https://trackedu.github.io/common-assets/facility6.png" alt="Custodian schedule export" class="cursor-pointer" onclick="openCarouselLightbox(5)"></div>
-  <div class="carousel-slide screen-inner"><img src="https://trackedu.github.io/common-assets/facility7.png" alt="Multi-facility overview dashboard" class="cursor-pointer" onclick="openCarouselLightbox(6)"></div>
-</div>
-                <button class="carousel-nav-btn carousel-prev" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
-                <button class="carousel-nav-btn carousel-next" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
-                <div class="carousel-dots" id="carouselDots"></div>
+      <!-- 7-Image Carousel with Captions -->
+      <div class="lg:col-span-7">
+        <div class="relative">
+          <div class="carousel-container screen-shell aspect-[16/10] max-w-4xl mx-auto">
+            <div class="carousel-track" id="carouselTrack">
+              <!-- Slide 1: QR Check-In -->
+              <div class="carousel-slide screen-inner relative">
+                <img src="https://trackedu.github.io/common-assets/siteqrcode.png" alt="Teacher scanning QR code to check in" class="cursor-pointer w-full h-full object-cover" onclick="openCarouselLightbox(0)">
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                  <p class="text-white text-xs sm:text-sm font-semibold"><i class="fas fa-qrcode mr-1"></i> Scan QR code → Instant check-in</p>
+                </div>
               </div>
-              
-              
+              <!-- Slide 2: Lightning Alert -->
+              <div class="carousel-slide screen-inner relative">
+                <img src="https://trackedu.github.io/common-assets/sitela.png" alt="Lightning alert on teacher's phone during outdoor lesson" class="cursor-pointer w-full h-full object-cover" onclick="openCarouselLightbox(1)">
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                  <p class="text-white text-xs sm:text-sm font-semibold"><i class="fas fa-bolt mr-1 text-yellow-400"></i> Lightning alert → Outdoor spaces lock instantly</p>
+                </div>
+              </div>
+              <!-- Slide 3: Works on All Devices -->
+              <div class="carousel-slide screen-inner relative">
+                <img src="https://trackedu.github.io/common-assets/alldevices.png" alt="Desktop, tablet and mobile views" class="cursor-pointer w-full h-full object-cover" onclick="openCarouselLightbox(2)">
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                  <p class="text-white text-xs sm:text-sm font-semibold"><i class="fas fa-mobile-alt mr-1"></i> Desktop · Tablet · Mobile — one seamless experience</p>
+                </div>
+              </div>
+              <!-- Slide 4: Auto-Release -->
+              <div class="carousel-slide screen-inner relative">
+                <img src="https://trackedu.github.io/common-assets/autor.png" alt="Booking auto-release notification" class="cursor-pointer w-full h-full object-cover" onclick="openCarouselLightbox(3)">
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                  <p class="text-white text-xs sm:text-sm font-semibold"><i class="fas fa-stopwatch mr-1"></i> No check-in? Auto-release frees the room</p>
+                </div>
+              </div>
+              <!-- Slide 5: Instant Room Finder -->
+              <div class="carousel-slide screen-inner relative">
+                <img src="https://trackedu.github.io/common-assets/instantfinder.png" alt="Instant room finder showing available spaces" class="cursor-pointer w-full h-full object-cover" onclick="openCarouselLightbox(4)">
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                  <p class="text-white text-xs sm:text-sm font-semibold"><i class="fas fa-search-location mr-1"></i> Find available rooms in seconds</p>
+                </div>
+              </div>
+              <!-- Slide 6: Custodian Export (unchanged) -->
+              <div class="carousel-slide screen-inner relative">
+                <img src="https://trackedu.github.io/common-assets/facility6.png" alt="Custodian schedule export" class="cursor-pointer w-full h-full object-cover" onclick="openCarouselLightbox(5)">
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                  <p class="text-white text-xs sm:text-sm font-semibold"><i class="fas fa-file-csv mr-1"></i> CSV exports for operations teams</p>
+                </div>
+              </div>
+              <!-- Slide 7: Facility Home Dashboard -->
+              <div class="carousel-slide screen-inner relative">
+                <img src="https://trackedu.github.io/common-assets/roomfinder.png" alt="Facility home dashboard overview" class="cursor-pointer w-full h-full object-cover" onclick="openCarouselLightbox(6)">
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                  <p class="text-white text-xs sm:text-sm font-semibold"><i class="fas fa-chalkboard-user mr-1"></i> Staff dashboard — all bookings in one view</p>
+                </div>
+              </div>
             </div>
+            <button class="carousel-nav-btn carousel-prev" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
+            <button class="carousel-nav-btn carousel-next" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
+            <div class="carousel-dots" id="carouselDots"></div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
     <!-- Trust Bar - Ultra Compact -->
 <section class="py-5 bg-white border-y border-slate-100">
@@ -1614,7 +1663,8 @@
           <h2 class="font-display text-3xl sm:text-5xl font-black leading-tight tracking-[-0.02em]">Give every shared space a clear place to be booked.</h2>
           <p class="text-slate-300 mt-4 max-w-2xl mx-auto">Start with Facility Management System only, or discuss how it fits into the wider TrackEDU ecosystem.</p>
           <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="https://facilities.trackedu.net/" target="_blank" rel="noopener" class="btn-primary bg-brand-green text-brand-dark hover:bg-lime-400">Start 14-Day Pilot</a>
+            <a href="https://facilities.trackedu.net/" target="_blank" rel="noopener" class="btn-primary bg-brand-green text-brand-dark hover:bg-lime-400">Free 14-Day Pilot
+</a>
             <button onclick="openInvoiceModal('TrackEDU Facilities Demo Request', 'Invoice request')" class="btn-secondary bg-white text-brand-dark border-white">Request Invoice</button>
           </div>
         </div>
@@ -2211,14 +2261,14 @@
 
         // Carousel Lightbox Functionality
     const carouselImages = [
-      "https://trackedu.github.io/common-assets/facility1.png",
-      "https://trackedu.github.io/common-assets/facility2.png",
-      "https://trackedu.github.io/common-assets/facility3.png",
-      "https://trackedu.github.io/common-assets/facility4.png",
-      "https://trackedu.github.io/common-assets/facility5.png",
-      "https://trackedu.github.io/common-assets/facility6.png",
-      "https://trackedu.github.io/common-assets/facility7.png"
-    ];
+  "https://trackedu.github.io/common-assets/siteqrcode.png",      // Teacher scanning QR code to check in
+  "https://trackedu.github.io/common-assets/sitela.png",          // Lightning alert on phone during outdoor lesson
+  "https://trackedu.github.io/common-assets/alldevices.png",      // Works on desktop, tablet, mobile
+  "https://trackedu.github.io/common-assets/autor.png",           // Booking auto-release notification
+  "https://trackedu.github.io/common-assets/instantfinder.png",   // Instant room finder
+  "https://trackedu.github.io/common-assets/facility6.png",       // Custodian schedule export (no change)
+  "https://trackedu.github.io/common-assets/roomfinder.png"       // Facility home dashboard
+];
     
     let currentLightboxIndex = 0;
     
