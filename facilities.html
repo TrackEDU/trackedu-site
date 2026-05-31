@@ -760,13 +760,13 @@
         <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           
           <div class="lg:col-span-5 2xl:col-span-4 text-center lg:text-left">
-            <div class="chip mb-3 md:mb-5"><i class="fas fa-flag-checkered"></i> The end of the "Who took my room?" emails</div>
-            <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-brand-dark leading-[0.96] tracking-[-0.02em] mb-5">
-              Stop fighting over the science lab. <span class="text-gradient-facilities">Claim your space.</span>
-            </h1>
-            <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0 mb-7">
-              We know you're exhausted by software promising to "revolutionize education." TrackEDU is just a ridiculously good calendar that stops double-bookings, ends staffroom turf wars, and actually tells you where everyone is.
-            </p>
+        <div class="chip mb-3 md:mb-5"><i class="fas fa-flag-checkered"></i> Built for schools that are done with spreadsheet chaos</div>
+        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-brand-dark leading-[0.96] tracking-[-0.02em] mb-5">
+          Find the room. Book the room. <span class="text-gradient-facilities">Keep the peace.</span>
+        </h1>
+        <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0 mb-7">
+          TrackEDU Facilities turns school room booking into one shared, visual system. No email archaeology. No mystery spreadsheets. No teachers standing outside the sports hall wondering who has stolen it.
+        </p>
             <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-4">
               <a href="https://facilities.trackedu.net/" target="_blank" rel="noopener" class="btn-primary whitespace-nowrap">Start for free (seriously) →</a>
               <a href="#workflow" class="btn-secondary whitespace-nowrap">See how it works <i class="fas fa-chevron-down text-xs"></i></a>
@@ -786,44 +786,51 @@
                 <div class="carousel-track" id="carouselTrack">
                   <div class="carousel-slide screen-inner relative">
                     <img src="https://trackedu.github.io/common-assets/qrcode.png" alt="Teacher scanning QR code to check in" class="cursor-pointer w-full h-full object-cover" onclick="openCarouselLightbox(0)">
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                      <p class="text-white text-xs sm:text-sm font-semibold"><i class="fas fa-qrcode mr-1"></i> Scan QR code → Claim the room before Mr. Davis does</p>
+                    <div class="absolute left-3 right-3 bottom-3 sm:left-5 sm:right-auto sm:bottom-5 caption-pill text-white px-4 py-2.5 max-w-xl">
+                      <p class="text-sm sm:text-base font-black">Scan in. Sorted.</p>
+                      <p class="text-xs sm:text-sm text-white/80">Claim the room before another department takes it over.</p>
                     </div>
                   </div>
                   <div class="carousel-slide screen-inner relative">
                     <img src="https://trackedu.github.io/common-assets/lightning.png" alt="Lightning alert on teacher's phone during outdoor lesson" class="cursor-pointer w-full h-full object-cover" onclick="openCarouselLightbox(1)">
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                      <p class="text-white text-xs sm:text-sm font-semibold"><i class="fas fa-bolt mr-1 text-yellow-400"></i> Lightning alert → Outdoors lock instantly (Nature doesn't care about your lesson plan)</p>
+                    <div class="absolute left-3 right-3 bottom-3 sm:left-5 sm:right-auto sm:bottom-5 caption-pill text-white px-4 py-2.5 max-w-xl">
+                      <p class="text-sm sm:text-base font-black">Storm outside. Bookings paused.</p>
+                      <p class="text-xs sm:text-sm text-white/80">Outdoor spaces lock in the app instantly when weather alerts strike.</p>
                     </div>
                   </div>
                   <div class="carousel-slide screen-inner relative">
                     <img src="https://trackedu.github.io/common-assets/whobooked.png" alt="Facility home dashboard overview" class="cursor-pointer w-full h-full object-cover" onclick="openCarouselLightbox(2)">
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                      <p class="text-white text-xs sm:text-sm font-semibold"><i class="fas fa-chalkboard-user mr-1"></i> The holy grail: all bookings in one view without opening Excel</p>
+                    <div class="absolute left-3 right-3 bottom-3 sm:left-5 sm:right-auto sm:bottom-5 caption-pill text-white px-4 py-2.5 max-w-xl">
+                      <p class="text-sm sm:text-base font-black">Who booked the sports hall?</p>
+                      <p class="text-xs sm:text-sm text-white/80">The holy grail: all active bookings in one clear live view.</p>
                     </div>
                   </div>
                   <div class="carousel-slide screen-inner relative">
                     <img src="https://trackedu.github.io/common-assets/autorelease.png" alt="Booking auto-release notification" class="cursor-pointer w-full h-full object-cover" onclick="openCarouselLightbox(3)">
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                      <p class="text-white text-xs sm:text-sm font-semibold"><i class="fas fa-stopwatch mr-1"></i> No-shows get booted. Auto-release frees the room.</p>
+                    <div class="absolute left-3 right-3 bottom-3 sm:left-5 sm:right-auto sm:bottom-5 caption-pill text-white px-4 py-2.5 max-w-xl">
+                      <p class="text-sm sm:text-base font-black">Booked. Forgotten. Empty.</p>
+                      <p class="text-xs sm:text-sm text-white/80">No-show bookings drop automatically so resources do not sit dead.</p>
                     </div>
                   </div>
                   <div class="carousel-slide screen-inner relative">
                     <img src="https://trackedu.github.io/common-assets/instantroomfinder.png" alt="Instant room finder showing available spaces" class="cursor-pointer w-full h-full object-cover" onclick="openCarouselLightbox(4)">
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                      <p class="text-white text-xs sm:text-sm font-semibold"><i class="fas fa-search-location mr-1"></i> Find an empty room before the students find you</p>
+                    <div class="absolute left-3 right-3 bottom-3 sm:left-5 sm:right-auto sm:bottom-5 caption-pill text-white px-4 py-2.5 max-w-xl">
+                      <p class="text-sm sm:text-base font-black">Find an empty room before the students find you.</p>
+                      <p class="text-xs sm:text-sm text-white/80">Query open spaces across campus matching your resource requirements.</p>
                     </div>
                   </div>
                   <div class="carousel-slide screen-inner relative">
                     <img src="https://trackedu.github.io/common-assets/takeoverfeature.png" alt="Room swap peer negotiations feature" class="cursor-pointer w-full h-full object-cover" onclick="openCarouselLightbox(5)">
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                      <p class="text-white text-xs sm:text-sm font-semibold"><i class="fas fa-handshake mr-1"></i> Negotiate room takeovers and swaps directly on the fly</p>
+                    <div class="absolute left-3 right-3 bottom-3 sm:left-5 sm:right-auto sm:bottom-5 caption-pill text-white px-4 py-2.5 max-w-xl">
+                      <p class="text-sm sm:text-base font-black">The room was not free. So we asked nicely.</p>
+                      <p class="text-xs sm:text-sm text-white/80">Barter room takeovers and custom space trades inside the layout.</p>
                     </div>
                   </div>
                   <div class="carousel-slide screen-inner relative">
                     <img src="https://trackedu.github.io/common-assets/price.png" alt="TrackEDU budget friendly subscription model" class="cursor-pointer w-full h-full object-cover" onclick="openCarouselLightbox(6)">
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                      <p class="text-white text-xs sm:text-sm font-semibold"><i class="fas fa-tags mr-1"></i> Straightforward whole‑school pricing that works with your budget</p>
+                    <div class="absolute left-3 right-3 bottom-3 sm:left-5 sm:right-auto sm:bottom-5 caption-pill text-white px-4 py-2.5 max-w-xl">
+                      <p class="text-sm sm:text-base font-black">Start free. Pay when you grow.</p>
+                      <p class="text-xs sm:text-sm text-white/80">Straightforward school-budget pricing without long-term legal sagas.</p>
                     </div>
                   </div>
                 </div>
@@ -831,8 +838,15 @@
                 <button class="carousel-nav-btn carousel-next" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
                 <div class="carousel-dots" id="carouselDots"></div>
               </div>
+              
+              <div class="hidden md:flex absolute -bottom-5 left-8 right-8 justify-center gap-3 pointer-events-none z-20">
+                <div class="rounded-2xl bg-white border border-slate-200 shadow-soft px-4 py-3 text-xs font-black text-brand-dark"><i class="fas fa-check text-brand-teal mr-1"></i> conflict prevented</div>
+                <div class="rounded-2xl bg-white border border-slate-200 shadow-soft px-4 py-3 text-xs font-black text-brand-dark"><i class="fas fa-qrcode text-brand-teal mr-1"></i> QR check-in</div>
+                <div class="rounded-2xl bg-white border border-slate-200 shadow-soft px-4 py-3 text-xs font-black text-brand-dark"><i class="fas fa-stopwatch text-amber-500 mr-1"></i> auto-release</div>
+              </div>
             </div>
           </div>
+          
         </div>
       </div>
     </section>
@@ -848,6 +862,99 @@
           <span class="text-slate-300 hidden sm:inline">•</span>
           <span class="flex items-center gap-1.5 text-slate-500 whitespace-nowrap"><i class="fas fa-mobile-alt text-brand-teal text-[11px]"></i> Available on all devices</span>
         </div>
+      </div>
+    </section>
+
+
+    <section id="features" class="py-20 lg:py-24 bg-slate-50">
+      <div class="w-full mx-auto px-4 sm:px-8 lg:px-12 2xl:px-20">
+        <div class="max-w-3xl mx-auto text-center mb-12">
+          <div class="section-label">Feature stories</div>
+          <h2 class="font-display text-3xl sm:text-5xl font-black text-brand-dark leading-tight tracking-[-0.02em]">One problem. One fix. No drama.</h2>
+          <h1 class="absolute w-1 h-1 p-0 -m-1 overflow-hidden clip whitespace-nowrap border-0">TrackEDU School Facility Management Software Core Features</h1>
+          <p class="text-slate-600 mt-4 text-lg">Each tool is optimized directly around real school runtime moments, not corporate technology buzzwords.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <article class="premium-card rounded-3xl overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="aspect-video bg-slate-100 overflow-hidden">
+                <img src="https://trackedu.github.io/common-assets/instantroomfinder.png" alt="Instant Room Finder app panel preview" class="w-full h-full object-cover cursor-pointer hover:scale-102 transition duration-200" onclick="openStaticLightbox('https://trackedu.github.io/common-assets/instantroomfinder.png')">
+              </div>
+              <div class="p-6">
+                <span class="text-xs font-black text-brand-teal uppercase tracking-widest">Instant Room Finder</span>
+                <h3 class="font-black text-2xl mt-2">Find a room before retirement.</h3>
+                <p class="text-sm text-slate-500 mt-2">Filter open resources securely matching your exact period blocks. Less tracking down keys. More active classroom tracking runtime.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="premium-card rounded-3xl overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="aspect-video bg-slate-100 overflow-hidden">
+                <img src="https://trackedu.github.io/common-assets/takeoverfeature.png" alt="Room swap negotiation display screenshot" class="w-full h-full object-cover cursor-pointer hover:scale-102 transition duration-200" onclick="openStaticLightbox('https://trackedu.github.io/common-assets/takeoverfeature.png')">
+              </div>
+              <div class="p-6">
+                <span class="text-xs font-black text-brand-teal uppercase tracking-widest">Room Swaps</span>
+                <h3 class="font-black text-2xl mt-2">Ask nicely. Get answers fast.</h3>
+                <p class="text-sm text-slate-500 mt-2">Route peer requests and trade schedules directly inside the platform without looping admin loops through CC'd email lists.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="premium-card rounded-3xl overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="aspect-video bg-slate-100 overflow-hidden">
+                <img src="https://trackedu.github.io/common-assets/autorelease.png" alt="Auto release configuration dashboard layout" class="w-full h-full object-cover cursor-pointer hover:scale-102 transition duration-200" onclick="openStaticLightbox('https://trackedu.github.io/common-assets/autorelease.png')">
+              </div>
+              <div class="p-6">
+                <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Auto-release</span>
+                <h3 class="font-black text-2xl mt-2">Ghost the room, lose the room.</h3>
+                <p class="text-sm text-slate-500 mt-2">Dead spaces drop out of the system workspace automatically if check-in updates stay quiet for more than ten minutes.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="premium-card rounded-3xl overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="aspect-video bg-slate-100 overflow-hidden">
+                <img src="https://trackedu.github.io/common-assets/qrcode.png" alt="Door mounted room registration QR layout printout" class="w-full h-full object-cover cursor-pointer hover:scale-102 transition duration-200" onclick="openStaticLightbox('https://trackedu.github.io/common-assets/qrcode.png')">
+              </div>
+              <div class="p-6">
+                <span class="text-xs font-black text-brand-teal uppercase tracking-widest">QR check-in</span>
+                <h3 class="font-black text-2xl mt-2">Scan in. Sorted.</h3>
+                <p class="text-sm text-slate-500 mt-2">Give teachers a frictionless vector to prove utility logs right from their phone camera interfaces without filling out logs.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="premium-card rounded-3xl overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="aspect-video bg-slate-100 overflow-hidden">
+                <img src="https://trackedu.github.io/common-assets/lightning.png" alt="Emergency climate lockdown alert view" class="w-full h-full object-cover cursor-pointer hover:scale-102 transition duration-200" onclick="openStaticLightbox('https://trackedu.github.io/common-assets/lightning.png')">
+              </div>
+              <div class="p-6">
+                <span class="text-xs font-black text-red-600 uppercase tracking-widest">Weather booking lock</span>
+                <h3 class="font-black text-2xl mt-2">Storm outside. Bookings paused.</h3>
+                <p class="text-sm text-slate-500 mt-2">Kill external track field access instantly with single-click safety loops that drop bright hazard notices page-wide.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="premium-card rounded-3xl overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="aspect-video bg-slate-100 overflow-hidden">
+                <img src="https://trackedu.github.io/common-assets/price.png" alt="Budget transparency overview module template" class="w-full h-full object-cover cursor-pointer hover:scale-102 transition duration-200" onclick="openStaticLightbox('https://trackedu.github.io/common-assets/price.png')">
+              </div>
+              <div class="p-6">
+                <span class="text-xs font-black text-brand-green uppercase tracking-widest">Simple pricing</span>
+                <h3 class="font-black text-2xl mt-2">Start free. Pay when you grow.</h3>
+                <p class="text-sm text-slate-500 mt-2">Pilot with a single floor or localized sports department, then deploy across campuses whenever the school scales up resources.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+
       </div>
     </section>
 
