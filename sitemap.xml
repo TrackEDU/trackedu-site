@@ -7,18 +7,28 @@
   </url>
 
   <url>
-    <loc>https://housepoint.trackedu.net/</loc>
-    <lastmod>2026-05-24</lastmod>
-  </url>
-
-  <url>
-    <loc>https://www.trackedu.net/facilities</loc>
+    <loc>https://www.trackedu.net/housepoints.html</loc>
     <lastmod>2026-05-25</lastmod>
   </url>
 
   <url>
-    <loc>https://www.trackedu.net/behavior</loc>
+    <loc>https://www.trackedu.net/facilities.html</loc>
+    <lastmod>2026-05-25</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.trackedu.net/behavior.html</loc>
     <lastmod>2026-05-26</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.trackedu.net/contact.html</loc>
+    <lastmod>2026-05-25</lastmod>
+  </url>
+
+  <url>
+    <loc>https://housepoint.trackedu.net/</loc>
+    <lastmod>2026-05-24</lastmod>
   </url>
 
   <url>
@@ -26,8 +36,7 @@
     <lastmod>2026-05-25</lastmod>
   </url>
 
-  
-<url>
+  <url>
     <loc>https://www.trackedu.net/trackedu-vs-classdojo.html</loc>
     <lastmod>2026-05-16</lastmod>
   </url>
@@ -53,7 +62,7 @@
   </url>
 
   <url>
-    <loc>https://www.trackedu.net/classroom-noise-meter</loc>
+    <loc>https://www.trackedu.net/classroom-noise-meter.html</loc>
     <lastmod>2026-05-23</lastmod>
   </url>
 
