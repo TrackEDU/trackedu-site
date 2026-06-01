@@ -1558,13 +1558,15 @@
                 <div class="feature-check"><i class="fas fa-circle-check" style="color:#0F66C3;"></i> Motivate with 3D badges and streaks</div>
               </div>
             </div>
-            <div class="tile-visual">
-              <div class="visual-phone-card">
-                <div class="phone-shell">
-                  <div class="phone-avatar">🐸</div>
-                  <div class="phone-stat" style="background:#87C232;"></div>
-                  <div class="phone-stat"></div>
-                  <div class="phone-stat"></div>
+            <div class="tile-visual" style="display: flex; justify-content: center; align-items: center; overflow: hidden;">
+              <div class="visual-phone-card" style="width: 100%; max-width: 140px; margin: 0 auto;">
+                <div class="phone-shell" style="width: 100%; padding: 12px; border-radius: 24px;">
+                  <div class="phone-avatar" style="background: #ffffff; padding: 4px; display: flex; align-items: center; justify-content: center; border-radius: 50%; overflow: hidden; width: 44px; height: 44px; margin: 0 auto 10px;">
+                    <img src="https://trackedu.github.io/common-assets/studentapp.png" style="width: 100%; height: 100%; object-fit: contain;" alt="Student App">
+                  </div>
+                  <div class="phone-stat" style="background:#87C232; height: 12px; border-radius: 6px; margin: 6px 0;"></div>
+                  <div class="phone-stat" style="height: 10px; border-radius: 6px; margin: 6px 0; background: rgba(255,255,255,0.15);"></div>
+                  <div class="phone-stat" style="height: 10px; border-radius: 6px; margin: 6px 0; background: rgba(255,255,255,0.15);"></div>
                 </div>
               </div>
             </div>
@@ -1638,14 +1640,14 @@
               <span style="display: block; font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 800; color: #94a3b8; margin-bottom: 2px; text-align: center;">Enterprise Technology Stack</span>
               
               <div style="display: flex; flex-direction: column; gap: 8px;">
-                <div style="height: 38px; display: flex; align-items: center; justify-content: space-between; padding: 0 14px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; font-size: 12.5px; font-weight: 700; color: #ffffff;">
+                <div style="min-height: 38px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px; padding: 6px 14px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; font-size: 12.5px; font-weight: 700; color: #ffffff;">
                   <span style="display: flex; align-items: center; gap: 8px; white-space: nowrap;"><i class="fab fa-google" style="color: #ffffff; opacity: 0.9; width: 14px;"></i> Google Sign-In</span>
-                  <span style="font-size: 10.5px; font-weight: 800; color: #94a3b8; background: rgba(255, 255, 255, 0.06); padding: 3px 10px; border-radius: 999px; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.02em; border: 1px solid rgba(255, 255, 255, 0.04);">Authentication</span>
+                  <span style="font-size: 9.5px; font-weight: 800; color: #cbd5e1; background: rgba(255, 255, 255, 0.06); padding: 2px 8px; border-radius: 6px; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.02em; border: 1px solid rgba(255, 255, 255, 0.04);">Authentication</span>
                 </div>
 
-                <div style="height: 38px; display: flex; align-items: center; justify-content: space-between; padding: 0 14px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; font-size: 12.5px; font-weight: 700; color: #ffffff;">
+                <div style="min-height: 38px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px; padding: 6px 14px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; font-size: 12.5px; font-weight: 700; color: #ffffff;">
                   <span style="display: flex; align-items: center; gap: 8px; white-space: nowrap;"><i class="fas fa-fire" style="color: #f59e0b; width: 14px;"></i> Firebase Services</span>
-                  <span style="font-size: 10.5px; font-weight: 800; color: #94a3b8; background: rgba(255, 255, 255, 0.06); padding: 3px 10px; border-radius: 999px; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.02em; border: 1px solid rgba(255, 255, 255, 0.04);">Cloud Database</span>
+                  <span style="font-size: 9.5px; font-weight: 800; color: #cbd5e1; background: rgba(255, 255, 255, 0.06); padding: 2px 8px; border-radius: 6px; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.02em; border: 1px solid rgba(255, 255, 255, 0.04);">Cloud Database</span>
                 </div>
               </div>
             </div>
@@ -2109,10 +2111,10 @@
           <div><span style="color: var(--muted); font-weight: 700; width: 70px; display: inline-block;">Teacher:</span> <span id="modal-teacher-val" style="font-weight: 500;">Dr. Marcus Evans (m.evans@trackedu.net)</span></div>
           <div style="border-top: 1px dashed var(--line); margin-top: 10px; padding-top: 8px; font-style: italic; color: var(--muted);" id="modal-notes-val">"Please pull out 4 mobile whiteboard units..."</div>
         </div>
-        <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 18px;" id="modal-actions-wrapper">
-          <button class="btn btn-secondary" style="padding: 10px 16px; font-size: 13px;" onclick="triggerMockToast('Edit options are disabled in this preview.')"><i class="fas fa-edit" style="color: var(--blue);"></i> Edit</button>
-          <button class="btn" style="padding: 10px 16px; font-size: 13px; background: var(--blue); color: white;" onclick="triggerMockToast('Room change request preview opened.')"><i class="fas fa-handshake"></i> Request Change</button>
-          <button class="btn btn-secondary" style="padding: 10px 16px; font-size: 13px;" onclick="triggerMockToast('Delete is disabled in this preview.')"><i class="fas fa-trash" style="color: #ef4444;"></i> Delete</button>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 18px;" id="modal-actions-wrapper">
+          <button class="btn btn-secondary" style="padding: 10px 16px; font-size: 13px; flex: 1; min-width: 80px;" onclick="triggerMockToast('Edit options are disabled in this preview.')"><i class="fas fa-edit" style="color: var(--blue);"></i> Edit</button>
+          <button class="btn" style="padding: 10px 16px; font-size: 13px; background: var(--blue); color: white; flex: 2; min-width: 150px;" onclick="triggerMockToast('Room change request preview opened.')"><i class="fas fa-handshake"></i> Request Change</button>
+          <button class="btn btn-secondary" style="padding: 10px 16px; font-size: 13px; flex: 1; min-width: 80px;" onclick="triggerMockToast('Delete is disabled in this preview.')"><i class="fas fa-trash" style="color: #ef4444;"></i> Delete</button>
         </div>
       </div>
     </div>
