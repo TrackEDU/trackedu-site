@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact TrackEDU | Live Demo, Founding Schools & General Enquiries</title>
-  <meta name="description" content="Contact TrackEDU for a live Zoom demo, Founding Schools Programme questions, or general enquiries. Demo access and 30-day pilots are available directly from the TrackEDU website.">
+  <title>Contact TrackEDU | Live Demo, Setup Pilots & General Enquiries</title>
+  <meta name="description" content="Contact TrackEDU for a live screen-share walkthrough, custom setup questions, or general support. Access the product evaluation dashboards directly from the TrackEDU platform.">
 
   <link rel="canonical" href="https://www.trackedu.net/contact.html">
   <link rel="icon" type="image/png" href="https://i.imgur.com/3PR3SiC.png">
@@ -13,7 +13,7 @@
   <meta property="og:site_name" content="TrackEDU">
   <meta property="og:locale" content="en_GB">
   <meta property="og:title" content="Contact TrackEDU">
-  <meta property="og:description" content="Contact TrackEDU for a live Zoom demo, Founding Schools Programme questions, or general enquiries.">
+  <meta property="og:description" content="Contact TrackEDU for a live Zoom demo, setup assistance, or general administrative enquiries.">
   <meta property="og:url" content="https://www.trackedu.net/contact.html">
   <meta property="og:image" content="https://trackedu.github.io/common-assets/trackedulogono.png">
 
@@ -60,14 +60,12 @@
       gap: 0.5rem;
       background: #87C232;
       color: #ffffff;
-      border-radius: 1rem;
-      font-weight: 800;
+      border-radius: 0.75rem;
+      font-weight: 700;
       transition: all 0.2s ease;
-      box-shadow: 0 10px 24px -16px rgba(135, 194, 50, 0.95);
     }
 
     .btn-primary:hover {
-      background: #78ad2d;
       transform: translateY(-1px);
     }
 
@@ -78,8 +76,8 @@
       gap: 0.5rem;
       background: #0C1E2C;
       color: #ffffff;
-      border-radius: 1rem;
-      font-weight: 800;
+      border-radius: 0.75rem;
+      font-weight: 700;
       transition: all 0.2s ease;
     }
 
@@ -96,8 +94,8 @@
       background: #ffffff;
       color: #0C1E2C;
       border: 1px solid #e5e7eb;
-      border-radius: 1rem;
-      font-weight: 800;
+      border-radius: 0.75rem;
+      font-weight: 700;
       transition: all 0.2s ease;
     }
 
@@ -110,15 +108,15 @@
     .simple-card {
       background: #ffffff;
       border: 1px solid #e5e7eb;
-      border-radius: 1.5rem;
-      box-shadow: 0 16px 40px -28px rgba(15, 23, 42, 0.35);
+      border-radius: 1.25rem;
+      box-shadow: 0 12px 30px -15px rgba(15, 23, 42, 0.08);
     }
 
     .field {
       width: 100%;
       border: 1px solid #dbe3ec;
-      border-radius: 0.9rem;
-      padding: 0.85rem 1rem;
+      border-radius: 0.75rem;
+      padding: 0.75rem 1rem;
       font-size: 0.95rem;
       background: #ffffff;
       outline: none;
@@ -127,7 +125,7 @@
 
     .field:focus {
       border-color: #0f66c3;
-      box-shadow: 0 0 0 4px rgba(15, 102, 195, 0.10);
+      box-shadow: 0 0 0 4px rgba(15, 102, 195, 0.08);
     }
 
     .label {
@@ -142,8 +140,8 @@
 
     .hero-bg {
       background:
-        radial-gradient(circle at top left, rgba(135, 194, 50, 0.16), transparent 34rem),
-        radial-gradient(circle at bottom right, rgba(15, 102, 195, 0.12), transparent 34rem),
+        radial-gradient(circle at top left, rgba(135, 194, 50, 0.12), transparent 34rem),
+        radial-gradient(circle at bottom right, rgba(15, 102, 195, 0.08), transparent 34rem),
         linear-gradient(180deg, #ffffff 0%, #F8FAFC 100%);
     }
   </style>
@@ -151,108 +149,110 @@
 
 <body class="overflow-x-hidden">
 
-  <!-- Simple navigation -->
-  <nav class="bg-white/95 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between gap-4">
-      <a href="/" class="flex items-center gap-2" aria-label="TrackEDU home">
-        <img src="https://trackedu.github.io/common-assets/trackedulogono.png" alt="TrackEDU logo" class="h-9 w-9 object-contain" style="transform: scale(1.4);">
-        <span class="font-display text-2xl font-black text-brand-dark tracking-tighter">Track<span class="text-brand-green">EDU</span></span>
-      </a>
+  <nav class="bg-white/95 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50 w-full">
+    <div class="w-full px-4 sm:px-8 md:px-12 lg:px-16 py-3.5 flex items-center justify-between gap-8">
+      
+      <div class="flex items-center gap-8 flex-1">
+        <a href="/" class="flex items-center" aria-label="TrackEDU home">
+          <span class="font-display text-2xl font-black text-[#0C1E2C] tracking-tighter">Track<span class="text-[#87C232]">EDU</span></span>
+        </a>
+        
+        <div class="hidden md:flex items-center gap-6 font-semibold text-sm text-slate-600">
+          <a href="/housepoints.html" class="hover:text-[#87C232] transition-colors">Digital House Points</a>
+          <a href="/facilities.html" class="hover:text-[#0f66c3] transition-colors">Facility Booking</a>
+        </div>
+      </div>
 
-      <a href="/" class="btn-light px-4 py-2 text-sm">
-        <i class="fas fa-arrow-left text-xs"></i>
-        Back to Home
-      </a>
+      <div class="flex items-center gap-4">
+        <a href="/" class="text-sm font-bold text-slate-600 hover:text-[#0C1E2C] transition-colors">Back to home</a>
+        <a href="/#starting-points" class="hidden sm:inline-flex text-sm font-extrabold text-white bg-[#0f66c3] hover:bg-[#0a4f99] px-4 py-2 rounded-xl shadow-sm transition-all">Get Started</a>
+      </div>
+
     </div>
   </nav>
 
-  <!-- Hero -->
-  <header class="hero-bg border-b border-gray-100">
-    <div class="max-w-6xl mx-auto px-5 py-14 md:py-20">
+  <header class="hero-bg border-b border-gray-100 w-full">
+    <div class="w-full px-4 sm:px-8 md:px-12 lg:px-16 py-12 md:py-16">
       <div class="grid lg:grid-cols-[1.15fr_0.85fr] gap-8 lg:gap-12 items-center">
+        
         <div>
-          <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-50 text-brand-green text-xs font-black uppercase tracking-wide mb-5">
+          <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 text-[#0f66c3] text-xs font-black uppercase tracking-wide mb-4">
             <i class="fas fa-envelope-open-text"></i>
-            Contact TrackEDU
+            Contact TrackEDU Team
           </span>
 
-          <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-brand-dark mb-5">
+          <h1 class="font-display text-4xl md:text-5xl font-black tracking-tight leading-tight text-[#0C1E2C] mb-5">
             Need to speak to us?
           </h1>
 
-          <p class="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mb-6">
-            Use this page for a live Zoom demo, Founding Schools Programme questions, or general enquiries. You can access the product demo and start a 30-day pilot directly from the main TrackEDU site.
+          <p class="text-lg text-slate-600 leading-relaxed max-w-2xl mb-6">
+            Book a screen-share walkthrough, request custom onboarding assistance, or ask us any integration questions. You can also directly launch a free account path below for either platform context.
           </p>
 
-          <div class="flex flex-col sm:flex-row gap-3">
-            <button data-cal-link="trackedu-a9dbpy/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view"}' class="btn-primary px-6 py-3.5 text-base">
-              <i class="fas fa-video text-sm"></i>
-              Book a Live Zoom Demo
+          <div class="flex flex-col xl:flex-row gap-3 flex-wrap">
+            <button data-cal-link="trackedu-a9dbpy/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view"}' class="btn-primary bg-[#87C232] hover:bg-[#5f9b20] px-5 py-3 text-sm shadow-sm whitespace-nowrap">
+              <i class="fas fa-video"></i> Book a Live Demo
             </button>
-
-            <a href="https://housepoint.trackedu.net/" target="_blank" rel="noopener" class="btn-dark px-6 py-3.5 text-base">
-              <i class="fas fa-rocket text-sm"></i>
-              Start 30-Day Pilot
+            <a href="https://housepoint.trackedu.net/" target="_blank" rel="noopener" class="btn-dark bg-[#0C1E2C] hover:bg-[#1e293b] px-5 py-3 text-sm text-center whitespace-nowrap">
+              <i class="fas fa-star text-[#87C232]"></i> Start House Points Pilot
+            </a>
+            <a href="https://facilities.trackedu.net/" target="_blank" rel="noopener" class="btn-light bg-white hover:border-[#0f66c3] px-5 py-3 text-sm text-center whitespace-nowrap">
+              <i class="fas fa-calendar-check text-[#0f66c3]"></i> Use Free Facility Calendar
             </a>
           </div>
-
-          <p class="text-xs text-gray-500 mt-4">
-            The pilot opens directly. No need to contact us first.
-          </p>
         </div>
 
-        <div class="simple-card p-6 md:p-7">
-          <h2 class="font-display text-2xl font-black text-brand-dark mb-3">
-            What can we help with?
+        <div class="simple-card p-6 md:p-7 bg-white">
+          <h2 class="font-display text-2xl font-black text-[#0C1E2C] mb-4">
+            Onboarding Paths
           </h2>
 
           <div class="space-y-4">
             <div class="flex gap-3">
-              <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-brand-blue shrink-0">
+              <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-[#0F66C3] shrink-0">
                 <i class="fas fa-video"></i>
               </div>
               <div>
-                <h3 class="font-black text-brand-dark">Live Zoom demo</h3>
-                <p class="text-sm text-gray-600 leading-relaxed">Book a walkthrough if you want us to show you TrackEDU and answer school-specific questions.</p>
+                <h3 class="font-black text-[#0C1E2C] text-sm">Live Platform Walkthrough</h3>
+                <p class="text-xs text-slate-600 leading-relaxed mt-0.5">Schedule a 1-on-1 walkthrough session to coordinate configurations for specific campus environments.</p>
               </div>
             </div>
 
             <div class="flex gap-3">
-              <div class="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center text-brand-green shrink-0">
-                <i class="fas fa-crown"></i>
+              <div class="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center text-[#87C232] shrink-0">
+                <i class="fas fa-star"></i>
               </div>
               <div>
-                <h3 class="font-black text-brand-dark">Founding Schools Programme</h3>
-                <p class="text-sm text-gray-600 leading-relaxed">Ask about eligibility, support, training, and what participation involves.</p>
+                <h3 class="font-black text-[#0C1E2C] text-sm">Digital House Points Pilot</h3>
+                <p class="text-xs text-slate-600 leading-relaxed mt-0.5">Claim custom house configurations and evaluate classroom tracking features free for 30 days.</p>
               </div>
             </div>
 
             <div class="flex gap-3">
-              <div class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700 shrink-0">
-                <i class="fas fa-circle-question"></i>
+              <div class="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center text-amber-600 shrink-0">
+                <i class="fas fa-calendar-days"></i>
               </div>
               <div>
-                <h3 class="font-black text-brand-dark">General enquiries</h3>
-                <p class="text-sm text-gray-600 leading-relaxed">For partnerships, support questions, procurement questions, or anything else.</p>
+                <h3 class="font-black text-[#0C1E2C] text-sm">Facility Calendar Free Plan</h3>
+                <p class="text-xs text-slate-600 leading-relaxed mt-0.5">Activate space scheduling, weather controls, and approvals instantly for up to 5 campus facilities for free.</p>
               </div>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </header>
 
-  <!-- Main content -->
-  <main class="max-w-6xl mx-auto px-5 py-12 md:py-16">
+  <main class="w-full px-4 sm:px-8 md:px-12 lg:px-16 py-12">
     <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 lg:gap-12 items-start">
 
-      <!-- Form -->
-      <section class="simple-card p-6 md:p-8" aria-labelledby="contact-form-heading">
+      <section class="simple-card p-6 md:p-8 bg-white" aria-labelledby="contact-form-heading">
         <div class="mb-6">
-          <h2 id="contact-form-heading" class="font-display text-2xl md:text-3xl font-black text-brand-dark">
+          <h2 id="contact-form-heading" class="font-display text-2xl md:text-3xl font-black text-[#0C1E2C]">
             Send a message
           </h2>
-          <p class="text-gray-600 mt-2">
+          <p class="text-gray-600 mt-2 text-sm">
             Keep it simple. Tell us what you need and we will reply by email.
           </p>
         </div>
@@ -283,12 +283,13 @@
 
           <div>
             <label for="enquiry" class="label">What is this about? *</label>
-            <select id="enquiry" name="enquiry_type" required class="field">
+            <select id="enquiry" name="enquiry_type" required class="field text-sm font-medium text-slate-700">
               <option value="">Select one option</option>
-              <option value="Live Zoom demo">Live Zoom demo</option>
-              <option value="Founding Schools Programme">Founding Schools Programme</option>
-              <option value="General enquiry">General enquiry</option>
-              <option value="Support question">Support question</option>
+              <option value="Request a live Zoom demo walkthrough">Request a live Zoom demo walkthrough</option>
+              <option value="Digital House Points 30-Day Pilot setup">Digital House Points 30-Day Pilot setup</option>
+              <option value="Facility Booking Calendar Free Plan question">Facility Booking Calendar Free Plan question</option>
+              <option value="Technical integration or customer support">Technical integration or customer support</option>
+              <option value="General administrative enquiry">General administrative enquiry</option>
             </select>
           </div>
 
@@ -297,103 +298,79 @@
             <textarea id="message" name="message" rows="5" required class="field" placeholder="Write your message here..."></textarea>
           </div>
 
-          <button type="submit" id="contactSubmitBtn" class="btn-primary w-full py-3.5 text-base">
+          <button type="submit" id="contactSubmitBtn" class="btn-primary w-full py-3.5 text-base bg-[#87C232] hover:bg-[#5f9b20]">
             <span class="btn-text">Send Message</span>
             <span class="btn-spinner hidden"><i class="fas fa-circle-notch fa-spin"></i></span>
           </button>
-
-          <p class="text-xs text-gray-500 text-center leading-relaxed">
-            For invoice requests, please use the dedicated invoice form on the main TrackEDU site.
-          </p>
         </form>
       </section>
 
-      <!-- Side panel -->
       <aside class="space-y-5">
-        <section class="simple-card p-6">
-          <h2 class="font-display text-xl font-black text-brand-dark mb-4">
-            Fastest options
+        <section class="simple-card p-6 bg-white">
+          <h2 class="font-display text-lg font-black text-[#0C1E2C] mb-3">
+            Fast Track Access
           </h2>
 
-          <div class="space-y-3">
-            <button data-cal-link="trackedu-a9dbpy/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view"}' class="btn-light w-full px-4 py-3 text-sm">
-              <i class="fas fa-video text-brand-blue"></i>
-              Book a Live Zoom Demo
+          <div class="space-y-2">
+            <button data-cal-link="trackedu-a9dbpy/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view"}' class="btn-light w-full px-4 py-2.5 text-xs">
+              <i class="fas fa-video text-[#0F66C3] w-4"></i>
+              Schedule Live Screen-Share
             </button>
 
-            <a href="https://housepoint.trackedu.net/" target="_blank" rel="noopener" class="btn-light w-full px-4 py-3 text-sm">
-              <i class="fas fa-rocket text-brand-green"></i>
-              Start 30-Day Pilot
+            <a href="https://housepoint.trackedu.net/" target="_blank" rel="noopener" class="btn-light w-full px-4 py-2.5 text-xs">
+              <i class="fas fa-star text-[#87C232] w-4"></i>
+              Launch House Points Pilot
             </a>
 
-            <a href="mailto:hello@trackedu.net" class="btn-light w-full px-4 py-3 text-sm">
-              <i class="fas fa-envelope text-brand-blue"></i>
-              Email hello@trackedu.net
+            <a href="https://facilities.trackedu.net/" target="_blank" rel="noopener" class="btn-light w-full px-4 py-2.5 text-xs">
+              <i class="fas fa-calendar-check text-[#0F66C3] w-4"></i>
+              Create Free Facility Calendar
             </a>
           </div>
-        </section>
-
-        <section class="simple-card p-6 bg-brand-dark text-white border-brand-dark">
-          <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-brand-green mb-4">
-            <i class="fas fa-crown text-xl"></i>
-          </div>
-
-          <h2 class="font-display text-xl font-black mb-3">
-            Founding Schools Programme
-          </h2>
-
-          <p class="text-white/75 text-sm leading-relaxed mb-4">
-            Interested in becoming a Founding School? Send a short message and include your school name, country, and what you would like to explore with TrackEDU.
-          </p>
-
-          <button onclick="selectFoundingSchools()" class="btn-primary w-full px-4 py-3 text-sm">
-            Ask About Founding Schools
-          </button>
         </section>
 
         <section class="simple-card p-6">
-          <h2 class="font-display text-xl font-black text-brand-dark mb-4">
-            Direct contact
+          <h2 class="font-display text-xl font-black text-[#0C1E2C] mb-4">
+            Direct registry contact
           </h2>
 
           <div class="space-y-4 text-sm text-gray-600">
             <div>
               <p class="text-xs font-black uppercase tracking-wide text-gray-400 mb-1">Email</p>
-              <a href="mailto:hello@trackedu.net" class="text-brand-blue font-black text-lg hover:underline break-all">hello@trackedu.net</a>
+              <a href="mailto:hello@trackedu.net" class="text-[#0F66C3] font-black text-lg hover:underline break-all">hello@trackedu.net</a>
             </div>
 
-            <div class="pt-4 border-t border-gray-100">
-              <p class="text-xs font-black uppercase tracking-wide text-gray-400 mb-1">Company</p>
+            <div class="pt-4 border-t border-gray-100 text-xs text-slate-500">
+              <p class="text-[10px] font-black uppercase tracking-wide text-gray-400 mb-1">Company Records</p>
               <p>TrackEDU Ltd</p>
-              <p>Company No. 17216557</p>
-              <p>ICO registered: ZC146923</p>
+              <p>Registered inside England & Wales (No. 17216557)</p>
+              <p>ICO Data Protection Registry: ZC146923</p>
             </div>
           </div>
         </section>
       </aside>
+
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-white border-t border-gray-100 py-8">
-    <div class="max-w-6xl mx-auto px-5 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
-      <p>© 2026 Track<span class="text-brand-green font-bold">EDU</span> Ltd. All rights reserved.</p>
+  <footer class="bg-white border-t border-gray-100 py-8 w-full">
+    <div class="w-full px-4 sm:px-8 md:px-12 lg:px-16 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
+      <p>© 2026 Track<span class="text-[#87C232] font-bold">EDU</span> Ltd. All rights reserved.</p>
       <div class="flex items-center gap-4 text-xs">
-        <a href="/privacy.html" class="hover:text-brand-blue">Privacy Policy</a>
-        <a href="/terms.html" class="hover:text-brand-blue">Terms of Use</a>
-        <a href="https://housepoint.trackedu.net/" target="_blank" rel="noopener" class="hover:text-brand-blue">Login</a>
+        <a href="/privacy.html" class="hover:text-[#0F66C3]">Privacy Policy</a>
+        <a href="/terms.html" class="hover:text-[#0F66C3]">Terms of Use</a>
+        <a href="https://housepoint.trackedu.net/" target="_blank" rel="noopener" class="hover:text-[#0f66c3]">House Points Login</a>
+        <a href="https://facilities.trackedu.net/" target="_blank" rel="noopener" class="hover:text-[#0f66c3]">Facility Booking Login</a>
       </div>
     </div>
   </footer>
 
-  <!-- Success Toast -->
-  <div id="successToast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-brand-dark text-white px-5 py-3 rounded-full shadow-2xl flex items-center gap-3 z-[1000] hidden max-w-[92vw]">
-    <i class="fas fa-check-circle text-brand-green text-lg"></i>
+  <div id="successToast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-[#0C1E2C] text-white px-5 py-3 rounded-full shadow-2xl flex items-center gap-3 z-[1000] hidden max-w-[92vw]">
+    <i class="fas fa-check-circle text-[#87C232] text-lg"></i>
     <span class="text-sm font-medium">Message sent. We will reply by email.</span>
     <button onclick="document.getElementById('successToast').classList.add('hidden')" class="ml-2 text-gray-400 hover:text-white" aria-label="Close message">&times;</button>
   </div>
 
-  <!-- Cal.com script -->
   <script type="text/javascript">
     (function (C, A, L) {
       let p = function (a, ar) { a.q.push(ar); };
@@ -423,32 +400,18 @@
     })(window, "https://app.cal.com/embed/embed.js", "init");
 
     Cal("init", "30min", { origin: "https://app.cal.com" });
-    Cal.ns["30min"]("ui", {
+    Cal("ui", {
       cssVarsPerTheme: { light: { "cal-brand": "#87C232" } },
       hideEventTypeDetails: true,
       layout: "month_view"
     });
   </script>
 
-  <!-- Contact submission -->
   <script>
     const contactForm = document.getElementById('contactForm');
     const submitBtn = document.getElementById('contactSubmitBtn');
     const btnText = submitBtn?.querySelector('.btn-text');
     const btnSpinner = submitBtn?.querySelector('.btn-spinner');
-
-    function selectFoundingSchools() {
-      const enquiry = document.getElementById('enquiry');
-      const message = document.getElementById('message');
-
-      if (enquiry) enquiry.value = 'Founding Schools Programme';
-      if (message && !message.value.trim()) {
-        message.value = 'Hello TrackEDU, I would like to ask about the Founding Schools Programme.';
-      }
-
-      document.getElementById('contact-form-heading')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setTimeout(() => message?.focus(), 450);
-    }
 
     async function handleContactSubmit(e) {
       e.preventDefault();
@@ -478,7 +441,7 @@
           alert('Something went wrong. Please email hello@trackedu.net directly.');
         }
       } catch (error) {
-        console.error('Contact form error:', error);
+        console.error('Contact form transmission trace fault:', error);
         alert('Error sending message. Please email hello@trackedu.net directly.');
       } finally {
         submitBtn.disabled = false;
