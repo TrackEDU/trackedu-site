@@ -687,27 +687,13 @@
       }
 
     @media (max-width: 640px) {
-      .hero { padding-top: 36px; padding-bottom: 24px; }
+      .hero { padding-top: 32px; }
       h1 { 
-        font-size: 26px !important; 
-        font-weight: 700 !important; 
-        line-height: 1.3 !important;
-        padding: 0 8px;
-        color: #2c2f35 !important;
-        letter-spacing: -0.03em;
-        margin-bottom: 20px !important;
+        font-size: clamp(26px, 7vw, 34px) !important; 
+        line-height: 1.25 !important;
+        padding: 0 4px;
       }
-      /* Keeps multi-word product titles completely unbroken on mobile lines */
-      h1 .product-phrase {
-        display: inline-block;
-        white-space: nowrap;
-      }
-      .hero-sub { 
-        font-size: 14px; 
-        line-height: 1.6; 
-        padding: 0 8px;
-        color: #64748b;
-      }
+      .hero-sub { font-size: 15px; margin-top: 16px; }
       .hero-ctas { flex-direction: column; }
       .hero-ctas .btn { width: 100%; }
       .ui-grid, .dashboard-row { grid-template-columns: 1fr; }
@@ -1344,12 +1330,7 @@
   <main>
     <section id="hero" class="hero">
       <div class="hero-inner">
-       <h1>
-  One platform for schools to manage 
-  <span class="product-phrase" style="color: #87C232;">house points</span> 
-  <span style="font-weight: 500; color: #5d6676;">and</span> 
-  <span class="product-phrase" style="color: #0F66C3;">facility booking.</span>
-</h1>
+        <h1>One platform for schools to manage <span class="hero-gradient" style="display: inline-block;">house points</span> and <span class="hero-gradient" style="display: inline-block;">facility booking.</span></h1>
         <p class="hero-sub">TrackEDU helps schools manage rewards, teacher tools, room bookings and shared spaces without spreadsheets, scattered emails or admin confusion.</p>
         <div class="hero-ctas">
           <a class="btn btn-primary" href="https://www.trackedu.net/housepoints.html">View Digital House Points <i class="fas fa-arrow-right"></i></a>
