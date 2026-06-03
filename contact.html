@@ -469,9 +469,9 @@
       const urlParams = new URLSearchParams(window.location.search);
       const refCode = urlParams.get('ref');
       if (refCode) {
-          localStorage.setItem('trackedu_ref', refCode);
+          sessionStorage.setItem('trackedu_ref', refCode);
       }
-      const savedRef = localStorage.getItem('trackedu_ref');
+      const savedRef = sessionStorage.getItem('trackedu_ref');
       if (savedRef) {
           const promoFields = document.querySelectorAll('.promo-code-input');
           promoFields.forEach(field => {
