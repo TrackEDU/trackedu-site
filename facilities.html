@@ -424,31 +424,115 @@
   </aside>
 
   <main>
-    <section class="funky-mesh pt-28 sm:pt-32 pb-12 sm:pb-16 overflow-hidden border-b-4 border-brand-dark relative z-10">
+    <section class="funky-mesh pt-28 lg:pt-32 pb-0 overflow-hidden border-b-4 border-brand-dark relative z-10">
+      <div class="w-full mx-auto px-4 sm:px-8 lg:px-12 2xl:px-20 max-w-7xl">
+        <div class="flex flex-col lg:flex-row items-center gap-4 lg:gap-20">
+          
+          <!-- Text Side (Left) -->
+          <div class="lg:w-1/2 space-y-6 relative z-20 text-center lg:text-left mb-2 lg:mb-24">
+            <div class="inline-flex px-4 py-1 rounded-full border-2 border-brand-dark bg-brand-yellow text-brand-dark font-black uppercase text-xs tracking-widest shadow-sm transform -rotate-1">
+              <i class="fas fa-calendar-check mr-2"></i> Facility Booking System
+            </div>
+            
+            <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-brand-dark leading-tight tracking-tight">
+              Skip the search.<br>
+              <span class="text-brand-green">Find it and book it.</span>
+            </h1>
+            
+            <p class="text-base sm:text-lg font-bold text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
+              Stop wandering the campus looking for an empty computer lab or quiet study space. One simple, shared calendar that shows faculty and staff exactly what is available right now.
+            </p>
+
+            <!-- Compact Bullet Points for Hero -->
+            <ul class="flex flex-col gap-3 font-black text-brand-dark text-sm sm:text-base justify-center lg:justify-start items-center lg:items-start pt-2">
+              <li class="flex items-center gap-3"><i class="fas fa-bolt text-brand-yellow text-lg"></i> 1-Click instant reservations</li>
+              <li class="flex items-center gap-3"><i class="fas fa-shield-alt text-brand-green text-lg"></i> Guaranteed conflict-free spaces</li>
+              <li class="flex items-center gap-3"><i class="fas fa-mobile-alt text-brand-blue text-lg"></i> Works natively on all phones</li>
+            </ul>
+            
+            <div class="flex flex-col items-center lg:items-start gap-3 pt-8">
+              <a href="https://facilities.trackedu.net/" target="_blank" rel="noopener" class="btn-primary text-base sm:text-lg px-8 py-4 w-full sm:w-auto text-center">
+                Start Free Calendar →
+              </a>
+              <span class="text-[11px] font-black text-slate-400 uppercase tracking-wider flex items-center gap-1.5 lg:ml-2">
+                <i class="fas fa-check-circle text-brand-green"></i> No credit card required for free plan
+              </span>
+            </div>
+          </div>
+
+          <!-- Graphic Side (Right) - MASSIVE Phone View -->
+          <div class="lg:w-1/2 relative w-full flex justify-center lg:justify-end mt-4 lg:mt-0 lg:pt-10">
+            <!-- Background blob for depth -->
+            <div class="absolute inset-0 bg-brand-green/10 rounded-full blur-3xl transform scale-150 -z-10"></div>
+            
+            <!-- Adjusted max-w for mobile (400px) and desktop (600px) -->
+            <div class="relative w-full max-w-[400px] lg:max-w-[600px] mx-auto lg:mr-[-2rem] flex items-end">
+              
+              <!-- Floating Hand/Phone Image -->
+              <div class="relative z-10 w-full overflow-hidden flex items-end justify-center">
+                <img src="https://trackedu.github.io/common-assets/instantbooking.png" alt="Instant Booking Room Finder" class="w-full h-auto block transform scale-110 lg:scale-125 origin-[50%_20%] relative translate-y-[2%]">
+              </div>
+
+              <!-- Floating Success Badge -->
+              <div class="absolute right-2 sm:right-8 bottom-4 lg:bottom-12 bg-white border-4 border-brand-dark rounded-2xl p-4 shadow-chunkyHover transform rotate-3 z-30 flex items-center gap-3 transition duration-500 hover:-rotate-2 hover:scale-105">
+                <div class="w-10 h-10 bg-brand-yellow rounded-full border-2 border-brand-dark flex items-center justify-center text-brand-dark shrink-0 shadow-[2px_2px_0px_0px_#0C1E2C]">
+                  <i class="fas fa-bolt"></i>
+                </div>
+                <div>
+                  <strong class="block text-brand-dark font-black leading-none text-sm mb-1">Instant Book</strong>
+                  <span class="text-xs font-bold text-slate-500">Secured in 1 click</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+
+    <section id="system" class="py-24 bg-brand-dark text-white border-b-4 border-slate-800 w-full">
+      
+      <div class="w-full mx-auto px-4 sm:px-8 lg:px-12 2xl:px-20 max-w-7xl mb-12">
+        <div class="max-w-3xl mx-auto text-center">
+          <div class="inline-flex px-4 py-1 rounded-full border-2 border-white bg-brand-green text-brand-dark font-black uppercase text-xs tracking-widest mb-4">Central Dashboard</div>
+          <h2 class="font-display text-4xl sm:text-6xl font-black leading-tight tracking-[-0.02em] mb-4">A single booking dashboard for three different teams.</h2>
+          <p class="text-slate-300 text-lg font-medium max-w-2xl mx-auto">Faculty and students can view and reserve open spaces, administrators can approve high-demand room requests, and the site team can pull a live checklist of room setups.</p>
+        </div>
+      </div>
+
+      <div class="w-full px-0 sm:px-6 md:px-12 lg:px-16 max-w-[90rem] mx-auto">
+        <div class="w-full relative group">
+          <div class="absolute inset-0 bg-brand-green sm:rounded-[2rem] transform translate-x-3 translate-y-3 border-4 border-brand-dark hidden sm:block"></div>
+          
+          <div class="relative z-10 bg-white sm:rounded-[2rem] border-y-4 sm:border-4 border-brand-dark overflow-hidden shadow-sm aspect-[16/10] sm:aspect-video w-full flex items-center justify-center">
+            <img src="https://trackedu.github.io/common-assets/alarmbig.png" alt="TrackEDU Master School Room Booking Calendar Grid Dashboard Interface" class="w-full h-full object-cover block object-center">
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+<section id="platform-tour" class="py-24 bg-[#FAFAF9] overflow-hidden border-b-4 border-brand-dark relative z-10">
       <div class="w-full mx-auto px-4 sm:px-8 lg:px-12 2xl:px-20 max-w-[85rem]">
         
-        <div class="text-center mb-8 max-w-3xl mx-auto px-4">
-          <span class="block text-xs sm:text-sm font-black text-slate-400 uppercase tracking-wider mb-2">
-            "Wait, I thought we booked the hall this period?"
-          </span>
-          <h1 class="font-display text-3xl sm:text-4xl md:text-5xl font-black text-brand-dark leading-tight tracking-tight max-w-2xl mx-auto balance">
-            Stop walking your students to a <span class="inline-block px-3 py-0.5 bg-brand-green/10 text-brand-green rounded-xl border-2 border-brand-green/20 font-black whitespace-nowrap transform -rotate-1">double-booked room.</span>
-          </h1>
-          <p class="text-sm sm:text-base font-bold text-slate-600 mt-4 max-w-xl mx-auto leading-relaxed">
-            One simple, shared calendar built for busy faculty and staff. Instantly see which classrooms, computer labs, and lecture halls are free right now—no locked spreadsheets or endless emails required.
-          </p>
-          <div class="flex flex-col items-center justify-center gap-1 mt-6">
-            <a href="https://facilities.trackedu.net/" target="_blank" rel="noopener" class="btn-primary text-sm px-6 py-2.5 w-full sm:w-auto">
-              Create Your Campus Free Calendar →
-            </a>
-            <span class="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider mt-2 flex items-center gap-1">
-              <i class="fas fa-credit-card text-[9px]"></i> No credit card required for free plan 
-            </span>
+        <div class="text-center mb-12 max-w-3xl mx-auto px-4">
+          <div class="inline-flex px-4 py-1 rounded-full border-2 border-brand-dark bg-brand-pink text-white font-black uppercase text-xs tracking-widest mb-4 shadow-sm transform -rotate-1">
+            Interactive Tour
           </div>
+          <h2 class="font-display text-4xl sm:text-5xl font-black text-brand-dark leading-tight tracking-tight max-w-2xl mx-auto balance">
+            Take a closer look at the <span class="inline-block px-3 py-0.5 bg-brand-green/10 text-brand-green rounded-xl border-2 border-brand-green/20 font-black whitespace-nowrap transform -rotate-1">platform.</span>
+          </h2>
+          <p class="text-base sm:text-lg font-bold text-slate-600 mt-4 max-w-2xl mx-auto leading-relaxed">
+            Click through the gallery below to see exactly how our software prevents double-bookings, manages weather closures, and keeps your entire campus organized.
+          </p>
         </div>
         
         <div class="grid lg:grid-cols-12 gap-6 items-stretch mt-4">
           
+          <!-- Graphic/Carousel Side -->
           <div class="lg:col-span-8 relative group w-full">
             <div class="absolute inset-0 bg-brand-green rounded-3xl transform translate-x-2.5 translate-y-2.5 border-4 border-brand-dark shadow-sm"></div>
             <div class="carousel-container bg-white relative z-10 aspect-[16/10] sm:aspect-video w-full overflow-hidden">
@@ -482,6 +566,7 @@
             </div>
           </div>
 
+          <!-- Quick Jumps Side -->
           <div class="lg:col-span-4 w-full bg-white p-3.5 border-4 border-brand-dark rounded-3xl shadow-chunky lg:h-full flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between border-b-2 border-slate-100 pb-2 mb-3 px-1">
@@ -533,118 +618,6 @@
         </div>
       </div>
     </section>
-
-
-
-    <section id="system" class="py-24 bg-brand-dark text-white border-b-4 border-slate-800 w-full">
-      
-      <div class="w-full mx-auto px-4 sm:px-8 lg:px-12 2xl:px-20 max-w-7xl mb-12">
-        <div class="max-w-3xl mx-auto text-center">
-          <div class="inline-flex px-4 py-1 rounded-full border-2 border-white bg-brand-green text-brand-dark font-black uppercase text-xs tracking-widest mb-4">Central Dashboard</div>
-          <h2 class="font-display text-4xl sm:text-6xl font-black leading-tight tracking-[-0.02em] mb-4">A single booking dashboard for three different teams.</h2>
-          <p class="text-slate-300 text-lg font-medium max-w-2xl mx-auto">Faculty and students can view and reserve open spaces, administrators can approve high-demand room requests, and the site team can pull a live checklist of room setups.</p>
-        </div>
-      </div>
-
-      <div class="w-full px-0 sm:px-6 md:px-12 lg:px-16 max-w-[90rem] mx-auto">
-        <div class="w-full relative group">
-          <div class="absolute inset-0 bg-brand-green sm:rounded-[2rem] transform translate-x-3 translate-y-3 border-4 border-brand-dark hidden sm:block"></div>
-          
-          <div class="relative z-10 bg-white sm:rounded-[2rem] border-y-4 sm:border-4 border-brand-dark overflow-hidden shadow-sm aspect-[16/10] sm:aspect-video w-full flex items-center justify-center">
-            <img src="https://trackedu.github.io/common-assets/alarmbig.png" alt="TrackEDU Master School Room Booking Calendar Grid Dashboard Interface" class="w-full h-full object-cover block object-center">
-          </div>
-        </div>
-      </div>
-
-    </section>
-
-
-    <section class="py-24 bg-white border-b-4 border-brand-dark overflow-hidden">
-      <div class="w-full mx-auto px-4 sm:px-8 lg:px-12 2xl:px-20 max-w-7xl">
-        <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
-          
-          <!-- Graphic Side (Left) -->
-          <div class="lg:w-1/2 relative w-full flex justify-center lg:justify-start mt-8 lg:mt-0 mb-24 lg:mb-0">
-            
-            <!-- Background blob for depth -->
-            <div class="absolute inset-0 bg-brand-teal/10 rounded-full blur-3xl transform scale-150 -z-10"></div>
-            
-            <!-- Adjusted max-w for mobile (400px) and desktop (600px) -->
-            <div class="relative w-full max-w-[400px] lg:max-w-[600px] mx-auto lg:ml-[-2rem]">
-              
-              <!-- Floating Hand/Phone Image - FIXED: Added overflow-hidden to cleanly cut the scaled image -->
-              <div class="relative z-10 w-full overflow-hidden transition duration-500 hover:-translate-y-2 pb-4">
-                <img src="https://trackedu.github.io/common-assets/instantbooking.png" alt="Instant Booking Room Finder" class="w-full h-auto transform scale-110 lg:scale-125 origin-[50%_15%]">
-                
-                <!-- FIXED: Gradient anchored firmly to the bottom of the hidden overflow box -->
-                <div class="absolute bottom-0 left-0 w-full h-32 lg:h-48 bg-gradient-to-t from-white via-white/90 to-transparent pointer-events-none z-10"></div>
-              </div>
-
-              <!-- Floating Success Badge -->
-              <!-- Positioned outside the hidden overflow so it isn't accidentally cut off -->
-              <div class="absolute right-2 sm:-right-4 bottom-[-1rem] lg:bottom-12 bg-white border-4 border-brand-dark rounded-2xl p-4 shadow-chunkyHover transform rotate-3 z-30 flex items-center gap-3 transition duration-500 hover:-rotate-2 hover:scale-105">
-                <div class="w-10 h-10 bg-brand-yellow rounded-full border-2 border-brand-dark flex items-center justify-center text-brand-dark shrink-0 shadow-[2px_2px_0px_0px_#0C1E2C]">
-                  <i class="fas fa-bolt"></i>
-                </div>
-                <div>
-                  <strong class="block text-brand-dark font-black leading-none text-sm mb-1">Instant Book</strong>
-                  <span class="text-xs font-bold text-slate-500">Secured in 1 click</span>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- Text Side (Right) -->
-          <div class="lg:w-1/2 space-y-6 relative z-20">
-            <div class="inline-flex px-4 py-1 rounded-full border-2 border-brand-dark bg-brand-teal text-white font-black uppercase text-xs tracking-widest shadow-sm transform -rotate-1">
-              <i class="fas fa-search-location mr-2"></i> Instant Room Finder
-            </div>
-            
-            <h2 class="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-brand-dark leading-tight tracking-[-0.02em]">
-              Skip the search.<br>
-              <span class="text-brand-teal">Find it and book it.</span>
-            </h2>
-            
-            <p class="text-lg font-bold text-slate-600 leading-relaxed max-w-xl mb-8">
-              Stop wandering the campus looking for an empty computer lab or quiet study space. The Instant Finder scans your entire database and shows you exactly what's available right now.
-            </p>
-            
-            <ul class="space-y-5">
-              <li class="flex items-start gap-4 font-black text-brand-dark text-base sm:text-lg">
-                <div class="w-10 h-10 shrink-0 rounded-xl bg-white text-brand-dark flex items-center justify-center border-2 border-brand-dark shadow-[2px_2px_0px_0px_#0C1E2C] mt-1">
-                  <i class="fas fa-filter text-brand-teal"></i>
-                </div>
-                <div>
-                  Filter by category or time
-                  <span class="block text-sm font-bold text-slate-500 mt-1">Easily isolate sports halls, labs, or lecture theatres.</span>
-                </div>
-              </li>
-              <li class="flex items-start gap-4 font-black text-brand-dark text-base sm:text-lg">
-                <div class="w-10 h-10 shrink-0 rounded-xl bg-white text-brand-dark flex items-center justify-center border-2 border-brand-dark shadow-[2px_2px_0px_0px_#0C1E2C] mt-1">
-                  <i class="fas fa-bolt text-brand-yellow"></i>
-                </div>
-                <div>
-                  1-Click instant reservations
-                  <span class="block text-sm font-bold text-slate-500 mt-1">Claim the space directly from the search results.</span>
-                </div>
-              </li>
-              <li class="flex items-start gap-4 font-black text-brand-dark text-base sm:text-lg">
-                <div class="w-10 h-10 shrink-0 rounded-xl bg-brand-green/20 text-brand-green flex items-center justify-center border-2 border-brand-dark shadow-[2px_2px_0px_0px_#0C1E2C] mt-1">
-                  <i class="fas fa-shield-alt"></i>
-                </div>
-                <div>
-                  Guaranteed conflict-free
-                  <span class="block text-sm font-bold text-slate-500 mt-1">Only shows spaces that are 100% clear of overlapping classes.</span>
-                </div>
-              </li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
     
 
     <section id="demo-video" class="py-16 bg-white border-b-4 border-brand-dark">
@@ -722,72 +695,6 @@
 
 
 
-<section class="py-24 bg-white border-b-4 border-brand-dark overflow-hidden">
-      <div class="w-full mx-auto px-4 sm:px-8 lg:px-12 2xl:px-20 max-w-7xl">
-        <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-          
-          <div class="lg:w-1/2 space-y-6">
-            <div class="inline-flex px-4 py-1 rounded-full border-2 border-brand-dark bg-brand-yellow text-brand-dark font-black uppercase text-xs tracking-widest shadow-sm transform -rotate-1">
-              <i class="fas fa-mobile-alt mr-2"></i> On-The-Go Access
-            </div>
-            
-            <h2 class="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-brand-dark leading-tight tracking-[-0.02em]">
-              Scan the door.<br>
-              <span class="text-brand-green">Claim the room.</span>
-            </h2>
-            
-            <p class="text-lg font-bold text-slate-600 leading-relaxed max-w-xl mb-8">
-              Make reservations instantly from the hallway. Print TrackEDU QR codes for your rooms, and teachers can scan them to check real-time availability or book a spot in seconds.
-            </p>
-            
-            <ul class="space-y-5">
-              <li class="flex items-center gap-4 font-black text-brand-dark text-base sm:text-lg">
-                <div class="w-10 h-10 shrink-0 rounded-xl bg-brand-green/20 text-brand-green flex items-center justify-center border-2 border-brand-dark shadow-[2px_2px_0px_0px_#0C1E2C]">
-                  <i class="fas fa-qrcode"></i>
-                </div>
-                Scan any room's QR code to book instantly
-              </li>
-              <li class="flex items-center gap-4 font-black text-brand-dark text-base sm:text-lg">
-                <div class="w-10 h-10 shrink-0 rounded-xl bg-brand-purple/20 text-brand-purple flex items-center justify-center border-2 border-brand-dark shadow-[2px_2px_0px_0px_#0C1E2C]">
-                  <i class="fas fa-clock"></i>
-                </div>
-                Check live availability from the hallway
-              </li>
-              <li class="flex items-center gap-4 font-black text-brand-dark text-base sm:text-lg">
-                <div class="w-10 h-10 shrink-0 rounded-xl bg-brand-blue/20 text-brand-blue flex items-center justify-center border-2 border-brand-dark shadow-[2px_2px_0px_0px_#0C1E2C]">
-                  <i class="fas fa-mobile-alt"></i>
-                </div>
-                Works natively on iOS & Android browsers
-              </li>
-            </ul>
-          </div>
-
-          <div class="lg:w-1/2 relative w-full flex justify-center lg:justify-end mt-12 lg:mt-0">
-            <div class="absolute inset-0 bg-brand-green/10 rounded-full blur-3xl transform scale-150 -z-10"></div>
-            
-            <div class="relative w-full max-w-[300px] mx-auto lg:mr-12">
-              
-
-              <div class="relative z-10 w-full bg-brand-light border-[10px] border-brand-dark rounded-[3rem] shadow-chunky overflow-hidden aspect-[9/19]">
-                <div class="absolute top-0 inset-x-0 h-6 bg-brand-dark rounded-b-2xl w-1/2 mx-auto z-20"></div>
-                
-                <img src="https://trackedu.github.io/common-assets/qrcode.png" alt="Mobile Booking View" class="w-full h-full object-cover object-top border-2 border-slate-200 rounded-[2rem]">
-              </div>
-
-              <div class="absolute -right-6 sm:-right-16 bottom-20 bg-white border-4 border-brand-dark rounded-2xl p-4 shadow-chunkyHover transform rotate-6 z-20 flex items-center gap-3 transition duration-500 hover:-rotate-3 hover:scale-105">
-                <i class="fas fa-check-circle text-brand-green text-3xl"></i>
-                <div>
-                  <strong class="block text-brand-dark font-black leading-none text-sm mb-1">Room Secured</strong>
-                  <span class="text-xs font-bold text-slate-500">Period 3 • Science Lab</span>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
 
 
 
@@ -1395,7 +1302,7 @@
       <div class="w-full mx-auto px-4 sm:px-8 lg:px-12 2xl:px-20 max-w-6xl">
         <div class="text-center mb-12">
           <div class="inline-flex px-4 py-1 rounded-full border-2 border-brand-dark bg-white text-brand-dark font-black uppercase text-xs tracking-widest mb-4 shadow-sm">Simple Pricing</div>
-          <h2 class="font-display text-4xl sm:text-6xl font-black text-brand-dark leading-tight tracking-[-0.02em]">No bake sales required.</h2>
+          <h2 class="font-display text-4xl sm:text-6xl font-black text-brand-dark leading-tight tracking-[-0.02em]">Simple pricing for any size campus</h2>
         </div>
 
         <div class="max-w-4xl mx-auto mb-12 bg-brand-yellow border-4 border-brand-dark rounded-3xl p-6 shadow-chunky text-brand-dark flex flex-col md:flex-row items-center gap-6 transform -rotate-1">
