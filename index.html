@@ -687,25 +687,121 @@
       }
 
     @media (max-width: 640px) {
-      .hero { padding-top: 32px; }
-      h1 { 
-        font-size: clamp(26px, 7vw, 34px) !important; 
-        line-height: 1.25 !important;
-        padding: 0 4px;
-      }
-      .hero-sub { font-size: 15px; margin-top: 16px; }
-      .hero-ctas { flex-direction: column; }
-      .hero-ctas .btn { width: 100%; }
-      .ui-grid, .dashboard-row { grid-template-columns: 1fr; }
-      .product-scroll { grid-auto-columns: minmax(282px, 86vw); }
-      .section { padding-left: 18px; padding-right: 18px; }
-      .trust-mini-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-      .trust-mini { padding: 12px; border-radius: 16px; }
-      .trust-mini i { font-size: 16px; margin-bottom: 6px; }
-      .trust-mini strong { font-size: 13px; margin-bottom: 4px; }
-      .trust-mini span { font-size: 11px; line-height: 1.35; }
-      .footer-grid { grid-template-columns: 1fr; text-align: center; }
-    }
+  .hero { padding-top: 32px; }
+
+  h1 { 
+    font-size: clamp(26px, 7vw, 34px) !important; 
+    line-height: 1.25 !important;
+    padding: 0 4px;
+  }
+
+  .hero-sub {
+    font-size: 15px;
+    margin-top: 16px;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+  }
+
+  .hero-ctas .btn {
+    width: 100%;
+  }
+
+  .ui-grid,
+  .dashboard-row {
+    grid-template-columns: 1fr;
+  }
+
+  /* Mobile product cards, wider cards, cleaner scrolling */
+  .product-scroll {
+    grid-auto-columns: minmax(360px, 94vw) !important;
+    gap: 18px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    scroll-padding-left: 16px !important;
+  }
+
+  .feature-tile {
+    padding: 24px !important;
+    min-height: auto !important;
+  }
+
+  .feature-tile h3 {
+    font-size: 30px !important;
+    line-height: 1.08 !important;
+  }
+
+  .feature-tile p.feature-intro {
+    font-size: 16px !important;
+    line-height: 1.55 !important;
+  }
+
+  .feature-check {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+  }
+
+  .tile-visual {
+    min-height: 190px !important;
+    padding: 16px !important;
+  }
+
+  /* Fix the small Free / Busy / Pending cells on mobile */
+  .visual-calendar-card {
+    padding: 18px !important;
+  }
+
+  .calendar-mini-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+}
+
+  .calendar-mini-cell {
+    min-height: 42px !important;
+    font-size: 9px !important;
+    line-height: 1 !important;
+    padding: 3px !important;
+    border-radius: 10px !important;
+    white-space: nowrap !important;
+    font-weight: 800 !important;
+  }
+
+  .section {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .trust-mini-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .trust-mini {
+    padding: 12px;
+    border-radius: 16px;
+  }
+
+  .trust-mini i {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  .trust-mini strong {
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+
+  .trust-mini span {
+    font-size: 11px;
+    line-height: 1.35;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
 
     /* Interactive Mockup Engine Additions */
     /* Interaction Gate Overlays ,  Standard Mobile Baseline (No Blur) */
@@ -1258,85 +1354,90 @@
 
 <body>
   <nav class="nav" aria-label="Primary navigation">
-    <div class="nav-inner" style="display: flex; align-items: center; justify-content: space-between; gap: 40px;">
+  <div class="nav-inner" style="display: flex; align-items: center; justify-content: space-between; gap: 40px;">
+    
+    <div style="display: flex; align-items: center; gap: clamp(20px, 3vw, 40px); flex: 1;">
+      <a href="#hero" class="wordmark" aria-label="TrackEDU home">Track<span>EDU</span></a>
       
-      <div style="display: flex; align-items: center; gap: clamp(20px, 3vw, 40px); flex: 1;">
-        <a href="#hero" class="wordmark" aria-label="TrackEDU home">Track<span>EDU</span></a>
-        
-        <div class="nav-links nav-links-desktop" style="display: flex; align-items: center; gap: 24px; font-weight: 600;">
-          
-          <a href="https://www.trackedu.net/facilities.html" style="font-size: 14.5px; color: #2b3748;">Facility Booking</a>
-          <a href="https://www.trackedu.net/housepoints.html" style="font-size: 14.5px; color: #2b3748;">Digital House Points</a>
-          
-          <a href="#starting-points" style="font-size: 14.5px; color: #2b3748;">Solutions</a>
-          <a href="#trust" style="font-size: 14.5px; color: #2b3748;">Trust</a>
-        </div>
-      </div>
-
-      <button class="hamburger" id="mobile-menu-btn" aria-label="Toggle navigation" aria-expanded="false">
-        <i class="fas fa-bars"></i>
-      </button>
-
-      <div class="nav-menu-wrapper" id="nav-menu" style="display: flex; align-items: center; gap: 24px; margin-left: auto;">
-        
-        <div class="nav-links mobile-only" style="width: 100%;">
-          
-          <a href="https://www.trackedu.net/housepoints.html">Digital House Points</a>
-          <a href="https://www.trackedu.net/facilities.html">Facility Booking</a>
-          <a href="#starting-points">Solutions</a>
-          <a href="#trust">Trust</a>
-          <a href="#starting-points">Pricing</a>
-          <a href="https://www.trackedu.net/contact.html" style="color: #0f66c3; font-weight: 700;">Contact Sales</a>
-          
-          <div style="margin-top: 16px; padding: 8px 0 6px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: #64748b; border-bottom: 1px solid var(--line); width: 100%;">
-            System Logins
-          </div>
-          
-          <a href="https://facilities.trackedu.net/" style="font-size: 15px; font-weight: 600; padding: 13px 0; justify-content: flex-start; gap: 8px;"><i class="fas fa-calendar-check" style="color: #0f66c3; font-size: 12px;"></i> Facility Booking Portal</a>
-          <a href="https://housepoint.trackedu.net/" style="font-size: 15px; font-weight: 600; padding: 13px 0; justify-content: flex-start; gap: 8px; border-bottom: none;"><i class="fas fa-star" style="color: #87C232; font-size: 12px;"></i> House Points Portal</a>
-          
-        </div>
-
-        <div style="display: flex; align-items: center; gap: 24px;" class="nav-actions-desktop-wrapper">
-          <a href="#starting-points" style="font-size: 14.5px; font-weight: 600; color: #2b3748; transition: color 0.2s;" onmouseover="this.style.color='var(--green-dark)'" onmouseout="this.style.color='#2b3748'">Pricing</a>
-          
-          <div class="login-wrap" id="login-dropdown">
-            <button class="btn" type="button" id="login-toggle" style="background: transparent; border: none; padding: 0; font-size: 14.5px; font-weight: 600; color: #2b3748; display: flex; align-items: center; gap: 6px; box-shadow: none;">
-              Log in <i class="fas fa-chevron-down" style="font-size: 11px; color: #64748b;"></i>
-            </button>
-            <div class="login-menu" aria-label="Login links" style="top: calc(100% + 16px);">
-              <a href="https://facilities.trackedu.net/"><i class="fas fa-calendar-check" style="color: #0f66c3;"></i> Facility Booking Login</a>
-              <a href="https://housepoint.trackedu.net/"><i class="fas fa-star" style="color: #87C232;"></i> Digital House Points Login</a>
-            </div>
-          </div>
-
-          <a class="btn btn-secondary" href="https://www.trackedu.net/contact.html" style="padding: 10px 20px; font-size: 14px; border-radius: 10px; border-color: #0f66c3; color: #0f66c3; font-weight: 700; box-shadow: none;">Contact sales</a>
-          
-          <a class="btn btn-primary" href="#starting-points" style="padding: 10px 20px; font-size: 14px; border-radius: 10px; background: #0f66c3; color: #ffffff; font-weight: 700; box-shadow: 0 4px 14px rgba(15,102,195,0.2);" onmouseover="this.style.background='var(--blue-dark)'" onmouseout="this.style.background='#0f66c3'">Get Started <i class="fas fa-arrow-right" style="font-size: 11px; margin-left: 2px;"></i></a>
-        </div>
-
-        <div class="mobile-bottom">
-          <div class="mobile-app-banner">
-            <i class="fas fa-mobile-screen"></i>
-            <div>
-              <strong>Available on mobile</strong>
-              <span>Works clearly on all devices</span>
-            </div>
-          </div>
-          <a href="#hero" class="mobile-go-home" onclick="document.getElementById('mobile-menu-btn').click();"><i class="fas fa-bolt" style="color:var(--green)"></i> Go to homepage <i class="fas fa-arrow-right"></i></a>
-        </div>
+      <div class="nav-links nav-links-desktop" style="display: flex; align-items: center; gap: 24px; font-weight: 600;">
+        <a href="https://www.trackedu.net/facilities.html" style="font-size: 14.5px; color: #2b3748;">Facility Booking</a>
+        <a href="https://www.trackedu.net/housepoints.html" style="font-size: 14.5px; color: #2b3748;">Student Recognition</a>
+        <a href="#starting-points" style="font-size: 14.5px; color: #2b3748;">Solutions</a>
+        <a href="#trust" style="font-size: 14.5px; color: #2b3748;">Trust</a>
       </div>
     </div>
-  </nav>
+
+    <button class="hamburger" id="mobile-menu-btn" aria-label="Toggle navigation" aria-expanded="false">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="nav-menu-wrapper" id="nav-menu" style="display: flex; align-items: center; gap: 24px; margin-left: auto;">
+      
+      <div class="nav-links mobile-only" style="width: 100%;">
+        <a href="https://www.trackedu.net/facilities.html">Facility Booking</a>
+        <a href="https://www.trackedu.net/housepoints.html">Student Recognition</a>
+        <a href="#starting-points">Solutions</a>
+        <a href="#trust">Trust</a>
+        <a href="#starting-points">Pricing</a>
+        <a href="https://www.trackedu.net/contact.html" style="color: #0f66c3; font-weight: 700;">Contact Sales</a>
+        
+        <div style="margin-top: 16px; padding: 8px 0 6px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: #64748b; border-bottom: 1px solid var(--line); width: 100%;">
+          System Logins
+        </div>
+        
+        <a href="https://facilities.trackedu.net/" style="font-size: 15px; font-weight: 600; padding: 13px 0; justify-content: flex-start; gap: 8px;">
+          <i class="fas fa-calendar-check" style="color: #0f66c3; font-size: 12px;"></i> Facility Booking Portal
+        </a>
+
+        <a href="https://housepoint.trackedu.net/" style="font-size: 15px; font-weight: 600; padding: 13px 0; justify-content: flex-start; gap: 8px; border-bottom: none;">
+          <i class="fas fa-star" style="color: #87C232; font-size: 12px;"></i> Recognition Portal
+        </a>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 24px;" class="nav-actions-desktop-wrapper">
+        <a href="#starting-points" style="font-size: 14.5px; font-weight: 600; color: #2b3748; transition: color 0.2s;" onmouseover="this.style.color='var(--green-dark)'" onmouseout="this.style.color='#2b3748'">Pricing</a>
+        
+        <div class="login-wrap" id="login-dropdown">
+          <button class="btn" type="button" id="login-toggle" style="background: transparent; border: none; padding: 0; font-size: 14.5px; font-weight: 600; color: #2b3748; display: flex; align-items: center; gap: 6px; box-shadow: none;">
+            Log in <i class="fas fa-chevron-down" style="font-size: 11px; color: #64748b;"></i>
+          </button>
+          <div class="login-menu" aria-label="Login links" style="top: calc(100% + 16px);">
+            <a href="https://facilities.trackedu.net/">
+              <i class="fas fa-calendar-check" style="color: #0f66c3;"></i> Facility Booking Login
+            </a>
+            <a href="https://housepoint.trackedu.net/">
+              <i class="fas fa-star" style="color: #87C232;"></i> Recognition Login
+            </a>
+          </div>
+        </div>
+
+        <a class="btn btn-secondary" href="https://www.trackedu.net/contact.html" style="padding: 10px 20px; font-size: 14px; border-radius: 10px; border-color: #0f66c3; color: #0f66c3; font-weight: 700; box-shadow: none;">Contact sales</a>
+        
+        <a class="btn btn-primary" href="#starting-points" style="padding: 10px 20px; font-size: 14px; border-radius: 10px; background: #0f66c3; color: #ffffff; font-weight: 700; box-shadow: 0 4px 14px rgba(15,102,195,0.2);" onmouseover="this.style.background='var(--blue-dark)'" onmouseout="this.style.background='#0f66c3'">Get Started <i class="fas fa-arrow-right" style="font-size: 11px; margin-left: 2px;"></i></a>
+      </div>
+
+      <div class="mobile-bottom">
+        <div class="mobile-app-banner">
+          <i class="fas fa-mobile-screen"></i>
+          <div>
+            <strong>Available on mobile</strong>
+            <span>Works clearly on all devices</span>
+          </div>
+        </div>
+        <a href="#hero" class="mobile-go-home" onclick="document.getElementById('mobile-menu-btn').click();"><i class="fas fa-bolt" style="color:var(--green)"></i> Go to homepage <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</nav>
 
   <main>
     <section id="hero" class="hero">
       <div class="hero-inner">
-        <h1 style="font-size: clamp(28px, 3.8vw, 54px); line-height: 1.14; max-width: 980px;">Replace messy school spreadsheets with <span class="hero-gradient" style="display: inline-block;">simple facility booking</span> and <span class="hero-gradient" style="display: inline-block;">house points software.</span></h1>
-        <p class="hero-sub" style="font-size: clamp(14px, 1.05vw, 17px); line-height: 1.55; max-width: 720px;">Start with the clearest school operations problem: double-booked spaces, unclear availability and spreadsheet-based facility booking. TrackEDU also includes digital house points for schools that want simple, positive recognition.</p>
+        <h1 style="font-size: clamp(28px, 3.8vw, 54px); line-height: 1.14; max-width: 980px;">Replace messy school spreadsheets with <span class="hero-gradient" style="display: inline-block;">simple facility booking</span> and <span class="hero-gradient" style="display: inline-block;">student recognition software.</span></h1>
+        <p class="hero-sub" style="font-size: clamp(14px, 1.05vw, 17px); line-height: 1.55; max-width: 760px;">Start with the clearest school operations problem: double-booked spaces, unclear availability and spreadsheet-based facility booking. TrackEDU also supports student recognition, rewards and house points for schools that want to celebrate positive behaviour, values and contribution.</p>
         <div class="hero-ctas">
           <a class="btn btn-primary" href="https://www.trackedu.net/facilities.html" style="background: #0f66c3; box-shadow: 0 10px 24px rgba(15,102,195,.22);">Fix facility booking chaos <i class="fas fa-arrow-right"></i></a>
-          <a class="btn btn-secondary" href="https://www.trackedu.net/housepoints.html">Explore house points <i class="fas fa-arrow-right"></i></a>
+          <a class="btn btn-secondary" href="https://www.trackedu.net/housepoints.html">Explore student recognition <i class="fas fa-arrow-right"></i></a>
         </div>
         
         <div class="micro-note">Free Starter available, no credit card required</div>
@@ -1510,11 +1611,11 @@
                 <div id="heroToggleHP" onclick="switchHeroPreviewPane('housepoints')" style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 14px; cursor: pointer; display: flex; flex-direction: column; gap: 6px; transition: all 0.2s ease;">
                   <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
                     <div style="display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 800; color: #0c1e2c;">
-                      <i class="fas fa-star" style="color: #87C232;"></i> Digital House Points
+                      <i class="fas fa-star" style="color: #87C232;"></i> Student Recognition
                     </div>
                     <div id="heroRadioHP" style="width: 14px; height: 14px; border-radius: 50%; border: 1px solid #cbd5e1; background: #ffffff;"></div>
                   </div>
-                  <p style="margin: 0; font-size: 11.5px; color: #5d6676; font-weight: 600;">Live leaderboards & reward points</p>
+                  <p style="margin: 0; font-size: 11.5px; color: #5d6676; font-weight: 600;">Rewards, house points & values recognition</p>
                 </div>
                 
                 <div style="background: rgba(12, 30, 44, 0.03); border: 1px dashed #e2e8f0; border-radius: 14px; padding: 12px; margin-top: auto; font-size: 11px; color: #64748b; line-height: 1.4; font-weight: 600;">
@@ -1526,445 +1627,158 @@
     </section>
 
     <section id="choose" class="section card-row-section" style="padding-left: 0; padding-right: 0;">
-      <div class="inner" style="padding: 0 clamp(18px, 4vw, 72px); max-width: 100%; width: 100%;">
-        <div class="section-head" style="max-width: 1520px; margin: 0 auto 28px;">
-          <h2>Start with the school workflow causing the most friction.</h2>
-          <p>TrackEDU is intentionally practical. Facility booking is the fastest route to removing daily operational friction, while house points supports positive recognition and school culture.</p>
-        </div>
-      </div> <div class="product-scroll" aria-label="TrackEDU product areas" style="padding: 6px clamp(18px, 4vw, 72px) 20px; width: 100%;">
+  <div class="inner" style="padding: 0 clamp(18px, 4vw, 72px); max-width: 100%; width: 100%;">
+    <div class="section-head" style="max-width: 1520px; margin: 0 auto 28px;">
+      <h2>Start with the school workflow causing the most friction.</h2>
+      <p>TrackEDU is intentionally practical. Facility booking is the fastest route to removing daily operational friction, while student recognition supports rewards, house points, values and positive school culture.</p>
+    </div>
+  </div>
 
-          <article class="feature-tile tile-blue">
-            <div>
-              <div class="tile-label">Recommended Starting Point</div>
-              <h3>Facility Booking</h3>
-              <p class="feature-intro">One shared calendar for classshared spaces, halls, libraries, labs and specialist spaces, designed to stop double bookings and spreadsheet confusion.</p>
-              <div class="feature-checks">
-                <div class="feature-check"><i class="fas fa-circle-check" style="color:#0F66C3;"></i> Replace facility-booking spreadsheets</div>
-                <div class="feature-check"><i class="fas fa-circle-check" style="color:#0F66C3;"></i> See available spaces quickly</div>
-                <div class="feature-check"><i class="fas fa-circle-check" style="color:#0F66C3;"></i> Avoid double-booking stress</div>
-              </div>
-            </div>
-            <div class="tile-visual">
-              <div class="visual-calendar-card">
-                <div class="calendar-mini-grid">
-                  <div class="calendar-mini-cell free">09</div><div class="calendar-mini-cell busy">10</div><div class="calendar-mini-cell free">11</div><div class="calendar-mini-cell pending">12</div><div class="calendar-mini-cell free">13</div>
-                  <div class="calendar-mini-cell busy">09</div><div class="calendar-mini-cell busy">10</div><div class="calendar-mini-cell free">11</div><div class="calendar-mini-cell free">12</div><div class="calendar-mini-cell pending">13</div>
-                </div>
-              </div>
-            </div>
-          </article>
+  <div class="product-scroll" aria-label="TrackEDU product areas" style="padding: 6px clamp(18px, 4vw, 72px) 20px; width: 100%;">
 
-<article class="feature-tile tile-yellow">
-            <div>
-              <div class="tile-label">Facilities Add-On Workflow</div>
-              <h3>Operations Requests</h3>
-              <p class="feature-intro">Turn facility setup needs, equipment requests and site-team jobs into visible, trackable actions.</p>
-              <div class="feature-checks">
-                <div class="feature-check"><i class="fas fa-circle-check" style="color:#eab308;"></i> Flag setup needs early</div>
-                <div class="feature-check"><i class="fas fa-circle-check" style="color:#eab308;"></i> Send requests to the right team</div>
-                <div class="feature-check"><i class="fas fa-circle-check" style="color:#eab308;"></i> Keep staff and site teams aligned</div>
-              </div>
-            </div>
-            <div class="tile-visual" style="margin-top: 24px; padding: 14px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 20px; min-height: 154px; display: flex; flex-direction: column; justify-content: center; gap: 8px; box-shadow: 0 10px 25px rgba(12,30,44,0.04);">
-              <div class="visual-ops-card" style="display: flex; flex-direction: column; gap: 8px; border: none; padding: 0; box-shadow: none; background: transparent;">
-                <div class="ops-ticket" style="margin: 0; height: 38px; display: flex; align-items: center; justify-content: space-between; padding: 0 14px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; font-size: 12.5px; font-weight: 700; color: #0c1e2c;">
-                  <span style="display: flex; align-items: center; gap: 8px;"><i class="fas fa-screwdriver-wrench" style="color: #64748b; width: 14px;"></i> Projector setup</span>
-                  <span style="font-size: 10.5px; font-weight: 800; background: #fef3c7; color: #92400e; padding: 3px 10px; border-radius: 999px; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.02em;">Open</span>
-                </div>
-                <div class="ops-ticket" style="margin: 0; height: 38px; display: flex; align-items: center; justify-content: space-between; padding: 0 14px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; font-size: 12.5px; font-weight: 700; color: #0c1e2c;">
-                  <span style="display: flex; align-items: center; gap: 8px;"><i class="fas fa-chair" style="color: #64748b; width: 14px;"></i> Exam desks</span>
-                  <span style="font-size: 10.5px; font-weight: 800; background: #ffedd5; color: #c2410c; padding: 3px 10px; border-radius: 999px; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.02em;">Assigned</span>
-                </div>
-                <div class="ops-ticket" style="margin: 0; height: 38px; display: flex; align-items: center; justify-content: space-between; padding: 0 14px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; font-size: 12.5px; font-weight: 700; color: #0c1e2c;">
-                  <span style="display: flex; align-items: center; gap: 8px;"><i class="fas fa-volume-high" style="color: #64748b; width: 14px;"></i> Microphones</span>
-                  <span style="font-size: 10.5px; font-weight: 800; background: #dcfce7; color: #15803d; padding: 3px 10px; border-radius: 999px; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.02em;">Done</span>
-                </div>
-              </div>
-            </div>
-          </article>
-
-<article class="feature-tile tile-green">
-            <div>
-              <div class="tile-label">Also Available</div>
-              <h3>Digital House Points</h3>
-              <p class="feature-intro">A positive rewards system for houses, year groups, classes and whole-school recognition.</p>
-              <div class="feature-checks">
-                <div class="feature-check"><i class="fas fa-circle-check" style="color:#87C232;"></i> Build a positive school culture</div>
-                <div class="feature-check"><i class="fas fa-circle-check" style="color:#87C232;"></i> Drive meaningful student rewards</div>
-                <div class="feature-check"><i class="fas fa-circle-check" style="color:#87C232;"></i> Unite the whole school community</div>
-              </div>
-            </div>
-            <div class="tile-visual">
-              <div class="visual-house-card">
-                <div class="visual-house-row"><div class="visual-rank">1</div><div class="visual-mini-bar"><span style="width:100%; background:#9f3a3f;"></span></div><div class="visual-points">1,574</div></div>
-                <div class="visual-house-row"><div class="visual-rank">2</div><div class="visual-mini-bar"><span style="width:72%; background:#f3e45d;"></span></div><div class="visual-points">807</div></div>
-                <div class="visual-house-row"><div class="visual-rank">3</div><div class="visual-mini-bar"><span style="width:64%; background:#4f805b;"></span></div><div class="visual-points">727</div></div>
-              </div>
-            </div>
-          </article>
-
-<article class="feature-tile tile-blue">
-            <div>
-              <div class="tile-label">Built-in Module</div>
-              <h3>Interactive Student Portal</h3>
-              <p class="feature-intro">A simple student-facing view for points, badges, streaks and house identity.</p>
-              <div class="feature-checks">
-                <div class="feature-check"><i class="fas fa-circle-check" style="color:#0F66C3;"></i> Provide a visible recognition system</div>
-                <div class="feature-check"><i class="fas fa-circle-check" style="color:#0F66C3;"></i> Display live house leaderboards</div>
-                <div class="feature-check"><i class="fas fa-circle-check" style="color:#0F66C3;"></i> Motivate with 3D badges and streaks</div>
-              </div>
-            </div>
-            <div class="tile-visual" style="display: flex; justify-content: center; align-items: center; overflow: hidden;">
-              <div class="visual-phone-card" style="width: 100%; max-width: 140px; margin: 0 auto;">
-                <div class="phone-shell" style="width: 100%; padding: 12px; border-radius: 24px;">
-                  <div class="phone-avatar" style="background: #ffffff; padding: 4px; display: flex; align-items: center; justify-content: center; border-radius: 50%; overflow: hidden; width: 44px; height: 44px; margin: 0 auto 10px;">
-                    <img src="https://trackedu.github.io/common-assets/studentapp.png" style="width: 100%; height: 100%; object-fit: contain;" alt="Student App">
-                  </div>
-                  <div class="phone-stat" style="background:#87C232; height: 12px; border-radius: 6px; margin: 6px 0;"></div>
-                  <div class="phone-stat" style="height: 10px; border-radius: 6px; margin: 6px 0; background: rgba(255,255,255,0.15);"></div>
-                  <div class="phone-stat" style="height: 10px; border-radius: 6px; margin: 6px 0; background: rgba(255,255,255,0.15);"></div>
-                </div>
-              </div>
-            </div>
-          </article>
-
-<article class="feature-tile tile-dark" style="display: flex; flex-direction: column; justify-content: space-between; min-height: auto;">
-            <div>
-              <div class="tile-label" style="color: #87C232;">Security & Privacy</div>
-              <h3>Is it safe?</h3>
-              <p class="feature-intro" style="color: rgba(255, 255, 255, 0.85); font-size: 13.5px; line-height: 1.5; margin-bottom: 16px;">
-                TrackEDU is built on secure <strong>Google Firebase infrastructure</strong> with protected database access and encrypted data transmission. 
-              </p>
-              <div class="feature-checks" style="gap: 6px; margin-bottom: 20px;">
-                <div class="feature-check" style="color: #e2e8f0; font-size: 13px;"><i class="fas fa-shield-halved" style="color: #87C232;"></i> Zero ads or third-party web tracking</div>
-                <div class="feature-check" style="color: #e2e8f0; font-size: 13px;"><i class="fas fa-user-shield" style="color: #87C232;"></i> We never sell school or pupil data</div>
-                <div class="feature-check" style="color: #e2e8f0; font-size: 13px;"><i class="fas fa-download" style="color: #87C232;"></i> Full administrative export & account erasure</div>
-              </div>
-            </div>
-
-            <div class="tile-visual" style="margin-top: 24px; padding: 14px; background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; min-height: 154px; display: flex; flex-direction: column; justify-content: center; gap: 8px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);">
-              <span style="display: block; font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 800; color: #94a3b8; margin-bottom: 2px; text-align: center;">Enterprise Technology Stack</span>
-              
-              <div style="display: flex; flex-direction: column; gap: 8px;">
-                <div style="min-height: 38px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px; padding: 6px 14px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; font-size: 12.5px; font-weight: 700; color: #ffffff;">
-                  <span style="display: flex; align-items: center; gap: 8px; white-space: nowrap;"><i class="fab fa-google" style="color: #ffffff; opacity: 0.9; width: 14px;"></i> Google Sign-In</span>
-                  <span style="font-size: 9.5px; font-weight: 800; color: #cbd5e1; background: rgba(255, 255, 255, 0.06); padding: 2px 8px; border-radius: 6px; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.02em; border: 1px solid rgba(255, 255, 255, 0.04);">Authentication</span>
-                </div>
-
-                <div style="min-height: 38px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px; padding: 6px 14px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; font-size: 12.5px; font-weight: 700; color: #ffffff;">
-                  <span style="display: flex; align-items: center; gap: 8px; white-space: nowrap;"><i class="fas fa-fire" style="color: #f59e0b; width: 14px;"></i> Firebase Services</span>
-                  <span style="font-size: 9.5px; font-weight: 800; color: #cbd5e1; background: rgba(255, 255, 255, 0.06); padding: 2px 8px; border-radius: 6px; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.02em; border: 1px solid rgba(255, 255, 255, 0.04);">Cloud Database</span>
-                </div>
-              </div>
-            </div>
-          </article>
-
-        </div> </section> 
-
-    
-
-    <section class="section soft-blue">
-      <div class="inner split reverse">
-        <div class="split-shot">
-          <div class="split-shot-header"><span>Facility Booking calendar</span><span class="proof-badge">Live preview</span></div>
-          <div class="shot-area">
-            <div class="facility-booking-mockup" style="box-shadow: none; border: none;">
-              <div class="mockup-week-nav" style="background: transparent; padding-left: 0; padding-right: 0;">
-                <span class="mockup-nav-arrow"><i class="fas fa-chevron-left"></i></span>
-                <span class="mockup-week-title">Mon 10 Mar - Fri 14 Mar 2025</span>
-                <span class="mockup-nav-arrow"><i class="fas fa-chevron-right"></i></span>
-              </div>
-              <div class="mockup-rooms-grid" style="padding-left: 0; padding-right: 0;">
-                <div class="mockup-room-row">
-                  <div class="mockup-room-name">🏀 Sports Hall</div>
-                  <div class="mockup-room-slots">
-                    <div onclick="openMockSlot('Main Sports Hall', '09:00', 'Available', 'None', 'available', 'Click Instant Book to reserve this space.')" class="mockup-slot available"><span class="slot-time">09:00</span><span class="slot-status">Free</span></div>
-                    <div onclick="openMockSlot('Main Sports Hall', '10:00', 'Available', 'None', 'available', 'Click Instant Book to reserve this space.')" class="mockup-slot available"><span class="slot-time">10:00</span><span class="slot-status">Free</span></div>
-                    <div onclick="openMockSlot('Main Sports Hall', '11:00', 'Senior Badminton League', 'Emma Zhang', 'booked', 'Standard equipment breakdown configuration.')" class="mockup-slot booked"><span class="slot-time">11:00</span><span class="slot-status">Booked</span></div>
-                    <div onclick="openMockSlot('Main Sports Hall', '12:00', 'Year 7 Gymnastics Focus', 'Sarah Jenkins', 'pending', 'Awaiting administrative calendar review pass.')" class="mockup-slot pending"><span class="slot-time">12:00</span><span class="slot-status">Pending</span></div>
-                    <div onclick="openMockSlot('Main Sports Hall', '13:00', 'Available', 'None', 'available', 'Click Instant Book to reserve this space.')" class="mockup-slot available"><span class="slot-time">13:00</span><span class="slot-status">Free</span></div>
-                  </div>
-                </div>
-                <div class="mockup-room-row">
-                  <div class="mockup-room-name">🎭 Auditorium</div>
-                  <div class="mockup-room-slots">
-                    <div onclick="openMockSlot('Grand Auditorium', '09:00', 'AP Theater Production Rehearsal', 'Dr. Marcus Evans', 'booked', 'Audio Setup: Proximity microphones enabled.')" class="mockup-slot booked"><span class="slot-time">09:00</span><span class="slot-status">Booked</span></div>
-                    <div onclick="openMockSlot('Grand Auditorium', '10:00', 'AP Theater Production Rehearsal', 'Dr. Marcus Evans', 'booked', 'Audio Setup: Proximity microphones enabled.')" class="mockup-slot booked"><span class="slot-time">10:00</span><span class="slot-status">Booked</span></div>
-                    <div onclick="openMockSlot('Grand Auditorium', '11:00', 'Available', 'None', 'available', 'Click Instant Book to reserve this space.')" class="mockup-slot available"><span class="slot-time">11:00</span><span class="slot-status">Free</span></div>
-                    <div onclick="openMockSlot('Grand Auditorium', '12:00', 'Available', 'None', 'available', 'Click Instant Book to reserve this space.')" class="mockup-slot available"><span class="slot-time">12:00</span><span class="slot-status">Free</span></div>
-                    <div onclick="openMockSlot('Grand Auditorium', '13:00', 'Year 11 English Mock Exam', 'Sarah Jenkins', 'booked', 'Setup Request: 30 exam desks spaced 1.5m apart.')" class="mockup-slot booked"><span class="slot-time">13:00</span><span class="slot-status">Booked</span></div>
-                  </div>
-                </div>
-              </div>
-              <div class="mockup-stats" style="padding-left: 0; padding-right: 0;">
-                <span class="mockup-stat"><i class="fas fa-circle green-dot"></i> 6 Available</span>
-                <span class="mockup-stat"><i class="fas fa-circle red-dot"></i> 4 Booked</span>
-                <span class="mockup-stat"><i class="fas fa-circle yellow-dot"></i> 1 Pending</span>
-                <span class="mockup-stat"><i class="fas fa-bolt"></i> Clash prevention built in</span>
-              </div>
-            </div>
-            <a href="https://www.trackedu.net/facilities.html" class="replace-note" style="margin-top: 12px; display: inline-flex; border-style: solid; border-color: var(--line); color: var(--blue); text-decoration: none; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--blue)'; this.style.background='var(--soft)';" onmouseout="this.style.borderColor='var(--line)'; this.style.background='#fff';">
-              <i class="fas fa-arrow-pointer"></i> View Facility Booking for full features
-            </a>
-          </div>
-        </div>
-        <div class="split-copy">
-          <div class="kicker"><i class="fas fa-calendar-check"></i> Facility booking software for schools</div>
-          <h2>Stop facility bookings becoming a daily staffroom problem.</h2>
-          <p>Give staff one shared calendar for shared spaces, halls, labs and outdoor spaces, with approvals, QR check-in, operations requests and availability checks built in.</p>
-          <div class="chips"><span class="chip">Facility calendar</span><span class="chip">QR check-in</span><span class="chip">Approvals</span><span class="chip">Operations requests</span><span class="chip">Weather controls</span></div>
-          <a class="btn btn-dark" href="https://www.trackedu.net/facilities.html">View Facility Booking <i class="fas fa-arrow-right"></i></a>
+    <article class="feature-tile tile-blue">
+      <div>
+        <div class="tile-label">Recommended Starting Point</div>
+        <h3>Facility Booking</h3>
+        <p class="feature-intro">One shared calendar for classrooms, halls, libraries, labs and specialist spaces, designed to stop double bookings and spreadsheet confusion.</p>
+        <div class="feature-checks">
+          <div class="feature-check"><i class="fas fa-circle-check" style="color:#0F66C3;"></i> Replace facility-booking spreadsheets</div>
+          <div class="feature-check"><i class="fas fa-circle-check" style="color:#0F66C3;"></i> See available spaces quickly</div>
+          <div class="feature-check"><i class="fas fa-circle-check" style="color:#0F66C3;"></i> Book shared spaces from one clear calendar</div>
+          <div class="feature-check"><i class="fas fa-circle-check" style="color:#0F66C3;"></i> Support setup requests and daily operations</div>
         </div>
       </div>
-    </section>
-
-
-    <section class="section soft-green" style="background-color: #f8fafc; padding-top: 80px; padding-bottom: 80px; border-bottom: 1px solid var(--line);">
-      <div class="inner split">
-        
-        <div class="sim-container-shell" style="background: #ffffff; border: 1px solid rgba(226, 232, 240, 0.8); border-radius: 24px; box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.05), 0 0 0 1px rgba(15, 23, 42, 0.02); overflow: hidden; padding: 20px;">
-          
-          <div class="sim-switcher-track" style="background: #f1f5f9; padding: 6px; border-radius: 16px; display: flex; gap: 4px; border: 1px solid rgba(15, 23, 42, 0.04); margin-bottom: 16px;">
-            <button id="masterPortalToggleStudent" onclick="switchMasterMockupPortal('student')" class="sim-portal-btn active" style="flex: 1; padding: 10px 16px; border: none; border-radius: 12px; font-size: 13px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; background: #ffffff; color: var(--dark); box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.08); transition: all 0.2s;">
-              <img src="https://trackedu.github.io/common-assets/studentapp.png" style="width: 18px; height: 18px; object-fit: contain;" alt="Student App icon" /> Student Portal
-            </button>
-            <button id="masterPortalToggleTeacher" onclick="switchMasterMockupPortal('teacher')" class="sim-portal-btn" style="flex: 1; padding: 10px 16px; border: none; border-radius: 12px; font-size: 13px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; background: transparent; color: var(--muted); transition: all 0.2s;">
-              <img src="https://trackedu.github.io/common-assets/teacherapp.png" style="width: 18px; height: 18px; object-fit: contain;" alt="Teacher App icon" /> Teacher Dashboard
-            </button>
-          </div>
-
-          <div class="flex items-center justify-between px-1 mb-3" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-            <span class="text-sm font-bold text-slate-700" id="masterSimulatorHeaderLabel" style="font-size: 14px; font-weight: 700; color: var(--dark);">Student Portal View</span>
-            <span class="text-xs font-black uppercase px-2.5 py-0.5 rounded-md border border-slate-200" id="student-view-badge" style="background:#f1f5f9; color:#475569; font-size: 11px; font-weight: 800; text-transform: uppercase; padding: 2px 8px; border-radius: 6px; border: 1px solid var(--line);">Login View</span>
-          </div>
-          
-          <div class="sim-view-canvas" id="masterSimulatorViewCanvas" style="border-radius: 20px; padding: 24px; background: #090d16; border: 1px solid rgba(15, 23, 42, 0.08); box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.2);">
-            
-            <div id="canvas-student-portal-track" style="display: block; width: 100%;">
-              
-              <div class="student-login-view" id="student-portal-login-stage" style="color: #ffffff; text-align: center; max-width: 440px; margin: 0 auto;">
-                <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 24px;">
-                  <div style="background: #ffffff; width: 72px; height: 72px; border-radius: 20px; display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 24px rgba(0,0,0,0.4); overflow: hidden; border: 2px solid rgba(255,255,255,0.15); margin-bottom: 14px;">
-                    <img src="https://trackedu.github.io/common-assets/studentapp.png" style="width: 100%; height: 100%; object-fit: cover;" alt="Student Portal App Icon">
-                  </div>
-                  <h3 style="font-family: Poppins, sans-serif; font-weight: 700; font-size: 24px; color: #ffffff; text-transform: uppercase; letter-spacing: -0.01em; margin: 0 0 4px 0;">Student Portal</h3>
-                  <p style="font-size: 13px; color: #a1a1aa; margin: 0; font-weight: 500;">Enter credentials to unlock your profile</p>
-                </div>
-                
-                <div class="student-demo-badge-box" style="background: #1e1b4b; border: 1px solid #3730a3; border-radius: 14px; padding: 14px 18px; text-align: left; margin-bottom: 24px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);">
-                  <div style="display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 800; color: #a5b4fc; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px;">
-                    <i class="fas fa-terminal" style="color: #FACC15 !important;"></i> Simulation Parameters
-                  </div>
-                  <div style="font-size: 13px; color: #e2e8f0; font-weight: 500; line-height: 1.6;">
-                    Type passcode <code class="student-demo-code-token" style="background: #312e81; color: #fef08a; border: 1px solid #4338ca; padding: 2px 6px; border-radius: 6px; font-family: monospace; font-weight: 700;">BRAVE</code> and student ID <code class="student-demo-code-token" style="background: #312e81; color: #fef08a; border: 1px solid #4338ca; padding: 2px 6px; border-radius: 6px; font-family: monospace; font-weight: 700;">cd565</code>.
-                  </div>
-                </div>
-
-                <div class="student-input-field-wrap" style="position: relative; margin-bottom: 14px;"><i class="fas fa-key" style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: #94a3b8; font-size: 16px;"></i><input type="text" id="mockStudentPasscode" class="student-login-input" placeholder="Passcode (e.g., BRAVE)" style="width: 100%; padding: 12px 16px 12px 42px; background: #0f172a; border: 1px solid #1e293b; border-radius: 12px; color: #ffffff; font-size: 14px; font-weight: 600; outline: none;"></div>
-                <div class="student-input-field-wrap" style="position: relative; margin-bottom: 24px;"><i class="fas fa-id-card" style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: #94a3b8; font-size: 16px;"></i><input type="text" id="mockStudentID" class="student-login-input" placeholder="Student ID (e.g., cd565)" style="width: 100%; padding: 12px 16px 12px 42px; background: #0f172a; border: 1px solid #1e293b; border-radius: 12px; color: #ffffff; font-size: 14px; font-weight: 600; outline: none;"></div>
-
-                <button type="button" class="student-btn-submit" onclick="validateStudentPortalOnboarding()">Reveal Status</button>
-                <div style="margin-top: 16px; color: #475569; font-size: 11px; font-weight: 600;"><i class="fas fa-lock"></i> Passcode is ONE WORD. Provided by your instructor.</div>
-              </div>
-
-              <div class="student-dashboard-view" id="student-portal-dashboard-stage" style="display: none;">
-                <div style="display: flex; align-items: center; justify-content: space-between; background: #111827; padding: 12px 14px; border-radius: 12px; margin-bottom: 16px; border: 1px solid #1e293b;">
-                  <div style="display: flex; align-items: center; gap: 8px;">
-                    <div style="width: 26px; height: 26px; background: #ffffff; border-radius: 6px; display: flex; align-items: center; justify-content: center; overflow: hidden;"><img src="https://trackedu.github.io/common-assets/studentapp.png" style="width: 100%; height: 100%; object-fit: cover;" alt="Mini Logo"></div>
-                    <span style="font-weight: 700; font-size: 12px; color: #f8fafc;">TrackEDU School cd565</span>
-                  </div>
-                  <div style="display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; color: #cbd5e1;">
-                    <span><i class="fas fa-user-circle" style="color:#f59e0b;"></i> Ce. Di. &bull; <span style="opacity:0.85;">Terra House</span></span>
-                    <span style="background: #fbbf24; color: #000; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 900;"><i class="fas fa-star"></i> 622 PTS</span>
-                  </div>
-                </div>
-
-                <div style="background: linear-gradient(180deg, #111827, #0b0f19); border: 1px solid #1e293b; border-radius: 16px; padding: 16px; margin-bottom: 16px;">
-                  <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                    <div style="width: 44px; height: 44px; background: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);"><img src="https://trackedu.github.io/common-assets/studentapp.png" style="width:100%; height:100%; object-fit:cover;" alt="Avatar"></div>
-                    <div>
-                      <strong style="font-size: 15px; color: #ffffff; display: block; font-weight: 700;">Ce. Di. <span style="font-size: 9px; font-weight: 800; background: #ffffff; color: #000; padding: 1px 4px; border-radius: 4px; margin-left: 4px; vertical-align: middle;">👑 Captain</span></strong>
-                      <span style="font-size: 11px; color: #87C232; font-weight: 700;">Terra HOUSE &gt; <span style="color: #64748b; font-weight: 500;">LVL 13</span></span>
-                    </div>
-                  </div>
-                  <div style="height: 6px; background: #1e293b; border-radius: 10px; overflow: hidden; margin-bottom: 6px;"><div style="width: 78%; height: 100%; background: #87C232; border-radius: 10px;"></div></div>
-                  <div style="display: flex; justify-content: space-between; font-size: 11px; color: #64748b; font-weight: 600;"><span>Daily Login Pass: 0/5</span><span>22 / 50 XP</span></div>
-                  <button class="btn" style="width: 100%; min-height: auto; padding: 8px; font-size: 11px; border-radius: 8px; background: rgba(255,255,255,0.04); color: #94a3b8; border: 1px solid #1e293b; margin-top: 12px;" onclick="triggerMockToast('Opening learner profile preview...')"><i class="fas fa-address-card"></i> Open Learner Profile</button>
-                </div>
-
-                <div style="font-family: Poppins, sans-serif; font-size: 14px; font-weight: 700; text-align: center; margin-bottom: 10px; color: #ffffff; text-transform: uppercase; letter-spacing: 0.5px;"><i class="fas fa-trophy" style="color:#fbbf24;"></i> House Standings</div>
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 16px;">
-                  <div class="house-standing-card" style="border: 1px solid rgba(226, 232, 240, 0.08); background: rgba(255, 255, 255, 0.05); padding: 12px; border-radius: 12px; text-align: center; position: relative;"><div class="house-rank-badge" style="position: absolute; top: -8px; right: -8px; width: 18px; height: 18px; background: #fbbf24; color: #000; border-radius: 50%; font-size: 10px; font-weight: 900; display: flex; align-items: center; justify-content: center;">1</div><div style="width: 30px; height: 30px; background: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 6px; overflow: hidden; border: 1px solid var(--line);"><img src="https://trackedu.github.io/common-assets/studentapp.png" style="width: 100%; height: 100%; object-fit: cover;" alt="House logo"></div><strong style="font-size: 13px; display: block; color: white;">Ignis</strong><span style="font-size: 9px; color: #a1a1aa; display: block; margin-bottom: 4px;">Excellence House</span><div style="font-size: 16px; font-weight: 900; color: #f59e0b;">1,574</div></div>
-                  <div class="house-standing-card" style="border: 1px solid rgba(135,194,50,0.4); background: rgba(135,194,50,0.02); padding: 12px; border-radius: 12px; text-align: center; position: relative;"><div class="house-rank-badge" style="position: absolute; top: -8px; right: -8px; width: 18px; height: 18px; background: #cbd5e1; color: #000; border-radius: 50%; font-size: 10px; font-weight: 900; display: flex; align-items: center; justify-content: center;">2</div><div style="width: 30px; height: 30px; background: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 6px; overflow: hidden; border: 1px solid rgba(135,194,50,0.2);"><img src="https://trackedu.github.io/common-assets/studentapp.png" style="width: 100%; height: 100%; object-fit: cover;" alt="House logo"></div><strong style="font-size: 13px; display: block; color: white;">Terra</strong><span style="font-size: 9px; color: #a1a1aa; display: block; margin-bottom: 4px;">Courage House</span><div style="font-size: 16px; font-weight: 900; color: #fbbf24;">807</div></div>
-                </div>
-                <button type="button" class="student-btn-submit" style="background: #dc2626; box-shadow: none; padding: 10px;" onclick="closeMockStudentDashboardView()"><i class="fas fa-sign-out-alt"></i> Logout of Portal</button>
-              </div>
-            </div>
-
-            <div id="canvas-teacher-portal-track" style="display: none; width: 100%;">
-              <div class="teacher-portal-view">
-                <div style="display: flex; gap: 6px; margin-bottom: 16px; border-bottom: 1px solid var(--line); padding-bottom: 12px; justify-content: space-between; align-items: center; width: 100%;">
-                  <div style="display: flex; gap: 6px;">
-                    <button id="teacherSubTabBtnDashboard" class="teacher-sub-nav-btn active" onclick="switchTeacherSubMockupTab('dashboard')"><i class="fas fa-chart-bar"></i> House Standings</button>
-                    <button id="teacherSubTabBtnToolkit" class="teacher-sub-nav-btn" onclick="switchTeacherSubMockupTab('toolkit')"><i class="fas fa-toolbox"></i> Classroom Toolkit</button>
-                  </div>
-                </div>
-
-                <div id="teacher-sub-pane-dashboard" style="display: block;">
-                  <div style="display: flex; justify-content: space-between; align-items: center; background: #fef3c7; border: 1px solid #fde68a; padding: 10px 14px; border-radius: 12px; margin-bottom: 16px; font-size: 12px; font-weight: 700; color: #92400e;">
-                    <span>⚡ Welcome to the TrackEDU Demo Sandbox!</span>
-                    <span style="background: #ffffff; padding: 2px 6px; border-radius: 4px; font-size: 10px; color: #dc2626; font-weight: 800;">+10 HP MULTIPLIER ACTIVE</span>
-                  </div>
-
-                  <div style="font-weight: 800; font-size: 13px; color: var(--dark); margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center; text-transform: uppercase; letter-spacing: 0.3px;">
-                    <span>Live Leaderboard Standings</span>
-                    <span style="font-size: 11px; background: var(--dark); color: white; padding: 3px 10px; border-radius: 20px; font-weight: 700;"><i class="fas fa-desktop text-white"></i> Projector Mode</span>
-                  </div>
-
-                  <div class="teacher-leaderboard-track" style="font-size: 13px; font-weight: 700;">
-                    <div class="teacher-progress-row" style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 12px 16px;">
-                      <div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span>🔥 <strong>Ignis House</strong> <small style="color:var(--green-dark); font-weight:700; margin-left:4px;">Leading by 767 pts</small></span><strong style="font-size:14px; color:var(--dark);">1,574 <span style="font-size:10px; color:var(--muted); font-weight:500;">HP</span></strong></div>
-                      <div class="teacher-bar-wrapper" style="height:12px; background:#f1f5f9; border-radius:999px; overflow:hidden;"><div style="width:100%; height:100%; background:#dc2626; border-radius:999px;"></div></div>
-                    </div>
-                    <div class="teacher-progress-row" style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 12px 16px;">
-                      <div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span>🌿 <strong>Terra House</strong> <small style="color:#b45309; font-weight:700; margin-left:4px;">Steady performance track</small></span><strong style="font-size:14px; color:var(--dark);">807 <span style="font-size:10px; color:var(--muted); font-weight:500;">HP</span></strong></div>
-                      <div class="teacher-bar-wrapper" style="height:12px; background:#f1f5f9; border-radius:999px; overflow:hidden;"><div style="width:51%; height:100%; background:#facc15; border-radius:999px;"></div></div>
-                    </div>
-                    <div class="teacher-progress-row" style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 12px 16px;">
-                      <div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span>💧 <strong>Aqua House</strong> <small style="color:var(--blue); font-weight:700; margin-left:4px;">Gaining momentum cell</small></span><strong style="font-size:14px; color:var(--dark);">727 <span style="font-size:10px; color:var(--muted); font-weight:500;">HP</span></strong></div>
-                      <div class="teacher-bar-wrapper" style="height:12px; background:#f1f5f9; border-radius:999px; overflow:hidden;"><div style="width:46%; height:100%; background:#10b981; border-radius:999px;"></div></div>
-                    </div>
-                    <div class="teacher-progress-row" style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 12px 16px;">
-                      <div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span>✨ <strong>Aether House</strong> <small style="color:var(--muted); font-weight:500; margin-left:4px;">4th place position</small></span><strong style="font-size:14px; color:var(--dark);">704 <span style="font-size:10px; color:var(--muted); font-weight:500;">HP</span></strong></div>
-                      <div class="teacher-bar-wrapper" style="height:12px; background:#f1f5f9; border-radius:999px; overflow:hidden;"><div style="width:44%; height:100%; background:#3b82f6; border-radius:999px;"></div></div>
-                    </div>
-                  </div>
-                </div>
-
-                <div id="teacher-sub-pane-toolkit" style="display: none;">
-                  <div class="toolkit-grid-matrix">
-                    <div onclick="triggerMockToast('Opening class insights preview...')" class="toolkit-bento-item"><div class="toolkit-icon-wrapper" style="background:#eff6ff; color:#1d4ed8;"><i class="fas fa-chalkboard-user"></i></div><strong>Class Dashboard</strong><span>View insights & recent point trends</span></div>
-                    <div onclick="triggerMockToast('Choosing a random student...')" class="toolkit-bento-item"><div class="toolkit-icon-wrapper" style="background:#faf5ff; color:#7c3aed;"><i class="fas fa-magic"></i></div><strong>Magic Hat</strong><span>Pick a random student</span></div>
-                    <div onclick="triggerMockToast('Opening noise monitor preview...')" class="toolkit-bento-item"><div class="toolkit-icon-wrapper" style="background:#fffbeb; color:#d97706;"><i class="fas fa-microphone-lines"></i></div><strong>Noise Monitor</strong><span>Track volume & award house points</span></div>
-                    <div onclick="triggerMockToast('Choosing a random house...')" class="toolkit-bento-item"><div class="toolkit-icon-wrapper" style="background:#f0fdf4; color:#166534;"><i class="fas fa-shield-halved"></i></div><strong>House of Fortune</strong><span>Pick a random house</span></div>
-                    <div onclick="triggerMockToast('Opening mindfulness timer...')" class="toolkit-bento-item"><div class="toolkit-icon-wrapper" style="background:#fdf2f8; color:#9d174d;"><i class="fas fa-spa"></i></div><strong>Mindfulness Mode</strong><span>Wellness & focus timers</span></div>
-                    <div onclick="triggerMockToast('Opening house timers...')" class="toolkit-bento-item"><div class="toolkit-icon-wrapper" style="background:#fff7ed; color:#c2410c;"><i class="fas fa-hourglass-start"></i></div><strong>House Timers</strong><span>Individual timers for each house</span></div>
-                    <div onclick="triggerMockToast('Opening classroom timer...')" class="toolkit-bento-item"><div class="toolkit-icon-wrapper" style="background:#eff6ff; color:#1d4ed8;"><i class="fas fa-stopwatch"></i></div><strong>Magic Timer</strong><span>Manage classroom time Limit</span></div>
-                    <div onclick="triggerMockToast('Opening Duo Mode: timer and random picker.')" class="toolkit-bento-item"><div class="toolkit-icon-wrapper" style="background:#eff6ff; color:#7c3aed;"><i class="fas fa-cubes"></i></div><strong>Duo Mode</strong><span>Timer + Magic Hat</span></div>
-                    <div onclick="triggerMockToast('Opening classroom role spinner...')" class="toolkit-bento-item"><div class="toolkit-icon-wrapper" style="background:#fdf2f8; color:#9d174d;"><i class="fas fa-user-tag"></i></div><strong>Role Spinner</strong><span>Assign classroom jobs</span></div>
-                    <div onclick="triggerMockToast('Opening group maker...')" class="toolkit-bento-item"><div class="toolkit-icon-wrapper" style="background:#eff6ff; color:#1d4ed8;"><i class="fas fa-users-rectangle"></i></div><strong>Group Maker</strong><span>Groups & attendance matrix</span></div>
-                    <div onclick="triggerMockToast('Opening quest board...')" class="toolkit-bento-item"><div class="toolkit-icon-wrapper" style="background:#fffbeb; color:#d97706;"><i class="fas fa-map"></i></div><strong>Quest Board</strong><span>Find the Treasure</span></div>
-                    <div onclick="triggerMockToast('Launching Snakes & Ladders engagement game module layer...')" class="toolkit-bento-item"><div class="toolkit-icon-wrapper" style="background:#fef2f2; color:#991b1b;"><i class="fas fa-dice"></i></div><strong>Snakes & Ladders</strong><span>Race to the Top!</span></div>
-                    <div onclick="triggerMockToast('Opening quick quiz...')" class="toolkit-bento-item"><div class="toolkit-icon-wrapper" style="background:#eff6ff; color:#1d4ed8;"><i class="fas fa-brain"></i></div><strong>Quick Quiz</strong><span>ATL Skills & Values validation</span></div>
-                    <div onclick="triggerMockToast('Creating a points claim code...')" class="toolkit-bento-item"><div class="toolkit-icon-wrapper" style="background:#f0fdf4; color:#166534;"><i class="fas fa-barcode"></i></div><strong>Secret Code</strong><span>Create claim tokens for points</span></div>
-                    <div onclick="triggerMockToast('Opening certificate studio...')" class="toolkit-bento-item"><div class="toolkit-icon-wrapper" style="background:#fffbeb; color:#d97706;"><i class="fas fa-certificate"></i></div><strong>Certificate Studio</strong><span>Generate student certificates</span></div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
+      <div class="tile-visual">
+        <div class="visual-calendar-card">
+          <div class="calendar-mini-grid">
+  <div class="calendar-mini-cell free">Free</div>
+  <div class="calendar-mini-cell busy">Busy</div>
+  <div class="calendar-mini-cell pending">Pending</div>
+  <div class="calendar-mini-cell free">Free</div>
+  <div class="calendar-mini-cell busy">Busy</div>
+  <div class="calendar-mini-cell busy">Busy</div>
+  <div class="calendar-mini-cell free">Free</div>
+  <div class="calendar-mini-cell free">Free</div>
+  <div class="calendar-mini-cell pending">Pending</div>
+</div>
         </div>
-        
-        <div class="split-copy" style="align-self: center;">
-  <div class="kicker" id="dynamicSimSideKicker" style="color:var(--green-dark); background:rgba(135,194,50,0.08); border-color:rgba(135,194,50,0.18);"><i class="fas fa-id-card shadow-none"></i> Interactive Student Portal</div>
-  <h2 id="dynamicSimSideTitle" style="font-size: clamp(28px, 3.5vw, 42px); line-height: 1.15; letter-spacing: -0.02em;">Real-time student reward tracking.</h2>
-          <p id="dynamicSimSideDesc" style="font-size: 16px; line-height: 1.6; color: var(--muted); margin-top: 14px;">TrackEDU gives every student a personal profile to look up their current rewards points balance, follow weekly house leaderboards, monitor login streaks, and unlock achievements, without requiring student email accounts.</p>
-          <div class="chips" id="dynamicSimSideChips" style="margin-top: 20px; margin-bottom: 24px;"><span class="chip" style="font-size:12px; padding:6px 12px;">Live Standings</span><span class="chip" style="font-size:12px; padding:6px 12px;">Daily Streaks</span><span class="chip" style="font-size:12px; padding:6px 12px;">3D Achievement Badges</span></div>
-          <a class="btn btn-primary" id="dynamicSimSideButton" href="https://www.trackedu.net/housepoints.html" style="background: var(--green) !important; border-color: var(--green) !important; box-shadow: 0 10px 20px rgba(135,194,50,0.15); padding: 12px 24px;">
-            Explore Student Experience <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-        
       </div>
-    </section>
+    </article>
 
-
-    <section id="trust" class="section trust-section">
-      <div class="inner">
-        <div class="trust-intro">
-          <div class="kicker"><i class="fas fa-shield-halved"></i> Trust, privacy and access control</div>
-          <h2>Built with school trust in mind.</h2>
-          <p>TrackEDU is designed for schools that need practical software without unnecessary student exposure. Access is controlled, student identities are minimised, and administrators stay in charge.</p>
+    <article class="feature-tile tile-green">
+      <div>
+        <div class="tile-label">School Culture</div>
+        <h3>Student Recognition</h3>
+        <p class="feature-intro">A flexible recognition system for schools that use house points, team points, values points, merit points or whole-school rewards.</p>
+        <div class="feature-checks">
+          <div class="feature-check"><i class="fas fa-circle-check" style="color:#87C232;"></i> Use houses, teams, classes or custom groups</div>
+          <div class="feature-check"><i class="fas fa-circle-check" style="color:#87C232;"></i> Celebrate values, effort and positive contribution</div>
+          <div class="feature-check"><i class="fas fa-circle-check" style="color:#87C232;"></i> Show live leaderboards and rewards</div>
+          <div class="feature-check"><i class="fas fa-circle-check" style="color:#87C232;"></i> Works for British, IB and international school models</div>
         </div>
-
-        <div class="trust-visual-grid">
-          <div class="trust-panel trust-visual">
-            <div class="identity-card" aria-label="Student privacy preview">
-              <div class="identity-top">
-                <strong>Student identity preview</strong>
-                <span class="safe-badge"><i class="fas fa-lock"></i> Minimised</span>
-              </div>
-              <div class="identity-rows">
-                <div class="identity-row"><span>Staff view</span><strong>Sarah T.</strong></div>
-                <div class="identity-row"><span>Student-facing view</span><strong>S.T.</strong></div>
-                <div class="identity-row"><span>Generated student ID</span><strong>STU-48291</strong></div>
-                <div class="identity-row"><span>Class access</span><strong>Class passcode</strong></div>
-              </div>
-            </div>
-            <div class="trust-mini-grid">
-              <div class="trust-mini"><i class="fas fa-user-lock"></i><strong>No student emails</strong><span>Students do not need personal email accounts to use the student experience.</span></div>
-              <div class="trust-mini"><i class="fas fa-fingerprint"></i><strong>Generated IDs</strong><span>Generated IDs and class codes reduce unnecessary exposure.</span></div>
-            </div>
+      </div>
+      <div class="tile-visual">
+        <div class="visual-house-card">
+          <div class="visual-house-row">
+            <div class="visual-rank">1</div>
+            <div class="visual-mini-bar"><span style="width: 88%; background:#87C232;"></span></div>
+            <div class="visual-points">820</div>
           </div>
-          <div class="trust-panel">
-            <h3>Student data is kept deliberately limited.</h3>
-            <p>TrackEDU avoids unnecessary student email accounts and can show reduced names, such as Sarah T. for staff and S.T. in student-facing areas.</p>
-            <div class="trust-facts">
-              <div class="trust-fact"><i class="fas fa-id-card-clip"></i><div><strong>Minimised names</strong><span>Schools can use shortened display names where appropriate.</span></div></div>
-              <div class="trust-fact"><i class="fas fa-ban"></i><div><strong>No ads</strong><span>TrackEDU is school software, not an advertising platform.</span></div></div>
-            </div>
+          <div class="visual-house-row">
+            <div class="visual-rank">2</div>
+            <div class="visual-mini-bar"><span style="width: 74%; background:#0F66C3;"></span></div>
+            <div class="visual-points">690</div>
           </div>
-        </div>
-
-        <div class="trust-visual-grid reverse">
-          <div class="trust-panel">
-            <h3>Access stays under school control.</h3>
-            <p>Staff use familiar Google sign-in, but sign-in alone is not enough. Join codes and admin approval help keep school workspaces controlled.</p>
-            <div class="trust-facts">
-              <div class="trust-fact"><i class="fas fa-building-shield"></i><div><strong>UK and ICO registered</strong><span>TrackEDU Ltd is registered in England and Wales and with the ICO.</span></div></div>
-              <div class="trust-fact"><i class="fas fa-handshake"></i><div><strong>Education partner</strong><span>Pathwise Academy supports wider digital education and school technology work.</span></div></div>
-            </div>
-          </div>
-          <div class="trust-panel trust-visual">
-            <div class="flow-board" aria-label="School access flow preview">
-              <div class="flow-step"><i class="fab fa-google"></i><strong>Google sign-in</strong><span>Staff authenticate with a familiar school workflow.</span></div>
-              <div class="flow-step"><i class="fas fa-key"></i><strong>Join code</strong><span>Schools use codes to control workspace requests.</span></div>
-              <div class="flow-step"><i class="fas fa-user-check"></i><strong>Admin approval</strong><span>New staff requests can be reviewed first.</span></div>
-              <div class="flow-step"><i class="fas fa-school-lock"></i><strong>Workspace access</strong><span>Approved users enter the correct school workspace.</span></div>
-            </div>
-            <div class="trust-mini-grid">
-              <div class="trust-mini"><i class="fas fa-fire"></i><strong>Firebase infrastructure</strong><span>Cloud-based access across school workspaces.</span></div>
-              <div class="trust-mini"><i class="fas fa-user-shield"></i><strong>Admin approval</strong><span>Not anyone can join a school workspace.</span></div>
-            </div>
+          <div class="visual-house-row">
+            <div class="visual-rank">3</div>
+            <div class="visual-mini-bar"><span style="width: 58%; background:#FACC15;"></span></div>
+            <div class="visual-points">540</div>
           </div>
         </div>
       </div>
-    </section>
+    </article>
 
-
-    <section id="starting-points" class="section starting">
-      <div class="inner">
-        <div class="start-head">
-          <div class="kicker"><i class="fas fa-location-arrow"></i> Choose your starting point</div>
-          <h2>Choose the clearest route to value.</h2>
-          <p>Start with Facilities if the school needs an immediate operational fix. Explore House Points if the priority is positive recognition and school culture.</p>
-        </div>
-        <div class="start-grid">
-          <div class="start-card"><h3>Facility Booking for Schools</h3><p>The recommended starting point for schools dealing with double-booked spaces, messy spreadsheets, unclear availability and setup requests.</p><a class="btn btn-dark" href="https://www.trackedu.net/facilities.html">Fix facility booking chaos <i class="fas fa-arrow-right"></i></a></div>
-          <div class="start-card"><h3>Digital House Points for Schools</h3><p>For schools that want visible positive recognition, live leaderboards, teacher tools and student reward profiles.</p><a class="btn btn-primary" href="https://www.trackedu.net/housepoints.html">Explore house points <i class="fas fa-arrow-right"></i></a></div>
+    <article class="feature-tile tile-yellow">
+      <div>
+        <div class="tile-label">Teacher Workflow</div>
+        <h3>Teacher App</h3>
+        <p class="feature-intro">Give teachers a simple daily tool for recognition, classroom routines and quick access to the TrackEDU ecosystem.</p>
+        <div class="feature-checks">
+          <div class="feature-check"><i class="fas fa-circle-check" style="color:#F59E0B;"></i> Fast recognition from one teacher dashboard</div>
+          <div class="feature-check"><i class="fas fa-circle-check" style="color:#F59E0B;"></i> Free Teacher Starter for one class</div>
+          <div class="feature-check"><i class="fas fa-circle-check" style="color:#F59E0B;"></i> Simple tools such as Interactive Noise Meter and Focus Timer</div>
+          <div class="feature-check"><i class="fas fa-circle-check" style="color:#F59E0B;"></i> Upgrade path for whole-school use</div>
         </div>
       </div>
-    </section>
+      <div class="tile-visual">
+        <div class="visual-phone-card">
+          <div class="phone-shell">
+            <div class="phone-avatar">⭐</div>
+            <div class="phone-stat"></div>
+            <div class="phone-stat"></div>
+            <div class="phone-stat"></div>
+          </div>
+        </div>
+      </div>
+    </article>
 
+    <article class="feature-tile tile-dark">
+      <div>
+        <div class="tile-label">School Visibility</div>
+        <h3>One TrackEDU Ecosystem</h3>
+        <p class="feature-intro">Start with the pain that matters most, then expand into connected tools for recognition, student visibility, behaviour support and operations.</p>
+        <div class="feature-checks">
+          <div class="feature-check"><i class="fas fa-circle-check" style="color:#87C232;"></i> Facilities as a standalone system</div>
+          <div class="feature-check"><i class="fas fa-circle-check" style="color:#87C232;"></i> Recognition and rewards through the Teacher App</div>
+          <div class="feature-check"><i class="fas fa-circle-check" style="color:#87C232;"></i> Student Portal for visible achievement</div>
+          <div class="feature-check"><i class="fas fa-circle-check" style="color:#87C232;"></i> Behaviour support inside the school package</div>
+        </div>
+      </div>
+      <div class="tile-visual">
+        <div class="visual-leadership-card">
+          <div class="leadership-chart">
+            <div class="leadership-bar" style="height: 78%;"></div>
+            <div class="leadership-bar" style="height: 58%;"></div>
+            <div class="leadership-bar" style="height: 88%;"></div>
+            <div class="leadership-bar" style="height: 42%;"></div>
+          </div>
+          <div class="leadership-labels">
+            <div>Spaces</div>
+            <div>Points</div>
+            <div>Rewards</div>
+            <div>Support</div>
+          </div>
+        </div>
+      </div>
+    </article>
 
+  </div>
+</section>
 
+<section id="starting-points" class="section starting">
+  <div class="inner">
+    <div class="start-head">
+      <div class="kicker"><i class="fas fa-location-arrow"></i> Choose your starting point</div>
+      <h2>Choose the clearest route to value.</h2>
+      <p>Start with Facilities if the school needs an immediate operational fix. Explore Student Recognition if the priority is rewards, positive behaviour, values, house points or school culture.</p>
+    </div>
+    <div class="start-grid">
+      <div class="start-card">
+        <h3>Facility Booking for Schools</h3>
+        <p>The recommended starting point for schools dealing with double-booked spaces, messy spreadsheets, unclear availability and setup requests.</p>
+        <a class="btn btn-dark" href="https://www.trackedu.net/facilities.html">Fix facility booking chaos <i class="fas fa-arrow-right"></i></a>
+      </div>
 
+      <div class="start-card">
+        <h3>Student Recognition for Schools</h3>
+        <p>For schools that want visible positive recognition, rewards, house points, team points, values recognition, live leaderboards, teacher tools and student reward profiles.</p>
+        <a class="btn btn-primary" href="https://www.trackedu.net/housepoints.html">Explore student recognition <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
 
-
-
-    <section id="why" class="section why">
+<section id="why" class="section why">
       <div class="inner why-grid">
         <div class="founder-card">
           <div class="founder-placeholder" style="aspect-ratio: 1 / 1;">
@@ -2007,7 +1821,7 @@
       <div>
         <h4 style="color: #ffffff; margin: 0 0 20px; font-size: 16px; font-weight: 700;">Products</h4>
         <div style="display: flex; flex-direction: column; gap: 12px;">
-          <a href="https://www.trackedu.net/housepoints.html" style="font-size: 14px; color: #cbd5e1; transition: color 0.2s;" onmouseover="this.style.color='#87C232'" onmouseout="this.style.color='#cbd5e1'">Digital House Points</a>
+          <a href="https://www.trackedu.net/housepoints.html" style="font-size: 14px; color: #cbd5e1; transition: color 0.2s;" onmouseover="this.style.color='#87C232'" onmouseout="this.style.color='#cbd5e1'">Student Recognition</a>
           <a href="https://www.trackedu.net/facilities.html" style="font-size: 14px; color: #cbd5e1; transition: color 0.2s;" onmouseover="this.style.color='#0F66C3'" onmouseout="this.style.color='#cbd5e1'">Facility Booking</a>
         </div>
       </div>
@@ -2015,7 +1829,7 @@
       <div>
         <h4 style="color: #ffffff; margin: 0 0 20px; font-size: 16px; font-weight: 700;">Platform Links</h4>
         <div style="display: flex; flex-direction: column; gap: 12px;">
-          <a href="https://housepoint.trackedu.net/" style="font-size: 14px; color: #cbd5e1; transition: color 0.2s;" onmouseover="this.style.color='#87C232'" onmouseout="this.style.color='#cbd5e1'"><i class="fas fa-star" style="font-size:11px; margin-right:4px;"></i> Digital House Points Login</a>
+          <a href="https://housepoint.trackedu.net/" style="font-size: 14px; color: #cbd5e1; transition: color 0.2s;" onmouseover="this.style.color='#87C232'" onmouseout="this.style.color='#cbd5e1'"><i class="fas fa-star" style="font-size:11px; margin-right:4px;"></i> Student Recognition Login</a>
           <a href="https://facilities.trackedu.net/" style="font-size: 14px; color: #cbd5e1; transition: color 0.2s;" onmouseover="this.style.color='#0F66C3'" onmouseout="this.style.color='#cbd5e1'"><i class="fas fa-calendar-check" style="font-size:11px; margin-right:4px;"></i> Facility Booking Login</a>
         </div>
       </div>
