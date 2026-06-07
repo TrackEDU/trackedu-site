@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="scroll-smooth">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WV79KN1XBY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WV79KN1XBY');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="https://i.imgur.com/3PR3SiC.png">
+
+  <title>Google Calendar vs School Room Booking Software | TrackEDU</title>
+  <meta name="description" content="A practical comparison of Google Calendar and purpose-built school room booking software for managing classrooms, halls, libraries, sports spaces, approvals and site-team setup requests.">
+  <link rel="canonical" href="https://www.trackedu.net/google-calendar-vs-school-room-booking-software.html">
+  <link rel="alternate" hreflang="en-gb" href="https://www.trackedu.net/google-calendar-vs-school-room-booking-software.html">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="author" content="TrackEDU Ltd">
+  <meta name="keywords" content="Google Calendar vs school room booking software, school room booking system, school facility booking software, classroom booking software, school shared space booking, Google Calendar for schools, school operations software, facility booking calendar">
+  <meta name="theme-color" content="#7BB32E">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TrackEDU">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:title" content="Google Calendar vs School Room Booking Software | TrackEDU">
+  <meta property="og:description" content="When is Google Calendar enough, and when do schools need a purpose-built room booking system?">
+  <meta property="og:url" content="https://www.trackedu.net/google-calendar-vs-school-room-booking-software.html">
+  <meta property="og:image" content="https://trackedu.github.io/common-assets/siteqrcode.png">
+  <meta property="og:image:alt" content="TrackEDU school room booking software guide">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Google Calendar vs School Room Booking Software | TrackEDU">
+  <meta name="twitter:description" content="A practical guide for schools deciding whether Google Calendar is enough for shared room and facility bookings.">
+  <meta name="twitter:image" content="https://trackedu.github.io/common-assets/siteqrcode.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Google Calendar vs School Room Booking Software",
+    "description": "A practical comparison of Google Calendar and purpose-built school room booking software for managing shared spaces, approvals, closures and operations visibility.",
+    "author": {
+      "@type": "Organization",
+      "name": "TrackEDU Ltd"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "TrackEDU Ltd",
+      "url": "https://www.trackedu.net/"
+    },
+    "mainEntityOfPage": "https://www.trackedu.net/google-calendar-vs-school-room-booking-software.html",
+    "datePublished": "2026-06-07",
+    "dateModified": "2026-06-07"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can schools use Google Calendar for room booking?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Google Calendar can work for simple room visibility, especially where only a few spaces are involved. However, schools often need approval workflows, setup requests, maintenance blocks, QR check-in, auto-release and usage visibility, which are usually better handled by purpose-built school room booking software."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When should a school move beyond Google Calendar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A school should consider dedicated room booking software when staff are double booking spaces, relying on email chains, missing setup requests, struggling to manage closures or needing better visibility across rooms, halls, libraries, sports spaces and specialist teaching areas."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What should school room booking software include?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Useful school room booking software should include a shared booking calendar, conflict prevention, approval rules, visible closures, recurring bookings, setup notes, mobile access, staff onboarding and reporting on space usage."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              blue: '#2563EB',
+              green: '#7BB32E',
+              dark: '#0C1E2C',
+              light: '#F8FAFC',
+              teal: '#14b8a6',
+              yellow: '#FBBF24',
+              purple: '#8B5CF6',
+              pink: '#F43F5E'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif']
+          },
+          boxShadow: {
+            soft: '0 18px 45px rgba(12, 30, 44, 0.05)',
+            chunky: '6px 6px 0px 0px #0C1E2C',
+            chunkyHover: '2px 2px 0px 0px #0C1E2C'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-padding-top: 86px; }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: #0C1E2C;
+      background: #FAFAF9;
+      -webkit-font-smoothing: antialiased;
+    }
+    body.menu-open { overflow: hidden; }
+    .funky-mesh {
+      background: #fdfbf7;
+      background-image:
+        radial-gradient(at 0% 0%, rgba(123, 179, 46, 0.08) 0, transparent 50%),
+        radial-gradient(at 50% 0%, rgba(12, 30, 44, 0.04) 0, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(251, 191, 36, 0.10) 0, transparent 50%);
+    }
+    .nav-glass {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(255, 255, 255, 0.92);
+      border-bottom: 2px solid #E2E8F0;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      border-radius: 12px;
+      background: #7BB32E;
+      color: #ffffff;
+      font-weight: 900;
+      padding: 1rem 1.5rem;
+      border: 2px solid #0C1E2C;
+      box-shadow: 4px 4px 0px 0px #0C1E2C;
+      transition: all 0.15s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .btn-primary:active { transform: translate(4px, 4px); box-shadow: 0 0 0 0 #0C1E2C; }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      border-radius: 12px;
+      background: #ffffff;
+      color: #0C1E2C;
+      font-weight: 900;
+      padding: 1rem 1.5rem;
+      border: 2px solid #0C1E2C;
+      box-shadow: 4px 4px 0px 0px #0C1E2C;
+      transition: all 0.15s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .btn-secondary:active { transform: translate(4px, 4px); box-shadow: 0 0 0 0 #0C1E2C; }
+    .article-card {
+      border: 4px solid #0C1E2C;
+      border-radius: 28px;
+      background: #ffffff;
+      box-shadow: 6px 6px 0px 0px #0C1E2C;
+    }
+    .callout-card {
+      border: 4px solid #0C1E2C;
+      border-radius: 28px;
+      box-shadow: 6px 6px 0px 0px #0C1E2C;
+    }
+    .content h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      color: #0C1E2C;
+    }
+    .content h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.55rem;
+      font-weight: 900;
+      line-height: 1.15;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      color: #0C1E2C;
+    }
+    .content p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      font-weight: 600;
+      color: #475569;
+      margin-bottom: 1.15rem;
+    }
+    .content ul, .content ol {
+      margin: 1.25rem 0 1.5rem;
+      padding-left: 1.25rem;
+    }
+    .content li {
+      font-size: 1.02rem;
+      line-height: 1.7;
+      font-weight: 700;
+      color: #475569;
+      margin-bottom: 0.65rem;
+    }
+    .content a { color: #3f7f15; font-weight: 900; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+    .mini-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      border-radius: 999px;
+      border: 2px solid #0C1E2C;
+      padding: 0.35rem 0.75rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.7rem;
+    }
+  </style>
+</head>
+<body class="overflow-x-hidden">
+
+  <nav class="fixed top-0 left-0 right-0 z-50 nav-glass">
+    <div class="w-full mx-auto px-4 sm:px-8 lg:px-12 2xl:px-20 h-20 flex items-center justify-between gap-4">
+      <a href="index.html" class="flex items-center gap-3 shrink-0" aria-label="TrackEDU home">
+        <div class="w-10 h-10 bg-brand-green rounded-xl flex items-center justify-center border-2 border-brand-dark shadow-[2px_2px_0px_0px_#0C1E2C]">
+          <i class="fas fa-calendar-check text-white text-lg"></i>
+        </div>
+        <span class="font-display text-2xl font-black text-brand-dark tracking-tighter">Track<span class="text-brand-green">EDU</span></span>
+        <span class="hidden sm:inline-flex text-xs font-black text-brand-dark bg-brand-yellow border-2 border-brand-dark rounded-lg px-2.5 py-1 shadow-[2px_2px_0px_0px_#0C1E2C] transform -rotate-2">Guide</span>
+      </a>
+
+      <div class="hidden lg:flex items-center gap-7 bg-white/50 px-6 py-2 rounded-2xl border border-slate-200">
+        <a href="index.html" class="text-sm font-bold text-slate-700 hover:text-brand-green transition">Home</a>
+        <a href="housepoints.html" class="text-sm font-bold text-slate-700 hover:text-brand-green transition">House Points</a>
+        <a href="facilities.html" class="text-sm font-bold text-slate-700 hover:text-brand-green transition">Facilities</a>
+        <a href="resources.html" class="text-sm font-black text-brand-green transition">Resources</a>
+        <a href="contact.html" class="text-sm font-bold text-slate-700 hover:text-brand-green transition">Contact</a>
+      </div>
+
+      <div class="hidden md:flex items-center gap-3">
+        <a href="facilities.html" class="btn-primary text-sm py-2 px-5">View Facilities →</a>
+      </div>
+
+      <button id="hamburgerBtn" class="lg:hidden w-12 h-12 rounded-xl bg-white border-2 border-brand-dark shadow-[2px_2px_0px_0px_#0C1E2C] text-brand-dark flex items-center justify-center active:translate-y-1 active:shadow-none transition" aria-label="Open menu">
+        <i class="fas fa-bars text-lg"></i>
+      </button>
+    </div>
+  </nav>
+
+  <div id="mobileMenuOverlay" class="fixed inset-0 z-[90] bg-slate-900/60 backdrop-blur-sm hidden lg:hidden" onclick="closeMobileMenu()"></div>
+  <aside id="mobileMenu" class="fixed top-0 right-0 h-full w-full max-w-sm bg-white z-[91] shadow-2xl translate-x-full transition-transform duration-300 lg:hidden border-l-4 border-brand-dark">
+    <div class="h-full flex flex-col">
+      <div class="p-6 border-b-2 border-slate-100 flex items-center justify-between">
+        <div class="flex items-center gap-3 shrink-0">
+          <div class="w-10 h-10 bg-brand-green rounded-xl flex items-center justify-center border-2 border-brand-dark shadow-[2px_2px_0px_0px_#0C1E2C]">
+            <i class="fas fa-calendar-check text-white text-lg"></i>
+          </div>
+          <span class="font-display text-2xl font-black text-brand-dark tracking-tighter">Track<span class="text-brand-green">EDU</span></span>
+        </div>
+        <button onclick="closeMobileMenu()" class="w-10 h-10 rounded-xl bg-slate-100 border-2 border-brand-dark text-brand-dark flex items-center justify-center font-black shadow-[2px_2px_0px_0px_#0C1E2C] active:translate-y-1 active:shadow-none transition"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="p-6 space-y-2 flex-1 overflow-y-auto">
+        <a href="index.html" onclick="closeMobileMenu()" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 font-bold text-lg border-2 border-transparent hover:border-brand-dark transition"><i class="fas fa-home text-brand-green w-6"></i> Home</a>
+        <a href="housepoints.html" onclick="closeMobileMenu()" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 font-bold text-lg border-2 border-transparent hover:border-brand-dark transition"><i class="fas fa-trophy text-brand-yellow w-6"></i> House Points</a>
+        <a href="facilities.html" onclick="closeMobileMenu()" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 font-bold text-lg border-2 border-transparent hover:border-brand-dark transition"><i class="fas fa-calendar-check text-brand-teal w-6"></i> Facilities</a>
+        <a href="resources.html" onclick="closeMobileMenu()" class="flex items-center gap-3 p-3 rounded-xl bg-brand-green/10 font-black text-lg border-2 border-brand-dark transition"><i class="fas fa-book-open text-brand-green w-6"></i> Resources</a>
+        <a href="contact.html" onclick="closeMobileMenu()" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 font-bold text-lg border-2 border-transparent hover:border-brand-dark transition"><i class="fas fa-envelope text-brand-pink w-6"></i> Contact</a>
+      </div>
+      <div class="p-6 border-t-2 border-slate-100 bg-slate-50 flex flex-col gap-3">
+        <a href="facilities.html" class="w-full btn-primary text-center">View Facilities →</a>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    <section class="funky-mesh pt-32 pb-20 border-b-4 border-brand-dark">
+      <div class="w-full mx-auto px-4 sm:px-8 lg:px-12 2xl:px-20 max-w-7xl">
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-8">
+            <a href="resources.html" class="mini-pill bg-white text-brand-dark mb-6 shadow-[2px_2px_0px_0px_#0C1E2C]"><i class="fas fa-arrow-left"></i> Resources</a>
+            <div class="inline-flex max-w-[92%] px-3 sm:px-4 py-1 rounded-full border-2 border-brand-dark bg-brand-yellow text-brand-dark font-black uppercase text-[10px] sm:text-xs tracking-widest shadow-sm transform -rotate-1 leading-tight mb-6 ml-2">
+              <i class="fas fa-calendar-alt mr-2"></i> Facilities comparison
+            </div>
+            <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl font-black text-brand-dark leading-[0.98] tracking-[-0.04em] mb-6">
+              Google Calendar vs school room booking software.
+            </h1>
+            <p class="text-lg sm:text-xl font-bold text-slate-600 leading-relaxed max-w-3xl mb-8">
+              Google Calendar can be useful for simple scheduling. But school spaces are not just calendar events. They involve approvals, closures, setup needs, recurring lessons, specialist rooms and staff who need a reliable answer quickly. This guide explains when a calendar is enough, and when a purpose-built school room booking system becomes the better option.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="facilities.html" class="btn-primary text-sm px-6 py-3">See TrackEDU Facilities →</a>
+              <a href="#comparison" class="btn-secondary text-sm px-6 py-3">View Comparison</a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-4">
+            <div class="article-card p-6 bg-white transform lg:rotate-1">
+              <div class="w-14 h-14 bg-brand-green border-2 border-brand-dark rounded-2xl flex items-center justify-center text-white text-2xl mb-5 shadow-[3px_3px_0px_0px_#0C1E2C]">
+                <i class="fas fa-balance-scale"></i>
+              </div>
+              <h2 class="font-display text-3xl font-black text-brand-dark leading-tight mb-3">Quick answer</h2>
+              <p class="text-sm font-bold text-slate-600 leading-relaxed mb-5">
+                Google Calendar is fine for basic visibility. Schools usually need room booking software when they need approval rules, booking states, maintenance blocks, setup notes, mobile staff access and clear reporting on how spaces are used.
+              </p>
+              <div class="grid grid-cols-2 gap-3 text-center">
+                <div class="bg-brand-yellow border-2 border-brand-dark rounded-2xl p-3">
+                  <span class="block font-black text-2xl">Good</span>
+                  <span class="text-xs font-black uppercase tracking-wider">for simple calendars</span>
+                </div>
+                <div class="bg-brand-green/20 border-2 border-brand-dark rounded-2xl p-3">
+                  <span class="block font-black text-2xl">Better</span>
+                  <span class="text-xs font-black uppercase tracking-wider">for school workflows</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-brand-dark py-6 sm:py-8 border-b-4 border-slate-800">
+      <div class="w-full mx-auto px-4 sm:px-8 max-w-7xl">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-y-5 gap-x-4 text-[11px] sm:text-sm font-black text-brand-green uppercase tracking-widest text-center">
+          <div class="flex items-center justify-center gap-2"><i class="fas fa-check-circle text-brand-yellow"></i> Fewer clashes</div>
+          <div class="flex items-center justify-center gap-2"><i class="fas fa-user-shield text-brand-pink"></i> Clear approvals</div>
+          <div class="flex items-center justify-center gap-2"><i class="fas fa-tools text-brand-purple"></i> Setup visibility</div>
+          <div class="flex items-center justify-center gap-2"><i class="fas fa-chart-bar text-brand-yellow"></i> Usage insight</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-white border-b-4 border-brand-dark">
+      <div class="w-full mx-auto px-4 sm:px-8 lg:px-12 2xl:px-20 max-w-7xl">
+        <div class="grid lg:grid-cols-12 gap-10 items-start">
+          <aside class="lg:col-span-4 lg:sticky lg:top-28">
+            <div class="article-card p-6 bg-[#FAFAF9]">
+              <h2 class="font-display text-2xl font-black text-brand-dark mb-4">In this guide</h2>
+              <nav class="space-y-3 text-sm font-black">
+                <a href="#calendar" class="block text-slate-600 hover:text-brand-green">1. What Google Calendar does well</a>
+                <a href="#limits" class="block text-slate-600 hover:text-brand-green">2. Where it starts to struggle</a>
+                <a href="#comparison" class="block text-slate-600 hover:text-brand-green">3. Side-by-side comparison</a>
+                <a href="#when" class="block text-slate-600 hover:text-brand-green">4. When to move beyond it</a>
+                <a href="#faq" class="block text-slate-600 hover:text-brand-green">5. FAQ</a>
+              </nav>
+              <div class="mt-6 bg-brand-yellow border-2 border-brand-dark rounded-2xl p-4">
+                <p class="text-xs font-black uppercase tracking-widest text-brand-dark mb-2">Best fit</p>
+                <p class="text-sm font-bold text-brand-dark leading-relaxed">Use Google Calendar for simple schedules. Use school room booking software when spaces need permissions, approvals, setup notes and operational control.</p>
+              </div>
+            </div>
+          </aside>
+
+          <article class="lg:col-span-8 content">
+            <p>
+              Many schools already use Google Workspace, so it is natural to ask whether Google Calendar can manage room booking. In some cases, it can. If a school only needs to show when one or two rooms are unavailable, a shared calendar may be enough.
+            </p>
+            <p>
+              The problem appears when room booking becomes a workflow rather than a simple diary entry. A sports hall may need approval. A library class visit may need setup notes. A science lab may be closed for maintenance. An outdoor space may need to be blocked during severe weather. A hall booking may need chairs, desks, microphones or site-team support. At that point, schools need more than a calendar. They need a controlled booking process.
+            </p>
+
+            <h2 id="calendar">What Google Calendar does well</h2>
+            <p>
+              Google Calendar is familiar, accessible and easy to understand. Staff know how to check dates, add events and view availability. For small teams, it can be a reasonable starting point because it does not require a new system or much training.
+            </p>
+            <ul>
+              <li>It is familiar to many staff.</li>
+              <li>It works well for simple date and time visibility.</li>
+              <li>It can show recurring events.</li>
+              <li>It can help small teams avoid basic clashes.</li>
+              <li>It is useful where no approval workflow is needed.</li>
+            </ul>
+            <p>
+              For a small department with one shared room and clear expectations, this may be perfectly acceptable. The key question is whether the school is only managing events, or whether it is managing space, people, setup work and operational risk.
+            </p>
+
+            <h2 id="limits">Where Google Calendar starts to struggle in schools</h2>
+            <p>
+              School spaces behave differently from ordinary meetings. They have physical constraints, student safety considerations, equipment needs and competing priorities. A calendar event can show that a room is booked, but it may not capture the full school workflow around that booking.
+            </p>
+
+            <div class="grid sm:grid-cols-2 gap-5 my-8">
+              <div class="bg-slate-50 border-2 border-brand-dark rounded-2xl p-5">
+                <h3 class="font-black text-brand-dark text-xl mb-2"><i class="fas fa-user-check text-brand-green mr-2"></i> Approvals</h3>
+                <p class="text-sm font-bold text-slate-600 leading-relaxed">Some spaces should not be instantly bookable by everyone. Halls, labs, performance rooms and sports areas often need admin control.</p>
+              </div>
+              <div class="bg-slate-50 border-2 border-brand-dark rounded-2xl p-5">
+                <h3 class="font-black text-brand-dark text-xl mb-2"><i class="fas fa-tools text-brand-purple mr-2"></i> Setup requests</h3>
+                <p class="text-sm font-bold text-slate-600 leading-relaxed">A calendar event does not always give site teams the information they need, such as chairs, desks, AV, equipment or layout requirements.</p>
+              </div>
+              <div class="bg-slate-50 border-2 border-brand-dark rounded-2xl p-5">
+                <h3 class="font-black text-brand-dark text-xl mb-2"><i class="fas fa-ban text-brand-pink mr-2"></i> Closures</h3>
+                <p class="text-sm font-bold text-slate-600 leading-relaxed">Maintenance, exams, weather restrictions and blocked dates need to be visible before staff try to book.</p>
+              </div>
+              <div class="bg-slate-50 border-2 border-brand-dark rounded-2xl p-5">
+                <h3 class="font-black text-brand-dark text-xl mb-2"><i class="fas fa-chart-line text-brand-blue mr-2"></i> Reporting</h3>
+                <p class="text-sm font-bold text-slate-600 leading-relaxed">Leaders may need to see which spaces are under pressure, which are rarely used and where demand is increasing.</p>
+              </div>
+            </div>
+
+            <h2 id="comparison">Google Calendar vs school room booking software</h2>
+            <p>
+              The difference is not that Google Calendar is bad. The difference is that Google Calendar is a general calendar, while school room booking software is designed around the specific behaviour of schools.
+            </p>
+
+            <div class="overflow-x-auto border-4 border-brand-dark rounded-3xl shadow-chunky bg-white my-8">
+              <table class="w-full border-collapse text-left font-bold text-sm min-w-[680px]">
+                <thead>
+                  <tr class="bg-slate-100 border-b-4 border-brand-dark">
+                    <th class="p-4 text-slate-500 uppercase tracking-wider font-black w-1/3">Need</th>
+                    <th class="p-4 text-brand-dark uppercase tracking-wider font-black text-center w-1/3 border-l-2 border-slate-200">Google Calendar</th>
+                    <th class="p-4 bg-brand-dark text-brand-green uppercase tracking-wider font-black text-center w-1/3">School booking software</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y-2 divide-slate-200">
+                  <tr>
+                    <td class="p-4 text-brand-dark">Basic room visibility</td>
+                    <td class="p-4 text-center text-slate-600 border-l-2 border-slate-200">Good</td>
+                    <td class="p-4 text-center text-brand-dark bg-slate-900/5 font-black">Good</td>
+                  </tr>
+                  <tr>
+                    <td class="p-4 text-brand-dark">Preventing clashes</td>
+                    <td class="p-4 text-center text-slate-600 border-l-2 border-slate-200">Possible, if set up carefully</td>
+                    <td class="p-4 text-center text-brand-dark bg-slate-900/5 font-black">Built into the booking flow</td>
+                  </tr>
+                  <tr>
+                    <td class="p-4 text-brand-dark">Admin approval for high-demand spaces</td>
+                    <td class="p-4 text-center text-slate-500 border-l-2 border-slate-200">Limited</td>
+                    <td class="p-4 text-center text-brand-dark bg-slate-900/5 font-black">Purpose-built approval states</td>
+                  </tr>
+                  <tr>
+                    <td class="p-4 text-brand-dark">Setup notes for site teams</td>
+                    <td class="p-4 text-center text-slate-500 border-l-2 border-slate-200">Usually manual</td>
+                    <td class="p-4 text-center text-brand-dark bg-slate-900/5 font-black">Connected to the booking</td>
+                  </tr>
+                  <tr>
+                    <td class="p-4 text-brand-dark">Maintenance blocks and closures</td>
+                    <td class="p-4 text-center text-slate-600 border-l-2 border-slate-200">Possible, but easy to miss</td>
+                    <td class="p-4 text-center text-brand-dark bg-slate-900/5 font-black">Visible to staff before booking</td>
+                  </tr>
+                  <tr>
+                    <td class="p-4 text-brand-dark">QR check-in or auto-release</td>
+                    <td class="p-4 text-center text-slate-500 border-l-2 border-slate-200">Not the normal workflow</td>
+                    <td class="p-4 text-center text-brand-dark bg-slate-900/5 font-black">Available in dedicated systems</td>
+                  </tr>
+                  <tr>
+                    <td class="p-4 text-brand-dark">School operations reporting</td>
+                    <td class="p-4 text-center text-slate-500 border-l-2 border-slate-200">Limited</td>
+                    <td class="p-4 text-center text-brand-dark bg-slate-900/5 font-black">Designed for space usage visibility</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h2 id="when">When should a school move beyond Google Calendar?</h2>
+            <p>
+              A school should consider moving beyond Google Calendar when the booking process starts creating avoidable staff friction. The signs are usually easy to recognise.
+            </p>
+            <ol>
+              <li><strong>Staff still email someone to check availability.</strong> This suggests the calendar is not trusted as the single source of truth.</li>
+              <li><strong>Rooms are double booked or informally reserved.</strong> This means the booking record is not strong enough.</li>
+              <li><strong>Site teams receive setup information too late.</strong> The booking system should capture operational needs when the request is made.</li>
+              <li><strong>Some rooms should require approval.</strong> Schools often need different rules for halls, labs, libraries, meeting rooms and sports facilities.</li>
+              <li><strong>Leaders cannot see space pressure.</strong> If the school cannot see demand, it cannot plan staffing, timetabling or room allocation well.</li>
+            </ol>
+
+            <h2>What TrackEDU Facilities adds</h2>
+            <p>
+              TrackEDU Facilities is designed for school-specific room booking and shared-space management. It gives staff one clear place to find available spaces, request bookings and see what is already blocked. It also helps administrators manage high-demand spaces and gives operations teams clearer setup visibility.
+            </p>
+            <ul>
+              <li>One clear booking calendar for rooms, halls, libraries, sports spaces and specialist areas.</li>
+              <li>Conflict prevention so staff can avoid awkward double-booking moments.</li>
+              <li>Approval workflows for spaces that should not be instantly bookable.</li>
+              <li>Setup notes for site teams, captured at the point of booking.</li>
+              <li>Maintenance and closure visibility before staff request a space.</li>
+              <li>QR check-in and auto-release options for reducing ghost bookings.</li>
+              <li>Useful starting points for PE departments, libraries and operations teams.</li>
+            </ul>
+
+            <div class="bg-brand-green/15 border-4 border-brand-dark rounded-3xl p-6 my-8">
+              <h3 class="font-display text-2xl font-black text-brand-dark mt-0">Practical recommendation</h3>
+              <p class="text-brand-dark font-bold leading-relaxed mb-0">
+                Do not replace Google Calendar just because a new system looks better. Replace it when the school has a real workflow problem: double bookings, approval confusion, missed setup notes, invisible closures or no reliable view of shared-space demand.
+              </p>
+            </div>
+
+            <h2 id="faq">FAQ</h2>
+            <h3>Is Google Calendar enough for a small school?</h3>
+            <p>
+              It may be enough if the school has only a few shared rooms, no approval requirements and very simple booking expectations. The more spaces, users and setup needs involved, the more likely a dedicated system becomes useful.
+            </p>
+
+            <h3>Can a school use both Google Calendar and booking software?</h3>
+            <p>
+              Yes. Some schools use a dedicated booking system for the controlled booking workflow, then keep wider calendar visibility for staff communication. The important point is that bookings should have one reliable source of truth.
+            </p>
+
+            <h3>What is the main advantage of school room booking software?</h3>
+            <p>
+              The main advantage is operational control. Staff are not only adding events to a calendar. They are requesting spaces, following approval rules, noting setup needs, seeing closures and helping the school understand how shared spaces are used.
+            </p>
+
+            <div class="mt-10 bg-brand-dark text-white border-4 border-brand-dark rounded-3xl p-6 sm:p-8 shadow-chunky">
+              <h2 class="font-display text-3xl font-black mb-3 text-white">Need more than a shared calendar?</h2>
+              <p class="font-bold text-slate-300 leading-relaxed mb-6">TrackEDU Facilities helps schools manage rooms, halls, libraries, sports spaces, approvals, closures and setup requests from one staff-friendly booking calendar.</p>
+              <a href="facilities.html" class="btn-primary text-sm px-6 py-3">Explore TrackEDU Facilities →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-brand-yellow border-b-4 border-brand-dark">
+      <div class="w-full mx-auto px-4 sm:px-8 lg:px-12 2xl:px-20 max-w-7xl">
+        <div class="text-center max-w-3xl mx-auto mb-10">
+          <h2 class="font-display text-4xl sm:text-5xl font-black text-brand-dark leading-tight tracking-[-0.02em]">Related school booking resources</h2>
+          <p class="text-base sm:text-lg font-bold text-brand-dark/70 mt-4">Keep building the topic cluster around school facilities, room booking and shared-space workflows.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <a href="how-to-stop-school-room-booking-chaos.html" class="article-card p-6 bg-white hover:translate-y-[-4px] transition block">
+            <div class="w-12 h-12 bg-brand-yellow border-2 border-brand-dark rounded-2xl flex items-center justify-center text-brand-dark text-xl mb-4 shadow-[3px_3px_0px_0px_#0C1E2C]"><i class="fas fa-calendar-times"></i></div>
+            <h3 class="font-display text-2xl font-black text-brand-dark mb-2">How to stop room booking chaos</h3>
+            <p class="text-sm font-bold text-slate-600 leading-relaxed">A practical guide to reducing double bookings, setup confusion and shared-space friction.</p>
+          </a>
+
+          <a href="facilities-libraries.html" class="article-card p-6 bg-white hover:translate-y-[-4px] transition block">
+            <div class="w-12 h-12 bg-brand-green border-2 border-brand-dark rounded-2xl flex items-center justify-center text-white text-xl mb-4 shadow-[3px_3px_0px_0px_#0C1E2C]"><i class="fas fa-book-open"></i></div>
+            <h3 class="font-display text-2xl font-black text-brand-dark mb-2">Library room booking</h3>
+            <p class="text-sm font-bold text-slate-600 leading-relaxed">Reduce class visit emails, study space confusion and competing shared-library requests.</p>
+          </a>
+
+          <a href="facilities-operations-teams.html" class="article-card p-6 bg-white hover:translate-y-[-4px] transition block">
+            <div class="w-12 h-12 bg-brand-purple border-2 border-brand-dark rounded-2xl flex items-center justify-center text-white text-xl mb-4 shadow-[3px_3px_0px_0px_#0C1E2C]"><i class="fas fa-tools"></i></div>
+            <h3 class="font-display text-2xl font-black text-brand-dark mb-2">Operations teams</h3>
+            <p class="text-sm font-bold text-slate-600 leading-relaxed">Keep closures, maintenance blocks, setup requests and room approvals visible.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-brand-dark text-white pt-20 pb-10">
+    <div class="w-full mx-auto px-4 sm:px-8 lg:px-12 2xl:px-20">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 border-b-4 border-slate-800 pb-12 mb-8">
+        <div>
+          <a href="index.html" class="flex items-center gap-3 mb-6 group inline-flex" aria-label="TrackEDU primary home">
+            <div class="w-10 h-10 bg-brand-green rounded-xl flex items-center justify-center border-2 border-white shadow-[2px_2px_0px_0px_#ffffff] group-hover:translate-x-0.5 group-hover:translate-y-0.5 group-hover:shadow-none transition-all duration-150">
+              <i class="fas fa-graduation-cap text-brand-dark text-lg"></i>
+            </div>
+            <span class="font-display text-2xl font-black text-white tracking-tighter">Track<span class="text-brand-green">EDU</span></span>
+          </a>
+          <p class="text-sm font-bold text-slate-400 leading-relaxed max-w-xs">Practical school workflow software for rewards, shared spaces, daily operations and staff-facing systems.</p>
+        </div>
+
+        <div>
+          <h5 class="text-sm uppercase tracking-widest font-black text-brand-yellow mb-6">Resources</h5>
+          <ul class="space-y-4 text-sm font-bold text-slate-400">
+            <li><a href="resources.html" class="hover:text-brand-green transition">All Resources</a></li>
+            <li><a href="house-points-tracker-for-schools.html" class="hover:text-brand-green transition">House Points Tracker</a></li>
+            <li><a href="student-points-tracker-for-schools.html" class="hover:text-brand-green transition">Student Points Tracker</a></li>
+            <li><a href="how-to-stop-school-room-booking-chaos.html" class="hover:text-brand-green transition">Room Booking Chaos</a></li>
+            <li><a href="google-calendar-vs-school-room-booking-software.html" class="hover:text-brand-green transition">Google Calendar Comparison</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="text-sm uppercase tracking-widest font-black text-brand-green mb-6">Facilities</h5>
+          <ul class="space-y-4 text-sm font-bold text-slate-400">
+            <li><a href="facilities.html" class="hover:text-brand-green transition">Facilities Overview</a></li>
+            <li><a href="facilities-pe-departments.html" class="hover:text-brand-green transition">PE Departments</a></li>
+            <li><a href="facilities-libraries.html" class="hover:text-brand-green transition">Libraries</a></li>
+            <li><a href="facilities-operations-teams.html" class="hover:text-brand-green transition">Operations Teams</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="text-sm uppercase tracking-widest font-black text-brand-pink mb-6">TrackEDU</h5>
+          <ul class="space-y-4 text-sm font-bold text-slate-400">
+            <li><a href="index.html" class="hover:text-brand-pink transition">Main Platform</a></li>
+            <li><a href="housepoints.html" class="hover:text-brand-pink transition">House Points</a></li>
+            <li><a href="contact.html" class="hover:text-brand-pink transition">Contact</a></li>
+            <li><a href="privacy.html" class="hover:text-brand-pink transition">Privacy Policy</a></li>
+            <li><a href="terms.html" class="hover:text-brand-pink transition">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-bold text-slate-500 text-center md:text-left">
+        <p>© 2026 TrackEDU Ltd. Registered in England & Wales (17216557).</p>
+        <p class="flex items-center gap-2"><i class="fas fa-shield-alt text-brand-green"></i> ICO Registered: ZC146923</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+
+    if (hamburgerBtn) {
+      hamburgerBtn.addEventListener('click', openMobileMenu);
+    }
+
+    function openMobileMenu() {
+      if (mobileMenu && mobileMenuOverlay) {
+        mobileMenu.classList.remove('translate-x-full');
+        mobileMenuOverlay.classList.remove('hidden');
+        document.body.classList.add('menu-open');
+      }
+    }
+
+    function closeMobileMenu() {
+      if (mobileMenu && mobileMenuOverlay) {
+        mobileMenu.classList.add('translate-x-full');
+        mobileMenuOverlay.classList.add('hidden');
+        document.body.classList.remove('menu-open');
+      }
+    }
+
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') closeMobileMenu();
+    });
+
+    window.openMobileMenu = openMobileMenu;
+    window.closeMobileMenu = closeMobileMenu;
+  </script>
+
+  <div class="sr-only hidden" aria-hidden="true" style="display:none; visibility:hidden;">
+    <h2>Google Calendar vs School Room Booking Software</h2>
+    <p>TrackEDU Facilities is school room booking software for classrooms, halls, libraries, sports spaces, approvals, closures, recurring bookings, setup notes, QR check-in and school operations visibility.</p>
+  </div>
+</body>
+</html>
