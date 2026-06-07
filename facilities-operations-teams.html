@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="scroll-smooth">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WV79KN1XBY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WV79KN1XBY');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="https://i.imgur.com/3PR3SiC.png">
+  <title>TrackEDU | School Operations and Facilities Booking Software</title>
+  <meta name="description" content="School operations and facilities booking software for shared spaces, closures, setup requests, maintenance blocks and room usage visibility. Built for school operations teams and site staff.">
+  <link rel="canonical" href="https://www.trackedu.net/facilities-operations-teams.html">
+  <link rel="alternate" hreflang="en-gb" href="https://www.trackedu.net/facilities-operations-teams.html">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="author" content="TrackEDU Ltd">
+  <meta name="keywords" content="school operations software, school facilities booking software, school maintenance room closure system, site team setup requests school, school room booking system, school campus operations calendar, facility management software for schools, TrackEDU Facilities">
+  <meta name="theme-color" content="#7BB32E">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TrackEDU">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:title" content="TrackEDU Facilities for Operations Teams">
+  <meta property="og:description" content="A shared facility calendar for room bookings, closures, setup requests, maintenance blocks and school operations visibility.">
+  <meta property="og:url" content="https://www.trackedu.net/facilities-operations-teams.html">
+  <meta property="og:image" content="https://trackedu.github.io/common-assets/siteqrcode.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TrackEDU Facilities for Operations Teams">
+  <meta name="twitter:description" content="A shared facility calendar for room bookings, closures, setup requests, maintenance blocks and school operations visibility.">
+  <meta name="twitter:image" content="https://trackedu.github.io/common-assets/siteqrcode.png">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "TrackEDU Facilities",
+  "applicationCategory": "EducationalApplication",
+  "applicationSubCategory": "School Operations and Facilities Management Software",
+  "operatingSystem": "Web Browser",
+  "url": "https://www.trackedu.net/facilities-operations-teams.html",
+  "description": "School operations and facilities booking software for shared spaces, closures, setup requests, maintenance blocks and room usage visibility. Built for school operations teams and site staff.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "TrackEDU Ltd",
+    "url": "https://www.trackedu.net/"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "url": "https://facilities.trackedu.net/",
+    "description": "Free starter plan includes up to 5 facilities and 15 users."
+  },
+  "featureList": [
+    "Operations calendar",
+    "Facility booking",
+    "Setup requests",
+    "Maintenance blocks",
+    "Room closures",
+    "Usage reports",
+    "Admin approvals",
+    "Staff sign-in",
+    "Site team visibility"
+  ]
+}</script>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can operations teams block rooms for maintenance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Spaces can be marked unavailable for maintenance, cleaning, repairs, exams or other closures."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can staff add setup requests when booking?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Booking notes can capture setup needs such as chairs, tables, AV, access, equipment or room layout."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can some spaces require approval?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. High-demand, restricted or specialist spaces can require approval before the booking is confirmed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can one department test it first?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The free starter plan includes up to 5 facilities and 15 users, so operations teams can test a focused set of shared spaces first."
+      }
+    }
+  ]
+}</script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              blue: '#2563EB',
+              green: '#7BB32E',
+              dark: '#0C1E2C',
+              light: '#F8FAFC',
+              teal: '#14b8a6',
+              yellow: '#FBBF24',
+              purple: '#8B5CF6',
+              pink: '#F43F5E'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif']
+          },
+          boxShadow: {
+            soft: '0 18px 45px rgba(12, 30, 44, 0.05)',
+            chunky: '6px 6px 0px 0px #0C1E2C',
+            chunkyHover: '2px 2px 0px 0px #0C1E2C'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-padding-top: 86px; }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: #0C1E2C;
+      background: #FAFAF9;
+      -webkit-font-smoothing: antialiased;
+    }
+    body.menu-open { overflow: hidden; }
+    .funky-mesh {
+      background: #fdfbf7;
+      background-image:
+        radial-gradient(at 0% 0%, rgba(123, 179, 46, 0.08) 0, transparent 50%),
+        radial-gradient(at 50% 0%, rgba(12, 30, 44, 0.04) 0, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(244, 63, 94, 0.04) 0, transparent 50%);
+    }
+    .dark-mesh {
+      background: #0C1E2C;
+      background-image:
+        radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.14), transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(123, 179, 46, 0.16), transparent 25%);
+    }
+    .nav-glass {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(255, 255, 255, 0.92);
+      border-bottom: 2px solid #E2E8F0;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      border-radius: 12px;
+      background: #7BB32E;
+      color: #ffffff;
+      font-weight: 900;
+      padding: 1rem 1.5rem;
+      border: 2px solid #0C1E2C;
+      box-shadow: 4px 4px 0px 0px #0C1E2C;
+      transition: all 0.15s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .btn-primary:active { transform: translate(4px, 4px); box-shadow: 0px 0px 0px 0px #0C1E2C; }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      border-radius: 12px;
+      background: #ffffff;
+      color: #0C1E2C;
+      font-weight: 900;
+      padding: 1rem 1.5rem;
+      border: 2px solid #0C1E2C;
+      box-shadow: 4px 4px 0px 0px #0C1E2C;
+      transition: all 0.15s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .btn-secondary:active { transform: translate(4px, 4px); box-shadow: 0px 0px 0px 0px #0C1E2C; }
+    .btn-dark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      border-radius: 12px;
+      background: #0C1E2C;
+      color: #ffffff;
+      font-weight: 900;
+      padding: 1rem 1.5rem;
+      border: 2px solid #0C1E2C;
+      box-shadow: 4px 4px 0px 0px #ffffff;
+      transition: all 0.15s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .btn-dark:active { transform: translate(4px, 4px); box-shadow: 0px 0px 0px 0px #ffffff; }
+    .feature-card { transition: transform 0.18s ease, box-shadow 0.18s ease; }
+    .feature-card:hover { transform: translateY(-3px); box-shadow: 6px 6px 0px 0px #0C1E2C; }
+    .faq-summary::-webkit-details-marker { display: none; }
+  </style>
+
+</head>
+<body class="overflow-x-hidden">
+
+  <nav class="fixed top-0 left-0 right-0 z-50 nav-glass">
+    <div class="w-full mx-auto px-4 sm:px-8 lg:px-12 2xl:px-20 h-20 flex items-center justify-between gap-4">
+      <a href="https://www.trackedu.net/" class="flex items-center gap-3 shrink-0" aria-label="TrackEDU home">
+        <div class="w-10 h-10 bg-brand-green rounded-xl flex items-center justify-center border-2 border-brand-dark shadow-[2px_2px_0px_0px_#0C1E2C]">
+          <i class="fas fa-calendar-check text-white text-lg"></i>
+        </div>
+        <span class="font-display text-2xl font-black text-brand-dark tracking-tighter">Track<span class="text-brand-green">EDU</span></span>
+        <span class="hidden sm:inline-flex text-xs font-black text-brand-dark bg-brand-yellow border-2 border-brand-dark rounded-lg px-2.5 py-1 shadow-[2px_2px_0px_0px_#0C1E2C] transform -rotate-2">Facilities</span>
+      </a>
+      <div class="hidden lg:flex items-center gap-6 bg-white/50 px-6 py-2 rounded-2xl border border-slate-200">
+        <a href="facilities.html" class="text-sm font-bold text-slate-700 hover:text-brand-green transition">Main Facilities</a>
+        <a href="#pain" class="text-sm font-bold text-slate-700 hover:text-brand-green transition">The Pain</a>
+        <a href="#how" class="text-sm font-bold text-slate-700 hover:text-brand-green transition">How It Helps</a>
+        <a href="#features" class="text-sm font-bold text-slate-700 hover:text-brand-green transition">Features</a>
+        <a href="#free-plan" class="text-sm font-bold text-slate-700 hover:text-brand-green transition">Free Plan</a>
+      </div>
+      <div class="hidden md:flex items-center gap-3">
+        <a href="https://facilities.trackedu.net/" target="_blank" rel="noopener" class="text-sm font-black text-slate-700 hover:text-brand-green px-3 py-2">Login</a>
+        <a href="https://facilities.trackedu.net/" target="_blank" rel="noopener" class="btn-primary text-sm py-2 px-5">Start Free →</a>
+      </div>
+      <button id="hamburgerBtn" class="lg:hidden w-12 h-12 rounded-xl bg-white border-2 border-brand-dark shadow-[2px_2px_0px_0px_#0C1E2C] text-brand-dark flex items-center justify-center active:translate-y-1 active:shadow-none transition" aria-label="Open menu">
+        <i class="fas fa-bars text-lg"></i>
+      </button>
+    </div>
+  </nav>
+  <div id="mobileMenuOverlay" class="fixed inset-0 z-[90] bg-slate-900/60 backdrop-blur-sm hidden lg:hidden" onclick="closeMobileMenu()"></div>
+  <aside id="mobileMenu" class="fixed top-0 right-0 h-full w-full max-w-sm bg-white z-[91] shadow-2xl translate-x-full transition-transform duration-300 lg:hidden border-l-4 border-brand-dark">
+    <div class="h-full flex flex-col">
+      <div class="p-6 border-b-2 border-slate-100 flex items-center justify-between">
+        <div class="flex items-center gap-3 shrink-0">
+          <div class="w-10 h-10 bg-brand-green rounded-xl flex items-center justify-center border-2 border-brand-dark shadow-[2px_2px_0px_0px_#0C1E2C]"><i class="fas fa-calendar-check text-white text-lg"></i></div>
+          <span class="font-display text-2xl font-black text-brand-dark tracking-tighter">Track<span class="text-brand-green">EDU</span></span>
+        </div>
+        <button onclick="closeMobileMenu()" class="w-10 h-10 rounded-xl bg-slate-100 border-2 border-brand-dark text-brand-dark flex items-center justify-center font-black shadow-[2px_2px_0px_0px_#0C1E2C] active:translate-y-1 active:shadow-none transition"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="p-6 space-y-2 flex-1 overflow-y-auto">
+        <a href="facilities.html" onclick="closeMobileMenu()" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 font-bold text-lg border-2 border-transparent hover:border-brand-dark transition"><i class="fas fa-calendar-alt text-brand-green w-6"></i> Main Facilities</a>
+        <a href="facilities-pe-departments.html" onclick="closeMobileMenu()" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 font-bold text-lg border-2 border-transparent hover:border-brand-dark transition"><i class="fas fa-futbol text-brand-yellow w-6"></i> PE Departments</a>
+        <a href="facilities-libraries.html" onclick="closeMobileMenu()" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 font-bold text-lg border-2 border-transparent hover:border-brand-dark transition"><i class="fas fa-book-open text-brand-purple w-6"></i> Libraries</a>
+        <a href="facilities-operations-teams.html" onclick="closeMobileMenu()" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 font-bold text-lg border-2 border-transparent hover:border-brand-dark transition"><i class="fas fa-tools text-brand-blue w-6"></i> Operations Teams</a>
+        <a href="#free-plan" onclick="closeMobileMenu()" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 font-bold text-lg border-2 border-transparent hover:border-brand-dark transition"><i class="fas fa-tag text-brand-pink w-6"></i> Free Plan</a>
+      </div>
+      <div class="p-6 border-t-2 border-slate-100 bg-slate-50 flex flex-col gap-3">
+        <a href="https://facilities.trackedu.net/" target="_blank" rel="noopener" class="w-full btn-secondary text-center">Login</a>
+        <a href="https://facilities.trackedu.net/" target="_blank" rel="noopener" class="w-full btn-primary text-center">Start Free</a>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    <section class="funky-mesh pt-24 sm:pt-28 lg:pt-32 pb-16 lg:pb-20 overflow-hidden border-b-4 border-brand-dark relative z-10">
+      <div class="w-full mx-auto px-4 sm:px-8 lg:px-12 2xl:px-20 max-w-7xl">
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div class="space-y-6 text-center lg:text-left">
+            <div class="inline-flex max-w-[92%] mx-auto lg:mx-0 px-3 sm:px-4 py-1 rounded-full border-2 border-brand-dark bg-brand-yellow text-brand-dark font-black uppercase text-[10px] sm:text-xs tracking-widest shadow-sm transform -rotate-1 leading-tight justify-center">
+              <i class="fas fa-tools mr-2"></i> Built for operations teams
+            </div>
+            <h1 class="font-display text-[2.55rem] sm:text-5xl lg:text-6xl font-black text-brand-dark leading-[1.05] tracking-tight">Run shared spaces<br><span class="text-brand-green">with fewer surprises.</span></h1>
+            <p class="text-[15px] sm:text-lg font-bold text-slate-600 leading-[1.65] sm:leading-relaxed max-w-[38rem] mx-auto lg:mx-0">TrackEDU Facilities gives school operations and site teams one clear view of room bookings, closures, setup requests, maintenance blocks and space pressure across the campus.</p>
+            <p class="sr-only">TrackEDU Facilities supports school operations teams with facility booking, room closures, setup requests, maintenance blocks, site team task visibility, shared space approvals and campus operations reporting.</p>
+            <ul class="flex flex-col gap-3 font-black text-brand-dark text-sm sm:text-base items-start max-w-[30rem] mx-auto lg:mx-0 pt-1">
+              <li class="flex items-center gap-3 text-left"><i class="fas fa-clipboard-check text-brand-yellow text-lg shrink-0"></i><span>See setup requests before the day starts</span></li><li class="flex items-center gap-3 text-left"><i class="fas fa-ban text-brand-pink text-lg shrink-0"></i><span>Block spaces for maintenance and closures</span></li><li class="flex items-center gap-3 text-left"><i class="fas fa-chart-line text-brand-blue text-lg shrink-0"></i><span>Spot which areas are under pressure</span></li>
+            </ul>
+            <div class="flex flex-col sm:flex-row items-center lg:items-start gap-3 pt-4">
+              <a href="https://facilities.trackedu.net/" target="_blank" rel="noopener" class="btn-primary text-base px-8 py-4 w-full sm:w-auto text-center">Start Free →</a>
+              <a href="facilities.html" class="btn-secondary text-base px-8 py-4 w-full sm:w-auto text-center">View Main Page</a>
+            </div>
+            <p class="text-[11px] font-black text-slate-500 uppercase tracking-wider flex items-center justify-center lg:justify-start gap-1.5"><i class="fas fa-check-circle text-brand-green"></i> No credit card required. Free plan includes up to 5 facilities and 15 users.</p>
+          </div>
+          <div class="relative">
+            <div class="absolute inset-0 bg-brand-green/10 rounded-full blur-3xl transform scale-125 -z-10"></div>
+            <div class="bg-white border-4 border-brand-dark rounded-[2rem] p-5 sm:p-7 shadow-chunky">
+              <div class="flex items-center justify-between border-b-4 border-brand-dark pb-4 mb-5">
+                <div>
+                  <p class="text-[10px] font-black uppercase tracking-widest text-slate-500">TrackEDU Facilities</p>
+                  <h2 class="font-black text-xl sm:text-2xl text-brand-dark">Operations View</h2>
+                </div>
+                <div class="w-12 h-12 rounded-2xl bg-brand-green border-2 border-brand-dark flex items-center justify-center text-white shadow-[3px_3px_0px_0px_#0C1E2C]"><i class="fas fa-tools text-xl"></i></div>
+              </div>
+              <div class="space-y-3">
+                <div class="flex items-center justify-between gap-4 p-4 rounded-2xl border-2 border-brand-dark bg-slate-50"><div><strong class="block font-black text-brand-dark">Auditorium</strong><span class="text-xs font-bold text-slate-500">150 chairs, microphone, 3:00pm</span></div><span class="text-[10px] font-black uppercase rounded-lg px-2 py-1 border-2 border-brand-dark bg-brand-yellow text-brand-dark">Setup</span></div><div class="flex items-center justify-between gap-4 p-4 rounded-2xl border-2 border-brand-dark bg-slate-50"><div><strong class="block font-black text-brand-dark">Science Lab 2</strong><span class="text-xs font-bold text-slate-500">Aircon fault, unavailable</span></div><span class="text-[10px] font-black uppercase rounded-lg px-2 py-1 border-2 border-brand-dark bg-brand-pink text-white">Closed</span></div><div class="flex items-center justify-between gap-4 p-4 rounded-2xl border-2 border-brand-dark bg-slate-50"><div><strong class="block font-black text-brand-dark">Sports Hall</strong><span class="text-xs font-bold text-slate-500">Exam desk layout, morning</span></div><span class="text-[10px] font-black uppercase rounded-lg px-2 py-1 border-2 border-brand-dark bg-brand-purple text-white">Pending</span></div><div class="flex items-center justify-between gap-4 p-4 rounded-2xl border-2 border-brand-dark bg-slate-50"><div><strong class="block font-black text-brand-dark">Meeting Room A</strong><span class="text-xs font-bold text-slate-500">Available after 11:00am</span></div><span class="text-[10px] font-black uppercase rounded-lg px-2 py-1 border-2 border-brand-dark bg-white text-brand-dark">Open</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pain" class="py-20 bg-white border-b-4 border-brand-dark">
+      <div class="w-full mx-auto px-4 sm:px-8 lg:px-12 2xl:px-20 max-w-7xl">
+        <div class="max-w-3xl mb-10">
+          <span class="inline-flex px-3 py-1 rounded-lg bg-brand-pink text-white border-2 border-brand-dark font-black uppercase text-xs tracking-widest shadow-chunkyHover">The real pain</span>
+          <h2 class="font-display text-4xl sm:text-5xl font-black text-brand-dark mt-5 tracking-[-0.02em]">Operations teams feel the impact of unclear bookings first.</h2>
+          <p class="text-lg font-bold text-slate-600 leading-relaxed mt-4">When staff book spaces without setup details, maintenance visibility or approval rules, the problem lands with operations, site teams and front desk staff.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-5"><div class="feature-card bg-white border-4 border-brand-dark rounded-3xl p-6 shadow-chunkyHover">
+      <div class="w-12 h-12 rounded-2xl bg-brand-yellow text-white border-2 border-brand-dark flex items-center justify-center mb-5 shadow-[3px_3px_0px_0px_#0C1E2C]"><i class="fas fa-chair text-xl"></i></div>
+      <h3 class="font-black text-xl text-brand-dark mb-2">Missed setup details</h3>
+      <p class="font-medium text-slate-600 leading-relaxed">Rooms are booked, but the people preparing them may not know about chairs, tables, AV, access or timing.</p>
+    </div>
+<div class="feature-card bg-white border-4 border-brand-dark rounded-3xl p-6 shadow-chunkyHover">
+      <div class="w-12 h-12 rounded-2xl bg-brand-pink text-white border-2 border-brand-dark flex items-center justify-center mb-5 shadow-[3px_3px_0px_0px_#0C1E2C]"><i class="fas fa-tools text-xl"></i></div>
+      <h3 class="font-black text-xl text-brand-dark mb-2">Maintenance is invisible</h3>
+      <p class="font-medium text-slate-600 leading-relaxed">Rooms under repair or cleaning can still be requested if closures are not clearly visible to staff.</p>
+    </div>
+<div class="feature-card bg-white border-4 border-brand-dark rounded-3xl p-6 shadow-chunkyHover">
+      <div class="w-12 h-12 rounded-2xl bg-brand-purple text-white border-2 border-brand-dark flex items-center justify-center mb-5 shadow-[3px_3px_0px_0px_#0C1E2C]"><i class="fas fa-question-circle text-xl"></i></div>
+      <h3 class="font-black text-xl text-brand-dark mb-2">Too many last-minute questions</h3>
+      <p class="font-medium text-slate-600 leading-relaxed">Reception, admin and site teams are asked who booked a room, whether it is free or why it is unavailable.</p>
+    </div></div>
+      </div>
+    </section>
+
+    <section id="how" class="py-20 funky-mesh border-b-4 border-brand-dark">
+      <div class="w-full mx-auto px-4 sm:px-8 lg:px-12 2xl:px-20 max-w-7xl">
+        <div class="text-center max-w-4xl mx-auto mb-12">
+          <span class="inline-flex px-3 py-1 rounded-lg bg-brand-green text-white border-2 border-brand-dark font-black uppercase text-xs tracking-widest shadow-chunkyHover">How it helps</span>
+          <h2 class="font-display text-4xl sm:text-5xl font-black text-brand-dark mt-5 tracking-[-0.02em]">Turn bookings into operational visibility.</h2>
+          <p class="text-lg font-bold text-slate-600 leading-relaxed mt-4">The system helps operations teams move beyond a calendar by making setup needs, closures, approvals and space pressure easier to see.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-5"><div class="feature-card bg-white border-4 border-brand-dark rounded-3xl p-6 shadow-chunkyHover">
+      <div class="w-12 h-12 rounded-2xl bg-brand-yellow text-white border-2 border-brand-dark flex items-center justify-center mb-5 shadow-[3px_3px_0px_0px_#0C1E2C]"><i class="fas fa-clipboard-list text-xl"></i></div>
+      <h3 class="font-black text-xl text-brand-dark mb-2">Setup requests in the booking</h3>
+      <p class="font-medium text-slate-600 leading-relaxed">Staff can add notes for chairs, desks, AV, cleaning, access or layout requirements when they book.</p>
+    </div>
+<div class="feature-card bg-white border-4 border-brand-dark rounded-3xl p-6 shadow-chunkyHover">
+      <div class="w-12 h-12 rounded-2xl bg-brand-pink text-white border-2 border-brand-dark flex items-center justify-center mb-5 shadow-[3px_3px_0px_0px_#0C1E2C]"><i class="fas fa-door-closed text-xl"></i></div>
+      <h3 class="font-black text-xl text-brand-dark mb-2">Clear closures and blocks</h3>
+      <p class="font-medium text-slate-600 leading-relaxed">Operations can block spaces for maintenance, cleaning, exams, events or restricted access.</p>
+    </div>
+<div class="feature-card bg-white border-4 border-brand-dark rounded-3xl p-6 shadow-chunkyHover">
+      <div class="w-12 h-12 rounded-2xl bg-brand-blue text-white border-2 border-brand-dark flex items-center justify-center mb-5 shadow-[3px_3px_0px_0px_#0C1E2C]"><i class="fas fa-tachometer-alt text-xl"></i></div>
+      <h3 class="font-black text-xl text-brand-dark mb-2">Leadership visibility</h3>
+      <p class="font-medium text-slate-600 leading-relaxed">Simple usage views help leaders understand demand, pressure points and underused spaces.</p>
+    </div></div>
+      </div>
+    </section>
+
+    <section id="workflow" class="py-20 bg-white border-b-4 border-brand-dark">
+      <div class="w-full mx-auto px-4 sm:px-8 lg:px-12 2xl:px-20 max-w-7xl">
+        <div class="grid lg:grid-cols-3 gap-8 items-start">
+          <div class="lg:col-span-1">
+            <span class="inline-flex px-3 py-1 rounded-lg bg-brand-yellow text-brand-dark border-2 border-brand-dark font-black uppercase text-xs tracking-widest shadow-chunkyHover">Simple workflow</span>
+            <h2 class="font-display text-4xl font-black text-brand-dark mt-5 tracking-[-0.02em]">From booking request to site-team clarity.</h2>
+            <p class="font-bold text-slate-600 leading-relaxed mt-4">Operations teams get better information earlier, reducing avoidable disruption and repeated questions.</p>
+          </div>
+          <div class="lg:col-span-2 grid sm:grid-cols-3 gap-5">
+      <div class="bg-white border-4 border-brand-dark rounded-3xl p-6 shadow-chunkyHover">
+        <span class="inline-flex w-10 h-10 rounded-xl bg-brand-yellow border-2 border-brand-dark items-center justify-center font-black text-brand-dark mb-4">1</span>
+        <h3 class="font-black text-xl mb-2">Staff book or request a space</h3>
+        <p class="font-medium text-slate-600 leading-relaxed">The booking captures purpose, timing, room and any setup or access notes.</p>
+      </div>
+
+      <div class="bg-white border-4 border-brand-dark rounded-3xl p-6 shadow-chunkyHover">
+        <span class="inline-flex w-10 h-10 rounded-xl bg-brand-yellow border-2 border-brand-dark items-center justify-center font-black text-brand-dark mb-4">2</span>
+        <h3 class="font-black text-xl mb-2">Operations sees what needs action</h3>
+        <p class="font-medium text-slate-600 leading-relaxed">Closures, approvals and setup details are visible before the problem reaches the corridor.</p>
+      </div>
+
+      <div class="bg-white border-4 border-brand-dark rounded-3xl p-6 shadow-chunkyHover">
+        <span class="inline-flex w-10 h-10 rounded-xl bg-brand-yellow border-2 border-brand-dark items-center justify-center font-black text-brand-dark mb-4">3</span>
+        <h3 class="font-black text-xl mb-2">The calendar becomes the shared source</h3>
+        <p class="font-medium text-slate-600 leading-relaxed">Staff, admin and site teams work from one view of what is booked, unavailable or under pressure.</p>
+      </div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="py-20 dark-mesh text-white border-b-4 border-brand-dark">
+      <div class="w-full mx-auto px-4 sm:px-8 lg:px-12 2xl:px-20 max-w-7xl">
+        <div class="max-w-4xl mb-12">
+          <span class="inline-flex px-3 py-1 rounded-lg bg-white text-brand-dark border-2 border-white font-black uppercase text-xs tracking-widest shadow-[3px_3px_0px_0px_#7BB32E]">Useful features</span>
+          <h2 class="font-display text-4xl sm:text-5xl font-black mt-5 tracking-[-0.02em]">Features that matter to operations and facilities teams.</h2>
+          <p class="text-lg font-bold text-slate-300 leading-relaxed mt-4">The strongest value is accountability. Everyone can see what is booked, what is unavailable and what needs to happen next.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-5 text-brand-dark"><div class="feature-card bg-white border-4 border-brand-dark rounded-3xl p-6 shadow-chunkyHover">
+      <div class="w-12 h-12 rounded-2xl bg-brand-pink text-white border-2 border-brand-dark flex items-center justify-center mb-5 shadow-[3px_3px_0px_0px_#0C1E2C]"><i class="fas fa-ban text-xl"></i></div>
+      <h3 class="font-black text-xl text-brand-dark mb-2">Maintenance blocks</h3>
+      <p class="font-medium text-slate-600 leading-relaxed">Mark rooms unavailable for repairs, cleaning, exams, inspections or event setup.</p>
+    </div>
+<div class="feature-card bg-white border-4 border-brand-dark rounded-3xl p-6 shadow-chunkyHover">
+      <div class="w-12 h-12 rounded-2xl bg-brand-yellow text-white border-2 border-brand-dark flex items-center justify-center mb-5 shadow-[3px_3px_0px_0px_#0C1E2C]"><i class="fas fa-clipboard-check text-xl"></i></div>
+      <h3 class="font-black text-xl text-brand-dark mb-2">Setup task notes</h3>
+      <p class="font-medium text-slate-600 leading-relaxed">Capture setup details when the booking is made, rather than through scattered messages.</p>
+    </div>
+<div class="feature-card bg-white border-4 border-brand-dark rounded-3xl p-6 shadow-chunkyHover">
+      <div class="w-12 h-12 rounded-2xl bg-brand-purple text-white border-2 border-brand-dark flex items-center justify-center mb-5 shadow-[3px_3px_0px_0px_#0C1E2C]"><i class="fas fa-user-shield text-xl"></i></div>
+      <h3 class="font-black text-xl text-brand-dark mb-2">Approval rules</h3>
+      <p class="font-medium text-slate-600 leading-relaxed">Control high-demand rooms, restricted spaces and specialist facilities through admin approval.</p>
+    </div>
+<div class="feature-card bg-white border-4 border-brand-dark rounded-3xl p-6 shadow-chunkyHover">
+      <div class="w-12 h-12 rounded-2xl bg-brand-blue text-white border-2 border-brand-dark flex items-center justify-center mb-5 shadow-[3px_3px_0px_0px_#0C1E2C]"><i class="fas fa-search-location text-xl"></i></div>
+      <h3 class="font-black text-xl text-brand-dark mb-2">Room finder</h3>
+      <p class="font-medium text-slate-600 leading-relaxed">Help staff find available rooms quickly instead of asking operations to check manually.</p>
+    </div>
+<div class="feature-card bg-white border-4 border-brand-dark rounded-3xl p-6 shadow-chunkyHover">
+      <div class="w-12 h-12 rounded-2xl bg-brand-green text-white border-2 border-brand-dark flex items-center justify-center mb-5 shadow-[3px_3px_0px_0px_#0C1E2C]"><i class="fas fa-calendar-times text-xl"></i></div>
+      <h3 class="font-black text-xl text-brand-dark mb-2">Closure visibility</h3>
+      <p class="font-medium text-slate-600 leading-relaxed">Make unavailable spaces visible across the calendar before staff plan around them.</p>
+    </div>
+<div class="feature-card bg-white border-4 border-brand-dark rounded-3xl p-6 shadow-chunkyHover">
+      <div class="w-12 h-12 rounded-2xl bg-brand-blue text-white border-2 border-brand-dark flex items-center justify-center mb-5 shadow-[3px_3px_0px_0px_#0C1E2C]"><i class="fas fa-chart-bar text-xl"></i></div>
+      <h3 class="font-black text-xl text-brand-dark mb-2">Usage reporting</h3>
+      <p class="font-medium text-slate-600 leading-relaxed">See booking volume, pressure points and spaces that may be overused or underused.</p>
+    </div></div>
+      </div>
+    </section>
+
+    <section id="free-plan" class="py-20 bg-white border-b-4 border-brand-dark">
+      <div class="w-full mx-auto px-4 sm:px-8 lg:px-12 2xl:px-20 max-w-6xl">
+        <div class="bg-brand-yellow border-4 border-brand-dark rounded-[2rem] p-6 sm:p-10 shadow-chunky grid lg:grid-cols-2 gap-8 items-center">
+          <div>
+            <span class="inline-flex px-3 py-1 rounded-lg bg-white text-brand-dark border-2 border-brand-dark font-black uppercase text-xs tracking-widest shadow-chunkyHover">Free starter</span>
+            <h2 class="font-display text-4xl sm:text-5xl font-black text-brand-dark mt-5 tracking-[-0.02em]">Try it with one department first.</h2>
+            <p class="text-lg font-black text-brand-dark/80 leading-relaxed mt-4">Start with up to 5 facilities and 15 users. That is enough for a PE department, library team or operations group to test the value before the whole school gets involved.</p>
+          </div>
+          <div class="bg-white border-4 border-brand-dark rounded-3xl p-6 shadow-chunkyHover">
+            <ul class="space-y-3 font-black text-brand-dark">
+              <li><i class="fas fa-check-circle text-brand-green mr-2"></i> Up to 5 facilities</li>
+              <li><i class="fas fa-check-circle text-brand-green mr-2"></i> Up to 15 users</li>
+              <li><i class="fas fa-check-circle text-brand-green mr-2"></i> Staff sign-in and admin approval</li>
+              <li><i class="fas fa-check-circle text-brand-green mr-2"></i> Clear shared booking calendar</li>
+              <li><i class="fas fa-check-circle text-brand-green mr-2"></i> Quick setup in minutes</li>
+            </ul>
+            <a href="https://facilities.trackedu.net/" target="_blank" rel="noopener" class="btn-primary w-full mt-6">Start Free →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="py-20 bg-slate-50 border-b-4 border-brand-dark">
+      <div class="w-full mx-auto px-4 sm:px-8 lg:px-12 2xl:px-20 max-w-4xl">
+        <div class="text-center mb-12">
+          <h2 class="font-display text-4xl sm:text-5xl font-black text-brand-dark tracking-[-0.02em]">Frequently asked questions</h2>
+        </div>
+        <div class="space-y-4">
+          <details class="bg-slate-50 border-4 border-brand-dark rounded-2xl overflow-hidden shadow-chunkyHover group">
+            <summary class="faq-summary flex justify-between items-center font-black text-lg text-brand-dark p-6 cursor-pointer select-none bg-white group-open:border-b-4 border-brand-dark">Can operations teams block rooms for maintenance?</summary>
+            <p class="font-medium text-slate-600 p-6 leading-relaxed bg-brand-yellow/10">Yes. Spaces can be marked unavailable for maintenance, cleaning, repairs, exams or other closures.</p>
+          </details>
+
+          <details class="bg-slate-50 border-4 border-brand-dark rounded-2xl overflow-hidden shadow-chunkyHover group">
+            <summary class="faq-summary flex justify-between items-center font-black text-lg text-brand-dark p-6 cursor-pointer select-none bg-white group-open:border-b-4 border-brand-dark">Can staff add setup requests when booking?</summary>
+            <p class="font-medium text-slate-600 p-6 leading-relaxed bg-brand-yellow/10">Yes. Booking notes can capture setup needs such as chairs, tables, AV, access, equipment or room layout.</p>
+          </details>
+
+          <details class="bg-slate-50 border-4 border-brand-dark rounded-2xl overflow-hidden shadow-chunkyHover group">
+            <summary class="faq-summary flex justify-between items-center font-black text-lg text-brand-dark p-6 cursor-pointer select-none bg-white group-open:border-b-4 border-brand-dark">Can some spaces require approval?</summary>
+            <p class="font-medium text-slate-600 p-6 leading-relaxed bg-brand-yellow/10">Yes. High-demand, restricted or specialist spaces can require approval before the booking is confirmed.</p>
+          </details>
+
+          <details class="bg-slate-50 border-4 border-brand-dark rounded-2xl overflow-hidden shadow-chunkyHover group">
+            <summary class="faq-summary flex justify-between items-center font-black text-lg text-brand-dark p-6 cursor-pointer select-none bg-white group-open:border-b-4 border-brand-dark">Can one department test it first?</summary>
+            <p class="font-medium text-slate-600 p-6 leading-relaxed bg-brand-yellow/10">Yes. The free starter plan includes up to 5 facilities and 15 users, so operations teams can test a focused set of shared spaces first.</p>
+          </details></div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-brand-green border-b-4 border-brand-dark relative overflow-hidden">
+      <div class="absolute top-10 left-10 text-6xl text-brand-dark opacity-10 transform -rotate-12"><i class="fas fa-tools"></i></div>
+      <div class="absolute bottom-10 right-10 text-8xl text-brand-dark opacity-10 transform rotate-12"><i class="fas fa-calendar-check"></i></div>
+      <div class="w-full mx-auto px-4 sm:px-8 text-center max-w-4xl relative z-10">
+        <h2 class="font-display text-5xl sm:text-7xl font-black text-brand-dark leading-[0.95] tracking-[-0.03em] mb-8">Give operations one clear view of shared spaces.</h2>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a href="https://facilities.trackedu.net/" target="_blank" rel="noopener" class="btn-dark text-lg px-10 py-5 w-full sm:w-auto shadow-[6px_6px_0px_0px_#ffffff]">Start Free →</a>
+          <a href="facilities.html" class="btn-secondary text-lg px-8 py-5 w-full sm:w-auto">View Main Facilities</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-brand-dark text-white pt-20 pb-10">
+    <div class="w-full mx-auto px-4 sm:px-8 lg:px-12 2xl:px-20">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 border-b-4 border-slate-800 pb-12 mb-8">
+        <div>
+          <a href="https://www.trackedu.net" class="flex items-center gap-3 mb-6 group inline-flex" aria-label="TrackEDU primary home">
+            <div class="w-10 h-10 bg-brand-green rounded-xl flex items-center justify-center border-2 border-white shadow-[2px_2px_0px_0px_#ffffff] group-hover:translate-x-0.5 group-hover:translate-y-0.5 group-hover:shadow-none transition-all duration-150">
+              <i class="fas fa-calendar-check text-brand-dark text-lg"></i>
+            </div>
+            <span class="font-display text-2xl font-black text-white tracking-tighter">Track<span class="text-brand-green">EDU</span></span>
+          </a>
+          <p class="text-sm font-bold text-slate-400 leading-relaxed max-w-xs">School facility booking software that helps staff book shared spaces clearly, prevent clashes and keep operations visible.</p>
+        </div>
+        <div>
+          <h5 class="text-sm uppercase tracking-widest font-black text-brand-yellow mb-6">Use Cases</h5>
+          <ul class="space-y-4 text-sm font-bold text-slate-400">
+            <li><a href="facilities-pe-departments.html" class="hover:text-brand-green transition">PE Departments</a></li>
+            <li><a href="facilities-libraries.html" class="hover:text-brand-green transition">Libraries</a></li>
+            <li><a href="facilities-operations-teams.html" class="hover:text-brand-green transition">Operations Teams</a></li>
+            <li><a href="facilities.html" class="hover:text-brand-green transition">Main Facilities Page</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-sm uppercase tracking-widest font-black text-brand-pink mb-6">TrackEDU Core</h5>
+          <ul class="space-y-4 text-sm font-bold text-slate-400">
+            <li><a href="index.html" class="hover:text-brand-pink transition">Main Platform</a></li>
+            <li><a href="ambassadors.html" class="hover:text-brand-pink transition">Ambassador Programme</a></li>
+            <li><a href="/contact.html" class="hover:text-brand-pink transition">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-sm uppercase tracking-widest font-black text-brand-purple mb-6">Legal & Trust</h5>
+          <ul class="space-y-4 text-sm font-bold text-slate-400">
+            <li><a href="/privacy.html" class="hover:text-brand-purple transition">Privacy Policy</a></li>
+            <li><a href="/dpa.html" class="hover:text-brand-purple transition">Data Processing Agreement</a></li>
+            <li><a href="/terms.html" class="hover:text-brand-purple transition">Terms of Service</a></li>
+            <li><a href="mailto:hello@trackedu.net" class="hover:text-white transition">hello@trackedu.net</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-bold text-slate-500 text-center md:text-left">
+        <p>© 2026 TrackEDU Ltd. Registered in England & Wales (17216557).</p>
+        <p class="flex items-center gap-2"><i class="fas fa-shield-alt text-brand-green"></i> ICO Registered: ZC146923</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    if (hamburgerBtn) hamburgerBtn.addEventListener('click', openMobileMenu);
+    function openMobileMenu() {
+      if (mobileMenu && mobileMenuOverlay) {
+        mobileMenu.classList.remove('translate-x-full');
+        mobileMenuOverlay.classList.remove('hidden');
+        document.body.classList.add('menu-open');
+      }
+    }
+    function closeMobileMenu() {
+      if (mobileMenu && mobileMenuOverlay) {
+        mobileMenu.classList.add('translate-x-full');
+        mobileMenuOverlay.classList.add('hidden');
+        document.body.classList.remove('menu-open');
+      }
+    }
+    window.openMobileMenu = openMobileMenu;
+    window.closeMobileMenu = closeMobileMenu;
+  </script>
+
+</body>
+</html>
