@@ -4112,7 +4112,7 @@
   <small>TrackEDU will review your request and email setup instructions if your organisation is eligible.</small>
 </div>
 
-      <form action="https://api.web3forms.com/submit" method="POST" class="invoice-form" onsubmit="handleModalSubmit(event)">
+      <form class="invoice-form" onsubmit="handleModalSubmit(event)">
         <input type="hidden" name="access_key" value="7f87c71e-2098-42d8-816a-29de230264d7">
         <input type="hidden" name="subject" value="TrackEDU Facilities Launch Offer / Invoice Request">
 <input type="hidden" id="formSelectedPlan" name="selected_plan" value="TrackEDU Facilities - Launch Offer">
@@ -4492,10 +4492,12 @@ window.togglePlanComparison = togglePlanComparison;
   }
 
   if (submitButton) {
-    submitButton.innerHTML = isLaunchOffer
-      ? 'Submit eligibility request <i class="fas fa-paper-plane"></i>'
-      : 'Submit invoice request <i class="fas fa-paper-plane"></i>';
-  }
+        submitButton.classList.remove('hidden');
+        submitButton.disabled = false;
+        submitButton.innerHTML = isLaunchOffer
+          ? 'Submit eligibility request <i class="fas fa-paper-plane"></i>'
+          : 'Submit invoice request <i class="fas fa-paper-plane"></i>';
+      }
 
   if (modal) {
     modal.classList.add('open');
@@ -4518,12 +4520,46 @@ function closeInvoiceModal() {
 function handleModalSubmit(event) {
   event.preventDefault();
 
+  const form = event.target;
+  const submitButton = document.getElementById('invoiceSubmitButton');
   const successBox = document.getElementById('formSuccess');
-  if (successBox) successBox.classList.remove('hidden');
+  const formData = new FormData(form);
 
-  setTimeout(() => {
-    event.target.submit();
-  }, 700);
+  if (submitButton) {
+    submitButton.disabled = true;
+    submitButton.innerHTML = '<i class="fas fa-circle-notch fa-spin text-xs"></i> Sending...';
+  }
+
+  fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {
+      if (successBox) successBox.classList.remove('hidden');
+      form.reset();
+      if (submitButton) submitButton.classList.add('hidden');
+    } else {
+      alert("Error: " + data.message + "\n\nPlease email hello@trackedu.net directly.");
+      resetSubmitButton(submitButton);
+    }
+  })
+  .catch(error => {
+    console.error("Error:", error);
+    alert("Something went wrong. Please email hello@trackedu.net directly.");
+    resetSubmitButton(submitButton);
+  });
+}
+
+function resetSubmitButton(button) {
+  if (!button) return;
+  const planInput = document.getElementById('formSelectedPlan');
+  const isLaunchOffer = planInput ? planInput.value.toLowerCase().includes('launch offer') : true;
+  button.disabled = false;
+  button.innerHTML = isLaunchOffer
+    ? 'Submit eligibility request <i class="fas fa-paper-plane"></i>'
+    : 'Submit invoice request <i class="fas fa-paper-plane"></i>';
 }
 
     document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
