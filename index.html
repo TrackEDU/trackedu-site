@@ -9,7 +9,7 @@
 
   <title>TrackEDU | School Facility Booking & House Points Software</title>
   <meta name="description" content="TrackEDU helps schools replace messy spreadsheets with simple digital tools for facility booking, shared spaces, house points and everyday school routines." />
-  <meta name="keywords" content="TrackEDU, facility booking software for schools, school facility booking system, classfacility booking software, school operations software, QR check-in for rooms, school calendar software, house points software, digital house points, school rewards system, teacher app for schools, student portal" />
+  <meta name="keywords" content="TrackEDU, facility booking software for schools, school facility booking system, class facility booking software, school operations software, QR check-in for rooms, school calendar software, house points software, digital house points, school rewards system, teacher app for schools, student portal" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="author" content="TrackEDU Ltd" />
 
@@ -1574,7 +1574,367 @@
 }
 
 
+.homepage-offer-bar {
+  background: #07111f;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  padding: 10px clamp(18px, 4vw, 72px);
+}
 
+.homepage-offer-inner {
+  width: min(1520px, 100%);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  font-weight: 750;
+  text-align: center;
+}
+
+.homepage-offer-label {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: rgba(135,194,50,.16);
+  border: 1px solid rgba(135,194,50,.34);
+  color: #87C232;
+  padding: 5px 10px;
+  font-size: 10px;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.homepage-offer-inner a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #87C232;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .homepage-offer-bar {
+    padding: 12px 16px;
+    background: #07111f;
+  }
+
+  .homepage-offer-inner {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "label label"
+      "copy link";
+    align-items: center;
+    gap: 8px 12px;
+    text-align: left;
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .homepage-offer-label {
+    grid-area: label;
+    width: fit-content;
+    margin: 0;
+    padding: 5px 10px;
+    font-size: 9.5px;
+    letter-spacing: .1em;
+  }
+
+  .homepage-offer-inner span:not(.homepage-offer-label) {
+    grid-area: copy;
+    display: block;
+    color: rgba(255,255,255,.88);
+    font-size: 12.5px;
+    font-weight: 750;
+    line-height: 1.35;
+    max-width: 100%;
+  }
+
+  .homepage-offer-inner a {
+    grid-area: link;
+    justify-self: end;
+    align-self: center;
+    padding: 7px 10px;
+    border-radius: 999px;
+    background: rgba(135,194,50,.14);
+    border: 1px solid rgba(135,194,50,.28);
+    color: #87C232;
+    font-size: 11.5px;
+    font-weight: 900;
+    white-space: nowrap;
+  }
+}
+
+
+.offer-copy-mobile {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .offer-copy-desktop {
+    display: none !important;
+  }
+
+  .offer-copy-mobile {
+    display: block !important;
+  }
+}
+
+
+@media (max-width: 640px) {
+  .homepage-offer-bar {
+    padding: 11px 16px;
+    background: #07111f;
+  }
+
+  .homepage-offer-inner {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "label label"
+      "copy link";
+    align-items: center;
+    gap: 8px 12px;
+    text-align: left;
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .homepage-offer-label {
+    grid-area: label;
+    width: fit-content;
+    margin: 0;
+    padding: 5px 10px;
+    font-size: 9.5px;
+    letter-spacing: .1em;
+  }
+
+  .offer-copy-mobile {
+    grid-area: copy;
+    color: rgba(255,255,255,.9);
+    font-size: 12.5px;
+    font-weight: 800;
+    line-height: 1.3;
+  }
+
+  .homepage-offer-inner a {
+    grid-area: link;
+    justify-self: end;
+    align-self: center;
+    padding: 7px 10px;
+    border-radius: 999px;
+    background: rgba(135,194,50,.14);
+    border: 1px solid rgba(135,194,50,.28);
+    color: #87C232;
+    font-size: 11.5px;
+    font-weight: 900;
+    white-space: nowrap;
+  }
+}
+
+
+.why-modern {
+  background:
+    radial-gradient(circle at 14% 8%, rgba(135,194,50,.18), transparent 30%),
+    radial-gradient(circle at 86% 12%, rgba(15,102,195,.18), transparent 34%),
+    linear-gradient(135deg, #07111f 0%, #0C1E2C 54%, #08121f 100%);
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.why-modern::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: radial-gradient(circle at 50% 18%, rgba(0,0,0,.42), transparent 72%);
+  pointer-events: none;
+}
+
+.why-modern .inner {
+  position: relative;
+  z-index: 1;
+}
+
+.why-modern-head {
+  max-width: 940px;
+  margin: 0 auto 34px;
+  text-align: center;
+}
+
+.why-modern-kicker {
+  background: rgba(135,194,50,.12);
+  border-color: rgba(135,194,50,.32);
+  color: #9ad94a;
+}
+
+.why-modern-head h2 {
+  font-family: Poppins, Inter, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  font-size: clamp(34px, 4.2vw, 54px);
+  line-height: 1.06;
+  color: #ffffff;
+  margin: 0;
+}
+
+.why-modern-head p {
+  max-width: 780px;
+  margin: 18px auto 0;
+  color: rgba(226,232,240,.78);
+  font-size: 18px;
+  line-height: 1.62;
+}
+
+.why-modern-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.why-modern-card {
+  background: rgba(255,255,255,.075);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 28px;
+  padding: 26px;
+  min-height: 330px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: 0 24px 70px rgba(0,0,0,.18);
+  backdrop-filter: blur(12px);
+}
+
+.why-card-facilities {
+  background: linear-gradient(180deg, rgba(15,102,195,.18), rgba(255,255,255,.07));
+  border-color: rgba(15,102,195,.34);
+}
+
+.why-card-recognition {
+  background: linear-gradient(180deg, rgba(135,194,50,.18), rgba(255,255,255,.07));
+  border-color: rgba(135,194,50,.34);
+}
+
+.why-card-leaders {
+  background: linear-gradient(180deg, rgba(255,255,255,.11), rgba(255,255,255,.065));
+}
+
+.why-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.12);
+  color: #87C232;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.why-card-facilities .why-card-icon {
+  color: #67b7ff;
+}
+
+.why-card-label {
+  color: rgba(226,232,240,.68);
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin-bottom: 10px;
+}
+
+.why-modern-card h3 {
+  font-family: Poppins, Inter, sans-serif;
+  font-size: 27px;
+  line-height: 1.08;
+  letter-spacing: -.04em;
+  color: #ffffff;
+  margin: 0 0 12px;
+  font-weight: 600;
+}
+
+.why-modern-card p {
+  color: rgba(226,232,240,.76);
+  font-size: 15px;
+  line-height: 1.56;
+  margin: 0;
+}
+
+.why-modern-card a {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #87C232;
+  font-size: 14px;
+  font-weight: 900;
+  padding-top: 22px;
+}
+
+.why-card-facilities a {
+  color: #67b7ff;
+}
+
+@media (max-width: 1050px) {
+  .why-modern-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why-modern-card {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .why-modern {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  .why-modern-head {
+    text-align: left;
+    margin-bottom: 24px;
+  }
+
+  .why-modern-head h2 {
+    font-size: clamp(31px, 9vw, 40px);
+  }
+
+  .why-modern-head p {
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+
+  .why-modern-grid {
+    gap: 14px;
+  }
+
+  .why-modern-card {
+    border-radius: 22px;
+    padding: 22px;
+  }
+
+  .why-modern-card h3 {
+    font-size: 24px;
+  }
+
+  .why-modern-card p {
+    font-size: 14.5px;
+  }
+}
     
   </style>
 </head>
@@ -1605,7 +1965,7 @@
         <a href="https://www.trackedu.net/housepoints.html">Student Recognition</a>
         <a href="#starting-points">Solutions</a>
        
-        <a href="#starting-points">Pricing</a>
+        <a href="https://www.trackedu.net/facilities.html#pricing">Facilities Offer</a>
         <a href="https://www.trackedu.net/contact.html" style="color: #0f66c3; font-weight: 700;">Contact Sales</a>
         
         <div style="margin-top: 16px; padding: 8px 0 6px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: #64748b; border-bottom: 1px solid var(--line); width: 100%;">
@@ -1622,7 +1982,7 @@
       </div>
 
       <div style="display: flex; align-items: center; gap: 24px;" class="nav-actions-desktop-wrapper">
-        <a href="#starting-points" style="font-size: 14.5px; font-weight: 600; color: #2b3748; transition: color 0.2s;" onmouseover="this.style.color='var(--green-dark)'" onmouseout="this.style.color='#2b3748'">Pricing</a>
+        <a href="https://www.trackedu.net/facilities.html#pricing" style="font-size: 14.5px; font-weight: 600; color: #2b3748; transition: color 0.2s;" onmouseover="this.style.color='var(--green-dark)'" onmouseout="this.style.color='#2b3748'">Facilities Offer</a>
         
         <div class="login-wrap" id="login-dropdown">
           <button class="btn" type="button" id="login-toggle" style="background: transparent; border: none; padding: 0; font-size: 14.5px; font-weight: 600; color: #2b3748; display: flex; align-items: center; gap: 6px; box-shadow: none;">
@@ -1658,6 +2018,15 @@
 </nav>
 
   <main>
+    <section class="homepage-offer-bar" aria-label="TrackEDU Facilities launch offer">
+      <div class="homepage-offer-inner">
+        <span class="homepage-offer-label">New System Launch Offer</span>
+        <span class="offer-copy-desktop">Eligible schools, colleges and campus teams can request 1 year of TrackEDU Facilities Pro free.</span>
+<span class="offer-copy-mobile">Request 1 year of Facilities Pro free.</span>
+        <a href="https://www.trackedu.net/facilities.html#hero">View offer <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </section>
+
     <section id="hero" class="hero">
       <div class="hero-inner">
         <h1 style="font-size: clamp(28px, 3.8vw, 54px); line-height: 1.14; max-width: 980px;">One simple platform for <span class="hero-gradient" style="display: inline-block;">school space booking</span> and <span class="hero-gradient" style="display: inline-block;">student recognition.</span></h1>
@@ -1667,7 +2036,7 @@
           <a class="btn btn-secondary" href="https://www.trackedu.net/housepoints.html">Explore student recognition <i class="fas fa-arrow-right"></i></a>
         </div>
         
-        <div class="micro-note">Free Starter available, no credit card required</div>
+        <div class="micro-note">Facilities launch offer available for eligible education teams, free first year, then USD 699/year</div>
 
         <div style="width: min(1200px, 100%); margin: clamp(34px, 5vw, 52px) auto 0; padding: 0 4px;">
           
@@ -1925,7 +2294,7 @@
       <div class="trust-infra-card">
         <div class="trust-infra-header">
           <i class="fas fa-microchip"></i>
-          <span>Enterprise Infrastructure</span>
+          <span>Secure Cloud Infrastructure</span>
         </div>
         <div class="trust-infra-logos">
           <div class="infra-item">
@@ -1939,7 +2308,7 @@
             </div>
             <div>
               <strong>Google Sign-In</strong>
-              <span>Secure Auth SSO</span>
+<span>Secure staff login</span>
             </div>
           </div>
           <div class="infra-item">
@@ -1977,8 +2346,8 @@
     <article class="feature-tile tile-blue">
       <div>
         <div class="tile-label">Recommended Starting Point</div>
-        <h3>Facility Booking</h3>
-        <p class="feature-intro">One shared calendar for classrooms, halls, libraries, labs and specialist spaces, designed to stop double bookings and spreadsheet confusion.</p>
+<h3>Facility Booking</h3>
+<p class="feature-intro">The fastest TrackEDU route to value. Replace spreadsheet booking, reduce room clashes and request launch offer access for eligible education teams.</p>
         <div class="feature-checks">
           <div class="feature-check"><i class="fas fa-circle-check" style="color:#0F66C3;"></i> Replace facility-booking spreadsheets</div>
           <div class="feature-check"><i class="fas fa-circle-check" style="color:#0F66C3;"></i> See available spaces quickly</div>
@@ -2106,11 +2475,10 @@
     </div>
     <div class="start-grid">
       <div class="start-card">
-        <h3>Facility Booking for Schools</h3>
-        <p>The recommended starting point for schools dealing with double-booked spaces, messy spreadsheets, unclear availability and setup requests.</p>
-        <a class="btn btn-dark" href="https://www.trackedu.net/facilities.html">Fix facility booking chaos <i class="fas fa-arrow-right"></i></a>
-      </div>
-
+  <h3>Facility Booking for Schools</h3>
+  <p>The recommended starting point for schools dealing with double-booked spaces, messy spreadsheets, unclear availability and setup requests. Eligible education teams can currently request 1 year of Facilities Pro free.</p>
+  <a class="btn btn-dark" href="https://www.trackedu.net/facilities.html#pricing">Request launch offer access <i class="fas fa-arrow-right"></i></a>
+</div>
       <div class="start-card">
         <h3>Student Recognition for Schools</h3>
         <p>For schools that want visible positive recognition, rewards, house points, team points, values recognition, live leaderboards, teacher tools and student reward profiles.</p>
@@ -2119,28 +2487,41 @@
     </div>
   </div>
 </section>
+<section id="why" class="section why why-modern">
+  <div class="inner">
+    <div class="why-modern-head">
+      <div class="kicker why-modern-kicker"><i class="fas fa-bolt"></i> Why schools start with TrackEDU</div>
+      <h2>Start with the problem your school feels most clearly.</h2>
+      <p>Some schools need to fix shared space booking first. Others want to improve rewards, house points and values recognition. TrackEDU lets schools begin with the clearest pain point, then expand when the value is proven.</p>
+    </div>
 
-<section id="why" class="section why">
-      <div class="inner why-grid">
-        <div class="founder-card">
-          <div class="founder-placeholder" style="aspect-ratio: 1 / 1;">
-            <img src="https://trackedu.github.io/common-assets/founder.png" alt="TrackEDU founder" style="width: 100%; height: 100%; object-fit: cover; object-position: top;" onerror="this.remove(); this.parentElement.innerHTML='<div style=&quot;padding:30px;text-align:center;font-weight:900&quot;>Founder image placeholder</div>';">
-          </div>
-          <div class="founder-caption">Built by an educator. Built for real school routines.</div>
-        </div>
-        <div class="why-copy">
-          <div class="kicker"><i class="fas fa-heart"></i> Why TrackEDU?</div>
-          <h2>Built for real school routines, not perfect spreadsheets.</h2>
-          <p>TrackEDU was created to solve the daily systems that slow schools down: facility bookings, shared spaces, operations requests, reward tracking and the small admin gaps that waste time every week.</p>
-          <div class="quote">School systems should be clear, visible and easy for staff to use every day.</div>
-          <div class="audiences">
-            <div class="audience"><i class="fas fa-chart-line"></i><h3>School leaders</h3><p>Clearer visibility across culture, rewards and school operations.</p></div>
-            <div class="audience"><i class="fas fa-chalkboard-user"></i><h3>Teachers</h3><p>Faster tools for points, classes, shared spaces and everyday routines.</p></div>
-            <div class="audience"><i class="fas fa-screwdriver-wrench"></i><h3>Operations teams</h3><p>Cleaner requests, better space visibility and fewer last-minute surprises.</p></div>
-          </div>
-        </div>
+    <div class="why-modern-grid">
+      <div class="why-modern-card why-card-facilities">
+        <div class="why-card-icon"><i class="fas fa-calendar-check"></i></div>
+        <span class="why-card-label">Facilities launch offer</span>
+        <h3>Fix visible daily friction.</h3>
+        <p>Use one clear booking calendar for rooms, halls, labs, libraries and shared spaces. Eligible education teams can request Facilities Pro free for the first year.</p>
+        <a href="https://www.trackedu.net/facilities.html#hero">View Facilities offer <i class="fas fa-arrow-right"></i></a>
       </div>
-    </section>
+
+      <div class="why-modern-card why-card-recognition">
+        <div class="why-card-icon"><i class="fas fa-star"></i></div>
+        <span class="why-card-label">Student recognition pilot</span>
+        <h3>Test rewards and house points.</h3>
+        <p>Run a free 30-day school pilot for house points, team points, rewards, values recognition and visible whole-school celebration.</p>
+        <a href="https://www.trackedu.net/housepoints.html">Explore Student Recognition <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div class="why-modern-card why-card-leaders">
+        <div class="why-card-icon"><i class="fas fa-chart-line"></i></div>
+        <span class="why-card-label">Leadership visibility</span>
+        <h3>Choose the clearest route to value.</h3>
+        <p>Start with the workflow staff already feel, prove the benefit quickly, then expand into the wider TrackEDU ecosystem as confidence grows.</p>
+        <a href="https://www.trackedu.net/contact.html">Contact TrackEDU <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 
