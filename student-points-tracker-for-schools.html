@@ -862,6 +862,49 @@
       .article-content p, .article-content li { font-size: 15.5px; }
       .footer-grid { grid-template-columns: 1fr; }
     }
+
+    /* Button text colour fixes: keep primary/green CTA labels readable, including links inside article content and TOC cards. */
+    a.btn.btn-primary,
+    a.btn.btn-primary:visited,
+    a.btn.btn-primary:hover,
+    a.btn.btn-primary:focus,
+    a.btn.btn-primary:active,
+    .article-content a.btn.btn-primary,
+    .article-content a.btn.btn-primary:visited,
+    .article-content a.btn.btn-primary:hover,
+    .article-content a.btn.btn-primary:focus,
+    .article-content a.btn.btn-primary:active,
+    .toc-cta a.btn.btn-primary,
+    .toc-cta a.btn.btn-primary:visited,
+    .toc-cta a.btn.btn-primary:hover,
+    .toc-cta a.btn.btn-primary:focus,
+    .toc-cta a.btn.btn-primary:active {
+      color: #ffffff !important;
+      text-decoration: none !important;
+    }
+
+    a.btn.btn-green,
+    a.btn.btn-green:visited,
+    a.btn.btn-green:hover,
+    a.btn.btn-green:focus,
+    a.btn.btn-green:active,
+    .article-content a.btn.btn-green,
+    .article-content a.btn.btn-green:visited,
+    .article-content a.btn.btn-green:hover,
+    .article-content a.btn.btn-green:focus,
+    .article-content a.btn.btn-green:active {
+      color: #ffffff !important;
+      text-decoration: none !important;
+    }
+
+    a.btn.btn-primary i,
+    a.btn.btn-green i,
+    .article-content a.btn.btn-primary i,
+    .article-content a.btn.btn-green i,
+    .toc-cta a.btn.btn-primary i {
+      color: #ffffff !important;
+    }
+
   </style>
 </head>
 
