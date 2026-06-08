@@ -124,11 +124,11 @@
       {
         "@type": "Offer",
         "name": "Pro Plan",
-        "price": "699",
+        "price": "499",
         "priceCurrency": "USD",
         "availability": "https://schema.org/InStock",
         "url": "https://www.trackedu.net/facilities.html#pricing",
-        "description": "TrackEDU Facilities Pro includes up to 30 bookable spaces, up to 100 users and core school facility booking workflows for USD 699 per year."
+        "description": "TrackEDU Facilities Pro includes up to 30 bookable spaces, up to 100 users and core school facility booking workflows for USD 499 per year."
       },
       {
         "@type": "Offer",
@@ -3302,7 +3302,7 @@
       <button
         type="button"
         class="launch-offer-link"
-        onclick="openInvoiceModal('TrackEDU Facilities - Launch Offer', 'Free first year, then USD 699/year')">
+        onclick="openInvoiceModal('TrackEDU Facilities - Launch Offer', 'Free first year, then USD 499/year')">
         Check eligibility
       </button>
     </div>
@@ -3805,7 +3805,7 @@
         <button
           class="btn btn-green"
           type="button"
-          onclick="openInvoiceModal('TrackEDU Facilities - Launch Offer', 'Free first year, then USD 699/year')">
+          onclick="openInvoiceModal('TrackEDU Facilities - Launch Offer', 'Free first year, then USD 499/year')">
           Check eligibility
         </button>
       </div>
@@ -3855,13 +3855,13 @@
 
             <div class="pro-offer-copy">
               <span class="pro-offer-label">first year</span>
-              <span class="pro-offer-renewal">Then $699/year</span>
+              <span class="pro-offer-renewal">Then $499/year</span>
             </div>
           </div>
 
           <div class="pro-offer-meta">
-            <span class="pro-offer-was">Normally $699/year</span>
-            <span class="pro-offer-save">Save $699</span>
+            <span class="pro-offer-was">Normally $499/year</span>
+            <span class="pro-offer-save">Save $499</span>
           </div>
         </div>
 
@@ -3878,7 +3878,7 @@
         <button
           class="btn btn-green"
           type="button"
-          onclick="openInvoiceModal('TrackEDU Facilities - Launch Offer', 'Free first year, then USD 699/year')">
+          onclick="openInvoiceModal('TrackEDU Facilities - Launch Offer', 'Free first year, then USD 499/year')">
           Check free first-year eligibility
         </button>
       </div>
@@ -3975,7 +3975,7 @@
             <tr><td>QR code door cards</td><td>Included</td><td>Included</td><td>Included</td></tr>
             <tr><td>Auto-release empty spaces</td><td>Included</td><td>Included</td><td>Included</td></tr>
             <tr><td>Onboarding support</td><td>Self-serve</td><td>Standard support</td><td>Guided onboarding and implementation discussion</td></tr>
-            <tr><td>Price</td><td class="price-cell">$0 forever</td><td class="price-cell">$699 /year</td><td class="price-cell">Custom</td></tr>
+            <tr><td>Price</td><td class="price-cell">$0 forever</td><td class="price-cell">$499 /year</td><td class="price-cell">Custom</td></tr>
           </tbody>
         </table>
       </div>
@@ -4108,7 +4108,7 @@
     <div class="invoice-modal-body">
      <div class="invoice-offer-box" id="invoiceOfferBox">
   <strong><i class="fas fa-gift"></i> Launch Offer Requested</strong>
-  <span>Free first-year access to TrackEDU Facilities Pro, then USD 699/year.</span>
+  <span>Free first-year access to TrackEDU Facilities Pro, then USD 499/year.</span>
   <small>TrackEDU will review your request and email setup instructions if your organisation is eligible.</small>
 </div>
 
@@ -4116,7 +4116,7 @@
         <input type="hidden" name="access_key" value="7f87c71e-2098-42d8-816a-29de230264d7">
         <input type="hidden" name="subject" value="TrackEDU Facilities Launch Offer / Invoice Request">
 <input type="hidden" id="formSelectedPlan" name="selected_plan" value="TrackEDU Facilities - Launch Offer">
-<input type="hidden" id="formSelectedCost" name="selected_cost" value="Free first year, then USD 699/year">
+<input type="hidden" id="formSelectedCost" name="selected_cost" value="Free first year, then USD 499/year">
 <input type="hidden" id="formRequestType" name="request_type" value="Launch offer eligibility review">
 
         <div class="invoice-section">
@@ -4178,7 +4178,7 @@
 
           <div class="invoice-plan-box">
   Requested access: <strong id="invoicePlanDisplay">TrackEDU Facilities Launch Offer</strong>
-  <span id="invoiceCostDisplay">Free first year, then USD 699/year</span>
+  <span id="invoiceCostDisplay">Free first year, then USD 499/year</span>
 </div>
 
           <div class="invoice-grid">
@@ -4477,7 +4477,7 @@ window.togglePlanComparison = togglePlanComparison;
   const submitButton = document.getElementById('invoiceSubmitButton');
 
   const selectedPlan = plan || 'TrackEDU Facilities - Launch Offer';
-  const selectedCost = cost || 'Free first year, then USD 699/year';
+  const selectedCost = cost || 'Free first year, then USD 499/year';
   const isLaunchOffer = selectedPlan.toLowerCase().includes('launch offer') || selectedCost.toLowerCase().includes('free first year');
 
   if (planInput) planInput.value = selectedPlan;
