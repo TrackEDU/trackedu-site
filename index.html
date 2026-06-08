@@ -1935,6 +1935,81 @@
     font-size: 14.5px;
   }
 }
+
+@media (max-width: 640px) {
+  #heroPaneFacilities .mockup-rooms-grid .mockup-room-row:nth-child(3),
+  #heroPaneFacilities .mockup-rooms-grid .mockup-room-row:nth-child(4) {
+    display: none !important;
+  }
+}
+
+.mobile-header-offer-badge {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .mobile-header-offer-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(135,194,50,.12);
+  border: 1px solid rgba(135,194,50,.32);
+  color: #2f6f18;
+  font-size: 8.5px;
+  font-weight: 950;
+  line-height: 1;
+  letter-spacing: .045em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+  .homepage-offer-bar .homepage-offer-label {
+    display: none !important;
+  }
+
+  .homepage-offer-bar {
+    padding: 8px 12px;
+  }
+
+  .homepage-offer-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 8px;
+    text-align: left;
+  }
+
+  .offer-copy-desktop {
+    display: none !important;
+  }
+
+  .offer-copy-mobile {
+    display: block !important;
+    color: rgba(255,255,255,.92);
+    font-size: 12.5px;
+    font-weight: 850;
+    line-height: 1.15;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .homepage-offer-inner a {
+    justify-self: end;
+    padding: 7px 9px;
+    border-radius: 999px;
+    background: rgba(135,194,50,.14);
+    border: 1px solid rgba(135,194,50,.28);
+    color: #87C232;
+    font-size: 11.5px;
+    font-weight: 950;
+    white-space: nowrap;
+  }
+}
     
   </style>
 </head>
@@ -1954,9 +2029,13 @@
       </div>
     </div>
 
-    <button class="hamburger" id="mobile-menu-btn" aria-label="Toggle navigation" aria-expanded="false">
-      <i class="fas fa-bars"></i>
-    </button>
+    <a href="https://www.trackedu.net/facilities.html#hero" class="mobile-header-offer-badge" aria-label="View TrackEDU Facilities launch offer">
+  New Launch Offer
+</a>
+
+<button class="hamburger" id="mobile-menu-btn" aria-label="Toggle navigation" aria-expanded="false">
+  <i class="fas fa-bars"></i>
+</button>
 
     <div class="nav-menu-wrapper" id="nav-menu" style="display: flex; align-items: center; gap: 24px; margin-left: auto;">
       
