@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Smartboard Noise Monitor Configuration: Hardware & Acoustics Guide</title>
+  <meta name="description" content="Learn how to configure a free classroom noise monitor on your interactive smartboard. Resolve microphone latency issues, optimize room acoustics, and manage calibration.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="TrackEDU">
+  <link rel="canonical" href="https://www.trackedu.net/smartboard-noise-monitor-setup.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TrackEDU">
+  <meta property="og:title" content="Smartboard Noise Monitor Configuration: Hardware & Acoustics Guide">
+  <meta property="og:description" content="Learn how to configure a free classroom noise monitor on your interactive smartboard. Resolve microphone issues and manage calibration loops.">
+  <meta property="og:url" content="https://www.trackedu.net/smartboard-noise-monitor-setup.html">
+  <meta property="og:image" content="https://trackedu.github.io/common-assets/state1a.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Smartboard Noise Monitor Configuration: Hardware & Acoustics Guide">
+  <meta name="twitter:description" content="Technical hardware calibration parameters guide to mapping classroom volume indicators cleanly on standard interactive smartboards.">
+  <meta name="twitter:image" content="https://trackedu.github.io/common-assets/state1a.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Smartboard Noise Monitor Configuration: Hardware & Acoustics Guide",
+    "description": "A technical deployment manual covering browser microphone configurations, hardware overrides, and acoustic parameters for school smartboards.",
+    "image": "https://trackedu.github.io/common-assets/state1a.png",
+    "author": {
+      "@type": "Organization",
+      "name": "TrackEDU",
+      "url": "https://www.trackedu.net"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "TrackEDU",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://trackedu.github.io/common-assets/teacherappnewlogo.png"
+      }
+    },
+    "datePublished": "2026-06-09",
+    "inLanguage": "en-GB"
+  }
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --brand-dark: #0C1E2C;
+      --brand-ink: #07111f;
+      --brand-green: #87C232;
+      --brand-blue: #0f66c3;
+      --text-slate: #cbd5e1;
+      --border-line: rgba(255,255,255,0.1);
+    }
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--brand-dark);
+      color: var(--text-slate);
+      line-height: 1.6;
+      padding: 0 20px;
+    }
+    .wrapper { max-width: 820px; margin: 0 auto; padding: 40px 0; }
+    header { margin-bottom: 32px; text-align: center; }
+    .kicker { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--brand-green); font-weight: 800; margin-bottom: 8px; }
+    h1 { font-family: 'Fredoka One', cursive; font-size: clamp(28px, 4vw, 44px); color: #ffffff; line-height: 1.2; margin-bottom: 12px; font-weight: 400; }
+    .meta { font-size: 13px; color: #64748b; font-weight: 600; margin-bottom: 24px; }
+    .meta span { color: var(--brand-green); }
+    
+    article section { margin-bottom: 28px; }
+    h2 { font-family: 'Fredoka One', cursive; font-size: 22px; color: #ffffff; margin-bottom: 12px; font-weight: 400; }
+    p { margin-bottom: 16px; font-size: 15px; color: #cbd5e1; font-weight: 400; }
+    ul, ol { margin-left: 24px; margin-bottom: 16px; font-size: 15px; }
+    li { margin-bottom: 8px; }
+    strong { color: #ffffff; font-weight: 700; }
+    code { font-family: monospace; background: var(--brand-ink); padding: 2px 6px; border-radius: 4px; color: #f59e0b; font-size: 13px; }
+    
+    .cta-box {
+      background: radial-gradient(circle at 20% 20%, rgba(135,194,50,0.15), transparent 50%), var(--brand-ink);
+      border: 1px solid rgba(135, 194, 50, 0.3);
+      border-radius: 24px;
+      padding: 28px;
+      text-align: center;
+      margin-top: 40px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    }
+    .cta-box h3 { font-family: 'Fredoka One', cursive; font-size: 24px; color: #ffffff; margin-bottom: 8px; font-weight: 400; }
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--brand-green), #6a9e28);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 12px 28px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 14px;
+      margin-top: 14px;
+      box-shadow: 0 10px 25px rgba(135, 194, 50, 0.25);
+      transition: transform 0.2s ease;
+    }
+    .cta-btn:hover { transform: translateY(-2px); }
+    footer { border-top: 1px solid var(--border-line); margin-top: 40px; padding-top: 20px; text-align: center; font-size: 12px; color: #64748b; }
+    footer a { color: var(--brand-green); text-decoration: none; font-weight: 700; }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <header>
+      <div class="kicker">Technical Integration Manual</div>
+      <h1>Smartboard Noise Monitor Configuration: Hardware & Acoustics</h1>
+      <div class="meta">Published by <span>TrackEDU System Ops</span> &bull; Hardware Deployment Core</div>
+    </header>
+
+    <main>
+      <article>
+        <section>
+          <p>Displaying a live classroom noise monitor app on an interactive smartboard requires careful hardware configuration. Because large classrooms have complex layouts, echo patterns, and background HVAC sounds, standard out-of-the-box settings can throw false warnings if the microphone sensitivity isn't calibrated correctly.</p>
+        </section>
+
+        <section>
+          <h2>1. Optimizing Microphone Placement Constraints</h2>
+          <p>Most interactive front displays house internal microphones directly inside their lower bezel frame tracks. While convenient, this is often the worst placement location because it sits close to wall reflections and internal cooling fans. For the most accurate decibel readings:</p>
+          <ul>
+            <li><strong>Utilize External USB Array Mics:</strong> Connecting a dedicated boundary microphone via a standard USB extension cable allows you to position the input point closer to the student seating zones.</li>
+            <li><strong>Isolate Mechanical Noise:</strong> Keep microphones clear of projector fans, open window drafts, and heavy mechanical HVAC vents to prevent baseline reading distortions.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>2. Browser-Level Audio Parameters Override</h2>
+          <p>Modern noise tracking tools use Web Audio API diagnostics loops to evaluate local audio data. To ensure accurate results, verify your browser privacy configurations follow these rules:</p>
+          <ul>
+            <li><strong>Grant Explicit Permissions:</strong> Click the security lock icon in the address bar to ensure the page has explicit authorization to use the microphone.</li>
+            <li><strong>Disable System Auto-Gain Filters:</strong> Built-in operating system filters like "Automatic Gain Control" (AGC) or "Acoustic Echo Cancellation" can skew decibel measurements. Whenever possible, run un-filtered raw frequencies to capture the true sound of the room.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>3. Room Acoustic Calibration Workflows</h2>
+          <p>Classroom environments change completely throughout the day. A room configuration that works perfectly during a quiet test block can easily trigger constant loud warnings during collaborative group work. Use an interactive calibration slider to set custom threshold limits that match your current activity.</p>
+        </section>
+      </article>
+
+      <div class="cta-box">
+        <h3>Launch the Zero-Setup Class Calm Meter</h3>
+        <p>Ready to deploy? Open TrackEDU's free visual sound tracker directly inside your smartboard browser tab. Zero local software installation or system accounts required.</p>
+        <a href="classroom-noise-meter.html" class="cta-btn"><i class="fas fa-desktop"></i> Open Smartboard Noise Meter Now</a>
+      </div>
+    </main>
+
+    <footer>
+      &copy; 2026 TrackEDU Ltd. Part of the <a href="https://trackedu.net" target="_blank">TrackEDU Ecosystem</a>.
+    </footer>
+  </div>
+
+</body>
+</html>
