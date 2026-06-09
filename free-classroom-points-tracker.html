@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Best Free Classroom Points Tracker for Teachers | TrackEDU Blog</title>
-  <meta name="description" content="Discover why TrackEDU's free classroom points tracker outperforms ClassDojo with 12+ built-in teacher tools. Backed by educational behavior research.">
-  <meta name="keywords" content="free classroom points tracker, TrackEDU vs ClassDojo, classroom token economy research, teacher point system, free school reward system tools">
+  <meta name="description" content="Tired of messy spreadsheets? Discover why TrackEDU is the ultimate free classroom points tracker and reward chart built by teachers, for teachers.">
+  <meta name="keywords" content="free classroom points tracker, teacher reward system, free house points app, TrackEDU vs ClassDojo, digital behavior chart free">
   
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -38,12 +38,31 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+    .reward-card, .tool-card-interactive {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .reward-card.unlocked-state {
+      background-color: #f0fdf4 !important;
+      border-color: #bbf7d0 !important;
+    }
+    .tool-card-interactive:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px -10px rgba(0,0,0,0.08);
+    }
+    /* Simple spin animation for interactive tools */
+    @keyframes fast-spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(1080deg); }
+    }
+    .animate-fast-spin {
+      animation: fast-spin 1.2s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+    }
   </style>
 </head>
 <body class="antialiased">
 
   <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/80 border-b border-gray-200 shadow-sm">
-    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="https://www.trackedu.net/" class="flex items-center gap-2">
         <img src="https://trackedu.github.io/common-assets/trackedulogono.png" alt="TrackEDU Logo" class="w-7 h-7 object-contain">
         <span class="font-display text-xl font-black text-brand-dark tracking-tighter">
@@ -51,26 +70,26 @@
         </span>
       </a>
       <a href="https://housepoint.trackedu.net/" target="_blank" class="px-4 py-2 rounded-full bg-brand-green text-white text-xs font-bold hover:bg-green-600 transition shadow-sm flex items-center gap-1.5">
-        <i class="fas fa-rocket"></i> Launch Free Tracker
+        <i class="fas fa-rocket"></i> Start Free Tracker
       </a>
     </div>
   </nav>
 
-  <main class="max-w-4xl mx-auto px-4 pt-24 pb-16">
+  <main class="max-w-6xl mx-auto px-4 pt-24 pb-16">
     
-    <header class="text-center md:text-left mb-10">
+    <header class="text-center md:text-left mb-10 max-w-4xl">
       <div class="inline-flex items-center gap-1.5 bg-blue-50 text-brand-blue text-xs font-bold px-3 py-1 rounded-full mb-4">
-        <i class="fas fa-graduation-cap"></i> Evidence-Based Classroom Strategies
+        <i class="fas fa-apple-alt"></i> Classroom Management Made Simple
       </div>
       <h1 class="font-display text-3xl md:text-5xl font-black text-brand-dark leading-tight tracking-tight mb-4">
-        The Best <span class="text-gradient">Free Classroom Points Tracker</span> for Teachers: Why Integrated Utility Defeats Limited Apps
+        The Best <span class="text-gradient">Free Classroom Points Tracker</span> for Teachers: Ditch the Spreadsheets & Lost Tokens
       </h1>
       <p class="text-gray-500 text-lg md:text-xl font-medium leading-relaxed max-w-3xl">
-        Classroom management shouldn't require jumping between five separate websites. Explore how a science-backed digital token economy powered by 12+ integrated teacher tools completely transforms classroom engagement.
+        Paper reward slips get lost. Whiteboard tallies get mysteriously erased. Updating Excel files ruins your Sunday nights. Here is a faster, 100% free way to run your class rewards and daily utilities.
       </p>
       
       <div class="flex items-center justify-center md:justify-start gap-3 mt-6 pt-6 border-t border-gray-100 text-xs text-gray-400">
-        <span><i class="fas fa-user text-brand-green mr-1"></i> By TrackEDU Insights Team</span>
+        <span><i class="fas fa-user text-brand-green mr-1"></i> By TrackEDU Education Team</span>
         <span>•</span>
         <span><i class="fas fa-calendar mr-1"></i> Updated for 2026</span>
         <span>•</span>
@@ -80,151 +99,536 @@
 
     <hr class="border-gray-200 my-8">
 
-    <article class="prose max-w-none text-gray-700 space-y-6 leading-relaxed">
+    <section class="mb-14 bg-white border border-gray-200 rounded-[32px] p-6 shadow-xl relative overflow-hidden">
+      <div class="absolute top-0 right-0 bg-amber-500 text-white text-[10px] font-bold uppercase tracking-wider px-4 py-1.5 rounded-bl-xl z-10">
+        Live Milestone Board
+      </div>
       
-      <p>
-        Every teacher knows the psychological power of positive reinforcement. Translating behavior metrics into a visual, structured system completely changes the social dynamic of a room. However, managing the tracking, math, and logistics of a points framework can quickly become an admin nightmare.
+      <div class="bg-slate-50 border border-gray-100 rounded-2xl p-4 mb-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="text-center sm:text-left">
+          <span class="text-xs font-bold uppercase text-brand-blue tracking-wider block mb-0.5">Live Reward Board Simulator</span>
+          <span class="text-xs text-gray-400 font-medium">Add mock points to watch the system dynamically fill up progress tracks and unlock prizes!</span>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <button onclick="adjustSimPoints(-50)" class="w-10 h-10 rounded-xl bg-white border border-gray-200 text-gray-600 font-bold hover:bg-gray-100 transition shadow-sm active:scale-95 text-sm">-50</button>
+          <button onclick="adjustSimPoints(50)" class="w-12 h-10 rounded-xl bg-brand-blue text-white font-bold hover:bg-blue-700 transition shadow-md active:scale-95 text-sm">+50</button>
+          <button onclick="adjustSimPoints(250)" class="w-14 h-10 rounded-xl bg-brand-green text-white font-bold hover:bg-green-600 transition shadow-md active:scale-95 text-sm">+250</button>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between border-b border-gray-100 pb-4 mb-6">
+        <div class="flex items-center gap-2">
+          <span class="text-xl">🎁</span>
+          <h2 class="font-display text-xl font-bold text-gray-900 tracking-tight">Class Rewards</h2>
+          <button class="text-xs text-gray-400 border border-gray-200 rounded-lg px-2.5 py-1 ml-2 font-medium bg-gray-50 hover:bg-gray-100 transition">
+            <i class="fas fa-edit mr-1"></i> Edit Rewards
+          </button>
+        </div>
+        <div class="bg-amber-50 border border-amber-200/60 rounded-full px-4 py-1.5 flex items-center gap-1.5 shadow-inner">
+          <span class="text-amber-500 text-sm">⭐</span>
+          <span class="text-xs font-black text-amber-900 uppercase">Total: <span id="live-total-pts">213</span> pts</span>
+        </div>
+      </div>
+
+      <div id="rewards-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        
+        <div class="reward-card bg-white border border-gray-200 rounded-xl p-4 flex flex-col justify-between min-h-[140px] shadow-sm" data-goal="200">
+          <div>
+            <div class="flex items-start justify-between gap-2 mb-1">
+              <div class="flex items-center gap-2">
+                <span class="text-2xl">🎉</span>
+                <h4 class="font-bold text-sm text-gray-800">Extra Recess</h4>
+              </div>
+              <span class="text-[11px] font-semibold text-gray-400 whitespace-nowrap">Goal: 200 pts</span>
+            </div>
+            <p class="text-xs text-gray-400 pl-8">10 extra minutes of recess</p>
+          </div>
+          <div class="mt-4">
+            <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden mb-2">
+              <div class="progress-bar bg-brand-blue h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-medium text-gray-400 progress-text">0 / 200 pts</span>
+              <span class="status-badge text-[10px] font-bold px-2 py-0.5 rounded bg-gray-100 text-gray-400 border border-gray-200/60 flex items-center gap-1"><i class="fas fa-lock text-[9px]"></i> Locked</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="reward-card bg-white border border-gray-200 rounded-xl p-4 flex flex-col justify-between min-h-[140px] shadow-sm" data-goal="400">
+          <div>
+            <div class="flex items-start justify-between gap-2 mb-1">
+              <div class="flex items-center gap-2">
+                <span class="text-2xl">🎬</span>
+                <h4 class="font-bold text-sm text-gray-800">Class Movie Time</h4>
+              </div>
+              <span class="text-[11px] font-semibold text-gray-400 whitespace-nowrap">Goal: 400 pts</span>
+            </div>
+            <p class="text-xs text-gray-400 pl-8">Watch a short movie in class</p>
+          </div>
+          <div class="mt-4">
+            <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden mb-2">
+              <div class="progress-bar bg-brand-blue h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-medium text-gray-400 progress-text">0 / 400 pts</span>
+              <span class="status-badge text-[10px] font-bold px-2 py-0.5 rounded bg-gray-100 text-gray-400 border border-gray-200/60 flex items-center gap-1"><i class="fas fa-lock text-[9px]"></i> Locked</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="reward-card bg-white border border-gray-200 rounded-xl p-4 flex flex-col justify-between min-h-[140px] shadow-sm" data-goal="600">
+          <div>
+            <div class="flex items-start justify-between gap-2 mb-1">
+              <div class="flex items-center gap-2">
+                <span class="text-2xl">📝</span>
+                <h4 class="font-bold text-sm text-gray-800">No Homework Day</h4>
+              </div>
+              <span class="text-[11px] font-semibold text-gray-400 whitespace-nowrap">Goal: 600 pts</span>
+            </div>
+            <p class="text-xs text-gray-400 pl-8">Everyone gets a homework pass</p>
+          </div>
+          <div class="mt-4">
+            <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden mb-2">
+              <div class="progress-bar bg-brand-blue h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-medium text-gray-400 progress-text">0 / 600 pts</span>
+              <span class="status-badge text-[10px] font-bold px-2 py-0.5 rounded bg-gray-100 text-gray-400 border border-gray-200/60 flex items-center gap-1"><i class="fas fa-lock text-[9px]"></i> Locked</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="reward-card bg-white border border-gray-200 rounded-xl p-4 flex flex-col justify-between min-h-[140px] shadow-sm" data-goal="800">
+          <div>
+            <div class="flex items-start justify-between gap-2 mb-1">
+              <div class="flex items-center gap-2">
+                <span class="text-2xl">🍕</span>
+                <h4 class="font-bold text-sm text-gray-800">Pizza Party</h4>
+              </div>
+              <span class="text-[11px] font-semibold text-gray-400 whitespace-nowrap">Goal: 800 pts</span>
+            </div>
+            <p class="text-xs text-gray-400 pl-8">Pizza lunch for the class</p>
+          </div>
+          <div class="mt-4">
+            <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden mb-2">
+              <div class="progress-bar bg-brand-blue h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-medium text-gray-400 progress-text">0 / 800 pts</span>
+              <span class="status-badge text-[10px] font-bold px-2 py-0.5 rounded bg-gray-100 text-gray-400 border border-gray-200/60 flex items-center gap-1"><i class="fas fa-lock text-[9px]"></i> Locked</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="reward-card bg-white border border-gray-200 rounded-xl p-4 flex flex-col justify-between min-h-[140px] shadow-sm" data-goal="1000">
+          <div>
+            <div class="flex items-start justify-between gap-2 mb-1">
+              <div class="flex items-center gap-2">
+                <span class="text-2xl">🎮</span>
+                <h4 class="font-bold text-sm text-gray-800">Game Period</h4>
+              </div>
+              <span class="text-[11px] font-semibold text-gray-400 whitespace-nowrap">Goal: 1,000 pts</span>
+            </div>
+            <p class="text-xs text-gray-400 pl-8">30 minutes of free play</p>
+          </div>
+          <div class="mt-4">
+            <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden mb-2">
+              <div class="progress-bar bg-brand-blue h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-medium text-gray-400 progress-text">0 / 1,000 pts</span>
+              <span class="status-badge text-[10px] font-bold px-2 py-0.5 rounded bg-gray-100 text-gray-400 border border-gray-200/60 flex items-center gap-1"><i class="fas fa-lock text-[9px]"></i> Locked</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="reward-card bg-white border border-gray-200 rounded-xl p-4 flex flex-col justify-between min-h-[140px] shadow-sm" data-goal="1200">
+          <div>
+            <div class="flex items-start justify-between gap-2 mb-1">
+              <div class="flex items-center gap-2">
+                <span class="text-2xl">🤪</span>
+                <h4 class="font-bold text-sm text-gray-800">Crazy Hair Day</h4>
+              </div>
+              <span class="text-[11px] font-semibold text-gray-400 whitespace-nowrap">Goal: 1,200 pts</span>
+            </div>
+            <p class="text-xs text-gray-400 pl-8">Everyone wears crazy hair</p>
+          </div>
+          <div class="mt-4">
+            <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden mb-2">
+              <div class="progress-bar bg-brand-blue h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-medium text-gray-400 progress-text">0 / 1,200 pts</span>
+              <span class="status-badge text-[10px] font-bold px-2 py-0.5 rounded bg-gray-100 text-gray-400 border border-gray-200/60 flex items-center gap-1"><i class="fas fa-lock text-[9px]"></i> Locked</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="reward-card bg-white border border-gray-200 rounded-xl p-4 flex flex-col justify-between min-h-[140px] shadow-sm" data-goal="1400">
+          <div>
+            <div class="flex items-start justify-between gap-2 mb-1">
+              <div class="flex items-center gap-2">
+                <span class="text-2xl">🧸</span>
+                <h4 class="font-bold text-sm text-gray-800">Stuffy Day</h4>
+              </div>
+              <span class="text-[11px] font-semibold text-gray-400 whitespace-nowrap">Goal: 1,400 pts</span>
+            </div>
+            <p class="text-xs text-gray-400 pl-8">Bring a stuffed animal to school</p>
+          </div>
+          <div class="mt-4">
+            <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden mb-2">
+              <div class="progress-bar bg-brand-blue h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-medium text-gray-400 progress-text">0 / 1,400 pts</span>
+              <span class="status-badge text-[10px] font-bold px-2 py-0.5 rounded bg-gray-100 text-gray-400 border border-gray-200/60 flex items-center gap-1"><i class="fas fa-lock text-[9px]"></i> Locked</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="reward-card bg-white border border-gray-200 rounded-xl p-4 flex flex-col justify-between min-h-[140px] shadow-sm" data-goal="1600">
+          <div>
+            <div class="flex items-start justify-between gap-2 mb-1">
+              <div class="flex items-center gap-2">
+                <span class="text-2xl">💃</span>
+                <h4 class="font-bold text-sm text-gray-800">Dance Party</h4>
+              </div>
+              <span class="text-[11px] font-semibold text-gray-400 whitespace-nowrap">Goal: 1,600 pts</span>
+            </div>
+            <p class="text-xs text-gray-400 pl-8">15-minute class dance break</p>
+          </div>
+          <div class="mt-4">
+            <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden mb-2">
+              <div class="progress-bar bg-brand-blue h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-medium text-gray-400 progress-text">0 / 1,600 pts</span>
+              <span class="status-badge text-[10px] font-bold px-2 py-0.5 rounded bg-gray-100 text-gray-400 border border-gray-200/60 flex items-center gap-1"><i class="fas fa-lock text-[9px]"></i> Locked</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="reward-card bg-white border border-gray-200 rounded-xl p-4 flex flex-col justify-between min-h-[140px] shadow-sm" data-goal="1800">
+          <div>
+            <div class="flex items-start justify-between gap-2 mb-1">
+              <div class="flex items-center gap-2">
+                <span class="text-2xl">🎤</span>
+                <h4 class="font-bold text-sm text-gray-800">Teacher Talent Show</h4>
+              </div>
+              <span class="text-[11px] font-semibold text-gray-400 whitespace-nowrap">Goal: 1,800 pts</span>
+            </div>
+            <p class="text-xs text-gray-400 pl-8">Teacher performs a trick</p>
+          </div>
+          <div class="mt-4">
+            <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden mb-2">
+              <div class="progress-bar bg-brand-blue h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-medium text-gray-400 progress-text">0 / 1,800 pts</span>
+              <span class="status-badge text-[10px] font-bold px-2 py-0.5 rounded bg-gray-100 text-gray-400 border border-gray-200/60 flex items-center gap-1"><i class="fas fa-lock text-[9px]"></i> Locked</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="reward-card bg-white border border-gray-200 rounded-xl p-4 flex flex-col justify-between min-h-[140px] shadow-sm" data-goal="2000">
+          <div>
+            <div class="flex items-start justify-between gap-2 mb-1">
+              <div class="flex items-center gap-2">
+                <span class="text-2xl">😴</span>
+                <h4 class="font-bold text-sm text-gray-800">Pajama Day</h4>
+              </div>
+              <span class="text-[11px] font-semibold text-gray-400 whitespace-nowrap">Goal: 2,000 pts</span>
+            </div>
+            <p class="text-xs text-gray-400 pl-8">Wear pajamas to school</p>
+          </div>
+          <div class="mt-4">
+            <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden mb-2">
+              <div class="progress-bar bg-brand-blue h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-medium text-gray-400 progress-text">0 / 2,000 pts</span>
+              <span class="status-badge text-[10px] font-bold px-2 py-0.5 rounded bg-gray-100 text-gray-400 border border-gray-200/60 flex items-center gap-1"><i class="fas fa-lock text-[9px]"></i> Locked</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="reward-card bg-white border border-gray-200 rounded-xl p-4 flex flex-col justify-between min-h-[140px] shadow-sm" data-goal="2500">
+          <div>
+            <div class="flex items-start justify-between gap-2 mb-1">
+              <div class="flex items-center gap-2">
+                <span class="text-2xl">🍦</span>
+                <h4 class="font-bold text-sm text-gray-800">Ice Cream Social</h4>
+              </div>
+              <span class="text-[11px] font-semibold text-gray-400 whitespace-nowrap">Goal: 2,500 pts</span>
+            </div>
+            <p class="text-xs text-gray-400 pl-8">Ice cream during lunch</p>
+          </div>
+          <div class="mt-4">
+            <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden mb-2">
+              <div class="progress-bar bg-brand-blue h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-medium text-gray-400 progress-text">0 / 2,500 pts</span>
+              <span class="status-badge text-[10px] font-bold px-2 py-0.5 rounded bg-gray-100 text-gray-400 border border-gray-200/60 flex items-center gap-1"><i class="fas fa-lock text-[9px]"></i> Locked</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="reward-card bg-white border border-gray-200 rounded-xl p-4 flex flex-col justify-between min-h-[140px] shadow-sm" data-goal="3000">
+          <div>
+            <div class="flex items-start justify-between gap-2 mb-1">
+              <div class="flex items-center gap-2">
+                <span class="text-2xl">🏆</span>
+                <h4 class="font-bold text-sm text-gray-800">Class Trophy</h4>
+              </div>
+              <span class="text-[11px] font-semibold text-gray-400 whitespace-nowrap">Goal: 3,000 pts</span>
+            </div>
+            <p class="text-xs text-gray-400 pl-8">A physical trophy for the classroom</p>
+          </div>
+          <div class="mt-4">
+            <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden mb-2">
+              <div class="progress-bar bg-brand-blue h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-medium text-gray-400 progress-text">0 / 3,000 pts</span>
+              <span class="status-badge text-[10px] font-bold px-2 py-0.5 rounded bg-gray-100 text-gray-400 border border-gray-200/60 flex items-center gap-1"><i class="fas fa-lock text-[9px]"></i> Locked</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="mb-12 bg-[#F1F5F9]/50 border border-gray-200 rounded-[32px] p-6 shadow-xl relative overflow-hidden">
+      <div class="absolute top-0 right-0 bg-[#8B5CF6] text-white text-[10px] font-bold uppercase tracking-wider px-4 py-1.5 rounded-bl-xl z-10">
+        Interactive Utilities Sandbox
+      </div>
+
+      <div class="flex justify-center mb-6">
+        <div class="bg-white border border-gray-200/80 rounded-full px-6 py-2.5 flex items-center gap-3 shadow-md max-w-md w-full justify-between">
+          <div class="flex items-center gap-2">
+            <img src="https://trackedu.github.io/common-assets/trackedulogono.png" alt="Micro Logo" class="w-5 excellence-logo h-5 object-contain">
+            <span class="text-xs font-bold text-gray-900 tracking-tight font-display">Track<span class="text-brand-green">EDU</span> &bull; <span class="text-gray-400 font-medium font-sans">Classroom Tools</span></span>
+          </div>
+          <div class="w-5 h-5 rounded-full bg-[#8B5CF6] text-white text-xs font-black flex items-center justify-center cursor-help" title="Click any utility below to run an instant simulation sandbox!">?</div>
+        </div>
+      </div>
+
+      <div id="utility-sandbox-notifier" class="bg-white border border-gray-100 rounded-xl p-3 mb-6 text-center text-xs font-semibold text-gray-500 transition-all duration-300 shadow-sm">
+        💡 <span id="notifier-text">Click any tool grid node below to run an instant feature demo simulation window!</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        
+        <div onclick="runUtilityDemo('dashboard', this)" class="tool-card-interactive bg-white border border-gray-200 rounded-2xl p-5 text-center cursor-pointer shadow-sm flex flex-col items-center justify-start min-h-[160px]">
+          <div class="w-12 h-12 rounded-xl bg-blue-50 text-brand-blue flex items-center justify-center text-xl mb-3"><i class="fas fa-desktop"></i></div>
+          <h4 class="text-sm font-bold text-gray-900 font-display mb-1">My Class Dashboard</h4>
+          <p class="text-[11px] text-gray-400 leading-snug">View class dashboard, student insights, and recent celebrations</p>
+        </div>
+
+        <div onclick="runUtilityDemo('magichat', this)" class="tool-card-interactive bg-white border border-gray-200 rounded-2xl p-5 text-center cursor-pointer shadow-sm flex flex-col items-center justify-start min-h-[160px]">
+          <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-500 flex items-center justify-center text-xl mb-3 icon-node-spin"><i class="fas fa-hat-wizard"></i></div>
+          <h4 class="text-sm font-bold text-gray-900 font-display mb-1">Magic Hat</h4>
+          <p class="text-[11px] text-gray-400 leading-snug">Pick a random student</p>
+        </div>
+
+        <div onclick="runUtilityDemo('noisemonitor', this)" class="tool-card-interactive bg-white border border-gray-200 rounded-2xl p-5 text-center cursor-pointer shadow-sm flex flex-col items-center justify-start min-h-[160px]">
+          <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-500 flex items-center justify-center text-xl mb-3"><i class="fas fa-microphone-lines"></i></div>
+          <h4 class="text-sm font-bold text-gray-900 font-display mb-1">Noise Monitor</h4>
+          <p class="text-[11px] text-gray-400 leading-snug">Track classroom volume & award points</p>
+        </div>
+
+        <div onclick="runUtilityDemo('fortune', this)" class="tool-card-interactive bg-white border border-gray-200 rounded-2xl p-5 text-center cursor-pointer shadow-sm flex flex-col items-center justify-start min-h-[160px]">
+          <div class="w-12 h-12 rounded-xl bg-green-50 text-brand-green flex items-center justify-center text-xl mb-3"><i class="fas fa-shield-cat"></i></div>
+          <h4 class="text-sm font-bold text-gray-900 font-display mb-1">House of Fortune</h4>
+          <p class="text-[11px] text-gray-400 leading-snug">Pick a random house</p>
+        </div>
+
+        <div onclick="runUtilityDemo('mindfulness', this)" class="tool-card-interactive bg-white border border-gray-200 rounded-2xl p-5 text-center cursor-pointer shadow-sm flex flex-col items-center justify-start min-h-[160px]">
+          <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl mb-3"><i class="fas fa-brain"></i></div>
+          <h4 class="text-sm font-bold text-gray-900 font-display mb-1">Mindfulness Mode 🧘</h4>
+          <p class="text-[11px] text-gray-400 leading-snug">House wellness challenges, breathing exercises & focus timers</p>
+        </div>
+
+        <div onclick="runUtilityDemo('housetimers', this)" class="tool-card-interactive bg-white border border-gray-200 rounded-2xl p-5 text-center cursor-pointer shadow-sm flex flex-col items-center justify-start min-h-[160px] border-t-2 border-t-brand-blue">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center text-xl mb-3"><i class="fas fa-hourglass-start"></i></div>
+          <h4 class="text-sm font-bold text-gray-900 font-display mb-1">House Timers</h4>
+          <p class="text-[11px] text-gray-400 leading-snug">Individual timers for each house</p>
+        </div>
+
+        <div onclick="runUtilityDemo('magictimer', this)" class="tool-card-interactive bg-white border border-gray-200 rounded-2xl p-5 text-center cursor-pointer shadow-sm flex flex-col items-center justify-start min-h-[160px]">
+          <div class="w-12 h-12 rounded-xl bg-blue-50 text-brand-blue flex items-center justify-center text-xl mb-3"><i class="fas fa-stopwatch"></i></div>
+          <h4 class="text-sm font-bold text-gray-900 font-display mb-1">Magic Timer</h4>
+          <p class="text-[11px] text-gray-400 leading-snug">Manage classroom time</p>
+        </div>
+
+        <div onclick="runUtilityDemo('duomode', this)" class="tool-card-interactive bg-white border border-gray-200 rounded-2xl p-5 text-center cursor-pointer shadow-sm flex flex-col items-center justify-start min-h-[160px]">
+          <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-500 flex items-center justify-center text-xl mb-3"><i class="fas fa-cubes"></i></div>
+          <h4 class="text-sm font-bold text-gray-900 font-display mb-1">Duo Mode</h4>
+          <p class="text-[11px] text-gray-400 leading-snug">Timer + Magic Hat</p>
+        </div>
+
+        <div onclick="runUtilityDemo('rolespinner', this)" class="tool-card-interactive bg-white border border-gray-200 rounded-2xl p-5 text-center cursor-pointer shadow-sm flex flex-col items-center justify-start min-h-[160px]">
+          <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-500 flex items-center justify-center text-xl mb-3"><i class="fas fa-address-card"></i></div>
+          <h4 class="text-sm font-bold text-gray-900 font-display mb-1">Role Spinner</h4>
+          <p class="text-[11px] text-gray-400 leading-snug">Assign classroom jobs</p>
+        </div>
+
+        <div onclick="runUtilityDemo('groupmaker', this)" class="tool-card-interactive bg-white border border-gray-200 rounded-2xl p-5 text-center cursor-pointer shadow-sm flex flex-col items-center justify-start min-h-[160px]">
+          <div class="w-12 h-12 rounded-xl bg-blue-50 text-brand-blue flex items-center justify-center text-xl mb-3"><i class="fas fa-users-gear"></i></div>
+          <h4 class="text-sm font-bold text-gray-900 font-display mb-1">Group Maker</h4>
+          <p class="text-[11px] text-gray-400 leading-snug">Groups & attendance tracker</p>
+        </div>
+
+        <div onclick="runUtilityDemo('questboard', this)" class="tool-card-interactive bg-white border border-gray-200 rounded-2xl p-5 text-center cursor-pointer shadow-sm flex flex-col items-center justify-start min-h-[160px]">
+          <div class="w-12 h-12 rounded-xl bg-yellow-50 text-yellow-600 flex items-center justify-center text-xl mb-3"><i class="fas fa-map"></i></div>
+          <h4 class="text-sm font-bold text-gray-900 font-display mb-1">Quest Board</h4>
+          <p class="text-[11px] text-gray-400 leading-snug">Find the Treasure</p>
+        </div>
+
+        <div onclick="runUtilityDemo('snakes', this)" class="tool-card-interactive bg-white border border-gray-200 rounded-2xl p-5 text-center cursor-pointer shadow-sm flex flex-col items-center justify-start min-h-[160px]">
+          <div class="w-12 h-12 rounded-xl bg-green-50 text-brand-green flex items-center justify-center text-xl mb-3"><i class="fas fa-dice"></i></div>
+          <h4 class="text-sm font-bold text-gray-900 font-display mb-1">Snakes & Ladders</h4>
+          <p class="text-[11px] text-gray-400 leading-snug">Race to the Top!</p>
+        </div>
+
+        <div onclick="runUtilityDemo('quickquiz', this)" class="tool-card-interactive bg-white border border-gray-200 rounded-2xl p-5 text-center cursor-pointer shadow-sm flex flex-col items-center justify-start min-h-[160px]">
+          <div class="w-12 h-12 rounded-xl bg-blue-50 text-brand-blue flex items-center justify-center text-xl mb-3"><i class="fas fa-lightbulb"></i></div>
+          <h4 class="text-sm font-bold text-gray-900 font-display mb-1">Quick Quiz</h4>
+          <p class="text-[11px] text-gray-400 leading-snug">ATL Skills & Values</p>
+        </div>
+
+        <div onclick="runUtilityDemo('secretcode', this)" class="tool-card-interactive bg-white border border-gray-200 rounded-2xl p-5 text-center cursor-pointer shadow-sm flex flex-col items-center justify-start min-h-[160px]">
+          <div class="w-12 h-12 rounded-xl bg-green-50 text-brand-green flex items-center justify-center text-xl mb-3"><i class="fas fa-key"></i></div>
+          <h4 class="text-sm font-bold text-gray-900 font-display mb-1">Secret Code</h4>
+          <p class="text-[11px] text-gray-400 leading-snug">Create claim codes for points</p>
+        </div>
+
+        <div onclick="runUtilityDemo('certstudio', this)" class="tool-card-interactive bg-white border border-gray-200 rounded-2xl p-5 text-center cursor-pointer shadow-sm flex flex-col items-center justify-start min-h-[160px]">
+          <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl mb-3"><i class="fas fa-award"></i></div>
+          <h4 class="text-sm font-bold text-gray-900 font-display mb-1">Certificate Studio</h4>
+          <p class="text-[11px] text-gray-400 leading-snug">Generate and print student certificates</p>
+        </div>
+
+      </div>
+    </section>
+
+    <article class="prose max-w-none text-gray-700 space-y-6 leading-relaxed mt-10">
+      
+      <p class="text-lg">
+        Every teacher knows that noticeboards and prize jars can work miracles. Whether you use star charts, raffle tickets, or table points, giving kids direct recognition completely changes the behavior and mood in your room.
       </p>
       <p>
-        While legacy software treats points as a basic checklist, modern classrooms need dynamic utilities. The <strong>TrackEDU Teacher Starter Plan</strong> provides an entire suite of 12+ classroom management tools for individual teachers completely for free. Let's dig into the actual educational science behind token rewards and look at how TrackEDU compares directly to limited alternatives like ClassDojo.
+        But let’s be honest: <strong>managing a reward system manually is exhausting.</strong> If you spend your prep time or weekends typing points into a giant spreadsheet, sorting out plastic tokens, or dealing with kids arguing over who got what—you are losing precious hours.
+      </p>
+      <p>
+        That is why we created the <strong>TrackEDU Teacher Starter Plan</strong>. It is a 100% free classroom points tracker built to bring instant motivation to your classroom dashboard. You don't need a school budget, and you don't need administration permission to start using it today.
       </p>
 
       <h2 class="font-display text-2xl md:text-3xl font-black text-brand-dark pt-4">
-        <i class="fas fa-microscope text-brand-blue mr-2"></i>What the Research Says: The Power of Digital Token Economies
+        <i class="fas fa-brain text-brand-blue mr-2"></i>What the Science Says: Why Instant Rewards Work
       </h2>
       <p>
-        Systematic behavior management isn't just a trend; it is deeply rooted in modern learning science. Behavioral researchers rely heavily on B.F. Skinner's <strong>Operant Learning Theory</strong>, which proves that immediate, structured reinforcement alters long-term behavioral trajectories. 
+        There is decades of educational research behind why kids respond so well to point systems (also known as a token economy). Behavioral science shows that learning is strongest when positive actions are recognized right away. 
       </p>
       <p>
-        Recent educational empirical studies confirm the massive impact of moving behavior rewards out of spreadsheets and into digital systems:
+        When you use a clear, digital points system, two major things happen in a student's brain:
       </p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
         <div class="bg-white border border-gray-200 p-5 rounded-2xl shadow-sm">
-          <div class="text-2xl mb-2">📈</div>
-          <h4 class="font-bold text-brand-dark text-base mb-1">Massive Participation Increases</h4>
+          <div class="text-2xl mb-2">⚡</div>
+          <h4 class="font-bold text-brand-dark text-base mb-1">Instant Motivation Boosts</h4>
           <p class="text-xs text-gray-500 leading-relaxed">
-            A large-scale behavioral study analyzing structured token economies observed a massive statistically significant jump in student involvement, moving classroom baseline metrics forward with exceptionally large effect sizes.
+            Studies show that visual trackers give students a regular sense of progress. Instead of waiting until the end of the term to find out how they are doing, they see their daily wins immediately.
           </p>
         </div>
         <div class="bg-white border border-gray-200 p-5 rounded-2xl shadow-sm">
-          <div class="text-2xl mb-2">🧠</div>
-          <h4 class="font-bold text-brand-dark text-base mb-1">Enhanced Self-Regulation</h4>
+          <div class="text-2xl mb-2">🎯</div>
+          <h4 class="font-bold text-brand-dark text-base mb-1">Fewer Classroom Disruptions</h4>
           <p class="text-xs text-gray-500 leading-relaxed">
-            Clinical research reveals that automated digital reward tracking drastically improves students' emotional self-regulation, providing the immediate feedback loop necessary to strengthen sustained focus and minimize externalized behavioral disruptions.
+            When you actively praise and award points for good habits (like quiet reading or smooth transitions), off-task behaviors like blurting out or wandering around naturally drop.
           </p>
         </div>
       </div>
 
       <p>
-        The core takeaway is simple: **Immediacy and consistency matter.** When rewards are delayed or manual points sit locked in a teacher's laptop spreadsheet, the behavioral loop breaks. A real-time digital tracker bridges this gap, directly linking positive choices to a tangible sense of achievement.
+        The lesson is simple: **speed matters.** If kids have to wait days to see their rewards, the excitement fades. Tracking points digitally connects good behavior directly to celebration, making it stick.
       </p>
 
       <h2 class="font-display text-2xl md:text-3xl font-black text-brand-dark pt-6">
-        <i class="fas fa-balance-scale text-brand-green mr-2"></i>TrackEDU vs. ClassDojo: Why 12+ Integrated Tools Defeat Limited Systems
+        <i class="fas fa-balance-scale text-brand-green mr-2"></i>TrackEDU vs. ClassDojo: Built for Classroom Routines
       </h2>
       <p>
-        When teachers look for a digital point tool, they often fall back on ClassDojo by default. While ClassDojo serves as a useful parent communication application, its actual in-class execution layers are surprisingly limited. It treats behavior tracking as an isolated metric, leaving teachers to rely on separate third-party websites to handle the rest of their routines.
+        A lot of teachers naturally think of ClassDojo first. But while Dojo is great for texting parents, its classroom tools are quite limited. It mostly just tracks basic points, forcing you to open four or five other tabs or websites to run your regular daily routines.
       </p>
       <p>
-        <strong>TrackEDU is built differently.</strong> Instead of an app focused on parental messaging, TrackEDU gives you a comprehensive **Classroom Command Center** packed with over 12 built-in teacher utilities.
+        <strong>TrackEDU is built differently.</strong> It isn't a parent messaging app—it is your actual **Classroom Dashboard**. It combines your points tracker with over 12 essential tools you need to run a lesson smoothly, all on one screen.
       </p>
 
       <div class="overflow-x-auto my-6 border border-gray-200 rounded-2xl bg-white shadow-sm">
         <table class="w-full text-left border-collapse text-sm">
           <thead>
             <tr class="bg-brand-dark text-white font-display">
-              <th class="p-4 font-bold">Capability Grid</th>
-              <th class="p-4 font-bold text-gray-300">ClassDojo Framework</th>
+              <th class="p-4 font-bold">What Can It Do?</th>
+              <th class="p-4 font-bold text-gray-300">ClassDojo</th>
               <th class="p-4 font-bold bg-brand-blue/10 text-brand-blue"><i class="fas fa-star text-brand-green mr-1"></i> TrackEDU Free Plan</th>
             </tr>
           </thead>
           <tbody class="divide-y divide-gray-100">
             <tr>
-              <td class="p-4 font-bold text-brand-dark">Behavior Points</td>
-              <td class="p-4 text-gray-500">Standard +/- point bubbles.</td>
-              <td class="p-4 font-medium bg-blue-50/30">Instant points, whole-class splits, and built-in undo loops.</td>
+              <td class="p-4 font-bold text-brand-dark">Awarding Points</td>
+              <td class="p-4 text-gray-500">Standard point bubbles.</td>
+              <td class="p-4 font-medium bg-blue-50/30">Instant points, whole-class splits, and one-tap undo tools.</td>
             </tr>
             <tr>
-              <td class="p-4 font-bold text-brand-dark">Noise Self-Regulation</td>
-              <td class="p-4 text-gray-500">Requires a separate app layout.</td>
-              <td class="p-4 font-medium bg-blue-50/30"><strong>Class Calm Meter:</strong> Integrated interactive smartboard volume tracker.</td>
+              <td class="p-4 font-bold text-brand-dark">Noise Control</td>
+              <td class="p-4 text-gray-500">Not built into the main screen.</td>
+              <td class="p-4 font-medium bg-blue-50/30"><strong>Class Calm Meter:</strong> Live volume tracker to project on the board.</td>
             </tr>
             <tr>
-              <td class="p-4 font-bold text-brand-dark">Formative Engagement</td>
-              <td class="p-4 text-gray-500">None built-in.</td>
-              <td class="p-4 font-medium bg-blue-50/30"><strong>Quick Quiz Hub:</strong> 250+ built-in SEL and values discussion prompts.</td>
+              <td class="p-4 font-bold text-brand-dark">Morning Activities</td>
+              <td class="p-4 text-gray-500">None included.</td>
+              <td class="p-4 font-medium bg-blue-50/30"><strong>Quick Quiz:</strong> 250+ built-in prompts for discussions and warm-ups.</td>
             </tr>
             <tr>
-              <td class="p-4 font-bold text-brand-dark">Student Grouping</td>
-              <td class="p-4 text-gray-500">Basic randomizer grouping list.</td>
-              <td class="p-4 font-medium bg-blue-50/30"><strong>Squad Builder:</strong> Advanced randomized clustering tools mixed by house teams.</td>
+              <td class="p-4 font-bold text-brand-dark">Group Maker</td>
+              <td class="p-4 text-gray-500">Basic random list generator.</td>
+              <td class="p-4 font-medium bg-blue-50/30"><strong>Squad Builder:</strong> Advanced group makers that can mix by house teams.</td>
             </tr>
             <tr>
-              <td class="p-4 font-bold text-brand-dark">Physical Assets</td>
+              <td class="p-4 font-bold text-brand-dark">Printable Awards</td>
               <td class="p-4 text-gray-500">None natively printable.</td>
-              <td class="p-4 font-medium bg-blue-50/30"><strong>Certificate Studio:</strong> Automated, printable custom achievement slips.</td>
+              <td class="p-4 font-medium bg-blue-50/30"><strong>Certificate Studio:</strong> Print beautiful certificates in seconds.</td>
             </tr>
           </tbody>
         </table>
       </div>
 
       <h2 class="font-display text-2xl md:text-3xl font-black text-brand-dark pt-4">
-        Deep Dive: The Free Classroom Ecosystem
+        Setting Up Takes Just 5 Minutes
       </h2>
       <p>
-        The free tier of TrackEDU isn't a watered-down demo. It is a completely self-contained environment built to streamline 12+ daily procedures directly from a single screen:
-      </p>
-
-      <ul class="space-y-3 bg-white p-6 rounded-2xl border border-gray-200 shadow-sm my-6">
-        <li class="flex items-start gap-2.5">
-          <i class="fas fa-magic text-brand-blue text-base mt-0.5"></i>
-          <span><strong>The Magic Hat Picker:</strong> A beautiful random selector wheel that turns student participation into a game-show experience, instantly awarding points upon selection.</span>
-        </li>
-        <li class="flex items-start gap-2.5">
-          <i class="fas fa-volume-high text-brand-blue text-base mt-0.5"></i>
-          <span><strong>Class Calm Meter:</strong> A real-time sound monitor that rewards classrooms for maintaining quiet work environments without the teacher needing to say a word.</span>
-        </li>
-        <li class="flex items-start gap-2.5">
-          <i class="fas fa-hourglass-half text-brand-blue text-base mt-0.5"></i>
-          <span><strong>Lesson Transistion Timers:</strong> Keep pacing structures optimized and visual so students can track independent work countdown windows seamlessly.</span>
-        </li>
-        <li class="flex items-start gap-2.5">
-          <i class="fas fa-trophy text-brand-blue text-base mt-0.5"></i>
-          <span><strong>Whole Class Splitting:</strong> Drop large point injections across your entire roster or divide them evenly across internal house clusters with one click.</span>
-        </li>
-      </ul>
-
-      <blockquote class="border-l-4 border-brand-green bg-green-50/50 rounded-r-xl p-5 my-6 italic text-gray-700">
-        <i class="fas fa-quote-left text-brand-green text-xl block mb-2 opacity-40"></i>
-        "TrackEDU replaces the noise of multiple single-use tools. I pull up the command dash on my projector block in the morning, and my noise meter, grouping system, and point tallies live together all day."
-        <span class="block text-xs font-bold text-brand-dark mt-2 not-italic">— Mr. Davies, Primary School Lead</span>
-      </blockquote>
-
-      <h2 class="font-display text-2xl md:text-3xl font-black text-brand-dark pt-4">
-        Zero Friction Setup: Build Your Space in 5 Minutes
-      </h2>
-      <p>
-        We intentionally cut out the long procurement delays and onboarding structures that hold back traditional platforms. Teachers can launch their free workspace independently today:
+        You do not need to wait for IT managers or system sign-offs. Individual teachers can set up their free account right now:
       </p>
       
       <ol class="space-y-4 my-6">
         <li class="flex gap-4 items-start">
           <span class="w-6 h-6 rounded-full bg-brand-blue text-white flex items-center justify-center text-xs font-black shrink-0 mt-0.5">1</span>
           <div>
-            <strong>Google Sign-In Authentication:</strong> Authenticate securely at <a href="https://housepoint.trackedu.net/" target="_blank" class="text-brand-blue font-bold underline hover:text-brand-green">housepoint.trackedu.net</a> using your existing school Google credentials.
+            <strong>Sign In Natively:</strong> Head over to <a href="https://housepoint.trackedu.net/" target="_blank" class="text-brand-blue font-bold underline hover:text-brand-green">housepoint.trackedu.net</a> and sign in instantly using your school Google account.
           </div>
         </li>
         <li class="flex gap-4 items-start">
           <span class="w-6 h-6 rounded-full bg-brand-blue text-white flex items-center justify-center text-xs font-black shrink-0 mt-0.5">2</span>
           <div>
-            <strong>Label Your Workspace Layer:</strong> To bypass admin domains, simply name the space after your room or section code (e.g., <em>"Room 102 Grade 4"</em>).
+            <strong>Name Your Class:</strong> Because you are setting this up just for your room, type in your class name (like <em>"Ms. Ahmed's Year 5"</em> or <em>"Room 204 Science"</em>).
           </div>
         </li>
         <li class="flex gap-4 items-start">
           <span class="w-6 h-6 rounded-full bg-brand-blue text-white flex items-center justify-center text-xs font-black shrink-0 mt-0.5">3</span>
           <div>
-            <strong>Roster Initialization:</strong> Manually input your student names or upload your class spreadsheet directly through the clean CSV import panel.
+            <strong>Add Your Students:</strong> Type student names in manually or copy-paste them straight from your class spreadsheet using our fast CSV upload tool.
           </div>
         </li>
       </ol>
@@ -232,7 +636,7 @@
       <div class="bg-blue-50 border border-blue-100 rounded-2xl p-4 flex gap-3 items-center text-xs text-gray-600 my-6 text-left">
         <i class="fas fa-user-shield text-base text-brand-blue"></i>
         <span>
-          <strong>Data Protection Compliance:</strong> TrackEDU enforces strict privacy parameters. Our platform doesn't sell profiles or host advertisements. Furthermore, our architecture operates completely without tracking student emails or password storage.
+          <strong>Simple, Compliant Data Privacy:</strong> We take data safety seriously. TrackEDU has no ads, never sells info, and **requires no student email addresses** or passwords. Your kids never have to sign into anything.
         </span>
       </div>
 
@@ -244,28 +648,28 @@
       
       <div class="relative z-10 max-w-2xl mx-auto">
         <span class="text-brand-green text-xs font-black uppercase tracking-[0.2em] bg-white/5 border border-white/10 px-3 py-1.5 rounded-full inline-block mb-4">
-          Free Single Classroom Layer
+          Free Single Classroom Plan
         </span>
         <h2 class="font-display text-3xl md:text-4xl font-black mb-4 tracking-tight leading-tight">
-          Supercharge your classroom motivation today.
+          Bring some magic back into your classroom routines.
         </h2>
         <p class="text-slate-300 text-base md:text-lg mb-8 leading-relaxed">
-          Ditch the limited tracking systems and messy spreadsheets. Claim your free account now and gain instant access to all 12+ classroom tools forever.
+          Stop wrestling with slow spreadsheets and separate apps. Get your free dashboard right now and unlock all 12+ teaching tools instantly.
         </p>
         
         <div class="flex flex-col sm:flex-row gap-4 items-center justify-center">
           <a href="https://housepoint.trackedu.net/" target="_blank" class="w-full sm:w-auto px-8 py-4 bg-brand-green hover:bg-green-500 text-brand-dark font-black rounded-xl transition-all duration-300 shadow-xl shadow-brand-green/20 hover:-translate-y-0.5 flex items-center justify-center gap-2 text-base">
-            <i class="fas fa-rocket"></i> Launch Free Teacher Account
+            <i class="fas fa-rocket"></i> Open My Free Teacher Account
           </a>
           <a href="https://www.trackedu.net/#pricing" class="w-full sm:w-auto px-6 py-4 bg-white/5 hover:bg-white/10 border border-white/15 text-white font-bold rounded-xl transition-all duration-200 text-sm">
-            Explore Whole-School Solutions
+            Looking for Whole-School Licenses?
           </a>
         </div>
         
         <div class="flex flex-wrap items-center justify-center gap-6 mt-8 text-xs text-slate-400 font-medium">
           <div><i class="fas fa-check text-brand-green mr-1.5"></i> Free forever for 1 class</div>
-          <div><i class="fas fa-times text-brand-blue mr-1.5"></i> No credit cards or contracts</div>
-          <div><i class="fas fa-shield-halved text-brand-green mr-1.5"></i> ICO Data Compliant</div>
+          <div><i class="fas fa-times text-brand-blue mr-1.5"></i> No credit card or contracts required</div>
+          <div><i class="fas fa-shield-halved text-brand-green mr-1.5"></i> ICO Registered Data Protection</div>
         </div>
       </div>
     </section>
@@ -280,6 +684,89 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    let simPoints = 213;
+
+    // Module 1: Reward Board Progress Tracker Engine
+    function renderPointsEngine() {
+      document.getElementById('live-total-pts').innerText = simPoints;
+      const cards = document.querySelectorAll('.reward-card');
+
+      cards.forEach(card => {
+        const goal = parseInt(card.getAttribute('data-goal'));
+        const progressBar = card.querySelector('.progress-bar');
+        const progressText = card.querySelector('.progress-text');
+        const statusBadge = card.querySelector('.status-badge');
+
+        let percentage = Math.min((simPoints / goal) * 100, 100);
+        progressBar.style.width = percentage + '%';
+        progressText.innerText = `${simPoints} / ${goal.toLocaleString()} pts`;
+
+        if (simPoints >= goal) {
+          card.classList.add('unlocked-state');
+          progressBar.style.backgroundColor = '#87C232';
+          statusBadge.innerHTML = `<i class="fas fa-check-circle text-brand-green"></i> Unlocked!`;
+          statusBadge.className = "status-badge text-[10px] font-bold px-2 py-0.5 rounded bg-green-100 text-green-700 border border-green-200 transition-all flex items-center gap-1";
+        } else {
+          card.classList.remove('unlocked-state');
+          progressBar.style.backgroundColor = '#0f66c3';
+          statusBadge.innerHTML = `<i class="fas fa-lock text-[9px]"></i> Locked`;
+          statusBadge.className = "status-badge text-[10px] font-bold px-2 py-0.5 rounded bg-gray-100 text-gray-400 border border-gray-200/60 transition-all flex items-center gap-1";
+        }
+      });
+    }
+
+    function adjustSimPoints(amount) {
+      simPoints += amount;
+      if (simPoints < 0) simPoints = 0;
+      if (simPoints > 5000) simPoints = 5000;
+      renderPointsEngine();
+    }
+
+    // Module 2: Classroom Utilities Grid Engine Simulation
+    function runUtilityDemo(toolKey, element) {
+      const displayBar = document.getElementById('utility-sandbox-notifier');
+      const displayText = document.getElementById('notifier-text');
+      const iconNode = element.querySelector('.w-12');
+      
+      // Temporarily flash visual cue on container
+      displayBar.classList.add('bg-purple-50', 'border-purple-200');
+      setTimeout(() => displayBar.classList.remove('bg-purple-50', 'border-purple-200'), 600);
+
+      // Spin effect icon
+      if (iconNode) {
+        iconNode.classList.add('animate-fast-spin');
+        setTimeout(() => iconNode.classList.remove('animate-fast-spin'), 1200);
+      }
+
+      // Live Simulator Prompt Responses
+      const toolsManifest = {
+        'dashboard': "📊 Opening Class Dashboard... Loaded! Roster analytics and 3 recent celebration milestones are visible.",
+        'magichat': "🎩 Magic Hat spinning... Congratulations, Sarah J. has been selected! Awarded +5 points for participation.",
+        'noisemonitor': "🎙️ Noise Monitor tracking volume level... Status: Green (Calm). Your class has earned a +10 teamwork boost!",
+        'fortune': "🟢 Spinning House Wheel... Terra House selected! All Terra students instantly receive a +10 group bump.",
+        'mindfulness': "🧘 Focus Timer initiated: 1-minute breathing prompt active. Class tracking screen dims into relaxation mode.",
+        'housetimers': "⏱️ House Timers synced. Multi-column tracking clocks are running individual lap counts for each house.",
+        'magictimer': "⏰ Magic countdown set for 15 minutes. Smartboard indicator switches into active task monitoring layout.",
+        'duomode': "🔀 Duo Mode active: Running random name draw simultaneously alongside an active transition block timer.",
+        'rolespinner': "📋 Spinner rotating... Job assigned: Michael T. is designated as today's clean-up leader.",
+        'groupmaker': "👥 Group Maker initialized: Automatically splitting 24 active students into 6 balanced table cohorts.",
+        'questboard': "🗺️ Quest Board opened. Mission: 'Find the Treasure'. Students can now lock points into the class milestone objective.",
+        'snakes': "🎲 Snakes & Ladders: Ignis House rolled a 5! Moving forward 5 squares on the global smartboard tracker tracker board.",
+        'quickquiz': "🧠 Loading Quick Quiz prompt: 'What does perseverance mean in your own words?' Open for board discussion.",
+        'secretcode': "🔑 Secure Key Code string generated: 'READ2026'. Students input this string into their portal to claim token drops.",
+        'certstudio': "📜 Certificate Studio compilation active. Pulling top point earners to compile printable award PDFs."
+      };
+
+      displayText.innerHTML = toolsManifest[toolKey] || "Tool simulation activated!";
+    }
+
+    // Initialize board state on load
+    window.addEventListener('DOMContentLoaded', () => {
+      renderPointsEngine();
+    });
+  </script>
 
 </body>
 </html>
