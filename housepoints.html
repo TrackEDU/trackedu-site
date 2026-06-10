@@ -2163,7 +2163,261 @@ html { scroll-padding-top: 100px; }
 }
 
 
-  </style>
+  /* ==========================================
+   COLLAPSIBLE SECTION HEADERS
+   Clearer, colour-coded, easier to scan
+   ========================================== */
+
+.collapsible-section {
+  width: 100%;
+  background: #ffffff;
+}
+
+.collapsible-section details {
+  width: 100%;
+}
+
+.collapsible-section summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.collapsible-section summary::-webkit-details-marker {
+  display: none;
+}
+
+.collapse-section-header {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  transition: all 0.22s ease;
+}
+
+.collapse-section-inner {
+  max-width: 80rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 1rem;
+}
+
+.collapse-section-label {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.collapse-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.95rem;
+}
+
+.collapse-text-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.collapse-kicker {
+  font-size: 0.74rem;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: #0C1E2C;
+  line-height: 1.1;
+}
+
+.collapse-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #475569;
+  line-height: 1.35;
+}
+
+.collapse-open-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.8rem;
+  font-weight: 950;
+  white-space: nowrap;
+  padding: 0.55rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+}
+
+.collapsible-section details[open] .collapse-open-text i {
+  transform: rotate(180deg);
+}
+
+.collapse-open-text i {
+  transition: transform 0.2s ease;
+}
+
+.collapsible-content {
+  width: 100%;
+}
+
+/* Default hover lift */
+.collapse-section-header:hover {
+  transform: translateY(-1px);
+}
+
+/* SECTION COLOURS */
+
+.collapse-why {
+  background: linear-gradient(90deg, #eff6ff 0%, #f8fbff 50%, #eff6ff 100%);
+  border-top-color: #bfdbfe;
+  border-bottom-color: #bfdbfe;
+}
+.collapse-why .collapse-icon {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+.collapse-why .collapse-open-text {
+  background: #dbeafe;
+  color: #1d4ed8;
+  border-color: #bfdbfe;
+}
+
+.collapse-problem {
+  background: linear-gradient(90deg, #fff1f2 0%, #fff7f7 50%, #fff1f2 100%);
+  border-top-color: #fecdd3;
+  border-bottom-color: #fecdd3;
+}
+.collapse-problem .collapse-icon {
+  background: #ffe4e6;
+  color: #e11d48;
+}
+.collapse-problem .collapse-open-text {
+  background: #ffe4e6;
+  color: #be123c;
+  border-color: #fecdd3;
+}
+
+.collapse-preview {
+  background: linear-gradient(90deg, #f5f3ff 0%, #faf8ff 50%, #f5f3ff 100%);
+  border-top-color: #ddd6fe;
+  border-bottom-color: #ddd6fe;
+}
+.collapse-preview .collapse-icon {
+  background: #ede9fe;
+  color: #7c3aed;
+}
+.collapse-preview .collapse-open-text {
+  background: #ede9fe;
+  color: #6d28d9;
+  border-color: #ddd6fe;
+}
+
+.collapse-benefits {
+  background: linear-gradient(90deg, #ecfdf5 0%, #f7fff9 50%, #ecfdf5 100%);
+  border-top-color: #bbf7d0;
+  border-bottom-color: #bbf7d0;
+}
+.collapse-benefits .collapse-icon {
+  background: #dcfce7;
+  color: #15803d;
+}
+.collapse-benefits .collapse-open-text {
+  background: #dcfce7;
+  color: #166534;
+  border-color: #bbf7d0;
+}
+
+.collapse-updates {
+  background: linear-gradient(90deg, #fff7ed 0%, #fffaf5 50%, #fff7ed 100%);
+  border-top-color: #fed7aa;
+  border-bottom-color: #fed7aa;
+}
+.collapse-updates .collapse-icon {
+  background: #ffedd5;
+  color: #ea580c;
+}
+.collapse-updates .collapse-open-text {
+  background: #ffedd5;
+  color: #c2410c;
+  border-color: #fed7aa;
+}
+
+.collapse-pilot {
+  background: linear-gradient(90deg, #ecfeff 0%, #f5feff 50%, #ecfeff 100%);
+  border-top-color: #a5f3fc;
+  border-bottom-color: #a5f3fc;
+}
+.collapse-pilot .collapse-icon {
+  background: #cffafe;
+  color: #0f766e;
+}
+.collapse-pilot .collapse-open-text {
+  background: #cffafe;
+  color: #0f766e;
+  border-color: #a5f3fc;
+}
+
+.collapse-faq {
+  background: linear-gradient(90deg, #f8fafc 0%, #ffffff 50%, #f8fafc 100%);
+  border-top-color: #cbd5e1;
+  border-bottom-color: #cbd5e1;
+}
+.collapse-faq .collapse-icon {
+  background: #e2e8f0;
+  color: #334155;
+}
+.collapse-faq .collapse-open-text {
+  background: #e2e8f0;
+  color: #334155;
+  border-color: #cbd5e1;
+}
+
+@media (max-width: 767px) {
+  .collapse-section-header {
+    padding: 0.9rem 1rem;
+  }
+
+  .collapse-section-inner {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .collapse-section-label {
+    align-items: flex-start;
+  }
+
+  .collapse-icon {
+    width: 2.1rem;
+    height: 2.1rem;
+    border-radius: 0.75rem;
+    font-size: 0.82rem;
+  }
+
+  .collapse-kicker {
+    font-size: 0.66rem;
+  }
+
+  .collapse-title {
+    font-size: 0.76rem;
+  }
+
+  .collapse-open-text {
+    width: fit-content;
+    font-size: 0.72rem;
+    padding: 0.45rem 0.7rem;
+    margin-left: 2.95rem;
+  }
+}
+
+</style>
 </head>
 <body class="antialiased text-gray-800 overflow-x-hidden">
 
@@ -2187,11 +2441,10 @@ html { scroll-padding-top: 100px; }
       
      <!-- Desktop Navigation Links -->
 <div class="flex items-center gap-5">
-  <a href="#why-trackedu-section" class="text-sm font-bold text-gray-800 hover:text-brand-blue transition">Why TrackEDU</a>
-  <a href="https://www.trackedu.net/facilities.html" class="text-sm font-bold text-gray-800 hover:text-brand-blue transition">Facility Booking</a>
-  <a href="#tools-section" class="text-sm font-bold text-gray-800 hover:text-brand-blue transition">Recognition Tools</a>
-  <a href="#how-to-start" class="text-sm font-bold text-gray-800 hover:text-brand-blue transition">How to Start</a>
-  <a href="#pricing" class="text-sm font-bold text-gray-800 hover:text-brand-blue transition">Plans</a>
+  <a href="#three-tools" class="text-sm font-bold text-gray-800 hover:text-brand-blue transition">How It Works</a>
+  <a href="#pricing" class="text-sm font-bold text-gray-800 hover:text-brand-blue transition">Pricing</a>
+  <a href="#faq" class="text-sm font-bold text-gray-800 hover:text-brand-blue transition">FAQ</a>
+  <a href="https://www.trackedu.net/facilities.html" target="_blank" rel="noopener noreferrer" class="text-sm font-bold text-gray-800 hover:text-brand-blue transition">Facility Booking</a>
 
   <!-- More Dropdown -->
   <div class="relative">
@@ -2202,12 +2455,12 @@ html { scroll-padding-top: 100px; }
 
     <div id="desktopMoreMenu" class="absolute right-0 top-full mt-2 w-60 bg-white/95 backdrop-blur-md border border-gray-200 rounded-2xl shadow-xl p-2 opacity-0 invisible translate-y-2 transition-all duration-200 z-[200]">
 
-      <a href="#business" onclick="closeDesktopMoreMenu()" class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold text-gray-700 hover:bg-gray-100 hover:text-brand-blue transition">
-        <i class="fas fa-chart-line text-brand-blue w-4"></i>
-        Why It Works
-      </a>
+      <a href="#business" onclick="closeDesktopMoreMenu()" class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold text-gray-700 hover:bg-green-50 hover:text-brand-green transition">
+  <i class="fas fa-chart-line text-brand-green w-4"></i>
+  Benefits
+</a>
 
-      <a href="#founding-video-section" onclick="closeDesktopMoreMenu(); document.getElementById('founding-video-section').scrollIntoView({behaviour: 'smooth', block: 'start'}); return false;" class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold text-gray-700 hover:bg-gray-100 hover:text-brand-green transition">
+      <a href="#founding-video-section" onclick="closeDesktopMoreMenu(); document.getElementById('founding-video-section').scrollIntoView({behavior: 'smooth', block: 'start'}); return false;" class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold text-gray-700 hover:bg-gray-100 hover:text-brand-green transition">
         <i class="fas fa-crown text-brand-green w-4"></i>
         Founding Schools
         <span class="ml-auto text-red-500 text-[10px] font-black">3 left</span>
@@ -2266,7 +2519,7 @@ html { scroll-padding-top: 100px; }
     <!-- Mobile/Tablet: Logo + Hamburger Menu -->
     <div class="flex lg:hidden items-center justify-between">
       <!-- Logo -->
-<a href="#" onclick="window.scrollTo({top: 0, behaviour: 'smooth'}); return false;" class="flex items-center gap-1.5">
+<a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="flex items-center gap-1.5">
   <img src="https://trackedu.github.io/common-assets/trackedulogono.png" alt="TrackEDU Logo" class="w-6 h-6 object-contain" style="object-fit: contain; transform: scale(1.3);">
   <span class="font-display text-xl font-black text-brand-dark tracking-tighter">
     Track<span class="text-brand-green">EDU</span>
@@ -2292,7 +2545,7 @@ html { scroll-padding-top: 100px; }
     <!-- Menu Header - SMALLER HEIGHT -->
     <div class="px-5 py-3 border-b border-gray-100">  <!-- Changed from p-5 py-5 to px-5 py-3 -->
       <div class="flex justify-between items-center gap-4">
-        <a href="#" onclick="window.scrollTo({top: 0, behaviour: 'smooth'}); closeMobileMenu(); return false;" class="flex items-center gap-1.5">  <!-- Changed gap-2 to gap-1.5 -->
+        <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); closeMobileMenu(); return false;" class="flex items-center gap-1.5">  <!-- Changed gap-2 to gap-1.5 -->
           <img src="https://trackedu.github.io/common-assets/trackedulogono.png" alt="TrackEDU Logo" class="w-6 h-6 object-contain" style="object-fit: contain; transform: scale(1.3);">  <!-- Changed w-8 h-8 to w-6 h-6 -->
           <span class="font-display text-xl font-black text-brand-dark tracking-tighter">  <!-- Changed text-2xl to text-xl -->
             Track<span class="text-brand-green">EDU</span>
@@ -2315,25 +2568,25 @@ html { scroll-padding-top: 100px; }
 
     <!-- Menu Links - FAQ REMOVED -->
     <div class="flex-1 px-5 py-4 space-y-1 overflow-y-auto">  <!-- Changed py-5 to py-4 -->
-      <a href="#why-trackedu-section" onclick="closeMobileMenu(); document.getElementById('why-trackedu-section').scrollIntoView({behaviour: 'smooth', block: 'start'}); return false;" class="mobile-menu-link">
+      <a href="#why-trackedu-section" onclick="closeMobileMenu(); document.getElementById('why-trackedu-section').scrollIntoView({behavior: 'smooth', block: 'start'}); return false;" class="mobile-menu-link">
         <i class="fas fa-circle-question"></i>
         <span>Why TrackEDU</span>
       </a>
 
-      <a href="#tools-section" onclick="closeMobileMenu(); document.getElementById('tools-section').scrollIntoView({behaviour: 'smooth', block: 'start'}); return false;" class="mobile-menu-link">
-        <i class="fas fa-cubes"></i>
-        <span>Recognition Tools</span>
-      </a>
+      <a href="#three-tools" onclick="closeMobileMenu(); document.getElementById('three-tools').scrollIntoView({behavior: 'smooth', block: 'start'}); return false;" class="mobile-menu-link">
+  <i class="fas fa-cubes"></i>
+  <span>How It Works</span>
+</a>
       
-      <a href="#how-to-start" onclick="closeMobileMenu(); document.getElementById('how-to-start').scrollIntoView({behaviour: 'smooth', block: 'start'}); return false;" class="mobile-menu-link">
+      <a href="#how-to-start" onclick="closeMobileMenu(); document.getElementById('how-to-start').scrollIntoView({behavior: 'smooth', block: 'start'}); return false;" class="mobile-menu-link">
         <i class="fas fa-rocket"></i>
         <span>How to Start</span>
       </a>
 
-      <a href="#pricing" onclick="closeMobileMenu(); document.getElementById('pricing').scrollIntoView({behaviour: 'smooth', block: 'start'}); return false;" class="mobile-menu-link">
-        <i class="fas fa-tag"></i>
-        <span>Plans</span>
-      </a>
+      <a href="#pricing" onclick="closeMobileMenu(); document.getElementById('pricing').scrollIntoView({behavior: 'smooth', block: 'start'}); return false;" class="mobile-menu-link">
+  <i class="fas fa-tag"></i>
+  <span>Pricing</span>
+</a>
 
       <button onclick="closeMobileMenu(); openTrustModal();" class="mobile-menu-link w-full text-left">
         <i class="fas fa-lock"></i>
@@ -2501,34 +2754,32 @@ html { scroll-padding-top: 100px; }
   
           <!-- Dynamic Title -->
           <h1 id="heroDynamicTitle" class="hero-v2-title">
-  <span class="hero-title-lead">One platform for</span>
-  <span class="hero-title-gradient-blue">student recognition,</span>
-  <span class="hero-title-gradient-blue">house points</span>
-  <span class="hero-title-gradient-purple">and behaviour support.</span>
+  <span class="hero-title-lead">House points and</span>
+  <span class="hero-title-gradient-blue">student recognition</span>
+  <span class="hero-title-gradient-blue">software for schools.</span>
 </h1>
   
-          <!-- Dynamic Subtitle -->
-          <p id="heroDynamicSubtitle" class="hero-v2-subtitle">
-            TrackEDU helps schools recognise positive behaviour, learner attributes, effort and contribution through flexible rewards, house points, team points and a secure student portal.
-          </p>
+<p id="heroDynamicSubtitle" class="hero-v2-subtitle">
+  TrackEDU helps teachers award points in seconds, gives students a secure portal to track progress, and gives school leaders clear visibility across houses, values and rewards.
+</p>
   
           <!-- PRODUCT PILL ROW - DYNAMIC TOGGLE -->
           <div class="hero-v2-tool-pills" aria-label="TrackEDU platform tools">
-            <button id="heroTabTeacher" data-tool="teacher" class="hero-v2-pill hero-tab-btn">
-              <i class="fas fa-chalkboard-user"></i>
-              <span>Teacher App</span>
-            </button>
-  
-            <button id="heroTabStudent" data-tool="student" class="hero-v2-pill hero-tab-btn">
-              <i class="fas fa-users"></i>
-              <span>Student Portal</span>
-            </button>
-  
-            <button id="heroTabBehaviour" data-tool="behaviour" class="hero-v2-pill hero-tab-btn">
-              <i class="fas fa-chart-line"></i>
-              <span>Behaviour Support</span>
-            </button>
-          </div>
+  <button id="heroTabTeacher" data-tool="teacher" class="hero-v2-pill hero-tab-btn">
+    <i class="fas fa-chalkboard-user"></i>
+    <span>Award Points</span>
+  </button>
+
+  <button id="heroTabStudent" data-tool="student" class="hero-v2-pill hero-tab-btn">
+    <i class="fas fa-users"></i>
+    <span>Student Portal</span>
+  </button>
+
+  <button id="heroTabBehaviour" data-tool="behaviour" class="hero-v2-pill hero-tab-btn">
+    <i class="fas fa-chart-line"></i>
+   <span>Behaviour Support</span>
+  </button>
+</div>
   
           <!-- Dynamic Feature List (appears only when a tab is active) -->
           <div id="heroFeatureList" class="hero-feature-list hidden">
@@ -2541,16 +2792,16 @@ html { scroll-padding-top: 100px; }
   
           <!-- AUDIENCE PATHWAY BUTTONS (Original - visible on desktop) -->
           <div class="hero-v2-audience-row original-audience">
-            <button onclick="openTeacherStartModal()" class="hero-v2-audience-card">
-              <i class="fas fa-chalkboard-user"></i>
-              <span>I’m a Teacher</span>
-            </button>
-  
-            <button onclick="openLeaderStartModal()" class="hero-v2-audience-card hero-v2-audience-dark">
-              <i class="fas fa-school"></i>
-              <span>I’m a School Leader</span>
-            </button>
-          </div>
+  <button onclick="openTeacherStartModal()" class="hero-v2-audience-card">
+    <i class="fas fa-chalkboard-user"></i>
+    <span>Start Free as a Teacher</span>
+  </button>
+
+  <button onclick="openLeaderStartModal()" class="hero-v2-audience-card hero-v2-audience-dark">
+    <i class="fas fa-school"></i>
+    <span>Book a School Demo</span>
+  </button>
+</div>
         </div>
   
         <!-- RIGHT: DYNAMIC VIDEO/IMAGE CONTAINER -->
@@ -2565,16 +2816,15 @@ html { scroll-padding-top: 100px; }
           </div>
         </div>
         
-        <!-- AUDIENCE PATHWAY BUTTONS (Mobile only - appears below image) -->
-<div class="hero-v2-audience-row mobile-audience" style="display: none; margin-top: -0.75rem; margin-bottom: -0.75rem;">
+       <div class="hero-v2-audience-row mobile-audience" style="display: none; margin-top: -0.75rem; margin-bottom: -0.75rem;">
   <button onclick="openTeacherStartModal()" class="hero-v2-audience-card">
     <i class="fas fa-chalkboard-user"></i>
-    <span>I’m a Teacher</span>
+    <span>Start Free</span>
   </button>
 
   <button onclick="openLeaderStartModal()" class="hero-v2-audience-card hero-v2-audience-dark">
     <i class="fas fa-school"></i>
-    <span>I’m a School Leader</span>
+    <span>Book Demo</span>
   </button>
 </div>
   
@@ -3987,7 +4237,17 @@ html { scroll-padding-top: 100px; }
      HORIZONTAL SCROLLING CAROUSEL (10 Cards)
      Click any card to watch the video
      ========================================== -->
-     <section class="pt-2 pb-4 bg-gray-50/80 overflow-hidden border-t border-gray-100">
+     <section class="pt-2 pb-4 bg-gray-50/80 overflow-hidden border-t border-gray-100 w-full">
+  <details class="w-full">
+    <summary class="cursor-pointer list-none w-full bg-white border-y border-gray-200 px-4 sm:px-6 py-4 shadow-sm">
+      <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+        <span class="font-black text-brand-dark">Watch product walkthroughs and tutorials</span>
+        <span class="text-sm font-bold text-brand-blue flex items-center gap-2">
+          Open videos
+          <i class="fas fa-chevron-down"></i>
+        </span>
+      </div>
+    </summary>
       <div class="max-w-full px-4 sm:px-6">
         
        
@@ -4213,7 +4473,8 @@ html { scroll-padding-top: 100px; }
 </div>
         
       </div>
-    </section>
+    </details>
+</section>
     
     <style>
       /* Hide scrollbar but keep functionality */
@@ -4305,7 +4566,7 @@ html { scroll-padding-top: 100px; }
 
   container.scrollTo({
     left: targetScrollLeft,
-    behaviour: 'smooth'
+    behavior: 'smooth'
   });
 
   currentIndex = index;
@@ -4586,9 +4847,30 @@ setTimeout(function() {
 <!-- ========================================== -->
 <!-- CHAPTER 1: WHY TRACKEDU + FOUNDER TRUST -->
 <!-- ========================================== -->
-<section id="why-trackedu-section" class="why-trackedu-premium">
+<section id="why-trackedu-section" class="collapsible-section">
+  <details>
+   <summary class="collapse-section-header collapse-why">
+      <div class="collapse-section-inner">
+        <span class="collapse-section-label">
+          <span class="collapse-icon">
+            <i class="fas fa-circle-question"></i>
+          </span>
+          <span class="collapse-text-wrap">
+            <span class="collapse-kicker">Why TrackEDU</span>
+            <span class="collapse-title">The story, trust signals and people behind the platform.</span>
+          </span>
+        </span>
 
-  <div class="why-bg-pattern"></div>
+        <span class="collapse-open-text">
+          View section
+          <i class="fas fa-chevron-down"></i>
+        </span>
+      </div>
+    </summary>
+
+    <div class="collapsible-content why-trackedu-premium">
+
+      <div class="why-bg-pattern"></div>
 
   <div class="why-inner">
 
@@ -4702,6 +4984,8 @@ setTimeout(function() {
     </div>
   </div>
 
+    </div>
+  </details>
 </section>
 
 
@@ -4719,57 +5003,38 @@ setTimeout(function() {
         
 
 
+<!-- The Problem Section -->
+<section class="collapsible-section bg-gray-50 border-b border-gray-100">
+  <details>
+   <summary class="collapse-section-header collapse-problem">
+      <div class="collapse-section-inner">
+        <span class="collapse-section-label">
+          <span class="collapse-icon">
+            <i class="fas fa-triangle-exclamation"></i>
+          </span>
+          <span class="collapse-text-wrap">
+            <span class="collapse-kicker">The problem</span>
+            <span class="collapse-title">Why house points, rewards and recognition become hard to manage at school level.</span>
+          </span>
+        </span>
 
-<!-- Extra spacing before Chapter 2 arrow -->
-<div class="h-8"></div>
+        <span class="collapse-open-text">
+          View section
+          <i class="fas fa-chevron-down"></i>
+        </span>
+      </div>
+    </summary>
 
-<!-- CHAPTER 2: Dotted line + arrow -->
-<div class="story-path-container mb-6">
-  <svg class="story-path-svg" viewBox="0 0 100 100" fill="none">
-    <path d="M50 0 C 0 20, 50 60, 50 90" stroke="#cbd5e1" stroke-width="3" stroke-dasharray="6 4" stroke-linecap="round" />
-    <path d="M42 82 L50 90 L58 82" stroke="#cbd5e1" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-  </svg>
-</div>
-
-<!-- CHAPTER 2: Edge-to-edge header (full width) -->
-<div class="w-full bg-gradient-to-r from-gray-50 via-white to-gray-50 border-y border-gray-100 py-4">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="flex items-center justify-center gap-3">
-      <div class="h-px w-8 bg-brand-green/30 hidden sm:block"></div>
-      <span class="inline-flex items-center gap-2">
-        <span class="text-xs font-black uppercase tracking-wider text-brand-green">Chapter 2</span>
-        <span class="text-xs text-gray-400">/</span>
-        <span class="text-xs font-medium text-gray-500">The problem schools face</span>
-      </span>
-      <div class="h-px w-8 bg-brand-green/30 hidden sm:block"></div>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- Content Section -->
-<section class="bg-gray-50 border-b border-gray-100">
-  <div class="max-w-6xl mx-auto px-6 py-12">
+    <div class="collapsible-content">
+      <div class="max-w-6xl mx-auto px-6 py-12">
     
     <div class="text-center mb-10">
       <h2 class="text-3xl md:text-5xl font-black text-brand-dark leading-tight">
-        Three separate systems. <span class="text-red-500 underline decoration-wavy">One school-wide problem.</span>
-      </h2>
-      <p class="text-gray-500 max-w-2xl mx-auto mt-4 text-lg leading-relaxed">
-        Student recognition, student recognition, house points and rewards, student engagement and pastoral follow-up often sit in different places. TrackEDU brings them together so school teams can celebrate contribution and see support needs earlier.
-      </p>
+  Recognition should be easy to give, easy to see, and easy to celebrate.
+</h2>
+<p class="text-gray-500 max-w-2xl mx-auto mt-4 text-lg leading-relaxed">
+  Many schools still manage house points, rewards, student motivation and follow-up through disconnected spreadsheets, emails and classroom tools. TrackEDU brings recognition into one clear system.
+</p>
     </div>
     
     <div class="grid lg:grid-cols-2 gap-8">
@@ -4782,23 +5047,38 @@ setTimeout(function() {
         </div>
         
         <div class="space-y-4">
-          <div class="flex gap-3 items-start">
-            <i class="fas fa-chalkboard-user text-gray-400 text-sm mt-0.5 w-5"></i>
-            <div><span class="font-bold text-sm">Teachers use 5+ apps</span><p class="text-xs text-gray-500">ClassDojo, Google Classroom, spreadsheets, stickers, emails.</p></div>
-          </div>
-          <div class="flex gap-3 items-start">
-            <i class="fas fa-door-closed text-gray-400 text-sm mt-0.5 w-5"></i>
-            <div><span class="font-bold text-sm">No real-time visibility</span><p class="text-xs text-gray-500">School leaders do not see recognition and support patterns early enough.</p></div>
-          </div>
-          <div class="flex gap-3 items-start">
-            <i class="fas fa-ticket-alt text-gray-400 text-sm mt-0.5 w-5"></i>
-            <div><span class="font-bold text-sm">Low student engagement</span><p class="text-xs text-gray-500">Points feel like bribes, not belonging.</p></div>
-          </div>
-          <div class="flex gap-3 items-start">
-            <i class="fas fa-file-excel text-gray-400 text-sm mt-0.5 w-5"></i>
-            <div><span class="font-bold text-sm">Manual data entry</span><p class="text-xs text-gray-500">4+ hours per week spent on spreadsheets.</p></div>
-          </div>
-        </div>
+  <div class="flex gap-3 items-start">
+    <i class="fas fa-table text-gray-400 text-sm mt-0.5 w-5"></i>
+    <div>
+      <span class="font-bold text-sm">Recognition lives in too many places</span>
+      <p class="text-xs text-gray-500">Spreadsheets, paper slips, emails and classroom tools can all end up holding different parts of the story.</p>
+    </div>
+  </div>
+
+  <div class="flex gap-3 items-start">
+    <i class="fas fa-eye-slash text-gray-400 text-sm mt-0.5 w-5"></i>
+    <div>
+      <span class="font-bold text-sm">School leaders lack a clear overview</span>
+      <p class="text-xs text-gray-500">It becomes harder to see which houses, year groups, classes or students are being recognised consistently.</p>
+    </div>
+  </div>
+
+  <div class="flex gap-3 items-start">
+    <i class="fas fa-user-graduate text-gray-400 text-sm mt-0.5 w-5"></i>
+    <div>
+      <span class="font-bold text-sm">Students do not always see their progress</span>
+      <p class="text-xs text-gray-500">Points are more meaningful when students can see progress, badges, house identity and rewards clearly.</p>
+    </div>
+  </div>
+
+  <div class="flex gap-3 items-start">
+    <i class="fas fa-rotate text-gray-400 text-sm mt-0.5 w-5"></i>
+    <div>
+      <span class="font-bold text-sm">Admin gets repeated</span>
+      <p class="text-xs text-gray-500">Teachers and leaders often spend extra time updating lists, totals, leaderboards and reward records manually.</p>
+    </div>
+  </div>
+</div>
         
         <div class="mt-6 p-3 bg-gray-50 rounded-xl text-center">
           <p class="text-sm font-bold text-gray-700">The result:</p>
@@ -4849,14 +5129,16 @@ setTimeout(function() {
       </button>
     </div>
     
-  </div>
+      </div>
+    </div>
+  </details>
 </section>
 
 
 <!-- ========================================== -->
-<!-- CHAPTER 3: Three Tools. One Ecosystem.      -->
+<!-- HOW IT WORKS: Three Tools. One Ecosystem.   -->
 <!-- ========================================== -->
-<section id="three-tools" class="py-16 bg-white overflow-hidden border-b border-gray-100">
+<section class="py-16 bg-white overflow-hidden border-b border-gray-100">
   
   <!-- Founding Schools Section - Compact Premium Design -->
 <div id="founding-video-section" class="w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10" data-aos="fade-up">
@@ -4963,14 +5245,15 @@ setTimeout(function() {
   </div>
 
   <!-- CHAPTER 3: Edge-to-edge header -->
-  <div class="w-full bg-gradient-to-r from-gray-50 via-white to-gray-50 border-y border-gray-100 py-4 mb-6">
+  <!-- HOW IT WORKS: Edge-to-edge header -->
+<div id="three-tools" class="w-full bg-gradient-to-r from-gray-50 via-white to-gray-50 border-y border-gray-100 py-4 mb-6 scroll-mt-24">
     <div class="max-w-7xl mx-auto px-6">
       <div class="flex items-center justify-center gap-3">
         <div class="h-px w-8 bg-brand-green/30 hidden sm:block"></div>
         <span class="inline-flex items-center gap-2">
-          <span class="text-xs font-black uppercase tracking-wider text-brand-green">Chapter 3</span>
-          <span class="text-xs text-gray-400">/</span>
-          <span class="text-xs font-medium text-gray-500">How TrackEDU Works</span>
+          <span class="text-xs font-black uppercase tracking-wider text-brand-green">How it works</span>
+<span class="text-xs text-gray-400">/</span>
+<span class="text-xs font-medium text-gray-500">Teacher tools, student portal and school visibility</span>
         </span>
         <div class="h-px w-8 bg-brand-green/30 hidden sm:block"></div>
       </div>
@@ -4980,13 +5263,11 @@ setTimeout(function() {
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-12" data-aos="fade-up">
       <h2 class="font-display text-3xl md:text-5xl font-black text-brand-dark leading-tight">
-        One simple platform for<br>
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-green">student recognition.</span>
-      </h2>
-      <p class="text-gray-500 text-base md:text-lg max-w-2xl mx-auto mt-4 leading-relaxed">
-        Award recognition points in seconds and keep students connected to houses, teams, values and shared school goals. 
-        <span class="text-brand-blue font-semibold">Behaviour support and a simple room booking calendar can also sit inside the wider school package.</span>
-      </p>
+  How TrackEDU works in school.
+</h2>
+<p class="text-gray-500 text-base md:text-lg max-w-2xl mx-auto mt-4 leading-relaxed">
+  Teachers award points quickly. Students see their progress. School leaders get a clearer view of recognition, participation and house activity.
+</p>
     </div>
 
     <div id="tools-section" class="grid md:grid-cols-2 gap-6 relative items-stretch">
@@ -5070,194 +5351,7 @@ setTimeout(function() {
 </section>
 
 
-<section id="mobile-demo" class="py-20 bg-gradient-to-b from-white to-gray-50 border-t border-gray-100 w-full">
 
-  <div class="story-path-container mb-6">
-    <svg class="story-path-svg" viewBox="0 0 100 100" fill="none">
-      <path d="M50 0 C 100 20, 50 60, 50 90" stroke="#87C232" stroke-width="3" stroke-dasharray="6 4" stroke-linecap="round" />
-      <path d="M42 82 L50 90 L58 82" stroke="#87C232" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-    </svg>
-  </div>
-
-  <div class="w-full bg-gradient-to-r from-gray-50 via-white to-gray-50 border-y border-gray-100 py-4 mb-6">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="flex items-center justify-center gap-3">
-        <div class="h-px w-8 bg-brand-green/30 hidden sm:block"></div>
-        <span class="inline-flex items-center gap-2">
-          <span class="text-xs font-black uppercase tracking-wider text-brand-green">Chapter 4</span>
-          <span class="text-xs text-gray-400">/</span>
-          <span class="text-xs font-medium text-gray-500">Try It Before You Decide</span>
-        </span>
-        <div class="h-px w-8 bg-brand-green/30 hidden sm:block"></div>
-      </div>
-    </div>
-  </div>
-        
-  <div class="max-w-6xl mx-auto px-4 text-center">
-    <h2 class="font-display text-4xl md:text-5xl font-black text-brand-dark mb-4">Explore TrackEDU before you start.</h2>
-    <p class="text-gray-500 mb-8 text-base md:text-lg max-w-2xl mx-auto">
-      Click the views below to see exactly what teachers and students see inside the student recognition app.
-    </p>
-            
-    <div class="flex justify-center mb-6">
-      <div class="inline-flex p-1 bg-gray-200 rounded-2xl shadow-inner gap-1">
-        <button id="demoToggleStudent" onclick="switchDemoPreviewPane('student')" class="px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm">
-          <i class="fas fa-user-graduate mr-2"></i> Student View
-        </button>
-        <button id="demoToggleTeacher" onclick="switchDemoPreviewPane('teacher')" class="px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue">
-          <i class="fas fa-chalkboard-teacher mr-2"></i> Teacher View
-        </button>
-      </div>
-    </div>
-        
-    <p id="demoPreviewSubtitle" class="text-sm text-gray-500 mb-6 font-medium">Showing the Student App dashboard view</p>
-        
-    <div class="w-full max-w-4xl mx-auto p-4 sm:p-6 bg-white border border-gray-200 rounded-[32px] shadow-2xl">
-      <div class="w-full rounded-2xl bg-[#f8fafc] border border-gray-100 p-4 sm:p-6 relative overflow-hidden min-h-[480px] flex flex-col justify-start">
-        
-        <div id="demoPaneStudent" style="display: block; width: 100%;" class="text-left animate-fade-in">
-          <div style="display: flex; align-items: center; justify-content: space-between; background: #0C1E2C; padding: 12px 16px; border-radius: 14px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.05);" class="flex-col sm:flex-row gap-3">
-            <div style="display: flex; align-items: center; gap: 10px;">
-              <div style="width: 28px; height: 28px; background: #ffffff; border-radius: 8px; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 2px;">
-                <img src="https://trackedu.github.io/common-assets/studentapp.png" style="width: 100%; height: 100%; object-fit: contain;" alt="App Logo">
-              </div>
-              <span style="font-weight: 700; font-size: 13px; color: #f8fafc;">TrackEDU Student App</span>
-            </div>
-            <div style="display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; color: #cbd5e1;">
-              <span>Ce. Di. &bull; <span style="color: #87C232;">Terra House</span></span>
-              <span style="background: #fbbf24; color: #0c1e2c; padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 900;"><i class="fas fa-star"></i> 622 PTS</span>
-            </div>
-          </div>
-
-          <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 18px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.02);">
-            <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 14px;">
-              <div style="width: 48px; height: 48px; background: #f1f5f9; border-radius: 50%; display: flex; align-items: center; justify-content: center; overflow: hidden; border: 1px solid #e2e8f0; padding: 4px;">
-                <img src="https://trackedu.github.io/common-assets/studentapp.png" style="width: 100%; height: 100%; object-fit: contain;" alt="Student Avatar">
-              </div>
-              <div>
-                <strong style="font-size: 16px; color: #0C1E2C; display: block; font-weight: 700;">Charlie Dixon</strong>
-                <span style="font-size: 12px; color: #87C232; font-weight: 700;">Level 13 &gt; <span style="color: #64748b; font-weight: 500;">Terra House Captain</span></span>
-              </div>
-            </div>
-            <div style="height: 8px; background: #f1f5f9; border-radius: 10px; overflow: hidden; margin-bottom: 6px;">
-              <div style="width: 78%; height: 100%; background: #87C232; border-radius: 10px;"></div>
-            </div>
-            <div style="display: flex; justify-content: space-between; font-size: 11px; color: #64748b; font-weight: 600;">
-              <span>Daily Check-in Streak: 4/5 Days</span>
-              <span>280 / 350 XP to Level 14</span>
-            </div>
-          </div>
-
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 16px;">
-            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 14px; padding: 14px; text-align: center; cursor: default; box-shadow: 0 4px 10px rgba(0,0,0,0.015);">
-              <i class="fas fa-trophy" style="color: #facc15; font-size: 20px; margin-bottom: 8px; display: block;"></i>
-              <strong style="font-size: 12px; color: #64748b; display: block; font-weight: 600; margin-bottom: 2px;">House Rank</strong>
-              <span style="font-size: 18px; font-weight: 800; color: #0C1E2C;">2nd Place</span>
-            </div>
-            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 14px; padding: 14px; text-align: center; cursor: default; box-shadow: 0 4px 10px rgba(0,0,0,0.015);">
-              <i class="fas fa-medal" style="color: #87C232; font-size: 20px; margin-bottom: 8px; display: block;"></i>
-              <strong style="font-size: 12px; color: #64748b; display: block; font-weight: 600; margin-bottom: 2px;">Badges Unlocked</strong>
-              <span style="font-size: 18px; font-weight: 800; color: #0C1E2C;">14 Badges</span>
-            </div>
-            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 14px; padding: 14px; text-align: center; cursor: default; box-shadow: 0 4px 10px rgba(0,0,0,0.015);">
-              <i class="fas fa-star" style="color: #0f66c3; font-size: 20px; margin-bottom: 8px; display: block;"></i>
-              <strong style="font-size: 12px; color: #64748b; display: block; font-weight: 600; margin-bottom: 2px;">This Week</strong>
-              <span style="font-size: 18px; font-weight: 800; color: #0C1E2C;">+25 Points</span>
-            </div>
-          </div>
-          <div class="replace-note" style="margin-top: 12px; display: inline-flex; width: auto;"><i class="fas fa-info-circle"></i> This clean view helps students stay motivated and check their scores without using emails.</div>
-        </div>
-
-        <div id="demoPaneTeacher" style="display: none; width: 100%;" class="text-left animate-fade-in">
-          <div style="display: flex; justify-content: space-between; align-items: center; background: #ffffff; border: 1px solid #e2e8f0; padding: 12px 16px; border-radius: 14px; margin-bottom: 20px; font-size: 13px; font-weight: 700; color: #0C1E2C;" class="flex-col sm:flex-row gap-2">
-            <div style="display: flex; align-items: center; gap: 8px;">
-              <i class="fas fa-chalkboard-user style-none" style="color: #0f66c3;"></i>
-              <span>Teacher Workspace &bull; <strong>Class: 7B Science</strong></span>
-            </div>
-            <span style="background: #e0f2fe; padding: 3px 10px; border-radius: 20px; font-size: 11px; color: #0f66c3; font-weight: 800;"><i class="fas fa-plus"></i> Award points menu active</span>
-          </div>
-
-          <div style="font-weight: 800; font-size: 13px; color: #0C1E2C; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">
-            House Point Leaderboard
-          </div>
-
-          <div style="font-size: 13px; font-weight: 700; display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px;">
-            <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 10px 14px; display: grid; grid-template-columns: 80px 1fr 60px; align-items: center; gap: 12px;">
-              <span style="color:#dc2626; font-weight:800;">🔥 Ignis</span>
-              <div style="height:10px; background:#f1f5f9; border-radius:999px; overflow:hidden;"><div style="width:100%; height:100%; background:#dc2626;"></div></div>
-              <strong style="text-align: right; color:#0C1E2C;">1,574</strong>
-            </div>
-            <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 10px 14px; display: grid; grid-template-columns: 80px 1fr 60px; align-items: center; gap: 12px;">
-              <span style="color:#b45309; font-weight:800;">🌿 Terra</span>
-              <div style="height:10px; background:#f1f5f9; border-radius:999px; overflow:hidden;"><div style="width:51%; height:100%; background:#facc15;"></div></div>
-              <strong style="text-align: right; color:#0C1E2C;">807</strong>
-            </div>
-            <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 10px 14px; display: grid; grid-template-columns: 80px 1fr 60px; align-items: center; gap: 12px;">
-              <span style="color:#047857; font-weight:800;">💧 Aqua</span>
-              <div style="height:10px; background:#f1f5f9; border-radius:999px; overflow:hidden;"><div style="width:46%; height:100%; background:#10b981;"></div></div>
-              <strong style="text-align: right; color:#0C1E2C;">727</strong>
-            </div>
-          </div>
-
-          <div style="font-weight: 800; font-size: 13px; color: #0C1E2C; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">
-            Classroom Tools Included
-          </div>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px;">
-            <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 10px; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.01);">
-              <span style="font-size: 18px; display: block; margin-bottom: 2px;">🎩</span>
-              <strong style="font-size: 11px; color: #0C1E2C; display: block; font-weight: 700;">Name Picker</strong>
-            </div>
-            <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 10px; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.01);">
-              <span style="font-size: 18px; display: block; margin-bottom: 2px;">🔊</span>
-              <strong style="font-size: 11px; color: #0C1E2C; display: block; font-weight: 700;">Quiet Meter</strong>
-            </div>
-            <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 10px; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.01);">
-              <span style="font-size: 18px; display: block; margin-bottom: 2px;">📜</span>
-              <strong style="font-size: 11px; color: #0C1E2C; display: block; font-weight: 700;">Certificate Studio</strong>
-            </div>
-            <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 10px; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.01);">
-              <span style="font-size: 18px; display: block; margin-bottom: 2px;">⏱️</span>
-              <strong style="font-size: 11px; color: #0C1E2C; display: block; font-weight: 700;">Lesson Timers</strong>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <script>
-    function switchDemoPreviewPane(targetMode) {
-      const paneStudent = document.getElementById('demoPaneStudent');
-      const paneTeacher = document.getElementById('demoPaneTeacher');
-      const btnStudent = document.getElementById('demoToggleStudent');
-      const btnTeacher = document.getElementById('demoToggleTeacher');
-      const textSubtitle = document.getElementById('demoPreviewSubtitle');
-
-      if (!paneStudent || !paneTeacher || !btnStudent || !btnTeacher || !textSubtitle) return;
-
-      if (targetMode === 'student') {
-        paneStudent.style.display = 'block';
-        paneTeacher.style.display = 'none';
-        
-        // Student Active Button Styles
-        btnStudent.className = "px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm";
-        btnTeacher.className = "px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue";
-        
-        textSubtitle.innerHTML = "Showing the Student App dashboard view";
-      } else {
-        paneStudent.style.display = 'none';
-        paneTeacher.style.display = 'block';
-        
-        // Teacher Active Button Styles
-        btnTeacher.className = "px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 bg-white text-brand-blue shadow-sm";
-        btnStudent.className = "px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 text-gray-600 hover:text-brand-blue";
-        
-        textSubtitle.innerHTML = "Showing the Teacher points control workspace view";
-      }
-    }
-  </script>
-</section>
 
 
 
@@ -5387,7 +5481,28 @@ setTimeout(function() {
           </div>
         </section>
         
-        <section id="business" class="py-12 bg-white border-t border-gray-50 w-full">
+        <section id="business" class="collapsible-section bg-white border-t border-gray-50 w-full scroll-mt-24">
+  <details>
+   <summary class="collapse-section-header collapse-benefits">
+      <div class="collapse-section-inner">
+        <span class="collapse-section-label">
+          <span class="collapse-icon">
+            <i class="fas fa-chart-line"></i>
+          </span>
+          <span class="collapse-text-wrap">
+            <span class="collapse-kicker">Benefits</span>
+            <span class="collapse-title">What changes for teachers, students and school leaders.</span>
+          </span>
+        </span>
+
+        <span class="collapse-open-text">
+          View benefits
+          <i class="fas fa-chevron-down"></i>
+        </span>
+      </div>
+    </summary>
+
+    <div class="collapsible-content py-12">
   
           <div class="story-path-container mb-6">
             <svg class="story-path-svg" viewBox="0 0 100 100" fill="none">
@@ -5396,19 +5511,6 @@ setTimeout(function() {
             </svg>
           </div>
         
-          <div class="w-full bg-gradient-to-r from-gray-50 via-white to-gray-50 border-y border-gray-100 py-4 mb-6">
-            <div class="max-w-7xl mx-auto px-6">
-              <div class="flex items-center justify-center gap-3">
-                <div class="h-px w-8 bg-brand-green/30 hidden sm:block"></div>
-                <span class="inline-flex items-center gap-2">
-                  <span class="text-xs font-black uppercase tracking-wider text-brand-green">Chapter 5</span>
-                  <span class="text-xs text-gray-400">/</span>
-                  <span class="text-xs font-medium text-gray-500">The Benefits For Your School</span>
-                </span>
-                <div class="h-px w-8 bg-brand-green/30 hidden sm:block"></div>
-              </div>
-            </div>
-          </div>
         
           <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-10">
@@ -5457,206 +5559,152 @@ setTimeout(function() {
           </div>
         </section>
         
+
+
         <section id="pricing" class="py-20 bg-white w-full border-t border-gray-100">
-  
-  <div class="story-path-container mb-8">
-    <svg class="story-path-svg" viewBox="0 0 100 100" fill="none">
-      <path d="M50 0 C 100 20, 50 60, 50 90" stroke="#87C232" stroke-width="3" stroke-dasharray="6 4" stroke-linecap="round" />
-      <path d="M42 82 L50 90 L58 82" stroke="#87C232" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-    </svg>
-  </div>
-
-  <div class="w-full bg-gradient-to-r from-gray-50 via-white to-gray-50 border-y border-gray-100 py-4 mb-12">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="flex items-center justify-center gap-3">
-        <div class="h-px w-12 bg-brand-green/20 hidden sm:block"></div>
-        <span class="inline-flex items-center gap-2">
-          <span class="text-xs font-black uppercase tracking-widest text-brand-green">Chapter 6</span>
-          <span class="text-xs text-gray-300">/</span>
-          <span class="text-xs font-semibold uppercase tracking-wider text-gray-500">Choose Your Path</span>
-        </span>
-        <div class="h-px w-12 bg-brand-green/20 hidden sm:block"></div>
-      </div>
-    </div>
-  </div>
-
   <div class="max-w-7xl mx-auto px-6">
-    
-    <div class="text-center max-w-3xl mx-auto mb-16">
+
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-green/10 text-brand-green text-xs font-black uppercase tracking-wider mb-4">
+        <i class="fas fa-tag"></i>
+        Simple pricing
+      </span>
+
       <h2 class="text-4xl md:text-5xl font-display font-black text-brand-dark mb-4 tracking-tight leading-tight">
-        Start free. Decide after your pilot.
+        Start free. Pilot with your school. Upgrade when ready.
       </h2>
+
       <p class="text-lg md:text-xl text-gray-500 font-medium leading-relaxed">
-        Try the complete student recognition and house points system with a free 30-day school pilot. If your school wants to keep using it, the price is flat and simple: <span class="text-brand-blue font-bold">$2,499 USD/year</span> for the entire school.
+        Choose the path that fits where you are now, individual teacher, school pilot, or full annual licence.
       </p>
     </div>
 
-    <div class="max-w-6xl mx-auto mb-20">
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        
-        <div class="bg-white border border-gray-200/80 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 text-center flex flex-col items-center">
-          <div class="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center mb-4 border border-blue-100/50">
-            <i class="fas fa-rocket text-brand-blue text-lg"></i>
-          </div>
-          <p class="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-1">Step 1</p>
-          <h3 class="font-bold text-brand-dark text-lg mb-2">Start a Free Pilot</h3>
-          <p class="text-sm text-gray-500 leading-relaxed">Test the teacher tools and student apps across your school for 30 days free.</p>
+    <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+
+      <!-- TEACHER STARTER -->
+      <div class="bg-white border border-gray-200 rounded-3xl p-7 shadow-sm hover:shadow-lg transition flex flex-col">
+        <div class="w-12 h-12 rounded-2xl bg-brand-green/10 flex items-center justify-center mb-5">
+          <i class="fas fa-chalkboard-user text-brand-green text-xl"></i>
         </div>
-        
-        <div class="bg-white border border-gray-200/80 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 text-center flex flex-col items-center">
-          <div class="w-12 h-12 rounded-2xl bg-brand-green/10 flex items-center justify-center mb-4 border border-brand-green/20">
-            <i class="fas fa-crown text-brand-green text-lg"></i>
-          </div>
-          <p class="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-1">Step 2</p>
-          <h3 class="font-bold text-brand-dark text-lg mb-2">Apply for 1 Year Free</h3>
-          <p class="text-sm text-gray-500 leading-relaxed">Selected Founding Schools can get 1 full year of access with the setup fee waived.</p>
+
+        <h3 class="text-2xl font-display font-black text-brand-dark mb-2">
+          Start Free as a Teacher
+        </h3>
+
+        <p class="text-gray-500 text-sm leading-relaxed mb-6">
+          For individual teachers who want to try TrackEDU with one class.
+        </p>
+
+        <div class="mb-6">
+          <span class="text-4xl font-display font-black text-brand-dark">$0</span>
+          <span class="text-sm font-bold text-gray-400"> / free</span>
         </div>
-        
-        <div class="col-span-1 sm:col-span-2 md:col-span-1 bg-white border border-gray-200/80 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 text-center flex flex-col items-center">
-          <div class="w-12 h-12 rounded-2xl bg-purple-50 flex items-center justify-center mb-4 border border-purple-100/50">
-            <i class="fas fa-file-invoice-dollar text-purple-600 text-lg"></i>
-          </div>
-          <p class="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-1">Step 3</p>
-          <h3 class="font-bold text-brand-dark text-lg mb-2">Flat Annual License</h3>
-          <p class="text-sm text-gray-500 leading-relaxed">Keep full access for your whole school for a simple flat price of $2,499 USD/year.</p>
-        </div>
-        
+
+        <ul class="space-y-3 text-sm text-gray-600 mb-8 flex-1">
+          <li class="flex gap-2"><i class="fas fa-check text-brand-green mt-1"></i><span>1 teacher account</span></li>
+          <li class="flex gap-2"><i class="fas fa-check text-brand-green mt-1"></i><span>1 class</span></li>
+          <li class="flex gap-2"><i class="fas fa-check text-brand-green mt-1"></i><span>Up to 30 students</span></li>
+          <li class="flex gap-2"><i class="fas fa-check text-brand-green mt-1"></i><span>Basic points and leaderboard</span></li>
+          <li class="flex gap-2"><i class="fas fa-check text-brand-green mt-1"></i><span>No credit card required</span></li>
+        </ul>
+
+        <a href="https://housepoint.trackedu.net/" target="_blank" class="w-full py-3 rounded-xl bg-brand-green text-white font-black text-center hover:bg-green-600 transition">
+          Start Free
+        </a>
       </div>
+
+      <!-- SCHOOL PILOT -->
+      <div class="bg-[#0C1E2C] border border-brand-green/30 rounded-3xl p-7 shadow-2xl relative flex flex-col">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-green text-[#0C1E2C] text-[10px] font-black uppercase tracking-wider px-4 py-1.5 rounded-full">
+          Recommended
+        </div>
+
+        <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center mb-5">
+          <i class="fas fa-rocket text-brand-green text-xl"></i>
+        </div>
+
+        <h3 class="text-2xl font-display font-black text-white mb-2">
+          30-Day School Pilot
+        </h3>
+
+        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+          For schools that want to test TrackEDU properly before deciding.
+        </p>
+
+        <div class="mb-6">
+          <span class="text-4xl font-display font-black text-white">$0</span>
+          <span class="text-sm font-bold text-slate-400"> / 30 days</span>
+        </div>
+
+        <ul class="space-y-3 text-sm text-slate-200 mb-8 flex-1">
+          <li class="flex gap-2"><i class="fas fa-check text-brand-green mt-1"></i><span>Teacher App for your team</span></li>
+          <li class="flex gap-2"><i class="fas fa-check text-brand-green mt-1"></i><span>Student Portal included</span></li>
+          <li class="flex gap-2"><i class="fas fa-check text-brand-green mt-1"></i><span>House points and leaderboards</span></li>
+          <li class="flex gap-2"><i class="fas fa-check text-brand-green mt-1"></i><span>School setup support</span></li>
+          <li class="flex gap-2"><i class="fas fa-check text-brand-green mt-1"></i><span>No credit card required</span></li>
+        </ul>
+
+        <button onclick="openPilotModal()" class="w-full py-3 rounded-xl bg-brand-green text-[#0C1E2C] font-black hover:bg-green-500 transition">
+          Start School Pilot
+        </button>
+      </div>
+
+      <!-- ANNUAL PLAN -->
+      <div class="bg-white border border-gray-200 rounded-3xl p-7 shadow-sm hover:shadow-lg transition flex flex-col">
+        <div class="w-12 h-12 rounded-2xl bg-brand-blue/10 flex items-center justify-center mb-5">
+          <i class="fas fa-school text-brand-blue text-xl"></i>
+        </div>
+
+        <h3 class="text-2xl font-display font-black text-brand-dark mb-2">
+          Annual School Plan
+        </h3>
+
+        <p class="text-gray-500 text-sm leading-relaxed mb-6">
+  For schools ready to continue after the pilot, with recognition, behaviour support and basic facility booking included.
+</p>
+
+        <div class="mb-6">
+          <span class="text-4xl font-display font-black text-brand-dark">$2,499</span>
+          <span class="text-sm font-bold text-gray-400"> USD / year</span>
+        </div>
+
+        <ul class="space-y-3 text-sm text-gray-600 mb-8 flex-1">
+  <li class="flex gap-2"><i class="fas fa-check text-brand-green mt-1"></i><span>Whole-school access</span></li>
+  <li class="flex gap-2"><i class="fas fa-check text-brand-green mt-1"></i><span>Teacher App included</span></li>
+  <li class="flex gap-2"><i class="fas fa-check text-brand-green mt-1"></i><span>Student Portal included</span></li>
+  <li class="flex gap-2"><i class="fas fa-check text-brand-green mt-1"></i><span>Recognition and house points system</span></li>
+  <li class="flex gap-2"><i class="fas fa-check text-brand-green mt-1"></i><span>Full behaviour management system included free</span></li>
+  <li class="flex gap-2"><i class="fas fa-check text-brand-green mt-1"></i><span>Basic facility booking included free</span></li>
+  <li class="flex gap-2"><i class="fas fa-check text-brand-green mt-1"></i><span>Support tools and exports</span></li>
+</ul>
+
+        <button onclick="openInvoiceModal(); document.getElementsByName('licence_type')[0].value='School Annual Licence'; document.getElementsByName('invoice_request_reason')[0].value='Annual school licence';" class="w-full py-3 rounded-xl bg-brand-blue text-white font-black hover:bg-blue-700 transition">
+          Request Invoice
+        </button>
+      </div>
+
     </div>
 
-    <div class="max-w-5xl mx-auto">
-      <div class="plan-card relative bg-[#0C1E2C] rounded-[40px] p-8 md:p-14 shadow-[0_40px_120px_-20px_rgba(12,30,44,0.6)] border border-white/10 overflow-hidden">
-        
-        <div class="absolute -top-32 -right-32 w-[400px] h-[400px] bg-brand-green/10 rounded-full blur-[120px] pointer-events-none"></div>
-        <div class="absolute -bottom-32 -left-32 w-[400px] h-[400px] bg-brand-blue/10 rounded-full blur-[120px] pointer-events-none"></div>
-        
-        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-12 lg:gap-16 relative z-10">
-          
-          <div class="max-w-2xl text-left flex-1">
-            <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full mb-6">
-              <span class="relative flex h-2 w-2">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-green opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-green"></span>
-              </span>
-              <span class="text-white text-[10px] font-bold uppercase tracking-[0.2em] letter-spacing: 0.05em;">Whole-School Package</span>
-            </div>
-            
-            <h3 class="text-4xl md:text-5xl font-display font-black text-white tracking-tight leading-[1.02] mb-6">
-              Student Recognition &amp; House Points<br>
-              <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-emerald-400">Complete Pro Plan</span>
-            </h3>
-            
-            <p class="text-slate-300 text-lg leading-relaxed mb-8 font-medium">
-              Get complete access to the full <span class="text-white font-bold">Teacher App Point Workspace</span> and the interactive <span class="text-brand-green font-bold">Student Rewards Portal</span> for your entire school. Boost student engagement, run live leaderboards on assembly screens, and get rid of confusing point tracking spreadsheets forever.
+    <!-- FOUNDING SCHOOL NOTE -->
+    <div class="max-w-6xl mx-auto mt-6">
+      <div class="bg-orange-50 border border-orange-200 rounded-2xl p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div class="flex items-start gap-3">
+          <div class="w-10 h-10 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center shrink-0">
+            <i class="fas fa-crown"></i>
+          </div>
+          <div>
+            <h4 class="font-black text-brand-dark text-base">
+              Ask if your school is eligible for the Founding Schools Programme.
+            </h4>
+            <p class="text-sm text-gray-600 mt-1">
+              Selected schools may receive 1 year of access with the licence fee waived, plus training and priority support.
             </p>
-
-            <div class="flex flex-col sm:flex-row gap-4 items-center">
-              <button onclick="openPilotModal()" class="w-full sm:w-auto px-10 py-4 bg-brand-green hover:bg-green-500 text-[#0C1E2C] font-black rounded-2xl transition-all duration-300 shadow-xl shadow-brand-green/20 hover:-translate-y-1 flex items-center justify-center gap-3 text-lg">
-                <i class="fas fa-rocket"></i> Launch Free 30-Day Pilot
-              </button>
-              <button onclick="openInvoiceModal(); document.getElementsByName('licence_type')[0].value='School Annual Licence'; document.getElementsByName('invoice_request_reason')[0].value='Annual school licence';" class="w-full sm:w-auto px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/15 text-white font-bold rounded-2xl transition-all duration-200 text-sm flex items-center justify-center gap-2">
-                <i class="fas fa-file-invoice-dollar"></i> Request School Invoice
-              </button>
-            </div>
-          </div>
-
-          <div class="lg:w-[340px] shrink-0 w-full">
-            <div class="bg-white/[0.02] backdrop-blur-xl border border-white/10 rounded-[32px] p-8 shadow-2xl relative overflow-hidden text-left">
-              
-              <div class="absolute top-0 right-0">
-                <div class="bg-brand-green text-[#0C1E2C] text-[10px] font-black px-4 py-1.5 rounded-bl-xl uppercase tracking-wider">
-                  Flat Annual Rate
-                </div>
-              </div>
-
-              <span class="text-slate-400 text-xs font-bold uppercase tracking-widest block mb-1">School-Wide License</span>
-              <div class="flex items-baseline gap-1.5 mb-6">
-                <span class="text-5xl font-black text-white tracking-tighter font-display">$2,499</span>
-                <span class="text-slate-400 font-bold text-xs tracking-wide">USD / Year</span>
-              </div>
-
-              <div class="space-y-4 mb-6 text-sm">
-                <div class="flex items-center gap-3 text-brand-green font-bold">
-                  <i class="fas fa-check-circle text-base"></i>
-                  <span>Full House Point System</span>
-                </div>
-                <div class="flex items-center gap-3 text-brand-green font-bold">
-                  <i class="fas fa-check-circle text-base"></i>
-                  <span>All Teacher Classroom Tools</span>
-                </div>
-                <div class="flex items-center gap-3 text-brand-green font-bold">
-                  <i class="fas fa-check-circle text-base"></i>
-                  <span>All Student Reward Portals</span>
-                </div>
-                <div class="flex items-center gap-3 text-slate-300 font-semibold">
-                  <i class="fas fa-plus-circle text-brand-blue text-base"></i>
-                  <span>Free Behaviour Logs Add-on</span>
-                </div>
-                <div class="flex items-center gap-3 text-slate-300 font-semibold">
-                  <i class="fas fa-plus-circle text-brand-blue text-base"></i>
-                  <span>Free Booking Calendar Add-on</span>
-                </div>
-              </div>
-
-              <div class="pt-5 border-t border-white/10">
-                 <p class="text-[11px] text-slate-400 leading-relaxed italic">
-                   Includes unlimited student profiles, unlimited teacher accounts, live assembly setups, and priority support.
-                 </p>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-        
-        <div class="border-t border-white/10 my-10"></div>
-        
-        <h4 class="text-xs font-black uppercase tracking-widest text-brand-green mb-6 flex items-center gap-2 relative z-10 text-left">
-          <i class="fas fa-network-wired"></i> Everything is included under one single price plan:
-        </h4>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 text-gray-200 relative z-10 text-left">
-          <div class="p-5 bg-white/[0.02] rounded-2xl border border-white/5 hover:border-brand-blue/20 transition-all duration-300">
-            <div class="font-bold text-white flex items-center gap-2.5 mb-1.5 text-base">
-              <i class="fas fa-trophy text-brand-blue text-sm"></i> Recognition & House Points Platform
-            </div>
-            <p class="text-xs text-slate-400 leading-relaxed">Full access to the Teacher points workspace and the interactive Student reward portal views natively connected.</p>
-          </div>
-          
-          <div class="p-5 bg-white/[0.02] rounded-2xl border border-white/5 hover:border-purple-500/20 transition-all duration-300">
-            <div class="font-bold text-white flex items-center gap-2.5 mb-1.5 text-base">
-              <i class="fas fa-chart-line text-purple-400 text-sm"></i> Behaviour Support
-            </div>
-            <p class="text-xs text-slate-400 leading-relaxed">Log support notes, review follow-up needs and keep pastoral visibility connected to the wider recognition system.</p>
-          </div>
-          
-          <div class="p-5 bg-white/[0.02] rounded-2xl border border-white/5 hover:border-teal-500/20 transition-all duration-300">
-            <div class="font-bold text-white flex items-center gap-2.5 mb-1.5 text-base">
-              <i class="fas fa-calendar-alt text-teal-400 text-sm"></i> Facility Booking Calendar
-            </div>
-            <p class="text-xs text-slate-400 leading-relaxed">Coordinate room schedules, library areas, and specialist labs smoothly without any double-booking or structural calendar clutter for free.</p>
           </div>
         </div>
-        
-      </div>
-    </div>
 
-    <div class="grid sm:grid-cols-2 gap-4 mt-8 pt-8 border-t border-gray-200">
-      <div class="bg-amber-50/60 border border-amber-100/70 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-left">
-        <div>
-          <span class="inline-block text-[9px] font-black uppercase text-amber-700 bg-amber-100 px-2 py-0.5 rounded mb-1.5 tracking-wider">Strategic Engagement</span>
-          <h5 class="font-bold text-sm text-slate-800">🤝 Founding Schools Initiative</h5>
-          <p class="text-xs text-gray-500 mt-0.5 leading-relaxed">1 Year Free &bull; Complete Operational Support &bull; <strong>3 spots left</strong></p>
-        </div>
-        <button onclick="openPilotModal()" class="w-full sm:w-auto px-5 py-2.5 bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs rounded-xl transition shadow-sm whitespace-nowrap">Apply Now</button>
-      </div>
-      
-      <div class="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-left">
-        <div>
-          <span class="inline-block text-[9px] font-black uppercase text-slate-600 bg-slate-200 px-2 py-0.5 rounded mb-1.5 tracking-wider">Grassroots Access</span>
-          <h5 class="font-bold text-sm text-slate-800">🍎 Teacher Starter Account</h5>
-          <p class="text-xs text-gray-500 mt-0.5 leading-relaxed">Free forever &bull; Evaluation environment layer for single classrooms</p>
-        </div>
-        <a href="https://housepoint.trackedu.net/" target="_blank" class="w-full sm:w-auto px-5 py-2.5 bg-slate-700 hover:bg-slate-800 text-white font-bold text-xs text-center rounded-xl transition whitespace-nowrap">Launch Free</a>
+        <button onclick="openPilotModal()" class="px-5 py-3 bg-orange-500 hover:bg-orange-600 text-white font-black text-sm rounded-xl transition whitespace-nowrap">
+          Ask About Eligibility
+        </button>
       </div>
     </div>
 
@@ -5777,30 +5825,28 @@ setTimeout(function() {
 
 
 
-<section id="how-to-start" class="py-20 bg-brand-dark text-white overflow-hidden relative">
-  
-  <!-- CHAPTER 7: Dotted line + arrow (dark mode) -->
-  <div class="story-path-container mb-6">
-    <svg class="story-path-svg" viewBox="0 0 100 100" fill="none">
-      <path d="M50 0 C 100 20, 50 60, 50 90" stroke="#87C232" stroke-width="3" stroke-dasharray="6 4" stroke-linecap="round" />
-      <path d="M42 82 L50 90 L58 82" stroke="#87C232" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-    </svg>
-  </div>
-
-  <!-- CHAPTER 7: Edge-to-edge header (white text for dark background) -->
-  <div class="w-full bg-white/5 border-y border-white/10 py-4 mb-6">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="flex items-center justify-center gap-3">
-        <div class="h-px w-8 bg-brand-green/30 hidden sm:block"></div>
-        <span class="inline-flex items-center gap-2">
-          <span class="text-xs font-black uppercase tracking-wider text-brand-green">Chapter 7</span>
-          <span class="text-xs text-gray-500">/</span>
-          <span class="text-xs font-medium text-gray-400">Start Your Pilot</span>
+<section id="how-to-start" class="collapsible-section bg-brand-dark text-white overflow-hidden relative">
+  <details>
+   <summary class="collapse-section-header collapse-pilot">
+      <div class="collapse-section-inner">
+        <span class="collapse-section-label">
+          <span class="collapse-icon">
+            <i class="fas fa-rocket"></i>
+          </span>
+          <span class="collapse-text-wrap">
+            <span class="collapse-kicker">How to Start</span>
+            <span class="collapse-title">Create your school in 5 to 10 minutes.</span>
+          </span>
         </span>
-        <div class="h-px w-8 bg-brand-green/30 hidden sm:block"></div>
+
+        <span class="collapse-open-text">
+          View setup steps
+          <i class="fas fa-chevron-down"></i>
+        </span>
       </div>
-    </div>
-  </div>
+    </summary>
+
+    <div class="collapsible-content py-20">
 
   <div class="max-w-6xl mx-auto px-6 relative z-10">
     
@@ -5946,7 +5992,9 @@ setTimeout(function() {
 
     </div>
 
-  </div>
+
+    </div>
+  </details>
 </section>
 
 
@@ -5960,30 +6008,30 @@ setTimeout(function() {
 <!-- CHANGELOG & ROADMAP SECTION - REDESIGNED   -->
 <!-- CLICKABLE IMAGES + LIGHTBOX                -->
 <!-- ========================================== -->
-<section id="roadmap" class="py-24 bg-gradient-to-b from-white to-gray-50/50">
-  
-  <!-- CHAPTER 8: Dotted line + arrow -->
-  <div class="story-path-container mb-6">
-    <svg class="story-path-svg" viewBox="0 0 100 100" fill="none">
-      <path d="M50 0 C 100 20, 50 60, 50 90" stroke="#0f66c3" stroke-width="3" stroke-dasharray="6 4" stroke-linecap="round" />
-      <path d="M42 82 L50 90 L58 82" stroke="#0f66c3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-    </svg>
-  </div>
-
-  <!-- CHAPTER 8: Edge-to-edge header -->
-  <div class="w-full bg-gradient-to-r from-gray-50 via-white to-gray-50 border-y border-gray-100 py-4 mb-6">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="flex items-center justify-center gap-3">
-        <div class="h-px w-8 bg-brand-green/30 hidden sm:block"></div>
-        <span class="inline-flex items-center gap-2">
-          <span class="text-xs font-black uppercase tracking-wider text-brand-green">Chapter 8</span>
-          <span class="text-xs text-gray-400">/</span>
-          <span class="text-xs font-medium text-gray-500">What's New. What's Next.</span>
+<section id="roadmap" class="collapsible-section bg-gradient-to-b from-white to-gray-50/50">
+  <details>
+    <summary class="collapse-section-header collapse-updates">
+      <div class="collapse-section-inner">
+        <span class="collapse-section-label">
+          <span class="collapse-icon">
+            <i class="fas fa-gift"></i>
+          </span>
+          <span class="collapse-text-wrap">
+            <span class="collapse-kicker">What’s new</span>
+            <span class="collapse-title">Recent updates and what TrackEDU is building next.</span>
+          </span>
         </span>
-        <div class="h-px w-8 bg-brand-green/30 hidden sm:block"></div>
+
+        <span class="collapse-open-text">
+          View updates
+          <i class="fas fa-chevron-down"></i>
+        </span>
       </div>
-    </div>
-  </div>
+    </summary>
+
+    <div class="collapsible-content py-16 md:py-24">
+  
+
 
   <div class="max-w-6xl mx-auto px-6">
     
@@ -6499,29 +6547,28 @@ setTimeout(function() {
 
 
 
-<section id="faq" class="py-24 bg-white border-t border-gray-50">
-  
-  <!-- CHAPTER 8: Dotted line + arrow -->
-  <div class="story-path-container mb-6">
-    <svg class="story-path-svg" viewBox="0 0 100 100" fill="none">
-      <path d="M50 0 C 0 20, 50 60, 50 90" stroke="#64748b" stroke-width="3" stroke-dasharray="6 4" stroke-linecap="round" />
-      <path d="M42 82 L50 90 L58 82" stroke="#64748b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-    </svg>
-  </div>
-
-  <!-- CHAPTER 8: Edge-to-edge header -->  <div class="w-full bg-gradient-to-r from-gray-50 via-white to-gray-50 border-y border-gray-100 py-4 mb-6">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="flex items-center justify-center gap-3">
-        <div class="h-px w-8 bg-brand-green/30 hidden sm:block"></div>
-        <span class="inline-flex items-center gap-2">
-          <span class="text-xs font-black uppercase tracking-wider text-brand-green">Chapter 9</span>
-          <span class="text-xs text-gray-400">/</span>
-          <span class="text-xs font-medium text-gray-500">Questions Before You Start</span>
+<section id="faq" class="collapsible-section bg-white border-t border-gray-50">
+  <details>
+   <summary class="collapse-section-header collapse-faq">
+      <div class="collapse-section-inner">
+        <span class="collapse-section-label">
+          <span class="collapse-icon">
+            <i class="fas fa-question-circle"></i>
+          </span>
+          <span class="collapse-text-wrap">
+            <span class="collapse-kicker">Questions before you start</span>
+            <span class="collapse-title">Frequently asked questions about pilots, pricing, privacy and setup.</span>
+          </span>
         </span>
-        <div class="h-px w-8 bg-brand-green/30 hidden sm:block"></div>
+
+        <span class="collapse-open-text">
+          View FAQ
+          <i class="fas fa-chevron-down"></i>
+        </span>
       </div>
-    </div>
-  </div>
+    </summary>
+
+    <div class="collapsible-content py-24">
 
   <div class="max-w-4xl mx-auto px-6">
     
@@ -6831,8 +6878,11 @@ setTimeout(function() {
         <a href="mailto:hello@trackedu.net" class="font-bold text-brand-blue hover:underline">hello@trackedu.net</a>
       </div>
     </div>
-    
-  </div>
+
+
+
+       </div>
+  </details>
 </section>
 
 <style>
@@ -7007,7 +7057,7 @@ setTimeout(function() {
             <li><button onclick="showToolInfo('teacher')" class="hover:text-white transition">Teacher App</button></li>
             <li><button onclick="showToolInfo('student')" class="hover:text-white transition">Student Portal</button></li>
             <li><button onclick="showToolInfo('behaviour')" class="hover:text-white transition">Behaviour Support</button></li>
-            <li><a href="facilities.html" class="hover:text-brand-teal transition">Facility Booking</a></li>
+            <li><a href="https://www.trackedu.net/facilities.html" target="_blank" rel="noopener noreferrer" class="hover:text-brand-teal transition">Facility Booking</a></li>
             <li><a href="#pricing" class="hover:text-white transition">Plans</a></li>
           </ul>
         </div>
@@ -8215,7 +8265,7 @@ function showMascotMessage() {
 // Jump to the "Two Apps. One System." Section
 function jumpToDemo(appType) {
     // 1. Scroll smoothly to the exact section explaining the two apps
-    document.getElementById('how').scrollIntoView({ behaviour: 'smooth' });
+    document.getElementById('how').scrollIntoView({ behavior: 'smooth' });
     
     // 2. We still silently switch the interactive demo further down the page in the background!
     // So if they keep scrolling, it's already loaded to the app they clicked.
@@ -8320,7 +8370,7 @@ function switchVideo(type) {
   container.classList.remove('hidden');
   
   // Scroll video into view smoothly
-  container.scrollIntoView({ behaviour: 'smooth', block: 'start' });
+  container.scrollIntoView({ behavior: 'smooth', block: 'start' });
   
   // Correct video mapping
   if (type === 'student') {
@@ -8962,7 +9012,7 @@ function openStudentAppPreview() {
 
 <script>
   function selectPlan(planName) {
-    document.getElementById('demo').scrollIntoView({ behaviour: 'smooth' });
+    document.getElementById('demo').scrollIntoView({ behavior: 'smooth' });
     const messageField = document.getElementById('message');
     messageField.value = "Hi TrackEDU, I am interested in the '" + planName + "'. Please send me more details.";
     document.getElementById('name').focus();
