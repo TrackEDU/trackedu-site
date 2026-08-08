@@ -28,13 +28,13 @@
   <meta property="og:title" content="TrackEDU Facilities | School Facility Booking Software" />
   <meta property="og:description" content="Fix room-booking chaos with one clear calendar for rooms, halls, labs, sports spaces, approvals and site team requests." />
   <meta property="og:url" content="https://www.trackedu.net/facilities.html" />
-  <meta property="og:image" content="https://trackedu.github.io/common-assets/siteqrcode.png" />
+  <meta property="og:image" content="https://trackedu.github.io/common-assets/desktopcalendar.png" />
   <meta property="og:image:alt" content="TrackEDU Facilities school facility calendar" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="TrackEDU Facilities | School Facility Booking Software" />
   <meta name="twitter:description" content="One clear campus calendar for shared spaces, approvals, QR check-in and site team requests." />
-  <meta name="twitter:image" content="https://trackedu.github.io/common-assets/siteqrcode.png" />
+  <meta name="twitter:image" content="https://trackedu.github.io/common-assets/desktopcalendar.png" />
 
   <script type="application/ld+json">
 [
@@ -124,11 +124,11 @@
       {
         "@type": "Offer",
         "name": "Pro Plan",
-        "price": "499",
+        "price": "399",
         "priceCurrency": "USD",
         "availability": "https://schema.org/InStock",
         "url": "https://www.trackedu.net/facilities.html#pricing",
-        "description": "TrackEDU Facilities Pro includes up to 30 bookable spaces, up to 100 users and core school facility booking workflows for USD 499 per year."
+        "description": "TrackEDU Facilities Pro includes up to 30 bookable spaces and up to 100 users. Pro is free until 22 July 2027, then USD 399 per year."
       },
       {
         "@type": "Offer",
@@ -3178,6 +3178,176 @@
     width: min(218px, 66vw);
   }
 }
+
+
+/* Final responsive polish: tablet + mobile */
+@media (max-width: 1180px) {
+  .nav-inner { height: 56px; gap: 18px; }
+  .desktop-only { display: none !important; }
+  .hamburger { display: inline-flex; }
+  .mobile-menu { top: 56px; height: calc(100dvh - 56px); }
+
+  .hero-clean .hero-grid,
+  .dashboard-proof-intro,
+  .video-split,
+  .features-grid,
+  .integrations-clean-head {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-clean .hero-copy {
+    max-width: 820px;
+    margin: 0 auto;
+    text-align: center;
+    justify-items: center;
+  }
+
+  .hero-clean .hero-copy h1,
+  .hero-clean .hero-copy .lead {
+    max-width: 760px;
+  }
+
+  .hero-clean .hero-metrics {
+    width: min(660px, 100%);
+  }
+
+  .dashboard-proof-copy,
+  .dashboard-proof-copy h2,
+  .dashboard-proof-copy .lead {
+    max-width: 860px;
+  }
+
+  .dashboard-proof-cards {
+    grid-template-columns: repeat(4, minmax(180px, 1fr));
+    overflow-x: auto;
+    padding-bottom: 6px;
+  }
+
+  .use-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .pricing-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .plan-card {
+    min-height: 520px;
+    padding: 24px;
+  }
+
+  .pro-offer-amount {
+    font-size: clamp(64px, 7vw, 88px);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1.4fr 1fr 1fr;
+  }
+
+  .footer-grid > div:nth-child(4) {
+    grid-column: 2 / 4;
+  }
+}
+
+@media (max-width: 900px) {
+  .section { padding-top: 64px; padding-bottom: 64px; }
+
+  .use-grid,
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .use-card { min-height: 0; }
+  .plan-card { min-height: 0; }
+
+  .trust-strip-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dashboard-proof-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    overflow: visible;
+  }
+
+  .flow-board {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .integration-pill-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-grid > div:nth-child(4) {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .section { padding-top: 52px; padding-bottom: 52px; }
+
+  .hero-clean .hero-copy {
+    text-align: left;
+    justify-items: start;
+    margin: 0;
+  }
+
+  .hero-clean .hero-metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .trust-strip { padding-top: 16px; padding-bottom: 16px; }
+  .trust-strip-grid { gap: 8px; }
+  .trust-strip-item { min-height: 62px; padding: 12px 10px; font-size: 11.5px; }
+
+  .video-frame,
+  .phone-frame,
+  .mockup-stage,
+  .pricing-launch-offer,
+  .comparison-preview-card {
+    border-radius: 22px;
+  }
+
+  .dashboard-product-stage {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    overflow-x: auto;
+  }
+
+  .dashboard-product-stage img {
+    width: 820px;
+  }
+
+  .integration-pill-row {
+    display: flex;
+  }
+
+  .flow-board {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .comparison-preview-card {
+    padding: 18px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 430px) {
+  .hero-clean .hero-metrics { gap: 6px; }
+  .hero-clean .hero-metric { padding: 8px 4px; font-size: 10px; }
+  .flow-board { grid-template-columns: 1fr; }
+  .dashboard-proof-cards { grid-template-columns: 1fr 1fr; }
+}
   </style>
 </head>
 
@@ -3285,25 +3455,22 @@
       </span>
 
       <span>
-        Get TrackEDU Facilities Pro free for the first year, for eligible education teams.
+        Get TrackEDU Facilities Pro free until 22 July 2027. No credit card required.
       </span>
     </div>
 
     <div class="launch-offer-actions">
       <div class="launch-deadline-wrap">
-        <span class="launch-countdown" data-countdown="2026-08-31T23:59:59">
-          Offer closes 31 August 2026
-        </span>
-        <span class="launch-expiry-date">
-          Ends 31 Aug 2026
-        </span>
-      </div>
+  <span class="launch-expiry-date">
+    Free until 22 July 2027
+  </span>
+</div>
 
       <button
         type="button"
         class="launch-offer-link"
-        onclick="openInvoiceModal('TrackEDU Facilities - Launch Offer', 'Free first year, then USD 499/year')">
-        Check eligibility
+        onclick="window.open('https://facilities.trackedu.net/', '_blank')">
+  Start free
       </button>
     </div>
   </div>
@@ -3386,16 +3553,6 @@
 
 
 
-
-
-
-    <section class="stats-band" aria-label="Facility booking outcomes">
-      <div class="stats-grid">
-        <div class="stat-card"><strong>1 clash</strong><span>can derail a lesson, assembly, exam setup, sports session or parent event.</span></div>
-        <div class="stat-card"><strong>1 calendar</strong><span>keeps classrooms, halls, labs, libraries, approvals and closures visible to staff.</span></div>
-        <div class="stat-card"><strong>1 term</strong><span>is enough for booking problems to become normal. Fix it before they do.</span></div>
-      </div>
-    </section>
 
 
 
@@ -3534,112 +3691,6 @@
 
 
 
-   <section class="section">
-  <div class="inner split">
-    <div class="visual-shell">
-      <div class="feature-phone-wrap">
-        <img src="https://trackedu.github.io/common-assets/requestshare.png" alt="TrackEDU Request Share feature for sharing or taking over a booked room" class="feature-phone" />
-
-        <div class="floating-feature-card floating-top-right">
-          <span class="status-dot" style="background:rgba(139,92,246,.14);color:var(--purple)">
-            <i class="fas fa-people-arrows-left-right"></i>
-          </span>
-          <div>
-            <strong>Resolve room clashes without email</strong>
-            <p>Staff can request to share a room or take it over directly inside TrackEDU.</p>
-          </div>
-        </div>
-
-        <div class="floating-feature-card floating-bottom-left">
-          <span class="status-dot">
-            <i class="fas fa-check-circle"></i>
-          </span>
-          <div>
-            <strong>Clear, trackable workflow</strong>
-            <p>Requests stay visible, structured and easier to manage than back-and-forth messages.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div>
-      <div class="kicker"><i class="fas fa-people-arrows-left-right"></i> Request share</div>
-      <h2>Let staff share or take over a room without chasing each other on email.</h2>
-      <p class="lead" style="margin-top:18px;">When a room is already booked, TrackEDU gives staff a structured way to request a share or takeover. It keeps the process visible, reduces confusion, and helps schools avoid last-minute disruption.</p>
-      <div class="chip-grid" style="grid-template-columns:repeat(2,1fr);">
-        <div class="card" style="padding:18px;">
-          <strong>2 options</strong>
-          <p class="small">Choose to share the room or request a full takeover.</p>
-        </div>
-        <div class="card" style="padding:18px;">
-          <strong>1 clear record</strong>
-          <p class="small">The request stays linked to the booking so changes are easy to follow.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section new-booking-section" style="padding-top:0;">
-  <div class="inner split feature-split-reverse">
-    <div>
-      <div class="kicker"><i class="fas fa-calendar-plus"></i> New booking</div>
-      <h2>Book a space quickly with a clearer workflow for real school use.</h2>
-      <p class="lead" style="margin-top:18px;">TrackEDU lets staff search facilities, choose the right room, and move through the booking flow with the details schools actually need, including date, metadata, approvals and setup needs.</p>
-      <div class="chip-grid" style="grid-template-columns:repeat(2,1fr);">
-        <div class="card" style="padding:18px;">
-          <strong>Faster booking</strong>
-          <p class="small">Search and select the right space without digging through a messy calendar.</p>
-        </div>
-        <div class="card" style="padding:18px;">
-          <strong>Built for schools</strong>
-          <p class="small">Supports room types, departments, approvals and operational context.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="visual-shell">
-      <div class="feature-phone-wrap">
-        <img src="https://trackedu.github.io/common-assets/newbooking.png" alt="TrackEDU New Booking flow for selecting a facility and creating a room booking" class="feature-phone new-booking-phone" />
-
-        <div class="floating-feature-card floating-top-left">
-          <span class="status-dot" style="background:rgba(37,99,235,.14);color:var(--blue)">
-            <i class="fas fa-magnifying-glass"></i>
-          </span>
-          <div>
-            <strong>Search spaces instantly</strong>
-            <p>Filter rooms and facilities quickly so staff can find the right space with less friction.</p>
-          </div>
-        </div>
-
-        <div class="floating-feature-card floating-bottom-right">
-          <span class="status-dot" style="background:rgba(135,194,50,.14);color:var(--green-dark)">
-            <i class="fas fa-calendar-check"></i>
-          </span>
-          <div>
-            <strong>Structured booking flow</strong>
-            <p>Capture the booking details schools need before the request is submitted.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-    <section id="headaches" class="section feature-section">
-      <div class="inner">
-        <div class="narrow">
-          <div class="kicker"><i class="fas fa-triangle-exclamation"></i> Real education-space problems</div>
-          <h2>These are not small admin problems. They interrupt the school day.</h2>
-        </div>
-        <div class="use-grid" style="margin-top:34px;">
-          <div class="card use-card"><div><div class="icon-disc" style="background:#fff1f2;color:var(--pink)"><i class="fas fa-ghost"></i></div><h3>Ghost bookings</h3><p>Rooms booked for weeks but barely used. Auto-release can return empty spaces to the availability pool.</p></div></div>
-          <div class="card use-card"><div><div class="icon-disc"><i class="fas fa-people-arrows"></i></div><h3>Double-booked spaces</h3><p>Staff arrive with a class and someone is already inside. One shared calendar prevents awkward clashes.</p></div></div>
-          <div class="card use-card"><div><div class="icon-disc" style="background:#f5f3ff;color:var(--purple)"><i class="fas fa-clipboard-list"></i></div><h3>Late setup requests</h3><p>Site teams see chairs, desks, AV and equipment needs before everyone is under pressure.</p></div></div>
-        </div>
-      </div>
-    </section>
-
     <section id="school-story" class="section" style="background:#fff7d6;">
       <div class="inner video-split">
         <div class="video-frame">
@@ -3692,7 +3743,7 @@
 
       <div class="integrations-clean-copy">
         <p class="lead">
-          Staff book spaces in TrackEDU, then use familiar sign-in, calendar feeds, QR check-in and alerts around that booking workflow.
+          Use familiar Google or Microsoft sign-in, publish secure calendar feeds, and keep booking updates connected to the tools staff already know.
         </p>
 
         <div class="hero-ctas">
@@ -3786,28 +3837,29 @@
           <i class="fas fa-gift"></i> Launch offer
         </span>
 
-        <h3>Get Pro free for the first year.</h3>
+        <h3>Get Pro free until 22 July 2027.</h3>
 
         <p>
-          TrackEDU Facilities has just launched. Eligible schools, colleges, universities and campus teams can receive 1 year of Pro access free.
-        </p>
+  TrackEDU Facilities has just launched. Schools, colleges and universities can use Pro completely free until 22 July 2027.
+</p>
 
-        <p class="pricing-launch-small">
-          Includes up to 30 bookable spaces and 100 staff users. Eligibility depends on organisation type, intended use and setup requirements.
-        </p>
+<p class="pricing-launch-small">
+  Includes up to 30 bookable spaces and 100 staff users. No credit card required and no commitment. After 22 July 2027, continue on Pro for USD 399/year or move back to Free Starter.
+</p>
       </div>
 
       <div class="pricing-launch-side">
-        <span class="launch-countdown large" data-countdown="2026-08-31T23:59:59">
-          Offer closes 31 August 2026
-        </span>
+        <span class="launch-expiry-date">
+  Free until 22 July 2027
+</span>
 
-        <button
-          class="btn btn-green"
-          type="button"
-          onclick="openInvoiceModal('TrackEDU Facilities - Launch Offer', 'Free first year, then USD 499/year')">
-          Check eligibility
-        </button>
+        <a
+  class="btn btn-green"
+  href="https://facilities.trackedu.net/"
+  target="_blank"
+  rel="noopener">
+  Start free
+</a>
       </div>
     </div>
 
@@ -3853,20 +3905,19 @@
           <div class="pro-offer-main">
             <span class="pro-offer-amount">$0</span>
 
-            <div class="pro-offer-copy">
-              <span class="pro-offer-label">first year</span>
-              <span class="pro-offer-renewal">Then $499/year</span>
-            </div>
+<div class="pro-offer-copy">
+  <span class="pro-offer-label">until 22 July 2027</span>
+  <span class="pro-offer-renewal">Then $399/year</span>
+</div>
           </div>
 
           <div class="pro-offer-meta">
-            <span class="pro-offer-was">Normally $499/year</span>
-            <span class="pro-offer-save">Save $499</span>
-          </div>
+  <span class="pro-offer-save">No credit card required</span>
+</div>
         </div>
 
         <p class="small pro-offer-note">
-          Offer available for eligible schools, colleges, universities and campus teams until 31 August 2026.
+          Free Pro access is available to schools, colleges and universities until 22 July 2027.
         </p>
 
         <ul class="plan-list">
@@ -3875,12 +3926,13 @@
           <li><i class="fas fa-check"></i> Operations Board, recurring bookings and exports</li>
         </ul>
 
-        <button
-          class="btn btn-green"
-          type="button"
-          onclick="openInvoiceModal('TrackEDU Facilities - Launch Offer', 'Free first year, then USD 499/year')">
-          Check free first-year eligibility
-        </button>
+        <a
+  class="btn btn-green"
+  href="https://facilities.trackedu.net/"
+  target="_blank"
+  rel="noopener">
+  Start Pro free
+</a>
       </div>
 
       <div class="plan-card ultimate">
@@ -3975,38 +4027,13 @@
             <tr><td>QR code door cards</td><td>Included</td><td>Included</td><td>Included</td></tr>
             <tr><td>Auto-release empty spaces</td><td>Included</td><td>Included</td><td>Included</td></tr>
             <tr><td>Onboarding support</td><td>Self-serve</td><td>Standard support</td><td>Guided onboarding and implementation discussion</td></tr>
-            <tr><td>Price</td><td class="price-cell">$0 forever</td><td class="price-cell">$499 /year</td><td class="price-cell">Custom</td></tr>
+            <tr><td>Price</td><td class="price-cell">$0 forever</td><td class="price-cell">$399 /year after 22 July 2027</td><td class="price-cell">Custom</td></tr>
           </tbody>
         </table>
       </div>
     </div>
   </div>
 </section>
-
-    <section id="story-time" class="section story-section">
-      <div class="inner story-grid">
-        <div class="card founder-card">
-          <div>
-            <div class="kicker"><i class="fas fa-user"></i> Built by an educator</div>
-            <h2>“I got tired of losing my free periods to calendar chaos.”</h2>
-            <p>Before writing this code, the creator of TrackEDU spent years working in education and dealing with the same day-to-day calendar frustrations.</p>
-            <p>Campuses do not need bloated enterprise platforms that require an intensive training manual just to book a room. They need a practical system that loads quickly and works on tightening budgets.</p>
-          </div>
-          <div>
-            <div class="mini-badges">
-              <div class="mini-badge"><strong>TEDx</strong><span>Speaker</span></div>
-              <div class="mini-badge"><strong>Google</strong><span>Certified</span></div>
-              <div class="mini-badge"><strong>Masters</strong><span>Education</span></div>
-              <div class="mini-badge"><strong>UK Ltd</strong><span>Registered</span></div>
-            </div>
-            <div class="hero-ctas" style="margin-top:24px;"><a class="btn btn-primary" href="https://www.linkedin.com/in/bilalsaddik/" target="_blank" rel="noopener">Connect with the founder <i class="fab fa-linkedin"></i></a></div>
-          </div>
-        </div>
-        <div class="card proof-image-card">
-          <img src="https://trackedu.github.io/common-assets/founder.png" alt="TrackEDU founder and automation framework architecture summary" />
-        </div>
-      </div>
-    </section>
 
     <section id="faq" class="section">
       <div class="inner" style="max-width:980px;">
@@ -4015,14 +4042,13 @@
           <h2>Frequently asked questions.</h2>
         </div>
         <div class="faq-list">
-          <details open><summary>Which TrackEDU Facilities plan should we start with?</summary><p>Free Starter is best for testing the system with 2 bookable spaces and up to 15 users. Pro is designed for most schools, with up to 30 bookable spaces and up to 100 users. Ultimate is for larger schools, colleges, universities and multi-site groups that need a custom capacity and implementation discussion.</p></details>
-          <details><summary>Is this only for classrooms?</summary><p>No. Schools can add classrooms, halls, labs, libraries, sports areas, auditoriums, meeting rooms and any other shared spaces.</p></details>
+          <details open><summary>Which TrackEDU Facilities plan should we start with?</summary><p>Free Starter is best for testing the system with 2 bookable spaces and up to 15 users. Pro is designed for most schools, with up to 30 bookable spaces and up to 100 users. Ultimate is for larger schools, colleges, universities and multi-site groups that need custom capacity and implementation support.</p></details>
+          <details><summary>Is this only for classrooms?</summary><p>No. Schools can add classrooms, halls, labs, libraries, sports areas, auditoriums, meeting rooms and other shared spaces.</p></details>
+          <details><summary>Do staff need another username and password?</summary><p>No separate TrackEDU password is required when your organisation uses supported Google or Microsoft sign-in. Staff can use familiar school accounts, subject to your organisation’s access and approval settings.</p></details>
           <details><summary>Can some rooms require approval?</summary><p>Yes. High-demand spaces can require administrator approval, while everyday spaces can be available for faster instant booking.</p></details>
-          <details><summary>Can faculty and staff use it on mobile?</summary><p>Yes. The facility portal is web-based and supports progressive web app installation, so staff can use it from phones, tablets and desktop devices.</p></details>
-          <details><summary>Can we block rooms for maintenance or school events?</summary><p>Yes. Administrators can close rooms for repairs, exams, school events, holidays, severe weather or planned maintenance.</p></details>
-          <details><summary>How is this different from Google Calendar or a spreadsheet?</summary><p>TrackEDU Facilities is built around school workflows: approval queues, QR check-in, room availability, site team setup requests, recurring bookings, maintenance blocks and a simpler staff-facing booking experience.</p></details>
-          <details><summary>Can we test it with one department first?</summary><p>Yes. A school can begin with one area such as PE, the library, science labs or shared meeting rooms, then expand once staff are comfortable with the workflow.</p></details>
-          <details><summary>Does it work as a standalone system?</summary><p>Yes. TrackEDU Facilities can run as a standalone booking system, or sit inside the broader TrackEDU ecosystem.</p></details>
+          <details><summary>Can staff use it on mobile and tablet?</summary><p>Yes. The facility portal is web-based and works across phones, tablets and desktop devices. It also supports progressive web app installation for quicker access.</p></details>
+          <details><summary>Can rooms be blocked for maintenance, events or bad weather?</summary><p>Yes. Administrators can close rooms or outdoor spaces for repairs, exams, events, holidays, severe weather or planned maintenance.</p></details>
+          <details><summary>Can we try TrackEDU Facilities before purchasing?</summary><p>Yes. Schools, colleges and universities can use Pro free until 22 July 2027, with no credit card required. After that, you can continue on Pro for USD 399/year or move back to Free Starter.</p></details>
         </div>
       </div>
     </section>
@@ -4108,7 +4134,7 @@
     <div class="invoice-modal-body">
      <div class="invoice-offer-box" id="invoiceOfferBox">
   <strong><i class="fas fa-gift"></i> Launch Offer Requested</strong>
-  <span>Free first-year access to TrackEDU Facilities Pro, then USD 499/year.</span>
+  <span>Free first-year access to TrackEDU Facilities Pro, then USD 399/year.</span>
   <small>TrackEDU will review your request and email setup instructions if your organisation is eligible.</small>
 </div>
 
@@ -4116,8 +4142,8 @@
         <input type="hidden" name="access_key" value="7f87c71e-2098-42d8-816a-29de230264d7">
         <input type="hidden" name="subject" value="TrackEDU Facilities Launch Offer / Invoice Request">
 <input type="hidden" id="formSelectedPlan" name="selected_plan" value="TrackEDU Facilities - Launch Offer">
-<input type="hidden" id="formSelectedCost" name="selected_cost" value="Free first year, then USD 499/year">
-<input type="hidden" id="formRequestType" name="request_type" value="Launch offer eligibility review">
+<input type="hidden" id="formSelectedCost" name="selected_cost" value="Free until 22 July 2027, then USD 399/year
+<input type="hidden" id="formRequestType" name="request_type" value="Launch offer">
 
         <div class="invoice-section">
           <h4>1. Your details</h4>
@@ -4178,7 +4204,7 @@
 
           <div class="invoice-plan-box">
   Requested access: <strong id="invoicePlanDisplay">TrackEDU Facilities Launch Offer</strong>
-  <span id="invoiceCostDisplay">Free first year, then USD 499/year</span>
+  <span id="invoiceCostDisplay">Free first year, then USD 399/year</span>
 </div>
 
           <div class="invoice-grid">
@@ -4301,7 +4327,7 @@ if (mobileBtn && mobileMenu) {
   });
 
   window.addEventListener('resize', function () {
-    if (window.innerWidth > 1080) {
+    if (window.innerWidth > 1180) {
       closeMobileMenu();
     }
   });
@@ -4477,12 +4503,12 @@ window.togglePlanComparison = togglePlanComparison;
   const submitButton = document.getElementById('invoiceSubmitButton');
 
   const selectedPlan = plan || 'TrackEDU Facilities - Launch Offer';
-  const selectedCost = cost || 'Free first year, then USD 499/year';
+  const selectedCost = cost || 'Free first year, then USD 399/year';
   const isLaunchOffer = selectedPlan.toLowerCase().includes('launch offer') || selectedCost.toLowerCase().includes('free first year');
 
   if (planInput) planInput.value = selectedPlan;
   if (costInput) costInput.value = selectedCost;
-  if (requestTypeInput) requestTypeInput.value = isLaunchOffer ? 'Launch offer eligibility review' : 'Invoice or pricing request';
+  if (requestTypeInput) requestTypeInput.value = isLaunchOffer ? 'Launch offer' : 'Invoice or pricing request';
   if (planDisplay) planDisplay.textContent = selectedPlan;
   if (costDisplay) costDisplay.textContent = selectedCost;
   if (successBox) successBox.classList.add('hidden');
