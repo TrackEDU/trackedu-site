@@ -139,21 +139,33 @@
       }
     ],
     "featureList": [
-      "Room and facility booking calendar",
-      "Classroom, hall, lab, library and sports space booking",
-      "Conflict prevention",
-      "Admin approval workflows",
-      "Recurring bookings",
-      "Maintenance blocks",
-      "Holiday closures",
-      "QR check-in",
-      "Auto-release empty rooms",
-      "Operations request board",
-      "Site team setup visibility",
+      "Live school room and facility booking calendar",
+      "Classroom, hall, lab, library, sports space and shared campus booking",
+      "Instant Room Finder with live availability",
+      "Conflict prevention and double-booking protection",
+      "Administrator approval workflows",
+      "Recurring booking series",
+      "Facility blocks for maintenance, events and closures",
+      "TrackEDU AI School Schedule Import",
+      "AI-assisted academic calendar setup from PDF, image, Excel, CSV, Word, text or pasted information",
+      "Interactive Academic Calendar",
+      "Public holiday, school holiday, term date and closure management",
+      "QR room check-in",
+      "Auto-release unused bookings",
+      "Space swap and sharing requests",
+      "Operations room setup requests",
+      "Operations planning and facility usage reporting",
+      "Individual staff booking permissions",
+      "Per-facility staff access controls",
+      "Pending staff approval workflow",
+      "Staff onboarding by invitation link, CSV import or school access code",
       "Google and Microsoft staff sign-in",
+      "Secure iCal calendar feeds for Apple, Google Calendar and Outlook",
       "Progressive web app access",
+      "Push and in-app booking notifications",
+      "Severe weather and outdoor facility closures",
       "Utilisation visibility",
-      "Custodian CSV export"
+      "CSV exports for Operations and site teams"
     ]
   },
   {
@@ -1096,17 +1108,123 @@
   display: block;
 }
     .feature-section { background: #f8fafc; }
-    .features-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 28px; align-items: stretch; }
-    .feature-buttons { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-    .feature-button { border: 1px solid var(--line); background: #fff; border-radius: 22px; padding: 18px; cursor: pointer; transition: all .18s ease; text-align: left; min-height: 126px; }
-    .feature-button:hover, .feature-button.active { border-color: rgba(15,102,195,.38); box-shadow: 0 18px 45px rgba(12,30,44,.08); transform: translateY(-2px); }
-    .feature-button i { color: var(--blue); font-size: 22px; margin-bottom: 14px; }
-    .feature-button strong { display: block; font-size: 16px; color: var(--dark); margin-bottom: 5px; }
-    .feature-button span { display: block; font-size: 12.5px; color: #64748b; line-height: 1.4; font-weight: 600; }
-    .mockup-panel { min-height: 550px; display: grid; align-content: stretch; }
-    .mockup-stage { height: 100%; padding: 28px; background: #ffffff; border: 1px solid var(--line); border-radius: 34px; box-shadow: 0 24px 70px rgba(12,30,44,.07); display: grid; grid-template-rows: auto 1fr; gap: 22px; }
-    .mockup-stage-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-    .mockup-visual { border-radius: 26px; background: linear-gradient(180deg, #fff, #f8fafc); border: 1px solid var(--line); overflow: hidden; min-height: 330px; display: grid; place-items: center; padding: 22px; }
+    .features-grid {
+  display: grid;
+  grid-template-columns: minmax(320px, .88fr) minmax(0, 1.12fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.feature-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  align-content: start;
+}
+
+.feature-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 6px;
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 22px;
+  padding: 18px;
+  cursor: pointer;
+  transition: all .18s ease;
+  text-align: left;
+  min-height: 126px;
+}
+
+.feature-button:hover,
+.feature-button.active {
+  border-color: rgba(15,102,195,.38);
+  box-shadow: 0 18px 45px rgba(12,30,44,.08);
+  transform: translateY(-2px);
+}
+
+.feature-button i {
+  color: var(--blue);
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.feature-button strong {
+  display: block;
+  margin: 0;
+  font-size: 16px;
+  color: var(--dark);
+}
+
+.feature-button span {
+  display: block;
+  font-size: 12.5px;
+  color: #64748b;
+  line-height: 1.45;
+  font-weight: 600;
+}
+
+.mockup-panel {
+  min-height: 0;
+  display: block;
+}
+
+.mockup-stage {
+  height: 100%;
+  padding: 28px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 34px;
+  box-shadow: 0 24px 70px rgba(12,30,44,.07);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mockup-stage-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.mockup-copy {
+  display: grid;
+  gap: 12px;
+}
+
+.mockup-stage h3 {
+  margin: 0;
+  font-family: Poppins, Inter, sans-serif;
+  font-size: clamp(28px, 2.6vw, 44px);
+  line-height: 1.08;
+  letter-spacing: -.04em;
+  color: var(--dark);
+}
+
+.mockup-stage .lead {
+  margin: 0;
+  font-size: 16px !important;
+  line-height: 1.6;
+  color: #526174;
+}
+
+.mockup-visual {
+  flex: 1;
+  min-height: 370px;
+  border-radius: 26px;
+  background: linear-gradient(180deg, #fff, #f8fafc);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+}
+
+.mockup-visual > * {
+  width: min(560px, 100%);
+}
     .qr-card, .ops-board, .swap-card, .analytics-card { width: min(560px, 100%); background: #fff; border: 1px solid var(--line); border-radius: 26px; padding: 22px; box-shadow: 0 18px 45px rgba(12,30,44,.06); }
     .qr-box { width: 140px; height: 140px; margin: 0 auto 18px; border-radius: 22px; border: 1px solid var(--line); display: grid; place-items: center; font-size: 58px; color: var(--dark); background: #f8fafc; }
     .ticket { display: flex; justify-content: space-between; gap: 12px; align-items: center; padding: 13px 14px; border-radius: 16px; background: #f8fafc; border: 1px solid var(--line); margin-bottom: 10px; font-weight: 750; }
@@ -3710,22 +3828,89 @@
       <div class="inner">
         <div class="section-head">
           <div>
-            <div class="kicker"><i class="fas fa-layer-group"></i> Campus-ready features</div>
-            <h2>Everything schools need to manage shared spaces before Monday morning.</h2>
+            <div class="kicker"><i class="fas fa-layer-group"></i> Smarter school facility management</div>
+<h2>From AI calendar setup to live room booking, one system for the whole school year.</h2>
           </div>
-          <p class="lead">Use the system for one department first, then move towards campus-wide booking when staff are ready.</p>
+          <p class="lead">
+  Import your academic calendar with TrackEDU AI, control who can book each space, find available rooms instantly, manage recurring bookings and closures, and keep Operations teams informed from one shared system.
+</p>
         </div>
 
         <div class="features-grid">
           <div class="feature-buttons" id="featureButtons">
-            <button class="feature-button active" data-feature="qrcode"><i class="fas fa-qrcode"></i><strong>QR Check-In</strong><span>Instant occupancy verification at the room door.</span></button>
-            <button class="feature-button" data-feature="swaps"><i class="fas fa-handshake"></i><strong>Space Swaps</strong><span>Trackable room-swap and sharing requests.</span></button>
-            <button class="feature-button" data-feature="alerts"><i class="fas fa-bell"></i><strong>Push Alerts</strong><span>Instant updates when spaces change.</span></button>
-            <button class="feature-button" data-feature="autorelease"><i class="fas fa-stopwatch"></i><strong>Auto-Release</strong><span>Recover rooms from unused bookings.</span></button>
-            <button class="feature-button" data-feature="ops"><i class="fas fa-tools"></i><strong>Ops Board</strong><span>Daily setup tasks for site teams.</span></button>
-            <button class="feature-button" data-feature="weather"><i class="fas fa-bolt"></i><strong>Lightning Protocol</strong><span>Soft-lock outdoor spaces during severe weather.</span></button>
-            <button class="feature-button" data-feature="sync"><i class="fas fa-calendar-alt"></i><strong>Calendar Sync</strong><span>Live iCal stream to Apple, Google and Outlook.</span></button>
-            <button class="feature-button" data-feature="recurring"><i class="fas fa-redo"></i><strong>Recurring</strong><span>Term-long routine booking series.</span></button>
+
+            <button class="feature-button active" data-feature="aiCalendar">
+              <i class="fas fa-wand-magic-sparkles"></i>
+              <strong>TrackEDU AI</strong>
+              <span>Import your existing academic calendar and let AI identify the important school dates.</span>
+            </button>
+
+            <button class="feature-button" data-feature="academicCalendar">
+              <i class="fas fa-calendar-days"></i>
+              <strong>Academic Calendar</strong>
+              <span>Give staff a clear interactive view of terms, holidays, closures and key school dates.</span>
+            </button>
+
+            <button class="feature-button" data-feature="finder">
+              <i class="fas fa-magnifying-glass"></i>
+              <strong>Instant Room Finder</strong>
+              <span>Choose a date and period and immediately see which spaces are available.</span>
+            </button>
+
+            <button class="feature-button" data-feature="access">
+              <i class="fas fa-user-lock"></i>
+              <strong>Booking Access</strong>
+              <span>Control who can book and restrict individual staff to specific facilities when needed.</span>
+            </button>
+
+            <button class="feature-button" data-feature="qrcode">
+              <i class="fas fa-qrcode"></i>
+              <strong>QR Check-In</strong>
+              <span>Verify room use at the door and support automatic release of unused bookings.</span>
+            </button>
+
+            <button class="feature-button" data-feature="recurring">
+              <i class="fas fa-redo"></i>
+              <strong>Recurring Bookings</strong>
+              <span>Create repeated booking series with built-in conflict checking.</span>
+            </button>
+
+            <button class="feature-button" data-feature="ops">
+              <i class="fas fa-tools"></i>
+              <strong>Operations Requests</strong>
+              <span>Add room setup requirements while booking so site teams can prepare spaces in advance.</span>
+            </button>
+
+            <button class="feature-button" data-feature="weather">
+              <i class="fas fa-cloud-bolt"></i>
+              <strong>Safety & Closures</strong>
+              <span>Close outdoor or indoor facilities for weather, maintenance, events or other restrictions.</span>
+            </button>
+
+            <button class="feature-button" data-feature="swaps">
+              <i class="fas fa-handshake"></i>
+              <strong>Space Requests</strong>
+              <span>Send trackable requests to swap, share or transfer spaces with colleagues.</span>
+            </button>
+
+            <button class="feature-button" data-feature="sync">
+              <i class="fas fa-calendar-alt"></i>
+              <strong>Calendar Sync</strong>
+              <span>Publish confirmed bookings to Apple, Google Calendar and Outlook using secure calendar feeds.</span>
+            </button>
+
+            <button class="feature-button" data-feature="alerts">
+              <i class="fas fa-bell"></i>
+              <strong>Booking Alerts</strong>
+              <span>Keep staff informed about approvals, room changes, requests and safety updates.</span>
+            </button>
+
+            <button class="feature-button" data-feature="onboarding">
+              <i class="fas fa-users-gear"></i>
+              <strong>Staff Onboarding</strong>
+              <span>Invite staff by secure link, CSV import or school access code, with administrator approval.</span>
+            </button>
+
           </div>
           <div class="mockup-panel">
             <div class="mockup-stage" id="featureStage"></div>
@@ -3779,21 +3964,21 @@
       </div>
 
       <div class="integration-pill">
-        <i class="fas fa-qrcode"></i>
-        <strong>QR check-in</strong>
-        <span>Connect rooms to live booking status.</span>
+        <i class="fas fa-mobile-screen-button"></i>
+        <strong>Web & mobile access</strong>
+        <span>Staff can use Facilities from desktop, tablet or phone.</span>
       </div>
 
       <div class="integration-pill">
-        <i class="fas fa-bell"></i>
-        <strong>In-app alerts</strong>
-        <span>Approvals, room changes and safety updates.</span>
+        <i class="fas fa-link"></i>
+        <strong>Secure calendar feeds</strong>
+        <span>Personal booking feeds connect confirmed bookings to familiar calendar apps.</span>
       </div>
 
       <div class="integration-pill">
-        <i class="fas fa-users-gear"></i>
-        <strong>Admin approval</strong>
-        <span>New staff enter only after approval.</span>
+        <i class="fas fa-file-csv"></i>
+        <strong>CSV workflows</strong>
+        <span>Use CSV for staff onboarding and Operations reporting where appropriate.</span>
       </div>
     </div>
 
@@ -4333,72 +4518,305 @@ if (mobileBtn && mobileMenu) {
 }
 
     const featureData = {
+
+      aiCalendar: {
+        icon: 'fa-wand-magic-sparkles',
+        title: 'TrackEDU AI School Schedule Import',
+        text: 'Upload your existing school calendar and let TrackEDU AI identify the academic year, terms, public holidays, school holidays, closures and other important dates before you review and import them.',
+        visual: `
+          <div class="qr-card">
+            <h3><i class="fas fa-wand-magic-sparkles" style="color:var(--green-dark)"></i> School Schedule Import</h3>
+            <p class="small" style="margin-top:8px;">
+              PDF, image, Excel, CSV, Word, text or pasted calendar information.
+            </p>
+
+            <div class="ticket" style="margin-top:18px;">
+              <span>Academic year</span>
+              <span>Detected</span>
+            </div>
+
+            <div class="ticket">
+              <span>Terms & holidays</span>
+              <span>Review</span>
+            </div>
+
+            <div class="ticket">
+              <span>School closures</span>
+              <span>Review</span>
+            </div>
+
+            <div class="ticket">
+              <span><i class="fas fa-user-check" style="color:var(--green)"></i> Nothing saved automatically</span>
+              <span>You approve</span>
+            </div>
+          </div>
+        `
+      },
+
+      academicCalendar: {
+        icon: 'fa-calendar-days',
+        title: 'Interactive Academic Calendar',
+        text: 'Give staff a clear school-year view of terms, public holidays, school holidays, closures and important dates while keeping booking availability aligned with the academic calendar.',
+        visual: `
+          <div class="qr-card">
+            <h3>Academic Calendar</h3>
+            <p class="small" style="margin-top:8px;">Important school dates stay connected to facility availability.</p>
+
+            <div class="ticket" style="margin-top:18px;">
+              <span>Autumn Term</span>
+              <span>Term</span>
+            </div>
+
+            <div class="ticket">
+              <span>School Holiday</span>
+              <span>Closed</span>
+            </div>
+
+            <div class="ticket">
+              <span>Staff In-Service Day</span>
+              <span>Calendar</span>
+            </div>
+          </div>
+        `
+      },
+
+      finder: {
+        icon: 'fa-magnifying-glass',
+        title: 'Instant Room Finder',
+        text: 'Choose a date, period and facility type and TrackEDU checks the timetable to show which spaces are genuinely available.',
+        visual: `
+          <div class="qr-card">
+            <h3>Find a free room</h3>
+            <p class="small" style="margin-top:8px;">Tuesday · Period 3</p>
+
+            <div class="ticket" style="margin-top:18px;">
+              <span>Sports Hall</span>
+              <span>Available</span>
+            </div>
+
+            <div class="ticket">
+              <span>Library</span>
+              <span>Available</span>
+            </div>
+
+            <div class="ticket">
+              <span>Science Lab</span>
+              <span>Booked</span>
+            </div>
+          </div>
+        `
+      },
+
+      access: {
+        icon: 'fa-user-lock',
+        title: 'Staff Booking Access',
+        text: 'Control whether each staff member can create bookings and choose whether they can access every facility or only selected spaces.',
+        visual: `
+          <div class="qr-card">
+            <h3>Booking access</h3>
+
+            <div class="ticket" style="margin-top:18px;">
+              <span>Can book rooms</span>
+              <span>Enabled</span>
+            </div>
+
+            <div class="ticket">
+              <span>Sports Hall</span>
+              <span>Allowed</span>
+            </div>
+
+            <div class="ticket">
+              <span>Auditorium</span>
+              <span>Restricted</span>
+            </div>
+          </div>
+        `
+      },
+
       qrcode: {
         icon: 'fa-qrcode',
-        title: 'QR Check-In',
-        text: 'Scan the door. Claim the room. Print QR codes directly from the Facility Manager so every space is uniquely identifiable.',
-        visual: '<div class="qr-card"><div class="qr-box"><i class="fas fa-qrcode"></i></div><h3 style="text-align:center;">Sports Hall</h3><p class="small" style="text-align:center;margin-top:8px;">Scan QR code to check in</p><div class="ticket" style="margin-top:18px;"><span><i class="fas fa-check-circle" style="color:var(--green)"></i> Checked in successfully</span><span>Active</span></div></div>'
+        title: 'QR Check-In & Auto-Release',
+        text: 'Print a QR code for each facility so staff can check in at the room. Unused bookings can be released back into availability when check-in rules are enabled.',
+        visual: `
+          <div class="qr-card">
+            <div class="qr-box"><i class="fas fa-qrcode"></i></div>
+            <h3 style="text-align:center;">Sports Hall</h3>
+            <p class="small" style="text-align:center;margin-top:8px;">Scan to check in</p>
+
+            <div class="ticket" style="margin-top:18px;">
+              <span><i class="fas fa-check-circle" style="color:var(--green)"></i> Checked in successfully</span>
+              <span>Active</span>
+            </div>
+          </div>
+        `
       },
-      swaps: {
-        icon: 'fa-handshake',
-        title: 'Space Swaps',
-        text: 'Teachers can securely request to swap rooms, share spaces or transfer bookings directly inside the app.',
-        visual: '<div class="swap-card"><div class="ticket"><span>Science Lab B<br><small>Your booking, 09:00</small></span><span>Swap</span></div><div class="ticket"><span>Main Auditorium<br><small>Target room, 09:00</small></span><span>Pending</span></div><button class="btn btn-primary" style="width:100%;margin-top:12px;">Send request</button></div>'
-      },
-      alerts: {
-        icon: 'fa-bell',
-        title: 'Push Alerts',
-        text: 'Send staff clear lock-screen updates when a booking is approved, rejected, changed or closed.',
-        visual: '<div class="qr-card"><div class="ticket"><span><i class="fas fa-bell" style="color:var(--blue)"></i> Auditorium request approved</span><span>Now</span></div><div class="ticket"><span><i class="fas fa-calendar-xmark" style="color:var(--pink)"></i> Field closed for weather</span><span>Alert</span></div><div class="ticket"><span><i class="fas fa-tools" style="color:var(--purple)"></i> Setup task added</span><span>Ops</span></div></div>'
-      },
-      autorelease: {
-        icon: 'fa-stopwatch',
-        title: 'Auto-Release',
-        text: 'If a user does not check in within the agreed window, the room can be released back into the pool.',
-        visual: '<div class="qr-card"><h3>Ghost booking detected</h3><p class="small" style="margin-top:8px;">Computer Lab A was booked but not checked in.</p><div class="ticket" style="margin-top:18px;"><span>Release room</span><span>Available</span></div><div class="chart-bars"><div class="bar-col" style="height:45%"></div><div class="bar-col" style="height:70%"></div><div class="bar-col" style="height:32%"></div><div class="bar-col" style="height:86%"></div><div class="bar-col" style="height:55%"></div></div></div>'
-      },
-      ops: {
-        icon: 'fa-tools',
-        title: 'Ops Board',
-        text: 'Faculty and staff flag setups while booking. Site teams get a clean daily task list.',
-        visual: '<div class="ops-board"><div class="ticket"><span>Main Hall, exam desks</span><span>In progress</span></div><div class="ticket"><span>Auditorium, 30 chairs</span><span>Pending</span></div><div class="ticket"><span>Sports Hall, cones</span><span>Done</span></div><div class="ticket"><span>Library, projector</span><span>Pending</span></div></div>'
-      },
-      weather: {
-        icon: 'fa-bolt',
-        title: 'Lightning Protocol',
-        text: 'Soft-lock outdoor bookings when severe weather makes fields, courts or playgrounds unsafe.',
-        visual: '<div class="qr-card"><h3><i class="fas fa-bolt" style="color:#f59e0b"></i> Outdoor safety lock</h3><p class="small" style="margin-top:8px;">Fields and courts are paused while indoor spaces remain available.</p><div class="ticket" style="margin-top:18px;"><span>Football Field</span><span>Locked</span></div><div class="ticket"><span>Sports Hall</span><span>Open</span></div></div>'
-      },
-      sync: {
-        icon: 'fa-calendar-alt',
-        title: 'Calendar Sync',
-        text: 'Publish a live iCal stream to Apple, Google and Outlook so staff can see bookings in familiar calendars.',
-        visual: '<div class="qr-card"><div class="ticket"><span><i class="fab fa-apple"></i> Apple Calendar</span><span>Synced</span></div><div class="ticket"><span><i class="fab fa-google"></i> Google Calendar</span><span>Synced</span></div><div class="ticket"><span><i class="fab fa-windows"></i> Outlook</span><span>Synced</span></div></div>'
-      },
+
       recurring: {
         icon: 'fa-redo',
         title: 'Recurring Bookings',
-        text: 'Book repeated sessions across a term with built-in conflict checks and safer scheduling limits.',
-        visual: '<div class="qr-card"><h3>Weekly booking series</h3><p class="small" style="margin-top:8px;">Repeats every Monday for up to 8 weeks.</p><div class="ticket" style="margin-top:18px;"><span>Drama Studio, 10:00</span><span>Active</span></div><div class="ticket"><span>Conflict check</span><span>Passed</span></div></div>'
+        text: 'Create repeated booking series with conflict checks so regular lessons, clubs and meetings can be scheduled safely.',
+        visual: `
+          <div class="qr-card">
+            <h3>Recurring booking series</h3>
+            <p class="small" style="margin-top:8px;">Monday · Sports Hall · 10:00</p>
+
+            <div class="ticket" style="margin-top:18px;">
+              <span>Repeat series</span>
+              <span>Active</span>
+            </div>
+
+            <div class="ticket">
+              <span>Conflict check</span>
+              <span>Passed</span>
+            </div>
+          </div>
+        `
+      },
+
+      ops: {
+        icon: 'fa-tools',
+        title: 'Operations Requests',
+        text: 'Staff can add room setup requirements while making a booking. Operations teams can review upcoming requests, planning information and facility usage.',
+        visual: `
+          <div class="ops-board">
+            <div class="ticket"><span>Main Hall · exam desks</span><span>In progress</span></div>
+            <div class="ticket"><span>Auditorium · 30 chairs</span><span>Pending</span></div>
+            <div class="ticket"><span>Sports Hall · cones</span><span>Done</span></div>
+            <div class="ticket"><span>Library · projector</span><span>Pending</span></div>
+          </div>
+        `
+      },
+
+      weather: {
+        icon: 'fa-cloud-bolt',
+        title: 'Safety & Facility Closures',
+        text: 'Temporarily make spaces unavailable for severe weather, maintenance, examinations, events or other school closures.',
+        visual: `
+          <div class="qr-card">
+            <h3><i class="fas fa-cloud-bolt" style="color:#f59e0b"></i> Facility availability update</h3>
+
+            <div class="ticket" style="margin-top:18px;">
+              <span>Football Field</span>
+              <span>Closed</span>
+            </div>
+
+            <div class="ticket">
+              <span>Outdoor Courts</span>
+              <span>Closed</span>
+            </div>
+
+            <div class="ticket">
+              <span>Sports Hall</span>
+              <span>Open</span>
+            </div>
+          </div>
+        `
+      },
+
+      swaps: {
+        icon: 'fa-handshake',
+        title: 'Space Requests',
+        text: 'Staff can send trackable requests to swap, share or transfer spaces instead of negotiating room changes through email.',
+        visual: `
+          <div class="swap-card">
+            <div class="ticket">
+              <span>Science Lab B<br><small>Your booking · 09:00</small></span>
+              <span>Swap</span>
+            </div>
+
+            <div class="ticket">
+              <span>Main Auditorium<br><small>Requested space · 09:00</small></span>
+              <span>Pending</span>
+            </div>
+
+            <button class="btn btn-primary" style="width:100%;margin-top:12px;">Send request</button>
+          </div>
+        `
+      },
+
+      sync: {
+        icon: 'fa-calendar-alt',
+        title: 'Calendar Sync',
+        text: 'Publish confirmed bookings through a secure personal calendar feed that staff can add to Apple Calendar, Google Calendar or Outlook.',
+        visual: `
+          <div class="qr-card">
+            <div class="ticket"><span><i class="fab fa-apple"></i> Apple Calendar</span><span>Connected</span></div>
+            <div class="ticket"><span><i class="fab fa-google"></i> Google Calendar</span><span>Connected</span></div>
+            <div class="ticket"><span><i class="fab fa-microsoft"></i> Outlook</span><span>Connected</span></div>
+          </div>
+        `
+      },
+
+      alerts: {
+        icon: 'fa-bell',
+        title: 'Booking & Safety Alerts',
+        text: 'Keep staff informed about booking approvals, requests, room changes and school safety or facility closure updates.',
+        visual: `
+          <div class="qr-card">
+            <div class="ticket">
+              <span><i class="fas fa-bell" style="color:var(--blue)"></i> Auditorium request approved</span>
+              <span>Now</span>
+            </div>
+
+            <div class="ticket">
+              <span><i class="fas fa-calendar-xmark" style="color:var(--pink)"></i> Outdoor facilities closed</span>
+              <span>Alert</span>
+            </div>
+
+            <div class="ticket">
+              <span><i class="fas fa-tools" style="color:var(--purple)"></i> Setup request added</span>
+              <span>Ops</span>
+            </div>
+          </div>
+        `
+      },
+
+      onboarding: {
+        icon: 'fa-users-gear',
+        title: 'Staff Onboarding & Approval',
+        text: 'Bring staff into the Facilities workspace using an invitation link, CSV import or school access code. New users can remain pending until an administrator approves access.',
+        visual: `
+          <div class="qr-card">
+            <h3>Staff onboarding</h3>
+
+            <div class="ticket" style="margin-top:18px;">
+              <span>Invitation link</span>
+              <span>Ready</span>
+            </div>
+
+            <div class="ticket">
+              <span>CSV staff import</span>
+              <span>Available</span>
+            </div>
+
+            <div class="ticket">
+              <span>New staff member</span>
+              <span>Pending approval</span>
+            </div>
+          </div>
+        `
       }
     };
 
     const featureStage = document.getElementById('featureStage');
     const featureButtons = document.querySelectorAll('.feature-button');
     function renderFeature(key) {
-      const item = featureData[key] || featureData.qrcode;
-      featureStage.innerHTML = `
-        <div class="mockup-stage-head">
-          <div>
-            <div class="kicker" style="margin-bottom:10px;"><i class="fas ${item.icon}"></i> Feature preview</div>
-            <h3>${item.title}</h3>
-          </div>
+  const item = featureData[key] || featureData.aiCalendar || featureData.qrcode;
+
+  featureStage.innerHTML = `
+    <div class="mockup-copy">
+      <div class="mockup-stage-head">
+        <div>
+          <div class="kicker" style="margin-bottom:10px;"><i class="fas ${item.icon}"></i> Feature preview</div>
+          <h3>${item.title}</h3>
         </div>
-        <p class="lead" style="font-size:17px;">${item.text}</p>
-        <div class="mockup-visual">${item.visual}</div>
-      `;
-    }
-    renderFeature('qrcode');
+      </div>
+      <p class="lead">${item.text}</p>
+    </div>
+    <div class="mockup-visual">${item.visual}</div>
+  `;
+}
+    renderFeature('aiCalendar');
     featureButtons.forEach(btn => {
       btn.addEventListener('click', () => {
         featureButtons.forEach(b => b.classList.remove('active'));
