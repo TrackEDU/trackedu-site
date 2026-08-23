@@ -2757,34 +2757,34 @@
 
   .launch-offer-actions {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 7px;
+    grid-template-columns: auto auto;
+    gap: 8px;
     width: 100%;
-    align-items: stretch;
+    align-items: center;
+    justify-content: start;
   }
 
   .launch-deadline-wrap {
-    display: grid;
-    grid-template-columns: 1.05fr .95fr;
-    gap: 7px;
-    width: 100%;
+    display: block;
+    width: auto;
   }
 
   .launch-countdown,
   .launch-expiry-date {
-    width: 100%;
-    min-height: 34px;
-    padding: 7px 8px;
+    width: auto;
+    min-height: 36px;
+    padding: 8px 14px;
     border-radius: 999px;
-    font-size: 10.5px;
+    font-size: 11px;
     text-align: center;
     justify-content: center;
+    white-space: nowrap;
   }
 
   .launch-offer-link {
-    width: 100%;
+    width: auto;
     min-height: 36px;
-    padding: 7px 12px;
+    padding: 8px 16px;
     border-radius: 999px;
     background: rgba(135,194,50,.14);
     border: 1px solid rgba(135,194,50,.34);
