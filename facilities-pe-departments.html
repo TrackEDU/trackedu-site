@@ -16,7 +16,7 @@
   <link rel="alternate" hreflang="en-gb" href="https://www.trackedu.net/facilities-pe-departments.html" />
 
   <title>PE Department Facility Booking Software for Schools | TrackEDU Facilities</title>
-  <meta name="description" content="Facility booking software for PE departments. Learn how PE departments can manage sports halls, gyms, fields, courts, fixtures and shared teaching spaces in one clear school booking calendar." />
+  <meta name="description" content="Facility booking software for PE departments. Manage sports halls, gyms, fields, courts, fixtures and shared teaching spaces in one clear school booking calendar, with fewer clashes and faster booking." />
   <meta name="keywords" content="PE department booking system, school sports hall booking software, sports facility booking system for schools, gym booking system school, school field booking calendar, sports hall scheduling software, school facility booking software, TrackEDU Facilities" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="author" content="TrackEDU Ltd" />
@@ -97,10 +97,10 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Can TrackEDU Facilities be used by a PE department?",
+          "name": "Can a PE department use the free plan?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. PE departments can use TrackEDU Facilities to organise sports halls, gyms, fields, courts, fixtures and other shared teaching spaces in one booking calendar."
+            "text": "Yes. A PE department can start with a focused set of sports spaces, test the booking flow, and expand once staff see the value."
           }
         },
         {
@@ -493,6 +493,71 @@
     .dark-section .lead { color: rgba(226,232,240,.82); }
     .dark-section .feature-card h3 { color: var(--dark); }
 
+    .cta-card {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 30px;
+      align-items: center;
+      padding: clamp(24px, 4vw, 38px);
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 12% 20%, rgba(135,194,50,.18), transparent 34%),
+        linear-gradient(135deg, #07111f 0%, #0c1e2c 100%);
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 26px 76px rgba(12,30,44,.16);
+    }
+    .cta-card h2 { color: #fff; }
+    .cta-card p { margin-top: 12px; color: rgba(226,232,240,.82); font-size: 16px; line-height: 1.6; font-weight: 650; }
+    .cta-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+    .cta-list li { display: flex; gap: 10px; align-items: flex-start; color: rgba(226,232,240,.84); font-weight: 750; line-height: 1.45; }
+    .cta-list i { color: var(--green); margin-top: 3px; }
+
+    .faq-list { display: grid; gap: 14px; margin-top: 30px; }
+    details { border: 1px solid var(--line); border-radius: 22px; overflow: hidden; background: #fff; box-shadow: 0 14px 38px rgba(12,30,44,.04); }
+    summary { cursor: pointer; padding: 20px 22px; font-weight: 900; color: var(--dark); list-style: none; display: flex; justify-content: space-between; gap: 18px; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; color: var(--blue); font-weight: 900; }
+    details[open] summary::after { content: "−"; }
+    details p { padding: 0 22px 22px; color: #64748b; line-height: 1.6; font-weight: 560; }
+
+    .final-cta { background: linear-gradient(135deg, #07111f, #0C1E2C); color: #fff; text-align: center; }
+    .final-cta h2 { color: #fff; }
+    .final-cta p { color: rgba(226,232,240,.82); max-width: 720px; margin: 18px auto 0; }
+    .final-cta .hero-ctas { justify-content: center; margin-top: 28px; }
+
+    footer { background:#07111f; color: rgba(255,255,255,.76); padding: 72px clamp(18px,4vw,72px) 40px; }
+    .footer-grid { width:min(1520px,100%); margin:0 auto; display:grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 44px; margin-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,.12); }
+    footer h5 { color:#fff; margin:0 0 20px; font-size: 13px; text-transform: uppercase; letter-spacing: .12em; font-weight: 900; }
+    footer a { color: rgba(255,255,255,.72); transition: color .2s; }
+    footer a:hover { color: var(--green); }
+    footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; font-size: 14px; font-weight: 700; }
+    .footer-brand { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+    .footer-icon { width: 42px; height: 42px; border-radius: 14px; background: var(--green); color: var(--dark); display: grid; place-items: center; }
+    .footer-wordmark { font-family: Poppins, Inter, sans-serif; font-size: 28px; font-weight: 800; letter-spacing: -.075em; color: #fff; }
+    .footer-wordmark span { color: var(--green); }
+    .footer-desc { color: rgba(255,255,255,.58); line-height: 1.65; font-weight: 650; font-size: 14px; max-width: 360px; }
+    .legal-footer { width:min(1520px,100%); margin:0 auto; color:rgba(255,255,255,.58); font-size:14px; line-height:1.65; display:flex; align-items:center; justify-content:space-between; gap:18px; }
+
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+    @media (max-width: 1080px) {
+      .nav-inner { height: 56px; }
+      .desktop-only { display: none !important; }
+      .hamburger { display: inline-flex; }
+      .mobile-menu { top: 56px; height: calc(100dvh - 56px); }
+      .hero-grid, .video-split, .split, .cta-card { grid-template-columns: 1fr; }
+      .hero-copy { max-width: 760px; text-align: center; justify-items: center; margin: 0 auto; }
+      .hero-list { width: min(520px, 100%); }
+      .section-head { display: block; text-align: center; }
+      .section-head p { margin: 16px auto 0; }
+      .feature-grid { grid-template-columns: repeat(2, 1fr); }
+      .trust-strip-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .legal-footer { flex-direction: column; text-align: center; }
+    }
 
     @media (max-width: 700px) {
       .section { padding-left: 18px; padding-right: 18px; }
@@ -530,7 +595,6 @@
           <a href="#pain">The Pain</a>
           <a href="#how">How It Helps</a>
           <a href="#features">Features</a>
-          <a href="#faq">FAQ</a>
         </div>
       </div>
 
@@ -546,7 +610,7 @@
             <a href="https://www.trackedu.net/" target="_blank" rel="noopener"><i class="fas fa-layer-group" style="color:#87C232"></i> TrackEDU Main Site</a>
           </div>
         </div>
-        <a class="btn btn-secondary btn-small" href="facilities.html">About Facilities</a>
+
       </div>
     </div>
   </nav>
@@ -559,7 +623,6 @@
         <a href="facilities-pe-departments.html"><span><i class="fas fa-volleyball-ball"></i> PE Departments</span><i class="fas fa-chevron-right"></i></a>
         <a href="facilities-libraries.html"><span><i class="fas fa-book-open"></i> Libraries</span><i class="fas fa-chevron-right"></i></a>
         <a href="facilities-operations-teams.html"><span><i class="fas fa-tools"></i> Operations Teams</span><i class="fas fa-chevron-right"></i></a>
-        <a href="#faq"><span><i class="fas fa-circle-question"></i> FAQ</span><i class="fas fa-chevron-right"></i></a>
       </div>
 
       <div class="mobile-menu-section">
@@ -567,15 +630,10 @@
         <a href="https://facilities.trackedu.net/" target="_blank" rel="noopener"><span><i class="fas fa-right-to-bracket"></i> Facility Booking Login</span><i class="fas fa-arrow-right"></i></a>
         <a href="https://www.trackedu.net/" target="_blank" rel="noopener"><span><i class="fas fa-layer-group"></i> TrackEDU Main Site</span><i class="fas fa-arrow-right"></i></a>
       </div>
-
-      <div class="mobile-actions">
-        <a class="btn btn-secondary" href="facilities.html">About TrackEDU Facilities</a>
-      </div>
     </div>
   </div>
 
   <main>
-
     <section class="hero">
       <div class="hero-grid">
         <div class="hero-copy">
@@ -590,7 +648,7 @@
           </ul>
 
           <div class="hero-ctas">
-            <a class="btn btn-secondary" href="facilities.html">About TrackEDU Facilities</a>
+            <a class="btn btn-secondary" href="facilities.html">View main page</a>
           </div>
         </div>
 
@@ -629,7 +687,7 @@
       <div class="stats-grid">
         <div class="stat-card"><strong>1 clash</strong><span>can disrupt a lesson, fixture, CCA, sports event or backup plan when spaces are managed informally.</span></div>
         <div class="stat-card"><strong>1 calendar</strong><span>keeps sports halls, gyms, fields, courts, fixtures and closures visible to PE staff.</span></div>
-        <div class="stat-card"><strong>1 shared view</strong><span>helps PE staff coordinate lessons, fixtures, closures and backup spaces without relying on separate messages.</span></div>
+        <div class="stat-card"><strong>1 pilot</strong><span>lets PE test the workflow before expanding booking access across the school.</span></div>
       </div>
     </section>
 
@@ -735,8 +793,6 @@
         </div>
       </div>
     </section>
-
-
     <section id="faq" class="section">
       <div class="inner" style="max-width:980px;">
         <div class="narrow">
@@ -744,7 +800,7 @@
           <h2>Frequently asked questions.</h2>
         </div>
         <div class="faq-list">
-          <details open><summary>Can TrackEDU Facilities be used by a PE department?</summary><p>Yes. PE departments can use TrackEDU Facilities to organise sports halls, gyms, fields, courts, fixtures and other shared teaching spaces in one booking calendar.</p></details>
+          <details open><summary>Can a PE department use the free plan?</summary><p>Yes. A PE department can start with a focused set of sports spaces, test the booking flow, and expand once staff see the value.</p></details>
           <details><summary>Can outdoor spaces be closed during bad weather?</summary><p>Yes. Outdoor spaces can be blocked or marked unavailable so staff do not accidentally book unusable areas.</p></details>
           <details><summary>Can PE staff use it on mobile?</summary><p>Yes. TrackEDU Facilities is web-based and works on phones, tablets and computers.</p></details>
           <details><summary>Can this expand to the whole school later?</summary><p>Yes. A PE department can start small, then the same system can be expanded to libraries, classrooms, halls, labs and operations teams.</p></details>
@@ -754,11 +810,11 @@
 
     <section class="section final-cta">
       <div class="inner narrow">
-        <div class="kicker" style="background:rgba(135,194,50,.12);border-color:rgba(135,194,50,.2);color:#a7e35a"><i class="fas fa-volleyball-ball"></i> TrackEDU Facilities for PE</div>
-        <h2>A clearer way to coordinate shared sports spaces.</h2>
-        <p class="lead">TrackEDU Facilities brings PE lessons, fixtures, shared spaces, closures and availability into one school booking view.</p>
+        <div class="kicker" style="background:rgba(135,194,50,.12);border-color:rgba(135,194,50,.2);color:#a7e35a"><i class="fas fa-volleyball-ball"></i> Give PE one clear booking calendar</div>
+        <h2>Replace PE timetable confusion with one shared sports-space calendar.</h2>
+        <p class="lead">Start with PE, then expand when staff are ready.</p>
         <div class="hero-ctas">
-          <a class="btn btn-secondary" href="facilities.html">About TrackEDU Facilities</a>
+          <a class="btn btn-secondary" href="facilities.html">View main Facilities</a>
         </div>
       </div>
     </section>
@@ -813,8 +869,8 @@
   </footer>
 
   <div class="sr-only" aria-hidden="true">
-    <h2>TrackEDU Facilities for PE Departments</h2>
-    <p>TrackEDU Facilities supports PE departments with sports hall, gym, field and court booking, recurring lessons, fixture visibility, weather closures, shared-space coordination and booking approvals.</p>
+    <h2>TrackEDU Facilities for School Operations and Facilities Teams</h2>
+    <p>TrackEDU Facilities supports school operations teams with facility booking, room closures, setup requests, maintenance blocks, site team task visibility, shared space approvals and campus operations reporting.</p>
   </div>
 
   <script>
@@ -860,7 +916,6 @@
         if (window.innerWidth > 1080) closeMobileMenu();
       });
     }
-
   </script>
 </body>
 </html>
