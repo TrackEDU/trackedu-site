@@ -120,10 +120,10 @@
         },
         {
           "@type": "Question",
-          "name": "Can TrackEDU Facilities be used by a library team?",
+          "name": "Can the library start without the whole school?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Library teams can use TrackEDU Facilities to organise reading rooms, study areas, seminar rooms, class visits, events and other shared library spaces in one booking calendar."
+            "text": "Yes. A library team can start with a focused set of bookable spaces, test the booking flow, and expand once staff see the value."
           }
         }
       ]
@@ -492,6 +492,71 @@
     .dark-section .lead { color: rgba(226,232,240,.82); }
     .dark-section .feature-card h3 { color: var(--dark); }
 
+    .cta-card {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 30px;
+      align-items: center;
+      padding: clamp(24px, 4vw, 38px);
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 12% 20%, rgba(135,194,50,.18), transparent 34%),
+        linear-gradient(135deg, #07111f 0%, #0c1e2c 100%);
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 26px 76px rgba(12,30,44,.16);
+    }
+    .cta-card h2 { color: #fff; }
+    .cta-card p { margin-top: 12px; color: rgba(226,232,240,.82); font-size: 16px; line-height: 1.6; font-weight: 650; }
+    .cta-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+    .cta-list li { display: flex; gap: 10px; align-items: flex-start; color: rgba(226,232,240,.84); font-weight: 750; line-height: 1.45; }
+    .cta-list i { color: var(--green); margin-top: 3px; }
+
+    .faq-list { display: grid; gap: 14px; margin-top: 30px; }
+    details { border: 1px solid var(--line); border-radius: 22px; overflow: hidden; background: #fff; box-shadow: 0 14px 38px rgba(12,30,44,.04); }
+    summary { cursor: pointer; padding: 20px 22px; font-weight: 900; color: var(--dark); list-style: none; display: flex; justify-content: space-between; gap: 18px; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; color: var(--blue); font-weight: 900; }
+    details[open] summary::after { content: "−"; }
+    details p { padding: 0 22px 22px; color: #64748b; line-height: 1.6; font-weight: 560; }
+
+    .final-cta { background: linear-gradient(135deg, #07111f, #0C1E2C); color: #fff; text-align: center; }
+    .final-cta h2 { color: #fff; }
+    .final-cta p { color: rgba(226,232,240,.82); max-width: 720px; margin: 18px auto 0; }
+    .final-cta .hero-ctas { justify-content: center; margin-top: 28px; }
+
+    footer { background:#07111f; color: rgba(255,255,255,.76); padding: 72px clamp(18px,4vw,72px) 40px; }
+    .footer-grid { width:min(1520px,100%); margin:0 auto; display:grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 44px; margin-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,.12); }
+    footer h5 { color:#fff; margin:0 0 20px; font-size: 13px; text-transform: uppercase; letter-spacing: .12em; font-weight: 900; }
+    footer a { color: rgba(255,255,255,.72); transition: color .2s; }
+    footer a:hover { color: var(--green); }
+    footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; font-size: 14px; font-weight: 700; }
+    .footer-brand { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+    .footer-icon { width: 42px; height: 42px; border-radius: 14px; background: var(--green); color: var(--dark); display: grid; place-items: center; }
+    .footer-wordmark { font-family: Poppins, Inter, sans-serif; font-size: 28px; font-weight: 800; letter-spacing: -.075em; color: #fff; }
+    .footer-wordmark span { color: var(--green); }
+    .footer-desc { color: rgba(255,255,255,.58); line-height: 1.65; font-weight: 650; font-size: 14px; max-width: 360px; }
+    .legal-footer { width:min(1520px,100%); margin:0 auto; color:rgba(255,255,255,.58); font-size:14px; line-height:1.65; display:flex; align-items:center; justify-content:space-between; gap:18px; }
+
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+    @media (max-width: 1080px) {
+      .nav-inner { height: 56px; }
+      .desktop-only { display: none !important; }
+      .hamburger { display: inline-flex; }
+      .mobile-menu { top: 56px; height: calc(100dvh - 56px); }
+      .hero-grid, .video-split, .split, .cta-card { grid-template-columns: 1fr; }
+      .hero-copy { max-width: 760px; text-align: center; justify-items: center; margin: 0 auto; }
+      .hero-list { width: min(520px, 100%); }
+      .section-head { display: block; text-align: center; }
+      .section-head p { margin: 16px auto 0; }
+      .feature-grid { grid-template-columns: repeat(2, 1fr); }
+      .trust-strip-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .legal-footer { flex-direction: column; text-align: center; }
+    }
 
     @media (max-width: 700px) {
       .section { padding-left: 18px; padding-right: 18px; }
@@ -529,7 +594,6 @@
           <a href="#pain">The Pain</a>
           <a href="#how">How It Helps</a>
           <a href="#features">Features</a>
-          <a href="#faq">FAQ</a>
         </div>
       </div>
 
@@ -545,7 +609,7 @@
             <a href="https://www.trackedu.net/" target="_blank" rel="noopener"><i class="fas fa-layer-group" style="color:#87C232"></i> TrackEDU Main Site</a>
           </div>
         </div>
-        <a class="btn btn-secondary btn-small" href="facilities.html">About Facilities</a>
+
       </div>
     </div>
   </nav>
@@ -558,7 +622,6 @@
         <a href="facilities-pe-departments.html"><span><i class="fas fa-volleyball-ball"></i> PE Departments</span><i class="fas fa-chevron-right"></i></a>
         <a href="facilities-libraries.html"><span><i class="fas fa-book-open"></i> Libraries</span><i class="fas fa-chevron-right"></i></a>
         <a href="facilities-operations-teams.html"><span><i class="fas fa-tools"></i> Operations Teams</span><i class="fas fa-chevron-right"></i></a>
-        <a href="#faq"><span><i class="fas fa-circle-question"></i> FAQ</span><i class="fas fa-chevron-right"></i></a>
       </div>
 
       <div class="mobile-menu-section">
@@ -566,15 +629,10 @@
         <a href="https://facilities.trackedu.net/" target="_blank" rel="noopener"><span><i class="fas fa-right-to-bracket"></i> Facility Booking Login</span><i class="fas fa-arrow-right"></i></a>
         <a href="https://www.trackedu.net/" target="_blank" rel="noopener"><span><i class="fas fa-layer-group"></i> TrackEDU Main Site</span><i class="fas fa-arrow-right"></i></a>
       </div>
-
-      <div class="mobile-actions">
-        <a class="btn btn-secondary" href="facilities.html">About TrackEDU Facilities</a>
-      </div>
     </div>
   </div>
 
   <main>
-
     <section class="hero">
       <div class="hero-grid">
         <div class="hero-copy">
@@ -589,7 +647,7 @@
           </ul>
 
           <div class="hero-ctas">
-            <a class="btn btn-secondary" href="facilities.html">About TrackEDU Facilities</a>
+            <a class="btn btn-secondary" href="facilities.html">View main page</a>
           </div>
         </div>
 
@@ -628,7 +686,7 @@
       <div class="stats-grid">
         <div class="stat-card"><strong>1 library</strong><span>often supports lessons, research, reading, meetings, events and drop-in study across the same day.</span></div>
         <div class="stat-card"><strong>1 calendar</strong><span>keeps reading rooms, study spaces, class visits and events visible before staff ask.</span></div>
-        <div class="stat-card"><strong>1 shared view</strong><span>helps library staff coordinate class visits, study spaces, events and room availability without relying on separate messages.</span></div>
+        <div class="stat-card"><strong>1 pilot</strong><span>lets the library test the workflow before expanding booking access across the school.</span></div>
       </div>
     </section>
 
@@ -749,8 +807,6 @@
         </div>
       </div>
     </section>
-
-
     <section id="faq" class="section">
       <div class="inner" style="max-width:980px;">
         <div class="narrow">
@@ -761,22 +817,70 @@
           <details open><summary>Can library staff approve bookings before they appear?</summary><p>Yes. Spaces can be set up with approval rules, so the library team keeps control over high-demand or sensitive areas.</p></details>
           <details><summary>Can teachers book class visits?</summary><p>Yes. Teachers can book or request library spaces for class visits, research lessons, reading sessions or events.</p></details>
           <details><summary>Is this only for rooms?</summary><p>No. Libraries can add reading areas, seminar rooms, study zones, event spaces or other shared library facilities.</p></details>
-          <details><summary>Can TrackEDU Facilities be used by a library team?</summary><p>Yes. Library teams can use TrackEDU Facilities to organise reading rooms, study areas, seminar rooms, class visits, events and other shared library spaces in one booking calendar.</p></details>
+          <details><summary>Can the library start without the whole school?</summary><p>Yes. A library team can start with a focused set of bookable spaces, test the booking flow, and expand once staff see the value.</p></details>
         </div>
       </div>
     </section>
 
     <section class="section final-cta">
       <div class="inner narrow">
-        <div class="kicker" style="background:rgba(135,194,50,.12);border-color:rgba(135,194,50,.2);color:#a7e35a"><i class="fas fa-book-open"></i> TrackEDU Facilities for Libraries</div>
-        <h2>A clearer way to coordinate shared library spaces.</h2>
-        <p class="lead">TrackEDU Facilities brings class visits, reading rooms, study areas, events and room availability into one school booking view.</p>
+        <div class="kicker" style="background:rgba(135,194,50,.12);border-color:rgba(135,194,50,.2);color:#a7e35a"><i class="fas fa-book-open"></i> Make library bookings clearer for staff</div>
+        <h2>Replace booking emails with one clear library calendar.</h2>
+        <p class="lead">Start with the library team, then expand when staff are ready.</p>
         <div class="hero-ctas">
-          <a class="btn btn-secondary" href="facilities.html">About TrackEDU Facilities</a>
+          <a class="btn btn-secondary" href="facilities.html">View main Facilities</a>
         </div>
       </div>
     </section>
   </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <a href="https://www.trackedu.net" class="footer-brand" aria-label="TrackEDU primary home">
+          <div class="footer-icon"><i class="fas fa-calendar-check"></i></div>
+          <span class="footer-wordmark">Track<span>EDU</span></span>
+        </a>
+        <p class="footer-desc">School facility booking software for rooms, halls, labs, shared spaces, approvals, site team setups and campus operations visibility. Available standalone or inside the TrackEDU ecosystem.</p>
+      </div>
+
+      <div>
+        <h5 style="color:var(--yellow);">Facilities</h5>
+        <ul>
+          <li><a href="facilities.html">Main Facilities Page</a></li>
+          <li><a href="facilities-pe-departments.html">PE Departments</a></li>
+          <li><a href="facilities-libraries.html">Libraries</a></li>
+          <li><a href="facilities-operations-teams.html">Operations Teams</a></li>
+          <li><a href="https://facilities.trackedu.net/" target="_blank" rel="noopener" style="color:#fff;"><i class="fas fa-sign-in-alt" style="margin-right:8px;"></i>Login</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 style="color:#f472b6;">TrackEDU Core</h5>
+        <ul>
+          <li><a href="index.html">Main Platform</a></li>
+          <li><a href="resources.html">School Resources</a></li>
+          <li><a href="ambassadors.html">Ambassador Program</a></li>
+          <li><a href="/contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 style="color:#a78bfa;">Legal & Trust</h5>
+        <ul>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="/dpa.html">Data Processing (DPA)</a></li>
+          <li><a href="/terms.html">Terms of Service</a></li>
+          <li><a href="mailto:hello@trackedu.net">hello@trackedu.net</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="legal-footer">
+      <p>© 2026 TrackEDU Ltd. Registered in England & Wales (17216557).</p>
+      <p><i class="fas fa-shield-alt" style="color:var(--green);margin-right:8px;"></i> ICO Registered: ZC146923</p>
+    </div>
+  </footer>
 
   <div class="sr-only" aria-hidden="true">
     <h2>TrackEDU Facilities for School Library Room Booking</h2>
@@ -826,7 +930,6 @@
         if (window.innerWidth > 1080) closeMobileMenu();
       });
     }
-
   </script>
 </body>
 </html>
