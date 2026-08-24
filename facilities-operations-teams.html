@@ -52,15 +52,15 @@
       "@type": "WebPage",
       "name": "TrackEDU Facilities for Operations Teams",
       "url": "https://www.trackedu.net/facilities-operations-teams.html",
-      "description": "Room booking software for school libraries, class visits, reading rooms, study areas, events and shared library spaces.",
+      "description": "School operations and facilities booking software for shared spaces, closures, setup requests, maintenance blocks and campus operations visibility.",
       "isPartOf": {
         "@type": "WebSite",
         "name": "TrackEDU",
         "url": "https://www.trackedu.net/"
       },
       "audience": [
-        { "@type": "EducationalAudience", "educationalRole": "School librarian" },
-        { "@type": "EducationalAudience", "educationalRole": "Teacher" },
+        { "@type": "EducationalAudience", "educationalRole": "School operations staff" },
+        { "@type": "EducationalAudience", "educationalRole": "Facilities staff" },
         { "@type": "EducationalAudience", "educationalRole": "School administrator" }
       ]
     },
@@ -77,13 +77,6 @@
         "@type": "Organization",
         "name": "TrackEDU Ltd",
         "url": "https://www.trackedu.net/"
-      },
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD",
-        "url": "https://facilities.trackedu.net/",
-        "description": "Free starter plan available for departments and small teams to try TrackEDU Facilities before expanding across the school."
       },
       "featureList": [
         "Operations calendar",
@@ -388,67 +381,6 @@
       color: transparent;
     }
 
-    .launch-offer-bar {
-      background: #07111f;
-      color: #ffffff;
-      padding: 12px clamp(18px, 4vw, 72px);
-      border-bottom: 1px solid rgba(255,255,255,.10);
-    }
-    .launch-offer-inner {
-      width: min(1520px, 100%);
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-    }
-    .launch-offer-copy { display: flex; align-items: center; gap: 12px; color: rgba(255,255,255,.86); font-size: 14px; font-weight: 750; line-height: 1.4; }
-    .launch-offer-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      width: fit-content;
-      padding: 7px 11px;
-      border-radius: 999px;
-      background: rgba(135,194,50,.14);
-      border: 1px solid rgba(135,194,50,.28);
-      color: var(--green);
-      font-size: 11px;
-      font-weight: 950;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-    .launch-offer-actions { display: flex; align-items: center; gap: 12px; flex: 0 0 auto; }
-    .launch-countdown {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 38px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: #F97316;
-      border: 1px solid rgba(249,115,22,.88);
-      color: #ffffff;
-      font-size: 13px;
-      font-weight: 950;
-      white-space: nowrap;
-      box-shadow: 0 10px 24px rgba(249,115,22,.24);
-    }
-    .launch-offer-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 38px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(135,194,50,.14);
-      border: 1px solid rgba(135,194,50,.34);
-      color: var(--green);
-      font-size: 13px;
-      font-weight: 950;
-      white-space: nowrap;
-    }
 
     .hero {
       padding: clamp(46px, 6vw, 82px) clamp(18px, 4vw, 72px) clamp(56px, 6vw, 90px);
@@ -624,9 +556,6 @@
       .trust-strip-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .footer-grid { grid-template-columns: 1fr 1fr; }
       .legal-footer { flex-direction: column; text-align: center; }
-      .launch-offer-inner { align-items: flex-start; flex-direction: column; gap: 10px; }
-      .launch-offer-copy { align-items: flex-start; flex-direction: column; gap: 8px; }
-      .launch-offer-actions { width: 100%; justify-content: space-between; }
     }
 
     @media (max-width: 700px) {
@@ -637,7 +566,7 @@
       .hero-copy .lead { max-width: 100%; font-size: 15px; line-height: 1.5; }
       .kicker { font-size: 10px; padding: 8px 11px; letter-spacing: .1em; }
       .hero-list li { font-size: 14px; }
-      .hero-ctas, .hero-ctas .btn, .launch-offer-link { width: 100%; }
+      .hero-ctas, .hero-ctas .btn { width: 100%; }
       .btn { min-height: 50px; width: 100%; }
       .micro-note { font-size: 12.5px; }
       .library-preview { border-radius: 26px; padding: 16px; }
@@ -649,10 +578,6 @@
       .trust-strip { padding: 18px; }
       .trust-strip-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
       .trust-strip-item { min-height: 88px; flex-direction: column; gap: 9px; padding: 14px 10px; border-radius: 18px; font-size: 12px; }
-      .launch-offer-bar { padding: 12px 18px; }
-      .launch-offer-copy { font-size: 13px; }
-      .launch-offer-actions { display: grid; grid-template-columns: 1fr; gap: 8px; }
-      .launch-countdown { width: 100%; font-size: 12px; }
       .cta-card { border-radius: 26px; }
       blockquote { font-size: 24px; }
     }
@@ -669,7 +594,6 @@
           <a href="#pain">The Pain</a>
           <a href="#how">How It Helps</a>
           <a href="#features">Features</a>
-          <a href="#free-plan">Free Plan</a>
         </div>
       </div>
 
@@ -685,8 +609,7 @@
             <a href="https://www.trackedu.net/" target="_blank" rel="noopener"><i class="fas fa-layer-group" style="color:#87C232"></i> TrackEDU Main Site</a>
           </div>
         </div>
-        <a class="btn btn-secondary btn-small" href="/contact.html">Contact sales</a>
-        <a class="btn btn-primary btn-small" href="https://facilities.trackedu.net/" target="_blank" rel="noopener">Start free <i class="fas fa-arrow-right"></i></a>
+
       </div>
     </div>
   </nav>
@@ -699,7 +622,6 @@
         <a href="facilities-pe-departments.html"><span><i class="fas fa-volleyball-ball"></i> PE Departments</span><i class="fas fa-chevron-right"></i></a>
         <a href="facilities-libraries.html"><span><i class="fas fa-book-open"></i> Libraries</span><i class="fas fa-chevron-right"></i></a>
         <a href="facilities-operations-teams.html"><span><i class="fas fa-tools"></i> Operations Teams</span><i class="fas fa-chevron-right"></i></a>
-        <a href="#free-plan"><span><i class="fas fa-tag"></i> Free Plan</span><i class="fas fa-chevron-right"></i></a>
       </div>
 
       <div class="mobile-menu-section">
@@ -707,29 +629,10 @@
         <a href="https://facilities.trackedu.net/" target="_blank" rel="noopener"><span><i class="fas fa-right-to-bracket"></i> Facility Booking Login</span><i class="fas fa-arrow-right"></i></a>
         <a href="https://www.trackedu.net/" target="_blank" rel="noopener"><span><i class="fas fa-layer-group"></i> TrackEDU Main Site</span><i class="fas fa-arrow-right"></i></a>
       </div>
-
-      <div class="mobile-actions">
-        <a class="btn btn-primary" href="https://facilities.trackedu.net/" target="_blank" rel="noopener">Start free booking calendar <i class="fas fa-arrow-right"></i></a>
-        <a class="btn btn-secondary" href="/contact.html">Contact sales</a>
-      </div>
     </div>
   </div>
 
   <main>
-    <section class="launch-offer-bar" aria-label="TrackEDU Facilities launch offer">
-      <div class="launch-offer-inner">
-        <div class="launch-offer-copy">
-          <span class="launch-offer-label"><i class="fas fa-bolt"></i> New launch offer</span>
-          <span>Eligible education teams can get TrackEDU Facilities Pro free for the first year.</span>
-        </div>
-
-        <div class="launch-offer-actions">
-          <span class="launch-countdown" data-countdown="2026-08-31T23:59:59">Offer closes 31 August 2026</span>
-          <a class="launch-offer-link" href="facilities.html#pricing">Check eligibility</a>
-        </div>
-      </div>
-    </section>
-
     <section class="hero">
       <div class="hero-grid">
         <div class="hero-copy">
@@ -744,13 +647,7 @@
           </ul>
 
           <div class="hero-ctas">
-            <a class="btn btn-primary" href="https://facilities.trackedu.net/" target="_blank" rel="noopener">Start free calendar <i class="fas fa-arrow-right"></i></a>
             <a class="btn btn-secondary" href="facilities.html">View main page</a>
-          </div>
-
-          <div class="micro-note">
-            <i class="fas fa-check-circle" style="color:var(--green)"></i>
-            <span>Free Starter: 2 spaces, up to 15 users. No credit card required.</span>
           </div>
         </div>
 
@@ -895,31 +792,6 @@
         </div>
       </div>
     </section>
-
-    <section id="free-plan" class="section feature-section">
-      <div class="inner">
-        <div class="cta-card">
-          <div>
-            <div class="launch-offer-label"><i class="fas fa-gift"></i> Free Starter</div>
-            <h2 style="margin-top:18px;">Try it with one department first.</h2>
-            <p>Start with one department or small team. Test the booking flow, reduce room clashes and show the value before the whole school gets involved.</p>
-          </div>
-          <div>
-            <ul class="cta-list">
-              <li><i class="fas fa-check"></i>Try with one department first</li>
-              <li><i class="fas fa-check"></i>Add your first bookable spaces in minutes</li>
-              <li><i class="fas fa-check"></i>Staff sign-in and admin approval</li>
-              <li><i class="fas fa-check"></i>Clear shared booking calendar</li>
-              <li><i class="fas fa-check"></i>No credit card required</li>
-            </ul>
-            <div class="hero-ctas" style="margin-top:24px;">
-              <a class="btn btn-green" href="https://facilities.trackedu.net/" target="_blank" rel="noopener">Start Free <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section id="faq" class="section">
       <div class="inner" style="max-width:980px;">
         <div class="narrow">
@@ -941,7 +813,6 @@
         <h2>Replace scattered room messages with one shared facilities calendar.</h2>
         <p class="lead">Start with one department, then expand when staff are ready.</p>
         <div class="hero-ctas">
-          <a class="btn btn-green" href="https://facilities.trackedu.net/" target="_blank" rel="noopener">Create free booking calendar</a>
           <a class="btn btn-secondary" href="facilities.html">View main Facilities</a>
         </div>
       </div>
@@ -1044,31 +915,6 @@
         if (window.innerWidth > 1080) closeMobileMenu();
       });
     }
-
-    function updateLaunchCountdowns() {
-      const countdowns = document.querySelectorAll('[data-countdown]');
-      if (!countdowns.length) return;
-
-      countdowns.forEach(function (item) {
-        const target = new Date(item.getAttribute('data-countdown')).getTime();
-        const now = new Date().getTime();
-        const distance = target - now;
-
-        if (distance <= 0) {
-          item.textContent = 'Launch offer closed';
-          return;
-        }
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-        const minutes = Math.floor((distance / (1000 * 60)) % 60);
-
-        item.textContent = days + ' days ' + hours + 'h ' + minutes + 'm left';
-      });
-    }
-
-    updateLaunchCountdowns();
-    setInterval(updateLaunchCountdowns, 60000);
   </script>
 </body>
 </html>
