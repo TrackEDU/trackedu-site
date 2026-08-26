@@ -1,3183 +1,1357 @@
 <!DOCTYPE html>
-<html lang="en-GB" class="scroll-smooth">
+<html lang="en-GB">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="canonical" href="https://www.trackedu.net/" />
-  <link rel="icon" type="image/png" href="https://i.imgur.com/3PR3SiC.png" />
-  <meta name="theme-color" content="#87C232" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>TrackEDU | School Facility Booking & House Points Software</title>
-  <meta name="description" content="TrackEDU helps schools replace messy spreadsheets with simple digital tools for facility booking, shared spaces, house points and everyday school routines." />
-  <meta name="keywords" content="TrackEDU, facility booking software for schools, school facility booking system, class facility booking software, school operations software, QR check-in for rooms, school calendar software, house points software, digital house points, school rewards system, teacher app for schools, student portal" />
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-  <meta name="author" content="TrackEDU Ltd" />
+  <link rel="canonical" href="https://www.trackedu.net/">
+  <link rel="icon" type="image/png" href="https://i.imgur.com/3PR3SiC.png">
+  <meta name="theme-color" content="#87C232">
 
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="TrackEDU" />
-  <meta property="og:locale" content="en_GB" />
-  <meta property="og:title" content="TrackEDU | House Points & Facility Booking Software for Schools" />
-  <meta property="og:description" content="TrackEDU helps schools manage facility booking, facility scheduling, house points and shared school routines." />
-  <meta property="og:url" content="https://www.trackedu.net/" />
-  <meta property="og:image" content="https://trackedu.github.io/common-assets/trackedulogono.png" />
-  <meta property="og:image:alt" content="TrackEDU school operations and recognition software" />
+  <title>TrackEDU | House Points Software, Facility Booking for Schools & AI Class Board for Teachers</title>
+  <meta name="description" content="TrackEDU provides house points software, facility booking for schools and an AI class board for teachers with 50+ classroom tools. Start with a free trial.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="author" content="TrackEDU Ltd">
 
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="TrackEDU | House Points & Facility Booking Software for Schools" />
-  <meta name="twitter:description" content="Simple school software for facility bookings, shared spaces, house points and everyday school routines." />
-  <meta name="twitter:image" content="https://trackedu.github.io/common-assets/trackedulogono.png" />
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TrackEDU">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:title" content="TrackEDU | House Points, School Facility Booking & AI Class Board">
+  <meta property="og:description" content="House points software, facility booking for schools and an AI class board for teachers. Three focused products for everyday school friction.">
+  <meta property="og:url" content="https://www.trackedu.net/">
+  <meta property="og:image" content="https://trackedu.github.io/common-assets/trackedulogono.png">
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "TrackEDU Ltd",
-    "legalName": "TrackEDU Ltd",
-    "url": "https://www.trackedu.net/",
-    "logo": "https://trackedu.github.io/common-assets/trackedulogono.png",
-    "description": "TrackEDU builds practical school software for facility booking, facility scheduling, house points, teacher tools and shared school routines.",
-    "taxID": "17216557",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "128 City Road",
-      "addressLocality": "London",
-      "postalCode": "EC1V 2NX",
-      "addressCountry": "GB"
-    },
-    "contactPoint": [{
-      "@type": "ContactPoint",
-      "email": "hello@trackedu.net",
-      "contactType": "customer support",
-      "availableLanguage": "English"
-    }],
-    "sameAs": ["https://www.linkedin.com/company/trackedu/"]
-  }
-  </script>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TrackEDU | House Points, School Facility Booking & AI Class Board">
+  <meta name="twitter:description" content="House points software, facility booking for schools and an AI class board for teachers.">
+  <meta name="twitter:image" content="https://trackedu.github.io/common-assets/trackedulogono.png">
 
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "TrackEDU",
-    "url": "https://www.trackedu.net/",
-    "description": "TrackEDU is practical school software for facility booking, shared school spaces, house points and everyday school routines.",
-    "inLanguage": "en-GB",
-    "publisher": { "@type": "Organization", "name": "TrackEDU Ltd", "url": "https://www.trackedu.net/" }
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "TrackEDU",
-    "applicationCategory": "EducationalApplication",
-    "applicationSubCategory": "School Operations and Recognition Software",
-    "operatingSystem": "Web Browser",
-    "url": "https://www.trackedu.net/",
-    "description": "TrackEDU helps schools manage facility booking, facility scheduling, QR check-in, operations requests, digital house points, teacher tools and shared school spaces.",
-    "publisher": { "@type": "Organization", "name": "TrackEDU Ltd", "url": "https://www.trackedu.net/" },
-    "featureList": [
-      "Digital house points",
-      "Whole-school rewards",
-      "Teacher app for schools",
-      "Student portal",
-      "Teacher workflow support",
-      "School facility booking",
-      "Facility booking calendar",
-      "QR check-in for rooms",
-      "Operations requests",
-      "School-wide visibility"
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"Organization",
+        "@id":"https://www.trackedu.net/#organization",
+        "name":"TrackEDU Ltd",
+        "url":"https://www.trackedu.net/",
+        "logo":"https://trackedu.github.io/common-assets/trackedulogono.png",
+        "description":"TrackEDU builds school software for house points, facility booking and AI-powered classroom routines.",
+        "sameAs":["https://www.linkedin.com/company/trackedu/"]
+      },
+      {
+        "@type":"WebSite",
+        "@id":"https://www.trackedu.net/#website",
+        "url":"https://www.trackedu.net/",
+        "name":"TrackEDU",
+        "publisher":{"@id":"https://www.trackedu.net/#organization"}
+      },
+      {
+        "@type":"ItemList",
+        "name":"TrackEDU school software products",
+        "itemListElement":[
+          {
+            "@type":"ListItem",
+            "position":1,
+            "item":{
+              "@type":"SoftwareApplication",
+              "name":"TrackEDU House Points",
+              "applicationCategory":"EducationalApplication",
+              "operatingSystem":"Web",
+              "url":"https://www.trackedu.net/housepoints.html",
+              "description":"House points software for school-wide recognition, rewards, participation and live standings."
+            }
+          },
+          {
+            "@type":"ListItem",
+            "position":2,
+            "item":{
+              "@type":"SoftwareApplication",
+              "name":"TrackEDU Facilities",
+              "applicationCategory":"BusinessApplication",
+              "operatingSystem":"Web",
+              "url":"https://www.trackedu.net/facilities.html",
+              "description":"Facility booking software for schools to manage shared halls, labs, libraries, sports spaces and other rooms."
+            }
+          },
+          {
+            "@type":"ListItem",
+            "position":3,
+            "item":{
+              "@type":"SoftwareApplication",
+              "name":"TrackEDU Class Board",
+              "applicationCategory":"EducationalApplication",
+              "operatingSystem":"Web",
+              "url":"https://dailyteachertools.com/",
+              "description":"AI class board for teachers with more than 50 classroom tools for schedules, routines, lesson displays and daily teaching."
+            }
+          }
+        ]
+      }
     ]
   }
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
   <style>
-    :root {
-      --dark: #0C1E2C;
-      --ink: #24262b;
-      --muted: #5d6676;
-      --soft: #F8FAFC;
-      --white: #FFFFFF;
-      --green: #87C232;
-      --green-dark: #5f9b20;
-      --blue: #0F66C3;
-      --blue-dark: #0a4f99;
-      --line: #E2E8F0;
-      --yellow: #FACC15;
-      --shadow: 0 24px 80px rgba(12, 30, 44, 0.10);
-      --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
+    :root{
+      --dark:#0C1E2C;
+      --ink:#243242;
+      --muted:#637083;
+      --soft:#F8FAFC;
+      --white:#FFFFFF;
+      --line:#E2E8F0;
+
+      --green:#87C232;
+      --green-dark:#669526;
+      --blue:#0F66C3;
+      --yellow:#FACC15;
+
+      --shadow:0 20px 55px rgba(12,30,44,.09);
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-padding-top: 82px; }
-    body {
-      margin: 0;
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--dark);
-      background: #ffffff;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
+    *{box-sizing:border-box}
 
-    /* Navigation */
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(255,255,255,.95);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--line);
+    html{
+      scroll-behavior:smooth;
+      scroll-padding-top:76px;
     }
-    .nav-inner {
-      width: min(1560px, 100%);
-      margin: 0 auto;
-      height: 68px;
-      padding: 0 clamp(18px, 4vw, 72px);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .wordmark {
-      display: inline-flex;
-      align-items: baseline;
-      font-family: Poppins, Inter, sans-serif;
-      font-size: clamp(24px, 2vw, 34px);
-      font-weight: 800;
-      letter-spacing: -0.075em;
-      color: var(--dark);
-      line-height: 1;
-      white-space: nowrap;
-      z-index: 52;
-    }
-    .wordmark span { color: var(--green); margin-left: 0; }
-    
-    .nav-menu-wrapper {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-    }
-    .nav-links { display: flex; align-items: center; gap: 30px; font-weight: 700; color: #2b3748; }
-    .nav-links a { font-size: 15px; transition: color .18s ease; }
-    .nav-links a:hover { color: var(--green-dark); }
-    .nav-actions { display: flex; align-items: center; gap: 12px; }
-    
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      border-radius: 999px;
-      font-weight: 700;
-      padding: 14px 22px;
-      border: 1px solid transparent;
-      transition: all .2s ease;
-      cursor: pointer;
-      white-space: nowrap;
-      font-size: 15px;
-    }
-    .btn:hover { transform: translateY(-2px); }
-    .btn-primary { background: var(--green); color: #fff; box-shadow: 0 10px 24px rgba(135,194,50,.25); }
-    .btn-primary:hover { background: var(--green-dark); box-shadow: 0 14px 32px rgba(135,194,50,.35); }
-    .btn-secondary { background: #fff; color: var(--dark); border-color: var(--line); box-shadow: 0 4px 12px rgba(12,30,44,.04); }
-    .btn-secondary:hover { border-color: #cbd5e1; }
-    .btn-dark { background: var(--dark); color: #fff; box-shadow: 0 12px 30px rgba(12,30,44,.18); }
 
-    .login-wrap { position: relative; }
-    .login-wrap::after {
-      content: '';
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      height: 16px;
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--dark);
+      background:#fff;
+      -webkit-font-smoothing:antialiased;
+      overflow-x:hidden;
     }
-    .login-menu {
-      position: absolute;
-      top: calc(100% + 12px);
-      right: 0;
-      width: 260px;
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      box-shadow: var(--shadow);
-      padding: 10px;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(10px);
-      transition: all 0.2s ease;
-      z-index: 55;
+
+    body.menu-open{overflow:hidden}
+
+    a{
+      color:inherit;
+      text-decoration:none;
     }
-    .login-wrap:hover .login-menu, 
-    .login-wrap:focus-within .login-menu { 
-      opacity: 1; 
-      visibility: visible; 
-      transform: translateY(0); 
+
+    button{
+      font:inherit;
     }
-    .login-menu a { display: flex; align-items: center; gap: 10px; padding: 13px 14px; border-radius: 12px; color: #334155; font-weight: 700; font-size: 14px;}
-    .login-menu a:hover { background: var(--soft); color: var(--green-dark); }
-    
-    .hamburger { display: none; background: transparent; border: none; font-size: 24px; color: var(--dark); cursor: pointer; z-index: 52; }
 
-    .mobile-chevron, .mobile-only, .mobile-bottom { display: none; }
+    .container{
+      width:min(1180px,calc(100% - 36px));
+      margin:0 auto;
+    }
 
-    /* Layout */
-    .section { width: 100%; padding: clamp(62px, 8vw, 106px) clamp(18px, 4vw, 72px); }
-    .inner { width: min(1520px, 100%); margin: 0 auto; }
-    .narrow { width: min(980px, 100%); margin: 0 auto; text-align: center; }
+    /* =========================
+       NAVIGATION
+       ========================= */
 
-    /* Hero */
-    .hero {
-      min-height: auto;
-      display: grid;
-      place-items: center;
-      padding: clamp(40px, 6vw, 60px) clamp(18px, 4vw, 72px) clamp(48px, 5vw, 72px);
+    .nav{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(255,255,255,.96);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(226,232,240,.95);
+    }
+
+    .nav-inner{
+      min-height:68px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+
+    .brand{
+      font-family:Poppins,Inter,sans-serif;
+      font-size:28px;
+      font-weight:800;
+      letter-spacing:-.07em;
+      white-space:nowrap;
+    }
+
+    .brand span{
+      color:var(--green);
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:26px;
+      margin-left:auto;
+    }
+
+    .nav-links a{
+      color:#334155;
+      font-size:14px;
+      font-weight:750;
+      transition:color .18s ease;
+    }
+
+    .nav-links a:hover{
+      color:var(--green-dark);
+    }
+
+    .nav-actions{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-left:4px;
+    }
+
+    .mobile-menu-btn{
+      display:none;
+      width:42px;
+      height:42px;
+      border:0;
+      border-radius:12px;
+      background:#F1F5F9;
+      color:var(--dark);
+      cursor:pointer;
+    }
+
+    .mobile-menu{
+      display:none;
+      border-top:1px solid var(--line);
+      background:#fff;
+      padding:10px 18px 20px;
+    }
+
+    .mobile-menu.active{
+      display:block;
+    }
+
+    .mobile-menu a{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:14px;
+      padding:15px 2px;
+      border-bottom:1px solid #EDF2F7;
+      color:#334155;
+      font-weight:750;
+      font-size:15px;
+    }
+
+    .mobile-menu a:last-child{
+      border-bottom:0;
+    }
+
+    /* =========================
+       BUTTONS
+       ========================= */
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      min-height:44px;
+      padding:11px 17px;
+      border-radius:12px;
+      border:1px solid transparent;
+      font-size:14px;
+      font-weight:800;
+      transition:transform .18s ease,box-shadow .18s ease,background .18s ease,border-color .18s ease;
+      cursor:pointer;
+      white-space:nowrap;
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
+    }
+
+    .btn-green{
+      background:var(--green);
+      color:#fff;
+      box-shadow:0 10px 24px rgba(135,194,50,.20);
+    }
+
+    .btn-green:hover{
+      background:var(--green-dark);
+    }
+
+    .btn-blue{
+      background:var(--blue);
+      color:#fff;
+      box-shadow:0 10px 24px rgba(15,102,195,.18);
+    }
+
+    .btn-dark{
+      background:var(--dark);
+      color:#fff;
+      box-shadow:0 10px 24px rgba(12,30,44,.16);
+    }
+
+    .btn-outline{
+      background:#fff;
+      color:var(--dark);
+      border-color:var(--line);
+    }
+
+    .btn-outline:hover{
+      background:#F8FAFC;
+      border-color:#CBD5E1;
+    }
+
+    /* =========================
+       HERO
+       ========================= */
+
+    .hero{
+      padding:86px 0 72px;
       background:
-        radial-gradient(circle at 20% 12%, rgba(135,194,50,.10), transparent 28%),
-        radial-gradient(circle at 82% 18%, rgba(15,102,195,.07), transparent 30%),
-        linear-gradient(180deg, #ffffff 0%, #f7fafc 100%);
-      border-bottom: 1px solid var(--line);
-      overflow: hidden;
-      position: relative;
+        radial-gradient(circle at 12% 14%,rgba(135,194,50,.13),transparent 30%),
+        radial-gradient(circle at 88% 10%,rgba(15,102,195,.08),transparent 31%),
+        linear-gradient(180deg,#fff 0%,#f8fafc 100%);
+      border-bottom:1px solid var(--line);
     }
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: linear-gradient(rgba(12,30,44,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(12,30,44,.04) 1px, transparent 1px);
-      background-size: 48px 48px;
-      mask-image: radial-gradient(circle at 50% 24%, rgba(0,0,0,.42), transparent 70%);
-      pointer-events: none;
-    }
-    .hero-inner { position: relative; z-index: 1; width: min(1500px, 100%); margin: 0 auto; text-align: center; }
-    
-    h1 {
-      font-family: Poppins, Inter, sans-serif;
-      font-weight: 600;
-      color: #2c2f35;
-      letter-spacing: -0.04em;
-      font-size: clamp(32px, 4.5vw, 64px); 
-      line-height: 1.15;
-      margin: 0 auto;
-      max-width: 1080px;
-    }
-    .hero-gradient {
-      display: inline-block;
-      background: linear-gradient(90deg, #87C232 0%, #0F66C3 92%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-    .hero-sub {
-      max-width: 760px;
-      margin: 24px auto 0;
-      color: #596578;
-      font-size: clamp(16px, 1.35vw, 20px);
-      line-height: 1.6;
-      font-weight: 500;
-    }
-    .hero-ctas { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 30px; }
-    .micro-note { margin-top: 16px; color: #6b7280; font-size: 14px; font-weight: 650; }
 
-    /* Hero Proof Cards */
-    .hero-proof {
-      margin: clamp(34px, 5vw, 58px) auto 0;
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 24px;
-      align-items: stretch;
-      width: min(1220px, 100%);
+    .hero-inner{
+      max-width:930px;
+      margin:0 auto;
+      text-align:center;
     }
-    .proof-card, .split-shot, .feature-tile, .trust-card, .new-card, .start-card {
-      background: rgba(255,255,255,.92);
-      border: 1px solid rgba(210,219,232,.96);
-      border-radius: 34px;
-      box-shadow: 0 28px 90px rgba(12,30,44,.08);
-      overflow: hidden;
-      text-align: left;
-    }
-    .proof-top, .split-shot-header { padding: 18px 20px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); gap: 12px; }
-    .proof-title { display: flex; align-items: center; gap: 10px; font-weight: 900; color: var(--dark); }
-    .proof-title i { color: var(--green); }
-    .proof-badge { font-size: 12px; font-weight: 850; color: #2f6f18; background: rgba(135,194,50,.12); border: 1px solid rgba(135,194,50,.24); padding: 6px 10px; border-radius: 999px; }
-    .ui-window, .shot-area { padding: 20px; background: linear-gradient(180deg,#fff,#f8fafc); min-height: 318px; }
-    .fake-toolbar { height: 42px; border: 1px solid var(--line); border-radius: 14px; background: #fff; display: flex; align-items: center; gap: 8px; padding: 0 14px; margin-bottom: 16px; }
-    .dot { width: 8px; height: 8px; border-radius: 999px; background: #cbd5e1; }
-    .ui-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 14px; }
-    .ui-panel { min-height: 112px; border-radius: 18px; border: 1px solid var(--line); background: #fff; padding: 15px; box-shadow: 0 10px 24px rgba(12,30,44,.04); }
-    .ui-panel h4 { margin: 0 0 10px; font-size: 14px; color: var(--dark); }
-    .bar { height: 10px; border-radius: 999px; background: #e2e8f0; margin: 9px 0; overflow: hidden; }
-    .bar span { display:block; height:100%; width: 72%; background: linear-gradient(90deg,var(--green),var(--blue)); border-radius: inherit; }
-    .replace-note { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; color: #64748b; font-size: 12px; font-weight: 780; background: #fff; border: 1px dashed #cbd5e1; border-radius: 999px; padding: 8px 12px; }
 
-    /* Facility Scheduling Matrix Framework Styles */
-    .facility-booking-mockup {
-      font-family: Inter, system-ui, sans-serif;
-      background: #ffffff;
-      border-radius: 20px;
-      overflow: hidden;
+    .hero-kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid #D9F99D;
+      background:#F0FDF4;
+      color:#4B7C22;
+      font-size:11px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      margin-bottom:18px;
     }
-    .mockup-week-nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: #f8fafc;
-      padding: 12px 16px;
-      border-bottom: 1px solid #e2e8f0;
-    }
-    .mockup-week-title {
-      font-weight: 700;
-      font-size: 13px;
-      color: #1e293b;
-      background: #fff;
-      padding: 6px 12px;
-      border-radius: 20px;
-      border: 1px solid #e2e8f0;
-    }
-    .mockup-nav-arrow {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      border: 1px solid #e2e8f0;
-      background: #fff;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      cursor: default;
-      color: #94a3b8;
-    }
-    .mockup-rooms-grid {
-      padding: 8px;
-    }
-    .mockup-room-row {
-      display: flex;
-      align-items: center;
-      border-bottom: 1px solid #f1f5f9;
-      transition: background 0.15s ease;
-    }
-    .mockup-room-row:hover {
-      background: #f8fafc;
-    }
-    .mockup-room-name {
-      width: 110px;
-      padding: 12px 8px;
-      font-weight: 700;
-      font-size: 13px;
-      color: #0f172a;
-      flex-shrink: 0;
-    }
-    .mockup-room-slots {
-      flex: 1;
-      display: flex;
-      gap: 6px;
-      padding: 8px 4px;
-    }
-    .mockup-slot {
-      flex: 1;
-      height: 52px;
-      border-radius: 12px;
-      background: #f1f5f9;
-      border: 1px solid #e2e8f0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      font-size: 9px;
-      font-weight: 600;
-      color: #475569;
-      transition: all 0.1s ease;
-      cursor: default;
-      position: relative;
-    }
-    .mockup-slot.available { background: #f0fdf4; border-color: #bbf7d0; color: #059669; }
-    .mockup-slot.booked { background: #fee2e2; border-color: #fecaca; color: #dc2626; }
-    .mockup-slot.pending { background: #fef3c7; border-color: #fde68a; color: #d97706; }
-    .mockup-slot.maintenance { background: #f1f5f9; border-color: #cbd5e1; color: #64748b; text-decoration: line-through; }
-    
-    .mockup-slot .slot-time { font-size: 10px; font-weight: 700; margin-bottom: 2px; color: #0f172a; }
-    .mockup-slot.available .slot-time { color: #059669; }
-    .mockup-slot.booked .slot-time { color: #c5221f; }
-    .mockup-slot.pending .slot-time { color: #b06000; }
-    .mockup-slot .slot-status { font-size: 8px; font-weight: 800; text-transform: uppercase; }
 
-    .mockup-stats {
-      display: flex;
-      gap: 16px;
-      padding: 12px 16px;
-      background: #f8fafc;
-      border-top: 1px solid #e2e8f0;
-      font-size: 11px;
-      font-weight: 600;
+    h1,h2,h3{
+      font-family:Poppins,Inter,sans-serif;
     }
-    .mockup-stat {
-      display: flex;
-      align-items: center;
-      gap: 6px;
+
+    h1{
+      margin:0;
+      color:var(--dark);
+      font-size:clamp(42px,6.1vw,76px);
+      line-height:1.01;
+      letter-spacing:-.058em;
+      font-weight:800;
     }
-    .mockup-stat i {
-      font-size: 12px;
+
+    .hero-highlight{
+      display:inline-block;
+      background:linear-gradient(90deg,var(--green) 0%,var(--blue) 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
     }
-    .mockup-stat .green-dot { color: #137333; }
-    .mockup-stat .red-dot { color: #c5221f; }
-    .mockup-stat .yellow-dot { color: #b06000; }
 
-    .mockup-finder {
-      background: #eff6ff;
-      border-radius: 14px;
-      padding: 12px;
-      margin-top: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
+    .hero-sub{
+      max-width:760px;
+      margin:24px auto 0;
+      color:#556477;
+      font-size:clamp(16px,1.7vw,20px);
+      line-height:1.65;
+      font-weight:500;
     }
-    .mockup-finder-input {
-      flex: 1;
-      background: #fff;
-      border: 1px solid #bfdbfe;
-      border-radius: 999px;
-      padding: 8px 16px;
-      font-size: 12px;
-      color: #1e293b;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+
+    .hero-actions{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:30px;
     }
-    .mockup-finder-input i { color: #94a3b8; }
-    .mockup-finder-badge {
-      background: #0F66C3;
-      color: #fff;
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 11px;
-      font-weight: 700;
-      transition: background 0.15s;
+
+    .hero-note{
+      margin-top:14px;
+      color:#7A8696;
+      font-size:13px;
+      font-weight:650;
     }
-    .mockup-finder-badge:hover { background: var(--blue-dark); }
 
-    .screen-boxes { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-top: 14px; }
-    .screen-boxes div { min-height: 56px; border-radius: 16px; background: #ecfdf5; border: 1px solid #bbf7d0; }
+    /* =========================
+       PRODUCTS
+       ========================= */
 
-    /* General Layout Tracks */
-    .card-row-section { background: #ffffff; padding-top: 72px; }
-    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 28px; }
-    .section-head h2, .split-copy h2, .trust-copy h2, .why-copy h2, .new-head h2, .start-head h2 {
-      font-family: Poppins, Inter, sans-serif;
-      font-weight: 600;
-      letter-spacing: -0.04em;
-      color: #303238;
-      font-size: clamp(32px, 4vw, 48px);
-      line-height: 1.1;
-      margin: 0;
+    .products{
+      padding:76px 0 82px;
+      background:#fff;
     }
-    .section-head p { color: var(--muted); max-width: 560px; line-height: 1.55; font-size: 17px; margin: 0; }
-    
-    .product-scroll {
-      display: grid;
-      grid-auto-flow: column;
-      grid-auto-columns: minmax(330px, 1fr);
-      gap: 22px;
-      overflow-x: auto;
-      padding: 6px 4px 20px;
-      scroll-snap-type: x mandatory;
+
+    .products-head{
+      max-width:760px;
+      margin:0 auto 34px;
+      text-align:center;
     }
-    .product-scroll::-webkit-scrollbar { height: 10px; }
-    .product-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 999px; }
-    .feature-tile {
-      min-height: 430px;
-      scroll-snap-align: start;
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: none;
+
+    .section-label{
+      display:inline-block;
+      margin-bottom:10px;
+      color:#4D7A20;
+      font-size:11px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.1em;
     }
-    .feature-tile h3 { font-family: Poppins, Inter, sans-serif; font-size: 26px; line-height: 1.05; letter-spacing: -.04em; margin: 8px 0 12px; }
-    .feature-tile p { color: #536173; line-height: 1.55; margin: 0; font-weight: 520; }
-    .tile-label { font-size: 12px; text-transform: uppercase; letter-spacing: .12em; font-weight: 900; color: #3c7c1b; }
-    .tile-visual { margin-top: 28px; min-height: 150px; border-radius: 24px; background: #fff; border: 1px solid var(--line); padding: 18px; box-shadow: 0 18px 45px rgba(12,30,44,.06); }
-    .tile-green { background:#ecfdf5; }
-    .tile-blue { background:#eff6ff; }
-    .tile-yellow { background:#fff7d6; }
-    .tile-dark { background:#0C1E2C; color:#fff; }
-    .tile-dark p, .tile-dark .tile-label { color: rgba(255,255,255,.72); }
-    .screen-line { height: 14px; border-radius: 999px; background: #e2e8f0; margin: 12px 0; }
-    .screen-line.green { background: rgba(135,194,50,.45); }
-    .screen-line.blue { background: rgba(15,102,195,.28); }
 
-    .soft-green { background: linear-gradient(90deg,#f0fdf4 0%, #ffffff 100%); }
-    .soft-blue { background: linear-gradient(90deg,#ffffff 0%, #eff6ff 100%); }
-    .split { display:grid; grid-template-columns: .92fr 1.08fr; gap: 42px; align-items:center; }
-    .split.reverse { grid-template-columns: 1.08fr .92fr; }
-    .split-copy p, .why-copy p, .trust-copy p, .new-head p, .start-head p { color: var(--muted); font-size: 18px; line-height: 1.62; margin: 18px 0 0; }
-    .kicker { display:inline-flex; align-items:center; gap:8px; font-size:12px; font-weight:900; color:#2f6f18; letter-spacing:.12em; text-transform:uppercase; background:rgba(135,194,50,.10); border:1px solid rgba(135,194,50,.25); border-radius:999px; padding:9px 14px; margin-bottom:18px; }
-    .chips { display:flex; flex-wrap:wrap; gap:10px; margin:24px 0 28px; }
-    .chip { border:1px solid var(--line); background:#fff; border-radius:999px; padding:9px 12px; color:#334155; font-size:13px; font-weight:800; }
-    .dashboard-row { display:grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-bottom: 16px; }
-    .stat { background:#fff; border:1px solid var(--line); border-radius:18px; padding:16px; }
-    .stat strong { font-family:Poppins,Inter,sans-serif; display:block; font-size:30px; letter-spacing:-.04em; color:var(--dark); }
-    .stat span { color:#64748b; font-size:12px; font-weight:750; }
-    .wide-panel { background:#fff; border:1px solid var(--line); border-radius:22px; padding:18px; }
-    .wide-panel h4 { margin:0 0 12px; }
+    .products-head h2,
+    .trust-copy h2{
+      margin:0;
+      color:var(--dark);
+      font-size:clamp(34px,4.5vw,52px);
+      line-height:1.08;
+      letter-spacing:-.045em;
+      font-weight:750;
+    }
 
-    .why { background:#07111f; color:#fff; }
-    .why-grid { display:grid; grid-template-columns: .82fr 1.18fr; gap: 42px; align-items:center; }
-    .founder-card { background:#87C232; border-radius:34px; padding:12px; box-shadow: 0 28px 80px rgba(0,0,0,.25); transform: rotate(-1deg); }
-    .founder-placeholder { border-radius:24px; overflow:hidden; background:#0b1220; aspect-ratio: 4 / 3; }
-    .founder-placeholder img { width:100%; height:100%; object-fit:cover; object-position:center; }
-    .founder-caption { color:#0C1E2C; font-weight:900; padding:14px 10px 6px; }
-    .why-copy h2, .why-copy p { color:#fff; }
-    .why-copy p { color: rgba(226,232,240,.82); }
-    .quote { margin:24px 0; padding:18px 20px; border-left:4px solid var(--green); background:rgba(255,255,255,.06); border-radius:0 18px 18px 0; font-weight:850; color:#fff; line-height:1.45; }
-    .audiences { display:grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
-    .audience { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.10); border-radius:22px; padding:18px; }
-    .audience i { color: var(--green); margin-bottom: 12px; }
-    .audience h3 { margin:0 0 6px; font-size:16px; }
-    .audience p { margin:0; color:rgba(226,232,240,.72); font-size:13px; line-height:1.45; }
+    .products-head p,
+    .trust-copy p{
+      max-width:660px;
+      margin:15px auto 0;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.62;
+    }
 
-    .trust-section { background: #f8fafc; }
-    .trust-intro { max-width: 900px; margin: 0 auto 34px; text-align:center; }
-    .trust-intro h2 { font-family: Poppins, Inter, sans-serif; font-weight: 600; letter-spacing: -0.04em; color: #303238; font-size: clamp(32px, 4vw, 48px); line-height: 1.1; margin: 0; }
-    .trust-intro p { color: var(--muted); font-size: 18px; line-height: 1.6; margin: 16px auto 0; max-width: 760px; }
-    .trust-visual-grid { display:grid; grid-template-columns: 1.22fr .78fr; gap: 26px; align-items:stretch; margin-top: 28px; }
-    .trust-visual-grid.reverse { grid-template-columns: .78fr 1.22fr; margin-top: 26px; }
-    .trust-panel { background: #ffffff; border: 1px solid var(--line); border-radius: 34px; padding: clamp(22px, 3vw, 34px); box-shadow: 0 24px 70px rgba(12,30,44,.07); min-height: 360px; }
-    .trust-visual { background: radial-gradient(circle at 14% 14%, rgba(135,194,50,.16), transparent 34%), radial-gradient(circle at 86% 80%, rgba(15,102,195,.12), transparent 30%), #ffffff; position: relative; overflow:hidden; }
-    .trust-visual::before { content:""; position:absolute; inset:0; background-image: linear-gradient(rgba(12,30,44,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(12,30,44,.045) 1px, transparent 1px); background-size: 34px 34px; mask-image: radial-gradient(circle at 50% 34%, rgba(0,0,0,.55), transparent 78%); pointer-events:none; }
-    .trust-panel > * { position:relative; z-index:1; }
-    .trust-panel h3 { font-family:Poppins,Inter,sans-serif; font-size: clamp(24px,3vw,36px); line-height:1.1; letter-spacing:-.04em; margin:0 0 12px; color:#303238; font-weight:600; }
-    .trust-panel p { color:#64748b; font-size:16px; line-height:1.6; margin:0 0 18px; }
-    .trust-mini-grid { display:grid; grid-template-columns: repeat(2,1fr); gap: 14px; margin-top: 20px; }
-    .trust-mini { background: rgba(255,255,255,.86); border:1px solid #e2e8f0; border-radius:22px; padding:18px; box-shadow: 0 14px 38px rgba(12,30,44,.055); }
-    .trust-mini i { color: var(--green-dark); font-size: 18px; margin-bottom: 10px; }
-    .trust-mini strong { display:block; font-size:15px; color:var(--dark); margin-bottom:4px; }
-    .trust-mini span { display:block; color:#64748b; font-size:13px; line-height:1.42; }
-    .identity-card { background:#fff; border:1px solid #e2e8f0; border-radius:28px; padding:20px; box-shadow:0 20px 50px rgba(12,30,44,.08); max-width: 760px; margin: 0 auto; }
-    .identity-top { display:flex; justify-content:space-between; gap:12px; align-items:center; border-bottom:1px solid #e2e8f0; padding-bottom:14px; margin-bottom:14px; }
-    .identity-top strong { font-size:15px; color:var(--dark); }
-    .safe-badge { display:inline-flex; gap:6px; align-items:center; background:#ecfdf5; color:#2f6f18; border:1px solid #bbf7d0; border-radius:999px; padding:7px 10px; font-size:11px; font-weight:900; text-transform:uppercase; letter-spacing:.08em; }
-    .identity-rows { display:grid; gap:10px; }
-    .identity-row { display: grid; grid-template-columns: 1fr auto; gap:14px; align-items:center; background:#f8fafc; border:1px solid #e2e8f0; border-radius:16px; padding:13px 14px; }
-    .identity-row span { color:#64748b; font-size:13px; font-weight:760; }
-    .identity-row strong { color:#0C1E2C; font-size:14px; }
-    .flow-board { display:grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-top:22px; }
-    .flow-step { background:#fff; border:1px solid #e2e8f0; border-radius:22px; padding:18px; min-height:140px; box-shadow:0 18px 45px rgba(12,30,44,.055); position:relative; }
-    .flow-step:not(:last-child)::after { content:"→"; position:absolute; right:-13px; top:50%; transform:translateY(-50%); color:#94a3b8; font-weight:900; z-index:2; }
-    .flow-step i { color: var(--blue); font-size:22px; margin-bottom:12px; }
-    .flow-step strong { display:block; font-size:15px; margin-bottom:6px; color:var(--dark); }
-    .flow-step span { color:#64748b; font-size:13px; line-height:1.42; display:block; }
-    .trust-facts { display:grid; gap:12px; margin-top:18px; }
-    .trust-fact { display:flex; align-items:flex-start; gap:12px; padding:14px; border-radius:18px; background:#fff; border:1px solid var(--line); }
-    .trust-fact i { color:var(--green-dark); margin-top:3px; }
-    .trust-fact strong { display:block; color:var(--dark); font-size:14px; }
-    .trust-fact span { display:block; color:#64748b; font-size:13px; line-height:1.42; margin-top:2px; }
+    .product-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+      align-items:stretch;
+    }
 
-    .whats-new { background: #fff; }
-    .new-head { max-width: 860px; margin-bottom: 30px; }
-    .new-grid { display:grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
-    .new-card { padding:26px; box-shadow:none; border-radius:28px; }
-    .new-card small { color:#2f6f18; font-weight:900; text-transform:uppercase; letter-spacing:.12em; }
-    .new-card h3 { font-family:Poppins,Inter,sans-serif; font-size:26px; margin:12px 0 8px; letter-spacing:-.04em; }
-    .new-card p { color:#64748b; line-height:1.55; margin:0; }
+    .product-card{
+      position:relative;
+      display:flex;
+      flex-direction:column;
+      min-height:440px;
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:26px;
+      background:#fff;
+      box-shadow:0 12px 36px rgba(12,30,44,.045);
+      overflow:hidden;
+      transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+    }
 
-    .starting { background: linear-gradient(180deg,#f8fafc,#fff); }
-    .start-head { text-align:center; margin-bottom: 34px; }
-    .start-head p { max-width:760px; margin: 16px auto 0; }
-    .start-grid { display:grid; grid-template-columns: repeat(2,1fr); gap: 22px; max-width: 1100px; margin: 0 auto; }
-    .start-card { padding:30px; box-shadow: none; border-radius: 30px; }
-    .start-card h3 { font-family:Poppins,Inter,sans-serif; font-size:30px; margin:0 0 10px; letter-spacing:-.045em; }
-    .start-card p { color:#64748b; line-height:1.58; margin:0 0 22px; }
+    .product-card:hover{
+      transform:translateY(-4px);
+      box-shadow:var(--shadow);
+    }
 
-    footer { background:#07111f; color: rgba(255,255,255,.76); padding: 72px clamp(18px,4vw,72px) 40px; }
-    .footer-grid { width:min(1520px,100%); margin:0 auto; display:grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
-    footer h4 { color:#fff; margin:0 0 20px; font-size: 16px; }
-    footer a { display:block; margin: 12px 0; color: rgba(255,255,255,.72); font-size: 15px; transition: color 0.2s;}
-    footer a:hover { color: var(--green); }
-    .legal-footer { width:min(1520px,100%); margin:60px auto 0; padding-top:30px; border-top:1px solid rgba(255,255,255,.12); color:rgba(255,255,255,.58); font-size:14px; line-height:1.65; display:flex; flex-direction:column; align-items:center; text-align:center; gap:8px; }
-    .legal-footer strong { color:rgba(255,255,255,.84); }
+    .product-card.house:hover{
+      border-color:rgba(135,194,50,.52);
+    }
 
-    @media (max-width: 1050px) {
-      .hamburger { display: block; }
-      .nav-links-desktop { display: none !important; }
-      .nav-actions-desktop-wrapper { display: none !important; }
-      .nav-inner { height: 56px; } /* Shrinks navigation header height */
-      .nav-menu-wrapper {
-        position: absolute;
-        top: 56px; left: 0; right: 0;
-        height: calc(100vh - 56px);
-        background: #ffffff;
-        flex-direction: column;
-        padding: 10px 24px 40px;
-        gap: 0;
-        z-index: 49;
-        overflow-y: auto;
-        opacity: 0; visibility: hidden; transition: opacity 0.3s ease;
+    .product-card.facilities:hover{
+      border-color:rgba(15,102,195,.42);
+    }
+
+    .product-card.classboard:hover{
+      border-color:rgba(250,204,21,.58);
+    }
+
+    .product-card::after{
+      content:"";
+      position:absolute;
+      width:170px;
+      height:170px;
+      right:-62px;
+      bottom:-72px;
+      border-radius:50%;
+      opacity:.55;
+      pointer-events:none;
+    }
+
+    .product-card.house::after{
+      background:rgba(135,194,50,.12);
+    }
+
+    .product-card.facilities::after{
+      background:rgba(15,102,195,.10);
+    }
+
+    .product-card.classboard::after{
+      background:rgba(250,204,21,.16);
+    }
+
+    .product-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:14px;
+    }
+
+    .product-icon{
+      width:54px;
+      height:54px;
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      font-size:21px;
+      flex-shrink:0;
+    }
+
+    .house .product-icon{
+      background:#F0FDF4;
+      color:#4D7A20;
+    }
+
+    .facilities .product-icon{
+      background:#EFF6FF;
+      color:var(--blue);
+    }
+
+    .classboard .product-icon{
+      background:#FFF8D8;
+      color:#8A6500;
+    }
+
+    .trial-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:7px 9px;
+      border-radius:999px;
+      font-size:10px;
+      font-weight:900;
+      line-height:1;
+      white-space:nowrap;
+    }
+
+    .house .trial-badge{
+      background:#EAF8D8;
+      color:#4D7A20;
+    }
+
+    .facilities .trial-badge{
+      background:#EAF3FF;
+      color:#0F66C3;
+    }
+
+    .classboard .trial-badge{
+      background:#FFF5C5;
+      color:#755600;
+    }
+
+    .product-card h3{
+      margin:21px 0 8px;
+      color:var(--dark);
+      font-size:27px;
+      line-height:1.1;
+      letter-spacing:-.04em;
+    }
+
+    .product-summary{
+      margin:0;
+      color:#607083;
+      font-size:15px;
+      line-height:1.58;
+    }
+
+    .product-compare{
+      margin:10px 0 0;
+      color:#7A8696;
+      font-size:11.5px;
+      line-height:1.45;
+    }
+
+    .product-compare strong{
+      color:#536174;
+      font-weight:800;
+    }
+
+    .product-benefits{
+      display:grid;
+      gap:10px;
+      margin:22px 0 26px;
+    }
+
+    .product-benefit{
+      display:flex;
+      gap:9px;
+      align-items:flex-start;
+      color:#435164;
+      font-size:13px;
+      line-height:1.42;
+      font-weight:650;
+    }
+
+    .product-benefit i{
+      margin-top:2px;
+      font-size:13px;
+      color:var(--green-dark);
+    }
+
+    .facilities .product-benefit i{
+      color:var(--blue);
+    }
+
+    .classboard .product-benefit i{
+      color:#A77900;
+    }
+
+    .product-button{
+      margin-top:auto;
+      position:relative;
+      z-index:2;
+    }
+
+    .product-button .btn{
+      width:100%;
+    }
+
+    /* =========================
+       TRUST / WHY TRACKEDU
+       ========================= */
+
+    .trust{
+      padding:70px 0;
+      background:#F8FAFC;
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+    }
+
+    .trust-layout{
+      display:grid;
+      grid-template-columns:.88fr 1.12fr;
+      gap:44px;
+      align-items:center;
+    }
+
+    .trust-copy p{
+      margin-left:0;
+      margin-right:0;
+    }
+
+    .trust-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+    }
+
+    .trust-item{
+      min-height:126px;
+      padding:18px;
+      border-radius:20px;
+      background:#fff;
+      border:1px solid var(--line);
+    }
+
+    .trust-item i{
+      width:36px;
+      height:36px;
+      border-radius:11px;
+      display:grid;
+      place-items:center;
+      background:#F0FDF4;
+      color:#4D7A20;
+      margin-bottom:12px;
+    }
+
+    .trust-item strong{
+      display:block;
+      margin-bottom:4px;
+      color:var(--dark);
+      font-size:14px;
+    }
+
+    .trust-item span{
+      display:block;
+      color:#6B788A;
+      font-size:12px;
+      line-height:1.45;
+    }
+
+    /* =========================
+       FINAL CTA
+       ========================= */
+
+    .final{
+      padding:72px 0;
+      background:linear-gradient(135deg,#07111F 0%,#0C1E2C 100%);
+      color:#fff;
+      text-align:center;
+    }
+
+    .final h2{
+      max-width:760px;
+      margin:0 auto;
+      font-size:clamp(34px,4.7vw,54px);
+      line-height:1.08;
+      letter-spacing:-.045em;
+    }
+
+    .final p{
+      max-width:650px;
+      margin:16px auto 0;
+      color:rgba(226,232,240,.76);
+      font-size:16px;
+      line-height:1.62;
+    }
+
+    .final .hero-actions{
+      margin-top:26px;
+    }
+
+    /* =========================
+       FOOTER
+       ========================= */
+
+    footer{
+      background:#07111F;
+      color:rgba(255,255,255,.72);
+      border-top:1px solid rgba(255,255,255,.08);
+    }
+
+    .footer-main{
+      padding:48px 0 30px;
+      display:grid;
+      grid-template-columns:1.45fr 1fr 1fr;
+      gap:36px;
+    }
+
+    .footer-main p{
+      max-width:360px;
+      color:#94A3B8;
+      font-size:13px;
+      line-height:1.6;
+    }
+
+    footer h4{
+      margin:0 0 14px;
+      color:#fff;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.07em;
+    }
+
+    footer a{
+      display:block;
+      margin:10px 0;
+      color:#CBD5E1;
+      font-size:13px;
+    }
+
+    footer a:hover{
+      color:var(--green);
+    }
+
+    .footer-legal{
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+      padding:20px 0 28px;
+      border-top:1px solid rgba(255,255,255,.08);
+      color:#64748B;
+      font-size:11px;
+      line-height:1.5;
+    }
+
+    /* =========================
+       RESPONSIVE
+       ========================= */
+
+    @media(max-width:1100px){
+      .footer-main{
+        grid-template-columns:repeat(2,1fr) !important;
       }
-      .nav-menu-wrapper.active { opacity: 1; visibility: visible; }
-      .nav-links { flex-direction: column; width: 100%; gap: 0; text-align: left; }
-      .nav-links a { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 13px 0; border-bottom: 1px solid var(--line); font-size: 16px; font-weight: 500; color: #1e293b; }
-      .nav-links a:hover { color: var(--dark); }
-      .nav-actions { display: none; }
-      .mobile-chevron { display: block; color: #64748b; font-size: 16px; font-weight: 300; }
-      .mobile-only { display: flex; }
-      .mobile-bottom { display: flex; flex-direction: column; align-items: center; margin-top: 16px; gap: 16px; width: 100%; }
-      .mobile-app-banner { background: #000; color: #fff; border-radius: 12px; padding: 14px 20px; display: flex; align-items: center; gap: 14px; width: max-content; }
-      .mobile-app-banner i { font-size: 28px; }
-      .mobile-app-banner div { display: flex; flex-direction: column; }
-      .mobile-app-banner strong { font-size: 14px; font-weight: 600; }
-      .mobile-app-banner span { font-size: 12px; color: #cbd5e1; }
-      .mobile-go-home { font-size: 15px; font-weight: 500; color: var(--dark); display: flex; align-items: center; gap: 8px; text-decoration: none; }
-
-      .hero-proof, .split, .split.reverse, .why-grid, .trust-visual-grid, .trust-visual-grid.reverse, .start-grid { grid-template-columns: 1fr; }
-      .audiences, .new-grid { grid-template-columns: 1fr; }
-      .flow-board { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-      .flow-step { padding: 12px; min-height: auto; border-radius: 16px; }
-      .flow-step i { font-size: 18px; margin-bottom: 6px; }
-      .flow-step strong { font-size: 13px; margin-bottom: 4px; }
-      .flow-step span { font-size: 11px; line-height: 1.35; }
-      .flow-step:not(:last-child)::after { display: none; }
-      .section-head { display:block; }
-      .section-head p { margin-top:16px; }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-      
-      /* Mobile adjustments for facility mockup */
-      .mockup-room-name { width: 85px; font-size: 11px; padding: 10px 4px; }
-      .mockup-slot { height: 42px; }
-      .mockup-slot .slot-time { font-size: 8px; }
-      .mockup-slot .slot-status { display: none; }
-      .mockup-finder { flex-direction: column; align-items: stretch; }
-      .mockup-finder-input { justify-content: center; }
-      .mockup-finder-badge { text-align: center; }
     }
 
-    /* Responsive fix preventing timeline bubble compression */
-      @media (max-width: 640px) {
-        .mockup-room-row {
-          flex-direction: column !important;
-          align-items: flex-start !important;
-          padding: 12px 4px !important;
-        }
-        .mockup-room-name {
-          width: 100% !important;
-          padding: 0 0 8px 2px !important;
-          font-size: 13.5px !important;
-        }
-        .mockup-room-slots {
-          width: 100% !important;
-          display: flex !important;
-          gap: 8px !important;
-        }
-        .mockup-slot {
-          height: 38px !important;
-          flex: 1 !important;
-          border-radius: 10px !important;
-        }
-        .mockup-slot .slot-time {
-          font-size: 11px !important;
-          font-weight: 700 !important;
-          margin-bottom: 0 !important;
-        }
+    @media(max-width:960px){
+      .nav-links,
+      .nav-actions{
+        display:none;
       }
 
-    @media (max-width: 640px) {
-  .hero { padding-top: 32px; }
+      .mobile-menu-btn{
+        display:grid;
+        place-items:center;
+      }
 
-  h1 { 
-    font-size: clamp(26px, 7vw, 34px) !important; 
-    line-height: 1.25 !important;
-    padding: 0 4px;
-  }
+      .product-grid{
+        grid-template-columns:1fr;
+      }
 
-  .hero-sub {
-    font-size: 15px;
-    margin-top: 16px;
-  }
+      .product-card{
+        min-height:0;
+      }
 
-  .hero-ctas {
-    flex-direction: column;
-  }
+      .trust-layout{
+        grid-template-columns:1fr;
+      }
 
-  .hero-ctas .btn {
-    width: 100%;
-  }
+      .trust-copy{
+        text-align:center;
+      }
 
-  .ui-grid,
-  .dashboard-row {
-    grid-template-columns: 1fr;
-  }
+      .trust-copy p{
+        margin-left:auto;
+        margin-right:auto;
+      }
 
-  /* Mobile product cards, wider cards, cleaner scrolling */
-  .product-scroll {
-    grid-auto-columns: minmax(360px, 94vw) !important;
-    gap: 18px !important;
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-    scroll-padding-left: 16px !important;
-  }
-
-  .feature-tile {
-    padding: 24px !important;
-    min-height: auto !important;
-  }
-
-  .feature-tile h3 {
-    font-size: 30px !important;
-    line-height: 1.08 !important;
-  }
-
-  .feature-tile p.feature-intro {
-    font-size: 16px !important;
-    line-height: 1.55 !important;
-  }
-
-  .feature-check {
-    font-size: 15px !important;
-    line-height: 1.35 !important;
-  }
-
-  .tile-visual {
-    min-height: 190px !important;
-    padding: 16px !important;
-  }
-
-  /* Fix the small Free / Busy / Pending cells on mobile */
-  .visual-calendar-card {
-    padding: 18px !important;
-  }
-
-  .calendar-mini-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  gap: 8px !important;
-}
-
-  .calendar-mini-cell {
-    min-height: 42px !important;
-    font-size: 9px !important;
-    line-height: 1 !important;
-    padding: 3px !important;
-    border-radius: 10px !important;
-    white-space: nowrap !important;
-    font-weight: 800 !important;
-  }
-
-  .section {
-    padding-left: 18px;
-    padding-right: 18px;
-  }
-
-  .trust-mini-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-
-  .trust-mini {
-    padding: 12px;
-    border-radius: 16px;
-  }
-
-  .trust-mini i {
-    font-size: 16px;
-    margin-bottom: 6px;
-  }
-
-  .trust-mini strong {
-    font-size: 13px;
-    margin-bottom: 4px;
-  }
-
-  .trust-mini span {
-    font-size: 11px;
-    line-height: 1.35;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-}
-
-    /* Interactive Mockup Engine Additions */
-    /* Interaction Gate Overlays ,  Standard Mobile Baseline (No Blur) */
-.canvas-blur-core {
-  filter: blur(0px);
-  pointer-events: auto;
-  user-select: auto;
-}
-.canvas-gate-overlay {
-  display: none !important;
-}
-
-/* Desktop Viewport Rules (1051px and up) */
-@media (min-width: 1051px) {
-  .canvas-blur-core {
-    filter: blur(5px);
-    transition: filter 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-    pointer-events: none;
-    user-select: none;
-  }
-  
-  /* Triggered via Javascript Click */
-  .canvas-unblurred {
-    filter: blur(0px) !important;
-    pointer-events: auto !important;
-    user-select: auto !important;
-  }
-  
-  .canvas-gate-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(12, 30, 44, 0.03);
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    z-index: 40;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-
-  /* Triggered via CSS Hover ,  Keeps layout active to prevent glitch flickering */
-  .canvas-gate-overlay:hover {
-    background: transparent;
-  }
-  
-  .canvas-gate-overlay:hover .canvas-gate-badge {
-    opacity: 0;
-    visibility: hidden;
-    transform: scale(0.95);
-  }
-  
-  .canvas-gate-overlay:hover + .canvas-blur-core {
-    filter: blur(0px);
-    pointer-events: auto;
-    user-select: auto;
-  }
-
-  .canvas-gate-badge {
-    background: rgba(255, 255, 255, 0.94);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(135, 194, 50, 0.4);
-    color: #0c1e2c;
-    padding: 14px 24px;
-    border-radius: 999px;
-    font-weight: 800;
-    font-size: 13.5px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    box-shadow: 0 20px 40px rgba(12, 30, 44, 0.12);
-    opacity: 1;
-    visibility: visible;
-    transform: scale(1);
-    transition: transform 0.2s ease, background 0.2s ease, opacity 0.3s ease, visibility 0.3s ease;
-  }
-}
-    
-    .mock-modal-backdrop {
-      position: fixed; inset: 0; background: rgba(12, 30, 44, 0.5);
-      backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
-      z-index: 10000; display: none; align-items: center; justify-content: center; padding: 16px;
-    }
-    .mock-modal-backdrop.open { display: flex; }
-    .mock-modal {
-      background: #ffffff; border-radius: 24px; border: 1px solid var(--line);
-      width: 100%; max-width: 540px; box-shadow: var(--shadow); overflow: hidden;
-      animation: modalPop 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    @keyframes modalPop { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-
-    .mock-toast-container { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); z-index: 11000; display: flex; flex-direction: column; gap: 8px; }
-    .mock-toast { background: var(--dark); color: #fff; border-radius: 999px; padding: 12px 24px; font-size: 14px; font-weight: 700; box-shadow: 0 8px 24px rgba(0,0,0,0.15); animation: toastUp 0.2s ease-out; }
-    @keyframes toastUp { from { transform: translateY(12px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-
-    /* --- Premium Portals Simulator Overhaul --- */
-    .sim-container-shell {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 24px;
-      box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.05);
-      overflow: hidden;
-    }
-    .sim-switcher-track {
-      background: #f1f5f9;
-      padding: 6px;
-      border-radius: 16px;
-      display: flex;
-      gap: 4px;
-      border: 1px solid rgba(15, 23, 42, 0.04);
-    }
-    .sim-portal-btn {
-      flex: 1;
-      padding: 10px 16px;
-      border: none;
-      border-radius: 12px;
-      font-size: 13px;
-      font-weight: 700;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background: transparent;
-      color: var(--muted);
-      transition: all 0.2s ease;
-    }
-    .sim-portal-btn.active {
-      background: #ffffff;
-      color: var(--dark);
-      box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.08);
-    }
-    
-    /* Razor-Thin Device Bezel Outline Framework with Fixed Height Ceilings */
-    .sim-view-canvas {
-      border-radius: 20px;
-      padding: 20px;
-      background: #090d16;
-      border: 1px solid #cbd5e1; /* Thinner elegant card edge framework outline */
-      box-shadow: 0 4px 12px rgba(15,23,42,0.03);
-      height: 520px; /* Locked precise vertical ceiling parameters blocks shifting layout bounds */
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      transition: background 0.2s ease;
-    }
-    .sim-view-canvas.teacher-active-bg {
-      background: #f8fafc; /* Beautiful clean application container light preset pass */
-    }
-    
-    /* Student Area Canvas Simulation Geometry */
-    .student-login-view {
-      color: #ffffff;
-      text-align: center;
-      max-width: 440px;
-      margin: auto auto;
-      width: 100%;
-    }
-    .student-demo-badge-box {
-      background: rgba(30, 27, 75, 0.6);
-      border: 1px solid rgba(67, 56, 202, 0.4);
-      border-radius: 14px;
-      padding: 12px 16px;
-      text-align: left;
-      font-size: 13px;
-      line-height: 1.5;
-      color: #cbd5e1;
-    }
-    .student-demo-code-token {
-      background: #312e81;
-      color: #fef08a;
-      border: 1px solid #4338ca;
-      padding: 2px 6px;
-      border-radius: 6px;
-      font-family: monospace;
-      font-weight: 700;
-    }
-    .student-login-input {
-      width: 100%;
-      padding: 12px 16px 12px 42px !important;
-      background: #0f172a !important;
-      border: 1px solid #1e293b !important;
-      border-radius: 12px !important;
-      color: #ffffff !important;
-      font-size: 14px;
-      font-weight: 600;
-      outline: none;
-      transition: all 0.15s ease;
-    }
-    .student-login-input:focus {
-      border-color: #8b5cf6 !important;
-      box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
-    }
-    .student-btn-submit {
-      width: 100%;
-      background: linear-gradient(135deg, #6d28d9, #4c1d95);
-      color: #ffffff;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 14px;
-      cursor: pointer;
-      transition: opacity 0.15s ease;
-    }
-    .student-btn-submit:hover { opacity: 0.95; }
-    
-    /* Teacher Area Canvas Simulation Geometry */
-    .teacher-portal-view {
-      color: var(--dark);
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-    }
-    .teacher-sub-nav-btn {
-      padding: 8px 14px;
-      font-size: 12px;
-      font-weight: 700;
-      border-radius: 20px;
-      border: 1px solid var(--line);
-      background: #ffffff;
-      color: var(--muted);
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.15s ease;
-    }
-    .teacher-sub-nav-btn.active {
-      background: var(--green) !important;
-      border-color: var(--green) !important;
-      color: #ffffff !important;
+      .footer-main{
+        grid-template-columns:repeat(2,1fr) !important;
+      }
     }
 
-    /* 15-Card Toolkit Sizing Shield Engine Layer */
-    .toolkit-grid-matrix {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-auto-rows: 1fr; 
-      gap: 10px;
-      max-height: 410px;
-      overflow-y: auto;
-      padding-right: 4px;
-    }
-    @media (max-width: 640px) {
-      .toolkit-grid-matrix { grid-template-columns: repeat(2, 1fr); }
-    }
-    .toolkit-bento-item {
-      background: #ffffff;
-      border: 1px solid rgba(226, 232, 240, 0.8);
-      border-radius: 14px;
-      padding: 14px 10px;
-      text-align: center;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      height: 100%;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .toolkit-bento-item:hover {
-      border-color: var(--green);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px -10px rgba(15, 23, 42, 0.08);
-    }
-    .toolkit-icon-wrapper {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 8px;
-      font-size: 15px;
-      flex-shrink: 0;
-    }
-    .toolkit-bento-item strong {
-      font-size: 12px;
-      color: var(--dark);
-      display: block;
-      margin-bottom: 2px;
-      line-height: 1.3;
-    }
-    .toolkit-bento-item span {
-      font-size: 10.5px;
-      color: var(--muted);
-      line-height: 1.3;
-      display: block;
-    }
+    @media(max-width:700px){
+      .container{
+        width:min(100% - 28px,1180px);
+      }
 
-    /* --- Premium homepage update: real product previews and clearer cards --- */
-    .premium-house-mockup {
-      background: #ffffff;
-      border-radius: 22px;
-      border: 1px solid #e2e8f0;
-      overflow: hidden;
-      box-shadow: 0 18px 45px rgba(12,30,44,.06);
-    }
-    .hp-topbar {
-      height: 42px;
-      background: #ffffff;
-      border-bottom: 1px solid #e2e8f0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 14px;
-      font-size: 11px;
-      font-weight: 800;
-      color: #334155;
-    }
-    .hp-brand-mini { font-family: Poppins, Inter, sans-serif; font-weight: 900; letter-spacing: -.05em; }
-    .hp-brand-mini span { color: var(--green); }
-    .hp-layout { display: grid; grid-template-columns: 92px 1fr; min-height: 276px; background: #f8fafc; }
-    .hp-sidebar {
-      background: #ffffff;
-      border-right: 1px solid #e2e8f0;
-      padding: 14px 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .hp-avatar {
-      width: 58px;
-      height: 58px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 35% 30%, #d9ff75, #87C232);
-      margin: 0 auto 10px;
-      display: grid;
-      place-items: center;
-      font-size: 30px;
-      box-shadow: 0 10px 25px rgba(135,194,50,.25);
-    }
-    .hp-side-pill {
-      height: 22px;
-      border-radius: 7px;
-      background: #f1f5f9;
-    }
-    .hp-side-pill.active { background: #14b8c8; }
-    .hp-main { padding: 16px; min-width: 0; }
-    .hp-main-title {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 14px;
-      font-size: 13px;
-      font-weight: 900;
-      color: #0f172a;
-    }
-    .hp-projector {
-      background: #f59e0b;
-      color: #fff;
-      border-radius: 999px;
-      padding: 5px 9px;
-      font-size: 10px;
-      font-weight: 900;
-    }
-    .hp-row {
-      display: grid;
-      grid-template-columns: 78px 1fr 64px;
-      align-items: center;
-      gap: 12px;
-      background: #fff;
-      border: 1px solid #edf2f7;
-      border-radius: 14px;
-      padding: 10px 12px;
-      margin-bottom: 8px;
-    }
-    .hp-house-name { font-size: 12px; font-weight: 900; color: #0f172a; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .hp-bar-track { height: 12px; background: #e2e8f0; border-radius: 999px; overflow: hidden; }
-    .hp-bar-fill { height: 100%; border-radius: 999px; }
-    .hp-points { font-size: 13px; font-weight: 900; text-align: right; color: #0f172a; }
-    .hp-cards {
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
-      gap: 10px;
-      margin-top: 12px;
-    }
-    .hp-card-mini {
-      background: #fff;
-      border: 1px solid #e2e8f0;
-      border-radius: 14px;
-      padding: 10px;
-      min-height: 66px;
-      box-shadow: 0 8px 20px rgba(12,30,44,.035);
-    }
-    .hp-card-mini strong { display:block; font-size: 11px; color:#0f172a; margin-bottom: 6px; }
-    .hp-card-mini span { font-size: 16px; font-weight: 900; color:#0f172a; }
+      .nav-inner{
+        min-height:60px;
+      }
 
-    .feature-tile {
-      position: relative;
-      isolation: isolate;
-      border-radius: 32px;
-      border: 1px solid rgba(226,232,240,.95);
-      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-    }
-    .feature-tile:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 24px 70px rgba(12,30,44,.10);
-      border-color: rgba(135,194,50,.32);
-    }
-    .feature-tile p.feature-intro {
-      font-size: 14px;
-      line-height: 1.5;
-      color: #64748b;
-      margin: 0 0 16px;
-    }
-    .feature-checks {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 14px;
-    }
-    .feature-check {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      color: #475569;
-      font-size: 14px;
-      line-height: 1.35;
-      font-weight: 650;
-    }
-    .feature-check i { margin-top: 2px; font-size: 14px; }
-    .tile-visual {
-      overflow: hidden;
-      position: relative;
-      background: rgba(255,255,255,.88);
-    }
-    .visual-house-card,
-    .visual-phone-card,
-    .visual-calendar-card,
-    .visual-ops-card,
-    .visual-leadership-card {
-      height: 100%;
-      min-height: 150px;
-      border-radius: 20px;
-      border: 1px solid #e2e8f0;
-      background: #ffffff;
-      padding: 14px;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.6);
-    }
-    .visual-house-row {
-      display: grid;
-      grid-template-columns: 52px 1fr 42px;
-      gap: 8px;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-    .visual-rank {
-      width: 36px;
-      height: 36px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      background: #f1f5f9;
-      font-weight: 900;
-    }
-    .visual-mini-bar { height: 9px; border-radius: 999px; background: #e2e8f0; overflow: hidden; }
-    .visual-mini-bar span { display: block; height: 100%; border-radius: 999px; }
-    .visual-points { font-size: 12px; font-weight: 900; text-align: right; }
-    .phone-shell {
-      width: 116px;
-      margin: 0 auto;
-      border: 7px solid #0f172a;
-      border-radius: 26px;
-      background: #0b1020;
-      padding: 10px;
-      box-shadow: 0 18px 35px rgba(15,23,42,.18);
-    }
-    .phone-avatar {
-      width: 38px;
-      height: 38px;
-      border-radius: 999px;
-      background: #ffffff;
-      margin: 0 auto 8px;
-      display: grid;
-      place-items: center;
-    }
-    .phone-stat { background: rgba(255,255,255,.08); border-radius: 10px; height: 28px; margin: 7px 0; }
-    .calendar-mini-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 6px; }
-    .calendar-mini-cell {
-      min-height: 42px;
-      border-radius: 10px;
-      background: #f1f5f9;
-      border: 1px solid #e2e8f0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 10px;
-      font-weight: 900;
-    }
-    .calendar-mini-cell.free { background:#ecfdf5; color:#047857; border-color:#bbf7d0; }
-    .calendar-mini-cell.busy { background:#fee2e2; color:#b91c1c; border-color:#fecaca; }
-    .calendar-mini-cell.pending { background:#fef3c7; color:#a16207; border-color:#fde68a; }
-    .ops-ticket {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      background: #fff;
-      border: 1px solid #e2e8f0;
-      border-radius: 14px;
-      padding: 10px;
-      margin-bottom: 9px;
-      font-size: 12px;
-      font-weight: 800;
-    }
-    .ops-ticket span:last-child {
-      border-radius: 999px;
-      padding: 4px 7px;
-      font-size: 10px;
-      background: #fef3c7;
-      color: #92400e;
-      white-space: nowrap;
-    }
-    .leadership-chart {
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
-      align-items: end;
-      gap: 10px;
-      height: 104px;
-      padding-top: 10px;
-    }
-    .leadership-bar { border-radius: 12px 12px 4px 4px; background: linear-gradient(180deg,#87C232,#0F66C3); min-height: 24px; }
-    .leadership-labels { display: grid; grid-template-columns: repeat(4,1fr); gap:10px; margin-top: 10px; font-size: 10px; color:#94a3b8; text-align:center; font-weight:800; }
+      .brand{
+        font-size:24px;
+      }
 
-    @media (max-width: 700px) {
-      .proof-card, .split-shot, .feature-tile, .trust-card, .new-card, .start-card { border-radius: 24px; }
-      .hp-topbar { height: auto !important; min-height: 42px; padding: 8px 12px !important; flex-wrap: wrap; gap: 6px; }
-      .hp-topbar-registry-id { display: none !important; } /* Hides secondary clutter on mobile */
-      .hp-layout { grid-template-columns: 1fr; }
-      .hp-sidebar { display: none; }
-      .hp-main { padding: 12px; }
-      .hp-row { grid-template-columns: 74px 1fr 52px; gap: 8px; padding: 9px; }
-      .hp-cards { grid-template-columns: repeat(2,1fr); }
-      .hp-projector { display: none; }
-      .feature-tile { min-height: auto; padding: 22px; }
-      .tile-visual { min-height: 132px; margin-top: 20px; }
-      .hero-proof { gap: 16px; }
-      .ui-window, .shot-area { padding: 14px; }
-      .mockup-stats { flex-wrap: wrap; gap: 8px 14px; }
-      .sim-view-canvas { height: auto !important; min-height: 500px; }
-      .teacher-progress-row { padding: 10px 11px !important; }
+      .hero{
+        padding:54px 0 46px;
+      }
+
+      h1{
+        font-size:clamp(39px,12vw,54px);
+      }
+
+      .hero-sub{
+        font-size:16px;
+      }
+
+      .hero-actions{
+        flex-direction:column;
+      }
+
+      .hero-actions .btn{
+        width:100%;
+      }
+
+      .products{
+        padding:58px 0 62px;
+      }
+
+      .products-head{
+        text-align:left;
+        margin-bottom:25px;
+      }
+
+      .products-head h2,
+      .trust-copy h2{
+        font-size:clamp(31px,9vw,42px);
+      }
+
+      .products-head p,
+      .trust-copy p{
+        font-size:15px;
+      }
+
+      .product-card{
+        border-radius:22px;
+        padding:22px;
+      }
+
+      .product-card h3{
+        font-size:24px;
+      }
+
+      .trial-badge{
+        font-size:9px;
+        padding:7px 8px;
+      }
+
+      .trust{
+        padding:56px 0;
+      }
+
+      .trust-copy{
+        text-align:left;
+      }
+
+      .trust-grid{
+        grid-template-columns:1fr 1fr;
+        gap:10px;
+      }
+
+      .trust-item{
+        min-height:118px;
+        padding:14px;
+        border-radius:16px;
+      }
+
+      .trust-item strong{
+        font-size:13px;
+      }
+
+      .trust-item span{
+        font-size:11px;
+      }
+
+      .final{
+        padding:58px 0;
+      }
+
+      .footer-main{
+        grid-template-columns:1fr !important;
+        text-align:center;
+        padding-top:40px;
+      }
+
+      .footer-main p{
+        margin-left:auto;
+        margin-right:auto;
+      }
+
+      .footer-legal{
+        justify-content:center;
+        text-align:center;
+      }
     }
 
-
-
-
-
-
-
-/* ==========================================
-   TRACKEDU PREMIUM TRUST BAND (CONTAINED & CENTERED)
-   ========================================== */
-.trackedu-trust-foundation {
-  position: relative;
-  max-width: 80rem; /* Perfectly aligns with max-w-7xl */
-  margin: 3rem auto;
-  padding: 0 1.5rem;
-}
-.trust-badges-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  margin-bottom: 1.25rem;
-}
-.trust-badge {
-  display: flex;
-  align-items: center;
-  justify-content: center; /* Centers interior layout elements */
-  gap: 0.75rem;
-  padding: 0.85rem 1rem;
-  background: #ffffff;
-  border-radius: 16px;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.02);
-  transition: all 0.2s ease;
-}
-.trust-badge:hover {
-  transform: translateY(-2px);
-  border-color: #cbd5e1;
-  box-shadow: 0 10px 20px -8px rgba(15, 23, 42, 0.06);
-}
-.trust-badge-icon {
-  width: 2.2rem;
-  height: 2.2rem;
-  border-radius: 10px;
-  background: #f0f7ff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  color: #0f66c3;
-  font-size: 1rem;
-}
-.trust-badge:nth-child(3) .trust-badge-icon { background: #f0fdf4; color: #16a34a; }
-.trust-badge:nth-child(4) .trust-badge-icon { background: #fff1f2; color: #e11d48; }
-
-.uk-flag-svg {
-  width: 1.8rem;
-  height: auto;
-  border-radius: 3px;
-}
-.trust-badge-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.3;
-  text-align: left;
-}
-.trust-badge strong {
-  font-size: 0.8rem;
-  font-weight: 800;
-  color: #0C1E2C;
-}
-.trust-badge span {
-  font-size: 0.68rem;
-  color: #64748b;
-  font-weight: 500;
-}
-.trust-partner-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-.trust-partner-card,
-.trust-infra-card {
-  background: #ffffff;
-  border-radius: 20px;
-  border: 1px solid #e2e8f0;
-  padding: 1.25rem;
-  box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.02);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: all 0.2s ease;
-}
-.trust-partner-card:hover {
-  transform: translateY(-2px);
-  border-color: #cbd5e1;
-  box-shadow: 0 12px 24px -10px rgba(15, 23, 42, 0.06);
-}
-.trust-partner-header,
-.trust-infra-header {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  margin-bottom: 0.85rem;
-  border-bottom: 1px dashed #f1f5f9;
-  padding-bottom: 0.5rem;
-}
-.trust-partner-header i, .trust-infra-header i { font-size: 0.8rem; color: #64748b; }
-.trust-partner-header span, .trust-infra-header span {
-  font-size: 0.65rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #64748b;
-}
-.trust-partner-content {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  flex: 1;
-  text-align: left;
-}
-.trust-partner-content img {
-  width: 3rem;
-  height: 3rem;
-  object-fit: cover;
-  border-radius: 10px;
-  border: 1px solid #e2e8f0;
-}
-.trust-partner-content h4 {
-  font-size: 0.95rem;
-  font-weight: 800;
-  color: #0C1E2C;
-  margin: 0 0 0.15rem 0;
-}
-.trust-partner-content p {
-  font-size: 0.75rem;
-  color: #64748b;
-  font-weight: 500;
-  margin: 0;
-}
-.trust-infra-logos {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
-  flex: 1;
-}
-.infra-item {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  padding: 0.65rem 0.85rem;
-  background: #f8fafc;
-  border-radius: 12px;
-  border: 1px solid #f1f5f9;
-}
-.infra-icon {
-  width: 1.8rem;
-  height: 1.8rem;
-  background: #ffffff;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.01);
-}
-.infra-icon svg { width: 1rem; height: 1rem; }
-.infra-item strong {
-  font-size: 0.75rem;
-  font-weight: 800;
-  color: #0C1E2C;
-  display: block;
-  line-height: 1.2;
-  text-align: left;
-}
-.infra-item span {
-  font-size: 0.65rem;
-  color: #64748b;
-  font-weight: 500;
-  display: block;
-  margin-top: 1px;
-  text-align: left;
-}
-.trust-legal-note {
-  font-size: 0.55rem;
-  color: #94a3b8;
-  margin-top: 0.75rem;
-  text-align: center;
-  font-weight: 500;
-}
-
-/* Viewport Responsiveness Scaling */
-@media (max-width: 1024px) {
-  .trust-badges-row { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 767px) {
-  .trackedu-trust-foundation { padding: 0; margin: 2rem auto; }
-  .trust-badges-row {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 0.5rem;
-    margin-bottom: 0.85rem;
-    padding: 0 0 0.5rem 0;
-    scrollbar-width: none;
-  }
-  .trust-badges-row::-webkit-scrollbar { display: none; }
-  .trust-badge {
-    min-width: 160px;
-    scroll-snap-align: start;
-    flex-direction: column;
-    text-align: center;
-    padding: 1rem 0.75rem;
-    gap: 0.4rem;
-  }
-  .trust-badge-text { text-align: center; }
-  .trust-badge strong::after { display: none; }
-  .trust-badge-icon { margin: 0 auto; }
-  .uk-flag-svg { margin: 0 auto; }
-  .trust-partner-row { grid-template-columns: 1fr; gap: 0.75rem; }
-  .trust-partner-content { flex-direction: column; text-align: center; gap: 0.5rem; }
-  .trust-infra-logos { grid-template-columns: 1fr; gap: 0.5rem; }
-}
-
-
-.homepage-offer-bar {
-  background: #07111f;
-  color: #ffffff;
-  border-bottom: 1px solid rgba(255,255,255,.08);
-  padding: 10px clamp(18px, 4vw, 72px);
-}
-
-.homepage-offer-inner {
-  width: min(1520px, 100%);
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  flex-wrap: wrap;
-  font-size: 13px;
-  font-weight: 750;
-  text-align: center;
-}
-
-.homepage-offer-label {
-  display: inline-flex;
-  align-items: center;
-  border-radius: 999px;
-  background: rgba(135,194,50,.16);
-  border: 1px solid rgba(135,194,50,.34);
-  color: #87C232;
-  padding: 5px 10px;
-  font-size: 10px;
-  font-weight: 950;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-}
-
-.homepage-offer-inner a {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: #87C232;
-  font-weight: 900;
-  white-space: nowrap;
-}
-
-@media (max-width: 640px) {
-  .homepage-offer-bar {
-    padding: 12px 16px;
-    background: #07111f;
-  }
-
-  .homepage-offer-inner {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-areas:
-      "label label"
-      "copy link";
-    align-items: center;
-    gap: 8px 12px;
-    text-align: left;
-    font-size: 12px;
-    line-height: 1.35;
-  }
-
-  .homepage-offer-label {
-    grid-area: label;
-    width: fit-content;
-    margin: 0;
-    padding: 5px 10px;
-    font-size: 9.5px;
-    letter-spacing: .1em;
-  }
-
-  .homepage-offer-inner span:not(.homepage-offer-label) {
-    grid-area: copy;
-    display: block;
-    color: rgba(255,255,255,.88);
-    font-size: 12.5px;
-    font-weight: 750;
-    line-height: 1.35;
-    max-width: 100%;
-  }
-
-  .homepage-offer-inner a {
-    grid-area: link;
-    justify-self: end;
-    align-self: center;
-    padding: 7px 10px;
-    border-radius: 999px;
-    background: rgba(135,194,50,.14);
-    border: 1px solid rgba(135,194,50,.28);
-    color: #87C232;
-    font-size: 11.5px;
-    font-weight: 900;
-    white-space: nowrap;
-  }
-}
-
-
-.offer-copy-mobile {
-  display: none;
-}
-
-@media (max-width: 640px) {
-  .offer-copy-desktop {
-    display: none !important;
-  }
-
-  .offer-copy-mobile {
-    display: block !important;
-  }
-}
-
-
-@media (max-width: 640px) {
-  .homepage-offer-bar {
-    padding: 11px 16px;
-    background: #07111f;
-  }
-
-  .homepage-offer-inner {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-areas:
-      "label label"
-      "copy link";
-    align-items: center;
-    gap: 8px 12px;
-    text-align: left;
-    font-size: 12px;
-    line-height: 1.35;
-  }
-
-  .homepage-offer-label {
-    grid-area: label;
-    width: fit-content;
-    margin: 0;
-    padding: 5px 10px;
-    font-size: 9.5px;
-    letter-spacing: .1em;
-  }
-
-  .offer-copy-mobile {
-    grid-area: copy;
-    color: rgba(255,255,255,.9);
-    font-size: 12.5px;
-    font-weight: 800;
-    line-height: 1.3;
-  }
-
-  .homepage-offer-inner a {
-    grid-area: link;
-    justify-self: end;
-    align-self: center;
-    padding: 7px 10px;
-    border-radius: 999px;
-    background: rgba(135,194,50,.14);
-    border: 1px solid rgba(135,194,50,.28);
-    color: #87C232;
-    font-size: 11.5px;
-    font-weight: 900;
-    white-space: nowrap;
-  }
-}
-
-
-.why-modern {
-  background:
-    radial-gradient(circle at 14% 8%, rgba(135,194,50,.18), transparent 30%),
-    radial-gradient(circle at 86% 12%, rgba(15,102,195,.18), transparent 34%),
-    linear-gradient(135deg, #07111f 0%, #0C1E2C 54%, #08121f 100%);
-  color: #ffffff;
-  position: relative;
-  overflow: hidden;
-}
-
-.why-modern::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
-  background-size: 42px 42px;
-  mask-image: radial-gradient(circle at 50% 18%, rgba(0,0,0,.42), transparent 72%);
-  pointer-events: none;
-}
-
-.why-modern .inner {
-  position: relative;
-  z-index: 1;
-}
-
-.why-modern-head {
-  max-width: 940px;
-  margin: 0 auto 34px;
-  text-align: center;
-}
-
-.why-modern-kicker {
-  background: rgba(135,194,50,.12);
-  border-color: rgba(135,194,50,.32);
-  color: #9ad94a;
-}
-
-.why-modern-head h2 {
-  font-family: Poppins, Inter, sans-serif;
-  font-weight: 600;
-  letter-spacing: -0.045em;
-  font-size: clamp(34px, 4.2vw, 54px);
-  line-height: 1.06;
-  color: #ffffff;
-  margin: 0;
-}
-
-.why-modern-head p {
-  max-width: 780px;
-  margin: 18px auto 0;
-  color: rgba(226,232,240,.78);
-  font-size: 18px;
-  line-height: 1.62;
-}
-
-.why-modern-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
-
-.why-modern-card {
-  background: rgba(255,255,255,.075);
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 28px;
-  padding: 26px;
-  min-height: 330px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  box-shadow: 0 24px 70px rgba(0,0,0,.18);
-  backdrop-filter: blur(12px);
-}
-
-.why-card-facilities {
-  background: linear-gradient(180deg, rgba(15,102,195,.18), rgba(255,255,255,.07));
-  border-color: rgba(15,102,195,.34);
-}
-
-.why-card-recognition {
-  background: linear-gradient(180deg, rgba(135,194,50,.18), rgba(255,255,255,.07));
-  border-color: rgba(135,194,50,.34);
-}
-
-.why-card-leaders {
-  background: linear-gradient(180deg, rgba(255,255,255,.11), rgba(255,255,255,.065));
-}
-
-.why-card-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 16px;
-  display: grid;
-  place-items: center;
-  background: rgba(255,255,255,.10);
-  border: 1px solid rgba(255,255,255,.12);
-  color: #87C232;
-  font-size: 20px;
-  margin-bottom: 16px;
-}
-
-.why-card-facilities .why-card-icon {
-  color: #67b7ff;
-}
-
-.why-card-label {
-  color: rgba(226,232,240,.68);
-  font-size: 11px;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  margin-bottom: 10px;
-}
-
-.why-modern-card h3 {
-  font-family: Poppins, Inter, sans-serif;
-  font-size: 27px;
-  line-height: 1.08;
-  letter-spacing: -.04em;
-  color: #ffffff;
-  margin: 0 0 12px;
-  font-weight: 600;
-}
-
-.why-modern-card p {
-  color: rgba(226,232,240,.76);
-  font-size: 15px;
-  line-height: 1.56;
-  margin: 0;
-}
-
-.why-modern-card a {
-  margin-top: auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: #87C232;
-  font-size: 14px;
-  font-weight: 900;
-  padding-top: 22px;
-}
-
-.why-card-facilities a {
-  color: #67b7ff;
-}
-
-@media (max-width: 1050px) {
-  .why-modern-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .why-modern-card {
-    min-height: auto;
-  }
-}
-
-@media (max-width: 640px) {
-  .why-modern {
-    padding-top: 56px;
-    padding-bottom: 56px;
-  }
-
-  .why-modern-head {
-    text-align: left;
-    margin-bottom: 24px;
-  }
-
-  .why-modern-head h2 {
-    font-size: clamp(31px, 9vw, 40px);
-  }
-
-  .why-modern-head p {
-    font-size: 15.5px;
-    line-height: 1.55;
-  }
-
-  .why-modern-grid {
-    gap: 14px;
-  }
-
-  .why-modern-card {
-    border-radius: 22px;
-    padding: 22px;
-  }
-
-  .why-modern-card h3 {
-    font-size: 24px;
-  }
-
-  .why-modern-card p {
-    font-size: 14.5px;
-  }
-}
-
-@media (max-width: 640px) {
-  #heroPaneFacilities .mockup-rooms-grid .mockup-room-row:nth-child(3),
-  #heroPaneFacilities .mockup-rooms-grid .mockup-room-row:nth-child(4) {
-    display: none !important;
-  }
-}
-
-.mobile-header-offer-badge {
-  display: none;
-}
-
-@media (max-width: 640px) {
-  .mobile-header-offer-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: auto;
-  margin-right: 12px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(135,194,50,.12);
-  border: 1px solid rgba(135,194,50,.32);
-  color: #2f6f18;
-  font-size: 8.5px;
-  font-weight: 950;
-  line-height: 1;
-  letter-spacing: .045em;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-  .homepage-offer-bar .homepage-offer-label {
-    display: none !important;
-  }
-
-  .homepage-offer-bar {
-    padding: 8px 12px;
-  }
-
-  .homepage-offer-inner {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    gap: 8px;
-    text-align: left;
-  }
-
-  .offer-copy-desktop {
-    display: none !important;
-  }
-
-  .offer-copy-mobile {
-    display: block !important;
-    color: rgba(255,255,255,.92);
-    font-size: 12.5px;
-    font-weight: 850;
-    line-height: 1.15;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .homepage-offer-inner a {
-    justify-self: end;
-    padding: 7px 9px;
-    border-radius: 999px;
-    background: rgba(135,194,50,.14);
-    border: 1px solid rgba(135,194,50,.28);
-    color: #87C232;
-    font-size: 11.5px;
-    font-weight: 950;
-    white-space: nowrap;
-  }
-}
-    
+    @media(max-width:420px){
+      .trust-grid{
+        grid-template-columns:1fr;
+      }
+    }
   </style>
 </head>
 
 <body>
+
   <nav class="nav" aria-label="Primary navigation">
-  <div class="nav-inner" style="display: flex; align-items: center; justify-content: space-between; gap: 40px;">
-    
-    <div style="display: flex; align-items: center; gap: clamp(20px, 3vw, 40px); flex: 1;">
-      <a href="#hero" class="wordmark" aria-label="TrackEDU home">Track<span>EDU</span></a>
-      
-      <div class="nav-links nav-links-desktop" style="display: flex; align-items: center; gap: 24px; font-weight: 600;">
-        <a href="https://www.trackedu.net/facilities.html" style="font-size: 14.5px; color: #2b3748;">Facility Booking</a>
-        <a href="https://www.trackedu.net/housepoints.html" style="font-size: 14.5px; color: #2b3748;">Student Recognition</a>
-        <a href="#starting-points" style="font-size: 14.5px; color: #2b3748;">Solutions</a>
-       
-      </div>
-    </div>
+    <div class="container nav-inner">
 
-    <a href="https://www.trackedu.net/facilities.html#hero" class="mobile-header-offer-badge" aria-label="View TrackEDU Facilities launch offer">
-  New Launch Offer
-</a>
-
-<button class="hamburger" id="mobile-menu-btn" aria-label="Toggle navigation" aria-expanded="false">
-  <i class="fas fa-bars"></i>
-</button>
-
-    <div class="nav-menu-wrapper" id="nav-menu" style="display: flex; align-items: center; gap: 24px; margin-left: auto;">
-      
-      <div class="nav-links mobile-only" style="width: 100%;">
-        <a href="https://www.trackedu.net/facilities.html">Facility Booking</a>
-        <a href="https://www.trackedu.net/housepoints.html">Student Recognition</a>
-        <a href="#starting-points">Solutions</a>
-       
-        <a href="https://www.trackedu.net/facilities.html#pricing">Facilities Offer</a>
-        <a href="https://www.trackedu.net/contact.html" style="color: #0f66c3; font-weight: 700;">Contact Sales</a>
-        
-        <div style="margin-top: 16px; padding: 8px 0 6px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: #64748b; border-bottom: 1px solid var(--line); width: 100%;">
-          System Logins
-        </div>
-        
-        <a href="https://facilities.trackedu.net/" style="font-size: 15px; font-weight: 600; padding: 13px 0; justify-content: flex-start; gap: 8px;">
-          <i class="fas fa-calendar-check" style="color: #0f66c3; font-size: 12px;"></i> Facility Booking Portal
-        </a>
-
-        <a href="https://housepoint.trackedu.net/" style="font-size: 15px; font-weight: 600; padding: 13px 0; justify-content: flex-start; gap: 8px; border-bottom: none;">
-          <i class="fas fa-star" style="color: #87C232; font-size: 12px;"></i> Recognition Portal
-        </a>
-      </div>
-
-      <div style="display: flex; align-items: center; gap: 24px;" class="nav-actions-desktop-wrapper">
-        <a href="https://www.trackedu.net/facilities.html#pricing" style="font-size: 14.5px; font-weight: 600; color: #2b3748; transition: color 0.2s;" onmouseover="this.style.color='var(--green-dark)'" onmouseout="this.style.color='#2b3748'">Facilities Offer</a>
-        
-        <div class="login-wrap" id="login-dropdown">
-          <button class="btn" type="button" id="login-toggle" style="background: transparent; border: none; padding: 0; font-size: 14.5px; font-weight: 600; color: #2b3748; display: flex; align-items: center; gap: 6px; box-shadow: none;">
-            Log in <i class="fas fa-chevron-down" style="font-size: 11px; color: #64748b;"></i>
-          </button>
-          <div class="login-menu" aria-label="Login links" style="top: calc(100% + 16px);">
-            <a href="https://facilities.trackedu.net/">
-              <i class="fas fa-calendar-check" style="color: #0f66c3;"></i> Facility Booking Login
-            </a>
-            <a href="https://housepoint.trackedu.net/">
-              <i class="fas fa-star" style="color: #87C232;"></i> Student Recognition Login
-            </a>
-          </div>
-        </div>
-
-        <a class="btn btn-secondary" href="https://www.trackedu.net/contact.html" style="padding: 10px 20px; font-size: 14px; border-radius: 10px; border-color: #0f66c3; color: #0f66c3; font-weight: 700; box-shadow: none;">Contact sales</a>
-        
-        <a class="btn btn-primary" href="#starting-points" style="padding: 10px 20px; font-size: 14px; border-radius: 10px; background: #0f66c3; color: #ffffff; font-weight: 700; box-shadow: 0 4px 14px rgba(15,102,195,0.2);" onmouseover="this.style.background='var(--blue-dark)'" onmouseout="this.style.background='#0f66c3'">Get Started <i class="fas fa-arrow-right" style="font-size: 11px; margin-left: 2px;"></i></a>
-      </div>
-
-      <div class="mobile-bottom">
-        <div class="mobile-app-banner">
-          <i class="fas fa-mobile-screen"></i>
-          <div>
-            <strong>Available on mobile</strong>
-            <span>Works clearly on all devices</span>
-          </div>
-        </div>
-        <a href="#hero" class="mobile-go-home" onclick="document.getElementById('mobile-menu-btn').click();"><i class="fas fa-bolt" style="color:var(--green)"></i> Go to homepage <i class="fas fa-arrow-right"></i></a>
-      </div>
-    </div>
-  </div>
-</nav>
-
-  <main>
-    <section class="homepage-offer-bar" aria-label="TrackEDU Facilities launch offer">
-      <div class="homepage-offer-inner">
-        <span class="homepage-offer-label">New System Launch Offer</span>
-        <span class="offer-copy-desktop">Eligible schools, colleges and campus teams can request 1 year of TrackEDU Facilities Pro free.</span>
-<span class="offer-copy-mobile">Request 1 year of Facilities Pro free.</span>
-        <a href="https://www.trackedu.net/facilities.html#hero">View offer <i class="fas fa-arrow-right"></i></a>
-      </div>
-    </section>
-
-    <section id="hero" class="hero">
-      <div class="hero-inner">
-        <h1 style="font-size: clamp(28px, 3.8vw, 54px); line-height: 1.14; max-width: 980px;">One simple platform for <span class="hero-gradient" style="display: inline-block;">school space booking</span> and <span class="hero-gradient" style="display: inline-block;">student recognition.</span></h1>
-<p class="hero-sub" style="font-size: clamp(14px, 1.05vw, 17px); line-height: 1.55; max-width: 760px;">Start with facility booking to stop double-booked spaces, unclear availability and spreadsheet chaos. Then use TrackEDU to support rewards, house points, values recognition and positive school culture.</p>
-        <div class="hero-ctas">
-          <a class="btn btn-primary" href="https://www.trackedu.net/facilities.html" style="background: #0f66c3; box-shadow: 0 10px 24px rgba(15,102,195,.22);">Fix facility booking chaos <i class="fas fa-arrow-right"></i></a>
-          <a class="btn btn-secondary" href="https://www.trackedu.net/housepoints.html">Explore student recognition <i class="fas fa-arrow-right"></i></a>
-          <a class="btn btn-secondary" href="https://dailyteachertools.com/" target="_blank" rel="noopener" style="border-color: #FACC15; background: #FACC15; color: #0C1E2C; box-shadow: 0 10px 24px rgba(250,204,21,0.2);">Try Free Class Board <i class="fas fa-chalkboard-user"></i></a>
-        </div>
-        
-        <div class="micro-note">Facilities launch offer available for eligible education teams, free first year, then USD 499/year</div>
-
-        <div style="width: min(1200px, 100%); margin: clamp(34px, 5vw, 52px) auto 0; padding: 0 4px;">
-          
-          <article class="proof-card" style="width: 100%; max-width: 100%; background: #ffffff;">
-            
-            <div class="proof-top" style="background: #ffffff; padding: 16px 20px;">
-              <div class="proof-title" id="heroMasterPanelTitle" style="display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 800; color: #0c1e2c;">
-                <i class="fas fa-calendar-check" style="color: #0f66c3;"></i> Facility Booking Live Preview
-              </div>
-              <div style="display: flex; align-items: center; gap: 10px;">
-                <div class="proof-badge" style="background: rgba(135,194,50,0.1); color: #2f6f18; font-weight: 800; font-size: 11px; padding: 4px 12px; border-radius: 999px;">Interactive Simulator</div>
-              </div>
-            </div>
-
-            <div style="display: flex; flex-wrap: wrap; background: #f8fafc; border-radius: 0 0 34px 34px; padding: 20px; gap: 20px; position: relative;">
-              
-              <div class="ui-window" style="flex: 1; min-width: min(100%, 640px); padding: 0; background: transparent; min-height: auto; border: none; box-shadow: none; position: relative; overflow: hidden; border-radius: 22px;">
-                
-                <div id="heroCanvasGate" onclick="unlockHeroSandboxPreview()" class="canvas-gate-overlay">
-                  <div class="canvas-gate-badge">
-                    <i class="fas fa-bolt" style="color: #87C232; animation: pulse 2s infinite;"></i> Tap to unlock live preview sandbox
-                  </div>
-                </div>
-
-                <div id="heroCanvasBlurContainer" class="canvas-blur-core">
-                  
-                  <div id="heroPaneHousePoints" style="display: none; width: 100%;">
-                <div class="premium-house-mockup" aria-label="TrackEDU house points dashboard preview" style="border: 1px solid #e2e8f0; box-shadow: 0 12px 30px rgba(12,30,44,0.04);">
-                  <div class="hp-topbar" style="background: #ffffff; border-bottom: 1px solid #e2e8f0;">
-                    <div class="hp-brand-mini">Track<span>EDU</span></div>
-                    <div class="hp-topbar-registry-id" style="font-weight: 700; color: #475569;">Campus Registry ID: 2090999</div>
-                    <div style="display:flex; gap:6px; align-items:center; flex-shrink: 0;"><span style="background:#f97316;color:#fff;border-radius:999px;padding:3px 8px; font-weight:800; font-size: 10px;">+10 pts</span><span style="font-weight:700;">Student App Gateway</span></div>
-                  </div>
-                  <div class="hp-layout">
-                    <aside class="hp-sidebar" aria-hidden="true" style="background: #ffffff;">
-                      <div class="hp-avatar" style="background: #ffffff; border: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 8px;">
-                        <img src="https://trackedu.github.io/common-assets/teacherapp.png" style="width: 100%; height: 100%; object-fit: contain;" alt="Teacher Dashboard Icon">
-                      </div>
-                      <div class="hp-side-pill active" style="background: #87C232;"></div>
-                      <div class="hp-side-pill"></div>
-                      <div class="hp-side-pill"></div>
-                      <div class="hp-side-pill"></div>
-                      <div class="hp-side-pill"></div>
-                    </aside>
-                    <div class="hp-main" style="padding: 20px;">
-                      <div class="hp-main-title" style="margin-bottom: 16px;">
-                        <span style="font-size:14px; font-weight:800;"><i class="fas fa-chart-line" style="color:#87C232;"></i> Real-Time Leaderboard</span>
-                        <span class="hp-projector" style="background:#0c1e2c; padding: 4px 10px;"><i class="fas fa-display"></i> Assembly Display Mode</span>
-                      </div>
-                      <div class="hp-row" onclick="updateHousePreviewCard('Ignis', 'Capt. Cross', '1,574 Pts', 'Milestone: 1,500 Pts Reached')" style="cursor: pointer; transition: all 0.15s; background: #ffffff; border-radius: 12px; border: 1px solid #edf2f7; margin-bottom: 10px;">
-                        <div class="hp-house-name" style="color:#dc2626; display: flex; align-items: center; gap: 6px; font-weight:800;"><img src="https://trackedu.github.io/common-assets/studentapp.png" style="width:14px; height:14px; object-fit:contain;" alt="Icon" /> Ignis</div>
-                        <div class="hp-bar-track" style="background:#f1f5f9; height:14px;"><div class="hp-bar-fill" style="width:100%; background:#dc2626;"></div></div>
-                        <div class="hp-points" style="font-size:14px; font-weight:800;">1,574</div>
-                      </div>
-                      <div class="hp-row" onclick="updateHousePreviewCard('Terra', 'Capt. Finch', '807 Pts', 'Milestone: 800 Pts Reached')" style="cursor: pointer; transition: all 0.15s; background: #ffffff; border-radius: 12px; border: 1px solid #edf2f7; margin-bottom: 10px;">
-                        <div class="hp-house-name" style="color:#b45309; display: flex; align-items: center; gap: 6px; font-weight:800;"><img src="https://trackedu.github.io/common-assets/studentapp.png" style="width:14px; height:14px; object-fit:contain;" alt="Icon" /> Terra</div>
-                        <div class="hp-bar-track" style="background:#f1f5f9; height:14px;"><div class="hp-bar-fill" style="width:51%; background:#facc15;"></div></div>
-                        <div class="hp-points" style="font-size:14px; font-weight:800;">807</div>
-                      </div>
-                      <div class="hp-row" onclick="updateHousePreviewCard('Aqua', 'Capt. Vance', '727 Pts', 'Milestone: 700 Pts Reached')" style="cursor: pointer; transition: all 0.15s; background: #ffffff; border-radius: 12px; border: 1px solid #edf2f7; margin-bottom: 10px;">
-                        <div class="hp-house-name" style="color:#047857; display: flex; align-items: center; gap: 6px; font-weight:800;"><img src="https://trackedu.github.io/common-assets/studentapp.png" style="width:14px; height:14px; object-fit:contain;" alt="Icon" /> Aqua</div>
-                        <div class="hp-bar-track" style="background:#f1f5f9; height:14px;"><div class="hp-bar-fill" style="width:46%; background:#10b981;"></div></div>
-                        <div class="hp-points" style="font-size:14px; font-weight:800;">727</div>
-                      </div>
-                      <div class="hp-row" onclick="updateHousePreviewCard('Aether', 'Capt. Stone', '704 Pts', 'Milestone: 700 Pts Reached')" style="cursor: pointer; transition: all 0.15s; background: #ffffff; border-radius: 12px; border: 1px solid #edf2f7; margin-bottom: 16px;">
-                        <div class="hp-house-name" style="color:#1d4ed8; display: flex; align-items: center; gap: 6px; font-weight:800;"><img src="https://trackedu.github.io/common-assets/studentapp.png" style="width:14px; height:14px; object-fit:contain;" alt="Icon" /> Aether</div>
-                        <div class="hp-bar-track" style="background:#f1f5f9; height:14px;"><div class="hp-bar-fill" style="width:44%; background:#3b82f6;"></div></div>
-                        <div class="hp-points" style="font-size:14px; font-weight:800;">704</div>
- </div>
-                      <div class="hp-cards" id="interactive-hp-preview-matrix" style="gap:12px;">
-                        <div class="hp-card-mini" onclick="triggerMockToast('Viewing baseline school data metrics.')" style="cursor:pointer; background:#ffffff; border-radius:12px;"><strong>Selected House</strong><span style="font-size:13px; font-weight:800; color:#0c1e2c;" id="hp-preview-interactive-name">Ignis</span></div>
-                        <div class="hp-card-mini" onclick="triggerMockToast('Viewing team leads records.')" style="cursor:pointer; background:#ffffff; border-radius:12px;"><strong>House Captain</strong><span style="font-size:12px; font-weight:800; color:#475569;" id="hp-preview-interactive-captain">Capt. Cross</span></div>
-                        <div class="hp-card-mini" onclick="triggerMockToast('Opening unlocked certificates engine.')" style="cursor:pointer; background:#ffffff; border-radius:12px;"><strong>Total Standing</strong><span style="font-size:13px; font-weight:800; color:#0c1e2c;" id="hp-preview-interactive-points">1,574 Pts</span></div>
-                        <div class="hp-card-mini" onclick="triggerMockToast('Opening school milestone records.')" style="cursor:pointer; background:#ffffff; border-radius:12px;"><strong>Latest Target</strong><span style="font-size:11px; font-weight:800; line-height:1.2; display:block; color:#15803d;" id="hp-preview-interactive-milestone">1,500 Pts Reached</span></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="replace-note" style="margin-top: 16px;"><i class="fas fa-arrow-pointer"></i> Click house rows above to simulate real data profile transformations.</div>
-              </div>
-
-              <div id="heroPaneFacilities" style="display: block; width: 100%;">
-                <div class="facility-booking-mockup" style="border: 1px solid #e2e8f0; box-shadow: 0 12px 30px rgba(12,30,44,0.04);">
-                  <div class="mockup-week-nav" style="background:#ffffff; border-bottom:1px solid #e2e8f0; padding:14px 20px;">
-                    <span class="mockup-nav-arrow" style="border-radius:10px;"><i class="fas fa-chevron-left"></i></span>
-                    <span class="mockup-week-title" style="font-size:14px; padding:6px 16px; border-radius:12px;">Mon 3 Mar - Fri 7 Mar 2025</span>
-                    <span class="mockup-nav-arrow" style="border-radius:10px;"><i class="fas fa-chevron-right"></i></span>
-                  </div>
-
-                  <div class="mockup-rooms-grid" style="padding: 12px;">
-                    <div class="mockup-room-row" style="padding: 4px 0;">
-                      <div class="mockup-room-name" style="font-size:13px; width:130px;">🏀 Sports Hall</div>
-                      <div class="mockup-room-slots" style="gap:8px;">
-                        <div onclick="openMockSlot('Main Sports Hall', '09:00', 'Grade 9 Basketball Varsity', 'Sarah Jenkins', 'booked', 'Athletics Request: 12 training cones deployed on field.')" class="mockup-slot booked"><span class="slot-time">09:00</span><span class="slot-status">Booked</span></div>
-                        <div onclick="openMockSlot('Main Sports Hall', '10:00', 'Available', 'None', 'available', 'Click Instant Book to reserve this space.')" class="mockup-slot available"><span class="slot-time">10:00</span><span class="slot-status">Free</span></div>
-                        <div onclick="openMockSlot('Main Sports Hall', '11:00', 'Year 7 Gymnastics Focus', 'Sarah Jenkins', 'pending', 'Awaiting administrative review pass.')" class="mockup-slot pending"><span class="slot-time">11:00</span><span class="slot-status">Pending</span></div>
-                        <div onclick="openMockSlot('Main Sports Hall', '12:00', 'Available', 'None', 'available', 'Click Instant Book to reserve this space.')" class="mockup-slot available"><span class="slot-time">12:00</span><span class="slot-status">Free</span></div>
-                        <div onclick="openMockSlot('Main Sports Hall', '13:00', 'Senior Badminton League', 'Emma Zhang', 'booked', 'Standard equipment setup.')" class="mockup-slot booked"><span class="slot-time">13:00</span><span class="slot-status">Booked</span></div>
-                      </div>
-                    </div>
-
-                    <div class="mockup-room-row" style="padding: 4px 0;">
-                      <div class="mockup-room-name" style="font-size:13px; width:130px;">🎭 Auditorium</div>
-                      <div class="mockup-room-slots" style="gap:8px;">
-                        <div onclick="openMockSlot('Grand Auditorium', '09:00', 'Available', 'None', 'available', 'Click Instant Book to reserve this space.')" class="mockup-slot available"><span class="slot-time">09:00</span><span class="slot-status">Free</span></div>
-                        <div onclick="openMockSlot('Grand Auditorium', '10:00', 'AP Theater Rehearsal', 'Dr. Marcus Evans', 'booked', 'Audio Setup configuration.')" class="mockup-slot booked"><span class="slot-time">10:00</span><span class="slot-status">Booked</span></div>
-                        <div onclick="openMockSlot('Grand Auditorium', '11:00', 'AP Theater Rehearsal', 'Dr. Marcus Evans', 'booked', 'Audio Setup configuration.')" class="mockup-slot booked"><span class="slot-time">11:00</span><span class="slot-status">Booked</span></div>
-                        <div onclick="openMockSlot('Grand Auditorium', '12:00', 'Grade 4 Assembly Track', 'TrackEDU Core', 'pending', 'Setup Request: 30 chairs required.')" class="mockup-slot pending"><span class="slot-time">12:00</span><span class="slot-status">Pending</span></div>
-                        <div onclick="openMockSlot('Grand Auditorium', '13:00', 'Available', 'None', 'available', 'Click Instant Book to reserve this space.')" class="mockup-slot available"><span class="slot-time">13:00</span><span class="slot-status">Free</span></div>
-                      </div>
-                    </div>
-
-                    <div class="mockup-room-row" style="padding: 4px 0;">
-                      <div class="mockup-room-name" style="font-size:13px; width:130px;">🧪 Science Lab</div>
-                      <div class="mockup-room-slots" style="gap:8px;">
-                        <div onclick="openMockSlot('Science Laboratory B', '09:00', 'A-Level Physics Practical', 'Dr. Marcus Evans', 'pending', 'Deploy mobile kit whiteboards.')" class="mockup-slot pending"><span class="slot-time">09:00</span><span class="slot-status">Pending</span></div>
-                        <div onclick="openMockSlot('Science Laboratory B', '10:00', 'Available', 'None', 'available', 'Click Instant Book to reserve this space.')" class="mockup-slot available"><span class="slot-time">10:00</span><span class="slot-status">Free</span></div>
-                        <div onclick="openMockSlot('Science Laboratory B', '11:00', 'Available', 'None', 'available', 'Click Instant Book to reserve this space.')" class="mockup-slot available"><span class="slot-time">11:00</span><span class="slot-status">Free</span></div>
-                        <div onclick="openMockSlot('Science Laboratory B', '12:00', 'Chemistry Basics', 'Emma Zhang', 'booked', 'Standard lab configuration.')" class="mockup-slot booked"><span class="slot-time">12:00</span><span class="slot-status">Booked</span></div>
-                        <div onclick="triggerMockToast('This slot is locked for maintenance.')" class="mockup-slot maintenance"><span class="slot-time">13:00</span><span class="slot-status">Locked</span></div>
-                      </div>
-                    </div>
-
-                    <div class="mockup-room-row" style="padding: 4px 0; border-bottom: none;">
-                      <div class="mockup-room-name" style="font-size:13px; width:130px;">📚 Library</div>
-                      <div class="mockup-room-slots" style="gap:8px;">
-                        <div onclick="openMockSlot('Library Media Hub', '09:00', 'Independent Study Session', 'Emma Zhang', 'booked', 'Quiet research routing.')" class="mockup-slot booked"><span class="slot-time">09:00</span><span class="slot-status">Booked</span></div>
-                        <div onclick="openMockSlot('Library Media Hub', '10:00', 'Independent Study Session', 'Emma Zhang', 'booked', 'Quiet research routing.')" class="mockup-slot booked"><span class="slot-time">10:00</span><span class="slot-status">Booked</span></div>
-                        <div onclick="openMockSlot('Library Media Hub', '11:00', 'Available', 'None', 'available', 'Click Instant Book to reserve this space.')" class="mockup-slot available"><span class="slot-time">11:00</span><span class="slot-status">Free</span></div>
-                        <div onclick="openMockSlot('Library Media Hub', '12:00', 'Available', 'None', 'available', 'Click Instant Book to reserve this space.')" class="mockup-slot available"><span class="slot-time">12:00</span><span class="slot-status">Free</span></div>
-                        <div onclick="openMockSlot('Library Media Hub', '13:00', 'Senior Coding Club', 'Dr. Marcus Evans', 'pending', 'Verify endpoint access.')" class="mockup-slot pending"><span class="slot-time">13:00</span><span class="slot-status">Pending</span></div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="mockup-stats" style="background:#ffffff; border-top:1px solid #e2e8f0; padding:14px 20px;">
-                    <span class="mockup-stat"><i class="fas fa-circle green-dot"></i> 7 Open Spaces</span>
-                    <span class="mockup-stat"><i class="fas fa-circle red-dot"></i> 5 Active Bookings</span>
-                    <span class="mockup-stat"><i class="fas fa-circle yellow-dot"></i> 3 Pending Confirmations</span>
-                    <span class="mockup-stat"><i class="fas fa-clock" style="color:#0f66c3;"></i> Automated Clash Prevention</span>
-                  </div>
-
-                  <div class="mockup-finder" style="margin: 0; border-radius: 0; padding: 14px 20px; border-top: 1px solid #e2e8f0; background: #fafafa;">
-                    <div class="mockup-finder-input" style="background:#ffffff; border-color:#e2e8f0;">
-                      <i class="fas fa-search"></i>
-                      <span>Filter spaces, dates, departments or instructors...</span>
-                    </div>
-                    <div onclick="openInstantFinder()" class="mockup-finder-badge" style="background: #0f66c3;">
-                      <i class="fas fa-search-location"></i> Instant Space Finder
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              </div> </div> <div style="width: min(100%, 290px); display: flex; flex-direction: column; gap: 12px; justify-content: flex-start;" id="hero-proof-sidebar-controls">
-                <span style="display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 800; color: #64748b; margin-bottom: 2px; padding-left: 2px;">Select workflow view</span>
-                
-                <div id="heroToggleFB" onclick="switchHeroPreviewPane('facilities')" style="background: #ffffff; border: 2px solid #0f66c3; border-radius: 16px; padding: 14px; cursor: pointer; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 10px 20px -10px rgba(12,30,44,0.06); transition: all 0.2s ease;">
-                  <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
-                    <div style="display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 700; color: #475569;">
-                      <i class="fas fa-calendar-check" style="color: #0f66c3;"></i> Facility Booking
-                    </div>
-                    <div id="heroRadioFB" style="width: 14px; height: 14px; border-radius: 50%; border: 4.5px solid #0f66c3; background: #ffffff;"></div>
-                  </div>
-                  <p style="margin: 0; font-size: 11.5px; color: #64748b; font-weight: 500;">Facility, hall & lab scheduling</p>
-                </div>
-
-                <div id="heroToggleHP" onclick="switchHeroPreviewPane('housepoints')" style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 14px; cursor: pointer; display: flex; flex-direction: column; gap: 6px; transition: all 0.2s ease;">
-                  <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
-                    <div style="display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 800; color: #0c1e2c;">
-                      <i class="fas fa-star" style="color: #87C232;"></i> Student Recognition
-                    </div>
-                    <div id="heroRadioHP" style="width: 14px; height: 14px; border-radius: 50%; border: 1px solid #cbd5e1; background: #ffffff;"></div>
-                  </div>
-                  <p style="margin: 0; font-size: 11.5px; color: #5d6676; font-weight: 600;">Rewards, house points & values recognition</p>
-                </div>
-                
-                <div style="background: rgba(12, 30, 44, 0.03); border: 1px dashed #e2e8f0; border-radius: 14px; padding: 12px; margin-top: auto; font-size: 11px; color: #64748b; line-height: 1.4; font-weight: 600;">
-                  <i class="fas fa-info-circle" style="color: #0f66c3; margin-right: 4px;"></i> Live sandbox preview elements contain Click the preview to see how the workflow feels.
-                </div>
-              </div> </div> </article>
-        </div>
-      </div>
-    </section>
-
-
-
-
-
-    <section class="trackedu-trust-foundation">
-    
-    <div class="trust-badges-row">
-      <div class="trust-badge">
-        <span class="trust-badge-icon" style="background: transparent; width: auto; height: auto; box-shadow: none;">
-          <svg class="uk-flag-svg" viewBox="0 0 60 36" xmlns="http://www.w3.org/2000/svg">
-            <clipPath id="ukFlagClip">
-              <rect width="60" height="36" rx="4" />
-            </clipPath>
-            <g clip-path="url(#ukFlagClip)">
-              <rect width="60" height="36" fill="#012169" />
-              <path d="M0 0L60 36M60 0L0 36" stroke="#ffffff" stroke-width="8" />
-              <path d="M0 0L60 36M60 0L0 36" stroke="#C8102E" stroke-width="4" />
-              <path d="M30 0V36M0 18H60" stroke="#ffffff" stroke-width="12" />
-              <path d="M30 0V36M0 18H60" stroke="#C8102E" stroke-width="7" />
-            </g>
-          </svg>
-        </span>
-        <div class="trust-badge-text">
-          <strong>UK Registered</strong>
-          <span>Company #17216557</span>
-        </div>
-      </div>
-
-      <div class="trust-badge">
-        <span class="trust-badge-icon"><i class="fas fa-shield-halved"></i></span>
-        <div class="trust-badge-text">
-          <strong>ICO Registered</strong>
-          <span>Ref: ZC146923</span>
-        </div>
-      </div>
-
-      <div class="trust-badge">
-        <span class="trust-badge-icon"><i class="fas fa-lock"></i></span>
-        <div class="trust-badge-text">
-          <strong>Privacy First</strong>
-          <span>No student emails</span>
-        </div>
-      </div>
-
-      <div class="trust-badge">
-        <span class="trust-badge-icon"><i class="fas fa-ban"></i></span>
-        <div class="trust-badge-text">
-          <strong>No Ads. Ever.</strong>
-          <span>Education focused</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="trust-partner-row">
-      
-      <a href="https://pathwiseacademy.co/" target="_blank" rel="noopener noreferrer" class="trust-partner-card block">
-        <div class="trust-partner-header">
-          <i class="fas fa-handshake"></i>
-          <span>Verified Partnership</span>
-        </div>
-        <div class="trust-partner-content">
-          <img src="https://trackedu.github.io/common-assets/Pathwiseacademy.jpg" alt="Pathwise Academy Logo">
-          <div>
-            <h4>Pathwise Academy</h4>
-            <p>AI learning &amp; digital literacy initiatives</p>
-          </div>
-        </div>
+      <a href="#top" class="brand" aria-label="TrackEDU home">
+        Track<span>EDU</span>
       </a>
 
-      <div class="trust-infra-card">
-        <div class="trust-infra-header">
-          <i class="fas fa-microchip"></i>
-          <span>Secure Cloud Infrastructure</span>
-        </div>
-        <div class="trust-infra-logos">
-          <div class="infra-item">
-            <div class="infra-icon">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-              </svg>
-            </div>
-            <div>
-              <strong>Google Sign-In</strong>
-<span>Secure staff login</span>
-            </div>
-          </div>
-          <div class="infra-item">
-            <div class="infra-icon">
-              <svg viewBox="0 0 32 32" fill="none">
-                <path d="M16 2L2 24L6 30L26 30L30 24L16 2Z" fill="#FFCA28"/>
-                <path d="M16 2L2 24L6 30L16 2Z" fill="#FFA000"/>
-                <path d="M26 30L30 24L16 2L26 30Z" fill="#FFCA28"/>
-                <path d="M26 30L16 2L6 30H26Z" fill="#FFA000"/>
-                <path d="M6 30L16 22L26 30H6Z" fill="#FF8F00"/>
-              </svg>
-            </div>
-            <div>
-              <strong>Firebase Cloud</strong>
-              <span>Isolated Shards</span>
-            </div>
-          </div>
-        </div>
-        <p class="trust-legal-note">Google and Firebase are trademarks of Google LLC. TrackEDU is an independent platform.</p>
+      <div class="nav-links">
+        <a href="#products">Products</a>
+        <a href="#why-trackedu">Why it works</a>
+        <a href="https://www.trackedu.net/contact.html">Contact</a>
       </div>
+
+      <div class="nav-actions">
+        <a class="btn btn-green" href="#products">
+          View products
+        </a>
+      </div>
+
+      <button id="mobileMenuButton" class="mobile-menu-btn" aria-label="Open navigation" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
 
     </div>
-  </section>
 
-    <section id="choose" class="section card-row-section" style="padding-left: 0; padding-right: 0;">
-  <div class="inner" style="padding: 0 clamp(18px, 4vw, 72px); max-width: 100%; width: 100%;">
-    <div class="section-head" style="max-width: 1520px; margin: 0 auto 28px;">
-      <h2>Start with the school workflow causing the most friction.</h2>
-      <p>TrackEDU is intentionally practical. Facility booking is the fastest route to removing daily operational friction, while student recognition supports rewards, house points, values and positive school culture.</p>
+    <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+      <a href="#products">Products <i class="fas fa-arrow-right"></i></a>
+      <a href="#why-trackedu">Why it works <i class="fas fa-arrow-right"></i></a>
+      <a href="https://www.trackedu.net/contact.html">Contact <i class="fas fa-envelope"></i></a>
     </div>
-  </div>
+  </nav>
 
-  <div class="product-scroll" aria-label="TrackEDU product areas" style="padding: 6px clamp(18px, 4vw, 72px) 20px; width: 100%;">
+  <main id="top">
 
-    <article class="feature-tile tile-blue">
-      <div>
-        <div class="tile-label">Recommended Starting Point</div>
-<h3>Facility Booking</h3>
-<p class="feature-intro">The fastest TrackEDU route to value. Replace spreadsheet booking, reduce room clashes and request launch offer access for eligible education teams.</p>
-        <div class="feature-checks">
-          <div class="feature-check"><i class="fas fa-circle-check" style="color:#0F66C3;"></i> Replace facility-booking spreadsheets</div>
-          <div class="feature-check"><i class="fas fa-circle-check" style="color:#0F66C3;"></i> See available spaces quickly</div>
-          <div class="feature-check"><i class="fas fa-circle-check" style="color:#0F66C3;"></i> Book shared spaces from one clear calendar</div>
-          <div class="feature-check"><i class="fas fa-circle-check" style="color:#0F66C3;"></i> Support setup requests and daily operations</div>
-        </div>
-      </div>
-      <div class="tile-visual">
-        <div class="visual-calendar-card">
-          <div class="calendar-mini-grid">
-  <div class="calendar-mini-cell free">Free</div>
-  <div class="calendar-mini-cell busy">Busy</div>
-  <div class="calendar-mini-cell pending">Pending</div>
-  <div class="calendar-mini-cell free">Free</div>
-  <div class="calendar-mini-cell busy">Busy</div>
-  <div class="calendar-mini-cell busy">Busy</div>
-  <div class="calendar-mini-cell free">Free</div>
-  <div class="calendar-mini-cell free">Free</div>
-  <div class="calendar-mini-cell pending">Pending</div>
-</div>
-        </div>
-      </div>
-    </article>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-inner">
 
-    <article class="feature-tile tile-green">
-      <div>
-        <div class="tile-label">School Culture</div>
-        <h3>Student Recognition</h3>
-        <p class="feature-intro">A flexible recognition system for schools that use house points, team points, values points, merit points or whole-school rewards.</p>
-        <div class="feature-checks">
-          <div class="feature-check"><i class="fas fa-circle-check" style="color:#87C232;"></i> Use houses, teams, classes or custom groups</div>
-          <div class="feature-check"><i class="fas fa-circle-check" style="color:#87C232;"></i> Celebrate values, effort and positive contribution</div>
-          <div class="feature-check"><i class="fas fa-circle-check" style="color:#87C232;"></i> Show live leaderboards and rewards</div>
-          <div class="feature-check"><i class="fas fa-circle-check" style="color:#87C232;"></i> Works for British, IB and international school models</div>
-        </div>
-      </div>
-      <div class="tile-visual">
-        <div class="visual-house-card">
-          <div class="visual-house-row">
-            <div class="visual-rank">1</div>
-            <div class="visual-mini-bar"><span style="width: 88%; background:#87C232;"></span></div>
-            <div class="visual-points">820</div>
+          <div class="hero-kicker">
+            <i class="fas fa-school"></i>
+            Practical tools for better school days
           </div>
-          <div class="visual-house-row">
-            <div class="visual-rank">2</div>
-            <div class="visual-mini-bar"><span style="width: 74%; background:#0F66C3;"></span></div>
-            <div class="visual-points">690</div>
-          </div>
-          <div class="visual-house-row">
-            <div class="visual-rank">3</div>
-            <div class="visual-mini-bar"><span style="width: 58%; background:#FACC15;"></span></div>
-            <div class="visual-points">540</div>
-          </div>
-        </div>
-      </div>
-    </article>
 
-    <article class="feature-tile tile-yellow">
-      <div>
-        <div class="tile-label">Teacher Workflow</div>
-        <h3>Teacher App</h3>
-        <p class="feature-intro">Give teachers a simple daily tool for recognition, classroom routines and quick access to the TrackEDU ecosystem.</p>
-        <div class="feature-checks">
-          <div class="feature-check"><i class="fas fa-circle-check" style="color:#F59E0B;"></i> Fast recognition from one teacher dashboard</div>
-          <div class="feature-check"><i class="fas fa-circle-check" style="color:#F59E0B;"></i> Free Teacher Starter for one class</div>
-          <div class="feature-check"><i class="fas fa-circle-check" style="color:#F59E0B;"></i> Simple tools such as Interactive Noise Meter and Focus Timer</div>
-          <div class="feature-check"><i class="fas fa-circle-check" style="color:#F59E0B;"></i> Upgrade path for whole-school use</div>
-        </div>
-      </div>
-      <div class="tile-visual">
-        <div class="visual-phone-card">
-          <div class="phone-shell">
-            <div class="phone-avatar">⭐</div>
-            <div class="phone-stat"></div>
-            <div class="phone-stat"></div>
-            <div class="phone-stat"></div>
-          </div>
-        </div>
-      </div>
-    </article>
+         <h1>
+  Stop wasting school time on things
+  <span class="hero-highlight">that should take seconds.</span>
+</h1>
 
-    <article class="feature-tile tile-dark">
-      <div>
-        <div class="tile-label">School Visibility</div>
-        <h3>One TrackEDU Ecosystem</h3>
-        <p class="feature-intro">Start with the pain that matters most, then expand into connected tools for recognition, student visibility, behaviour support and operations.</p>
-        <div class="feature-checks">
-          <div class="feature-check"><i class="fas fa-circle-check" style="color:#87C232;"></i> Facilities as a standalone system</div>
-          <div class="feature-check"><i class="fas fa-circle-check" style="color:#87C232;"></i> Recognition and rewards through the Teacher App</div>
-          <div class="feature-check"><i class="fas fa-circle-check" style="color:#87C232;"></i> Student Portal for visible achievement</div>
-          <div class="feature-check"><i class="fas fa-circle-check" style="color:#87C232;"></i> Behaviour support inside the school package</div>
-        </div>
-      </div>
-      <div class="tile-visual">
-        <div class="visual-leadership-card">
-          <div class="leadership-chart">
-            <div class="leadership-bar" style="height: 78%;"></div>
-            <div class="leadership-bar" style="height: 58%;"></div>
-            <div class="leadership-bar" style="height: 88%;"></div>
-            <div class="leadership-bar" style="height: 42%;"></div>
-          </div>
-          <div class="leadership-labels">
-            <div>Spaces</div>
-            <div>Points</div>
-            <div>Rewards</div>
-            <div>Support</div>
-          </div>
-        </div>
-      </div>
-    </article>
+          <p class="hero-sub">
+            TrackEDU helps schools simplify <strong>house points</strong>, <strong>facility booking for schools</strong> and an <strong>AI class board for teachers</strong>, so staff spend less time managing systems and more time teaching, supporting and celebrating students.
+          </p>
 
+          <div class="hero-actions">
+            <a class="btn btn-green" href="#products">
+              See what TrackEDU fixes
+              <i class="fas fa-arrow-down"></i>
+            </a>
+
+            <a class="btn btn-outline" href="#products">
+              Explore the products
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+   
+
+    <section id="products" class="products">
+  <div class="container">
+
+    <div class="products-head">
+      <span class="section-label">School software built around real problems</span>
+      <h2>Three focused tools for a simpler school day.</h2>
+      <p>
+        House points software, school facility booking and an AI class board for teachers. Start with the problem your staff feel most.
+      </p>
+    </div>
+
+    <div class="product-grid">
+
+      <!-- HOUSE POINTS -->
+      <article class="product-card house">
+
+        <div class="product-top">
+          <div class="product-icon">
+            <i class="fas fa-star"></i>
+          </div>
+
+          <span class="trial-badge">
+            <i class="fas fa-clock"></i>
+            30-Day School Trial
+          </span>
+        </div>
+
+        <h3>Make recognition visible.</h3>
+
+        <p class="product-summary">
+          <strong>House Points</strong> is school house points software that helps teachers recognise students quickly and turns everyday praise into visible progress, participation and house spirit.
+        </p>
+        <p class="product-compare">
+          Compare with <strong>LiveSchool</strong> and <strong>PBIS Rewards</strong>.
+        </p>
+
+        <div class="product-benefits">
+
+          <div class="product-benefit">
+            <i class="fas fa-circle-check"></i>
+            Recognise students in seconds
+          </div>
+
+          <div class="product-benefit">
+            <i class="fas fa-circle-check"></i>
+            Celebrate progress across the school
+          </div>
+
+          <div class="product-benefit">
+            <i class="fas fa-circle-check"></i>
+            Build participation and belonging
+          </div>
+
+        </div>
+
+        <div class="product-button">
+          <a
+            class="btn btn-green"
+            href="https://www.trackedu.net/housepoints.html"
+            target="_blank"
+            rel="noopener"
+          >
+            Start 30-Day School Trial
+            <i class="fas fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+      </article>
+
+
+      <!-- FACILITIES -->
+      <article class="product-card facilities">
+
+        <div class="product-top">
+          <div class="product-icon">
+            <i class="fas fa-calendar-check"></i>
+          </div>
+
+          <span class="trial-badge">
+            <i class="fas fa-clock"></i>
+            3-Month Trial
+          </span>
+        </div>
+
+        <h3>Stop wondering what space is free.</h3>
+
+        <p class="product-summary">
+          <strong>Facilities</strong> is facility booking software for schools, giving staff one clear place to see availability and book halls, labs, libraries, sports spaces and other shared facilities.
+        </p>
+        <p class="product-compare">
+          Compare with <strong>TES Room Booking</strong> and <strong>Skedda</strong>.
+        </p>
+
+        <div class="product-benefits">
+
+          <div class="product-benefit">
+            <i class="fas fa-circle-check"></i>
+            See availability instantly
+          </div>
+
+          <div class="product-benefit">
+            <i class="fas fa-circle-check"></i>
+            Book without email chains or spreadsheets
+          </div>
+
+          <div class="product-benefit">
+            <i class="fas fa-circle-check"></i>
+            Reduce clashes and booking confusion
+          </div>
+
+        </div>
+
+        <div class="product-button">
+          <a
+            class="btn btn-blue"
+            href="https://www.trackedu.net/facilities.html"
+            target="_blank"
+            rel="noopener"
+          >
+            Start 3-Month Trial
+            <i class="fas fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+      </article>
+
+
+      <!-- CLASS BOARD -->
+      <article class="product-card classboard">
+
+        <div class="product-top">
+          <div class="product-icon">
+            <i class="fas fa-chalkboard"></i>
+          </div>
+
+          <span class="trial-badge">
+            <i class="fas fa-clock"></i>
+            7-Day Trial
+          </span>
+        </div>
+
+        <h3>Walk into class ready.</h3>
+
+        <p class="product-summary">
+          <strong>Class Board</strong> is an AI class board for teachers with 50+ tools for schedules, routines, lesson displays and everyday classroom tasks.
+        </p>
+        <p class="product-compare">
+          Compare with <strong>MyClassScreen</strong> and <strong>Lesson Launchpad</strong>.
+        </p>
+
+        <div class="product-benefits">
+
+          <div class="product-benefit">
+            <i class="fas fa-circle-check"></i>
+            50+ classroom tools in one place
+          </div>
+
+          <div class="product-benefit">
+            <i class="fas fa-circle-check"></i>
+            Use AI to prepare classroom content faster
+          </div>
+
+          <div class="product-benefit">
+            <i class="fas fa-circle-check"></i>
+            Open the board and start teaching
+          </div>
+
+        </div>
+
+        <div class="product-button">
+          <a
+            class="btn btn-dark"
+            href="https://dailyteachertools.com/"
+            target="_blank"
+            rel="noopener"
+          >
+            Start 7-Day Trial
+            <i class="fas fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+      </article>
+
+    </div>
   </div>
 </section>
 
+    <section id="why-trackedu" class="trust">
+      <div class="container">
+        <div class="trust-copy" style="max-width:760px;margin:0 auto 28px;text-align:center;">
+          <span class="section-label">Why it works</span>
+          <h2>Built around the school day, not around software.</h2>
+          <p>Each TrackEDU product solves one clear problem and can be used on its own. No huge implementation. No need to replace everything at once.</p>
+        </div>
 
+        <div class="trust-grid" style="max-width:900px;margin:0 auto;">
+          <div class="trust-item">
+            <i class="fas fa-bolt"></i>
+            <strong>Quick to understand</strong>
+            <span>Staff should know what to do without lengthy training.</span>
+          </div>
 
+          <div class="trust-item">
+            <i class="fas fa-school"></i>
+            <strong>Built for real schools</strong>
+            <span>Designed around everyday school routines and staff workflows.</span>
+          </div>
 
+          <div class="trust-item">
+            <i class="fas fa-shield-halved"></i>
+            <strong>Privacy first</strong>
+            <span>UK registered, ICO registered and no advertising.</span>
+          </div>
 
-<section id="starting-points" class="section starting">
-  <div class="inner">
-    <div class="start-head">
-      <div class="kicker"><i class="fas fa-location-arrow"></i> Choose your starting point</div>
-      <h2>Choose the clearest route to value.</h2>
-      <p>Start with Facilities if the school needs an immediate operational fix. Explore Student Recognition if the priority is rewards, positive behaviour, values, house points or school culture.</p>
-    </div>
-    <div class="start-grid">
-      <div class="start-card">
-  <h3>Facility Booking for Schools</h3>
-  <p>The recommended starting point for schools dealing with double-booked spaces, messy spreadsheets, unclear availability and setup requests. Eligible education teams can currently request 1 year of Facilities Pro free.</p>
-  <a class="btn btn-dark" href="https://www.trackedu.net/facilities.html#pricing">Request launch offer access <i class="fas fa-arrow-right"></i></a>
-</div>
-      <div class="start-card">
-        <h3>Student Recognition for Schools</h3>
-        <p>For schools that want visible positive recognition, rewards, house points, team points, values recognition, live leaderboards, teacher tools and student reward profiles.</p>
-        <a class="btn btn-primary" href="https://www.trackedu.net/housepoints.html">Explore student recognition <i class="fas fa-arrow-right"></i></a>
+          <div class="trust-item">
+            <i class="fas fa-puzzle-piece"></i>
+            <strong>Start small</strong>
+            <span>Choose one product now and add another only if it helps.</span>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
-<section id="why" class="section why why-modern">
-  <div class="inner">
-    <div class="why-modern-head">
-      <div class="kicker why-modern-kicker"><i class="fas fa-bolt"></i> Why schools start with TrackEDU</div>
-      <h2>Start with the problem your school feels most clearly.</h2>
-      <p>Some schools need to fix shared space booking first. Others want to improve rewards, house points and values recognition. TrackEDU lets schools begin with the clearest pain point, then expand when the value is proven.</p>
-    </div>
+    </section>
 
-    <div class="why-modern-grid">
-      <div class="why-modern-card why-card-facilities">
-        <div class="why-card-icon"><i class="fas fa-calendar-check"></i></div>
-        <span class="why-card-label">Facilities launch offer</span>
-        <h3>Fix visible daily friction.</h3>
-        <p>Use one clear booking calendar for rooms, halls, labs, libraries and shared spaces. Eligible education teams can request Facilities Pro free for the first year.</p>
-        <a href="https://www.trackedu.net/facilities.html#hero">View Facilities offer <i class="fas fa-arrow-right"></i></a>
+    <section class="final">
+      <div class="container">
+        <h2>Make one part of the school day easier.</h2>
+        <p>
+          Pick the problem that costs your staff the most time today and try the TrackEDU product built to remove it.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-green" href="#products">
+            Choose a product
+          </a>
+
+          <a class="btn btn-outline" href="https://www.trackedu.net/contact.html">
+            Talk to TrackEDU
+          </a>
+        </div>
       </div>
-
-      <div class="why-modern-card why-card-recognition">
-        <div class="why-card-icon"><i class="fas fa-star"></i></div>
-        <span class="why-card-label">Student recognition pilot</span>
-        <h3>Test rewards and house points.</h3>
-        <p>Run a free 30-day school pilot for house points, team points, rewards, values recognition and visible whole-school celebration.</p>
-        <a href="https://www.trackedu.net/housepoints.html">Explore Student Recognition <i class="fas fa-arrow-right"></i></a>
-      </div>
-
-      <div class="why-modern-card why-card-leaders">
-        <div class="why-card-icon"><i class="fas fa-chart-line"></i></div>
-        <span class="why-card-label">Leadership visibility</span>
-        <h3>Choose the clearest route to value.</h3>
-        <p>Start with the workflow staff already feel, prove the benefit quickly, then expand into the wider TrackEDU ecosystem as confidence grows.</p>
-        <a href="https://www.trackedu.net/contact.html">Contact TrackEDU <i class="fas fa-arrow-right"></i></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
+    </section>
 
   </main>
 
+  <footer>
+  <div class="container footer-main" style="grid-template-columns:1.35fr 1fr 1fr 1fr 1fr;">
 
+    <div>
+      <a href="https://www.trackedu.net/#hero" class="brand" style="color:#fff">
+        Track<span>EDU</span>
+      </a>
 
-
-  <footer style="width: 100%; background: #07111f; color: rgba(255, 255, 255, 0.75); padding: 64px clamp(18px, 4vw, 72px) 40px; border-top: 1px solid #091322;">
-        <div style="width: min(1520px, 100%); margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; text-align: left;">
-      
-            <div style="display: flex; flex-direction: column; gap: 16px;">
-        <a href="#hero" class="wordmark" style="color: #ffffff; display: inline-block;">Track<span>EDU</span></a>
-        <p style="font-size: 13.5px; line-height: 1.6; color: #94a3b8; margin: 0;">
-          Practical, high-visibility school software solutions built for facility bookings, resource management, digital recognition, and everyday campus routines.
-        </p>
-      </div>
-
-            <div>
-        <h4 style="color: #ffffff; margin: 0 0 16px; font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">Campus Solutions</h4>
-        <div style="display: flex; flex-direction: column; gap: 11px;">
-          <a href="facilities-pe-departments.html" style="font-size: 13.5px; color: #cbd5e1; transition: color 0.15s;" onmouseover="this.style.color='#87C232'" onmouseout="this.style.color='#cbd5e1'">PE Departments Room Guide</a>
-          <a href="facilities-libraries.html" style="font-size: 13.5px; color: #cbd5e1; transition: color 0.15s;" onmouseover="this.style.color='#87C232'" onmouseout="this.style.color='#cbd5e1'">Library Resource Scheduler</a>
-          <a href="facilities-operations-teams.html" style="font-size: 13.5px; color: #cbd5e1; transition: color 0.15s;" onmouseover="this.style.color='#0F66C3'" onmouseout="this.style.color='#cbd5e1'">Operations & Custodian Logs</a>
-          <a href="behavior-tracking-software-pastoral-teams.html" style="font-size: 13.5px; color: #cbd5e1; transition: color 0.15s;" onmouseover="this.style.color='#87C232'" onmouseout="this.style.color='#cbd5e1'">Pastoral Support Behavior Board</a>
-          <a href="best-school-rewards-system-international-schools.html" style="font-size: 13.5px; color: #cbd5e1; transition: color 0.15s;" onmouseover="this.style.color='#87C232'" onmouseout="this.style.color='#cbd5e1'">International Schools Rewards</a>
-        </div>
-      </div>
-
-            <div>
-        <h4 style="color: #ffffff; margin: 0 0 16px; font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">Core Systems</h4>
-        <div style="display: flex; flex-direction: column; gap: 11px;">
-          <a href="facilities.html" style="font-size: 13.5px; color: #cbd5e1; transition: color 0.15s;" onmouseover="this.style.color='#0F66C3'" onmouseout="this.style.color='#cbd5e1'">Facility Booking System</a>
-          <a href="housepoints.html" style="font-size: 13.5px; color: #cbd5e1; transition: color 0.15s;" onmouseover="this.style.color='#87C232'" onmouseout="this.style.color='#cbd5e1'">Student House Points App</a>
-          <a href="behavior.html" style="font-size: 13.5px; color: #cbd5e1; transition: color 0.15s;" onmouseover="this.style.color='#87C232'" onmouseout="this.style.color='#cbd5e1'">Pastoral Tracking Dashboard</a>
-          <a href="classroom-noise-meter.html" style="font-size: 13.5px; color: #cbd5e1; transition: color 0.15s;" onmouseover="this.style.color='#FACC15'" onmouseout="this.style.color='#cbd5e1'">Classroom Noise Meter App</a>
-
-<a href="https://dailyteachertools.com/" target="_blank" rel="noopener" style="font-size: 13.5px; color: #facc15; transition: color 0.15s; font-weight: 800;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#facc15'">New teacher platform: Daily TeacherTools</a>
-         
-        </div>
-      </div>
-
-            <div>
-        <h4 style="color: #ffffff; margin: 0 0 16px; font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">Compare Platforms</h4>
-        <div style="display: flex; flex-direction: column; gap: 11px;">
-          <a href="trackedu-vs-classdojo.html" style="font-size: 13.5px; color: #cbd5e1; transition: color 0.15s;" onmouseover="this.style.color='#87C232'" onmouseout="this.style.color='#cbd5e1'">TrackEDU vs ClassDojo</a>
-          <a href="trackedu-vs-spreadsheets.html" style="font-size: 13.5px; color: #cbd5e1; transition: color 0.15s;" onmouseover="this.style.color='#0F66C3'" onmouseout="this.style.color='#cbd5e1'">TrackEDU vs Spreadsheets</a>
-          <a href="compare/classdojo.html" style="font-size: 13.5px; color: #cbd5e1; transition: color 0.15s;" onmouseover="this.style.color='#87C232'" onmouseout="this.style.color='#cbd5e1'">ClassDojo Analysis Guide</a>
-          <a href="compare/behaviour-tracking-rewards-platforms.html" style="font-size: 13.5px; color: #cbd5e1; transition: color 0.15s;" onmouseover="this.style.color='#87C232'" onmouseout="this.style.color='#cbd5e1'">Behavior Platforms Matrix</a>
-          <a href="house-points-software-vs-manual-house-points.html" style="font-size: 13.5px; color: #cbd5e1; transition: color 0.15s;" onmouseover="this.style.color='#87C232'" onmouseout="this.style.color='#cbd5e1'">Digital vs Manual Schedulers</a>
-        </div>
-      </div>
-
-            <div>
-        <h4 style="color: #ffffff; margin: 0 0 16px; font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">Company</h4>
-        <div style="display: flex; flex-direction: column; gap: 11px;">
-          <a href="contact.html" style="font-size: 13.5px; color: #cbd5e1; transition: color 0.15s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#cbd5e1'">Contact Sales Office</a>
-          <a href="ambassadors.html" style="font-size: 13.5px; color: #cbd5e1; transition: color 0.15s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#cbd5e1'">Ambassador Program</a>
-          <a href="help-center.html" style="font-size: 13.5px; color: #cbd5e1; transition: color 0.15s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#cbd5e1'">Help & Support Desk Center</a>
-          <a href="resources.html" style="font-size: 13.5px; color: #cbd5e1; transition: color 0.15s;" onmouseover="this.style.color='#87C232'" onmouseout="this.style.color='#cbd5e1'">School Resources</a>
-
-          <a href="dpa.html" style="font-size: 13.5px; color: #cbd5e1; transition: color 0.15s;" onmouseover="this.style.color='#87C232'" onmouseout="this.style.color='#cbd5e1'">Data Processing (DPA) Log</a>
-          <a href="https://www.linkedin.com/company/trackedu/" target="_blank" rel="noopener" style="font-size: 13.5px; color: #cbd5e1; transition: color 0.15s;" onmouseover="this.style.color='#0f66c3'" onmouseout="this.style.color='#cbd5e1'"><i class="fab fa-linkedin"></i> Institutional LinkedIn</a>
-        </div>
-      </div>
-
-    </div>
-
-    <div style="width: min(1520px, 100%); margin: 48px auto 0; padding-top: 28px; border-top: 1px solid rgba(255, 255, 255, 0.06); text-align: center; font-size: 11.5px; color: #64748b; line-height: 1.8;">
-      <p style="margin: 0 0 6px; color: #94a3b8; font-weight: 500; letter-spacing: 0.01em;">
-        <strong style="color: #ffffff; font-weight: 700;">TrackEDU Ltd</strong> &bull; Registered in England and Wales &bull; Company No. <span style="font-family: monospace; color: #cbd5e1;">17216557</span>
+      <p>
+        Practical, high-visibility school software solutions built for facility bookings, resource management, digital recognition, and everyday campus routines.
       </p>
-      <p style="margin: 0 0 20px; color: #475569;">
-        Registered Office: 128 City Road, London, EC1V 2NX, United Kingdom &bull; ICO Registry: <span style="font-family: monospace; color: #94a3b8;">ZC146923</span>
-      </p>
-      <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 16px; font-size: 11px; font-weight: 600; border-top: 1px solid rgba(255, 255, 255, 0.03); padding-top: 16px;">
-        <span style="color: #475569;">&copy; 2026 TrackEDU Ltd. All rights reserved.</span>
-        <span style="color: #1a2433;" class="hidden sm:inline">&bull;</span>
-        <a href="/privacy.html" style="color: #94a3b8; transition: color 0.15s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Privacy Policy</a>
-        <span style="color: #1a2433;" class="hidden sm:inline">&bull;</span>
-        <a href="/terms.html" style="color: #94a3b8; transition: color 0.15s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Terms of Use</a>
-      </div>
     </div>
-  </footer>
 
-  <div id="slot-modal-backdrop" class="mock-modal-backdrop" onclick="closeMockModal('slot-modal-backdrop')">
-    <div class="mock-modal" onclick="event.stopPropagation()">
-      <div class="proof-top" style="background: var(--soft);">
-        <div class="proof-title" style="font-size: 16px;"><i class="fas fa-list-ul" style="color: var(--blue);"></i> Slot Bookings</div>
-        <button onclick="closeMockModal('slot-modal-backdrop')" style="background: none; border: none; font-size: 20px; color: var(--muted); cursor: pointer;">&times;</button>
-      </div>
-      <div class="ui-window" style="padding: 20px; min-height: auto; background: #fff;">
-        <div id="modal-image-wrapper" style="width: 100%; height: 150px; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); margin-bottom: 16px;">
-          <img id="modal-room-img" src="https://images.unsplash.com/photo-1459865264687-595d652de67e?auto=format&fit=crop&w=600&q=80" style="width: 100%; height: 100%; object-fit: cover;" alt="Facility view preview">
-        </div>
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-          <h4 id="modal-room-title" style="margin: 0; font-family: Poppins, sans-serif; font-size: 22px; font-weight: 600;">Outdoor Turf Field</h4>
-          <span id="modal-status-badge" class="proof-badge" style="font-size: 11px;">Booked</span>
-        </div>
-        <div style="font-size: 14px; color: var(--dark); line-height: 1.8; background: var(--soft); border: 1px solid var(--line); padding: 16px; border-radius: 16px;">
-          <div><span style="color: var(--muted); font-weight: 700; width: 70px; display: inline-block;">Date:</span> <span id="modal-date-val" style="font-weight: 500;">Wednesday, 03 June 2026</span></div>
-          <div><span style="color: var(--muted); font-weight: 700; width: 70px; display: inline-block;">Time:</span> <span id="modal-time-val" style="font-weight: 500;">10:00 to 11:00</span></div>
-          <div><span style="color: var(--muted); font-weight: 700; width: 70px; display: inline-block;">Class:</span> <span id="modal-class-val" style="font-weight: 500;">A-Level Advanced Physics Practical</span></div>
-          <div><span style="color: var(--muted); font-weight: 700; width: 70px; display: inline-block;">Teacher:</span> <span id="modal-teacher-val" style="font-weight: 500;">Dr. Marcus Evans (m.evans@trackedu.net)</span></div>
-          <div style="border-top: 1px dashed var(--line); margin-top: 10px; padding-top: 8px; font-style: italic; color: var(--muted);" id="modal-notes-val">"Please pull out 4 mobile whiteboard units..."</div>
-        </div>
-        <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 18px;" id="modal-actions-wrapper">
-          <button class="btn btn-secondary" style="padding: 10px 16px; font-size: 13px; flex: 1; min-width: 80px;" onclick="triggerMockToast('Edit options are disabled in this preview.')"><i class="fas fa-edit" style="color: var(--blue);"></i> Edit</button>
-          <button class="btn" style="padding: 10px 16px; font-size: 13px; background: var(--blue); color: white; flex: 2; min-width: 150px;" onclick="triggerMockToast('Space change request preview opened.')"><i class="fas fa-handshake"></i> Request Change</button>
-          <button class="btn btn-secondary" style="padding: 10px 16px; font-size: 13px; flex: 1; min-width: 80px;" onclick="triggerMockToast('Delete is disabled in this preview.')"><i class="fas fa-trash" style="color: #ef4444;"></i> Delete</button>
-        </div>
-      </div>
+    <div>
+      <h4>Campus Solutions</h4>
+
+      <a href="https://www.trackedu.net/facilities-pe-departments.html">PE Departments Room Guide</a>
+      <a href="https://www.trackedu.net/facilities-libraries.html">Library Resource Scheduler</a>
+      <a href="https://www.trackedu.net/facilities-operations-teams.html">Operations &amp; Custodian Logs</a>
+      <a href="https://www.trackedu.net/behavior-tracking-software-pastoral-teams.html">Pastoral Support Behavior Board</a>
+      <a href="https://www.trackedu.net/best-school-rewards-system-international-schools.html">International Schools Rewards</a>
     </div>
+
+    <div>
+      <h4>Core Systems</h4>
+
+      <a href="https://www.trackedu.net/facilities.html">Facility Booking System</a>
+      <a href="https://www.trackedu.net/housepoints.html">Student House Points App</a>
+      <a href="https://www.trackedu.net/behavior.html">Pastoral Tracking Dashboard</a>
+      <a href="https://www.trackedu.net/classroom-noise-meter.html">Classroom Noise Meter App</a>
+      <a href="https://dailyteachertools.com/" target="_blank" rel="noopener"><strong>New teacher platform: Daily TeacherTools</strong></a>
+    </div>
+
+    <div>
+      <h4>Compare Platforms</h4>
+
+      <a href="https://www.trackedu.net/trackedu-vs-classdojo.html">TrackEDU vs ClassDojo</a>
+      <a href="https://www.trackedu.net/trackedu-vs-spreadsheets.html">TrackEDU vs Spreadsheets</a>
+      <a href="https://www.trackedu.net/compare/classdojo.html">ClassDojo Analysis Guide</a>
+      <a href="https://www.trackedu.net/compare/behaviour-tracking-rewards-platforms.html">Behavior Platforms Matrix</a>
+      <a href="https://www.trackedu.net/house-points-software-vs-manual-house-points.html">House Points Software vs Manual House Points</a>
+    </div>
+
+    <div>
+      <h4>Company</h4>
+
+      <a href="https://www.trackedu.net/contact.html">Contact Sales Office</a>
+      <a href="https://www.trackedu.net/ambassadors.html">Ambassador Program</a>
+      <a href="https://www.trackedu.net/help-center.html">Help &amp; Support Desk Center</a>
+      <a href="https://www.trackedu.net/resources.html">School Resources</a>
+      <a href="https://www.trackedu.net/dpa.html">Data Processing (DPA) Log</a>
+      <a href="https://www.linkedin.com/company/trackedu/" target="_blank" rel="noopener">Institutional LinkedIn</a>
+    </div>
+
   </div>
 
-  <div id="instant-finder-modal-backdrop" class="mock-modal-backdrop" onclick="closeMockModal('instant-finder-modal-backdrop')">
-    <div class="mock-modal" style="max-width: 840px;" onclick="event.stopPropagation()">
-      <div class="proof-top" style="background: var(--soft);">
-        <div class="proof-title" style="font-size: 16px; font-weight: 800;"><i class="fas fa-search-location" style="color: var(--blue);"></i> Instant Space Finder</div>
-        <button onclick="closeMockModal('instant-finder-modal-backdrop')" style="background: none; border: none; font-size: 20px; color: var(--muted); cursor: pointer;">&times;</button>
-      </div>
-      <div style="padding: 20px; display: flex; flex-direction: column; gap: 14px; background: var(--soft);">
-        
-        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; font-size: 12px; font-weight: 700;">
-          <div style="display:flex; flex-direction:column; gap:4px;"><span>Select Date</span><input type="text" value="01/06/2026" style="padding:8px; border:1px solid var(--line); border-radius:8px; background:#fff;" readonly /></div>
-          <div style="display:flex; flex-direction:column; gap:4px;"><span>Select Period / Time Slot</span><input type="text" value="10:00 to 11:00" style="padding:8px; border:1px solid var(--line); border-radius:8px; background:#fff;" readonly /></div>
-          <div style="display:flex; flex-direction:column; gap:4px;"><span>Filter by Category</span><input type="text" value="All Facilities" style="padding:8px; border:1px solid var(--line); border-radius:8px; background:#fff;" readonly /></div>
-        </div>
+  <div class="container footer-legal" style="display:block;text-align:center;">
+    <div style="margin-bottom:7px;">
+      <strong style="color:#CBD5E1;">TrackEDU Ltd • Registered in England and Wales • Company No. 17216557</strong>
+    </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; max-height: 54vh; overflow-y: auto; padding-right: 4px;">
-          
-          <div style="background: white; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; padding: 12px; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=300&q=80" style="width: 100%; height: 110px; object-fit: cover; border-radius: 10px; margin-bottom: 8px;" alt="Sports Hall Frame" />
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-                <strong style="font-size: 14px; color: var(--dark);">Main Sports Hall</strong>
-                <span style="background: #fce8e6; color: #c5221f; font-size: 9px; font-weight: 900; padding: 2px 6px; border-radius: 6px; text-transform: uppercase;">Unavailable</span>
-              </div>
-              <p style="font-size: 11px; color: var(--muted); margin: 0; line-height: 1.4;">Booked by <strong>Sarah Jenkins</strong> for Grade 9 Basketball Varsity</p>
-            </div>
-          </div>
+    <div style="margin-bottom:7px;">
+      Registered Office: 128 City Road, London, EC1V 2NX, United Kingdom • ICO Registry: ZC146923
+    </div>
 
-          <div style="background: white; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; padding: 12px; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <img src="https://images.unsplash.com/photo-1459865264687-595d652de67e?auto=format&fit=crop&w=300&q=80" style="width: 100%; height: 110px; object-fit: cover; border-radius: 10px; margin-bottom: 8px;" alt="Turf Field Frame" />
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-                <strong style="font-size: 14px; color: var(--dark);">Outdoor Turf Field</strong>
-                <span style="background: #e6f4ea; color: #137333; font-size: 9px; font-weight: 900; padding: 2px 6px; border-radius: 6px; text-transform: uppercase;">Available</span>
-              </div>
-              <p style="font-size: 11px; color: #137333; margin: 0; font-weight: 600;"><i class="fas fa-check-circle"></i> Ready to secure slot</p>
-            </div>
-            <button class="btn btn-primary" onclick="closeMockModal('instant-finder-modal-backdrop'); triggerMockToast('Booking preview confirmed.');" style="padding: 8px; font-size: 12px; border-radius: 8px; width: 100%; min-height: 36px; margin-top: 12px; background: #0F66C3 !important;">Instant Book</button>
-          </div>
-
-          <div style="background: white; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; padding: 12px; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=300&q=80" style="width: 100%; height: 110px; object-fit: cover; border-radius: 10px; margin-bottom: 8px;" alt="Lab Frame" />
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-                <strong style="font-size: 14px; color: var(--dark);">Science Laboratory B</strong>
-                <span style="background: #e6f4ea; color: #137333; font-size: 9px; font-weight: 900; padding: 2px 6px; border-radius: 6px; text-transform: uppercase;">Available</span>
-              </div>
-              <p style="font-size: 11px; color: #137333; margin: 0; font-weight: 600;"><i class="fas fa-check-circle"></i> Ready to secure slot</p>
-            </div>
-            <button class="btn btn-primary" onclick="closeMockModal('instant-finder-modal-backdrop'); triggerMockToast('Booking preview confirmed.');" style="padding: 8px; font-size: 12px; border-radius: 8px; width: 100%; min-height: 36px; margin-top: 12px; background: #0F66C3 !important;">Instant Book</button>
-          </div>
-
-          <div style="background: white; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; padding: 12px; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&w=300&q=80" style="width: 100%; height: 110px; object-fit: cover; border-radius: 10px; margin-bottom: 8px;" alt="Computer Lab Frame" />
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-                <strong style="font-size: 14px; color: var(--dark);">Computer Lab A</strong>
-                <span style="background: #e6f4ea; color: #137333; font-size: 9px; font-weight: 900; padding: 2px 6px; border-radius: 6px; text-transform: uppercase;">Available</span>
-              </div>
-              <p style="font-size: 11px; color: #137333; margin: 0; font-weight: 600;"><i class="fas fa-check-circle"></i> Ready to secure slot</p>
-            </div>
-            <button class="btn btn-primary" onclick="closeMockModal('instant-finder-modal-backdrop'); triggerMockToast('Booking preview confirmed.');" style="padding: 8px; font-size: 12px; border-radius: 8px; width: 100%; min-height: 36px; margin-top: 12px; background: #0F66C3 !important;">Instant Book</button>
-          </div>
-
-          <div style="background: white; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; padding: 12px; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=300&q=80" style="width: 100%; height: 110px; object-fit: cover; border-radius: 10px; margin-bottom: 8px;" alt="Auditorium Frame" />
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-                <strong style="font-size: 14px; color: var(--dark);">Grand Auditorium</strong>
-                <span style="background: #e6f4ea; color: #137333; font-size: 9px; font-weight: 900; padding: 2px 6px; border-radius: 6px; text-transform: uppercase;">Available</span>
-              </div>
-              <p style="font-size: 11px; color: #137333; margin: 0; font-weight: 600;"><i class="fas fa-check-circle"></i> Ready to secure slot</p>
-            </div>
-            <button class="btn btn-primary" onclick="closeMockModal('instant-finder-modal-backdrop'); triggerMockToast('Booking preview confirmed.');" style="padding: 8px; font-size: 12px; border-radius: 8px; width: 100%; min-height: 36px; margin-top: 12px; background: #0F66C3 !important;">Instant Book</button>
-          </div>
-
-        </div>
-      </div>
-      <div class="proof-top" style="background: white; border-top: 1px solid var(--line); border-bottom: none; padding: 12px 16px; justify-content: flex-end;">
-        <button class="btn btn-dark" style="padding: 8px 18px; font-size: 12px; border-radius: 20px;" onclick="closeMockModal('instant-finder-modal-backdrop')">Close</button>
-      </div>
+    <div>
+      <strong style="color:#CBD5E1;">© 2026 TrackEDU Ltd. All rights reserved.</strong>
+      • <a href="https://www.trackedu.net/privacy.html" style="display:inline;margin:0;">Privacy Policy</a>
+      • <a href="https://www.trackedu.net/terms.html" style="display:inline;margin:0;">Terms of Use</a>
     </div>
   </div>
-
-  <div id="alerts-modal-backdrop" class="mock-modal-backdrop" onclick="closeMockModal('alerts-modal-backdrop')">
-    <div class="mock-modal" style="max-width: 480px;" onclick="event.stopPropagation()">
-      <div class="proof-top" style="background: var(--soft);">
-        <div class="proof-title" style="font-size: 16px; font-weight: 800;"><i class="fas fa-bell" style="color: var(--blue);"></i> My Alerts</div>
-        <button onclick="closeMockModal('alerts-modal-backdrop')" style="background: none; border: none; font-size: 20px; color: var(--muted); cursor: pointer;">&times;</button>
-      </div>
-      <div style="padding: 16px; display: flex; flex-direction: column; gap: 12px; background: var(--soft); max-height: 70vh; overflow-y: auto;">
-        <button class="btn btn-secondary" style="width: 100%; border-radius: 12px; font-weight: 800; justify-content: center;" onclick="triggerMockToast('Opening space change requests...')"><i class="fas fa-handshake" style="color: var(--blue);"></i> View Space Change Requests</button>
-        
-        <div style="background: white; border: 1px solid var(--line); border-left: 6px solid var(--green); padding: 14px; border-radius: 14px; box-shadow: var(--shadow-sm);">
-          <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 800; color: var(--dark); margin-bottom: 4px;">
-            <span><i class="fas fa-check-circle" style="color: var(--green);"></i> Booking Approved</span>
-            <span style="color: var(--muted); font-size: 11px;">Mon 01 Jun, 11:55</span>
-          </div>
-          <div style="font-size: 12px; color: var(--muted); font-weight: 500;">Computer Lab A on 01 Jun (12:00-13:00)</div>
-        </div>
-
-        <div style="background: white; border: 1px solid var(--line); border-left: 6px solid var(--green); padding: 14px; border-radius: 14px; box-shadow: var(--shadow-sm);">
-          <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 800; color: var(--dark); margin-bottom: 4px;">
-            <span><i class="fas fa-check-circle" style="color: var(--green);"></i> Booking Approved</span>
-            <span style="color: var(--muted); font-size: 11px;">Mon 01 Jun, 11:54</span>
-          </div>
-          <div style="font-size: 12px; color: var(--muted); font-weight: 500;">Music Studio on 01 Jun (12:00-13:00)</div>
-        </div>
-
-        <div style="background: white; border: 1px solid var(--line); border-left: 6px solid var(--green); padding: 14px; border-radius: 14px; box-shadow: var(--shadow-sm);">
-          <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 800; color: var(--dark); margin-bottom: 4px;">
-            <span><i class="fas fa-check-circle" style="color: var(--green);"></i> Booking Approved</span>
-            <span style="color: var(--muted); font-size: 11px;">Mon 01 Jun, 11:53</span>
-          </div>
-          <div style="font-size: 12px; color: var(--muted); font-weight: 500;">Grand Auditorium on 01 Jun (12:00-13:00)</div>
-        </div>
-      </div>
-      <div class="proof-top" style="background: white; border-top: 1px solid var(--line); border-bottom: none; padding: 12px 16px; justify-content: space-between;">
-        <button class="btn btn-secondary" style="padding: 8px 14px; font-size: 12px;" onclick="triggerMockToast('Notification history cleared.')"><i class="fas fa-trash" style="color: #ef4444;"></i> Clear All</button>
-        <button class="btn btn-dark" style="padding: 8px 14px; font-size: 12px;" onclick="closeMockModal('alerts-modal-backdrop')">Close</button>
-      </div>
-    </div>
-  </div>
-
-  <div id="mock-toast-holder" class="mock-toast-container"></div>
+</footer>
 
   <script>
+    (function(){
+      const button = document.getElementById('mobileMenuButton');
+      const menu = document.getElementById('mobileMenu');
 
+      if(!button || !menu) return;
 
-function unlockHeroSandboxPreview() {
-      const gate = document.getElementById('heroCanvasGate');
-      const container = document.getElementById('heroCanvasBlurContainer');
-      
-      if (gate && container) {
-        gate.style.opacity = '0';
-        gate.style.visibility = 'hidden';
-        container.classList.add('canvas-unblurred');
-        triggerMockToast('Live dashboard preview unlocked.');
+      function setMenu(open){
+        menu.classList.toggle('active',open);
+        menu.setAttribute('aria-hidden',String(!open));
+        button.setAttribute('aria-expanded',String(open));
+        button.innerHTML = open
+          ? '<i class="fas fa-xmark"></i>'
+          : '<i class="fas fa-bars"></i>';
+
+        document.body.classList.toggle('menu-open',open);
       }
-    }
 
-    function switchHeroPreviewPane(targetMode) {
-      const paneHP = document.getElementById('heroPaneHousePoints');
-      const paneFB = document.getElementById('heroPaneFacilities');
-      const toggleHP = document.getElementById('heroToggleHP');
-      const toggleFB = document.getElementById('heroToggleFB');
-      const radioHP = document.getElementById('heroRadioHP');
-      const radioFB = document.getElementById('heroRadioFB');
-      const masterTitle = document.getElementById('heroMasterPanelTitle');
+      button.addEventListener('click',function(){
+        setMenu(!menu.classList.contains('active'));
+      });
 
-      if (targetMode === 'housepoints') {
-        paneHP.style.display = 'block';
-        paneFB.style.display = 'none';
-        
-        // Style House Points Card Tile as Active
-        toggleHP.style.cssText = 'background: #ffffff; border: 2px solid #87C232; border-radius: 16px; padding: 14px; cursor: pointer; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 10px 20px -10px rgba(12,30,44,0.06); transition: all 0.2s ease;';
-        toggleHP.querySelector('div').style.fontWeight = '800';
-        toggleHP.querySelector('div').style.color = '#0c1e2c';
-        toggleHP.querySelector('p').style.color = '#5d6676';
-        radioHP.style.cssText = 'width: 14px; height: 14px; border-radius: 50%; border: 4.5px solid #87C232; background: #ffffff;';
+      menu.querySelectorAll('a').forEach(function(link){
+        link.addEventListener('click',function(){
+          setMenu(false);
+        });
+      });
 
-        // Reset Facilities Card Tile to Default
-        toggleFB.style.cssText = 'background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 14px; cursor: pointer; display: flex; flex-direction: column; gap: 6px; transition: all 0.2s ease;';
-        toggleFB.querySelector('div').style.fontWeight = '700';
-        toggleFB.querySelector('div').style.color = '#475569';
-        toggleFB.querySelector('p').style.color = '#64748b';
-        radioFB.style.cssText = 'width: 14px; height: 14px; border-radius: 50%; border: 1px solid #cbd5e1; background: #ffffff;';
-        
-        masterTitle.innerHTML = `<i class="fas fa-star" style="color: #87C232;"></i> House Points Live Metrics Standings`;
-      } else {
-        paneHP.style.display = 'none';
-        paneFB.style.display = 'block';
-        
-        // Style Facilities Card Tile as Active
-        toggleFB.style.cssText = 'background: #ffffff; border: 2px solid #0f66c3; border-radius: 16px; padding: 14px; cursor: pointer; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 10px 20px -10px rgba(12,30,44,0.06); transition: all 0.2s ease;';
-        toggleFB.querySelector('div').style.fontWeight = '800';
-        toggleFB.querySelector('div').style.color = '#0c1e2c';
-        toggleFB.querySelector('p').style.color = '#5d6676';
-        radioFB.style.cssText = 'width: 14px; height: 14px; border-radius: 50%; border: 4.5px solid #0f66c3; background: #ffffff;';
-
-        // Reset House Points Card Tile to Default
-        toggleHP.style.cssText = 'background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 14px; cursor: pointer; display: flex; flex-direction: column; gap: 6px; transition: all 0.2s ease;';
-        toggleHP.querySelector('div').style.fontWeight = '700';
-        toggleHP.querySelector('div').style.color = '#475569';
-        toggleHP.querySelector('p').style.color = '#64748b';
-        radioHP.style.cssText = 'width: 14px; height: 14px; border-radius: 50%; border: 1px solid #cbd5e1; background: #ffffff;';
-        
-        masterTitle.innerHTML = `<i class="fas fa-calendar-check" style="color: #0f66c3;"></i> Shared Space Scheduling & Resource Grid`;
-      }
-    }
-
-
-
-    // Interactive House Points Preview System Engine
-    function updateHousePreviewCard(name, captain, points, milestone) {
-      document.getElementById('hp-preview-interactive-name').textContent = name;
-      document.getElementById('hp-preview-interactive-captain').textContent = captain;
-      document.getElementById('hp-preview-interactive-points').textContent = points;
-      document.getElementById('hp-preview-interactive-milestone').textContent = milestone;
-      triggerMockToast('Loaded parameters for ' + name + ' context UI.');
-    }
-
-    // Toggle Mobile Navigation
-    const menuBtn = document.getElementById('mobile-menu-btn');
-    const navMenu = document.getElementById('nav-menu');
-    const icon = menuBtn.querySelector('i');
-
-    function toggleMenu() {
-      const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
-      menuBtn.setAttribute('aria-expanded', !isExpanded);
-      navMenu.classList.toggle('active');
-      
-      if (navMenu.classList.contains('active')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-xmark');
-        document.body.style.overflow = 'hidden';
-      } else {
-        icon.classList.remove('fa-xmark');
-        icon.classList.add('fa-bars');
-        document.body.style.overflow = '';
-      }
-    }
-
-    menuBtn.addEventListener('click', toggleMenu);
-
-    const mobileLinks = navMenu.querySelectorAll('.nav-links a');
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        if (navMenu.classList.contains('active')) {
-          toggleMenu();
+      window.addEventListener('resize',function(){
+        if(window.innerWidth > 960){
+          setMenu(false);
         }
       });
-    });
-
-    const loginToggle = document.getElementById('login-toggle');
-    const loginWrap = document.getElementById('login-dropdown');
-    
-    loginToggle.addEventListener('click', (e) => {
-      if (window.innerWidth <= 1050) {
-        loginWrap.classList.toggle('mobile-open');
-      }
-    });
-
-    // Interactive Mockup Operational Scripts Engine
-    const imageAssetMap = {
-      'Main Sports Hall': 'https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=600&q=80',
-      'Outdoor Turf Field': 'https://images.unsplash.com/photo-1459865264687-595d652de67e?auto=format&fit=crop&w=600&q=80',
-      'Science Laboratory B': 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=600&q=80',
-      'Library Media Hub': 'https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=600&q=80'
-    };
-
-    function openMockSlot(room, time, className, teacher, state, notes) {
-      document.getElementById('modal-room-title').textContent = room;
-      document.getElementById('modal-time-val').textContent = `${time} to ${parseInt(time)+1}:00`;
-      document.getElementById('modal-class-val').textContent = className === 'Available' ? 'None' : className;
-      document.getElementById('modal-teacher-val').textContent = teacher === 'None' ? 'Unassigned' : `${teacher} (staff@school.edu)`;
-      document.getElementById('modal-notes-val').textContent = `"${notes}"`;
-      
-      const badge = document.getElementById('modal-status-badge');
-      badge.textContent = state;
-      badge.className = `proof-badge`;
-      if (state === 'available') badge.style.cssText = 'background:#e6f4ea; color:#137333; border:1px solid #ceead6;';
-      else if (state === 'pending') badge.style.cssText = 'background:#fef7e0; color:#b06000; border:1px solid #feebc8;';
-      else badge.style.cssText = 'background:#fce8e6; color:#c5221f; border:1px solid #fad2cf;';
-
-      const actionsWrapper = document.getElementById('modal-actions-wrapper');
-      if (state === 'available') {
-        actionsWrapper.innerHTML = `<button class="btn btn-primary" style="width:100%; border-radius:12px;" onclick="closeMockModal('slot-modal-backdrop'); triggerMockToast('Booking preview confirmed.');"><i class="fas fa-bolt"></i> Instant Book Slot</button>`;
-        document.getElementById('modal-image-wrapper').style.display = 'none';
-      } else {
-        actionsWrapper.innerHTML = `
-          <button class="btn btn-secondary" style="padding:10px 16px; font-size:13px;" onclick="triggerMockToast('Edits are disabled in this preview.')"><i class="fas fa-edit" style="color:var(--blue);"></i> Edit</button>
-          <button class="btn" style="padding:10px 16px; font-size:13px; background:var(--blue); color:white;" onclick="triggerMockToast('Space change request preview sent.')"><i class="fas fa-handshake"></i> Request Change</button>
-          <button class="btn btn-secondary" style="padding:10px 16px; font-size:13px;" onclick="triggerMockToast('Delete is disabled in this preview.')"><i class="fas fa-trash" style="color:#ef4444;"></i> Delete</button>
-        `;
-        document.getElementById('modal-image-wrapper').style.display = 'block';
-        document.getElementById('modal-room-img').src = imageAssetMap[room] || imageAssetMap['Outdoor Turf Field'];
-      }
-
-      document.getElementById('slot-modal-backdrop').classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function openMockAlerts() {
-      document.getElementById('alerts-modal-backdrop').classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function openInstantFinder() {
-      document.getElementById('instant-finder-modal-backdrop').classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeMockModal(id) {
-      document.getElementById(id).classList.remove('open');
-      document.body.style.overflow = '';
-    }
-
-    function triggerMockToast(msg) {
-      const holder = document.getElementById('mock-toast-holder');
-      const toast = document.createElement('div');
-      toast.className = 'mock-toast';
-      toast.innerHTML = `<i class="fas fa-info-circle" style="color:var(--green); margin-right:6px;"></i> ${msg}`;
-      holder.appendChild(toast);
-      setTimeout(() => { toast.style.opacity = '0'; toast.style.transition = 'opacity 0.2s'; setTimeout(() => toast.remove(), 200); }, 3000);
-    }
-
-    // Master Switcher: Swaps views, adjusts canvas canvas color parameters and updates right panel texts
-    function switchMasterMockupPortal(portalMode) {
-      const studentTrack = document.getElementById('canvas-student-portal-track');
-      const teacherTrack = document.getElementById('canvas-teacher-portal-track');
-      const toggleStudentBtn = document.getElementById('masterPortalToggleStudent');
-      const toggleTeacherBtn = document.getElementById('masterPortalToggleTeacher');
-      const label = document.getElementById('masterSimulatorHeaderLabel');
-      const subBadge = document.getElementById('student-view-badge');
-      const canvasFrame = document.getElementById('masterSimulatorViewCanvas');
-
-      // Right-hand typography layout block references
-      const sideKicker = document.getElementById('dynamicSimSideKicker');
-      const sideTitle = document.getElementById('dynamicSimSideTitle');
-      const sideDesc = document.getElementById('dynamicSimSideDesc');
-      const sideChips = document.getElementById('dynamicSimSideChips');
-      const sideButton = document.getElementById('dynamicSimSideButton');
-
-      if (portalMode === 'student') {
-        studentTrack.style.display = 'block';
-        teacherTrack.style.display = 'none';
-        
-        // Restore dark portal theme parameters onto canvas box container bounds
-        if (canvasFrame) {
-          canvasFrame.style.background = '#090d16';
-          canvasFrame.style.borderColor = '#cbd5e1';
-        }
-        
-        toggleStudentBtn.style.cssText = 'flex: 1; padding: 10px; border: none; border-radius: 12px; font-size: 13px; font-weight: 800; cursor: pointer; transition: all 0.15s; display: flex; align-items: center; justify-content: center; gap: 8px; background: #ffffff; color: var(--dark); box-shadow: var(--shadow-sm);';
-        toggleTeacherBtn.style.cssText = 'flex: 1; padding: 10px; border: none; border-radius: 12px; font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.15s; display: flex; align-items: center; justify-content: center; gap: 8px; background: transparent; color: var(--muted);';
-        
-        label.textContent = "Student Portal View";
-        label.style.color = "var(--dark)";
-        
-        const isDashboardOpen = document.getElementById('student-portal-dashboard-stage').style.display === 'block';
-        subBadge.textContent = isDashboardOpen ? 'Live Dashboard' : 'Login View';
-        subBadge.style.cssText = isDashboardOpen ? 'background:rgba(135,194,50,.12); color:#2f6f18; border-color:#bbf7d0;' : 'background:#f1f5f9; color:#475569;';
-
-        // Dynamic Swap to Student Experience Copy Track
-        if(sideKicker) sideKicker.innerHTML = `<i class="fas fa-id-card shadow-none"></i> Interactive Student Portal`;
-        if(sideKicker) sideKicker.style.cssText = "color:#2f6f18; background:rgba(135,194,50,0.08); border-color:rgba(135,194,50,0.18);";
-        if(sideTitle) sideTitle.textContent = "Student reward profiles without student email accounts.";
-        if(sideDesc) sideDesc.textContent = "TrackEDU gives every student a personal profile to look up their current rewards points balance, follow weekly house leaderboards, monitor login streaks, and unlock achievements, without requiring student email accounts.";
-        if(sideChips) sideChips.innerHTML = `<span class="chip" style="font-size:12px; padding:6px 12px;">Live Standings</span><span class="chip" style="font-size:12px; padding:6px 12px;">Daily Streaks</span><span class="chip" style="font-size:12px; padding:6px 12px;">3D Achievement Badges</span>`;
-        if(sideButton) {
-          sideButton.href = "https://www.trackedu.net/housepoints.html";
-          sideButton.style.cssText = "background: var(--green) !important; border-color: var(--green) !important; box-shadow: 0 10px 20px rgba(135,194,50,0.15); padding: 12px 24px;";
-          sideButton.innerHTML = `Explore Student Experience <i class="fas fa-arrow-right"></i>`;
-        }
-      } else {
-        studentTrack.style.display = 'none';
-        teacherTrack.style.display = 'block';
-        
-        // Force clean professional crisp light theme parameters onto dashboard views
-        if (canvasFrame) {
-          canvasFrame.style.background = '#ffffff';
-          canvasFrame.style.borderColor = '#cbd5e1';
-        }
-        
-        toggleTeacherBtn.style.cssText = 'flex: 1; padding: 10px; border: none; border-radius: 12px; font-size: 13px; font-weight: 800; cursor: pointer; transition: all 0.15s; display: flex; align-items: center; justify-content: center; gap: 8px; background: #ffffff; color: var(--dark); box-shadow: var(--shadow-sm);';
-        toggleStudentBtn.style.cssText = 'flex: 1; padding: 10px; border: none; border-radius: 12px; font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.15s; display: flex; align-items: center; justify-content: center; gap: 8px; background: transparent; color: var(--muted);';
-        
-        label.textContent = "Teacher App Workspace";
-        
-        const isToolkitOpen = document.getElementById('teacher-sub-pane-toolkit').style.display === 'block';
-        subBadge.textContent = isToolkitOpen ? 'Classroom Toolkit' : 'Standings Dashboard';
-        subBadge.style.cssText = 'background: #eff6ff; color: var(--blue); border-color: #bae6fd;';
-
-        // Dynamic Swap to Teacher Experience Copy Track
-        if(sideKicker) sideKicker.innerHTML = `<i class="fas fa-heart shadow-none"></i> Whole-School Culture Ecosystem`;
-        if(sideKicker) sideKicker.style.cssText = "color:var(--green-dark); background:rgba(135,194,50,0.08); border-color:rgba(135,194,50,0.18);";
-        if(sideTitle) sideTitle.textContent = "Clear house points and classroom tools.";
-        if(sideDesc) sideDesc.textContent = "Bring school spirit out of backroom spreadsheets. TrackEDU brings house point standings, classroom tools and teacher workflows into one clear staff workspace.";
-        if(sideChips) sideChips.innerHTML = `<span class="chip" style="font-size:12px; padding:6px 12px;">Projector mode</span><span class="chip" style="font-size:12px; padding:6px 12px;">15 classroom tools</span><span class="chip" style="font-size:12px; padding:6px 12px;">Zero student data selling</span>`;
-        if(sideButton) {
-          sideButton.href = "https://www.trackedu.net/housepoints.html";
-          sideButton.style.cssText = "background: var(--dark) !important; border-color: var(--dark) !important; box-shadow: 0 10px 20px rgba(12,30,44,0.12); padding: 12px 24px;";
-          sideButton.innerHTML = `<img src="https://trackedu.github.io/common-assets/teacherapp.png" style="width: 16px; height: 16px; object-fit: contain; filter: brightness(0) invert(1);" /> Explore Teacher App`;
-        }
-      }
-    }
-
-    // Teacher App Sub-Switcher: Swaps between House Leaderboard and Classroom Bento Tools Grid
-    function switchTeacherSubMockupTab(subTabMode) {
-      const dashboardPane = document.getElementById('teacher-sub-pane-dashboard');
-      const toolkitPane = document.getElementById('teacher-sub-pane-toolkit');
-      const btnDashboard = document.getElementById('teacherSubTabBtnDashboard');
-      const btnToolkit = document.getElementById('teacherSubTabBtnToolkit');
-      const subBadge = document.getElementById('student-view-badge');
-      const screenLabel = document.getElementById('teacherAppScreenHeaderLabel');
-
-      if (subTabMode === 'dashboard') {
-        dashboardPane.style.display = 'block';
-        toolkitPane.style.display = 'none';
-        btnDashboard.classList.add('active');
-        btnToolkit.classList.remove('active');
-        subBadge.textContent = 'Standings Dashboard';
-        if(screenLabel) screenLabel.textContent = 'Standings Dashboard';
-      } else {
-        toolkitPane.style.display = 'block';
-        dashboardPane.style.display = 'none';
-        btnToolkit.classList.add('active');
-        btnDashboard.classList.remove('active');
-        subBadge.textContent = 'Classroom Toolkit';
-        if(screenLabel) screenLabel.textContent = 'Classroom Toolkit';
-      }
-    }
-
-    // Student Portal Onboarding Interactivity Flow Engines
-    function validateStudentPortalOnboarding() {
-      const passcodeField = document.getElementById('mockStudentPasscode');
-      const idField = document.getElementById('mockStudentID');
-      
-      const passcode = passcodeField ? passcodeField.value.trim().toUpperCase() : '';
-      const id = idField ? idField.value.trim() : '';
-
-      if (!passcode || !id) {
-        triggerMockToast('⚠️ Please enter both demo credentials.');
-        return;
-      }
-
-      if (passcode === 'BRAVE' && id === 'cd565') {
-        triggerMockToast('✨ Demo login accepted. Opening student dashboard...');
-        
-        // Hide login view, expose live application overview matrix sheet
-        document.getElementById('student-portal-login-stage').style.display = 'none';
-        document.getElementById('student-portal-dashboard-stage').style.display = 'block';
-        document.getElementById('student-view-badge').textContent = 'Live Dashboard';
-        document.getElementById('student-view-badge').style.cssText = 'background:rgba(135,194,50,.12); color:#2f6f18;';
-      } else {
-        triggerMockToast('❌ Demo credentials not recognised. Try BRAVE and cd565.');
-        if(passcodeField) passcodeField.value = '';
-        if(idField) idField.value = '';
-      }
-    }
-
-    function closeMockStudentDashboardView() {
-      triggerMockToast('Student portal demo logged out.');
-      
-      // Flush inputs and return layout to baseline entrance view bounds
-      document.getElementById('mockStudentPasscode').value = '';
-      document.getElementById('mockStudentID').value = '';
-      document.getElementById('student-portal-dashboard-stage').style.display = 'none';
-      document.getElementById('student-portal-login-stage').style.display = 'block';
-      document.getElementById('student-view-badge').textContent = 'Login View';
-      document.getElementById('student-view-badge').style.cssText = '';
-    }
+    })();
   </script>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      if (typeof switchHeroPreviewPane === 'function') {
-        switchHeroPreviewPane('facilities');
-      }
-    });
-  </script>
 </body>
 </html>
