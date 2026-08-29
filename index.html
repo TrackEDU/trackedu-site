@@ -715,6 +715,135 @@
       .hero-scene-orbit{animation:none !important;}
     }
 
+        /* =========================
+       RECENT SCHOOL PARTNER
+       ========================= */
+
+    .home-school-partner{
+      padding:22px 0;
+      background:#fff;
+      border-bottom:1px solid var(--line);
+    }
+
+    .home-school-partner-card{
+      position:relative;
+      display:block;
+      padding:18px 22px;
+      border:1px solid #DCE5EE;
+      border-radius:20px;
+      background:
+        radial-gradient(circle at 4% 50%,rgba(135,194,50,.10),transparent 24%),
+        radial-gradient(circle at 96% 50%,rgba(15,102,195,.08),transparent 24%),
+        #fff;
+      box-shadow:0 10px 28px rgba(12,30,44,.055);
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        border-color .2s ease;
+    }
+
+    .home-school-partner-card:hover{
+      transform:translateY(-2px);
+      border-color:rgba(15,102,195,.28);
+      box-shadow:0 16px 36px rgba(12,30,44,.09);
+    }
+
+    .home-school-partner-label{
+      display:flex;
+      align-items:center;
+      gap:7px;
+      margin-bottom:12px;
+      color:#4D7A20;
+      font-size:10px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+    }
+
+    .home-school-partner-label i{
+      color:var(--green);
+    }
+
+    .home-school-partner-content{
+      display:grid;
+      grid-template-columns:72px minmax(0,1fr) auto;
+      align-items:center;
+      gap:18px;
+    }
+
+    .home-school-partner-logo{
+      width:72px;
+      height:72px;
+      display:grid;
+      place-items:center;
+      padding:7px;
+      border-radius:16px;
+      background:#fff;
+      border:1px solid var(--line);
+    }
+
+    .home-school-partner-logo img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      display:block;
+    }
+
+    .home-school-partner-copy{
+      min-width:0;
+    }
+
+    .home-school-partner-copy span{
+      display:block;
+      margin-bottom:2px;
+      color:#718096;
+      font-size:10px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+    }
+
+    .home-school-partner-copy h2{
+      margin:0;
+      color:var(--dark);
+      font-family:Poppins,Inter,sans-serif;
+      font-size:20px;
+      line-height:1.2;
+      letter-spacing:-.035em;
+      font-weight:800;
+    }
+
+    .home-school-partner-copy p{
+      margin:4px 0 0;
+      color:#667487;
+      font-size:13px;
+      line-height:1.45;
+    }
+
+    .home-school-partner-link{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      padding:9px 12px;
+      border-radius:999px;
+      background:#EFF6FF;
+      color:var(--blue);
+      font-size:11px;
+      font-weight:850;
+      white-space:nowrap;
+      transition:
+        background .18s ease,
+        color .18s ease,
+        transform .18s ease;
+    }
+
+    .home-school-partner-card:hover
+    .home-school-partner-link{
+      background:var(--blue);
+      color:#fff;
+      transform:translateX(2px);
+    }
+
     /* =========================
        PRODUCTS
        ========================= */
@@ -1171,6 +1300,42 @@
         width:min(100% - 28px,1180px);
       }
 
+            .home-school-partner{
+        padding:14px 0;
+      }
+
+      .home-school-partner-card{
+        padding:15px;
+        border-radius:18px;
+      }
+
+      .home-school-partner-content{
+        grid-template-columns:58px minmax(0,1fr);
+        gap:12px;
+      }
+
+      .home-school-partner-logo{
+        width:58px;
+        height:58px;
+        border-radius:13px;
+        padding:5px;
+      }
+
+      .home-school-partner-copy h2{
+        font-size:16px;
+      }
+
+      .home-school-partner-copy p{
+        font-size:11px;
+      }
+
+      .home-school-partner-link{
+        grid-column:1 / -1;
+        width:100%;
+        justify-content:center;
+        margin-top:4px;
+      }
+
             .hero-product-grid{
         grid-template-columns:1fr;
         gap:9px;
@@ -1308,9 +1473,256 @@
       }
     }
 
+    /* =========================
+       MOBILE HERO - PHONE FIRST
+       ========================= */
+
+    @media(max-width:700px){
+
+      .hero{
+        min-height:auto;
+        padding:28px 0 32px;
+      }
+
+      .hero-inner{
+        width:100%;
+        max-width:none;
+      }
+
+      .hero-kicker{
+        width:auto;
+        max-width:100%;
+        margin:0 auto 22px;
+        padding:7px 10px;
+        gap:5px;
+
+        border-radius:999px;
+
+        font-size:8px;
+        line-height:1.15;
+        letter-spacing:.035em;
+
+        white-space:nowrap;
+      }
+
+      .hero-kicker i{
+        flex-shrink:0;
+        font-size:9px;
+      }
+
+      h1{
+        font-size:clamp(35px,10vw,43px);
+        line-height:.95;
+        letter-spacing:-.055em;
+      }
+
+      .hero-message-stage{
+        min-height:132px;
+        margin:0 auto;
+      }
+
+      .hero-rotating-h1{
+        min-height:132px;
+      }
+
+      .hero-message{
+        inset:0;
+        align-content:center;
+        padding:0 8px;
+      }
+
+      .hero-message-line{
+        width:100%;
+        max-width:330px;
+
+        margin-left:auto;
+        margin-right:auto;
+
+        white-space:normal;
+        text-wrap:balance;
+      }
+
+      .hero-sub{
+        max-width:320px;
+        margin:16px auto 0;
+        padding:0 6px;
+
+        font-size:13px;
+        line-height:1.46;
+        font-weight:500;
+      }
+
+      .hero-progress{
+        margin-top:13px;
+        gap:7px;
+      }
+
+      .hero-progress-btn{
+        width:7px;
+        height:7px;
+      }
+
+      .hero-progress-btn.is-active{
+        width:28px;
+      }
+
+      .hero-product-grid{
+        width:100%;
+        margin:18px auto 0;
+
+        grid-template-columns:1fr;
+        gap:9px;
+      }
+
+      .hero-product-pill{
+        width:100%;
+        min-height:64px;
+
+        grid-template-columns:38px minmax(0,1fr) 16px;
+        gap:10px;
+
+        padding:10px 12px;
+        border-radius:15px;
+      }
+
+      .hero-product-icon{
+        width:38px;
+        height:38px;
+
+        border-radius:11px;
+        font-size:15px;
+      }
+
+      .hero-product-copy{
+        gap:2px;
+      }
+
+      .hero-product-copy strong{
+        font-size:12.5px;
+        line-height:1.15;
+      }
+
+      .hero-product-copy small{
+        font-size:9.5px;
+        line-height:1.28;
+      }
+
+      .hero-product-arrow{
+        font-size:10px;
+      }
+
+      .hero-actions{
+        margin-top:14px;
+      }
+
+      .hero-actions .btn{
+        min-height:42px;
+        padding:10px 15px;
+        font-size:12px;
+      }
+
+      .hero-scene-icon{
+        width:62px;
+        height:62px;
+
+        border-radius:18px;
+
+        font-size:22px;
+
+        top:47%;
+        opacity:.075;
+      }
+
+      .hero-scene-icon.left{
+        left:-32px;
+      }
+
+      .hero-scene-icon.right{
+        right:-32px;
+      }
+
+      .hero-stage-grid{
+        opacity:.22;
+      }
+    }
+
+
     @media(max-width:420px){
+
+      .container{
+        width:calc(100% - 24px);
+      }
+
+      .nav-inner{
+        min-height:58px;
+      }
+
+      .brand{
+        font-size:23px;
+      }
+
+      .mobile-menu-btn{
+        width:40px;
+        height:40px;
+        border-radius:11px;
+      }
+
+      .hero{
+        padding-top:24px;
+      }
+
+      .hero-kicker{
+        margin-bottom:20px;
+        padding:7px 8px;
+        font-size:7.5px;
+        letter-spacing:.025em;
+      }
+
+      h1{
+        font-size:clamp(34px,9.7vw,40px);
+      }
+
+      .hero-message-stage,
+      .hero-rotating-h1{
+        min-height:128px;
+      }
+
+      .hero-message-line{
+        max-width:300px;
+      }
+
+      .hero-sub{
+        max-width:300px;
+        margin-top:14px;
+        font-size:12.5px;
+        line-height:1.45;
+      }
+
+      .hero-product-pill{
+        min-height:62px;
+      }
+
       .trust-grid{
         grid-template-columns:1fr;
+      }
+    }
+
+
+    @media(max-width:360px){
+
+      .hero-kicker{
+        white-space:normal;
+        width:100%;
+        justify-content:center;
+        text-align:center;
+      }
+
+      h1{
+        font-size:36px;
+      }
+
+      .hero-sub{
+        font-size:13px;
       }
     }
   </style>
@@ -1406,7 +1818,7 @@
           </div>
 
           <p class="hero-sub">
-            Three focused tools for schools: <strong>recognise and reward students</strong>, <strong>book shared spaces</strong>, and give teachers one <strong>AI-powered Class Board</strong> for lessons, routines and everyday classroom tasks.
+            <strong>House Points, Facility Booking and an AI Class Board</strong> built to make everyday school tasks faster and easier.
           </p>
 
           <div class="hero-progress" aria-label="Hero messages">
@@ -1478,6 +1890,58 @@
           </div>
 
         </div>
+      </div>
+        </section>
+
+    <!-- =========================================
+         RECENT SCHOOL PARTNER
+         ========================================= -->
+    <section class="home-school-partner" aria-label="Recent school partner">
+      <div class="container">
+
+        <a
+          class="home-school-partner-card"
+          href="https://www.conwaychristianschool.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visit Conway Christian School"
+        >
+
+          <div class="home-school-partner-label">
+            <i class="fas fa-school"></i>
+            Recent school partner
+          </div>
+
+          <div class="home-school-partner-content">
+
+            <div class="home-school-partner-logo">
+              <img
+                src="https://irp.cdn-website.com/65d009b3/dms3rep/multi/opt/Conway-logo-61w.png"
+                alt="Conway Christian School"
+                loading="lazy"
+              >
+            </div>
+
+            <div class="home-school-partner-copy">
+              <span>United States</span>
+
+              <h2>Conway Christian School</h2>
+
+              <p>
+                Using TrackEDU to support student recognition,
+                house points and positive school culture.
+              </p>
+            </div>
+
+            <div class="home-school-partner-link">
+              Visit school
+              <i class="fas fa-arrow-up-right-from-square"></i>
+            </div>
+
+          </div>
+
+        </a>
+
       </div>
     </section>
 
