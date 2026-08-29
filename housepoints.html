@@ -2354,16 +2354,21 @@ html { scroll-padding-top: 100px; }
 <div class="hero-feature-pill" id="heroFeature3"></div>
 </div>
 </div>
-<!-- AUDIENCE PATHWAY BUTTONS (Original - visible on desktop) -->
+<!-- PRIMARY HERO CTA -->
 <div class="hero-v2-audience-row original-audience">
-<button class="hero-v2-audience-card" onclick="openTeacherStartModal()">
-<i class="fas fa-chalkboard-user"></i>
-<span>I’m a Teacher</span>
-</button>
-<button class="hero-v2-audience-card hero-v2-audience-dark" onclick="openLeaderStartModal()">
-<i class="fas fa-school"></i>
-<span>I’m a School Leader</span>
-</button>
+  <div class="flex flex-col items-start">
+    <a
+  class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-green hover:bg-green-600 text-white text-base font-black transition shadow-lg hover:-translate-y-0.5 text-center"
+  href="https://housepoint.trackedu.net/"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Start 30-Day Pilot →
+</a>
+    <div class="mt-2 text-sm font-bold text-gray-600">
+      30 days free · No credit card required
+    </div>
+  </div>
 </div>
 </div>
 <!-- RIGHT: DYNAMIC VIDEO/IMAGE CONTAINER -->
@@ -2373,16 +2378,22 @@ html { scroll-padding-top: 100px; }
 <img alt="TrackEDU platform dashboard showing house points, student rewards and behaviour tracking across laptop and mobile" class="hero-v2-main-image" src="https://trackedu.github.io/common-assets/newheroimage7low.png" style="width: 100%; height: auto; display: block; object-fit: contain; transform: scale(1.1);"/>
 </div>
 </div>
-<!-- AUDIENCE PATHWAY BUTTONS (Mobile only - appears below image) -->
+<!-- PRIMARY HERO CTA - MOBILE -->
 <div class="hero-v2-audience-row mobile-audience" style="display: none; margin-top: -0.75rem; margin-bottom: -0.75rem;">
-<button class="hero-v2-audience-card" onclick="openTeacherStartModal()">
-<i class="fas fa-chalkboard-user"></i>
-<span>I’m a Teacher</span>
-</button>
-<button class="hero-v2-audience-card hero-v2-audience-dark" onclick="openLeaderStartModal()">
-<i class="fas fa-school"></i>
-<span>I’m a School Leader</span>
-</button>
+  <div class="w-full flex flex-col items-center gap-2">
+    <a
+  class="w-full px-6 py-3.5 rounded-xl bg-brand-green hover:bg-green-600 text-white text-sm font-black transition shadow-lg text-center"
+  href="https://housepoint.trackedu.net/"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Start 30-Day Pilot →
+</a>
+
+    <div class="text-[11px] font-bold text-gray-500 text-center">
+      30 days free · No credit card required
+    </div>
+  </div>
 </div>
 </div>
 </div>
@@ -4655,9 +4666,14 @@ setTimeout(function() {
 <p class="text-gray-600 mb-8 flex-1">
           Try the Teacher App, Student Portal, and Behavior Tracker with no credit card required.
         </p>
-<button class="w-full btn py-4 text-lg font-bold shadow-md bg-brand-green hover:bg-green-600 text-white border-2 border-brand-green" onclick="openPilotModal()">
-          Start 30-Day Pilot →
-        </button>
+<a
+  class="w-full btn py-4 text-lg font-bold shadow-md bg-brand-green hover:bg-green-600 text-white border-2 border-brand-green text-center"
+  href="https://housepoint.trackedu.net/"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Start 30-Day Pilot →
+</a>
 </div>
 <div class="p-8 rounded-3xl border border-gray-200 bg-white flex flex-col text-center shadow-sm transform transition hover:-translate-y-1">
 <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-3xl mx-auto mb-6 text-brand-blue">
@@ -6044,11 +6060,16 @@ setTimeout(function() {
 <div class="bg-white rounded-xl border border-gray-200 p-4 flex flex-col items-center text-center gap-3 hover:shadow-md transition md:flex-row md:text-left md:justify-between">
 <div>
 <div class="font-bold text-sm text-gray-800">Joining an existing school?</div>
-<div class="text-xs text-gray-500">Watch: How to join a school as a teacher</div>
+<div class="text-xs text-gray-500">Open TrackEDU and join your existing school.</div>
 </div>
-<button class="px-4 py-2 bg-green-600 text-white rounded-lg font-semibold text-xs hover:bg-green-700 transition flex items-center gap-2" onclick="openTutorialVideo('join')">
-<i class="fas fa-play-circle"></i> Watch Tutorial
-              </button>
+<a
+  class="px-4 py-2 bg-green-600 text-white rounded-lg font-semibold text-xs hover:bg-green-700 transition flex items-center gap-2"
+  href="https://housepoint.trackedu.net/"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <i class="fas fa-arrow-up-right-from-square"></i> Open TrackEDU
+</a>
 </div>
 <!-- Divider -->
 
