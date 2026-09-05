@@ -2138,7 +2138,13 @@ html { scroll-padding-top: 100px; }
 <a class="text-sm font-bold text-gray-800 hover:text-brand-blue transition" href="#pricing">Pricing</a>
 <a class="text-sm font-bold text-gray-800 hover:text-brand-blue transition" href="#roadmap">What's New</a>
 <a class="text-sm font-bold text-gray-800 hover:text-brand-blue transition" href="#faq">FAQ</a>
-<button class="text-sm font-bold text-gray-800 hover:text-brand-blue transition" onclick="openTrustModal();">Data &amp; Trust</button>
+<button
+  class="text-sm font-bold text-gray-800 hover:text-brand-blue transition flex items-center gap-1.5"
+  onclick="openTrustModal();"
+>
+  <i class="fas fa-shield-halved text-[11px] text-brand-green"></i>
+  Trust Centre
+</button>
 </div>
 <!-- Right Side: Primary Conversion -->
 <div class="flex items-center gap-2">
@@ -2193,7 +2199,13 @@ html { scroll-padding-top: 100px; }
 <a class="mobile-menu-link" href="#pricing" onclick="closeMobileMenu();"><i class="fas fa-tag"></i><span>Pricing</span></a>
 <a class="mobile-menu-link" href="#roadmap" onclick="closeMobileMenu();"><i class="fas fa-gift"></i><span>What's New</span></a>
 <a class="mobile-menu-link" href="#faq" onclick="closeMobileMenu();"><i class="fas fa-question-circle"></i><span>FAQ</span></a>
-<button class="mobile-menu-link w-full text-left" onclick="closeMobileMenu(); openTrustModal();"><i class="fas fa-lock"></i><span>Data &amp; Trust</span></button>
+<button
+  class="mobile-menu-link w-full text-left"
+  onclick="closeMobileMenu(); openTrustModal();"
+>
+  <i class="fas fa-shield-halved"></i>
+  <span>Trust Centre</span>
+</button>
 <a class="mobile-menu-link" href="/help-center.html" onclick="closeMobileMenu();" target="_blank"><i class="fas fa-life-ring"></i><span>Help Center</span></a>
 <a class="mobile-menu-link" href="/contact.html" onclick="closeMobileMenu();"><i class="fas fa-envelope"></i><span>Contact Us</span></a>
 </div>
@@ -6107,12 +6119,62 @@ setTimeout(function() {
 </div>
 <!-- Trust Centre -->
 <div>
-<h5 class="font-bold text-xs uppercase tracking-wider text-brand-green mb-3">Trust Centre</h5>
+<h5 class="font-bold text-xs uppercase tracking-wider text-brand-green mb-3">
+  Trust Centre
+</h5>
+
 <ul class="space-y-2 text-sm text-gray-400">
-<li><button class="hover:text-white transition" onclick="openTrustModal()">Data &amp; Trust</button></li>
-<li><a class="hover:text-white transition" href="/privacy.html" target="_blank">Privacy Policy</a></li>
-<li><a class="hover:text-white transition" href="/dpa.html" target="_blank">DPA</a></li>
-<li><a class="hover:text-white transition" href="/terms.html" target="_blank">Terms of Use</a></li>
+
+<li>
+  <button
+    class="hover:text-white transition font-semibold"
+    onclick="openTrustModal()"
+  >
+    <i class="fas fa-shield-halved text-brand-green text-xs mr-1"></i>
+    Privacy &amp; Security
+  </button>
+</li>
+
+<li>
+  <button
+    class="hover:text-white transition"
+    onclick="downloadTrustCentrePDF()"
+  >
+    <i class="fas fa-file-pdf text-brand-green text-xs mr-1"></i>
+    Download Trust Summary
+  </button>
+</li>
+
+<li>
+  <a
+    class="hover:text-white transition"
+    href="/privacy.html"
+    target="_blank"
+  >
+    Privacy Policy
+  </a>
+</li>
+
+<li>
+  <a
+    class="hover:text-white transition"
+    href="/dpa.html"
+    target="_blank"
+  >
+    Data Processing Agreement
+  </a>
+</li>
+
+<li>
+  <a
+    class="hover:text-white transition"
+    href="/terms.html"
+    target="_blank"
+  >
+    Terms of Use
+  </a>
+</li>
+
 </ul>
 </div>
 <!-- For Schools -->
@@ -6194,85 +6256,1258 @@ setTimeout(function() {
 </div>
 </div>
 </div>
-<div class="fixed inset-0 z-[9999] hidden" id="trustModal">
-<div class="absolute inset-0 bg-gray-900/80 backdrop-blur-sm" onclick="closeTrustModal()"></div>
-<div class="relative w-full h-full md:h-[95vh] md:w-[95vw] md:max-w-6xl md:m-auto md:top-1/2 md:-translate-y-1/2 bg-white md:rounded-3xl shadow-2xl flex flex-col overflow-hidden">
-<div class="px-8 py-5 border-b flex justify-between items-center bg-gray-50 sticky top-0 z-50">
-<div class="flex flex-col">
-<h3 class="font-display text-2xl font-black text-brand-dark">Trust, Vision &amp; Data</h3>
-<span class="text-xs text-gray-500">Why schools choose TrackEDU</span>
-</div>
-<button class="w-10 h-10 bg-gray-200 rounded-full hover:bg-gray-300 transition flex items-center justify-center text-gray-700" onclick="closeTrustModal()">×</button>
-</div>
-<div class="flex-1 overflow-y-auto p-8 md:p-12">
-<div class="max-w-4xl mx-auto space-y-16">
-<section>
-<div class="text-center mb-10">
-<span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-bold uppercase">Data &amp; Trust</span>
-<h2 class="text-3xl font-bold text-brand-dark mt-4 mb-6">Designed with student data in mind.</h2>
-<p class="text-xl text-gray-600 leading-relaxed">
-              TrackEDU is built on secure cloud infrastructure and designed to reduce unnecessary data exposure. Schools retain control of their records, exports, and account deletion.
+<div
+  class="fixed inset-0 z-[9999] hidden"
+  id="trustModal"
+>
+  <div
+    class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm"
+    onclick="closeTrustModal()"
+  ></div>
+
+  <div
+    class="
+      relative
+      w-full h-full
+      md:h-[94vh]
+      md:w-[94vw]
+      md:max-w-6xl
+      md:m-auto
+      md:top-1/2
+      md:-translate-y-1/2
+      bg-white
+      md:rounded-3xl
+      shadow-2xl
+      flex
+      flex-col
+      overflow-hidden
+    "
+  >
+
+    <!-- ======================================
+         HEADER
+         ====================================== -->
+    <div
+      class="
+        px-5 sm:px-8
+        py-4 sm:py-5
+        border-b
+        bg-white
+        flex
+        items-center
+        justify-between
+        gap-4
+        sticky
+        top-0
+        z-50
+      "
+    >
+      <div class="flex items-center gap-3 min-w-0">
+
+        <div
+          class="
+            w-11 h-11
+            rounded-xl
+            bg-green-50
+            text-brand-green
+            flex
+            items-center
+            justify-center
+            shrink-0
+          "
+        >
+          <i class="fas fa-shield-halved text-xl"></i>
+        </div>
+
+        <div class="min-w-0">
+
+          <div
+            class="
+              text-[10px]
+              font-black
+              uppercase
+              tracking-[0.16em]
+              text-brand-green
+              mb-0.5
+            "
+          >
+            TrackEDU Trust Centre
+          </div>
+
+          <h3
+            class="
+              font-display
+              text-xl sm:text-2xl
+              font-black
+              text-brand-dark
+              leading-tight
+            "
+          >
+            Privacy, Security &amp; Data
+          </h3>
+
+        </div>
+      </div>
+
+
+      <div class="flex items-center gap-2 shrink-0">
+
+        <button
+          class="
+            hidden sm:inline-flex
+            items-center
+            gap-2
+            px-4 py-2
+            rounded-xl
+            bg-brand-blue
+            text-white
+            text-xs
+            font-black
+            hover:bg-blue-700
+            transition
+          "
+          onclick="downloadTrustCentrePDF()"
+        >
+          <i class="fas fa-file-pdf"></i>
+          Download PDF
+        </button>
+
+        <button
+          aria-label="Close Trust Centre"
+          class="
+            w-10 h-10
+            rounded-full
+            bg-gray-100
+            hover:bg-gray-200
+            text-gray-600
+            flex
+            items-center
+            justify-center
+            transition
+          "
+          onclick="closeTrustModal()"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+
+      </div>
+    </div>
+
+
+    <!-- ======================================
+         CONTENT
+         ====================================== -->
+    <div class="flex-1 overflow-y-auto">
+
+      <div class="max-w-5xl mx-auto px-5 sm:px-8 py-7 sm:py-10">
+
+
+        <!-- HERO -->
+        <section
+          class="
+            relative
+            overflow-hidden
+            rounded-3xl
+            bg-slate-950
+            text-white
+            p-6 sm:p-9
+            mb-7
+          "
+        >
+
+          <div
+            class="
+              absolute
+              -right-20
+              -top-20
+              w-64 h-64
+              rounded-full
+              bg-brand-green/10
+              blur-3xl
+              pointer-events-none
+            "
+          ></div>
+
+          <div class="relative z-10 max-w-3xl">
+
+            <span
+              class="
+                inline-flex
+                items-center
+                gap-2
+                bg-white/10
+                border
+                border-white/10
+                rounded-full
+                px-3 py-1
+                text-[10px]
+                font-black
+                uppercase
+                tracking-wider
+                mb-4
+              "
+            >
+              <i class="fas fa-school text-brand-green"></i>
+              Built for school data reviews
+            </span>
+
+            <h2
+              class="
+                font-display
+                text-3xl sm:text-4xl
+                font-black
+                leading-tight
+                mb-4
+              "
+            >
+              Understand how TrackEDU handles school data in minutes.
+            </h2>
+
+            <p
+              class="
+                text-slate-300
+                text-sm sm:text-base
+                leading-relaxed
+                max-w-2xl
+              "
+            >
+              Clear information for school leaders, IT teams,
+              data-protection leads and procurement teams considering
+              TrackEDU.
             </p>
-</div>
-<div class="grid md:grid-cols-2 gap-8 text-gray-700">
-<div class="bg-gray-50 p-6 rounded-2xl">
-<h4 class="font-bold text-lg mb-2">Privacy-conscious architecture</h4>
-<p>TrackEDU does not sell student data, does not run advertisements, and does not track students across the web.</p>
-</div>
-<div class="bg-blue-50 p-6 rounded-2xl">
-<h4 class="font-bold text-lg mb-2 text-brand-blue">Student access without email accounts</h4>
-<p>The Student Portal uses auto-generated student ID tokens and class passcodes, so students do not need personal email addresses or passwords to access their portal.</p>
-</div>
-</div>
-</section>
-<section class="border-t pt-10 mt-10">
-<div class="text-center mb-10">
-<h2 class="text-3xl font-bold text-brand-dark mt-4 mb-6">Data Sovereignty &amp; Control</h2>
-</div>
-<div class="grid md:grid-cols-3 gap-6">
-<div class="bg-white border p-6 rounded-xl shadow-sm">
-<i class="fas fa-cloud text-4xl mb-4 text-brand-blue"></i>
-<h4 class="font-bold text-lg mb-2">Secure Firebase infrastructure</h4>
-<p class="text-sm text-gray-600">TrackEDU uses secure cloud infrastructure with encrypted data transmission and protected database access.</p>
-</div>
-<div class="bg-white border p-6 rounded-xl shadow-sm">
-<i class="fas fa-trash-alt text-4xl mb-4 text-brand-blue"></i>
-<h4 class="font-bold text-lg mb-2">The Right to Erase</h4>
-<p class="text-sm text-gray-600">Schools retain full ownership of their data. If you cancel your contract, you can permanently wipe your entire school database with a single click.</p>
-</div>
-<div class="bg-white border p-6 rounded-xl shadow-sm">
-<i class="fas fa-file-export text-4xl mb-4 text-brand-blue"></i>
-<h4 class="font-bold text-lg mb-2">Easy Exports</h4>
-<p class="text-sm text-gray-600">Need your data for report cards? Administrators can export all points, history, and student rosters to CSV at any time.</p>
-</div>
-</div>
-</section>
-<!-- Data Control Section - NEW -->
-<section class="mt-8 pt-6 border-t border-gray-100">
-<div class="flex items-center gap-3 mb-4">
-<i class="fas fa-database text-brand-green text-xl"></i>
-<h3 class="font-bold text-lg text-brand-dark">You control your data</h3>
-</div>
-<p class="text-gray-600 text-sm leading-relaxed mb-4">
-    TrackEDU gives school administrators direct access to data management tools. You can export, reset, or permanently delete your school's data at any time without needing to contact support.
-  </p>
-<div class="grid grid-cols-2 gap-3 text-xs">
-<div class="flex items-center gap-2 text-gray-600"><i class="fas fa-download text-brand-green"></i> Export to CSV</div>
-<div class="flex items-center gap-2 text-gray-600"><i class="fas fa-trash-alt text-brand-green"></i> Full system wipe</div>
-<div class="flex items-center gap-2 text-gray-600"><i class="fas fa-sync-alt text-brand-green"></i> Reset points</div>
-<div class="flex items-center gap-2 text-gray-600"><i class="fas fa-eraser text-brand-green"></i> Clear history</div>
-</div>
-</section>
-<!-- Privacy Policy Link - Keep this as is -->
-<section class="mt-8 pt-6 border-t border-gray-100 text-center">
-<p class="text-gray-500 mb-4">For full legal details regarding data handling, ownership, and privacy compliance:</p>
-<a class="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-gray-100 text-gray-700 font-bold hover:bg-gray-200 transition" href="/privacy.html" target="_blank">
-<i class="fas fa-file-contract"></i> Read Full Privacy Policy
-  </a>
-</section>
-</div>
-</div>
-</div>
+
+          </div>
+
+
+          <div
+            class="
+              relative
+              z-10
+              grid
+              grid-cols-2
+              sm:grid-cols-4
+              gap-2
+              mt-7
+            "
+          >
+
+            <div
+              class="
+                rounded-xl
+                bg-white/8
+                border
+                border-white/10
+                p-3
+              "
+            >
+              <i class="fas fa-ban text-brand-green mb-2"></i>
+
+              <div class="text-xs font-black">
+                No advertising
+              </div>
+
+              <div class="text-[10px] text-slate-400 mt-1">
+                No ad-supported student experience
+              </div>
+            </div>
+
+
+            <div
+              class="
+                rounded-xl
+                bg-white/8
+                border
+                border-white/10
+                p-3
+              "
+            >
+              <i class="fas fa-envelope-circle-xmark text-brand-green mb-2"></i>
+
+              <div class="text-xs font-black">
+                No student email required
+              </div>
+
+              <div class="text-[10px] text-slate-400 mt-1">
+                Student Portal access without personal email accounts
+              </div>
+            </div>
+
+
+            <div
+              class="
+                rounded-xl
+                bg-white/8
+                border
+                border-white/10
+                p-3
+              "
+            >
+              <i class="fas fa-database text-brand-green mb-2"></i>
+
+              <div class="text-xs font-black">
+                School data controls
+              </div>
+
+              <div class="text-[10px] text-slate-400 mt-1">
+                Export and deletion tools for administrators
+              </div>
+            </div>
+
+
+            <div
+              class="
+                rounded-xl
+                bg-white/8
+                border
+                border-white/10
+                p-3
+              "
+            >
+              <i class="fas fa-shield-halved text-brand-green mb-2"></i>
+
+              <div class="text-xs font-black">
+                ICO registered
+              </div>
+
+              <div class="text-[10px] text-slate-400 mt-1">
+                Registration reference ZC146923
+              </div>
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- ==================================
+             QUICK ANSWERS
+             ================================== -->
+
+        <section class="mb-9">
+
+          <div class="mb-5">
+
+            <span
+              class="
+                text-[10px]
+                font-black
+                uppercase
+                tracking-[0.16em]
+                text-brand-blue
+              "
+            >
+              Quick answers
+            </span>
+
+            <h2
+              class="
+                font-display
+                text-2xl
+                font-black
+                text-brand-dark
+                mt-1
+              "
+            >
+              The questions schools usually ask first.
+            </h2>
+
+          </div>
+
+
+          <div class="grid md:grid-cols-2 gap-3">
+
+
+            <div
+              class="
+                border
+                border-gray-200
+                rounded-2xl
+                p-5
+                bg-white
+              "
+            >
+              <div class="flex gap-3">
+
+                <div
+                  class="
+                    w-9 h-9
+                    rounded-xl
+                    bg-green-50
+                    text-brand-green
+                    flex
+                    items-center
+                    justify-center
+                    shrink-0
+                  "
+                >
+                  <i class="fas fa-dollar-sign"></i>
+                </div>
+
+                <div>
+                  <h4 class="font-black text-brand-dark text-sm">
+                    Does TrackEDU sell student data?
+                  </h4>
+
+                  <p
+                    class="
+                      text-sm
+                      text-gray-600
+                      leading-relaxed
+                      mt-1
+                    "
+                  >
+                    No. TrackEDU does not sell student data
+                    and does not use student records for advertising.
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+
+            <div
+              class="
+                border
+                border-gray-200
+                rounded-2xl
+                p-5
+                bg-white
+              "
+            >
+              <div class="flex gap-3">
+
+                <div
+                  class="
+                    w-9 h-9
+                    rounded-xl
+                    bg-blue-50
+                    text-brand-blue
+                    flex
+                    items-center
+                    justify-center
+                    shrink-0
+                  "
+                >
+                  <i class="fas fa-user-graduate"></i>
+                </div>
+
+                <div>
+                  <h4 class="font-black text-brand-dark text-sm">
+                    Do students need email accounts?
+                  </h4>
+
+                  <p
+                    class="
+                      text-sm
+                      text-gray-600
+                      leading-relaxed
+                      mt-1
+                    "
+                  >
+                    No. The Student Portal uses student identifiers
+                    and school-managed access rather than requiring
+                    students to create personal email accounts.
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+
+            <div
+              class="
+                border
+                border-gray-200
+                rounded-2xl
+                p-5
+                bg-white
+              "
+            >
+              <div class="flex gap-3">
+
+                <div
+                  class="
+                    w-9 h-9
+                    rounded-xl
+                    bg-purple-50
+                    text-purple-600
+                    flex
+                    items-center
+                    justify-center
+                    shrink-0
+                  "
+                >
+                  <i class="fas fa-user-lock"></i>
+                </div>
+
+                <div>
+                  <h4 class="font-black text-brand-dark text-sm">
+                    Who controls school records?
+                  </h4>
+
+                  <p
+                    class="
+                      text-sm
+                      text-gray-600
+                      leading-relaxed
+                      mt-1
+                    "
+                  >
+                    School administrators have tools to manage,
+                    export and delete school records within TrackEDU.
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+
+            <div
+              class="
+                border
+                border-gray-200
+                rounded-2xl
+                p-5
+                bg-white
+              "
+            >
+              <div class="flex gap-3">
+
+                <div
+                  class="
+                    w-9 h-9
+                    rounded-xl
+                    bg-amber-50
+                    text-amber-600
+                    flex
+                    items-center
+                    justify-center
+                    shrink-0
+                  "
+                >
+                  <i class="fas fa-file-signature"></i>
+                </div>
+
+                <div>
+                  <h4 class="font-black text-brand-dark text-sm">
+                    Can our school review the legal documents?
+                  </h4>
+
+                  <p
+                    class="
+                      text-sm
+                      text-gray-600
+                      leading-relaxed
+                      mt-1
+                    "
+                  >
+                    Yes. The Privacy Policy, Data Processing
+                    Agreement and Terms of Use are available directly
+                    from this Trust Centre.
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- ==================================
+             DATA LIFECYCLE
+             ================================== -->
+
+        <section
+          class="
+            bg-gray-50
+            border
+            border-gray-200
+            rounded-3xl
+            p-5 sm:p-7
+            mb-9
+          "
+        >
+
+          <div class="mb-6">
+
+            <span
+              class="
+                text-[10px]
+                font-black
+                uppercase
+                tracking-[0.16em]
+                text-brand-green
+              "
+            >
+              Data lifecycle
+            </span>
+
+            <h2
+              class="
+                font-display
+                text-2xl
+                font-black
+                text-brand-dark
+                mt-1
+              "
+            >
+              From school setup to deletion.
+            </h2>
+
+          </div>
+
+
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+
+
+            <div class="bg-white rounded-2xl border p-4">
+
+              <div
+                class="
+                  w-8 h-8
+                  rounded-lg
+                  bg-blue-50
+                  text-brand-blue
+                  flex
+                  items-center
+                  justify-center
+                  mb-3
+                "
+              >
+                <i class="fas fa-upload text-sm"></i>
+              </div>
+
+              <h4 class="font-black text-sm text-brand-dark">
+                1. School adds data
+              </h4>
+
+              <p class="text-xs text-gray-500 mt-1 leading-relaxed">
+                Schools add the information needed to operate their
+                TrackEDU environment, including staff, classes,
+                houses and student records.
+              </p>
+
+            </div>
+
+
+            <div class="bg-white rounded-2xl border p-4">
+
+              <div
+                class="
+                  w-8 h-8
+                  rounded-lg
+                  bg-green-50
+                  text-brand-green
+                  flex
+                  items-center
+                  justify-center
+                  mb-3
+                "
+              >
+                <i class="fas fa-cloud text-sm"></i>
+              </div>
+
+              <h4 class="font-black text-sm text-brand-dark">
+                2. Data supports the service
+              </h4>
+
+              <p class="text-xs text-gray-500 mt-1 leading-relaxed">
+                School records are used to provide TrackEDU features
+                such as points, leaderboards, student access,
+                reporting and behaviour workflows.
+              </p>
+
+            </div>
+
+
+            <div class="bg-white rounded-2xl border p-4">
+
+              <div
+                class="
+                  w-8 h-8
+                  rounded-lg
+                  bg-purple-50
+                  text-purple-600
+                  flex
+                  items-center
+                  justify-center
+                  mb-3
+                "
+              >
+                <i class="fas fa-file-export text-sm"></i>
+              </div>
+
+              <h4 class="font-black text-sm text-brand-dark">
+                3. Schools can export
+              </h4>
+
+              <p class="text-xs text-gray-500 mt-1 leading-relaxed">
+                Administrators can export supported school records
+                and reporting data when needed.
+              </p>
+
+            </div>
+
+
+            <div class="bg-white rounded-2xl border p-4">
+
+              <div
+                class="
+                  w-8 h-8
+                  rounded-lg
+                  bg-red-50
+                  text-red-600
+                  flex
+                  items-center
+                  justify-center
+                  mb-3
+                "
+              >
+                <i class="fas fa-trash text-sm"></i>
+              </div>
+
+              <h4 class="font-black text-sm text-brand-dark">
+                4. Schools can delete
+              </h4>
+
+              <p class="text-xs text-gray-500 mt-1 leading-relaxed">
+                Administrative data-management tools allow schools
+                to permanently remove school data when required.
+              </p>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- ==================================
+             SECURITY + INFRASTRUCTURE
+             ================================== -->
+
+        <section class="mb-9">
+
+          <div class="mb-5">
+
+            <span
+              class="
+                text-[10px]
+                font-black
+                uppercase
+                tracking-[0.16em]
+                text-brand-blue
+              "
+            >
+              Security &amp; infrastructure
+            </span>
+
+            <h2
+              class="
+                font-display
+                text-2xl
+                font-black
+                text-brand-dark
+                mt-1
+              "
+            >
+              How TrackEDU is delivered.
+            </h2>
+
+          </div>
+
+
+          <div class="grid md:grid-cols-3 gap-3">
+
+
+            <div
+              class="
+                rounded-2xl
+                border
+                border-gray-200
+                p-5
+              "
+            >
+              <i
+                class="
+                  fab
+                  fa-google
+                  text-brand-blue
+                  text-xl
+                  mb-3
+                "
+              ></i>
+
+              <h4 class="font-black text-brand-dark text-sm">
+                Google authentication
+              </h4>
+
+              <p class="text-xs text-gray-500 mt-2 leading-relaxed">
+                TrackEDU uses Google Sign-In for supported
+                authenticated school-user access.
+              </p>
+
+            </div>
+
+
+            <div
+              class="
+                rounded-2xl
+                border
+                border-gray-200
+                p-5
+              "
+            >
+              <i
+                class="
+                  fas
+                  fa-database
+                  text-amber-500
+                  text-xl
+                  mb-3
+                "
+              ></i>
+
+              <h4 class="font-black text-brand-dark text-sm">
+                Firebase infrastructure
+              </h4>
+
+              <p class="text-xs text-gray-500 mt-2 leading-relaxed">
+                TrackEDU uses Firebase services for cloud database
+                and application infrastructure.
+              </p>
+
+            </div>
+
+
+            <div
+              class="
+                rounded-2xl
+                border
+                border-gray-200
+                p-5
+              "
+            >
+              <i
+                class="
+                  fas
+                  fa-user-shield
+                  text-brand-green
+                  text-xl
+                  mb-3
+                "
+              ></i>
+
+              <h4 class="font-black text-brand-dark text-sm">
+                Managed access
+              </h4>
+
+              <p class="text-xs text-gray-500 mt-2 leading-relaxed">
+                TrackEDU uses authentication and application access
+                controls to separate school and administrative
+                workflows.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="
+              mt-4
+              bg-amber-50
+              border
+              border-amber-200
+              rounded-2xl
+              p-4
+              text-xs
+              text-amber-900
+              leading-relaxed
+            "
+          >
+            <strong>Important:</strong>
+            This Trust Centre explains TrackEDU's current product
+            architecture and data practices. It is not a substitute
+            for your school's own legal, safeguarding or
+            data-protection assessment.
+          </div>
+
+        </section>
+
+
+        <!-- ==================================
+             COMPANY + ACCOUNTABILITY
+             ================================== -->
+
+        <section
+          class="
+            rounded-3xl
+            border
+            border-gray-200
+            overflow-hidden
+            mb-9
+          "
+        >
+
+          <div
+            class="
+              bg-slate-950
+              text-white
+              px-5 sm:px-7
+              py-5
+            "
+          >
+            <span
+              class="
+                text-[10px]
+                font-black
+                uppercase
+                tracking-[0.16em]
+                text-brand-green
+              "
+            >
+              Company information
+            </span>
+
+            <h2
+              class="
+                font-display
+                text-2xl
+                font-black
+                mt-1
+              "
+            >
+              Clear accountability.
+            </h2>
+          </div>
+
+
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4">
+
+            <div class="p-5 border-b sm:border-r lg:border-b-0">
+              <div class="text-[10px] text-gray-400 uppercase font-black">
+                Legal entity
+              </div>
+
+              <div class="font-black text-brand-dark mt-1">
+                TrackEDU Ltd
+              </div>
+
+              <div class="text-xs text-gray-500 mt-1">
+                England &amp; Wales
+              </div>
+            </div>
+
+
+            <div class="p-5 border-b lg:border-r lg:border-b-0">
+              <div class="text-[10px] text-gray-400 uppercase font-black">
+                Company number
+              </div>
+
+              <div class="font-black text-brand-dark mt-1">
+                17216557
+              </div>
+
+              <div class="text-xs text-gray-500 mt-1">
+                UK registered company
+              </div>
+            </div>
+
+
+            <div class="p-5 border-b sm:border-r sm:border-b-0">
+              <div class="text-[10px] text-gray-400 uppercase font-black">
+                ICO registration
+              </div>
+
+              <div class="font-black text-brand-dark mt-1">
+                ZC146923
+              </div>
+
+              <div class="text-xs text-gray-500 mt-1">
+                Data protection registration
+              </div>
+            </div>
+
+
+            <div class="p-5">
+              <div class="text-[10px] text-gray-400 uppercase font-black">
+                Contact
+              </div>
+
+              <a
+                class="
+                  font-black
+                  text-brand-blue
+                  mt-1
+                  block
+                  break-all
+                "
+                href="mailto:hello@trackedu.net"
+              >
+                hello@trackedu.net
+              </a>
+
+              <div class="text-xs text-gray-500 mt-1">
+                Privacy and procurement enquiries
+              </div>
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- ==================================
+             PROCUREMENT DOCUMENTS
+             ================================== -->
+
+        <section>
+
+          <div class="text-center max-w-2xl mx-auto mb-6">
+
+            <span
+              class="
+                text-[10px]
+                font-black
+                uppercase
+                tracking-[0.16em]
+                text-brand-green
+              "
+            >
+              For procurement teams
+            </span>
+
+            <h2
+              class="
+                font-display
+                text-2xl sm:text-3xl
+                font-black
+                text-brand-dark
+                mt-1
+              "
+            >
+              Take the information with you.
+            </h2>
+
+            <p
+              class="
+                text-sm
+                text-gray-500
+                mt-2
+                leading-relaxed
+              "
+            >
+              Download the short Trust Summary or review the full
+              legal documents with your IT, procurement or
+              data-protection team.
+            </p>
+
+          </div>
+
+
+          <div
+            class="
+              grid
+              sm:grid-cols-2
+              lg:grid-cols-4
+              gap-3
+            "
+          >
+
+            <button
+              class="
+                rounded-2xl
+                bg-brand-blue
+                text-white
+                p-5
+                text-left
+                hover:bg-blue-700
+                transition
+              "
+              onclick="downloadTrustCentrePDF()"
+            >
+              <i class="fas fa-file-pdf text-xl mb-3"></i>
+
+              <div class="font-black text-sm">
+                Trust Summary
+              </div>
+
+              <div class="text-[10px] text-blue-100 mt-1">
+                Download PDF
+              </div>
+            </button>
+
+
+            <a
+              class="
+                rounded-2xl
+                border
+                border-gray-200
+                bg-white
+                p-5
+                text-left
+                hover:border-brand-blue
+                transition
+              "
+              href="/privacy.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fas fa-user-shield text-brand-blue text-xl mb-3"></i>
+
+              <div class="font-black text-sm text-brand-dark">
+                Privacy Policy
+              </div>
+
+              <div class="text-[10px] text-gray-500 mt-1">
+                Read full policy
+              </div>
+            </a>
+
+
+            <a
+              class="
+                rounded-2xl
+                border
+                border-gray-200
+                bg-white
+                p-5
+                text-left
+                hover:border-brand-blue
+                transition
+              "
+              href="/dpa.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fas fa-file-signature text-brand-green text-xl mb-3"></i>
+
+              <div class="font-black text-sm text-brand-dark">
+                Data Processing Agreement
+              </div>
+
+              <div class="text-[10px] text-gray-500 mt-1">
+                Review the DPA
+              </div>
+            </a>
+
+
+            <a
+              class="
+                rounded-2xl
+                border
+                border-gray-200
+                bg-white
+                p-5
+                text-left
+                hover:border-brand-blue
+                transition
+              "
+              href="/terms.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fas fa-scale-balanced text-purple-600 text-xl mb-3"></i>
+
+              <div class="font-black text-sm text-brand-dark">
+                Terms of Use
+              </div>
+
+              <div class="text-[10px] text-gray-500 mt-1">
+                Review terms
+              </div>
+            </a>
+
+          </div>
+
+
+          <div
+            class="
+              mt-6
+              flex
+              flex-col
+              sm:flex-row
+              items-center
+              justify-between
+              gap-4
+              bg-green-50
+              border
+              border-green-100
+              rounded-2xl
+              p-5
+            "
+          >
+
+            <div>
+
+              <div class="font-black text-brand-dark text-sm">
+                Your school has another security or privacy question?
+              </div>
+
+              <div class="text-xs text-gray-500 mt-1">
+                Send it directly to TrackEDU before you start your pilot.
+              </div>
+
+            </div>
+
+            <a
+              class="
+                shrink-0
+                inline-flex
+                items-center
+                gap-2
+                rounded-xl
+                bg-brand-green
+                text-white
+                px-5 py-3
+                text-xs
+                font-black
+                hover:bg-green-600
+                transition
+              "
+              href="mailto:hello@trackedu.net?subject=TrackEDU%20Privacy%20%26%20Security%20Question"
+            >
+              <i class="fas fa-envelope"></i>
+              Ask TrackEDU
+            </a>
+
+          </div>
+
+        </section>
+
+
+        <!-- MOBILE PDF BUTTON -->
+        <div class="sm:hidden mt-7">
+
+          <button
+            class="
+              w-full
+              py-3.5
+              rounded-xl
+              bg-brand-blue
+              text-white
+              font-black
+              text-sm
+              flex
+              items-center
+              justify-center
+              gap-2
+            "
+            onclick="downloadTrustCentrePDF()"
+          >
+            <i class="fas fa-file-pdf"></i>
+            Download Trust Summary PDF
+          </button>
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
 </div>
 <!-- INVOICE SUCCESS MODAL -->
 <div class="fixed inset-0 z-[10000] hidden overflow-y-auto" id="invoiceSuccessModal">
@@ -7417,8 +8652,606 @@ function openStudentAppPreview() {
     });
   };
 
-  setupModal('pilotModal', 'openPilotModal', 'closePilotModal');
-  setupModal('trustModal', 'openTrustModal', 'closeTrustModal');
+  setupModal(
+    'pilotModal',
+    'openPilotModal',
+    'closePilotModal'
+  );
+
+  setupModal(
+    'trustModal',
+    'openTrustModal',
+    'closeTrustModal'
+  );
+
+
+  // ==========================================
+  // TRACKEDU TRUST CENTRE PDF
+  // ==========================================
+  function downloadTrustCentrePDF() {
+    if (
+      !window.jspdf ||
+      !window.jspdf.jsPDF
+    ) {
+      alert(
+        'The PDF generator is still loading. Please try again in a moment.'
+      );
+
+      return;
+    }
+
+    const { jsPDF } =
+      window.jspdf;
+
+    const pdf =
+      new jsPDF({
+        orientation: 'portrait',
+        unit: 'mm',
+        format: 'a4'
+      });
+
+    const pageWidth =
+      pdf.internal.pageSize.getWidth();
+
+    const pageHeight =
+      pdf.internal.pageSize.getHeight();
+
+    const margin =
+      18;
+
+    const contentWidth =
+      pageWidth - (margin * 2);
+
+    let y =
+      18;
+
+
+    function ensureSpace(
+      requiredHeight = 24
+    ) {
+      if (
+        y + requiredHeight >
+        pageHeight - 18
+      ) {
+        pdf.addPage();
+        y = 18;
+
+        addPageHeader();
+      }
+    }
+
+
+    function addPageHeader() {
+      pdf.setFont(
+        'helvetica',
+        'bold'
+      );
+
+      pdf.setFontSize(9);
+
+      pdf.setTextColor(
+        15,
+        102,
+        195
+      );
+
+      pdf.text(
+        'TrackEDU Trust Centre',
+        margin,
+        y
+      );
+
+      pdf.setTextColor(
+        100,
+        116,
+        139
+      );
+
+      pdf.setFont(
+        'helvetica',
+        'normal'
+      );
+
+      pdf.text(
+        'Privacy, Security & Data',
+        pageWidth - margin,
+        y,
+        {
+          align: 'right'
+        }
+      );
+
+      y += 8;
+
+      pdf.setDrawColor(
+        226,
+        232,
+        240
+      );
+
+      pdf.line(
+        margin,
+        y,
+        pageWidth - margin,
+        y
+      );
+
+      y += 8;
+    }
+
+
+    function addHeading(
+      text
+    ) {
+      ensureSpace(20);
+
+      pdf.setFont(
+        'helvetica',
+        'bold'
+      );
+
+      pdf.setFontSize(15);
+
+      pdf.setTextColor(
+        12,
+        30,
+        44
+      );
+
+      const lines =
+        pdf.splitTextToSize(
+          text,
+          contentWidth
+        );
+
+      pdf.text(
+        lines,
+        margin,
+        y
+      );
+
+      y +=
+        (lines.length * 7) +
+        3;
+    }
+
+
+    function addBody(
+      text
+    ) {
+      ensureSpace(18);
+
+      pdf.setFont(
+        'helvetica',
+        'normal'
+      );
+
+      pdf.setFontSize(9.5);
+
+      pdf.setTextColor(
+        71,
+        85,
+        105
+      );
+
+      const lines =
+        pdf.splitTextToSize(
+          text,
+          contentWidth
+        );
+
+      pdf.text(
+        lines,
+        margin,
+        y
+      );
+
+      y +=
+        (lines.length * 4.6) +
+        4;
+    }
+
+
+    function addItem(
+      title,
+      body
+    ) {
+      ensureSpace(24);
+
+      pdf.setFont(
+        'helvetica',
+        'bold'
+      );
+
+      pdf.setFontSize(10.5);
+
+      pdf.setTextColor(
+        12,
+        30,
+        44
+      );
+
+      pdf.text(
+        title,
+        margin,
+        y
+      );
+
+      y += 5;
+
+      pdf.setFont(
+        'helvetica',
+        'normal'
+      );
+
+      pdf.setFontSize(9.2);
+
+      pdf.setTextColor(
+        71,
+        85,
+        105
+      );
+
+      const lines =
+        pdf.splitTextToSize(
+          body,
+          contentWidth
+        );
+
+      pdf.text(
+        lines,
+        margin,
+        y
+      );
+
+      y +=
+        (lines.length * 4.4) +
+        5;
+    }
+
+
+    // ------------------------------------------
+    // COVER
+    // ------------------------------------------
+    pdf.setFillColor(
+      12,
+      30,
+      44
+    );
+
+    pdf.rect(
+      0,
+      0,
+      pageWidth,
+      73,
+      'F'
+    );
+
+    pdf.setFont(
+      'helvetica',
+      'bold'
+    );
+
+    pdf.setFontSize(11);
+
+    pdf.setTextColor(
+      135,
+      194,
+      50
+    );
+
+    pdf.text(
+      'TRACKEDU TRUST CENTRE',
+      margin,
+      22
+    );
+
+    pdf.setFontSize(27);
+
+    pdf.setTextColor(
+      255,
+      255,
+      255
+    );
+
+    pdf.text(
+      'Privacy, Security',
+      margin,
+      38
+    );
+
+    pdf.text(
+      '& Data',
+      margin,
+      50
+    );
+
+    pdf.setFont(
+      'helvetica',
+      'normal'
+    );
+
+    pdf.setFontSize(10);
+
+    pdf.setTextColor(
+      203,
+      213,
+      225
+    );
+
+    pdf.text(
+      'A practical trust summary for school leaders,',
+      margin,
+      61
+    );
+
+    pdf.text(
+      'IT teams, procurement teams and data-protection leads.',
+      margin,
+      67
+    );
+
+    y = 88;
+
+
+    addHeading(
+      'TrackEDU at a glance'
+    );
+
+    addBody(
+      'TrackEDU is a school culture platform combining house points, student engagement and behaviour tracking. This summary explains the current product architecture and data practices in plain language.'
+    );
+
+
+    addItem(
+      'No advertising',
+      'TrackEDU does not provide an advertising-supported student experience and does not use student records for advertising.'
+    );
+
+
+    addItem(
+      'No student email required',
+      'Students can use the Student Portal without creating personal email accounts.'
+    );
+
+
+    addItem(
+      'School data controls',
+      'School administrators have tools to manage, export and delete school information within TrackEDU.'
+    );
+
+
+    addItem(
+      'No sale of student data',
+      'TrackEDU does not sell student data.'
+    );
+
+
+    addHeading(
+      'How school data is used'
+    );
+
+    addBody(
+      'Schools provide information needed to operate their TrackEDU environment. This can include staff, classes, houses and student records. The information is used to provide TrackEDU functionality such as points, leaderboards, Student Portal access, reporting and behaviour workflows.'
+    );
+
+
+    addHeading(
+      'Student access'
+    );
+
+    addBody(
+      'TrackEDU is designed so Student Portal access does not require each student to create a personal email account. School-managed identifiers and access methods are used instead.'
+    );
+
+
+    addHeading(
+      'School control'
+    );
+
+    addItem(
+      'Export',
+      'Supported school records and reporting information can be exported by administrators.'
+    );
+
+    addItem(
+      'Deletion',
+      'Administrative data-management tools allow schools to permanently remove school data when required.'
+    );
+
+    addItem(
+      'Management',
+      'Schools remain responsible for deciding what information they enter into TrackEDU and for using the platform in accordance with their own policies and legal obligations.'
+    );
+
+
+    addHeading(
+      'Infrastructure'
+    );
+
+    addItem(
+      'Google Sign-In',
+      'TrackEDU uses Google Sign-In for supported authenticated school-user access.'
+    );
+
+    addItem(
+      'Firebase',
+      'TrackEDU uses Firebase services for cloud database and application infrastructure.'
+    );
+
+    addItem(
+      'Access controls',
+      'Authentication and application access controls are used to separate school and administrative workflows.'
+    );
+
+
+    addHeading(
+      'Company & accountability'
+    );
+
+    addItem(
+      'Legal entity',
+      'TrackEDU Ltd. Registered in England and Wales. Company number 17216557.'
+    );
+
+    addItem(
+      'ICO registration',
+      'TrackEDU Ltd is registered with the UK Information Commissioner’s Office. Registration reference: ZC146923.'
+    );
+
+    addItem(
+      'Registered address',
+      '128 City Road, London, EC1V 2NX, United Kingdom.'
+    );
+
+    addItem(
+      'Privacy and procurement contact',
+      'hello@trackedu.net'
+    );
+
+
+    addHeading(
+      'Documents available to schools'
+    );
+
+    addItem(
+      'Privacy Policy',
+      'Available from the TrackEDU website.'
+    );
+
+    addItem(
+      'Data Processing Agreement',
+      'Available for school review from the TrackEDU website.'
+    );
+
+    addItem(
+      'Terms of Use',
+      'Available from the TrackEDU website.'
+    );
+
+
+    addHeading(
+      'Important'
+    );
+
+    addBody(
+      'This document is a plain-language summary of TrackEDU’s current product architecture and data practices. It does not replace the Privacy Policy, Data Processing Agreement, Terms of Use, or a school’s own legal, safeguarding or data-protection assessment.'
+    );
+
+
+    ensureSpace(28);
+
+    pdf.setDrawColor(
+      226,
+      232,
+      240
+    );
+
+    pdf.line(
+      margin,
+      y,
+      pageWidth - margin,
+      y
+    );
+
+    y += 8;
+
+    pdf.setFont(
+      'helvetica',
+      'bold'
+    );
+
+    pdf.setFontSize(9);
+
+    pdf.setTextColor(
+      12,
+      30,
+      44
+    );
+
+    pdf.text(
+      'TrackEDU Ltd',
+      margin,
+      y
+    );
+
+    y += 5;
+
+    pdf.setFont(
+      'helvetica',
+      'normal'
+    );
+
+    pdf.setTextColor(
+      100,
+      116,
+      139
+    );
+
+    pdf.text(
+      'www.trackedu.net  |  hello@trackedu.net',
+      margin,
+      y
+    );
+
+    y += 5;
+
+    pdf.text(
+      'Company No. 17216557  |  ICO Ref. ZC146923',
+      margin,
+      y
+    );
+
+
+    // ------------------------------------------
+    // PAGE NUMBERS
+    // ------------------------------------------
+    const totalPages =
+      pdf.internal
+        .getNumberOfPages();
+
+    for (
+      let pageNumber = 1;
+      pageNumber <= totalPages;
+      pageNumber++
+    ) {
+      pdf.setPage(
+        pageNumber
+      );
+
+      pdf.setFont(
+        'helvetica',
+        'normal'
+      );
+
+      pdf.setFontSize(8);
+
+      pdf.setTextColor(
+        148,
+        163,
+        184
+      );
+
+      pdf.text(
+        `TrackEDU Trust Centre • ${pageNumber} / ${totalPages}`,
+        pageWidth / 2,
+        pageHeight - 8,
+        {
+          align: 'center'
+        }
+      );
+    }
+
+
+    pdf.save(
+      'TrackEDU-Trust-Centre.pdf'
+    );
+  }
+
+
+  window.downloadTrustCentrePDF =
+    downloadTrustCentrePDF;
+
 
   // 5. Pitch Deck Logic
   function openPitchDeck() {
