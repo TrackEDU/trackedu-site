@@ -674,24 +674,16 @@
     .hero-proof-header i { color: var(--green-dark); }
     .hero-image-frame {
   position: absolute;
-  inset: 18px -24px -34px 72px;
+  inset: 64px 34px 34px 84px;
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  overflow: visible;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 28px;
 }
     .hero-image-frame::after {
-      content: "";
-      position: absolute;
-      left: 10%;
-      right: 0;
-      bottom: -6px;
-      height: 110px;
-      background: linear-gradient(to bottom, rgba(248,250,252,0) 0%, rgba(248,250,252,0.5) 45%, rgba(248,250,252,0.85) 72%, rgba(248,250,252,1) 100%);
-      filter: blur(16px);
-      pointer-events: none;
-      z-index: 2;
-    }
+  display: none;
+}
     .hand-phone {
   width: min(570px, 92vw);
   max-width: none;
@@ -3054,7 +3046,10 @@
 }
 
 .hero-clean .hero-proof {
-  min-height: 430px;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-clean .hero-proof-panel {
@@ -3113,8 +3108,8 @@
   }
 
   .hero-clean .hero-proof {
-    min-height: 420px;
-  }
+  min-height: 500px;
+}
 
   .hero-clean .hero-proof-panel {
     width: min(620px, 100%);
@@ -3218,8 +3213,10 @@
 
   .hero-clean .hero-proof {
   min-height: auto;
-  margin-top: 0;
-  align-items: stretch;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-clean .hero-proof-panel {
@@ -3473,6 +3470,41 @@
   .flow-board { grid-template-columns: 1fr; }
   .dashboard-proof-cards { grid-template-columns: 1fr 1fr; }
 }
+
+.hero-video-shell {
+  position: relative;
+  width: min(320px, 100%);
+  aspect-ratio: 9 / 16;
+  margin: 0 auto;
+  padding: 10px;
+  background: #0b1220;
+  border: 1px solid rgba(210,219,232,.96);
+  border-radius: 32px;
+  box-shadow: 0 28px 70px rgba(12,30,44,.14);
+  overflow: hidden;
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 9 / 16;
+  display: block;
+  border: 0;
+  border-radius: 23px;
+  background: #000;
+}
+
+@media (max-width: 700px) {
+  .hero-video-shell {
+    width: min(280px, 78vw);
+    border-radius: 28px;
+    padding: 8px;
+  }
+
+  .hero-video {
+    border-radius: 21px;
+  }
+}
   </style>
 </head>
 
@@ -3484,7 +3516,7 @@
         <div class="nav-links desktop-only">
           <a href="#system">The Calendar</a>
           <a href="#use-cases">Use Cases</a>
-          <a href="#features">Features</a>
+         
           <a href="#pricing">Pricing</a>
           <a href="#faq">FAQ</a>
         </div>
@@ -3523,10 +3555,6 @@
           <i class="fas fa-chevron-right"></i>
         </a>
 
-        <a href="#features">
-          <span><i class="fas fa-layer-group"></i> Features</span>
-          <i class="fas fa-chevron-right"></i>
-        </a>
 
         <a href="#integrations">
           <span><i class="fas fa-plug"></i> Integrations</span>
@@ -3649,30 +3677,17 @@
       </div>
     </div>
 
-    <div class="hero-proof" aria-label="TrackEDU Facilities mobile room finder preview">
-      <div class="hero-proof-panel">
-        <div class="hero-proof-header">
-          <span><i class="fas fa-mobile-screen-button"></i> Mobile room finder</span>
-          <strong>Live availability</strong>
-        </div>
-
-        <div class="hero-image-frame">
-          <img
-            class="hand-phone"
-            src="https://trackedu.github.io/common-assets/instantbooking.png"
-            alt="TrackEDU Facilities mobile room finder showing available rooms and booking status"
-          />
-        </div>
-
-        <div class="hero-floating-card hero-availability-card" aria-hidden="true">
-          <span class="status-dot"><i class="fas fa-check"></i></span>
-          <div>
-            <strong>Room clash prevented</strong>
-            <p class="small">Staff check availability before moving across campus.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="hero-proof" aria-label="TrackEDU Facilities video preview">
+  <div class="hero-video-shell">
+    <iframe
+      class="hero-video"
+      src="https://www.youtube.com/embed/RJD7hnaBa58"
+      title="TrackEDU Facilities video demo"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
   </div>
 </section>
 
@@ -3831,100 +3846,7 @@
       </div>
     </section>
 
-    <section id="features" class="section feature-section">
-      <div class="inner">
-        <div class="section-head">
-          <div>
-            <div class="kicker"><i class="fas fa-layer-group"></i> Smarter school facility management</div>
-<h2>From AI calendar setup to live room booking, one system for the whole school year.</h2>
-          </div>
-          <p class="lead">
-  Import your academic calendar with TrackEDU AI, control who can book each space, find available rooms instantly, manage recurring bookings and closures, and keep Operations teams informed from one shared system.
-</p>
-        </div>
-
-        <div class="features-grid">
-          <div class="feature-buttons" id="featureButtons">
-
-            <button class="feature-button active" data-feature="aiCalendar">
-              <i class="fas fa-wand-magic-sparkles"></i>
-              <strong>TrackEDU AI</strong>
-              <span>Import your existing academic calendar and let AI identify the important school dates.</span>
-            </button>
-
-            <button class="feature-button" data-feature="academicCalendar">
-              <i class="fas fa-calendar-days"></i>
-              <strong>Academic Calendar</strong>
-              <span>Give staff a clear interactive view of terms, holidays, closures and key school dates.</span>
-            </button>
-
-            <button class="feature-button" data-feature="finder">
-              <i class="fas fa-magnifying-glass"></i>
-              <strong>Instant Room Finder</strong>
-              <span>Choose a date and period and immediately see which spaces are available.</span>
-            </button>
-
-            <button class="feature-button" data-feature="access">
-              <i class="fas fa-user-lock"></i>
-              <strong>Booking Access</strong>
-              <span>Control who can book and restrict individual staff to specific facilities when needed.</span>
-            </button>
-
-            <button class="feature-button" data-feature="qrcode">
-              <i class="fas fa-qrcode"></i>
-              <strong>QR Check-In</strong>
-              <span>Verify room use at the door and support automatic release of unused bookings.</span>
-            </button>
-
-            <button class="feature-button" data-feature="recurring">
-              <i class="fas fa-redo"></i>
-              <strong>Recurring Bookings</strong>
-              <span>Create repeated booking series with built-in conflict checking.</span>
-            </button>
-
-            <button class="feature-button" data-feature="ops">
-              <i class="fas fa-tools"></i>
-              <strong>Operations Requests</strong>
-              <span>Add room setup requirements while booking so site teams can prepare spaces in advance.</span>
-            </button>
-
-            <button class="feature-button" data-feature="weather">
-              <i class="fas fa-cloud-bolt"></i>
-              <strong>Safety & Closures</strong>
-              <span>Close outdoor or indoor facilities for weather, maintenance, events or other restrictions.</span>
-            </button>
-
-            <button class="feature-button" data-feature="swaps">
-              <i class="fas fa-handshake"></i>
-              <strong>Space Requests</strong>
-              <span>Send trackable requests to swap, share or transfer spaces with colleagues.</span>
-            </button>
-
-            <button class="feature-button" data-feature="sync">
-  <i class="fab fa-google"></i>
-  <strong>Google Calendar Integration</strong>
-  <span>Connect Google Calendar so confirmed TrackEDU bookings can stay automatically updated in staff calendars.</span>
-</button>
-
-            <button class="feature-button" data-feature="alerts">
-              <i class="fas fa-bell"></i>
-              <strong>Booking Alerts</strong>
-              <span>Keep staff informed about approvals, room changes, requests and safety updates.</span>
-            </button>
-
-            <button class="feature-button" data-feature="onboarding">
-              <i class="fas fa-users-gear"></i>
-              <strong>Staff Onboarding</strong>
-              <span>Invite staff by secure link, CSV import or school access code, with administrator approval.</span>
-            </button>
-
-          </div>
-          <div class="mockup-panel">
-            <div class="mockup-stage" id="featureStage"></div>
-          </div>
-        </div>
-      </div>
-    </section>
+    
 <section id="integrations" class="section integrations-section reveal-section">
   <div class="inner integrations-clean">
     <div class="integrations-clean-head">
@@ -4286,7 +4208,7 @@
           <li><a href="facilities-pe-departments.html">PE Departments</a></li>
           <li><a href="facilities-libraries.html">Libraries</a></li>
           <li><a href="facilities-operations-teams.html">Operations Teams</a></li>
-          <li><a href="#features">Features</a></li>
+         
           <li><a href="#pricing">Pricing</a></li>
           <li><a href="https://facilities.trackedu.net/" target="_blank" rel="noopener" style="color:#fff;"><i class="fas fa-sign-in-alt" style="margin-right:8px;"></i>Login</a></li>
         </ul>
