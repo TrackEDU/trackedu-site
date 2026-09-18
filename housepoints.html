@@ -4575,6 +4575,1529 @@ setTimeout(function() {
       });
     })();
     </script>
+
+
+<!-- ==========================================
+     PHYSICAL ↔ DIGITAL HOUSE BOARD
+     ========================================== -->
+<section class="house-board-showcase">
+  <div class="house-board-showcase-bg"></div>
+
+  <div class="house-board-showcase-inner">
+
+    <div class="house-board-heading">
+      <span class="house-board-kicker">
+        <i class="fas fa-qrcode"></i>
+        PHYSICAL ↔ DIGITAL
+      </span>
+
+      <h2>
+        Bring your House system to life.
+      </h2>
+
+      <p>
+        Connect your physical House board with the live TrackEDU Student Portal.
+      </p>
+    </div>
+
+
+    <div class="house-board-carousel-shell">
+
+      <button
+        class="house-board-arrow house-board-arrow-prev"
+        id="houseBoardPrev"
+        aria-label="Previous image"
+      >
+        <i class="fas fa-chevron-left"></i>
+      </button>
+
+
+      <div class="house-board-carousel-viewport">
+
+        <div
+          class="house-board-carousel-track"
+          id="houseBoardTrack"
+        >
+
+          <button
+            class="house-board-slide"
+            type="button"
+            data-index="0"
+            aria-label="Open House board image"
+          >
+
+            <img
+              src="board.png"
+              alt="TrackEDU physical House board concept"
+              loading="lazy"
+            />
+
+            <div class="house-board-slide-label">
+              <span>01</span>
+              <strong>Bring House culture into the school</strong>
+            </div>
+
+            <div class="house-board-expand">
+              <i class="fas fa-expand"></i>
+            </div>
+
+          </button>
+
+
+          <button
+            class="house-board-slide"
+            type="button"
+            data-index="1"
+            aria-label="Open Student Portal image"
+          >
+
+            <img
+              src="board2.png"
+              alt="Student scanning a House board QR code to open TrackEDU"
+              loading="lazy"
+            />
+
+            <div class="house-board-slide-label">
+              <span>02</span>
+              <strong>Scan. Connect. Engage.</strong>
+            </div>
+
+            <div class="house-board-expand">
+              <i class="fas fa-expand"></i>
+            </div>
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <button
+        class="house-board-arrow house-board-arrow-next"
+        id="houseBoardNext"
+        aria-label="Next image"
+      >
+        <i class="fas fa-chevron-right"></i>
+      </button>
+
+
+      <div
+        class="house-board-dots"
+        id="houseBoardDots"
+        aria-label="House board image navigation"
+      >
+        <button
+          class="house-board-dot active"
+          data-index="0"
+          aria-label="Show image 1"
+        ></button>
+
+        <button
+          class="house-board-dot"
+          data-index="1"
+          aria-label="Show image 2"
+        ></button>
+      </div>
+
+
+      <div class="house-board-hint">
+        <i class="fas fa-expand"></i>
+        Click image to explore
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- FULLSCREEN HOUSE BOARD LIGHTBOX -->
+<div
+  class="house-board-lightbox"
+  id="houseBoardLightbox"
+  aria-hidden="true"
+>
+
+  <button
+    class="house-board-lightbox-close"
+    id="houseBoardLightboxClose"
+    aria-label="Close image"
+  >
+    <i class="fas fa-times"></i>
+  </button>
+
+
+  <button
+    class="house-board-lightbox-nav house-board-lightbox-prev"
+    id="houseBoardLightboxPrev"
+    aria-label="Previous image"
+  >
+    <i class="fas fa-chevron-left"></i>
+  </button>
+
+
+  <img
+    id="houseBoardLightboxImage"
+    src="board.png"
+    alt="TrackEDU House board"
+  />
+
+
+  <button
+    class="house-board-lightbox-nav house-board-lightbox-next"
+    id="houseBoardLightboxNext"
+    aria-label="Next image"
+  >
+    <i class="fas fa-chevron-right"></i>
+  </button>
+
+
+  <div
+    class="house-board-lightbox-counter"
+    id="houseBoardLightboxCounter"
+  >
+    1 / 2
+  </div>
+
+</div>
+
+
+<style>
+  /* ==========================================
+     PREMIUM PHYSICAL ↔ DIGITAL SHOWCASE
+     ========================================== */
+
+  .house-board-showcase {
+    position: relative;
+    overflow: hidden;
+    padding: 4.8rem 1.25rem 5rem;
+    background:
+      radial-gradient(
+        circle at 12% 20%,
+        rgba(135, 194, 50, 0.18),
+        transparent 32%
+      ),
+      radial-gradient(
+        circle at 88% 78%,
+        rgba(15, 102, 195, 0.24),
+        transparent 36%
+      ),
+      linear-gradient(
+        135deg,
+        #07111f 0%,
+        #0C1E2C 48%,
+        #111827 100%
+      );
+    color: #ffffff;
+  }
+
+
+  .house-board-showcase-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    background-image:
+      linear-gradient(
+        rgba(255,255,255,0.035) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        rgba(255,255,255,0.035) 1px,
+        transparent 1px
+      );
+
+    background-size: 42px 42px;
+
+    mask-image:
+      radial-gradient(
+        circle at center,
+        black 10%,
+        transparent 78%
+      );
+  }
+
+
+  .house-board-showcase-inner {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 1180px;
+
+    margin: 0 auto;
+  }
+
+
+  .house-board-heading {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 2.2rem;
+  }
+
+
+  .house-board-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+
+    padding: 0.45rem 0.85rem;
+    margin-bottom: 0.9rem;
+
+    border-radius: 999px;
+
+    background:
+      rgba(135, 194, 50, 0.12);
+
+    border:
+      1px solid
+      rgba(135, 194, 50, 0.32);
+
+    color: #a3e635;
+
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+
+    text-transform: uppercase;
+  }
+
+
+  .house-board-heading h2 {
+    margin: 0;
+
+    font-family:
+      'Poppins',
+      sans-serif;
+
+    font-size:
+      clamp(
+        2.3rem,
+        4.8vw,
+        4.4rem
+      );
+
+    line-height: 1;
+
+    letter-spacing:
+      -0.055em;
+
+    font-weight: 900;
+
+    color: #ffffff;
+  }
+
+
+  .house-board-heading p {
+    margin:
+      0.9rem
+      auto
+      0;
+
+    color:
+      rgba(
+        226,
+        232,
+        240,
+        0.78
+      );
+
+    font-size:
+      0.95rem;
+
+    line-height:
+      1.55;
+  }
+
+
+  .house-board-carousel-shell {
+    position: relative;
+
+    max-width: 1050px;
+
+    margin: 0 auto;
+  }
+
+
+  .house-board-carousel-viewport {
+    overflow: hidden;
+
+    border-radius: 2rem;
+
+    background:
+      rgba(
+        255,
+        255,
+        255,
+        0.04
+      );
+
+    border:
+      1px solid
+      rgba(
+        255,
+        255,
+        255,
+        0.12
+      );
+
+    box-shadow:
+      0 35px 90px
+      rgba(
+        0,
+        0,
+        0,
+        0.42
+      );
+  }
+
+
+  .house-board-carousel-track {
+    display: flex;
+
+    width: 100%;
+
+    transition:
+      transform
+      0.55s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      );
+  }
+
+
+  .house-board-slide {
+    position: relative;
+
+    flex:
+      0 0
+      100%;
+
+    width: 100%;
+
+    padding: 0;
+
+    border: none;
+
+    background: #020617;
+
+    cursor: zoom-in;
+
+    overflow: hidden;
+  }
+
+
+  .house-board-slide img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    aspect-ratio:
+      16 / 9;
+
+    object-fit: contain;
+
+    background:
+      #020617;
+
+    transition:
+      transform
+      0.5s
+      ease,
+      filter
+      0.5s
+      ease;
+  }
+
+
+  .house-board-slide:hover img {
+    transform:
+      scale(1.015);
+
+    filter:
+      brightness(0.9);
+  }
+
+
+  .house-board-slide-label {
+    position: absolute;
+
+    left: 1.25rem;
+    bottom: 1.25rem;
+
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    padding:
+      0.65rem
+      0.9rem;
+
+    border-radius:
+      999px;
+
+    background:
+      rgba(
+        2,
+        6,
+        23,
+        0.78
+      );
+
+    backdrop-filter:
+      blur(14px);
+
+    -webkit-backdrop-filter:
+      blur(14px);
+
+    border:
+      1px solid
+      rgba(
+        255,
+        255,
+        255,
+        0.15
+      );
+
+    color: #ffffff;
+
+    box-shadow:
+      0 10px
+      30px
+      rgba(
+        0,
+        0,
+        0,
+        0.3
+      );
+  }
+
+
+  .house-board-slide-label span {
+    width: 1.8rem;
+    height: 1.8rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+      #87C232;
+
+    color:
+      #0C1E2C;
+
+    font-size:
+      0.6rem;
+
+    font-weight:
+      900;
+  }
+
+
+  .house-board-slide-label strong {
+    font-size:
+      0.76rem;
+
+    font-weight:
+      800;
+  }
+
+
+  .house-board-expand {
+    position: absolute;
+
+    top: 1.25rem;
+    right: 1.25rem;
+
+    width: 2.7rem;
+    height: 2.7rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+      rgba(
+        2,
+        6,
+        23,
+        0.72
+      );
+
+    backdrop-filter:
+      blur(10px);
+
+    color: #ffffff;
+
+    border:
+      1px solid
+      rgba(
+        255,
+        255,
+        255,
+        0.2
+      );
+
+    transition:
+      transform
+      0.25s
+      ease,
+      background
+      0.25s
+      ease;
+  }
+
+
+  .house-board-slide:hover
+  .house-board-expand {
+    transform:
+      scale(1.08);
+
+    background:
+      #87C232;
+  }
+
+
+  .house-board-arrow {
+    position: absolute;
+
+    top: 50%;
+
+    transform:
+      translateY(-50%);
+
+    z-index: 10;
+
+    width: 3rem;
+    height: 3rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    border:
+      1px solid
+      rgba(
+        255,
+        255,
+        255,
+        0.22
+      );
+
+    background:
+      rgba(
+        2,
+        6,
+        23,
+        0.78
+      );
+
+    backdrop-filter:
+      blur(10px);
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    box-shadow:
+      0 10px
+      25px
+      rgba(
+        0,
+        0,
+        0,
+        0.28
+      );
+
+    transition:
+      all
+      0.22s
+      ease;
+  }
+
+
+  .house-board-arrow:hover {
+    background:
+      #87C232;
+
+    color:
+      #0C1E2C;
+
+    transform:
+      translateY(-50%)
+      scale(1.08);
+  }
+
+
+  .house-board-arrow-prev {
+    left: -1.5rem;
+  }
+
+
+  .house-board-arrow-next {
+    right: -1.5rem;
+  }
+
+
+  .house-board-dots {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 0.45rem;
+
+    margin-top:
+      1.15rem;
+  }
+
+
+  .house-board-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius:
+      999px;
+
+    background:
+      rgba(
+        255,
+        255,
+        255,
+        0.3
+      );
+
+    cursor: pointer;
+
+    transition:
+      all
+      0.25s
+      ease;
+  }
+
+
+  .house-board-dot.active {
+    width:
+      1.8rem;
+
+    background:
+      #87C232;
+  }
+
+
+  .house-board-hint {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.4rem;
+
+    margin-top:
+      0.8rem;
+
+    color:
+      rgba(
+        226,
+        232,
+        240,
+        0.52
+      );
+
+    font-size:
+      0.65rem;
+
+    font-weight:
+      700;
+
+    letter-spacing:
+      0.04em;
+  }
+
+
+  /* FULLSCREEN */
+
+  .house-board-lightbox {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 300000;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+      rgba(
+        2,
+        6,
+        23,
+        0.97
+      );
+
+    backdrop-filter:
+      blur(18px);
+
+    -webkit-backdrop-filter:
+      blur(18px);
+  }
+
+
+  .house-board-lightbox.active {
+    display: flex;
+  }
+
+
+  .house-board-lightbox img {
+    max-width:
+      92vw;
+
+    max-height:
+      88vh;
+
+    width: auto;
+    height: auto;
+
+    object-fit:
+      contain;
+
+    border-radius:
+      1rem;
+
+    box-shadow:
+      0 35px
+      100px
+      rgba(
+        0,
+        0,
+        0,
+        0.7
+      );
+  }
+
+
+  .house-board-lightbox-close {
+    position: absolute;
+
+    top: 1.25rem;
+    right: 1.25rem;
+
+    width: 3rem;
+    height: 3rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    border-radius:
+      50%;
+
+    background:
+      rgba(
+        255,
+        255,
+        255,
+        0.12
+      );
+
+    color: #ffffff;
+
+    font-size:
+      1rem;
+
+    cursor: pointer;
+
+    transition:
+      all
+      0.2s
+      ease;
+  }
+
+
+  .house-board-lightbox-close:hover {
+    background:
+      #ef4444;
+
+    transform:
+      rotate(90deg);
+  }
+
+
+  .house-board-lightbox-nav {
+    position: absolute;
+
+    top: 50%;
+
+    transform:
+      translateY(-50%);
+
+    width: 3.2rem;
+    height: 3.2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    border-radius:
+      50%;
+
+    background:
+      rgba(
+        255,
+        255,
+        255,
+        0.12
+      );
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    transition:
+      all
+      0.2s
+      ease;
+  }
+
+
+  .house-board-lightbox-nav:hover {
+    background:
+      #87C232;
+
+    color:
+      #0C1E2C;
+  }
+
+
+  .house-board-lightbox-prev {
+    left: 1.25rem;
+  }
+
+
+  .house-board-lightbox-next {
+    right: 1.25rem;
+  }
+
+
+  .house-board-lightbox-counter {
+    position: absolute;
+
+    bottom: 1.25rem;
+
+    left: 50%;
+
+    transform:
+      translateX(-50%);
+
+    padding:
+      0.4rem
+      0.8rem;
+
+    border-radius:
+      999px;
+
+    background:
+      rgba(
+        0,
+        0,
+        0,
+        0.55
+      );
+
+    color:
+      rgba(
+        255,
+        255,
+        255,
+        0.8
+      );
+
+    font-size:
+      0.7rem;
+
+    font-weight:
+      800;
+  }
+
+
+  @media (
+    max-width:
+    767px
+  ) {
+
+    .house-board-showcase {
+      padding:
+        3rem
+        0.8rem
+        3.25rem;
+    }
+
+
+    .house-board-heading {
+      margin-bottom:
+        1.4rem;
+    }
+
+
+    .house-board-heading h2 {
+      font-size:
+        2rem;
+    }
+
+
+    .house-board-heading p {
+      max-width:
+        20rem;
+
+      font-size:
+        0.78rem;
+    }
+
+
+    .house-board-carousel-viewport {
+      border-radius:
+        1.25rem;
+    }
+
+
+    .house-board-slide-label {
+      left:
+        0.7rem;
+
+      bottom:
+        0.7rem;
+
+      gap:
+        0.45rem;
+
+      padding:
+        0.45rem
+        0.6rem;
+    }
+
+
+    .house-board-slide-label span {
+      width:
+        1.4rem;
+
+      height:
+        1.4rem;
+
+      font-size:
+        0.48rem;
+    }
+
+
+    .house-board-slide-label strong {
+      font-size:
+        0.58rem;
+    }
+
+
+    .house-board-expand {
+      top:
+        0.7rem;
+
+      right:
+        0.7rem;
+
+      width:
+        2.2rem;
+
+      height:
+        2.2rem;
+
+      font-size:
+        0.72rem;
+    }
+
+
+    .house-board-arrow {
+      width:
+        2.4rem;
+
+      height:
+        2.4rem;
+
+      font-size:
+        0.7rem;
+    }
+
+
+    .house-board-arrow-prev {
+      left:
+        0.45rem;
+    }
+
+
+    .house-board-arrow-next {
+      right:
+        0.45rem;
+    }
+
+
+    .house-board-lightbox-nav {
+      width:
+        2.5rem;
+
+      height:
+        2.5rem;
+    }
+
+
+    .house-board-lightbox-prev {
+      left:
+        0.5rem;
+    }
+
+
+    .house-board-lightbox-next {
+      right:
+        0.5rem;
+    }
+
+  }
+</style>
+
+
+<script>
+  (function() {
+
+    const images = [
+  {
+    src:
+      'https://housepoint.trackedu.net/board.png',
+    alt:
+      'TrackEDU physical House board concept'
+  },
+  {
+    src:
+      'https://housepoint.trackedu.net/board2.png',
+    alt:
+      'Student scanning a House board QR code to open TrackEDU'
+  }
+];
+
+
+    const track =
+      document.getElementById(
+        'houseBoardTrack'
+      );
+
+    const slides =
+      document.querySelectorAll(
+        '.house-board-slide'
+      );
+
+    const dots =
+      document.querySelectorAll(
+        '.house-board-dot'
+      );
+
+    const prev =
+      document.getElementById(
+        'houseBoardPrev'
+      );
+
+    const next =
+      document.getElementById(
+        'houseBoardNext'
+      );
+
+
+    const lightbox =
+      document.getElementById(
+        'houseBoardLightbox'
+      );
+
+    const lightboxImage =
+      document.getElementById(
+        'houseBoardLightboxImage'
+      );
+
+    const lightboxClose =
+      document.getElementById(
+        'houseBoardLightboxClose'
+      );
+
+    const lightboxPrev =
+      document.getElementById(
+        'houseBoardLightboxPrev'
+      );
+
+    const lightboxNext =
+      document.getElementById(
+        'houseBoardLightboxNext'
+      );
+
+    const lightboxCounter =
+      document.getElementById(
+        'houseBoardLightboxCounter'
+      );
+
+
+    if (
+      !track ||
+      slides.length === 0
+    ) {
+      return;
+    }
+
+
+    let currentIndex = 0;
+
+    let lightboxIndex = 0;
+
+
+    function showSlide(
+      index
+    ) {
+
+      currentIndex =
+        (
+          index +
+          images.length
+        ) %
+        images.length;
+
+
+      track.style.transform =
+        `translateX(-${currentIndex * 100}%)`;
+
+
+      dots.forEach(
+        (
+          dot,
+          dotIndex
+        ) => {
+
+          dot.classList.toggle(
+            'active',
+            dotIndex ===
+              currentIndex
+          );
+
+        }
+      );
+
+    }
+
+
+    function openLightbox(
+      index
+    ) {
+
+      lightboxIndex =
+        index;
+
+
+      lightboxImage.src =
+        images[
+          lightboxIndex
+        ].src;
+
+
+      lightboxImage.alt =
+        images[
+          lightboxIndex
+        ].alt;
+
+
+      lightboxCounter.textContent =
+        `${lightboxIndex + 1} / ${images.length}`;
+
+
+      lightbox.classList.add(
+        'active'
+      );
+
+
+      lightbox.setAttribute(
+        'aria-hidden',
+        'false'
+      );
+
+
+      document.body.style.overflow =
+        'hidden';
+
+    }
+
+
+    function closeLightbox() {
+
+      lightbox.classList.remove(
+        'active'
+      );
+
+
+      lightbox.setAttribute(
+        'aria-hidden',
+        'true'
+      );
+
+
+      document.body.style.overflow =
+        '';
+
+    }
+
+
+    function changeLightbox(
+      direction
+    ) {
+
+      lightboxIndex =
+        (
+          lightboxIndex +
+          direction +
+          images.length
+        ) %
+        images.length;
+
+
+      openLightbox(
+        lightboxIndex
+      );
+
+    }
+
+
+    prev.addEventListener(
+      'click',
+      () => {
+        showSlide(
+          currentIndex - 1
+        );
+      }
+    );
+
+
+    next.addEventListener(
+      'click',
+      () => {
+        showSlide(
+          currentIndex + 1
+        );
+      }
+    );
+
+
+    dots.forEach(
+      (
+        dot,
+        index
+      ) => {
+
+        dot.addEventListener(
+          'click',
+          () => {
+            showSlide(
+              index
+            );
+          }
+        );
+
+      }
+    );
+
+
+    slides.forEach(
+      (
+        slide,
+        index
+      ) => {
+
+        slide.addEventListener(
+          'click',
+          () => {
+            openLightbox(
+              index
+            );
+          }
+        );
+
+      }
+    );
+
+
+    lightboxClose.addEventListener(
+      'click',
+      closeLightbox
+    );
+
+
+    lightboxPrev.addEventListener(
+      'click',
+      () => {
+        changeLightbox(
+          -1
+        );
+      }
+    );
+
+
+    lightboxNext.addEventListener(
+      'click',
+      () => {
+        changeLightbox(
+          1
+        );
+      }
+    );
+
+
+    lightbox.addEventListener(
+      'click',
+      event => {
+
+        if (
+          event.target ===
+          lightbox
+        ) {
+          closeLightbox();
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      'keydown',
+      event => {
+
+        if (
+          !lightbox.classList.contains(
+            'active'
+          )
+        ) {
+          return;
+        }
+
+
+        if (
+          event.key ===
+          'Escape'
+        ) {
+          closeLightbox();
+        }
+
+
+        if (
+          event.key ===
+          'ArrowLeft'
+        ) {
+          changeLightbox(
+            -1
+          );
+        }
+
+
+        if (
+          event.key ===
+          'ArrowRight'
+        ) {
+          changeLightbox(
+            1
+          );
+        }
+
+      }
+    );
+
+
+    let touchStartX = 0;
+
+
+    track.addEventListener(
+      'touchstart',
+      event => {
+
+        touchStartX =
+          event.touches[0]
+            .clientX;
+
+      },
+      {
+        passive: true
+      }
+    );
+
+
+    track.addEventListener(
+      'touchend',
+      event => {
+
+        const touchEndX =
+          event.changedTouches[0]
+            .clientX;
+
+
+        const difference =
+          touchStartX -
+          touchEndX;
+
+
+        if (
+          Math.abs(
+            difference
+          ) <
+          40
+        ) {
+          return;
+        }
+
+
+        if (
+          difference >
+          0
+        ) {
+          showSlide(
+            currentIndex + 1
+          );
+        } else {
+          showSlide(
+            currentIndex - 1
+          );
+        }
+
+      },
+      {
+        passive: true
+      }
+    );
+
+
+    showSlide(
+      0
+    );
+
+  })();
+</script>
+
+
 <section class="bg-white border-b border-gray-50 overflow-hidden">
 <div class="h-px w-8 bg-brand-green/30 hidden sm:block"></div>
 <!-- Headline - centered with max-width -->
