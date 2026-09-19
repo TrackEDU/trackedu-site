@@ -2508,7 +2508,7 @@ html { scroll-padding-top: 100px; }
 <div class="flex gap-2"><i class="fas fa-check-circle text-brand-blue mt-0.5"></i><span>Use Teacher App across classrooms</span></div>
 <div class="flex gap-2"><i class="fas fa-check-circle text-brand-blue mt-0.5"></i><span>Give students access to Student Portal</span></div>
 <div class="flex gap-2"><i class="fas fa-check-circle text-brand-blue mt-0.5"></i><span>Use Behavior Tracker for support needs</span></div>
-<div class="flex gap-2"><i class="fas fa-check-circle text-brand-blue mt-0.5"></i><span>Request invoice and bank transfer payment</span></div>
+<div class="flex gap-2"><i class="fas fa-check-circle text-brand-blue mt-0.5"></i><span>Invoice, purchase order and bank transfer options</span></div>
 </div>
 </div>
 <div class="bg-white border border-gray-200 rounded-2xl p-5 mb-6">
@@ -2516,7 +2516,7 @@ html { scroll-padding-top: 100px; }
 <div class="space-y-3 text-sm text-gray-700">
 <div class="flex gap-3"><span class="step-dot-blue">1</span><span><strong>Book a demo</strong> to ask questions first.</span></div>
 <div class="flex gap-3"><span class="step-dot-blue">2</span><span><strong>Start a 30-day pilot</strong> to test TrackEDU.</span></div>
-<div class="flex gap-3"><span class="step-dot-blue">3</span><span><strong>Request an invoice</strong> to buy an annual licence.</span></div>
+<div class="flex gap-3"><span class="step-dot-blue">3</span><span><strong>Request an invoice or purchase order</strong> when your school is ready to continue.</span></div>
 </div>
 </div>
 <div class="grid sm:grid-cols-3 gap-3">
@@ -2530,7 +2530,7 @@ html { scroll-padding-top: 100px; }
         </button>
 <button class="w-full py-3.5 rounded-xl bg-gray-100 text-gray-700 font-black hover:bg-gray-200 transition flex items-center justify-center gap-2 text-sm" onclick="closeLeaderStartModal(); openInvoiceModal();">
 <i class="fas fa-file-invoice-dollar text-xs"></i>
-          Invoice
+          Invoice / PO
         </button>
 </div>
 </div>
@@ -6256,7 +6256,7 @@ setTimeout(function() {
 
 <p class="text-base md:text-lg text-gray-500 leading-relaxed">
   Schools get 30 days of full access with no credit card required.
-  After the 30-day pilot, schools can continue with an annual licence and pay securely by card inside TrackEDU or request an invoice.
+  After the 30-day pilot, schools can continue with an annual licence by invoice or purchase order.
   Your annual licence price is based on student enrolment. Calculate your school's price below.
 </p>
 </div>
@@ -6372,6 +6372,18 @@ setTimeout(function() {
   class="text-[11px] text-gray-400 mt-1"
 ></p>
 
+<div class="mt-3 rounded-xl bg-green-50 border border-green-100 px-3 py-2.5">
+  <div class="flex items-start gap-2">
+    <i class="fas fa-gift text-brand-green mt-0.5"></i>
+    <p class="text-[11px] text-green-800 leading-relaxed">
+      <strong>Pilot offer:</strong>
+      activate your first Annual School Licence before your pilot ends and get
+      <strong>2 extra months free.</strong>
+      Your first licence lasts 14 months; future renewals are 12 months.
+    </p>
+  </div>
+</div>
+
 </div>
 
 
@@ -6453,7 +6465,7 @@ setTimeout(function() {
   class="w-full mt-2 py-2.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold transition"
   onclick="openInvoiceModal()"
 >
-  Request an Invoice
+  Invoice / Purchase Order
 </button>
 
 
@@ -7549,19 +7561,19 @@ setTimeout(function() {
 <details class="faq-details border-0 rounded-none border-b border-gray-100 last:border-0">
 <summary class="faq-summary py-4 px-6">Can my school pay for TrackEDU after the pilot?</summary>
 <div class="faq-content px-6 pb-4">
-                Yes. Schools that wish to continue after the pilot can request an invoice for an annual school licence. Pricing is based on student enrolment and can be calculated in the pricing section above. Payment can be made by bank transfer, and a secure card payment link can be requested where needed. TrackEDU does not currently use automatic renewal.
+                Yes. Schools that wish to continue after the pilot can request an invoice for an Annual School Licence. Pricing is based on student enrolment and can be calculated in the pricing section above. Schools can use a purchase order where required and payment can be made by bank transfer. TrackEDU does not currently use automatic renewal.
               </div>
 </details>
 <details class="faq-details border-0 rounded-none border-b border-gray-100 last:border-0">
-<summary class="faq-summary py-4 px-6">How does the annual school licence work?</summary>
+<summary class="faq-summary py-4 px-6">How does the Annual School Licence work?</summary>
 <div class="faq-content px-6 pb-4">
-                Annual school access is activated with a secure licence code. Each code unlocks TrackEDU for the agreed licence period, usually 12 months. At the end of the licence period, access expires unless the school renews for a further year. Renewal is handled manually so schools can review usage, update billing details, and decide whether to continue.
+                Annual school access is activated with a secure licence code. Standard licences run for 12 months. Schools activating their first Annual School Licence before the end of their 30-day pilot can receive 2 extra months on that first licence, giving 14 months of access. Future renewals are 12 months. Access expires unless the school chooses to renew.
               </div>
 </details>
 <details class="faq-details border-0 rounded-none border-b border-gray-100 last:border-0">
-<summary class="faq-summary py-4 px-6">Can our school pay by invoice, bank transfer, or card?</summary>
+<summary class="faq-summary py-4 px-6">Can our school pay by invoice, purchase order, or bank transfer?</summary>
 <div class="faq-content px-6 pb-4">
-                Yes. Schools can request an invoice by submitting their billing details through the invoice request form. TrackEDU will review the request and email the official invoice manually. Bank transfer details will be included once the invoice is issued. Schools that prefer to pay by card can request a secure card payment link.
+                Yes. Schools can submit their billing and procurement details through the invoice request form. TrackEDU will review the request and email the official invoice manually. Purchase order details can be included where required, and bank transfer instructions will be provided with the invoice.
               </div>
 </details>
 <details class="faq-details border-0 rounded-none border-b border-gray-100 last:border-0">
@@ -9725,7 +9737,7 @@ setTimeout(function() {
 <div class="p-5 sm:p-6 overflow-y-auto flex-1">
 <div class="mb-5 p-4 rounded-xl bg-blue-50 border border-blue-100 space-y-2">
 <p class="text-sm text-gray-700 leading-relaxed">
-            Use this form if your school is ready to continue after the pilot, needs a purchase order invoice, or wants to discuss payment by bank transfer or secure card payment link. This is an invoice request only. The official invoice will be emailed after TrackEDU reviews the details.
+            Use this form if your school is ready to continue after the pilot, needs an invoice or purchase order, or wants to pay by bank transfer. This is an invoice request only. The official invoice will be emailed after TrackEDU reviews the details.
           </p>
 <p class="text-sm text-gray-700 leading-relaxed">
             Annual school licence pricing is based on student enrolment. Enter your estimated number of students below and TrackEDU will confirm the applicable annual licence price on your invoice.
@@ -9807,8 +9819,8 @@ setTimeout(function() {
 <select class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm bg-white" name="preferred_payment_method" required="">
 <option value="">Select payment method</option>
 <option value="Bank transfer">Bank transfer</option>
-<option value="Secure card payment link">Secure card payment link</option>
 <option value="Purchase order first">Purchase order first</option>
+<option value="Invoice">Invoice</option>
 <option value="Not sure yet">Not sure yet</option>
 </select>
 </div>
@@ -9854,7 +9866,7 @@ setTimeout(function() {
     Your annual school licence price will be calculated from the student enrolment provided above and confirmed before the invoice is issued.
   </p>
 <p>
-    TrackEDU can issue invoices for annual school licences, pilot continuation, procurement preparation, or school licence access. Bank transfer is available, and schools may request a secure card payment link. We can also provide company registration details, invoice wording, payment instructions, and supporting information for school procurement teams.
+    TrackEDU can issue invoices for Annual School Licences, pilot continuation and procurement preparation. Bank transfer and purchase order workflows are supported. We can also provide company registration details, invoice wording, payment instructions, and supporting information for school procurement teams.
   </p>
 <p>
     TrackEDU Ltd is registered in England &amp; Wales, No. 17216557. Registered Office: 128 City Road, London, EC1V 2NX, United Kingdom.
@@ -9871,7 +9883,7 @@ setTimeout(function() {
   Submit Invoice Request
 </button>
 <p class="text-center text-xs text-gray-400 leading-relaxed">
-  The official invoice will be emailed manually after review. Our UK and International bank transfer details (via Wise) or a secure card payment link will be included on your invoice. If the form does not work, email hello@trackedu.net directly.
+  The official invoice will be emailed manually after review. UK and International bank transfer details will be provided with the invoice, and purchase order requirements can be included in your request. If the form does not work, email hello@trackedu.net directly.
 </p>
 </form>
 </div>
