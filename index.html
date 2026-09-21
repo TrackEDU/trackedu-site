@@ -117,35 +117,26 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
   <style>
     :root{
       --dark:#0C1E2C;
       --ink:#243242;
-      --muted:#637083;
-      --soft:#F8FAFC;
-      --white:#FFFFFF;
-      --line:#E2E8F0;
-
+      --muted:#667487;
+      --soft:#F7F9FB;
+      --line:#E6EBF0;
       --green:#87C232;
-      --green-dark:#669526;
+      --green-dark:#679526;
       --blue:#0F66C3;
-      --blue-soft:#EFF6FF;
-      --yellow:#FACC15;
-      --purple:#7C3AED;
-
-      --shadow:0 20px 55px rgba(12,30,44,.09);
+      --blue-dark:#0B56A6;
+      --white:#FFFFFF;
+      --shadow:0 20px 60px rgba(12,30,44,.08);
     }
 
     *{box-sizing:border-box}
-
-    html{
-      scroll-behavior:smooth;
-      scroll-padding-top:76px;
-    }
-
+    html{scroll-behavior:smooth;scroll-padding-top:78px}
     body{
       margin:0;
       font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
@@ -156,54 +147,63 @@
     }
 
     body.menu-open{overflow:hidden}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    img{display:block;max-width:100%}
+    .container{width:min(1180px,calc(100% - 40px));margin:0 auto}
+    h1,h2,h3,h4{font-family:Poppins,Inter,sans-serif}
 
-    a{
-      color:inherit;
-      text-decoration:none;
-    }
-
-    button{
-      font:inherit;
-    }
-
-    .container{
-      width:min(1180px,calc(100% - 36px));
-      margin:0 auto;
-    }
-
-    h1,h2,h3{
-      font-family:Poppins,Inter,sans-serif;
-    }
-
-    .section-label{
+    .eyebrow{
       display:inline-block;
-      margin-bottom:10px;
-      color:#4D7A20;
+      margin-bottom:14px;
+      color:#5F8F28;
       font-size:11px;
-      font-weight:900;
+      font-weight:800;
       text-transform:uppercase;
-      letter-spacing:.1em;
+      letter-spacing:.12em;
     }
 
-    /* =========================
-       NAVIGATION
-       ========================= */
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:9px;
+      min-height:46px;
+      padding:12px 18px;
+      border-radius:12px;
+      border:1px solid transparent;
+      font-size:13px;
+      font-weight:800;
+      transition:.18s ease;
+      cursor:pointer;
+    }
 
+    .btn:hover{transform:translateY(-1px)}
+    .btn-green{background:var(--green);color:#fff}
+    .btn-green:hover{background:var(--green-dark)}
+    .btn-dark{background:var(--dark);color:#fff}
+    .btn-dark:hover{background:#132C3D}
+    .btn-blue{background:var(--blue);color:#fff}
+    .btn-blue:hover{background:var(--blue-dark)}
+    .btn-outline{background:#fff;border-color:#DCE3E9;color:var(--dark)}
+    .btn-outline:hover{border-color:#C9D2DA;background:#FAFBFC}
+
+    /* NAV */
     .nav{
       position:sticky;
       top:0;
       z-index:1000;
-      background:rgba(255,255,255,.96);
-      backdrop-filter:blur(16px);
-      border-bottom:1px solid rgba(226,232,240,.95);
+      background:rgba(255,255,255,.94);
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(230,235,240,.9);
     }
 
     .nav-inner{
-      min-height:68px;
+      min-height:70px;
       display:flex;
       align-items:center;
-      justify-content:space-between;
-      gap:24px;
+      gap:28px;
     }
 
     .brand{
@@ -214,41 +214,31 @@
       white-space:nowrap;
     }
 
-    .brand span{
-      color:var(--green);
-    }
+    .brand span{color:var(--green)}
 
     .nav-links{
+      margin-left:auto;
       display:flex;
       align-items:center;
       gap:26px;
-      margin-left:auto;
     }
 
     .nav-links a{
-      color:#334155;
-      font-size:14px;
-      font-weight:750;
-      transition:color .18s ease;
+      color:#465569;
+      font-size:13px;
+      font-weight:700;
     }
 
-    .nav-links a:hover{
-      color:var(--green-dark);
-    }
-
-    .nav-actions{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      margin-left:4px;
-    }
+    .nav-links a:hover{color:var(--dark)}
+    .nav-actions{display:flex;gap:9px;align-items:center}
 
     .mobile-menu-btn{
       display:none;
+      margin-left:auto;
       width:42px;
       height:42px;
       border:0;
-      border-radius:12px;
+      border-radius:11px;
       background:#F1F5F9;
       color:var(--dark);
       cursor:pointer;
@@ -256,151 +246,32 @@
 
     .mobile-menu{
       display:none;
-      border-top:1px solid var(--line);
+      padding:8px 20px 20px;
       background:#fff;
-      padding:10px 18px 20px;
+      border-top:1px solid var(--line);
     }
 
-    .mobile-menu.active{
-      display:block;
-    }
+    .mobile-menu.active{display:block}
 
     .mobile-menu a{
       display:flex;
+      align-items:center;
       justify-content:space-between;
-      align-items:center;
-      gap:14px;
-      padding:15px 2px;
-      border-bottom:1px solid #EDF2F7;
-      color:#334155;
-      font-weight:750;
-      font-size:15px;
-    }
-
-    .mobile-menu a:last-child{
-      border-bottom:0;
-    }
-
-    /* =========================
-       BUTTONS
-       ========================= */
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      min-height:44px;
-      padding:11px 17px;
-      border-radius:12px;
-      border:1px solid transparent;
+      padding:15px 0;
+      border-bottom:1px solid #EEF2F6;
       font-size:14px;
-      font-weight:800;
-      transition:transform .18s ease,box-shadow .18s ease,background .18s ease,border-color .18s ease;
-      cursor:pointer;
-      white-space:nowrap;
+      font-weight:700;
+      color:#334155;
     }
 
-    .btn:hover{
-      transform:translateY(-1px);
-    }
-
-    .btn-green{
-      background:var(--green);
-      color:#fff;
-      box-shadow:0 10px 24px rgba(135,194,50,.20);
-    }
-
-    .btn-green:hover{
-      background:var(--green-dark);
-    }
-
-    .btn-blue{
-      background:var(--blue);
-      color:#fff;
-      box-shadow:0 10px 24px rgba(15,102,195,.18);
-    }
-
-    .btn-blue:hover{
-      background:#0B56A6;
-    }
-
-    .btn-dark{
-      background:var(--dark);
-      color:#fff;
-      box-shadow:0 10px 24px rgba(12,30,44,.16);
-    }
-
-    .btn-dark:hover{
-      background:#102B40;
-    }
-
-    .btn-outline{
-      background:#fff;
-      color:var(--dark);
-      border-color:var(--line);
-    }
-
-    .btn-outline:hover{
-      background:#F8FAFC;
-      border-color:#CBD5E1;
-    }
-
-    /* =========================
-       HERO
-       ========================= */
-
+    /* HERO */
     .hero{
-      position:relative;
-      padding:82px 0 72px;
-      overflow:hidden;
-      isolation:isolate;
-      background:#F8FAFC;
-      border-bottom:1px solid var(--line);
-    }
-
-    .hero::before,
-    .hero::after{
-      content:"";
-      position:absolute;
-      border-radius:50%;
-      pointer-events:none;
-      z-index:-2;
-      filter:blur(12px);
-    }
-
-    .hero::before{
-      width:560px;
-      height:560px;
-      left:-250px;
-      top:-260px;
-      background:rgba(135,194,50,.16);
-    }
-
-    .hero::after{
-      width:610px;
-      height:610px;
-      right:-280px;
-      top:-220px;
-      background:rgba(15,102,195,.12);
-    }
-
-    .hero-grid{
-      position:absolute;
-      inset:0;
-      z-index:-3;
-      pointer-events:none;
-      opacity:.45;
-      background-image:
-        linear-gradient(rgba(148,163,184,.10) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(148,163,184,.10) 1px,transparent 1px);
-      background-size:54px 54px;
-      mask-image:linear-gradient(to bottom,rgba(0,0,0,.75),transparent 88%);
-      -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.75),transparent 88%);
+      padding:96px 0 88px;
+      background:#fff;
     }
 
     .hero-inner{
-      max-width:980px;
+      max-width:920px;
       margin:0 auto;
       text-align:center;
     }
@@ -409,772 +280,552 @@
       display:inline-flex;
       align-items:center;
       gap:8px;
-      padding:8px 13px;
+      margin-bottom:22px;
+      padding:8px 12px;
       border-radius:999px;
-      border:1px solid rgba(135,194,50,.36);
-      background:rgba(255,255,255,.82);
-      color:#4B7C22;
-      box-shadow:0 8px 30px rgba(15,23,42,.04);
-      font-size:11px;
-      font-weight:900;
+      background:#F6F9F1;
+      color:#5A8429;
+      font-size:10px;
+      font-weight:800;
       text-transform:uppercase;
       letter-spacing:.08em;
-      margin-bottom:24px;
     }
 
     h1{
-      max-width:960px;
-      margin:0 auto;
-      color:var(--dark);
-      font-size:clamp(45px,6vw,76px);
+      margin:0;
+      font-size:clamp(48px,6vw,76px);
       line-height:1.01;
-      letter-spacing:-.058em;
+      letter-spacing:-.06em;
       font-weight:800;
       text-wrap:balance;
     }
 
-    .hero-highlight{
-      background:linear-gradient(90deg,var(--green) 0%,var(--blue) 100%);
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-    }
+    .hero-highlight{color:var(--green)}
 
     .hero-sub{
-      max-width:810px;
+      max-width:740px;
       margin:24px auto 0;
-      color:#556477;
-      font-size:clamp(17px,1.7vw,20px);
-      line-height:1.62;
-      font-weight:500;
-    }
-
-    .hero-sub strong{
-      color:#334155;
+      color:#5B697A;
+      font-size:17px;
+      line-height:1.65;
     }
 
     .hero-actions{
       display:flex;
       justify-content:center;
-      align-items:center;
-      gap:12px;
+      gap:10px;
       flex-wrap:wrap;
-      margin-top:27px;
+      margin-top:28px;
     }
 
     .hero-note{
-      margin-top:14px;
-      color:#748195;
-      font-size:12.5px;
+      margin-top:15px;
+      color:#7C8999;
+      font-size:11px;
       font-weight:650;
     }
 
-    .hero-product-grid{
-      width:100%;
-      max-width:960px;
-      margin:34px auto 0;
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:13px;
-    }
-
-    .hero-product-pill{
-      min-width:0;
-      min-height:104px;
-      display:grid;
-      grid-template-columns:46px minmax(0,1fr) auto;
-      align-items:center;
-      gap:12px;
-      padding:16px;
-      border:1px solid rgba(226,232,240,.95);
-      border-radius:19px;
-      background:rgba(255,255,255,.88);
-      text-align:left;
-      box-shadow:0 8px 24px rgba(12,30,44,.055);
-      transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
-    }
-
-    .hero-product-pill:hover{
-      transform:translateY(-3px);
-      background:#fff;
-      box-shadow:0 18px 38px rgba(12,30,44,.10);
-    }
-
-    .hero-product-house:hover{border-color:rgba(135,194,50,.68);}
-    .hero-product-facilities:hover{border-color:rgba(15,102,195,.60);}
-    .hero-product-classboard:hover{border-color:rgba(214,165,0,.62);}
-
-    .hero-product-icon{
-      width:46px;
-      height:46px;
-      display:grid;
-      place-items:center;
-      border-radius:14px;
-      font-size:18px;
-      font-weight:900;
-    }
-
-    .hero-product-house .hero-product-icon{background:#F0FDF4;color:#4D7A20;}
-    .hero-product-facilities .hero-product-icon{background:#EFF6FF;color:var(--blue);}
-    .hero-product-classboard .hero-product-icon{background:#FFF8D8;color:#8A6500;}
-
-    .hero-product-copy{
-      min-width:0;
-      display:grid;
-      gap:4px;
-    }
-
-    .hero-product-copy strong{
-      color:var(--dark);
-      font-size:13px;
-      line-height:1.2;
-      font-weight:850;
-    }
-
-    .hero-product-copy small{
-      color:#738093;
-      font-size:10.5px;
-      line-height:1.4;
-      font-weight:600;
-    }
-
-    .hero-product-arrow{
-      color:#94A3B8;
-      font-size:11px;
-      transition:transform .18s ease,color .18s ease;
-    }
-
-    .hero-product-pill:hover .hero-product-arrow{
-      transform:translateX(3px);
-      color:#64748B;
-    }
-
-    /* =========================
-       PARTNER
-       ========================= */
-
-    .home-school-partner{
-      padding:22px 0;
-      background:#fff;
+    /* PROOF */
+    .proof{
+      padding:18px 0;
+      border-top:1px solid var(--line);
       border-bottom:1px solid var(--line);
+      background:#FAFBFC;
     }
 
-    .home-school-partner-card{
-      position:relative;
-      display:block;
-      padding:18px 22px;
-      border:1px solid #DCE5EE;
-      border-radius:20px;
-      background:
-        radial-gradient(circle at 4% 50%,rgba(135,194,50,.10),transparent 24%),
-        radial-gradient(circle at 96% 50%,rgba(15,102,195,.08),transparent 24%),
-        #fff;
-      box-shadow:0 10px 28px rgba(12,30,44,.055);
-      transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
-    }
-
-    .home-school-partner-card:hover{
-      transform:translateY(-2px);
-      border-color:rgba(15,102,195,.28);
-      box-shadow:0 16px 36px rgba(12,30,44,.09);
-    }
-
-    .home-school-partner-label{
+    .proof-inner{
       display:flex;
       align-items:center;
-      gap:7px;
-      margin-bottom:12px;
-      color:#4D7A20;
-      font-size:10px;
-      font-weight:900;
-      text-transform:uppercase;
-      letter-spacing:.1em;
-    }
-
-    .home-school-partner-label i{color:var(--green);}
-
-    .home-school-partner-content{
-      display:grid;
-      grid-template-columns:72px minmax(0,1fr) auto;
-      align-items:center;
+      justify-content:center;
       gap:18px;
+      flex-wrap:wrap;
     }
 
-    .home-school-partner-logo{
-      width:72px;
-      height:72px;
-      display:grid;
-      place-items:center;
-      padding:7px;
-      border-radius:16px;
-      background:#fff;
+    .proof-label{
+      color:#7B8795;
+      font-size:10px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+
+    .proof-school{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .proof-logo{
+      width:38px;
+      height:38px;
+      border-radius:9px;
+      padding:4px;
       border:1px solid var(--line);
+      background:#fff;
     }
 
-    .home-school-partner-logo img{
+    .proof-logo img{
       width:100%;
       height:100%;
       object-fit:contain;
+    }
+
+    .proof-school strong{
       display:block;
+      font-size:12px;
     }
 
-    .home-school-partner-copy{
-      min-width:0;
-    }
-
-    .home-school-partner-copy span{
+    .proof-school span{
       display:block;
-      margin-bottom:2px;
-      color:#718096;
-      font-size:10px;
-      font-weight:800;
-      text-transform:uppercase;
-      letter-spacing:.06em;
-    }
-
-    .home-school-partner-copy h2{
-      margin:0;
-      color:var(--dark);
-      font-size:20px;
-      line-height:1.2;
-      letter-spacing:-.035em;
-      font-weight:800;
-    }
-
-    .home-school-partner-copy p{
-      margin:4px 0 0;
-      color:#667487;
-      font-size:13px;
-      line-height:1.45;
-    }
-
-    .home-school-partner-link{
-      display:inline-flex;
-      align-items:center;
-      gap:7px;
-      padding:9px 12px;
-      border-radius:999px;
-      background:#EFF6FF;
-      color:var(--blue);
-      font-size:11px;
-      font-weight:850;
-      white-space:nowrap;
-      transition:background .18s ease,color .18s ease,transform .18s ease;
-    }
-
-    .home-school-partner-card:hover .home-school-partner-link{
-      background:var(--blue);
-      color:#fff;
-      transform:translateX(2px);
-    }
-
-    /* =========================
-       PRODUCTS
-       ========================= */
-
-    .products{
-      padding:80px 0 84px;
-      background:#fff;
-    }
-
-    .products-head{
-      max-width:790px;
-      margin:0 auto 36px;
-      text-align:center;
-    }
-
-    .products-head h2,
-    .suite-copy h2,
-    .trust-copy h2{
-      margin:0;
-      color:var(--dark);
-      font-size:clamp(34px,4.5vw,52px);
-      line-height:1.08;
-      letter-spacing:-.045em;
-      font-weight:750;
-      text-wrap:balance;
-    }
-
-    .products-head p,
-    .suite-copy p,
-    .trust-copy p{
-      max-width:690px;
-      margin:15px auto 0;
-      color:var(--muted);
-      font-size:16px;
-      line-height:1.65;
-    }
-
-    .product-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:20px;
-      align-items:stretch;
-    }
-
-    .product-card{
-      position:relative;
-      display:flex;
-      flex-direction:column;
-      min-height:475px;
-      border:1px solid var(--line);
-      border-radius:28px;
-      padding:26px;
-      background:#fff;
-      box-shadow:0 12px 36px rgba(12,30,44,.045);
-      overflow:hidden;
-      transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
-    }
-
-    .product-card:hover{
-      transform:translateY(-4px);
-      box-shadow:var(--shadow);
-    }
-
-    .product-card.house:hover{border-color:rgba(135,194,50,.52);}
-    .product-card.facilities:hover{border-color:rgba(15,102,195,.42);}
-    .product-card.classboard:hover{border-color:rgba(250,204,21,.58);}
-
-    .product-card::after{
-      content:"";
-      position:absolute;
-      width:170px;
-      height:170px;
-      right:-62px;
-      bottom:-72px;
-      border-radius:50%;
-      opacity:.55;
-      pointer-events:none;
-    }
-
-    .product-card.house::after{background:rgba(135,194,50,.12);}
-    .product-card.facilities::after{background:rgba(15,102,195,.10);}
-    .product-card.classboard::after{background:rgba(250,204,21,.16);}
-
-    .product-card::before{
-      content:"";
-      position:absolute;
-      left:26px;
-      right:26px;
-      top:0;
-      height:3px;
-      border-radius:0 0 999px 999px;
-      opacity:.86;
-    }
-
-    .product-card.house::before{background:linear-gradient(90deg,#87C232,#B7E46E);}
-    .product-card.facilities::before{background:linear-gradient(90deg,#0F66C3,#38BDF8);}
-    .product-card.classboard::before{background:linear-gradient(90deg,#FACC15,#8B5CF6);}
-
-    .product-top{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:14px;
-    }
-
-    .product-icon{
-      width:54px;
-      height:54px;
-      border-radius:16px;
-      display:grid;
-      place-items:center;
-      font-size:21px;
-      flex-shrink:0;
-    }
-
-    .house .product-icon{background:#F0FDF4;color:#4D7A20;}
-    .facilities .product-icon{background:#EFF6FF;color:var(--blue);}
-    .classboard .product-icon{background:#FFF8D8;color:#8A6500;}
-
-    .product-type{
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      padding:7px 9px;
-      border-radius:999px;
-      font-size:10px;
-      font-weight:900;
-      line-height:1;
-      white-space:nowrap;
-    }
-
-    .house .product-type{background:#EAF8D8;color:#4D7A20;}
-    .facilities .product-type{background:#EAF3FF;color:#0F66C3;}
-    .classboard .product-type{background:#FFF5C5;color:#755600;}
-
-    .product-card h3{
-      margin:21px 0 8px;
-      color:var(--dark);
-      font-size:26px;
-      line-height:1.12;
-      letter-spacing:-.04em;
-    }
-
-    .product-summary{
-      margin:0;
-      color:#607083;
-      font-size:15px;
-      line-height:1.6;
-    }
-
-    .product-summary strong{
-      color:#435164;
-    }
-
-    .data-note{
-      display:flex;
-      align-items:flex-start;
-      gap:8px;
-      margin:15px 0 0;
-      padding:10px 11px;
-      border-radius:12px;
-      background:#F8FAFC;
-      color:#64748B;
-      font-size:11px;
-      line-height:1.42;
-      font-weight:650;
-    }
-
-    .data-note i{
       margin-top:2px;
-      color:#64748B;
+      color:#8190A0;
+      font-size:9.5px;
     }
 
-    .product-benefits{
-      display:grid;
-      gap:10px;
-      margin:21px 0 26px;
-    }
-
-    .product-benefit{
-      display:flex;
-      gap:9px;
-      align-items:flex-start;
-      color:#435164;
-      font-size:13px;
-      line-height:1.42;
-      font-weight:650;
-    }
-
-    .product-benefit i{
-      margin-top:2px;
-      font-size:13px;
-      color:var(--green-dark);
-    }
-
-    .facilities .product-benefit i{color:var(--blue);}
-    .classboard .product-benefit i{color:#A77900;}
-
-    .product-button{
-      margin-top:auto;
-      position:relative;
-      z-index:2;
-    }
-
-    .product-button .btn{
-      width:100%;
-    }
-
-    /* =========================
-       STANDALONE / SUITE
-       ========================= */
-
-    .suite{
-      padding:76px 0;
-      background:#F8FAFC;
-      border-top:1px solid var(--line);
+    /* FLAGSHIP */
+    .flagship{
+      padding:96px 0;
+      background:var(--soft);
       border-bottom:1px solid var(--line);
     }
 
-    .suite-copy{
-      max-width:780px;
-      margin:0 auto 34px;
-      text-align:center;
-    }
-
-    .suite-grid{
+    .flagship-grid{
       display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:16px;
-      max-width:980px;
-      margin:0 auto;
-    }
-
-    .suite-card{
-      position:relative;
-      padding:24px 22px;
-      border:1px solid var(--line);
-      border-radius:22px;
-      background:#fff;
-      box-shadow:0 8px 24px rgba(12,30,44,.045);
-    }
-
-    .suite-number{
-      width:34px;
-      height:34px;
-      display:grid;
-      place-items:center;
-      margin-bottom:15px;
-      border-radius:10px;
-      background:#F0FDF4;
-      color:#4D7A20;
-      font-size:12px;
-      font-weight:900;
-    }
-
-    .suite-card h3{
-      margin:0;
-      color:var(--dark);
-      font-size:19px;
-      line-height:1.2;
-      letter-spacing:-.025em;
-    }
-
-    .suite-card p{
-      margin:8px 0 0;
-      color:#687689;
-      font-size:13px;
-      line-height:1.55;
-    }
-
-    .suite-callout{
-      max-width:980px;
-      margin:17px auto 0;
-      padding:17px 20px;
-      display:flex;
+      grid-template-columns:.84fr 1.16fr;
+      gap:64px;
       align-items:center;
-      justify-content:space-between;
-      gap:18px;
-      border-radius:18px;
-      border:1px solid rgba(15,102,195,.16);
-      background:#fff;
     }
 
-    .suite-callout-copy{
-      display:flex;
-      align-items:flex-start;
-      gap:12px;
-    }
-
-    .suite-callout-icon{
-      width:38px;
-      height:38px;
-      flex:0 0 38px;
-      display:grid;
-      place-items:center;
-      border-radius:11px;
-      background:#EFF6FF;
-      color:var(--blue);
-    }
-
-    .suite-callout strong{
-      display:block;
-      color:var(--dark);
-      font-size:13px;
-      margin-bottom:3px;
-    }
-
-    .suite-callout span{
-      display:block;
-      color:#6B788A;
-      font-size:12px;
-      line-height:1.45;
-    }
-
-    .suite-callout a{
-      color:var(--blue);
-      font-size:12px;
-      font-weight:850;
-      white-space:nowrap;
-    }
-
-    /* =========================
-       WHY TRACKEDU
-       ========================= */
-
-    .trust{
-      padding:76px 0;
-      background:#fff;
-    }
-
-    .trust-copy{
-      max-width:760px;
-      margin:0 auto 30px;
-      text-align:center;
-    }
-
-    .trust-grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:14px;
-      max-width:1040px;
-      margin:0 auto;
-    }
-
-    .trust-item{
-      min-height:148px;
-      padding:18px;
-      border-radius:20px;
-      background:#fff;
-      border:1px solid var(--line);
-      box-shadow:0 8px 22px rgba(12,30,44,.035);
-    }
-
-    .trust-item i{
-      width:36px;
-      height:36px;
-      border-radius:11px;
-      display:grid;
-      place-items:center;
-      background:#F0FDF4;
-      color:#4D7A20;
-      margin-bottom:12px;
-    }
-
-    .trust-item strong{
-      display:block;
-      margin-bottom:5px;
-      color:var(--dark);
-      font-size:14px;
-    }
-
-    .trust-item span{
-      display:block;
-      color:#6B788A;
-      font-size:12px;
-      line-height:1.5;
-    }
-
-    /* =========================
-       CONSULTANCY
-       ========================= */
-
-    .consultancy{
-      padding:76px 0;
-      background:#F8FAFC;
-      border-top:1px solid var(--line);
-    }
-
-    .consultancy-layout{
-      display:grid;
-      grid-template-columns:.92fr 1.08fr;
-      gap:34px;
-      align-items:center;
-      max-width:1060px;
-      margin:0 auto;
-    }
-
-    .consultancy-copy h2{
+    .flagship-copy h2{
       margin:0;
-      color:var(--dark);
-      font-size:clamp(32px,4vw,48px);
-      line-height:1.08;
-      letter-spacing:-.045em;
-      text-wrap:balance;
+      font-size:clamp(40px,5vw,62px);
+      line-height:1.02;
+      letter-spacing:-.055em;
+      font-weight:800;
     }
 
-    .consultancy-copy p{
-      margin:16px 0 0;
-      color:var(--muted);
+    .flagship-copy p{
+      margin:18px 0 0;
+      color:#647285;
       font-size:15.5px;
       line-height:1.65;
     }
 
-    .consultancy-copy .hero-actions{
-      justify-content:flex-start;
-      margin-top:22px;
+    .flagship-list{
+      display:grid;
+      gap:11px;
+      margin:24px 0 28px;
     }
 
-    .consultancy-note{
-      margin-top:10px;
-      color:#738093;
-      font-size:11.5px;
-      line-height:1.45;
+    .flagship-list div{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      color:#425266;
+      font-size:13px;
       font-weight:650;
     }
 
-    .consultancy-panel{
-      padding:24px;
-      border:1px solid var(--line);
-      border-radius:24px;
+    .flagship-list i{
+      margin-top:2px;
+      color:var(--green);
+    }
+
+    .flagship-visual{
+      position:relative;
+      min-height:550px;
+    }
+
+    .board-main{
+      position:absolute;
+      inset:0 54px 48px 0;
+      border-radius:28px;
+      overflow:hidden;
       background:#fff;
-      box-shadow:0 14px 36px rgba(12,30,44,.06);
+      box-shadow:var(--shadow);
+      border:1px solid #E4E9EE;
     }
 
-    .consultancy-step{
+    .board-main img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .board-small{
+      position:absolute;
+      width:44%;
+      right:0;
+      bottom:0;
+      border-radius:20px;
+      overflow:hidden;
+      background:#fff;
+      border:8px solid #fff;
+      box-shadow:0 16px 44px rgba(12,30,44,.14);
+    }
+
+    .board-small img{
+      width:100%;
+      aspect-ratio:4/3;
+      object-fit:cover;
+    }
+
+    /* SECONDARY PRODUCTS */
+    .secondary{
+      padding:92px 0;
+      background:#fff;
+    }
+
+    .secondary-head{
+      max-width:760px;
+      margin:0 auto 42px;
+      text-align:center;
+    }
+
+    .secondary-head h2{
+      margin:0;
+      font-size:clamp(34px,4vw,48px);
+      line-height:1.08;
+      letter-spacing:-.045em;
+      font-weight:800;
+    }
+
+    .secondary-head p{
+      margin:14px auto 0;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.6;
+    }
+
+    .secondary-grid{
       display:grid;
-      grid-template-columns:42px minmax(0,1fr);
-      gap:13px;
-      align-items:start;
-      padding:14px 0;
-      border-bottom:1px solid #EDF2F7;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
     }
 
-    .consultancy-step:first-child{padding-top:0;}
-    .consultancy-step:last-child{padding-bottom:0;border-bottom:0;}
+    .secondary-card{
+      display:flex;
+      flex-direction:column;
+      min-height:410px;
+      padding:30px;
+      border-radius:24px;
+      border:1px solid var(--line);
+      background:#fff;
+      box-shadow:0 10px 30px rgba(12,30,44,.045);
+    }
 
-    .consultancy-step-icon{
-      width:42px;
-      height:42px;
+    .secondary-icon{
+      width:48px;
+      height:48px;
       display:grid;
       place-items:center;
-      border-radius:12px;
+      border-radius:14px;
+      margin-bottom:22px;
+      font-size:18px;
+    }
+
+    .secondary-card.facilities .secondary-icon{
       background:#EFF6FF;
       color:var(--blue);
-      font-size:16px;
     }
 
-    .consultancy-step strong{
-      display:block;
-      margin-bottom:4px;
-      color:var(--dark);
+    .secondary-card.classboard .secondary-icon{
+      background:#FFF8DD;
+      color:#A87400;
+    }
+
+    .secondary-card h3{
+      margin:0;
+      font-size:28px;
+      line-height:1.1;
+      letter-spacing:-.04em;
+    }
+
+    .secondary-card p{
+      margin:13px 0 0;
+      color:#687689;
       font-size:14px;
+      line-height:1.62;
     }
 
-    .consultancy-step span{
-      display:block;
-      color:#6B788A;
+    .secondary-points{
+      display:grid;
+      gap:9px;
+      margin:20px 0 24px;
+    }
+
+    .secondary-points span{
+      display:flex;
+      gap:9px;
+      align-items:flex-start;
+      color:#48586B;
       font-size:12.5px;
-      line-height:1.5;
+      font-weight:650;
     }
 
-    /* =========================
-       FINAL CTA
-       ========================= */
+    .secondary-points i{margin-top:2px}
+    .facilities .secondary-points i{color:var(--blue)}
+    .classboard .secondary-points i{color:#B27E00}
 
+    .secondary-card .btn{
+      margin-top:auto;
+      align-self:flex-start;
+    }
+
+    /* HOW IT FITS */
+    .suite{
+      padding:80px 0;
+      background:#F8FAFC;
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+    }
+
+    .suite-inner{
+      max-width:940px;
+      margin:0 auto;
+      text-align:center;
+    }
+
+    .suite-inner h2{
+      margin:0;
+      font-size:clamp(34px,4vw,48px);
+      line-height:1.08;
+      letter-spacing:-.045em;
+      font-weight:800;
+    }
+
+    .suite-inner p{
+      max-width:720px;
+      margin:15px auto 0;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.65;
+    }
+
+    .suite-row{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:30px;
+    }
+
+    .suite-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:11px 14px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:#fff;
+      color:#425266;
+      font-size:12px;
+      font-weight:750;
+    }
+
+    .suite-pill.house i{color:var(--green)}
+    .suite-pill.facilities i{color:var(--blue)}
+    .suite-pill.classboard i{color:#B17A00}
+    .suite-plus{color:#9BA6B2;font-weight:800}
+
+    /* PHYSICAL TO DIGITAL */
+    .physical-digital{
+      padding:96px 0;
+      background:#fff;
+    }
+
+    .physical-digital-head{
+      max-width:760px;
+      margin:0 auto 42px;
+      text-align:center;
+    }
+
+    .physical-digital-head h2{
+      margin:0;
+      font-size:clamp(38px,4.8vw,56px);
+      line-height:1.05;
+      letter-spacing:-.05em;
+      font-weight:800;
+      text-wrap:balance;
+    }
+
+    .physical-digital-head p{
+      max-width:660px;
+      margin:15px auto 0;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.65;
+    }
+
+    .physical-digital-stage{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 86px minmax(0,1fr);
+      gap:18px;
+      align-items:center;
+      max-width:1100px;
+      margin:0 auto;
+    }
+
+    .pd-card{
+      position:relative;
+      overflow:hidden;
+      border-radius:28px;
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      transition:transform .2s ease,box-shadow .2s ease;
+    }
+
+    .pd-card:hover{
+      transform:translateY(-3px);
+      box-shadow:0 26px 68px rgba(12,30,44,.12);
+    }
+
+    .pd-card img{
+      width:100%;
+      aspect-ratio:4/3;
+      object-fit:cover;
+    }
+
+    .pd-caption{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:15px 17px;
+      background:#fff;
+      border-top:1px solid #EEF2F6;
+    }
+
+    .pd-caption span{
+      color:var(--green-dark);
+      font-size:10px;
+      font-weight:900;
+      letter-spacing:.08em;
+    }
+
+    .pd-caption strong{
+      color:var(--dark);
+      font-size:12.5px;
+    }
+
+    .pd-connector{
+      display:grid;
+      grid-template-rows:1fr auto 1fr;
+      gap:10px;
+      justify-items:center;
+      align-items:center;
+      min-height:280px;
+    }
+
+    .pd-line{
+      width:1px;
+      height:100%;
+      background:linear-gradient(to bottom,transparent,#D8E0E7,transparent);
+    }
+
+    .pd-icon{
+      width:48px;
+      height:48px;
+      display:grid;
+      place-items:center;
+      border-radius:50%;
+      background:var(--dark);
+      color:#fff;
+      box-shadow:0 12px 28px rgba(12,30,44,.16);
+    }
+
+    .pd-flow{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+      max-width:900px;
+      margin:30px auto 0;
+      color:#718096;
+      font-size:11px;
+      font-weight:750;
+    }
+
+    .pd-flow span{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      padding:9px 11px;
+      border-radius:999px;
+      background:#F8FAFC;
+      border:1px solid var(--line);
+      color:#4F6073;
+    }
+
+    .pd-flow span i{
+      color:var(--green-dark);
+    }
+
+    .pd-flow > i{
+      color:#A8B2BE;
+      font-size:9px;
+    }
+
+    /* CONSULTANCY */
+    .consultancy{
+      padding:88px 0;
+      background:#fff;
+    }
+
+    .consultancy-inner{
+      max-width:940px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:40px;
+      align-items:center;
+    }
+
+    .consultancy-copy h2{
+      margin:0;
+      font-size:clamp(34px,4vw,48px);
+      line-height:1.07;
+      letter-spacing:-.045em;
+      font-weight:800;
+    }
+
+    .consultancy-copy p{
+      max-width:720px;
+      margin:15px 0 0;
+      color:var(--muted);
+      font-size:14.5px;
+      line-height:1.65;
+    }
+
+    /* FINAL */
     .final{
       padding:72px 0;
-      background:linear-gradient(135deg,#07111F 0%,#0C1E2C 100%);
-      color:#fff;
+      background:#F7F9FB;
+      border-top:1px solid var(--line);
       text-align:center;
     }
 
     .final h2{
-      max-width:800px;
-      margin:0 auto;
-      font-size:clamp(34px,4.7vw,54px);
+      margin:0;
+      font-size:clamp(34px,4vw,48px);
       line-height:1.08;
       letter-spacing:-.045em;
-      text-wrap:balance;
+      font-weight:800;
     }
 
     .final p{
-      max-width:680px;
-      margin:16px auto 0;
-      color:rgba(226,232,240,.76);
-      font-size:16px;
-      line-height:1.62;
+      max-width:650px;
+      margin:14px auto 0;
+      color:var(--muted);
+      font-size:14.5px;
+      line-height:1.6;
     }
 
-    .final .hero-actions{
-      margin-top:26px;
-    }
+    .final .hero-actions{margin-top:24px}
 
-    /* =========================
-       FOOTER
-       ========================= */
-
+    /* FOOTER */
     footer{
       background:#07111F;
       color:rgba(255,255,255,.72);
@@ -1198,882 +849,524 @@
     footer h4{
       margin:0 0 14px;
       color:#fff;
-      font-size:12px;
+      font-size:11px;
       text-transform:uppercase;
-      letter-spacing:.07em;
+      letter-spacing:.08em;
     }
 
     footer a{
       display:block;
       margin:10px 0;
       color:#CBD5E1;
-      font-size:13px;
+      font-size:12.5px;
       line-height:1.4;
     }
 
-    footer a:hover{
-      color:var(--green);
-    }
+    footer a:hover{color:var(--green)}
 
     .footer-legal{
       display:block;
       padding:20px 0 28px;
       border-top:1px solid rgba(255,255,255,.08);
       color:#64748B;
-      font-size:11px;
+      font-size:10.5px;
       line-height:1.6;
       text-align:center;
     }
 
-    /* =========================
-       RESPONSIVE
-       ========================= */
-
-    @media(max-width:1100px){
-      .footer-main{
-        grid-template-columns:repeat(2,1fr);
-      }
-
-      .trust-grid{
-        grid-template-columns:repeat(2,1fr);
-      }
+    @media(max-width:980px){
+      .nav-links,.nav-actions{display:none}
+      .mobile-menu-btn{display:grid;place-items:center}
+      .flagship-grid,.consultancy-inner{grid-template-columns:1fr}
+      .flagship-copy{text-align:center}
+      .flagship-list{max-width:520px;margin-left:auto;margin-right:auto;text-align:left}
+      .flagship-copy .btn{margin-left:auto;margin-right:auto}
+      .flagship-visual{min-height:470px;max-width:760px;width:100%;margin:10px auto 0}
+      .consultancy-inner{text-align:center}
+      .footer-main{grid-template-columns:repeat(2,1fr)}
     }
 
-    @media(max-width:960px){
-      .nav-links,
-      .nav-actions{
-        display:none;
-      }
+    @media(max-width:720px){
+      .container{width:calc(100% - 28px)}
+      .hero{padding:54px 0 50px}
+      .hero-inner{text-align:left}
+      .hero-kicker{margin-bottom:16px;font-size:8.5px}
+      h1{font-size:40px;line-height:1.01}
+      .hero-sub{margin-top:17px;font-size:14px;line-height:1.55}
+      .hero-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;justify-content:stretch}
+      .hero-actions .btn{width:100%;font-size:11.5px;padding:10px}
+      .hero-note{text-align:left;font-size:10px}
 
-      .mobile-menu-btn{
-        display:grid;
-        place-items:center;
-      }
+      .proof-inner{justify-content:flex-start}
+      .proof-label{width:100%}
 
-      .hero-product-grid,
-      .product-grid,
-      .suite-grid{
-        grid-template-columns:1fr;
-      }
+      .flagship{padding:60px 0}
+      .flagship-copy{text-align:left}
+      .flagship-copy h2{font-size:34px}
+      .flagship-copy p{font-size:14px}
+      .flagship-list{margin:18px 0 22px}
+      .flagship-visual{min-height:360px}
+      .board-main{inset:0 28px 34px 0;border-radius:20px}
+      .board-small{width:48%;border-width:6px;border-radius:16px}
 
-      .product-card{
-        min-height:0;
-      }
+      .secondary{padding:60px 0}
+      .secondary-head{text-align:left;margin-bottom:26px}
+      .secondary-head h2{font-size:31px}
+      .secondary-head p{font-size:14px}
+      .secondary-grid{grid-template-columns:1fr}
+      .secondary-card{min-height:0;padding:22px;border-radius:20px}
+      .secondary-card h3{font-size:24px}
 
-      .footer-main{
-        grid-template-columns:repeat(2,1fr);
-      }
-    }
+      .suite{padding:56px 0}
+      .suite-inner{text-align:left}
+      .suite-inner h2{font-size:30px}
+      .suite-inner p{font-size:14px}
+      .suite-row{justify-content:flex-start}
 
-    @media(max-width:700px){
-      .container{
-        width:min(100% - 28px,1180px);
-      }
-
-      .nav-inner{
-        min-height:60px;
-      }
-
-      .brand{
-        font-size:24px;
-      }
-
-      .hero{
-        padding:50px 0 46px;
-      }
-
-      .hero-kicker{
-        margin-bottom:20px;
-        padding:7px 10px;
-        font-size:8.5px;
-        letter-spacing:.04em;
-      }
-
-      h1{
-        font-size:clamp(39px,12vw,54px);
-        line-height:.98;
-      }
-
-      .hero-sub{
-        max-width:340px;
-        margin-top:18px;
-        font-size:14px;
-        line-height:1.5;
-      }
-
-      .hero-actions{
-        flex-direction:column;
-        margin-top:21px;
-      }
-
-      .hero-actions .btn{
+      .physical-digital{padding:60px 0}
+      .physical-digital-head{text-align:left;margin-bottom:26px}
+      .physical-digital-head h2{font-size:32px}
+      .physical-digital-head p{margin-left:0;font-size:14px}
+      .physical-digital-stage{grid-template-columns:1fr;gap:14px}
+      .pd-connector{
+        min-height:auto;
+        grid-template-columns:1fr auto 1fr;
+        grid-template-rows:none;
         width:100%;
       }
-
-      .hero-note{
-        font-size:11px;
-      }
-
-      .hero-product-grid{
-        gap:9px;
-        margin-top:24px;
-      }
-
-      .hero-product-pill{
-        min-height:78px;
-        padding:12px 14px;
-        grid-template-columns:40px minmax(0,1fr) 16px;
-      }
-
-      .hero-product-icon{
-        width:40px;
-        height:40px;
-        border-radius:12px;
-        font-size:16px;
-      }
-
-      .hero-product-copy strong{
-        font-size:12.5px;
-      }
-
-      .hero-product-copy small{
-        font-size:9.5px;
-      }
-
-      .home-school-partner{
-        padding:14px 0;
-      }
-
-      .home-school-partner-card{
-        padding:15px;
-        border-radius:18px;
-      }
-
-      .home-school-partner-content{
-        grid-template-columns:58px minmax(0,1fr);
-        gap:12px;
-      }
-
-      .home-school-partner-logo{
-        width:58px;
-        height:58px;
-        border-radius:13px;
-        padding:5px;
-      }
-
-      .home-school-partner-copy h2{
-        font-size:16px;
-      }
-
-      .home-school-partner-copy p{
-        font-size:11px;
-      }
-
-      .home-school-partner-link{
-        grid-column:1 / -1;
+      .pd-line{
         width:100%;
-        justify-content:center;
-        margin-top:4px;
+        height:1px;
+        background:linear-gradient(to right,transparent,#D8E0E7,transparent);
       }
+      .pd-icon{width:42px;height:42px}
+      .pd-flow{justify-content:flex-start;gap:8px;margin-top:20px}
+      .pd-flow > i{display:none}
+      .pd-flow span{font-size:10px}
 
-      .products,
-      .suite,
-      .trust{
-        padding:58px 0 62px;
-      }
+      .consultancy{padding:60px 0}
+      .consultancy-inner{text-align:left}
+      .consultancy-copy h2{font-size:31px}
+      .consultancy-copy p{font-size:14px}
+      .consultancy-inner .btn{width:100%}
 
-      .products-head,
-      .suite-copy,
-      .trust-copy{
-        text-align:left;
-        margin-bottom:25px;
-      }
-
-      .products-head h2,
-      .suite-copy h2,
-      .trust-copy h2{
-        font-size:clamp(31px,9vw,42px);
-      }
-
-      .products-head p,
-      .suite-copy p,
-      .trust-copy p{
-        font-size:15px;
-        margin-left:0;
-        margin-right:0;
-      }
-
-      .product-card{
-        border-radius:22px;
-        padding:22px;
-      }
-
-      .product-card h3{
-        font-size:24px;
-      }
-
-      .product-type{
-        font-size:9px;
-        padding:7px 8px;
-      }
-
-      .suite-callout{
-        align-items:flex-start;
-        flex-direction:column;
-      }
-
-      .suite-callout a{
-        padding-left:50px;
-      }
-
-      .trust-grid{
-        grid-template-columns:1fr 1fr;
-        gap:10px;
-      }
-
-      .trust-item{
-        min-height:130px;
-        padding:14px;
-        border-radius:16px;
-      }
-
-      .trust-item strong{
-        font-size:13px;
-      }
-
-      .trust-item span{
-        font-size:11px;
-      }
-
-      .final{
-        padding:58px 0;
-      }
-
-      .footer-main{
-        grid-template-columns:1fr;
-        text-align:center;
-        padding-top:40px;
-      }
-
-      .footer-main p{
-        margin-left:auto;
-        margin-right:auto;
-      }
+      .final{padding:54px 0;text-align:left}
+      .final h2{font-size:31px}
+      .final p{margin-left:0;font-size:14px}
+      .final .hero-actions{display:grid;grid-template-columns:1fr}
+      .footer-main{grid-template-columns:1fr;gap:22px;padding:36px 0 24px}
+      .footer-legal{text-align:left}
     }
 
-    @media(max-width:420px){
-      .container{
-        width:calc(100% - 24px);
-      }
+    @media(max-width:430px){
+      .container{width:calc(100% - 24px)}
+      h1{font-size:35px}
+      .hero-actions{grid-template-columns:1fr}
+      .flagship-visual{min-height:300px}
+    }
+
+
+    /* MOBILE-FIRST POLISH */
+    @media(max-width:720px){
+      html{scroll-padding-top:62px}
 
       .nav-inner{
         min-height:58px;
       }
 
       .brand{
-        font-size:23px;
+        font-size:24px;
       }
 
       .mobile-menu-btn{
-        width:40px;
-        height:40px;
-        border-radius:11px;
+        width:38px;
+        height:38px;
+        border-radius:10px;
       }
 
       .hero{
-        padding-top:42px;
-      }
-
-      .hero-kicker{
-        width:100%;
-        justify-content:center;
-        text-align:center;
-        white-space:normal;
-      }
-
-      h1{
-        font-size:clamp(36px,10.5vw,43px);
-      }
-
-      .hero-sub{
-        max-width:310px;
-        font-size:13px;
-      }
-
-      .trust-grid{
-        grid-template-columns:1fr;
-      }
-
-      .suite-callout a{
-        padding-left:0;
-      }
-    }
-
-    @media(max-width:860px){
-      .consultancy-layout{
-        grid-template-columns:1fr;
-      }
-      .consultancy-copy{
-        text-align:center;
-      }
-      .consultancy-copy .hero-actions{
-        justify-content:center;
-      }
-    }
-
-    @media(max-width:700px){
-      .consultancy{
-        padding:58px 0;
-      }
-      .consultancy-copy{
-        text-align:left;
-      }
-      .consultancy-copy .hero-actions{
-        justify-content:flex-start;
-      }
-      .consultancy-copy .hero-actions .btn{
-        width:100%;
-      }
-      .consultancy-panel{
-        padding:20px;
-        border-radius:20px;
-      }
-    }
-
-
-
-    /* =========================
-       MOBILE POLISH — FINAL OVERRIDES
-       Keeps desktop unchanged while making the phone layout
-       shorter, calmer and easier to scan.
-       ========================= */
-
-    @media(max-width:700px){
-      .container{
-        width:calc(100% - 28px);
-      }
-
-      .nav{
-        backdrop-filter:blur(12px);
-        -webkit-backdrop-filter:blur(12px);
-      }
-
-      .nav-inner{
-        min-height:64px;
-      }
-
-      .brand{
-        font-size:25px;
-      }
-
-      .mobile-menu-btn{
-        width:42px;
-        height:42px;
-        border-radius:12px;
-      }
-
-      .hero{
-        padding:30px 0 30px;
-      }
-
-      .hero::before{
-        width:360px;
-        height:360px;
-        left:-220px;
-        top:-180px;
-      }
-
-      .hero::after{
-        width:380px;
-        height:380px;
-        right:-245px;
-        top:-150px;
-      }
-
-      .hero-grid{
-        opacity:.28;
-        background-size:42px 42px;
+        padding:24px 0 26px;
       }
 
       .hero-inner{
         max-width:none;
-        text-align:left;
       }
 
       .hero-kicker{
-        width:auto;
-        max-width:100%;
-        margin:0 0 16px;
-        padding:7px 10px;
-        justify-content:flex-start;
-        font-size:8.5px;
-        line-height:1.2;
-        letter-spacing:.045em;
-        white-space:nowrap;
-      }
-
-      h1{
-        max-width:100%;
-        margin:0;
-        font-size:36px;
-        line-height:1.01;
-        letter-spacing:-.052em;
-        text-align:left;
-        text-wrap:pretty;
-      }
-
-      .hero-sub{
-        max-width:none;
-        margin:16px 0 0;
-        font-size:14px;
-        line-height:1.48;
-        text-align:left;
-      }
-
-      .hero-actions{
-        display:grid;
-        grid-template-columns:minmax(0,1fr) minmax(0,1fr);
-        gap:9px;
-        margin-top:19px;
-      }
-
-      .hero-actions .btn{
-        width:100%;
-        min-height:46px;
-        padding:10px 11px;
-        font-size:12px;
-        line-height:1.2;
-        white-space:normal;
-        text-align:center;
-      }
-
-      .hero-note{
-        margin-top:11px;
-        font-size:10.5px;
-        line-height:1.35;
-        text-align:left;
-      }
-
-      .hero-product-grid{
-        grid-template-columns:repeat(3,minmax(0,1fr));
-        gap:8px;
-        margin-top:18px;
-      }
-
-      .hero-product-pill{
-        position:relative;
-        min-height:92px;
-        padding:11px 7px;
-        display:flex;
-        flex-direction:column;
-        justify-content:center;
-        align-items:center;
-        gap:8px;
-        border-radius:16px;
-        text-align:center;
-      }
-
-      .hero-product-pill:hover{
-        transform:none;
-      }
-
-      .hero-product-icon{
-        width:36px;
-        height:36px;
-        border-radius:11px;
-        font-size:14px;
-      }
-
-      .hero-product-copy{
-        display:block;
-        width:100%;
-      }
-
-      .hero-product-copy strong{
-        display:block;
-        font-size:11px;
-        line-height:1.15;
-      }
-
-      .hero-product-copy small,
-      .hero-product-arrow{
-        display:none;
-      }
-
-      .home-school-partner{
-        padding:12px 0;
-      }
-
-      .home-school-partner-card{
-        padding:12px;
-        border-radius:16px;
-      }
-
-      .home-school-partner-label{
-        margin-bottom:9px;
-        font-size:8.5px;
-      }
-
-      .home-school-partner-content{
-        grid-template-columns:48px minmax(0,1fr);
-        gap:10px;
-      }
-
-      .home-school-partner-logo{
-        width:48px;
-        height:48px;
-        padding:4px;
-        border-radius:12px;
-      }
-
-      .home-school-partner-copy h2{
-        font-size:15px;
-      }
-
-      .home-school-partner-copy p{
-        margin-top:3px;
-        font-size:10.5px;
-        line-height:1.35;
-      }
-
-      .home-school-partner-link{
-        grid-column:1 / -1;
-        width:100%;
-        margin-top:2px;
-        padding:8px 10px;
-        justify-content:center;
-        font-size:10.5px;
-      }
-
-      .products,
-      .suite,
-      .trust,
-      .consultancy{
-        padding:46px 0;
-      }
-
-      .products-head,
-      .suite-copy,
-      .trust-copy{
-        margin-bottom:20px;
-        text-align:left;
-      }
-
-      .section-label{
-        margin-bottom:8px;
-        font-size:9.5px;
-      }
-
-      .products-head h2,
-      .suite-copy h2,
-      .trust-copy h2,
-      .consultancy-copy h2{
-        font-size:30px;
-        line-height:1.07;
-        letter-spacing:-.04em;
-      }
-
-      .products-head p,
-      .suite-copy p,
-      .trust-copy p,
-      .consultancy-copy p{
-        margin-top:12px;
-        font-size:14px;
-        line-height:1.55;
-      }
-
-      .product-grid,
-      .suite-grid{
-        gap:13px;
-      }
-
-      .product-card{
-        padding:18px;
-        border-radius:19px;
-      }
-
-      .product-icon{
-        width:46px;
-        height:46px;
-        border-radius:13px;
-        font-size:18px;
-      }
-
-      .product-type{
-        padding:6px 8px;
-        font-size:8.5px;
-      }
-
-      .product-card h3{
-        margin:17px 0 7px;
-        font-size:22px;
-        line-height:1.12;
-      }
-
-      .product-summary{
-        font-size:13.5px;
-        line-height:1.52;
-      }
-
-      .data-note{
-        margin-top:12px;
-        padding:9px 10px;
-        border-radius:10px;
-        font-size:10.5px;
-        line-height:1.4;
-      }
-
-      .product-benefits{
-        gap:8px;
-        margin:16px 0 18px;
-      }
-
-      .product-benefit{
-        gap:8px;
-        font-size:12px;
-        line-height:1.38;
-      }
-
-      .product-benefit i{
-        font-size:12px;
-      }
-
-      .product-button .btn{
-        min-height:44px;
-        padding:10px 12px;
-        font-size:12px;
-      }
-
-      .suite-card{
-        padding:18px;
-        border-radius:17px;
-      }
-
-      .suite-number{
-        width:30px;
-        height:30px;
-        margin-bottom:12px;
-      }
-
-      .suite-card h3{
-        font-size:17px;
-      }
-
-      .suite-card p{
-        font-size:12px;
-        line-height:1.48;
-      }
-
-      .suite-callout{
-        margin-top:13px;
-        padding:14px;
-        gap:11px;
-        border-radius:15px;
-      }
-
-      .suite-callout-copy{
-        gap:10px;
-      }
-
-      .suite-callout-icon{
-        width:34px;
-        height:34px;
-        flex-basis:34px;
-      }
-
-      .suite-callout a{
-        padding-left:44px;
-      }
-
-      .trust-grid{
-        grid-template-columns:1fr;
-        gap:10px;
-      }
-
-      .trust-item{
-        min-height:0;
-        padding:15px;
-        border-radius:16px;
-      }
-
-      .trust-item i{
-        width:34px;
-        height:34px;
-        margin-bottom:10px;
-      }
-
-      .trust-item strong{
-        font-size:13px;
-      }
-
-      .trust-item span{
-        font-size:11.5px;
-        line-height:1.42;
-      }
-
-      .consultancy-layout{
-        gap:20px;
-      }
-
-      .consultancy-copy{
-        text-align:left;
-      }
-
-      .consultancy-copy .hero-actions{
-        display:block;
-        margin-top:18px;
-      }
-
-      .consultancy-copy .hero-actions .btn{
-        width:100%;
-      }
-
-      .consultancy-note{
-        font-size:10.5px;
-      }
-
-      .consultancy-panel{
-        padding:18px;
-        border-radius:18px;
-      }
-
-      .consultancy-step{
-        grid-template-columns:38px minmax(0,1fr);
-        gap:11px;
-        padding:12px 0;
-      }
-
-      .consultancy-step-icon{
-        width:38px;
-        height:38px;
-        border-radius:11px;
-        font-size:14px;
-      }
-
-      .consultancy-step strong{
-        font-size:13px;
-      }
-
-      .consultancy-step span{
-        font-size:11.5px;
-        line-height:1.42;
-      }
-
-      .final{
-        padding:46px 0;
-      }
-
-      .final h2{
-        font-size:30px;
-        line-height:1.08;
-      }
-
-      .final p{
-        margin-top:12px;
-        font-size:14px;
-        line-height:1.5;
-      }
-
-      .final .hero-actions{
-        display:grid;
-        grid-template-columns:1fr 1fr;
-      }
-
-      .footer-main{
-        grid-template-columns:1fr;
-        gap:22px;
-        padding:34px 0 22px;
-        text-align:left;
-      }
-
-      .footer-main p{
-        margin-left:0;
-        margin-right:0;
-      }
-
-      footer h4{
-        margin-bottom:10px;
-      }
-
-      footer a{
-        margin:8px 0;
-      }
-    }
-
-    @media(max-width:420px){
-      .container{
-        width:calc(100% - 24px);
-      }
-
-      .hero{
-        padding:26px 0 28px;
-      }
-
-      .hero-kicker{
-        width:auto;
+        margin-bottom:13px;
         padding:6px 9px;
-        margin-bottom:14px;
         font-size:7.8px;
-        white-space:nowrap;
+        letter-spacing:.06em;
       }
 
       h1{
-        font-size:33px;
-        line-height:1.02;
+        max-width:355px;
+        font-size:31px;
+        line-height:1.03;
+        letter-spacing:-.047em;
+        text-wrap:balance;
       }
 
       .hero-sub{
-        margin-top:14px;
-        font-size:13.2px;
+        max-width:360px;
+        margin:13px 0 0;
+        font-size:12.6px;
+        line-height:1.48;
       }
 
       .hero-actions{
-        gap:8px;
+        grid-template-columns:1fr 1fr;
+        gap:7px;
         margin-top:17px;
       }
 
       .hero-actions .btn{
-        min-height:44px;
+        min-height:42px;
         padding:9px 8px;
-        font-size:11.5px;
+        border-radius:11px;
+        font-size:10.5px;
+        gap:6px;
       }
 
-      .hero-product-grid{
-        gap:7px;
-        margin-top:16px;
+      .hero-note{
+        margin-top:10px;
+        font-size:9px;
+        line-height:1.3;
       }
 
-      .hero-product-pill{
-        min-height:86px;
-        padding:10px 5px;
-        border-radius:14px;
+      .proof{
+        padding:11px 0;
       }
 
-      .hero-product-icon{
+      .proof-inner{
+        display:grid;
+        grid-template-columns:auto minmax(0,1fr);
+        gap:8px 10px;
+        align-items:center;
+      }
+
+      .proof-label{
+        width:auto;
+        grid-column:1 / -1;
+        font-size:8px;
+        letter-spacing:.09em;
+      }
+
+      .proof-school{
+        gap:8px;
+      }
+
+      .proof-logo{
         width:34px;
         height:34px;
+        border-radius:8px;
       }
 
-      .hero-product-copy strong{
+      .proof-school strong{
+        font-size:10.5px;
+        line-height:1.2;
+      }
+
+      .proof-school span{
+        margin-top:1px;
+        font-size:8.5px;
+      }
+
+      .flagship{
+        padding:46px 0 50px;
+      }
+
+      .flagship-grid{
+        gap:24px;
+      }
+
+      .flagship-copy h2{
+        font-size:29px;
+        line-height:1.04;
+      }
+
+      .flagship-copy p{
+        margin-top:12px;
+        font-size:12.8px;
+        line-height:1.5;
+      }
+
+      .flagship-list{
+        gap:8px;
+        margin:15px 0 18px;
+      }
+
+      .flagship-list div{
+        gap:8px;
+        font-size:11.3px;
+        line-height:1.35;
+      }
+
+      .flagship-copy .btn{
+        width:100%;
+        min-height:43px;
+        font-size:11px;
+      }
+
+      .flagship-visual{
+        min-height:275px;
+        margin-top:0;
+      }
+
+      .board-main{
+        inset:0 22px 28px 0;
+        border-radius:16px;
+      }
+
+      .board-small{
+        width:45%;
+        border-width:5px;
+        border-radius:13px;
+      }
+
+      .physical-digital{
+        padding:48px 0;
+      }
+
+      .physical-digital-head{
+        margin-bottom:20px;
+      }
+
+      .physical-digital-head h2{
+        font-size:29px;
+        line-height:1.05;
+      }
+
+      .physical-digital-head p{
+        margin-top:10px;
+        font-size:12.8px;
+        line-height:1.48;
+      }
+
+      .pd-card{
+        border-radius:18px;
+      }
+
+      .pd-caption{
+        padding:11px 12px;
+      }
+
+      .pd-caption span{
+        font-size:8px;
+      }
+
+      .pd-caption strong{
         font-size:10.5px;
       }
 
-      .products-head h2,
-      .suite-copy h2,
-      .trust-copy h2,
-      .consultancy-copy h2,
+      .pd-icon{
+        width:36px;
+        height:36px;
+        font-size:12px;
+      }
+
+      .pd-flow{
+        margin-top:15px;
+        gap:6px;
+      }
+
+      .pd-flow span{
+        padding:7px 8px;
+        font-size:9px;
+      }
+
+      .secondary{
+        padding:48px 0;
+      }
+
+      .secondary-head{
+        margin-bottom:20px;
+      }
+
+      .secondary-head h2{
+        font-size:29px;
+      }
+
+      .secondary-head p{
+        margin-top:10px;
+        font-size:12.8px;
+        line-height:1.5;
+      }
+
+      .secondary-grid{
+        gap:12px;
+      }
+
+      .secondary-card{
+        padding:18px;
+        border-radius:17px;
+      }
+
+      .secondary-icon{
+        width:42px;
+        height:42px;
+        margin-bottom:15px;
+        border-radius:12px;
+        font-size:16px;
+      }
+
+      .secondary-card h3{
+        font-size:21px;
+        line-height:1.08;
+      }
+
+      .secondary-card p{
+        margin-top:9px;
+        font-size:12.3px;
+        line-height:1.48;
+      }
+
+      .secondary-points{
+        gap:7px;
+        margin:14px 0 17px;
+      }
+
+      .secondary-points span{
+        font-size:11px;
+        line-height:1.35;
+      }
+
+      .secondary-card .btn{
+        width:100%;
+        min-height:42px;
+        font-size:10.8px;
+      }
+
+      .suite{
+        padding:44px 0;
+      }
+
+      .suite-inner h2{
+        font-size:28px;
+      }
+
+      .suite-inner p{
+        margin-top:10px;
+        font-size:12.8px;
+        line-height:1.48;
+      }
+
+      .suite-row{
+        gap:6px;
+        margin-top:18px;
+      }
+
+      .suite-pill{
+        padding:8px 10px;
+        font-size:10px;
+      }
+
+      .suite-plus{
+        font-size:10px;
+      }
+
+      .consultancy{
+        padding:46px 0;
+      }
+
+      .consultancy-inner{
+        gap:18px;
+      }
+
+      .consultancy-copy h2{
+        font-size:28px;
+      }
+
+      .consultancy-copy p{
+        margin-top:10px;
+        font-size:12.8px;
+        line-height:1.48;
+      }
+
+      .consultancy-inner .btn{
+        min-height:42px;
+        font-size:10.8px;
+      }
+
+      .final{
+        padding:44px 0;
+      }
+
       .final h2{
         font-size:28px;
       }
 
-      .suite-callout a{
-        padding-left:0;
+      .final p{
+        margin-top:10px;
+        font-size:12.8px;
+        line-height:1.48;
+      }
+
+      .final .hero-actions{
+        margin-top:17px;
+        grid-template-columns:1fr 1fr;
+      }
+
+      .footer-main{
+        padding:30px 0 20px;
+      }
+    }
+
+    @media(max-width:430px){
+      .container{
+        width:calc(100% - 22px);
+      }
+
+      .hero{
+        padding:20px 0 22px;
+      }
+
+      h1{
+        max-width:330px;
+        font-size:29px;
+      }
+
+      .hero-sub{
+        max-width:330px;
+        font-size:12.2px;
+      }
+
+      .hero-actions{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .hero-actions .btn{
+        min-height:40px;
+        padding:8px 6px;
+        font-size:9.8px;
+      }
+
+      .hero-note{
+        font-size:8.5px;
+      }
+
+      .flagship-visual{
+        min-height:245px;
+      }
+
+      .pd-flow{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+      }
+
+      .pd-flow span{
+        justify-content:center;
+        text-align:center;
+      }
+
+      .final .hero-actions{
+        grid-template-columns:1fr 1fr;
       }
     }
 
     @media(prefers-reduced-motion:reduce){
-      html{scroll-behavior:auto;}
-      *{transition:none !important;}
+      html{scroll-behavior:auto}
+      *{transition:none!important}
     }
   </style>
 </head>
@@ -2088,17 +1381,16 @@
       </a>
 
       <div class="nav-links">
-        <a href="#products">School software</a>
+        <a href="#house-points">House Points</a>
+        <a href="#products">Other Products</a>
         <a href="#how-it-works">How it fits</a>
         <a href="#consultancy">Consultancy</a>
-        <a href="#why-trackedu">Why TrackEDU</a>
         <a href="https://www.trackedu.net/contact.html">Contact</a>
       </div>
 
       <div class="nav-actions">
-        <a class="btn btn-green" href="#products">
-          Explore products
-        </a>
+        <a class="btn btn-outline" href="https://www.trackedu.net/contact.html">Book a demo</a>
+        <a class="btn btn-green" href="https://www.trackedu.net/housepoints.html">Explore House Points</a>
       </div>
 
       <button id="mobileMenuButton" class="mobile-menu-btn" aria-label="Open navigation" aria-expanded="false">
@@ -2108,22 +1400,18 @@
     </div>
 
     <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
-      <a href="#products">School software <i class="fas fa-arrow-right"></i></a>
+      <a href="#house-points">House Points <i class="fas fa-arrow-right"></i></a>
+      <a href="#products">Other Products <i class="fas fa-arrow-right"></i></a>
       <a href="#how-it-works">How it fits <i class="fas fa-arrow-right"></i></a>
       <a href="#consultancy">Consultancy <i class="fas fa-arrow-right"></i></a>
-      <a href="#why-trackedu">Why TrackEDU <i class="fas fa-arrow-right"></i></a>
       <a href="https://www.trackedu.net/contact.html">Contact <i class="fas fa-envelope"></i></a>
     </div>
   </nav>
 
   <main id="top">
 
-    <!-- =========================================
-         HERO
-         ========================================= -->
+    <!-- HERO -->
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-grid" aria-hidden="true"></div>
-
       <div class="container">
         <div class="hero-inner">
 
@@ -2133,22 +1421,24 @@
           </div>
 
           <h1 id="hero-title">
-            School software for <span class="hero-highlight">house points, room booking and classroom tools.</span>
+            School software for
+            <span class="hero-highlight">house points,</span>
+            room booking and classroom tools.
           </h1>
 
           <p class="hero-sub">
-            <strong>Three focused tools for everyday school life.</strong>
-            Manage student recognition, book shared spaces and support everyday teaching. Use each product on its own, or combine them as your school needs.
+            TrackEDU builds focused school software that solves real everyday problems.
+            Start with our House Point system, or choose the school tool that fits your needs.
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-green" href="#products">
-              Explore products
-              <i class="fas fa-arrow-down"></i>
+            <a class="btn btn-green" href="https://www.trackedu.net/housepoints.html">
+              Explore House Points
+              <i class="fas fa-arrow-right"></i>
             </a>
 
-            <a class="btn btn-outline" href="https://www.trackedu.net/contact.html">
-              Talk to TrackEDU
+            <a class="btn btn-outline" href="#products">
+              View all products
             </a>
           </div>
 
@@ -2156,474 +1446,334 @@
             Web-based • Standalone • Built for schools
           </div>
 
-          <div class="hero-product-grid">
-
-            <a class="hero-product-pill hero-product-house" href="https://www.trackedu.net/housepoints.html">
-              <span class="hero-product-icon">
-                <i class="fas fa-star"></i>
-              </span>
-
-              <span class="hero-product-copy">
-                <strong>House Points</strong>
-                <small>Award points, recognise students and track house standings</small>
-              </span>
-
-              <i class="fas fa-arrow-right hero-product-arrow"></i>
-            </a>
-
-            <a class="hero-product-pill hero-product-facilities" href="https://www.trackedu.net/facilities.html">
-              <span class="hero-product-icon">
-                <i class="fas fa-calendar-check"></i>
-              </span>
-
-              <span class="hero-product-copy">
-                <strong>Room Booking</strong>
-                <small>See availability and book shared rooms, spaces and facilities</small>
-              </span>
-
-              <i class="fas fa-arrow-right hero-product-arrow"></i>
-            </a>
-
-            <a class="hero-product-pill hero-product-classboard" href="https://dailyteachertools.com/" target="_blank" rel="noopener">
-              <span class="hero-product-icon">
-                <i class="fas fa-chalkboard"></i>
-              </span>
-
-              <span class="hero-product-copy">
-                <strong>Classroom Screen & Teacher Tools</strong>
-                <small>Timers, groups, routines, lessons and teaching tools in one place</small>
-              </span>
-
-              <i class="fas fa-arrow-right hero-product-arrow"></i>
-            </a>
-
-          </div>
-
         </div>
       </div>
     </section>
 
-    <!-- =========================================
-         RECENT SCHOOL PARTNER
-         ========================================= -->
-    <section class="home-school-partner" aria-label="Recent school partner">
-      <div class="container">
+    <!-- SOCIAL PROOF -->
+    <section class="proof" aria-label="Recent school partner">
+      <div class="container proof-inner">
+
+        <div class="proof-label">Recent school partner</div>
 
         <a
-          class="home-school-partner-card"
+          class="proof-school"
           href="https://www.conwaychristianschool.org/"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Visit Conway Christian School"
         >
-
-          <div class="home-school-partner-label">
-            <i class="fas fa-school"></i>
-            Recent school partner
+          <div class="proof-logo">
+            <img
+              src="https://irp.cdn-website.com/65d009b3/dms3rep/multi/opt/Conway-logo-61w.png"
+              alt="Conway Christian School logo"
+              loading="lazy"
+            >
           </div>
 
-          <div class="home-school-partner-content">
-
-            <div class="home-school-partner-logo">
-              <img
-                src="https://irp.cdn-website.com/65d009b3/dms3rep/multi/opt/Conway-logo-61w.png"
-                alt="Conway Christian School logo"
-                loading="lazy"
-              >
-            </div>
-
-            <div class="home-school-partner-copy">
-              <span>United States</span>
-              <h2>Conway Christian School</h2>
-              <p>
-                Using TrackEDU to support student recognition, house points and positive school culture.
-              </p>
-            </div>
-
-            <div class="home-school-partner-link">
-              Visit school
-              <i class="fas fa-arrow-up-right-from-square"></i>
-            </div>
-
+          <div>
+            <strong>Conway Christian School</strong>
+            <span>United States</span>
           </div>
-
         </a>
 
       </div>
     </section>
 
-    <!-- =========================================
-         PRODUCTS
-         ========================================= -->
-    <section id="products" class="products">
+    <!-- FLAGSHIP: HOUSE POINTS -->
+    <section id="house-points" class="flagship">
+      <div class="container">
+        <div class="flagship-grid">
+
+          <div class="flagship-copy">
+            <span class="eyebrow">TrackEDU flagship product</span>
+
+            <h2>Bring your House system to life.</h2>
+
+            <p>
+              <strong>TrackEDU House Points</strong> is a digital house point system for schools.
+              Award points quickly, recognise student achievement and participation,
+              and keep live house standings visible across the school.
+            </p>
+
+            <div class="flagship-list">
+              <div>
+                <i class="fas fa-circle-check"></i>
+                <span>Award points and recognition in seconds</span>
+              </div>
+
+              <div>
+                <i class="fas fa-circle-check"></i>
+                <span>Track live house points and school standings</span>
+              </div>
+
+              <div>
+                <i class="fas fa-circle-check"></i>
+                <span>Support participation, belonging and positive school culture</span>
+              </div>
+
+              <div>
+                <i class="fas fa-circle-check"></i>
+                <span>Connect physical House culture with live digital engagement</span>
+              </div>
+            </div>
+
+            <a class="btn btn-green" href="https://www.trackedu.net/housepoints.html">
+              Explore TrackEDU House Points
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="flagship-visual">
+            <a
+              class="board-main"
+              href="https://housepoint.trackedu.net/board.png"
+              target="_blank"
+              rel="noopener"
+              aria-label="Open TrackEDU House board concept"
+            >
+              <img
+                src="https://housepoint.trackedu.net/board.png"
+                alt="Physical House board connected to TrackEDU House Points"
+                loading="lazy"
+              >
+            </a>
+
+            <a
+              class="board-small"
+              href="https://housepoint.trackedu.net/board2.png"
+              target="_blank"
+              rel="noopener"
+              aria-label="Open TrackEDU House board QR concept"
+            >
+              <img
+                src="https://housepoint.trackedu.net/board2.png"
+                alt="Student scanning a House board QR code to open TrackEDU"
+                loading="lazy"
+              >
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECONDARY PRODUCTS -->
+    <section id="products" class="secondary">
       <div class="container">
 
-        <div class="products-head">
-          <span class="section-label">TrackEDU school software</span>
-          <h2>Three clear tools for three everyday school problems.</h2>
+        <div class="secondary-head">
+          <span class="eyebrow">More from TrackEDU</span>
+          <h2>Two more focused tools for everyday school life.</h2>
           <p>
-            You do not need to replace your school systems or buy a large platform.
-            Start with the problem you want to solve and use that TrackEDU product on its own.
+            House Points is our flagship school culture product.
+            Facilities and Class Board solve different problems and can be used independently.
           </p>
         </div>
 
-        <div class="product-grid">
+        <div class="secondary-grid">
 
-          <!-- HOUSE POINTS -->
-          <article class="product-card house">
-
-            <div class="product-top">
-              <div class="product-icon">
-                <i class="fas fa-star"></i>
-              </div>
-
-              <span class="product-type">
-                Student recognition
-              </span>
-            </div>
-
-            <h3>Digital house point system for schools</h3>
-
-            <p class="product-summary">
-              <strong>TrackEDU House Points</strong> helps teachers award house points quickly,
-              recognise student achievement and participation, and keep live house standings visible across the school.
-            </p>
-
-            <div class="data-note">
-              <i class="fas fa-user-graduate"></i>
-              <span>Uses student records because recognition and points are attached to students and houses.</span>
-            </div>
-
-            <div class="product-benefits">
-              <div class="product-benefit">
-                <i class="fas fa-circle-check"></i>
-                Award points and recognition in seconds
-              </div>
-
-              <div class="product-benefit">
-                <i class="fas fa-circle-check"></i>
-                Track live house points and school standings
-              </div>
-
-              <div class="product-benefit">
-                <i class="fas fa-circle-check"></i>
-                Support participation, belonging and positive school culture
-              </div>
-            </div>
-
-            <div class="product-button">
-              <a
-                class="btn btn-green"
-                href="https://www.trackedu.net/housepoints.html"
-              >
-                Explore House Points
-                <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
-
-          </article>
-
-          <!-- FACILITIES -->
-          <article class="product-card facilities">
-
-            <div class="product-top">
-              <div class="product-icon">
-                <i class="fas fa-calendar-check"></i>
-              </div>
-
-              <span class="product-type">
-                School operations
-              </span>
+          <article class="secondary-card facilities">
+            <div class="secondary-icon">
+              <i class="fas fa-calendar-check"></i>
             </div>
 
             <h3>School room booking & facility scheduling</h3>
 
-            <p class="product-summary">
+            <p>
               <strong>TrackEDU Facilities</strong> gives staff one clear school room booking system
               for classrooms, halls, labs, libraries, sports spaces and other shared facilities.
             </p>
 
-            <div class="data-note">
-              <i class="fas fa-shield-halved"></i>
-              <span>No student data is required. Facilities is built around staff, spaces, availability and bookings.</span>
+            <div class="secondary-points">
+              <span><i class="fas fa-circle-check"></i> See room and facility availability</span>
+              <span><i class="fas fa-circle-check"></i> Reduce double bookings, spreadsheets and email chains</span>
+              <span><i class="fas fa-circle-check"></i> Manage shared spaces, approvals and operational needs</span>
             </div>
 
-            <div class="product-benefits">
-              <div class="product-benefit">
-                <i class="fas fa-circle-check"></i>
-                See room and facility availability
-              </div>
-
-              <div class="product-benefit">
-                <i class="fas fa-circle-check"></i>
-                Reduce double bookings, spreadsheets and email chains
-              </div>
-
-              <div class="product-benefit">
-                <i class="fas fa-circle-check"></i>
-                Manage shared spaces, approvals and operational needs
-              </div>
-            </div>
-
-            <div class="product-button">
-              <a
-                class="btn btn-blue"
-                href="https://www.trackedu.net/facilities.html"
-              >
-                Explore Facility Booking
-                <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
-
+            <a class="btn btn-blue" href="https://www.trackedu.net/facilities.html">
+              Explore Facility Booking
+              <i class="fas fa-arrow-right"></i>
+            </a>
           </article>
 
-          <!-- CLASS BOARD -->
-          <article class="product-card classboard">
-
-            <div class="product-top">
-              <div class="product-icon">
-                <i class="fas fa-chalkboard"></i>
-              </div>
-
-              <span class="product-type">
-                Daily teaching
-              </span>
+          <article class="secondary-card classboard">
+            <div class="secondary-icon">
+              <i class="fas fa-chalkboard"></i>
             </div>
 
             <h3>Classroom screen & teacher tools</h3>
 
-            <p class="product-summary">
+            <p>
               <strong>TrackEDU Class Board</strong> is a classroom screen and teacher dashboard
               that brings classroom management tools, classes, routines, lesson information and the teaching day together.
             </p>
 
-            <div class="data-note">
-              <i class="fas fa-users"></i>
-              <span>Supports classes and student lists for tools such as random student picking and group generation.</span>
+            <div class="secondary-points">
+              <span><i class="fas fa-circle-check"></i> Use timers, pickers, groups, noise tools and classroom routines</span>
+              <span><i class="fas fa-circle-check"></i> Keep timetable, lesson and class information together</span>
+              <span><i class="fas fa-circle-check"></i> Open your board and get the classroom ready faster</span>
             </div>
 
-            <div class="product-benefits">
-              <div class="product-benefit">
-                <i class="fas fa-circle-check"></i>
-                Use timers, pickers, groups, noise tools and classroom routines
-              </div>
-
-              <div class="product-benefit">
-                <i class="fas fa-circle-check"></i>
-                Keep timetable, lesson and class information together
-              </div>
-
-              <div class="product-benefit">
-                <i class="fas fa-circle-check"></i>
-                Open your board and get the classroom ready faster
-              </div>
-            </div>
-
-            <div class="product-button">
-              <a
-                class="btn btn-dark"
-                href="https://dailyteachertools.com/"
-                target="_blank"
-                rel="noopener"
-              >
-                Explore Class Board
-                <i class="fas fa-arrow-up-right-from-square"></i>
-              </a>
-            </div>
-
+            <a
+              class="btn btn-dark"
+              href="https://dailyteachertools.com/"
+              target="_blank"
+              rel="noopener"
+            >
+              Explore Class Board
+              <i class="fas fa-arrow-up-right-from-square"></i>
+            </a>
           </article>
 
         </div>
       </div>
     </section>
 
-    <!-- =========================================
-         HOW IT FITS
-         ========================================= -->
+    <!-- HOW IT FITS -->
     <section id="how-it-works" class="suite">
       <div class="container">
+        <div class="suite-inner">
 
-        <div class="suite-copy">
-          <span class="section-label">Use one or choose more</span>
+          <span class="eyebrow">Use one or choose more</span>
+
           <h2>Standalone school tools under one TrackEDU brand.</h2>
+
           <p>
             House Points, Facilities and Class Board solve different problems.
-            Each product can work independently, so schools can choose only what they need and add another TrackEDU tool later.
+            Each product can work independently, so schools can choose only what they need
+            and add another TrackEDU tool later.
           </p>
-        </div>
 
-        <div class="suite-grid">
-
-          <div class="suite-card">
-            <div class="suite-number">01</div>
-            <h3>Start with one product</h3>
-            <p>
-              Need a house point system? Use House Points. Need room booking? Use Facilities.
-              Need classroom tools? Use Class Board. There is no requirement to use the others.
-            </p>
-          </div>
-
-          <div class="suite-card">
-            <div class="suite-number">02</div>
-            <h3>Add another when it helps</h3>
-            <p>
-              A school can adopt another TrackEDU product later without changing the purpose or workflow of the tool it already uses.
-            </p>
-          </div>
-
-          <div class="suite-card">
-            <div class="suite-number">03</div>
-            <h3>Keep data relevant</h3>
-            <p>
-              Products only need the information relevant to their job. Facility Booking, for example, does not need student records.
-            </p>
+          <div class="suite-row" aria-label="TrackEDU product suite">
+            <span class="suite-pill house"><i class="fas fa-star"></i> House Points</span>
+            <span class="suite-plus">+</span>
+            <span class="suite-pill facilities"><i class="fas fa-calendar-check"></i> Facilities</span>
+            <span class="suite-plus">+</span>
+            <span class="suite-pill classboard"><i class="fas fa-chalkboard"></i> Class Board</span>
           </div>
 
         </div>
-
-        <div class="suite-callout">
-          <div class="suite-callout-copy">
-            <div class="suite-callout-icon">
-              <i class="fas fa-puzzle-piece"></i>
-            </div>
-
-            <div>
-              <strong>TrackEDU is growing as a suite, without turning every school task into one oversized system.</strong>
-              <span>Simple products first. Connections only where they genuinely make the school day easier.</span>
-            </div>
-          </div>
-
-          <a href="https://www.trackedu.net/contact.html">
-            Ask about TrackEDU for your school
-            <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-
       </div>
     </section>
 
-    <!-- =========================================
-         WHY TRACKEDU
-         ========================================= -->
-    <section id="why-trackedu" class="trust">
+    <!-- PHYSICAL TO DIGITAL -->
+    <section class="physical-digital" aria-labelledby="physical-digital-title">
       <div class="container">
 
-        <div class="trust-copy">
-          <span class="section-label">Why TrackEDU</span>
-          <h2>School software that is easier to understand and easier to adopt.</h2>
+        <div class="physical-digital-head">
+          <span class="eyebrow">Physical ↔ Digital</span>
+          <h2 id="physical-digital-title">Bring your House system into everyday school life.</h2>
           <p>
-            TrackEDU focuses on specific school workflows instead of asking staff to learn a large system for a small everyday task.
+            Connect the physical House culture students see around school with the live digital experience they can access and follow.
           </p>
         </div>
 
-        <div class="trust-grid">
+        <div class="physical-digital-stage">
 
-          <div class="trust-item">
-            <i class="fas fa-puzzle-piece"></i>
-            <strong>Standalone by design</strong>
-            <span>Use one TrackEDU product without needing to adopt the full suite.</span>
+          <a
+            class="pd-card pd-card-left"
+            href="https://housepoint.trackedu.net/board.png"
+            target="_blank"
+            rel="noopener"
+            aria-label="Open physical TrackEDU House board visual"
+          >
+            <img
+              src="https://housepoint.trackedu.net/board.png"
+              alt="Physical school House board connected to TrackEDU"
+              loading="lazy"
+            >
+            <div class="pd-caption">
+              <span>01</span>
+              <strong>Visible around school</strong>
+            </div>
+          </a>
+
+          <div class="pd-connector" aria-hidden="true">
+            <div class="pd-line"></div>
+            <div class="pd-icon"><i class="fas fa-arrow-right-arrow-left"></i></div>
+            <div class="pd-line"></div>
           </div>
 
-          <div class="trust-item">
-            <i class="fas fa-school"></i>
-            <strong>Built for school workflows</strong>
-            <span>Products are designed around recognition, shared spaces and everyday classroom routines.</span>
-          </div>
+          <a
+            class="pd-card pd-card-right"
+            href="https://housepoint.trackedu.net/board2.png"
+            target="_blank"
+            rel="noopener"
+            aria-label="Open TrackEDU QR and student engagement visual"
+          >
+            <img
+              src="https://housepoint.trackedu.net/board2.png"
+              alt="Student scanning a House board QR code to access TrackEDU"
+              loading="lazy"
+            >
+            <div class="pd-caption">
+              <span>02</span>
+              <strong>Connected to live engagement</strong>
+            </div>
+          </a>
 
-          <div class="trust-item">
-            <i class="fas fa-shield-halved"></i>
-            <strong>Clear data boundaries</strong>
-            <span>Different products use different data. Facility Booking does not need student records.</span>
-          </div>
+        </div>
 
-          <div class="trust-item">
-            <i class="fas fa-bolt"></i>
-            <strong>Start without a huge rollout</strong>
-            <span>Choose the school software you need now and expand only when another tool adds value.</span>
-          </div>
-
+        <div class="pd-flow" aria-label="How the physical and digital House experience connects">
+          <span><i class="fas fa-school"></i> House board</span>
+          <i class="fas fa-arrow-right"></i>
+          <span><i class="fas fa-qrcode"></i> QR scan</span>
+          <i class="fas fa-arrow-right"></i>
+          <span><i class="fas fa-mobile-screen-button"></i> Student access</span>
+          <i class="fas fa-arrow-right"></i>
+          <span><i class="fas fa-ranking-star"></i> Live standings</span>
         </div>
 
       </div>
     </section>
 
-    <!-- =========================================
-         SCHOOL DIGITAL TRANSFORMATION CONSULTANCY
-         ========================================= -->
+    <!-- CONSULTANCY -->
     <section id="consultancy" class="consultancy" aria-labelledby="consultancy-title">
       <div class="container">
-        <div class="consultancy-layout">
+        <div class="consultancy-inner">
 
           <div class="consultancy-copy">
-            <span class="section-label">School digital transformation consultancy</span>
-            <h2 id="consultancy-title">Still relying on spreadsheets, paper forms or disconnected school systems?</h2>
-            <p>
-              TrackEDU can help you review the way a process works today, identify where staff time is being lost and turn manual or fragmented workflows into practical digital systems that fit your school.
-            </p>
-            <p>
-              This can include simplifying an existing workflow, organising school data, connecting systems or designing a bespoke digital tool where an off-the-shelf product is not the right fit.
-            </p>
+            <span class="eyebrow">School digital transformation consultancy</span>
 
-            <div class="hero-actions">
-              <a class="btn btn-blue" href="https://www.trackedu.net/contact.html">
-                Book a free initial consultation
-                <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
+            <h2 id="consultancy-title">
+              Still relying on spreadsheets, paper forms or disconnected school systems?
+            </h2>
 
-            <div class="consultancy-note">
-              No obligation. Start by showing us the process that is creating friction for your staff.
-            </div>
+            <p>
+              TrackEDU can help you review the way a process works today,
+              identify where staff time is being lost and turn manual or fragmented workflows
+              into practical digital systems that fit your school.
+              This can include simplifying an existing workflow, organising school data,
+              connecting systems or designing a bespoke digital tool where an off-the-shelf product is not the right fit.
+            </p>
           </div>
 
-          <div class="consultancy-panel" aria-label="How TrackEDU consultancy works">
-
-            <div class="consultancy-step">
-              <div class="consultancy-step-icon"><i class="fas fa-magnifying-glass"></i></div>
-              <div>
-                <strong>Review the current workflow</strong>
-                <span>Map the forms, spreadsheets, systems and manual steps your staff are currently using.</span>
-              </div>
-            </div>
-
-            <div class="consultancy-step">
-              <div class="consultancy-step-icon"><i class="fas fa-diagram-project"></i></div>
-              <div>
-                <strong>Simplify the process</strong>
-                <span>Identify duplication, unnecessary admin and opportunities to make the workflow clearer and more efficient.</span>
-              </div>
-            </div>
-
-            <div class="consultancy-step">
-              <div class="consultancy-step-icon"><i class="fas fa-laptop-code"></i></div>
-              <div>
-                <strong>Design the right digital solution</strong>
-                <span>Improve what you already use, connect existing systems or develop a focused tool around the school’s actual needs.</span>
-              </div>
-            </div>
-
+          <div>
+            <a class="btn btn-blue" href="https://www.trackedu.net/contact.html">
+              Book a free initial consultation
+              <i class="fas fa-arrow-right"></i>
+            </a>
           </div>
 
         </div>
       </div>
     </section>
 
-    <!-- =========================================
-         FINAL CTA
-         ========================================= -->
+    <!-- FINAL CTA -->
     <section class="final">
       <div class="container">
 
-        <h2>Which school problem do you want to solve first?</h2>
+        <h2>Start with the school problem that matters most.</h2>
 
         <p>
           Explore TrackEDU House Points, school room booking or Class Board.
-          Each product can stand on its own, so your school can start with the tool that solves the clearest need.
+          Each product can stand on its own.
         </p>
 
         <div class="hero-actions">
-          <a class="btn btn-green" href="#products">
-            Compare the three products
+          <a class="btn btn-green" href="https://www.trackedu.net/housepoints.html">
+            Explore House Points
           </a>
 
           <a class="btn btn-outline" href="https://www.trackedu.net/contact.html">
@@ -2640,7 +1790,7 @@
     <div class="container footer-main">
 
       <div>
-        <a href="https://www.trackedu.net/#top" class="brand" style="color:#fff">
+        <a href="#top" class="brand" style="color:#fff">
           Track<span>EDU</span>
         </a>
 
@@ -2652,7 +1802,6 @@
 
       <div>
         <h4>School Software</h4>
-
         <a href="https://www.trackedu.net/housepoints.html">House Point System</a>
         <a href="https://www.trackedu.net/facilities.html">School Room Booking System</a>
         <a href="https://dailyteachertools.com/" target="_blank" rel="noopener">Classroom Screen &amp; Teacher Tools</a>
@@ -2661,7 +1810,6 @@
 
       <div>
         <h4>Facility Booking</h4>
-
         <a href="https://www.trackedu.net/facilities-pe-departments.html">PE Department Room Booking</a>
         <a href="https://www.trackedu.net/facilities-libraries.html">Library Booking &amp; Scheduling</a>
         <a href="https://www.trackedu.net/facilities-operations-teams.html">School Operations &amp; Facilities</a>
@@ -2670,7 +1818,6 @@
 
       <div>
         <h4>House Points</h4>
-
         <a href="https://www.trackedu.net/best-school-rewards-system-international-schools.html">House Points for International Schools</a>
         <a href="https://www.trackedu.net/behavior-tracking-software-pastoral-teams.html">Behaviour Tracking for Pastoral Teams</a>
         <a href="https://www.trackedu.net/house-points-software-vs-manual-house-points.html">House Points Software vs Manual Tracking</a>
@@ -2679,9 +1826,7 @@
 
       <div>
         <h4>Company</h4>
-
         <a href="#consultancy">School Digital Transformation Consultancy</a>
-
         <a href="https://www.trackedu.net/contact.html">Contact</a>
         <a href="https://www.trackedu.net/help-center.html">Help &amp; Support</a>
         <a href="https://www.trackedu.net/resources.html">School Resources</a>
@@ -2737,7 +1882,7 @@
       });
 
       window.addEventListener('resize',function(){
-        if(window.innerWidth > 960){
+        if(window.innerWidth > 980){
           setMenu(false);
         }
       });
