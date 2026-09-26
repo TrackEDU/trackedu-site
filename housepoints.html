@@ -628,29 +628,129 @@ body.menu-open{overflow:hidden}
 
 
 /* === V10 HERO CLEANUP === */
+
+.hero-video-enabled .hero-video-bg iframe{
+  filter:saturate(.82) brightness(.88) contrast(1.03);
+}
+
+/* Stronger protection behind the sales copy,
+   while keeping the product/video visible on the right */
 .hero-video-enabled .hero-video-overlay,
 .hero-video-overlay{
   background:
-    linear-gradient(90deg,
-      rgba(4,18,35,.84) 0%,
-      rgba(5,24,45,.76) 36%,
-      rgba(7,31,56,.60) 62%,
-      rgba(8,35,63,.42) 100%) !important;
+    radial-gradient(
+      circle at 25% 48%,
+      rgba(3,15,30,.24) 0%,
+      rgba(3,15,30,.12) 36%,
+      transparent 62%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(3,16,32,.96) 0%,
+      rgba(4,21,41,.92) 34%,
+      rgba(6,29,53,.72) 61%,
+      rgba(8,35,63,.43) 100%
+    ) !important;
 }
 
+/* Keep the foreground product windows crisp */
 .hero-video-enabled .teacher-window,
 .hero-video-enabled .student-window{
-  filter:drop-shadow(0 24px 38px rgba(0,0,0,.24));
+  filter:
+    drop-shadow(0 28px 46px rgba(0,0,0,.32))
+    brightness(1.03);
 }
 
+/* Stronger text hierarchy */
+.hero-video-enabled .hero-copy h1{
+  text-shadow:
+    0 3px 18px rgba(0,0,0,.35),
+    0 10px 34px rgba(0,0,0,.18);
+}
+
+.hero-video-enabled .hero-copy .lead{
+  color:#edf6fc !important;
+  text-shadow:0 2px 12px rgba(0,0,0,.28);
+}
+
+/* Make the Google Classroom proof easier to scan */
+.hero-google-callout{
+  background:rgba(255,255,255,.16) !important;
+  border-color:rgba(255,255,255,.29) !important;
+  backdrop-filter:blur(17px) saturate(1.12);
+  -webkit-backdrop-filter:blur(17px) saturate(1.12);
+  box-shadow:
+    0 16px 40px rgba(0,0,0,.20),
+    inset 0 1px 0 rgba(255,255,255,.12) !important;
+}
+
+.google-copy p{
+  color:#e5eff7 !important;
+}
+
+/* Clearer secondary button */
+.hero-video-enabled .hero-secondary{
+  background:rgba(255,255,255,.14) !important;
+  border-color:rgba(255,255,255,.32) !important;
+  box-shadow:0 10px 28px rgba(0,0,0,.12) !important;
+}
+
+/* Keep proof pills visible without making them dominant */
+.hero-video-enabled .proof-pill{
+  background:rgba(255,255,255,.11) !important;
+  border-color:rgba(255,255,255,.24) !important;
+  color:#f0f7fc !important;
+}
+
+/* Tablet / iPad */
 @media(max-width:900px){
   .hero-video-enabled .hero-video-overlay,
   .hero-video-overlay{
     background:
-      linear-gradient(180deg,
-        rgba(4,18,35,.84) 0%,
-        rgba(5,24,45,.76) 58%,
-        rgba(7,31,56,.60) 100%) !important;
+      radial-gradient(
+        circle at 35% 28%,
+        rgba(3,15,30,.20) 0%,
+        transparent 55%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(3,16,32,.95) 0%,
+        rgba(4,22,43,.90) 48%,
+        rgba(7,31,56,.72) 76%,
+        rgba(8,35,63,.56) 100%
+      ) !important;
+  }
+
+  .hero-video-enabled .hero-copy{
+    max-width:720px;
+  }
+}
+
+/* Phones */
+@media(max-width:680px){
+  .hero-video-enabled .hero-video-bg iframe{
+    filter:saturate(.78) brightness(.78);
+  }
+
+  .hero-video-enabled .hero-video-overlay,
+  .hero-video-overlay{
+    background:
+      linear-gradient(
+        180deg,
+        rgba(3,16,32,.97) 0%,
+        rgba(4,22,43,.94) 46%,
+        rgba(6,29,53,.84) 74%,
+        rgba(7,32,58,.68) 100%
+      ) !important;
+  }
+
+  .hero-google-callout{
+    background:rgba(255,255,255,.15) !important;
+    border-color:rgba(255,255,255,.26) !important;
+  }
+
+  .hero-video-enabled .hero-copy .lead{
+    color:#f1f7fb !important;
   }
 }
 
@@ -3474,7 +3574,36 @@ body.modal-lock{overflow:hidden}
 </div>
 </section>
 <section class="section" id="toolkit"><div class="shell"><div class="section-head reveal"><span class="eyebrow"><i class="fa-solid fa-wand-magic-sparkles"></i> Built into the Teacher App</span><h2>Useful on Monday morning, not just at prize-giving.</h2><p class="lead">TrackEDU includes classroom tools that teachers can actually use during lessons, helping the platform earn a place in everyday workflow rather than becoming another tab opened once a week.</p></div><div class="toolkit-wrap"><div class="tool-copy reveal"><h3>A House platform that gives teachers something back.</h3><p>When staff already use the platform for class routines, grouping, timers, quizzes and participation, House points can sit naturally inside existing teaching rather than feeling like extra admin.</p></div><div class="tool-grid"><div class="tool-card reveal"><i class="fa-solid fa-hat-wizard"></i><b>Magic Hat</b><span>Random student picker for fair participation.</span></div><div class="tool-card reveal"><i class="fa-solid fa-people-group"></i><b>Squad Builder</b><span>Create balanced groups randomly or by House.</span></div><div class="tool-card reveal"><i class="fa-solid fa-masks-theater"></i><b>Role Roulette</b><span>Assign classroom roles fairly and playfully.</span></div><div class="tool-card reveal"><i class="fa-solid fa-hourglass-half"></i><b>Magic Timer</b><span>Keep activities moving without leaving the app.</span></div><div class="tool-card reveal"><i class="fa-solid fa-map"></i><b>Quest Board</b><span>Turn questions and tasks into a visual challenge.</span></div><div class="tool-card reveal"><i class="fa-solid fa-dice"></i><b>Snakes &amp; Ladders</b><span>Let Houses race through a familiar game format.</span></div><div class="tool-card reveal"><i class="fa-solid fa-gift"></i><b>Loot Drop</b><span>Create secret reward codes students can claim.</span></div><div class="tool-card reveal"><i class="fa-solid fa-flag-checkered"></i><b>Live Challenge</b><span>Run reusable multi-round House events and assemblies.</span></div><div class="tool-card reveal"><i class="fa-solid fa-chart-pie"></i><b>Student Insights</b><span>Bring class activity and recent celebrations together.</span></div></div><button aria-expanded="false" class="mobile-section-toggle" id="mobileToolsToggle" type="button">Show all teacher tools <i class="fa-solid fa-chevron-down"></i></button></div></div></section>
-<section class="section" id="pricing"><div class="shell"><div class="section-head center reveal"><span class="eyebrow"><i class="fa-solid fa-tag"></i> Original pricing calculator</span><h2>Try the full school system first.</h2><p class="lead">Schools get a 30-day pilot with no credit card required. Annual school licence pricing is based on student enrolment, so you can calculate the cost before deciding whether to continue.</p></div><div class="pricing-grid"><div class="price-card reveal"><span class="eyebrow"><i class="fa-solid fa-calculator"></i> Calculate your school price</span><h3>30-Day School Pilot</h3><p>Set up your Houses, staff, classes and students, then use TrackEDU in your own school context before deciding.</p><div class="calculator"><div class="calc-top"><div><label class="label" for="schoolStudentCount">How many students are in your school?</label><div class="input-wrap"><input class="field" id="schoolStudentCount" inputmode="numeric" max="10000" min="1" step="1" type="number" value="500"/><span class="suffix">students</span></div></div><div><label class="label" for="schoolPriceCurrency">Currency</label><select class="select" id="schoolPriceCurrency"><option value="USD">USD</option><option value="GBP">GBP</option><option value="EUR">EUR</option></select></div></div><div class="price-box"><div class="price-title">Your annual school licence</div><div class="big-price" id="schoolLicencePrice">US$1,100 <span class="per">/ year</span></div><p class="small-note" id="schoolPriceEquivalent" style="display:none"></p><p class="small-note">30-day pilot free. Charged annually only if your school chooses to continue.</p><p class="small-note" id="schoolPriceStatus"></p><div class="offer"><i class="fa-solid fa-gift"></i><p><strong>Pilot offer:</strong> activate your first Annual School Licence before your pilot ends and get <strong>2 extra months free.</strong> Your first licence lasts 14 months; future renewals are 12 months.</p></div></div><div class="anchors"><div class="anchor"><b>Up to 250</b><span id="priceAnchor250">from US$750</span></div><div class="anchor"><b>500 students</b><span id="priceAnchor500">US$1,100</span></div><div class="anchor"><b>1,000 students</b><span id="priceAnchor1000">US$1,700</span></div><div class="anchor"><b>3,000 students</b><span id="priceAnchor3000">US$3,500</span></div></div><p class="small-note">GBP and EUR amounts are approximate conversions of the USD licence price using the latest available exchange rate.</p></div></div><div class="price-card reveal"><span class="eyebrow"><i class="fa-solid fa-box"></i> Included</span><h3>The connected ecosystem, not a stripped-down points tool.</h3><p>Your annual school licence brings the core school-wide experience together.</p><div class="include-list"><div class="include"><i class="fa-solid fa-circle-check"></i><div><b>Teacher App + Student Portal</b><span>Staff workflows and student-facing engagement.</span></div></div><div class="include"><i class="fa-solid fa-circle-check"></i><div><b>House points + live leaderboards</b><span>Automatic totals, standings and assembly-friendly display.</span></div></div><div class="include"><i class="fa-solid fa-circle-check"></i><div><b>Behaviour Tracker + school dashboards</b><span>Broader school visibility alongside recognition.</span></div></div><div class="include"><i class="fa-solid fa-circle-check"></i><div><b>Imports, exports + setup support</b><span>CSV workflows, Google Classroom connection and school data export.</span></div></div><div class="include"><i class="fa-solid fa-circle-check"></i><div><b>House culture support</b><span>Physical board ideas and free professional development.</span></div></div><div class="include"><i class="fa-solid fa-circle-check"></i><div><b>Bonus: TrackEDU Facilities</b><span>Included for the first 12 months at no additional cost.</span></div></div></div><div class="price-actions"><a class="btn btn-primary" data-pilot-trigger="true" href="#">Start your free 30-day pilot <i class="fa-solid fa-arrow-right"></i></a><a class="btn btn-secondary" data-demo-trigger="true" href="#">Book a 30-minute demo</a></div></div></div></div></section>
+<section class="section" id="pricing"><div class="shell"><div class="section-head center reveal"><span class="eyebrow"><i class="fa-solid fa-tag"></i> Original pricing calculator</span><h2>Try the full school system first.</h2><p class="lead">Schools get a 30-day pilot with no credit card required. Annual school licence pricing is based on student enrolment, so you can calculate the cost before deciding whether to continue.</p></div><div class="pricing-grid"><div class="price-card reveal"><span class="eyebrow"><i class="fa-solid fa-calculator"></i> Calculate your school price</span><h3>30-Day School Pilot</h3><p>Set up your Houses, staff, classes and students, then use TrackEDU in your own school context before deciding.</p><div class="calculator"><div class="calc-top"><div><label class="label" for="schoolStudentCount">How many students are in your school?</label><div class="input-wrap"><input class="field" id="schoolStudentCount" inputmode="numeric" max="10000" min="1" step="1" type="number" value="500"/><span class="suffix">students</span></div></div><div><label class="label" for="schoolPriceCurrency">Currency</label><select class="select" id="schoolPriceCurrency"><option value="USD">USD</option><option value="GBP">GBP</option><option value="EUR">EUR</option></select></div></div><div class="price-box"><div class="price-title">Your annual school licence</div><div class="big-price" id="schoolLicencePrice">US$1,100 <span class="per">/ year</span></div><p class="small-note" id="schoolPriceEquivalent" style="display:none"></p><p class="small-note">30-day pilot free. Charged annually only if your school chooses to continue.</p><p class="small-note" id="schoolPriceStatus"></p><div class="offer"><i class="fa-solid fa-gift"></i><p><strong>Pilot offer:</strong> activate your first Annual School Licence before your pilot ends and get <strong>2 extra months free.</strong> Your first licence lasts 14 months; future renewals are 12 months.</p></div></div><div class="anchors"><div class="anchor"><b>Up to 250</b><span id="priceAnchor250">from US$750</span></div><div class="anchor"><b>500 students</b><span id="priceAnchor500">US$1,100</span></div><div class="anchor"><b>1,000 students</b><span id="priceAnchor1000">US$1,700</span></div><div class="anchor"><b>3,000 students</b><span id="priceAnchor3000">US$3,500</span></div></div><p class="small-note">GBP and EUR amounts are approximate conversions of the USD licence price using the latest available exchange rate.</p></div></div><div class="price-card reveal"><span class="eyebrow"><i class="fa-solid fa-box"></i> Included</span><h3>The connected ecosystem, not a stripped-down points tool.</h3><p>Your annual school licence brings the core school-wide experience together.</p><div class="include-list"><div class="include"><i class="fa-solid fa-circle-check"></i><div><b>Teacher App + Student Portal</b><span>Staff workflows and student-facing engagement.</span></div></div><div class="include"><i class="fa-solid fa-circle-check"></i><div><b>House points + live leaderboards</b><span>Automatic totals, standings and assembly-friendly display.</span></div></div><div class="include"><i class="fa-solid fa-circle-check"></i><div><b>Behaviour Tracker + school dashboards</b><span>Broader school visibility alongside recognition.</span></div></div><div class="include"><i class="fa-solid fa-circle-check"></i><div><b>Imports, exports + setup support</b><span>CSV workflows, Google Classroom connection and school data export.</span></div></div><div class="include"><i class="fa-solid fa-circle-check"></i><div><b>House culture support</b><span>Physical board ideas and free professional development.</span></div></div><div class="include"><i class="fa-solid fa-circle-check"></i><div><b>Bonus: TrackEDU Facilities</b><span>Included for the first 12 months at no additional cost.</span></div></div></div><div class="price-actions">
+  <a class="btn btn-primary" data-pilot-trigger="true" href="#">
+    Start your free 30-day pilot
+    <i class="fa-solid fa-arrow-right"></i>
+  </a>
+
+  <a class="btn btn-secondary" data-demo-trigger="true" href="#">
+    Book a 30-minute demo
+  </a>
+
+  <div style="margin-top:10px; padding-top:14px; border-top:1px solid #e4edf4; text-align:center;">
+    <div style="font-size:12px; font-weight:800; color:#5f7288; margin-bottom:8px;">
+      Not ready to book yet?
+    </div>
+
+    <a
+      href="https://drive.google.com/file/d/1WB33PEYY0Gc5emDOIpS5hPpK4sGh8s-v/view?usp=sharing"
+      target="_blank"
+      rel="noopener"
+      style="display:inline-flex; align-items:center; gap:8px; color:#176fca; font-size:13px; font-weight:900;"
+    >
+      <i class="fa-solid fa-file-pdf"></i>
+      Download School Overview
+    </a>
+
+    <div style="font-size:10px; color:#8192a3; margin-top:5px;">
+      Share it with your leadership team.
+    </div>
+  </div>
+</div></div></div></div></section>
 <section class="trust-strip-section" id="trust">
 <div class="shell">
 <div class="trust-strip-grid reveal">
@@ -3539,6 +3668,7 @@ body.modal-lock{overflow:hidden}
 <div class="footer-col">
 <h5>For Schools</h5>
 <a href="https://cal.com/trackedu-a9dbpy/30min" rel="noopener" target="_blank">Book a Demo</a>
+<a href="https://drive.google.com/file/d/1WB33PEYY0Gc5emDOIpS5hPpK4sGh8s-v/view?usp=sharing" rel="noopener" target="_blank"><i class="fa-solid fa-file-pdf"></i> School Overview</a>
 <a href="mailto:hello@trackedu.net?subject=TrackEDU%20Invoice%20Request">Request Invoice</a>
 <a href="mailto:hello@trackedu.net?subject=TrackEDU%20DPA%20Request">Request DPA</a>
 <a class="footer-highlight" href="https://www.trackedu.net/ambassadors.html" rel="noopener" target="_blank"><i class="fa-solid fa-handshake"></i> Ambassador Programme</a>
@@ -3689,8 +3819,34 @@ studentInput.addEventListener('input',()=>{if(studentInput.value===''){priceDisp
 <button class="te-link-btn" data-trust-trigger="" type="button">Data &amp; Privacy <i class="fa-solid fa-arrow-right"></i></button>
 </div>
 <div class="te-modal-actions">
-<button class="btn btn-primary" id="continueToCalBtn" type="button">Continue to booking <i class="fa-solid fa-arrow-right"></i></button>
-<button class="btn btn-secondary" data-close-demo="" type="button">Not ready yet</button>
+
+  <button
+    class="btn btn-primary"
+    id="continueToCalBtn"
+    type="button"
+  >
+    Continue to booking
+    <i class="fa-solid fa-arrow-right"></i>
+  </button>
+
+  <a
+    class="btn btn-secondary"
+    href="https://drive.google.com/file/d/1WB33PEYY0Gc5emDOIpS5hPpK4sGh8s-v/view?usp=sharing"
+    target="_blank"
+    rel="noopener"
+  >
+    <i class="fa-solid fa-file-pdf"></i>
+    View School Overview
+  </a>
+
+  <button
+    class="btn btn-secondary"
+    data-close-demo=""
+    type="button"
+  >
+    Not ready yet
+  </button>
+
 </div>
 <button data-cal-config='{"layout":"month_view"}' data-cal-link="trackedu-a9dbpy/30min" data-cal-namespace="30min" id="hiddenCalLauncher" style="display:none" type="button"></button>
 </div>
