@@ -325,62 +325,378 @@
       font-weight:650;
     }
 
-    /* PROOF */
-    .proof{
-      padding:18px 0;
-      border-top:1px solid var(--line);
-      border-bottom:1px solid var(--line);
-      background:#FAFBFC;
-    }
+    /* =========================================================
+   REAL SCHOOL SOCIAL PROOF
+========================================================= */
 
-    .proof-inner{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:18px;
-      flex-wrap:wrap;
-    }
+.proof{
+  padding:18px 0;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  background:#FAFBFC;
+}
 
-    .proof-label{
-      color:#7B8795;
-      font-size:10px;
-      font-weight:800;
-      text-transform:uppercase;
-      letter-spacing:.08em;
-    }
+.proof-video-inner{
+  display:grid;
+  grid-template-columns:230px minmax(0,1fr) 300px;
+  gap:26px;
+  align-items:center;
+}
 
-    .proof-school{
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
 
-    .proof-logo{
-      width:38px;
-      height:38px;
-      border-radius:9px;
-      padding:4px;
-      border:1px solid var(--line);
-      background:#fff;
-    }
+/* SCHOOL */
 
-    .proof-logo img{
-      width:100%;
-      height:100%;
-      object-fit:contain;
-    }
+.proof-school{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width:0;
+}
 
-    .proof-school strong{
-      display:block;
-      font-size:12px;
-    }
+.proof-logo{
+  width:52px;
+  height:52px;
+  flex:0 0 52px;
 
-    .proof-school span{
-      display:block;
-      margin-top:2px;
-      color:#8190A0;
-      font-size:9.5px;
-    }
+  padding:4px;
+
+  border-radius:13px;
+  border:1px solid var(--line);
+
+  background:#fff;
+
+  box-shadow:0 7px 18px rgba(12,30,44,.06);
+}
+
+.proof-logo img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
+.proof-school-copy{
+  min-width:0;
+}
+
+.proof-school-copy small{
+  display:block;
+
+  margin-bottom:4px;
+
+  color:#61932b;
+
+  font-size:8px;
+  font-weight:900;
+
+  letter-spacing:.09em;
+}
+
+.proof-school-copy strong{
+  display:block;
+
+  color:var(--dark);
+
+  font-size:12px;
+  line-height:1.2;
+}
+
+.proof-school-copy span{
+  display:flex;
+  align-items:center;
+  gap:5px;
+
+  margin-top:3px;
+
+  color:#8190A0;
+
+  font-size:9px;
+}
+
+.proof-school-copy span i{
+  color:var(--blue);
+}
+
+
+/* COPY */
+
+.proof-video-copy{
+  min-width:0;
+}
+
+.proof-video-copy strong{
+  display:block;
+
+  color:var(--dark);
+
+  font-family:Poppins,Inter,sans-serif;
+
+  font-size:18px;
+  line-height:1.16;
+  letter-spacing:-.025em;
+}
+
+.proof-video-copy span{
+  display:block;
+
+  max-width:580px;
+
+  margin-top:5px;
+
+  color:#687689;
+
+  font-size:11.5px;
+  line-height:1.48;
+}
+
+
+/* VIDEO TRIGGER */
+
+.proof-watch-card{
+  width:100%;
+
+  display:grid;
+  grid-template-columns:92px minmax(0,1fr) 14px;
+  align-items:center;
+
+  gap:11px;
+
+  padding:8px 11px 8px 8px;
+
+  border:1px solid #DCE4EA;
+  border-radius:16px;
+
+  background:#fff;
+
+  box-shadow:0 8px 22px rgba(12,30,44,.06);
+
+  text-align:left;
+
+  cursor:pointer;
+
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    border-color .18s ease;
+}
+
+.proof-watch-card:hover{
+  transform:translateY(-2px);
+
+  border-color:#BADB95;
+
+  box-shadow:0 14px 30px rgba(12,30,44,.10);
+}
+
+
+.proof-watch-thumb{
+  position:relative;
+
+  width:92px;
+  height:58px;
+
+  overflow:hidden;
+
+  border-radius:11px;
+
+  background:
+    linear-gradient(rgba(5,17,30,.10),rgba(5,17,30,.18)),
+    url("https://img.youtube.com/vi/Jo3HvL2D2wY/hqdefault.jpg");
+
+  background-size:cover;
+  background-position:center;
+}
+
+
+.proof-watch-play{
+  position:absolute;
+
+  left:50%;
+  top:50%;
+
+  width:31px;
+  height:31px;
+
+  transform:translate(-50%,-50%);
+
+  display:grid;
+  place-items:center;
+
+  border-radius:50%;
+
+  background:#fff;
+  color:#74AF31;
+
+  box-shadow:0 7px 18px rgba(0,0,0,.25);
+
+  font-size:10px;
+}
+
+
+.proof-watch-copy{
+  min-width:0;
+}
+
+.proof-watch-copy small{
+  display:block;
+
+  color:#63952D;
+
+  font-size:7.5px;
+  font-weight:900;
+
+  letter-spacing:.08em;
+}
+
+.proof-watch-copy strong{
+  display:block;
+
+  margin-top:3px;
+
+  color:var(--dark);
+
+  font-size:11.5px;
+  line-height:1.15;
+}
+
+.proof-watch-copy em{
+  display:block;
+
+  margin-top:2px;
+
+  color:#8190A0;
+
+  font-size:8.5px;
+  font-style:normal;
+}
+
+.proof-watch-arrow{
+  color:#71A932;
+
+  font-size:10px;
+
+  transition:transform .18s ease;
+}
+
+.proof-watch-card:hover .proof-watch-arrow{
+  transform:translateX(3px);
+}
+
+
+/* =========================================================
+   PROOF — TABLET
+========================================================= */
+
+@media(max-width:980px){
+
+  .proof-video-inner{
+    grid-template-columns:220px minmax(0,1fr);
+    gap:18px;
+  }
+
+  .proof-watch-card{
+    grid-column:1 / -1;
+
+    width:min(100%,420px);
+
+    justify-self:center;
+  }
+}
+
+
+/* =========================================================
+   PROOF — MOBILE
+========================================================= */
+
+@media(max-width:720px){
+
+  .proof{
+    padding:14px 0;
+  }
+
+  .proof-video-inner{
+    display:grid;
+
+    grid-template-columns:1fr;
+
+    gap:12px;
+  }
+
+
+  .proof-school{
+    gap:10px;
+  }
+
+  .proof-logo{
+    width:44px;
+    height:44px;
+    flex-basis:44px;
+
+    border-radius:11px;
+  }
+
+  .proof-school-copy small{
+    font-size:7px;
+  }
+
+  .proof-school-copy strong{
+    font-size:11px;
+  }
+
+  .proof-school-copy span{
+    font-size:8px;
+  }
+
+
+  .proof-video-copy strong{
+    font-size:16px;
+    line-height:1.15;
+  }
+
+  .proof-video-copy span{
+    margin-top:4px;
+
+    font-size:10.5px;
+    line-height:1.45;
+  }
+
+
+  .proof-watch-card{
+    grid-column:auto;
+
+    width:100%;
+
+    grid-template-columns:86px minmax(0,1fr) 13px;
+
+    gap:10px;
+
+    padding:7px 10px 7px 7px;
+
+    border-radius:14px;
+  }
+
+  .proof-watch-thumb{
+    width:86px;
+    height:54px;
+
+    border-radius:10px;
+  }
+
+  .proof-watch-play{
+    width:29px;
+    height:29px;
+
+    font-size:9px;
+  }
+
+  .proof-watch-copy strong{
+    font-size:11px;
+  }
+
+  .proof-watch-copy em{
+    font-size:8px;
+  }
+
+}
 
     /* FLAGSHIP */
     .flagship{
@@ -1368,6 +1684,511 @@
       html{scroll-behavior:auto}
       *{transition:none!important}
     }
+
+
+    .flagship-actions{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+
+  gap:11px;
+}
+
+
+.flagship-video-link{
+  min-height:46px;
+
+  display:flex;
+  align-items:center;
+
+  gap:10px;
+
+  padding:7px 13px;
+
+  border:1px solid #DCE4EA;
+  border-radius:12px;
+
+  background:#fff;
+
+  color:var(--dark);
+
+  cursor:pointer;
+
+  text-align:left;
+
+  transition:.18s ease;
+}
+
+
+.flagship-video-link:hover{
+  transform:translateY(-1px);
+
+  border-color:#BADB95;
+
+  box-shadow:0 8px 20px rgba(12,30,44,.07);
+}
+
+
+.flagship-video-link>span{
+  width:30px;
+  height:30px;
+
+  flex:0 0 30px;
+
+  display:grid;
+  place-items:center;
+
+  border-radius:50%;
+
+  background:#F0F8E7;
+  color:#6DA32F;
+
+  font-size:9px;
+}
+
+
+.flagship-video-link strong,
+.flagship-video-link small{
+  display:block;
+}
+
+
+.flagship-video-link strong{
+  font-size:10.5px;
+  line-height:1.15;
+}
+
+
+.flagship-video-link small{
+  margin-top:2px;
+
+  color:#8190A0;
+
+  font-size:8px;
+}
+
+
+@media(max-width:720px){
+
+  .flagship-actions{
+    display:grid;
+    grid-template-columns:1fr;
+
+    width:100%;
+
+    gap:8px;
+  }
+
+  .flagship-actions .btn,
+  .flagship-video-link{
+    width:100%;
+  }
+
+  .flagship-video-link{
+    min-height:45px;
+  }
+
+}
+
+
+/* =========================================================
+   REAL SCHOOL VIDEO MODAL
+========================================================= */
+
+.school-video-modal{
+  position:fixed;
+  inset:0;
+
+  z-index:5000;
+
+  display:none;
+  place-items:center;
+
+  padding:22px;
+
+  background:rgba(3,11,20,.94);
+
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+}
+
+
+.school-video-modal.open{
+  display:grid;
+}
+
+
+.school-video-modal-inner{
+  position:relative;
+
+  width:min(
+    420px,
+    92vw,
+    calc(86dvh * .5625)
+  );
+
+  aspect-ratio:9 / 16;
+
+  overflow:hidden;
+
+  border-radius:24px;
+
+  background:#000;
+
+  box-shadow:0 36px 100px rgba(0,0,0,.55);
+}
+
+
+.school-video-modal iframe{
+  display:block;
+
+  width:100%;
+  height:100%;
+
+  border:0;
+}
+
+
+.school-video-close{
+  position:absolute;
+
+  z-index:5;
+
+  right:11px;
+  top:11px;
+
+  width:42px;
+  height:42px;
+
+  display:grid;
+  place-items:center;
+
+  border:1px solid rgba(255,255,255,.22);
+  border-radius:50%;
+
+  background:rgba(7,17,31,.82);
+
+  color:#fff;
+
+  font-size:15px;
+
+  cursor:pointer;
+}
+
+
+@media(max-width:720px){
+
+  .school-video-modal{
+    padding:0;
+  }
+
+
+  .school-video-modal-inner{
+    width:min(
+      100vw,
+      calc(100dvh * .5625)
+    );
+
+    max-height:100dvh;
+
+    border-radius:0;
+  }
+
+
+  .school-video-close{
+    top:calc(12px + env(safe-area-inset-top));
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE HOMEPAGE CLEAN-UP
+========================================================= */
+
+@media(max-width:720px){
+
+  /* -------------------------------------------------------
+     HERO: clean, centred, simple
+  ------------------------------------------------------- */
+
+  .hero{
+    padding:32px 0 30px!important;
+  }
+
+  .hero-inner{
+    width:100%!important;
+    max-width:390px!important;
+    margin:0 auto!important;
+
+    text-align:center!important;
+  }
+
+  .hero-kicker{
+    display:inline-flex!important;
+    justify-content:center!important;
+
+    margin:0 auto 16px!important;
+
+    font-size:8px!important;
+    line-height:1.2!important;
+  }
+
+  .hero h1,
+  #hero-title{
+    width:100%!important;
+    max-width:370px!important;
+
+    margin:0 auto!important;
+
+    text-align:center!important;
+
+    font-size:34px!important;
+    line-height:1.04!important;
+    letter-spacing:-.045em!important;
+
+    text-wrap:balance!important;
+  }
+
+  .hero-sub{
+    width:100%!important;
+    max-width:350px!important;
+
+    margin:17px auto 0!important;
+
+    text-align:center!important;
+
+    font-size:13.5px!important;
+    line-height:1.55!important;
+
+    text-wrap:pretty!important;
+  }
+
+
+  /* -------------------------------------------------------
+     ONLY TWO MAIN HERO ACTIONS
+  ------------------------------------------------------- */
+
+  .hero-actions{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+
+    width:100%!important;
+    max-width:350px!important;
+
+    margin:21px auto 0!important;
+
+    gap:8px!important;
+  }
+
+  .hero-actions .btn{
+    width:100%!important;
+    min-height:48px!important;
+
+    padding:10px 14px!important;
+
+    font-size:11px!important;
+
+    border-radius:13px!important;
+  }
+
+
+  /*
+  The Conway video is already directly below the hero.
+  Do not advertise the same video twice on mobile.
+  */
+  .hero .flagship-video-link,
+  .hero #openHomeConwayVideoHero,
+  .hero .hero-real-school-proof{
+    display:none!important;
+  }
+
+
+  .hero-note{
+    width:100%!important;
+
+    margin:13px auto 0!important;
+
+    text-align:center!important;
+
+    font-size:9px!important;
+    line-height:1.3!important;
+  }
+
+
+  /* -------------------------------------------------------
+     REAL SCHOOL PROOF
+  ------------------------------------------------------- */
+
+  .proof{
+    padding:20px 0!important;
+
+    background:#f8fafc!important;
+  }
+
+  .proof .container{
+    width:calc(100% - 28px)!important;
+  }
+
+  .proof-video-inner{
+    display:flex!important;
+    flex-direction:column!important;
+
+    width:100%!important;
+
+    gap:13px!important;
+
+    text-align:center!important;
+  }
+
+
+  /* School identity */
+
+  .proof-school{
+    width:100%!important;
+
+    display:flex!important;
+    justify-content:center!important;
+    align-items:center!important;
+
+    gap:10px!important;
+
+    text-align:left!important;
+  }
+
+  .proof-logo{
+    width:46px!important;
+    height:46px!important;
+    flex:0 0 46px!important;
+
+    border-radius:12px!important;
+  }
+
+  .proof-school-copy small{
+    margin-bottom:3px!important;
+
+    font-size:7px!important;
+  }
+
+  .proof-school-copy strong{
+    font-size:12px!important;
+  }
+
+  .proof-school-copy span{
+    margin-top:2px!important;
+
+    font-size:8px!important;
+  }
+
+
+  /* Social proof message */
+
+  .proof-video-copy{
+    width:100%!important;
+    max-width:350px!important;
+
+    margin:2px auto 0!important;
+
+    text-align:center!important;
+  }
+
+  .proof-video-copy strong{
+    display:block!important;
+
+    font-size:20px!important;
+    line-height:1.12!important;
+    letter-spacing:-.025em!important;
+
+    text-wrap:balance!important;
+  }
+
+  .proof-video-copy span{
+    display:block!important;
+
+    max-width:330px!important;
+
+    margin:7px auto 0!important;
+
+    font-size:11px!important;
+    line-height:1.5!important;
+
+    text-wrap:pretty!important;
+  }
+
+
+  /* Video card */
+
+  .proof-watch-card{
+    width:100%!important;
+    max-width:350px!important;
+
+    margin:3px auto 0!important;
+
+    grid-template-columns:94px minmax(0,1fr) 14px!important;
+
+    gap:10px!important;
+
+    padding:8px!important;
+
+    border-radius:16px!important;
+
+    text-align:left!important;
+  }
+
+  .proof-watch-thumb{
+    width:94px!important;
+    height:61px!important;
+
+    border-radius:11px!important;
+  }
+
+  .proof-watch-copy small{
+    font-size:7px!important;
+  }
+
+  .proof-watch-copy strong{
+    margin-top:3px!important;
+
+    font-size:11px!important;
+  }
+
+  .proof-watch-copy em{
+    margin-top:2px!important;
+
+    font-size:8px!important;
+  }
+
+}
+
+
+/* Extra-small phones */
+
+@media(max-width:390px){
+
+  .hero h1,
+  #hero-title{
+    max-width:335px!important;
+
+    font-size:31px!important;
+  }
+
+  .hero-sub{
+    max-width:325px!important;
+
+    font-size:13px!important;
+  }
+
+  .hero-actions{
+    max-width:325px!important;
+  }
+
+  .proof-video-copy strong{
+    font-size:18px!important;
+  }
+
+}
+
+
   </style>
 </head>
 
@@ -1432,10 +2253,29 @@
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-green" href="https://www.trackedu.net/housepoints.html">
-              Explore House Points
-              <i class="fas fa-arrow-right"></i>
-            </a>
+            <div class="flagship-actions">
+
+  <a class="btn btn-green" href="https://www.trackedu.net/housepoints.html">
+    Explore TrackEDU House Points
+    <i class="fas fa-arrow-right"></i>
+  </a>
+
+  <button
+    class="flagship-video-link"
+    id="openHomeConwayVideoFlagship"
+    type="button"
+  >
+    <span>
+      <i class="fas fa-play"></i>
+    </span>
+
+    <div>
+      <strong>See it in a real school</strong>
+      <small>Conway Christian School · 1:16</small>
+    </div>
+  </button>
+
+</div>
 
             <a class="btn btn-outline" href="#products">
               View all products
@@ -1450,35 +2290,65 @@
       </div>
     </section>
 
-    <!-- SOCIAL PROOF -->
-    <section class="proof" aria-label="Recent school partner">
-      <div class="container proof-inner">
+    <!-- REAL SCHOOL SOCIAL PROOF -->
+<section class="proof proof-video" aria-label="TrackEDU being used in a real school">
+  <div class="container proof-video-inner">
 
-        <div class="proof-label">Recent school partner</div>
-
-        <a
-          class="proof-school"
-          href="https://www.conwaychristianschool.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Visit Conway Christian School"
+    <a
+      class="proof-school"
+      href="https://www.conwaychristianschool.org/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Visit Conway Christian School"
+    >
+      <div class="proof-logo">
+        <img
+          src="https://irp.cdn-website.com/65d009b3/dms3rep/multi/opt/Conway-logo-61w.png"
+          alt="Conway Christian School logo"
+          loading="lazy"
         >
-          <div class="proof-logo">
-            <img
-              src="https://irp.cdn-website.com/65d009b3/dms3rep/multi/opt/Conway-logo-61w.png"
-              alt="Conway Christian School logo"
-              loading="lazy"
-            >
-          </div>
-
-          <div>
-            <strong>Conway Christian School</strong>
-            <span>United States</span>
-          </div>
-        </a>
-
       </div>
-    </section>
+
+      <div class="proof-school-copy">
+        <small>REAL SCHOOL • REAL USE</small>
+        <strong>Conway Christian School</strong>
+        <span><i class="fas fa-location-dot"></i> United States</span>
+      </div>
+    </a>
+
+
+    <div class="proof-video-copy">
+      <strong>See TrackEDU House Points in action.</strong>
+
+     <span>
+  Real teachers. Real students. Real House culture.
+</span>
+    </div>
+
+
+    <button
+      class="proof-watch-card"
+      id="openHomeConwayVideo"
+      type="button"
+      aria-label="Watch TrackEDU House Points in action at Conway Christian School"
+    >
+      <span class="proof-watch-thumb">
+        <span class="proof-watch-play">
+          <i class="fas fa-play"></i>
+        </span>
+      </span>
+
+      <span class="proof-watch-copy">
+        <small>WATCH 1:16</small>
+        <strong>TrackEDU in action</strong>
+        <em>See the real school video</em>
+      </span>
+
+      <i class="fas fa-arrow-right proof-watch-arrow"></i>
+    </button>
+
+  </div>
+</section>
 
     <!-- FLAGSHIP: HOUSE POINTS -->
     <section id="house-points" class="flagship">
@@ -1786,7 +2656,38 @@
 
   </main>
 
-  <footer>
+
+<!-- CONWAY REAL SCHOOL VIDEO -->
+<div
+  class="school-video-modal"
+  id="homeConwayVideoModal"
+  aria-hidden="true"
+>
+
+  <div class="school-video-modal-inner">
+
+    <button
+      class="school-video-close"
+      id="closeHomeConwayVideo"
+      type="button"
+      aria-label="Close video"
+    >
+      <i class="fas fa-xmark"></i>
+    </button>
+
+    <iframe
+      id="homeConwayVideoFrame"
+      title="TrackEDU House Points in action at Conway Christian School"
+      allow="autoplay; encrypted-media; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+
+  </div>
+
+</div>
+
+
+<footer>
     <div class="container footer-main">
 
       <div>
@@ -1888,6 +2789,105 @@
       });
     })();
   </script>
+
+
+
+<script>
+(function(){
+
+  const modal =
+    document.getElementById('homeConwayVideoModal');
+
+  const frame =
+    document.getElementById('homeConwayVideoFrame');
+
+  const closeButton =
+    document.getElementById('closeHomeConwayVideo');
+
+
+  const openButtons = [
+    document.getElementById('openHomeConwayVideo'),
+    document.getElementById('openHomeConwayVideoFlagship')
+  ].filter(Boolean);
+
+
+  function openVideo(){
+
+    frame.src =
+      'https://www.youtube-nocookie.com/embed/Jo3HvL2D2wY?autoplay=1&rel=0&playsinline=1';
+
+    modal.classList.add('open');
+
+    modal.setAttribute(
+      'aria-hidden',
+      'false'
+    );
+
+    document.body.style.overflow =
+      'hidden';
+  }
+
+
+  function closeVideo(){
+
+    modal.classList.remove('open');
+
+    modal.setAttribute(
+      'aria-hidden',
+      'true'
+    );
+
+    frame.src = '';
+
+    document.body.style.overflow = '';
+  }
+
+
+  openButtons.forEach(function(button){
+
+    button.addEventListener(
+      'click',
+      openVideo
+    );
+
+  });
+
+
+  closeButton.addEventListener(
+    'click',
+    closeVideo
+  );
+
+
+  modal.addEventListener(
+    'click',
+    function(event){
+
+      if(event.target === modal){
+        closeVideo();
+      }
+
+    }
+  );
+
+
+  document.addEventListener(
+    'keydown',
+    function(event){
+
+      if(
+        event.key === 'Escape' &&
+        modal.classList.contains('open')
+      ){
+        closeVideo();
+      }
+
+    }
+  );
+
+})();
+</script>
+
 
 </body>
 </html>
