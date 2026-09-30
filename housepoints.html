@@ -5377,6 +5377,8 @@ maxresdefault is what produced the grey placeholder.
 }
 
 #heroFlameCard.is-updated #heroFlamePoints{
+  display:inline-block;
+
   color:#68a72f!important;
 
   font-weight:950;
@@ -5427,6 +5429,680 @@ maxresdefault is what produced the grey placeholder.
   #heroTeacherDemo *,
   #heroTeacherDemo *:before,
   #heroTeacherDemo *:after{
+    transition:none!important;
+  }
+
+}
+
+
+/* =========================================================
+   HERO TEACHER APP — STUDENTS → AWARD → TOOLKIT
+========================================================= */
+
+.hero-teacher-main{
+  position:relative!important;
+  overflow:hidden!important;
+  padding:0!important;
+}
+
+
+/* -------------------------
+   SCENES
+------------------------- */
+
+.hero-teacher-view{
+  position:absolute;
+  inset:14px;
+
+  opacity:0;
+
+  transform:translateX(14px);
+
+  pointer-events:none;
+
+  transition:
+    opacity .42s ease,
+    transform .42s ease;
+}
+
+.hero-teacher-view.is-active{
+  opacity:1;
+  transform:none;
+  pointer-events:auto;
+}
+
+
+/* -------------------------
+   HEADINGS
+------------------------- */
+
+.hero-teacher-view-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+
+  gap:8px;
+
+  margin-bottom:10px;
+}
+
+.hero-teacher-view-head small{
+  display:block;
+
+  margin-bottom:2px;
+
+  color:#8a9caf;
+
+  font-size:6px;
+  font-weight:950;
+
+  letter-spacing:.10em;
+}
+
+.hero-teacher-view-head .ui-heading{
+  margin:0!important;
+}
+
+.hero-teacher-count,
+.hero-toolkit-live{
+  display:inline-flex;
+  align-items:center;
+
+  gap:5px;
+
+  padding:5px 7px;
+
+  border-radius:999px;
+
+  background:#eef7ff;
+  color:#2978bd;
+
+  font-size:6px;
+  font-weight:900;
+
+  white-space:nowrap;
+}
+
+.hero-toolkit-live{
+  background:#eef9df;
+  color:#679d2d;
+}
+
+
+/* =========================================================
+   STUDENT MANAGEMENT
+========================================================= */
+
+.hero-manage-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+
+  gap:7px;
+}
+
+.hero-manage-card{
+  position:relative;
+
+  display:grid;
+  grid-template-columns:30px minmax(0,1fr) 12px;
+
+  gap:7px;
+
+  align-items:center;
+
+  min-width:0;
+
+  padding:8px;
+
+  border:1px solid #e0eaf2;
+  border-radius:11px;
+
+  background:#fff;
+
+  transition:
+    transform .25s ease,
+    border-color .25s ease,
+    background .25s ease,
+    box-shadow .25s ease;
+}
+
+.hero-manage-avatar{
+  width:30px;
+  height:30px;
+
+  display:grid;
+  place-items:center;
+
+  border-radius:9px;
+
+  background:#edf6ff;
+  color:#2476bd;
+
+  font-size:7px;
+  font-weight:950;
+}
+
+.hero-manage-card b{
+  display:block;
+
+  color:#29465f;
+
+  font-size:8px;
+  line-height:1.1;
+}
+
+.hero-manage-card small{
+  display:block;
+
+  margin-top:3px;
+
+  color:#8193a4;
+
+  font-size:6px;
+  line-height:1.15;
+
+  white-space:nowrap;
+}
+
+.hero-manage-check{
+  color:#2a8fe3;
+
+  font-size:10px;
+
+  opacity:0;
+
+  transform:scale(.6);
+
+  transition:
+    opacity .22s ease,
+    transform .22s ease;
+}
+
+
+/* Selected student */
+
+.hero-manage-card.is-selected{
+  border-color:#67ace5;
+
+  background:#edf7ff;
+
+  box-shadow:
+    0 0 0 2px rgba(42,143,227,.11);
+
+  transform:translateY(-2px);
+}
+
+.hero-manage-card.is-selected .hero-manage-check{
+  opacity:1;
+  transform:scale(1);
+}
+
+
+/* Awarded */
+
+.hero-manage-card.is-awarded{
+  border-color:#a8d674;
+
+  background:#f5fbeE;
+}
+
+#heroManagedPoints{
+  display:inline-block;
+
+  transition:
+    color .25s ease,
+    transform .25s ease;
+}
+
+.hero-manage-card.is-awarded #heroManagedPoints{
+  color:#68a72f;
+
+  font-weight:950;
+
+  transform:scale(1.07);
+}
+
+
+/* -------------------------
+   AWARD CONTROL
+------------------------- */
+
+.hero-award-control{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap:9px;
+
+  margin-top:9px;
+
+  padding:8px 9px;
+
+  border:1px solid #e0eaf2;
+  border-radius:12px;
+
+  background:#f9fbfd;
+}
+
+.hero-award-control small{
+  display:block;
+
+  color:#8a9cad;
+
+  font-size:6px;
+  font-weight:800;
+}
+
+.hero-award-control strong{
+  display:block;
+
+  margin-top:2px;
+
+  color:#304e68;
+
+  font-size:8px;
+}
+
+.hero-award-action{
+  min-height:31px;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  gap:5px;
+
+  padding:0 10px;
+
+  border:0;
+  border-radius:9px;
+
+  background:#dfe8ef;
+  color:#718497;
+
+  font-size:7px;
+  font-weight:950;
+
+  pointer-events:none;
+
+  transition:
+    transform .18s ease,
+    background .25s ease,
+    color .25s ease,
+    box-shadow .25s ease;
+}
+
+.hero-award-action.is-ready{
+  background:
+    linear-gradient(
+      180deg,
+      #3ca0ef,
+      #247ac2
+    );
+
+  color:#fff;
+
+  box-shadow:
+    0 7px 15px rgba(42,143,227,.22);
+}
+
+.hero-award-action.is-clicked{
+  transform:scale(.93);
+
+  background:#86c73b;
+}
+
+
+/* -------------------------
+   SUCCESS
+------------------------- */
+
+.hero-award-confirm{
+  display:flex;
+  align-items:center;
+
+  gap:7px;
+
+  min-height:34px;
+
+  margin-top:7px;
+
+  padding:6px 8px;
+
+  border:1px solid #dcebc9;
+  border-radius:10px;
+
+  background:#f4faed;
+
+  opacity:0;
+
+  transform:translateY(5px);
+
+  transition:
+    opacity .25s ease,
+    transform .25s ease;
+}
+
+.hero-award-confirm.is-visible{
+  opacity:1;
+  transform:none;
+}
+
+.hero-award-confirm>i{
+  color:#78b83b;
+  font-size:11px;
+}
+
+.hero-award-confirm strong,
+.hero-award-confirm small{
+  display:block;
+}
+
+.hero-award-confirm strong{
+  color:#416922;
+  font-size:7px;
+}
+
+.hero-award-confirm small{
+  margin-top:1px;
+
+  color:#769058;
+  font-size:6px;
+}
+
+
+/* =========================================================
+   TEACHER TOOLKIT
+========================================================= */
+
+.hero-toolkit-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+
+  gap:7px;
+
+  margin-top:12px;
+}
+
+.hero-toolkit-card{
+  min-width:0;
+  min-height:108px;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  padding:10px 7px;
+
+  border:1px solid #e0eaf2;
+  border-radius:13px;
+
+  background:#fff;
+
+  text-align:center;
+
+  box-shadow:
+    0 7px 16px rgba(11,35,65,.045);
+}
+
+.hero-toolkit-card>i{
+  width:31px;
+  height:31px;
+
+  display:grid;
+  place-items:center;
+
+  margin-bottom:7px;
+
+  border-radius:10px;
+
+  background:#edf6ff;
+  color:#2a8fe3;
+
+  font-size:12px;
+}
+
+.hero-toolkit-card:nth-child(2)>i{
+  background:#eef9df;
+  color:#6ca633;
+}
+
+.hero-toolkit-card:nth-child(3)>i{
+  background:#f0edff;
+  color:#7366dc;
+}
+
+.hero-toolkit-card b{
+  display:block;
+
+  color:#304c65;
+
+  font-size:7px;
+  line-height:1.15;
+}
+
+.hero-toolkit-card small{
+  display:block;
+
+  margin-top:4px;
+
+  color:#8496a7;
+
+  font-size:5.5px;
+  line-height:1.25;
+}
+
+.hero-toolkit-footer{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  gap:6px;
+
+  margin-top:9px;
+
+  padding:7px;
+
+  border-radius:10px;
+
+  background:#f4faed;
+  color:#648d3d;
+
+  font-size:6px;
+  font-weight:900;
+}
+
+.hero-toolkit-footer i{
+  color:#7bb83f;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:680px){
+
+  .hero-teacher-view{
+    inset:9px;
+  }
+
+  .hero-teacher-view-head{
+    margin-bottom:6px;
+  }
+
+  .hero-teacher-view-head small{
+    display:none;
+  }
+
+  .hero-teacher-count,
+  .hero-toolkit-live{
+    padding:3px 5px;
+
+    font-size:4.5px;
+  }
+
+  .hero-manage-grid{
+    gap:4px;
+  }
+
+  .hero-manage-card{
+    grid-template-columns:22px minmax(0,1fr) 8px;
+
+    gap:4px;
+
+    padding:5px;
+
+    border-radius:8px;
+  }
+
+  .hero-manage-avatar{
+    width:22px;
+    height:22px;
+
+    border-radius:7px;
+
+    font-size:5px;
+  }
+
+  .hero-manage-card b{
+    font-size:5.5px;
+  }
+
+  .hero-manage-card small{
+    font-size:4.3px;
+  }
+
+  .hero-manage-check{
+    font-size:7px;
+  }
+
+  .hero-manage-card.is-selected{
+    transform:translateY(-1px);
+  }
+
+  .hero-award-control{
+    margin-top:5px;
+
+    padding:5px 6px;
+
+    border-radius:8px;
+  }
+
+  .hero-award-control small{
+    font-size:4px;
+  }
+
+  .hero-award-control strong{
+    font-size:5.5px;
+  }
+
+  .hero-award-action{
+    min-height:23px;
+
+    padding:0 7px;
+
+    border-radius:7px;
+
+    font-size:5px;
+  }
+
+  .hero-award-confirm{
+    min-height:25px;
+
+    margin-top:4px;
+
+    padding:4px 5px;
+
+    gap:4px;
+
+    border-radius:7px;
+  }
+
+  .hero-award-confirm>i{
+    font-size:7px;
+  }
+
+  .hero-award-confirm strong{
+    font-size:5px;
+  }
+
+  .hero-award-confirm small{
+    font-size:4px;
+  }
+
+  .hero-toolkit-grid{
+    gap:4px;
+
+    margin-top:7px;
+  }
+
+  .hero-toolkit-card{
+    min-height:67px;
+
+    padding:6px 4px;
+
+    border-radius:9px;
+  }
+
+  .hero-toolkit-card>i{
+    width:23px;
+    height:23px;
+
+    margin-bottom:4px;
+
+    border-radius:7px;
+
+    font-size:8px;
+  }
+
+  .hero-toolkit-card b{
+    font-size:5px;
+  }
+
+  .hero-toolkit-card small{
+    display:none;
+  }
+
+  .hero-toolkit-footer{
+    margin-top:5px;
+
+    padding:5px;
+
+    font-size:4.5px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media(max-width:420px){
+
+  .hero-teacher-count{
+    display:none;
+  }
+
+  .hero-award-confirm small{
+    display:none;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  .hero-teacher-view,
+  .hero-manage-card,
+  .hero-award-action,
+  .hero-award-confirm{
     transition:none!important;
   }
 
@@ -5625,94 +6301,175 @@ maxresdefault is what produced the grey placeholder.
 
     </aside>
 
-    <main class="teacher-main">
+    <main class="teacher-main hero-teacher-main">
 
-      <div class="ui-heading">Live House Overview</div>
+  <!-- STUDENTS MANAGEMENT -->
+  <section
+    class="hero-teacher-view hero-students-view is-active"
+    id="heroTeacherStudentsView"
+  >
 
-      <div class="house-mini-grid">
+    <div class="hero-teacher-view-head">
 
-        <div class="house-mini hm1" id="heroFlameCard">
-          <i class="fa-solid fa-fire"></i>
-          <b>Flame</b>
-          <small id="heroFlamePoints">2,480 pts</small>
+      <div>
+        <small>GRADE 4A</small>
+        <div class="ui-heading">Students Management</div>
+      </div>
+
+      <span class="hero-teacher-count">
+        <i class="fa-solid fa-users"></i>
+        4 students
+      </span>
+
+    </div>
+
+    <div class="hero-manage-grid">
+
+      <div
+        class="hero-manage-card"
+        id="heroManagedAM"
+      >
+        <span class="hero-manage-avatar">AM</span>
+
+        <div>
+          <b>AM</b>
+          <small>
+            Flame •
+            <span id="heroManagedPoints">280 pts</span>
+          </small>
         </div>
 
-        <div class="house-mini hm2">
-          <i class="fa-solid fa-sun"></i>
-          <b>Acacia</b>
-          <small>2,370 pts</small>
-        </div>
+        <i class="fa-solid fa-circle-check hero-manage-check"></i>
+      </div>
 
-        <div class="house-mini hm3">
-          <i class="fa-solid fa-leaf"></i>
-          <b>Willow</b>
-          <small>2,260 pts</small>
-        </div>
 
-        <div class="house-mini hm4">
-          <i class="fa-solid fa-star"></i>
-          <b>Wisteria</b>
-          <small>2,180 pts</small>
+      <div class="hero-manage-card">
+
+        <span class="hero-manage-avatar">JL</span>
+
+        <div>
+          <b>JL</b>
+          <small>Acacia • 250 pts</small>
         </div>
 
       </div>
 
-      <div class="award-strip">
 
-        <div class="award-strip-top">
-          <span>Award points to Grade 4A</span>
+      <div class="hero-manage-card">
 
-          <span
-            id="heroQuickAward"
-            style="color:#3c9c52"
-          >
-            + Quick Award
-          </span>
-        </div>
+        <span class="hero-manage-avatar">SK</span>
 
-        <div class="students-mini">
-
-          <div
-            class="student-dot hero-award-student"
-            id="heroStudentAM"
-          >
-            AM
-            <span
-              class="hero-award-badge"
-              id="heroAwardBadge"
-            >
-              +10
-            </span>
-          </div>
-
-          <div class="student-dot">JL</div>
-          <div class="student-dot">SK</div>
-          <div class="student-dot">RP</div>
-
+        <div>
+          <b>SK</b>
+          <small>Willow • 220 pts</small>
         </div>
 
       </div>
 
-      <div class="teacher-tool-row">
 
-        <div class="teacher-tool">
-          <i class="fa-solid fa-hat-wizard"></i>
-          Magic Hat
-        </div>
+      <div class="hero-manage-card">
 
-        <div class="teacher-tool">
-          <i class="fa-solid fa-people-group"></i>
-          Squad Builder
-        </div>
+        <span class="hero-manage-avatar">RP</span>
 
-        <div class="teacher-tool">
-          <i class="fa-solid fa-hourglass-half"></i>
-          Magic Timer
+        <div>
+          <b>RP</b>
+          <small>Wisteria • 210 pts</small>
         </div>
 
       </div>
 
-    </main>
+    </div>
+
+
+    <div class="hero-award-control">
+
+      <div>
+        <small>Selected student</small>
+        <strong id="heroAwardStudentLabel">
+          Choose a student
+        </strong>
+      </div>
+
+      <button
+        class="hero-award-action"
+        id="heroTeacherAwardButton"
+        type="button"
+        tabindex="-1"
+      >
+        <i class="fa-solid fa-plus"></i>
+        10 points
+      </button>
+
+    </div>
+
+
+    <div
+      class="hero-award-confirm"
+      id="heroTeacherAwardConfirm"
+    >
+      <i class="fa-solid fa-circle-check"></i>
+
+      <span>
+        <strong>Points awarded</strong>
+        <small>AM • Flame +10</small>
+      </span>
+    </div>
+
+  </section>
+
+
+  <!-- TEACHER TOOLKIT -->
+  <section
+    class="hero-teacher-view hero-toolkit-view"
+    id="heroTeacherToolkitView"
+  >
+
+    <div class="hero-teacher-view-head">
+
+      <div>
+        <small>CLASSROOM TOOLS</small>
+        <div class="ui-heading">Teacher Toolkit</div>
+      </div>
+
+      <span class="hero-toolkit-live">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        Built in
+      </span>
+
+    </div>
+
+
+    <div class="hero-toolkit-grid">
+
+      <div class="hero-toolkit-card">
+        <i class="fa-solid fa-hat-wizard"></i>
+        <b>Magic Hat</b>
+        <small>Pick a student at random</small>
+      </div>
+
+      <div class="hero-toolkit-card">
+        <i class="fa-solid fa-people-group"></i>
+        <b>Squad Builder</b>
+        <small>Create groups instantly</small>
+      </div>
+
+      <div class="hero-toolkit-card">
+        <i class="fa-solid fa-hourglass-half"></i>
+        <b>Magic Timer</b>
+        <small>Keep activities on track</small>
+      </div>
+
+    </div>
+
+
+    <div class="hero-toolkit-footer">
+      <i class="fa-solid fa-circle-check"></i>
+      Useful classroom tools inside the Teacher App
+    </div>
+
+  </section>
+
+</main>
 
   </div>
 
@@ -9441,6 +10198,450 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
         if(visible){
 
           runTeacherDemo();
+
+        }
+
+      }
+    );
+
+  }
+
+})();
+</script>
+
+<script>
+(function(){
+
+  const teacher =
+    document.getElementById('heroTeacherDemo');
+
+  const studentsView =
+    document.getElementById('heroTeacherStudentsView');
+
+  const toolkitView =
+    document.getElementById('heroTeacherToolkitView');
+
+  const managedAM =
+    document.getElementById('heroManagedAM');
+
+  const managedPoints =
+    document.getElementById('heroManagedPoints');
+
+  const awardStudentLabel =
+    document.getElementById('heroAwardStudentLabel');
+
+  const awardButton =
+    document.getElementById('heroTeacherAwardButton');
+
+  const awardConfirm =
+    document.getElementById('heroTeacherAwardConfirm');
+
+
+  if(
+    !teacher ||
+    !studentsView ||
+    !toolkitView ||
+    !managedAM ||
+    !managedPoints ||
+    !awardStudentLabel ||
+    !awardButton ||
+    !awardConfirm
+  ){
+    return;
+  }
+
+
+  const navItems =
+    Array.from(
+      teacher.querySelectorAll(
+        '.mini-nav span'
+      )
+    );
+
+
+  const navStudents =
+    navItems.find(
+      item =>
+        item.textContent
+          .trim()
+          .startsWith('Students')
+    );
+
+
+  const navToolkit =
+    navItems.find(
+      item =>
+        item.textContent
+          .trim()
+          .startsWith('Toolkit')
+    );
+
+
+  if(
+    !navStudents ||
+    !navToolkit
+  ){
+    return;
+  }
+
+
+  const reduceMotion =
+    window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    );
+
+
+  const mobile =
+    window.matchMedia(
+      '(max-width:680px)'
+    );
+
+
+  let visible = false;
+  let timers = [];
+
+
+  function schedule(fn, delay){
+
+    const timer =
+      window.setTimeout(
+        fn,
+        delay
+      );
+
+    timers.push(timer);
+
+    return timer;
+  }
+
+
+  function clearTimers(){
+
+    timers.forEach(
+      timer =>
+        window.clearTimeout(timer)
+    );
+
+    timers = [];
+  }
+
+
+  function activateNav(item){
+
+    navItems.forEach(
+      navItem =>
+        navItem.classList.remove(
+          'active'
+        )
+    );
+
+    item.classList.add(
+      'active'
+    );
+
+  }
+
+
+  function resetTeacherStory(){
+
+    studentsView.classList.add(
+      'is-active'
+    );
+
+    toolkitView.classList.remove(
+      'is-active'
+    );
+
+
+    activateNav(
+      navStudents
+    );
+
+
+    managedAM.classList.remove(
+      'is-selected',
+      'is-awarded'
+    );
+
+
+    managedPoints.textContent =
+      '280 pts';
+
+
+    awardStudentLabel.textContent =
+      'Choose a student';
+
+
+    awardButton.classList.remove(
+      'is-ready',
+      'is-clicked'
+    );
+
+
+    awardConfirm.classList.remove(
+      'is-visible'
+    );
+
+  }
+
+
+  function showToolkit(){
+
+    studentsView.classList.remove(
+      'is-active'
+    );
+
+    toolkitView.classList.add(
+      'is-active'
+    );
+
+
+    activateNav(
+      navToolkit
+    );
+
+  }
+
+
+  function runTeacherStory(){
+
+    clearTimers();
+
+    resetTeacherStory();
+
+
+    if(
+      reduceMotion.matches ||
+      !visible ||
+      document.hidden
+    ){
+      return;
+    }
+
+
+    const compact =
+      mobile.matches;
+
+
+    /*
+      Student Portal finishes login
+      at about 4.1 seconds.
+
+      Teacher story begins just after it.
+    */
+
+
+    const selectTime =
+      compact
+        ? 4700
+        : 5200;
+
+
+    const clickTime =
+      compact
+        ? 5250
+        : 5850;
+
+
+    const awardTime =
+      compact
+        ? 5550
+        : 6200;
+
+
+    const toolkitTime =
+      compact
+        ? 6400
+        : 7350;
+
+
+    const loopTime =
+      compact
+        ? 9500
+        : 11000;
+
+
+    /* Select AM */
+
+    schedule(
+      () => {
+
+        managedAM.classList.add(
+          'is-selected'
+        );
+
+
+        awardStudentLabel.textContent =
+          'AM • Flame';
+
+
+        awardButton.classList.add(
+          'is-ready'
+        );
+
+      },
+      selectTime
+    );
+
+
+    /* Press +10 points */
+
+    schedule(
+      () => {
+
+        awardButton.classList.add(
+          'is-clicked'
+        );
+
+      },
+      clickTime
+    );
+
+
+    /* Award confirmed */
+
+    schedule(
+      () => {
+
+        awardButton.classList.remove(
+          'is-clicked'
+        );
+
+
+        managedAM.classList.add(
+          'is-awarded'
+        );
+
+
+        managedPoints.textContent =
+          '290 pts';
+
+
+        awardConfirm.classList.add(
+          'is-visible'
+        );
+
+      },
+      awardTime
+    );
+
+
+    /* Move to Teacher Toolkit */
+
+    schedule(
+      showToolkit,
+      toolkitTime
+    );
+
+
+    /* Reset with Student Portal loop */
+
+    schedule(
+      runTeacherStory,
+      loopTime
+    );
+
+  }
+
+
+  const observer =
+    new IntersectionObserver(
+      entries => {
+
+        const entry =
+          entries[0];
+
+
+        visible =
+          !!entry &&
+          entry.isIntersecting;
+
+
+        if(visible){
+
+          runTeacherStory();
+
+        }
+        else{
+
+          clearTimers();
+
+          resetTeacherStory();
+
+        }
+
+      },
+      {
+        threshold:.18
+      }
+    );
+
+
+  observer.observe(
+    teacher
+  );
+
+
+  document.addEventListener(
+    'visibilitychange',
+    () => {
+
+      if(document.hidden){
+
+        clearTimers();
+
+      }
+      else if(visible){
+
+        runTeacherStory();
+
+      }
+
+    }
+  );
+
+
+  if(
+    typeof reduceMotion
+      .addEventListener === 'function'
+  ){
+
+    reduceMotion.addEventListener(
+      'change',
+      () => {
+
+        clearTimers();
+
+        resetTeacherStory();
+
+
+        if(
+          !reduceMotion.matches &&
+          visible
+        ){
+
+          runTeacherStory();
+
+        }
+
+      }
+    );
+
+  }
+
+
+  if(
+    typeof mobile
+      .addEventListener === 'function'
+  ){
+
+    mobile.addEventListener(
+      'change',
+      () => {
+
+        if(visible){
+
+          runTeacherStory();
 
         }
 
