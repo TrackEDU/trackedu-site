@@ -5250,6 +5250,189 @@ maxresdefault is what produced the grey placeholder.
 }
 
 
+/* =========================================================
+   HERO TEACHER APP MICRO INTERACTION
+========================================================= */
+
+#heroTeacherDemo .house-mini,
+#heroTeacherDemo .student-dot,
+#heroTeacherDemo #heroQuickAward,
+#heroTeacherDemo #heroFlamePoints{
+  transition:
+    transform .25s ease,
+    background .25s ease,
+    box-shadow .25s ease,
+    color .25s ease;
+}
+
+
+/* -------------------------
+   STUDENT SELECTED
+------------------------- */
+
+.hero-award-student{
+  position:relative;
+  overflow:visible!important;
+}
+
+.hero-award-student.is-selected{
+  background:#dceeff!important;
+  color:#176fca!important;
+
+  box-shadow:
+    0 0 0 2px rgba(42,143,227,.28);
+
+  transform:translateY(-2px);
+}
+
+
+/* -------------------------
+   +10 BADGE
+------------------------- */
+
+.hero-award-badge{
+  position:absolute;
+
+  top:-11px;
+  right:-8px;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:3px 6px;
+
+  border-radius:999px;
+
+  background:#86c73b;
+  color:#fff;
+
+  font-size:7px;
+  line-height:1;
+  font-weight:950;
+
+  opacity:0;
+
+  transform:
+    translateY(5px)
+    scale(.72);
+
+  box-shadow:
+    0 6px 14px rgba(86,143,30,.28);
+
+  pointer-events:none;
+
+  transition:
+    opacity .22s ease,
+    transform .3s cubic-bezier(.2,.8,.2,1);
+}
+
+.hero-award-student.is-awarded .hero-award-badge{
+  opacity:1;
+
+  transform:
+    translateY(0)
+    scale(1);
+}
+
+
+/* -------------------------
+   QUICK AWARD
+------------------------- */
+
+#heroQuickAward{
+  display:inline-block;
+
+  transform-origin:center;
+
+  white-space:nowrap;
+}
+
+#heroQuickAward.is-clicked{
+  color:#65a82d!important;
+
+  transform:scale(1.12);
+
+  text-shadow:
+    0 0 12px rgba(134,199,59,.42);
+}
+
+
+/* -------------------------
+   HOUSE TOTAL UPDATE
+------------------------- */
+
+#heroFlameCard{
+  position:relative;
+}
+
+#heroFlameCard.is-updated{
+  background:#f4fbe9!important;
+
+  box-shadow:
+    0 0 0 2px rgba(134,199,59,.28),
+    0 8px 18px rgba(75,128,24,.10);
+
+  transform:translateY(-2px);
+}
+
+#heroFlameCard.is-updated #heroFlamePoints{
+  color:#68a72f!important;
+
+  font-weight:950;
+
+  transform:scale(1.07);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:680px){
+
+  .hero-award-badge{
+    top:-7px;
+    right:-5px;
+
+    padding:2px 4px;
+
+    font-size:5px;
+  }
+
+  .hero-award-student.is-selected{
+    box-shadow:
+      0 0 0 1px rgba(42,143,227,.32);
+
+    transform:translateY(-1px);
+  }
+
+  #heroQuickAward.is-clicked{
+    transform:scale(1.06);
+  }
+
+  #heroFlameCard.is-updated{
+    transform:translateY(-1px);
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  #heroTeacherDemo *,
+  #heroTeacherDemo *:before,
+  #heroTeacherDemo *:after{
+    transition:none!important;
+  }
+
+}
+
+
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
@@ -5413,7 +5596,127 @@ maxresdefault is what produced the grey placeholder.
   </span>
 </div>
 </div>
-<div class="hero-ecosystem reveal show"><div class="orbit"></div><div class="product-window teacher-window"><div class="window-top"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="window-title">TrackEDU Teacher App</span></div><div class="teacher-ui"><aside class="teacher-sidebar"><div class="mini-logo"><img alt="" src="https://trackedu.github.io/common-assets/teacherapp.png"/><span>Teacher App</span></div><div class="mini-nav"><span class="active"><i class="fa-solid fa-gauge"></i> Dashboard</span><span><i class="fa-solid fa-users"></i> Students</span><span><i class="fa-solid fa-shield-halved"></i> Houses</span><span><i class="fa-solid fa-trophy"></i> Challenges</span><span><i class="fa-solid fa-chart-simple"></i> Reports</span><span><i class="fa-solid fa-wand-magic-sparkles"></i> Toolkit</span></div></aside><main class="teacher-main"><div class="ui-heading">Live House Overview</div><div class="house-mini-grid"><div class="house-mini hm1"><i class="fa-solid fa-fire"></i><b>Flame</b><small>2,480 pts</small></div><div class="house-mini hm2"><i class="fa-solid fa-sun"></i><b>Acacia</b><small>2,370 pts</small></div><div class="house-mini hm3"><i class="fa-solid fa-leaf"></i><b>Willow</b><small>2,260 pts</small></div><div class="house-mini hm4"><i class="fa-solid fa-star"></i><b>Wisteria</b><small>2,180 pts</small></div></div><div class="award-strip"><div class="award-strip-top"><span>Award points to Grade 4A</span><span style="color:#3c9c52">+ Quick Award</span></div><div class="students-mini"><div class="student-dot">AM</div><div class="student-dot">JL</div><div class="student-dot">SK</div><div class="student-dot">RP</div></div></div><div class="teacher-tool-row"><div class="teacher-tool"><i class="fa-solid fa-hat-wizard"></i>Magic Hat</div><div class="teacher-tool"><i class="fa-solid fa-people-group"></i>Squad Builder</div><div class="teacher-tool"><i class="fa-solid fa-hourglass-half"></i>Magic Timer</div></div></main></div></div>
+<div class="hero-ecosystem reveal show"><div class="orbit"></div><div class="product-window teacher-window" id="heroTeacherDemo">
+
+  <div class="window-top">
+    <span class="dot r"></span>
+    <span class="dot y"></span>
+    <span class="dot g"></span>
+    <span class="window-title">TrackEDU Teacher App</span>
+  </div>
+
+  <div class="teacher-ui">
+
+    <aside class="teacher-sidebar">
+
+      <div class="mini-logo">
+        <img alt="" src="https://trackedu.github.io/common-assets/teacherapp.png"/>
+        <span>Teacher App</span>
+      </div>
+
+      <div class="mini-nav">
+        <span class="active"><i class="fa-solid fa-gauge"></i> Dashboard</span>
+        <span><i class="fa-solid fa-users"></i> Students</span>
+        <span><i class="fa-solid fa-shield-halved"></i> Houses</span>
+        <span><i class="fa-solid fa-trophy"></i> Challenges</span>
+        <span><i class="fa-solid fa-chart-simple"></i> Reports</span>
+        <span><i class="fa-solid fa-wand-magic-sparkles"></i> Toolkit</span>
+      </div>
+
+    </aside>
+
+    <main class="teacher-main">
+
+      <div class="ui-heading">Live House Overview</div>
+
+      <div class="house-mini-grid">
+
+        <div class="house-mini hm1" id="heroFlameCard">
+          <i class="fa-solid fa-fire"></i>
+          <b>Flame</b>
+          <small id="heroFlamePoints">2,480 pts</small>
+        </div>
+
+        <div class="house-mini hm2">
+          <i class="fa-solid fa-sun"></i>
+          <b>Acacia</b>
+          <small>2,370 pts</small>
+        </div>
+
+        <div class="house-mini hm3">
+          <i class="fa-solid fa-leaf"></i>
+          <b>Willow</b>
+          <small>2,260 pts</small>
+        </div>
+
+        <div class="house-mini hm4">
+          <i class="fa-solid fa-star"></i>
+          <b>Wisteria</b>
+          <small>2,180 pts</small>
+        </div>
+
+      </div>
+
+      <div class="award-strip">
+
+        <div class="award-strip-top">
+          <span>Award points to Grade 4A</span>
+
+          <span
+            id="heroQuickAward"
+            style="color:#3c9c52"
+          >
+            + Quick Award
+          </span>
+        </div>
+
+        <div class="students-mini">
+
+          <div
+            class="student-dot hero-award-student"
+            id="heroStudentAM"
+          >
+            AM
+            <span
+              class="hero-award-badge"
+              id="heroAwardBadge"
+            >
+              +10
+            </span>
+          </div>
+
+          <div class="student-dot">JL</div>
+          <div class="student-dot">SK</div>
+          <div class="student-dot">RP</div>
+
+        </div>
+
+      </div>
+
+      <div class="teacher-tool-row">
+
+        <div class="teacher-tool">
+          <i class="fa-solid fa-hat-wizard"></i>
+          Magic Hat
+        </div>
+
+        <div class="teacher-tool">
+          <i class="fa-solid fa-people-group"></i>
+          Squad Builder
+        </div>
+
+        <div class="teacher-tool">
+          <i class="fa-solid fa-hourglass-half"></i>
+          Magic Timer
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+</div>
 <div class="product-window student-window">
 
   <div class="window-top">
@@ -8793,6 +9096,351 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
         else if(visible){
 
           runDemo();
+
+        }
+
+      }
+    );
+
+  }
+
+})();
+</script>
+
+<script>
+(function(){
+
+  const teacher =
+    document.getElementById('heroTeacherDemo');
+
+  const student =
+    document.getElementById('heroStudentAM');
+
+  const quickAward =
+    document.getElementById('heroQuickAward');
+
+  const flameCard =
+    document.getElementById('heroFlameCard');
+
+  const flamePoints =
+    document.getElementById('heroFlamePoints');
+
+
+  if(
+    !teacher ||
+    !student ||
+    !quickAward ||
+    !flameCard ||
+    !flamePoints
+  ){
+    return;
+  }
+
+
+  const reduceMotion =
+    window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    );
+
+
+  const mobile =
+    window.matchMedia(
+      '(max-width:680px)'
+    );
+
+
+  let visible = false;
+  let timers = [];
+
+
+  function schedule(fn, delay){
+
+    const timer =
+      window.setTimeout(
+        fn,
+        delay
+      );
+
+    timers.push(timer);
+
+    return timer;
+  }
+
+
+  function clearTimers(){
+
+    timers.forEach(
+      timer =>
+        window.clearTimeout(timer)
+    );
+
+    timers = [];
+  }
+
+
+  function resetTeacherDemo(){
+
+    student.classList.remove(
+      'is-selected',
+      'is-awarded'
+    );
+
+    quickAward.classList.remove(
+      'is-clicked'
+    );
+
+    flameCard.classList.remove(
+      'is-updated'
+    );
+
+    flamePoints.textContent =
+      '2,480 pts';
+
+  }
+
+
+  function runTeacherDemo(){
+
+    clearTimers();
+    resetTeacherDemo();
+
+
+    if(
+      reduceMotion.matches ||
+      !visible ||
+      document.hidden
+    ){
+      return;
+    }
+
+
+    /*
+      Student Portal appears at about 4.1 sec.
+
+      Teacher interaction deliberately
+      happens afterwards.
+    */
+
+    const compact =
+      mobile.matches;
+
+
+    const selectTime =
+      compact
+        ? 5200
+        : 6200;
+
+
+    const quickAwardTime =
+      compact
+        ? 5600
+        : 6650;
+
+
+    const awardTime =
+      compact
+        ? 5900
+        : 7000;
+
+
+    const totalTime =
+      compact
+        ? 6150
+        : 7250;
+
+
+    const settleTime =
+      compact
+        ? 7200
+        : 8350;
+
+
+    const loopTime =
+      compact
+        ? 9500
+        : 11000;
+
+
+    /* Select AM */
+
+    schedule(
+      () => {
+
+        student.classList.add(
+          'is-selected'
+        );
+
+      },
+      selectTime
+    );
+
+
+    /* Quick Award */
+
+    schedule(
+      () => {
+
+        quickAward.classList.add(
+          'is-clicked'
+        );
+
+      },
+      quickAwardTime
+    );
+
+
+    /* +10 appears */
+
+    schedule(
+      () => {
+
+        student.classList.add(
+          'is-awarded'
+        );
+
+      },
+      awardTime
+    );
+
+
+    /* Flame total updates */
+
+    schedule(
+      () => {
+
+        flamePoints.textContent =
+          '2,490 pts';
+
+        flameCard.classList.add(
+          'is-updated'
+        );
+
+      },
+      totalTime
+    );
+
+
+    /* Settle, but leave the new total visible */
+
+    schedule(
+      () => {
+
+        student.classList.remove(
+          'is-selected'
+        );
+
+        quickAward.classList.remove(
+          'is-clicked'
+        );
+
+      },
+      settleTime
+    );
+
+
+    /* Match Student Portal loop */
+
+    schedule(
+      runTeacherDemo,
+      loopTime
+    );
+
+  }
+
+
+  const observer =
+    new IntersectionObserver(
+      entries => {
+
+        const entry =
+          entries[0];
+
+        visible =
+          !!entry &&
+          entry.isIntersecting;
+
+
+        if(visible){
+
+          runTeacherDemo();
+
+        }
+        else{
+
+          clearTimers();
+
+          resetTeacherDemo();
+
+        }
+
+      },
+      {
+        threshold:.18
+      }
+    );
+
+
+  observer.observe(teacher);
+
+
+  document.addEventListener(
+    'visibilitychange',
+    () => {
+
+      if(document.hidden){
+
+        clearTimers();
+
+      }
+      else if(visible){
+
+        runTeacherDemo();
+
+      }
+
+    }
+  );
+
+
+  if(
+    typeof reduceMotion
+      .addEventListener === 'function'
+  ){
+
+    reduceMotion.addEventListener(
+      'change',
+      () => {
+
+        if(reduceMotion.matches){
+
+          clearTimers();
+          resetTeacherDemo();
+
+        }
+        else if(visible){
+
+          runTeacherDemo();
+
+        }
+
+      }
+    );
+
+  }
+
+
+  if(
+    typeof mobile
+      .addEventListener === 'function'
+  ){
+
+    mobile.addEventListener(
+      'change',
+      () => {
+
+        if(visible){
+
+          runTeacherDemo();
 
         }
 
