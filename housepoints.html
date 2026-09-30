@@ -6109,6 +6109,49 @@ maxresdefault is what produced the grey placeholder.
 }
 
 
+/* =========================================================
+   MOBILE HORIZONTAL SCROLL DISCOVERY
+   Gentle one-time nudge so users know rows can be swiped
+========================================================= */
+
+@media(max-width:680px){
+
+  .hero-trust-strip-grid,
+  .partner-proof-pills,
+  .culture-path,
+  .board-benefits,
+  #what .audience-grid,
+  .eco-stack,
+  #why .why-proof-grid,
+  #trainingModal .training-topics,
+  .trust-summary-grid,
+  .compare-table{
+    overscroll-behavior-x:contain;
+  }
+
+}
+
+
+/* Never animate discovery movement for reduced-motion users */
+
+@media(prefers-reduced-motion:reduce){
+
+  .hero-trust-strip-grid,
+  .partner-proof-pills,
+  .culture-path,
+  .board-benefits,
+  #what .audience-grid,
+  .eco-stack,
+  #why .why-proof-grid,
+  #trainingModal .training-topics,
+  .trust-summary-grid,
+  .compare-table{
+    scroll-behavior:auto!important;
+  }
+
+}
+
+
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
@@ -10646,6 +10689,497 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
         }
 
       }
+    );
+
+  }
+
+})();
+</script>
+
+<script>
+(function(){
+
+  const mobile =
+    window.matchMedia(
+      '(max-width:680px)'
+    );
+
+  const reduceMotion =
+    window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    );
+
+
+  const selector = [
+    '.hero-trust-strip-grid',
+    '.partner-proof-pills',
+    '.culture-path',
+    '.board-benefits',
+    '#what .audience-grid',
+    '.eco-stack',
+    '#why .why-proof-grid',
+    '#trainingModal .training-topics',
+    '.trust-summary-grid',
+    '.compare-table'
+  ].join(',');
+
+
+  let observer = null;
+
+
+  function easeInOut(t){
+
+    return t < .5
+      ? 2 * t * t
+      : 1 - Math.pow(-2 * t + 2, 2) / 2;
+
+  }
+
+
+  function animateScroll(
+    element,
+    from,
+    to,
+    duration,
+    done
+  ){
+
+    const started =
+      performance.now();
+
+
+    function frame(now){
+
+      if(
+        element.dataset.swipeHintCancelled === 'true'
+      ){
+        return;
+      }
+
+
+      const progress =
+        Math.min(
+          (now - started) / duration,
+          1
+        );
+
+
+      const eased =
+        easeInOut(progress);
+
+
+      element.scrollLeft =
+        from +
+        ((to - from) * eased);
+
+
+      if(progress < 1){
+
+        requestAnimationFrame(frame);
+
+      }
+      else if(done){
+
+        done();
+
+      }
+
+    }
+
+
+    requestAnimationFrame(frame);
+
+  }
+
+
+  function restoreScroller(element){
+
+    if(
+      element.dataset.previousSnap !== undefined
+    ){
+
+      element.style.scrollSnapType =
+        element.dataset.previousSnap;
+
+    }
+
+
+    if(
+      element.dataset.previousBehaviour !== undefined
+    ){
+
+      element.style.scrollBehavior =
+        element.dataset.previousBehaviour;
+
+    }
+
+  }
+
+
+  function stopNudge(element){
+
+    element.dataset.swipeHintCancelled =
+      'true';
+
+    element.dataset.swipeHintDone =
+      'true';
+
+    restoreScroller(element);
+
+  }
+
+
+  function nudgeScroller(element){
+
+    if(
+      !mobile.matches ||
+      reduceMotion.matches ||
+      element.dataset.swipeHintDone === 'true' ||
+      element.dataset.swipeHintRunning === 'true'
+    ){
+      return;
+    }
+
+
+    const available =
+      element.scrollWidth -
+      element.clientWidth;
+
+
+    /* Not actually scrollable */
+
+    if(available < 20){
+      return;
+    }
+
+
+    /*
+      If the visitor has already moved this row,
+      they clearly know it is scrollable.
+    */
+
+    if(element.scrollLeft > 5){
+
+      element.dataset.swipeHintDone =
+        'true';
+
+      return;
+
+    }
+
+
+    element.dataset.swipeHintRunning =
+      'true';
+
+    element.dataset.swipeHintCancelled =
+      'false';
+
+
+    element.dataset.previousSnap =
+      element.style.scrollSnapType || '';
+
+    element.dataset.previousBehaviour =
+      element.style.scrollBehavior || '';
+
+
+    /*
+      Temporarily disable snapping so the small
+      demonstration movement stays smooth.
+    */
+
+    element.style.scrollSnapType =
+      'none';
+
+    element.style.scrollBehavior =
+      'auto';
+
+
+    const start =
+      element.scrollLeft;
+
+
+    const distance =
+      Math.min(
+        34,
+        available
+      );
+
+
+    const outward =
+      start + distance;
+
+
+    /*
+      Wait briefly after the section appears,
+      then gently reveal more of the next card.
+    */
+
+    window.setTimeout(
+      () => {
+
+        if(
+          element.dataset.swipeHintCancelled === 'true'
+        ){
+          return;
+        }
+
+
+        animateScroll(
+          element,
+          start,
+          outward,
+          850,
+          () => {
+
+            window.setTimeout(
+              () => {
+
+                if(
+                  element.dataset.swipeHintCancelled === 'true'
+                ){
+                  return;
+                }
+
+
+                /*
+                  Slowly return to the natural
+                  starting position.
+                */
+
+                animateScroll(
+                  element,
+                  outward,
+                  start,
+                  900,
+                  () => {
+
+                    element.dataset.swipeHintDone =
+                      'true';
+
+                    element.dataset.swipeHintRunning =
+                      'false';
+
+                    restoreScroller(
+                      element
+                    );
+
+                  }
+                );
+
+              },
+              180
+            );
+
+          }
+        );
+
+      },
+      550
+    );
+
+  }
+
+
+  function prepareScroller(element){
+
+    if(
+      element.dataset.swipeHintPrepared === 'true'
+    ){
+      return;
+    }
+
+
+    element.dataset.swipeHintPrepared =
+      'true';
+
+
+    /*
+      Any real user interaction immediately
+      cancels the automatic demonstration.
+    */
+
+    const userIntent = () => {
+
+      if(
+        element.dataset.swipeHintDone !== 'true'
+      ){
+
+        stopNudge(
+          element
+        );
+
+      }
+
+    };
+
+
+    element.addEventListener(
+      'touchstart',
+      userIntent,
+      {
+        passive:true,
+        once:true
+      }
+    );
+
+
+    element.addEventListener(
+      'pointerdown',
+      userIntent,
+      {
+        passive:true,
+        once:true
+      }
+    );
+
+
+    element.addEventListener(
+      'wheel',
+      userIntent,
+      {
+        passive:true,
+        once:true
+      }
+    );
+
+
+    observer.observe(
+      element
+    );
+
+  }
+
+
+  function initialise(){
+
+    if(
+      !mobile.matches ||
+      reduceMotion.matches
+    ){
+      return;
+    }
+
+
+    if(observer){
+
+      observer.disconnect();
+
+    }
+
+
+    observer =
+      new IntersectionObserver(
+        entries => {
+
+          entries.forEach(
+            entry => {
+
+              if(
+                entry.isIntersecting &&
+                entry.intersectionRatio >= .35
+              ){
+
+                nudgeScroller(
+                  entry.target
+                );
+
+
+                /*
+                  We only need to demonstrate
+                  each row once.
+                */
+
+                observer.unobserve(
+                  entry.target
+                );
+
+              }
+
+            }
+          );
+
+        },
+        {
+          threshold:[
+            0,
+            .35,
+            .6
+          ]
+        }
+      );
+
+
+    document
+      .querySelectorAll(selector)
+      .forEach(
+        prepareScroller
+      );
+
+  }
+
+
+  initialise();
+
+
+  /*
+    Some horizontal rows live inside modals.
+    Watch for them becoming available/visible.
+  */
+
+  const mutationObserver =
+    new MutationObserver(
+      () => {
+
+        if(
+          mobile.matches &&
+          !reduceMotion.matches
+        ){
+
+          document
+            .querySelectorAll(selector)
+            .forEach(
+              element => {
+
+                if(
+                  element.dataset.swipeHintPrepared !== 'true'
+                ){
+
+                  prepareScroller(
+                    element
+                  );
+
+                }
+
+              }
+            );
+
+        }
+
+      }
+    );
+
+
+  mutationObserver.observe(
+    document.body,
+    {
+      childList:true,
+      subtree:true,
+      attributes:true,
+      attributeFilter:[
+        'class',
+        'aria-hidden'
+      ]
+    }
+  );
+
+
+  if(
+    typeof mobile.addEventListener === 'function'
+  ){
+
+    mobile.addEventListener(
+      'change',
+      initialise
     );
 
   }
