@@ -1,11 +1,12 @@
+
 <!DOCTYPE html>
 
 <html lang="en-GB">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>TrackEDU House Points | One House System for Teachers, Students &amp; School Leaders</title>
-<meta content="TrackEDU is a connected House point tracker for schools: fast teacher workflows, a student portal, live leaderboards, challenges, behaviour tools, reporting, school branding and implementation support." name="description"/>
+<title>TrackEDU | House Points, Recognition &amp; Behaviour in One School System</title>
+<meta content="TrackEDU connects House points, positive recognition, behaviour incidents, follow-up, student engagement and school-wide insight in one school culture platform." name="description"/>
 <link href="https://www.trackedu.net/housepoints.html" rel="canonical"/>
 <link href="https://trackedu.github.io/common-assets/trackedulogono.png" rel="icon"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -6152,6 +6153,174 @@ maxresdefault is what produced the grey placeholder.
 }
 
 
+
+
+/* =========================================================
+   V17 — CONNECTED RECOGNITION + BEHAVIOUR STORY
+   ========================================================= */
+.behaviour-connect{
+  background:
+    radial-gradient(circle at 8% 15%,rgba(42,143,227,.09),transparent 30%),
+    radial-gradient(circle at 92% 75%,rgba(134,199,59,.09),transparent 32%),
+    linear-gradient(180deg,#f8fcff 0%,#ffffff 100%);
+  overflow:hidden
+}
+.behaviour-connect .section-head{max-width:940px}
+.behaviour-flow{
+  margin-top:42px;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 28px minmax(0,1fr) 28px minmax(0,1fr) 28px minmax(0,1fr) 28px minmax(0,1fr);
+  gap:8px;
+  align-items:stretch
+}
+.behaviour-step{
+  position:relative;
+  min-width:0;
+  padding:20px 16px 17px;
+  border:1px solid var(--line);
+  border-radius:23px;
+  background:#fff;
+  box-shadow:0 12px 28px rgba(11,35,65,.06)
+}
+.behaviour-step-num{
+  position:absolute;top:13px;right:13px;
+  width:26px;height:26px;border-radius:9px;
+  display:grid;place-items:center;
+  background:#f1f6fa;color:#6d8295;
+  font-size:10px;font-weight:950
+}
+.behaviour-step-icon{
+  width:48px;height:48px;border-radius:15px;
+  display:grid;place-items:center;
+  margin-bottom:13px;
+  font-size:18px
+}
+.behaviour-step.positive .behaviour-step-icon{background:#edf8df;color:#67a22f}
+.behaviour-step.incident .behaviour-step-icon{background:#fff0ed;color:#db685a}
+.behaviour-step.followup .behaviour-step-icon{background:#fff6dd;color:#b98512}
+.behaviour-step.record .behaviour-step-icon{background:#f0edff;color:#7366dc}
+.behaviour-step.insight .behaviour-step-icon{background:#eaf6ff;color:#2784d5}
+.behaviour-step>strong{display:block;color:var(--navy);font:700 20px/1.08 Fredoka,system-ui,sans-serif}
+.behaviour-step>small{display:block;margin-top:7px;color:var(--muted);font-size:11px;line-height:1.48;min-height:49px}
+.behaviour-chip{
+  display:flex;align-items:center;gap:7px;
+  margin-top:14px;padding:9px 10px;border-radius:13px;
+  font-size:9px;font-weight:900;line-height:1.3
+}
+.positive-chip{background:#f1fae7;color:#547f2c}.incident-chip{background:#fff1ee;color:#a84f43}.action-chip{background:#fff7e2;color:#8e6b16}.record-chip{background:#f2efff;color:#6658bb}.insight-chip{background:#edf7ff;color:#216dad}
+.behaviour-arrow{display:grid;place-items:center;color:#9ab0c2;font-size:14px}
+.behaviour-proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px}
+.student-story-card,.behaviour-dashboard-card{
+  border:1px solid var(--line);border-radius:28px;background:#fff;
+  box-shadow:var(--shadow2);padding:24px
+}
+.story-card-head,.behaviour-dashboard-head{display:flex;align-items:center;gap:13px}
+.story-avatar{
+  width:50px;height:50px;border-radius:16px;display:grid;place-items:center;
+  background:#eef7ff;color:var(--blue);font-size:19px;flex:0 0 auto
+}
+.story-card-head span,.behaviour-dashboard-head span{display:block;color:#8092a3;font-size:9px;font-weight:950;text-transform:uppercase;letter-spacing:.1em}
+.story-card-head h3,.behaviour-dashboard-head h3{margin:4px 0 0;color:var(--navy);font-size:24px;line-height:1.05}
+.student-story-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:19px}
+.student-story-stats>div{padding:12px 10px;border-radius:15px;background:#f8fbfd;border:1px solid #e5edf3;text-align:center}
+.student-story-stats strong{display:block;color:var(--navy);font-size:19px}.student-story-stats span{display:block;margin-top:3px;color:#71869a;font-size:8px;line-height:1.25}
+.student-timeline{display:grid;gap:8px;margin-top:16px}
+.timeline-row{display:grid;grid-template-columns:35px 1fr auto;gap:10px;align-items:center;padding:10px 11px;border-radius:15px;background:#fafcfd;border:1px solid #e8eef3}
+.timeline-icon{width:35px;height:35px;border-radius:11px;display:grid;place-items:center}
+.timeline-row.positive .timeline-icon{background:#edf8df;color:#67a22f}.timeline-row.incident .timeline-icon{background:#fff0ed;color:#db685a}.timeline-row.action .timeline-icon{background:#fff6dd;color:#b98512}.timeline-row.complete .timeline-icon{background:#eaf6ff;color:#2784d5}
+.timeline-row strong{display:block;color:#344f67;font-size:11px}.timeline-row small{display:block;color:#7a8d9f;font-size:9px;margin-top:2px}.timeline-row time{color:#8a9bab;font-size:8px;font-weight:800}
+.behaviour-dashboard-head{justify-content:space-between}.behaviour-dashboard-head>i{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background:#eaf6ff;color:var(--blue);font-size:18px}
+.behaviour-kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-top:19px}
+.behaviour-kpi{padding:14px;border-radius:16px;background:#f8fbfd;border:1px solid #e5edf3}.behaviour-kpi:last-child{grid-column:1/-1}
+.behaviour-kpi span{display:block;color:#6c8194;font-size:9px;font-weight:800}.behaviour-kpi strong{display:block;margin-top:5px;color:var(--navy);font-size:24px;line-height:1}.behaviour-kpi small{display:block;margin-top:5px;color:#8b9baa;font-size:8px}
+.behaviour-kpi.positive{background:#f3faea;border-color:#dfedce}.behaviour-kpi.positive strong{color:#5f932b}.behaviour-kpi.negative{background:#fff3f0;border-color:#f2dcd7}.behaviour-kpi.negative strong{color:#c45d50}.behaviour-kpi.attention{background:#fff8e7;border-color:#f0e2b8}
+.behaviour-levels{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:15px;padding:12px;border-radius:16px;background:#0b2341;color:#fff}
+.behaviour-levels span{display:inline-flex;align-items:center;gap:6px;font-size:9px;font-weight:900}.behaviour-levels>i{font-size:8px;color:#7391aa}.behaviour-levels span i{color:#aee76a}
+.behaviour-principle{display:flex;align-items:flex-start;gap:14px;margin-top:20px;padding:18px 20px;border:1px solid #d9e8ef;border-radius:22px;background:linear-gradient(90deg,#eef8ff,#f5fbe9)}
+.behaviour-principle>i{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:#fff;color:var(--blue);box-shadow:0 8px 18px rgba(11,35,65,.06);flex:0 0 auto}
+.behaviour-principle strong{display:block;color:var(--navy);font-size:14px}.behaviour-principle span{display:block;margin-top:4px;color:#5f7488;font-size:12px;line-height:1.55}
+@media(max-width:1100px){
+  .behaviour-flow{grid-template-columns:1fr 1fr 1fr;gap:12px}.behaviour-arrow{display:none}.behaviour-step.record,.behaviour-step.insight{grid-column:auto}
+  .behaviour-proof-grid{grid-template-columns:1fr}
+}
+@media(max-width:680px){
+  .behaviour-connect .section-head.center{text-align:left!important}
+  .behaviour-flow{display:flex;overflow-x:auto;gap:10px;padding:2px 2px 9px;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .behaviour-flow::-webkit-scrollbar{display:none}
+  .behaviour-step{flex:0 0 84%;min-width:84%;scroll-snap-align:start;padding:18px}
+  .behaviour-step>small{min-height:0}
+  .student-story-card,.behaviour-dashboard-card{padding:17px;border-radius:23px}
+  .story-card-head h3,.behaviour-dashboard-head h3{font-size:20px}
+  .student-story-stats{grid-template-columns:1fr 1fr}
+  .timeline-row{grid-template-columns:34px 1fr}.timeline-row time{display:none}
+  .behaviour-kpi-grid{grid-template-columns:1fr 1fr}.behaviour-kpi:last-child{grid-column:1/-1}
+  .behaviour-principle{padding:15px}
+}
+
+
+/* =========================================================
+   V18 — CONVERSION-FOCUSED CONNECTED SYSTEM
+   ========================================================= */
+.connect-map{display:grid;grid-template-columns:minmax(0,.9fr) 44px minmax(320px,1.25fr) 44px minmax(0,.9fr);gap:14px;align-items:center;margin-top:38px}
+.connect-side,.connect-record{border:1px solid var(--line);border-radius:26px;background:#fff;box-shadow:var(--shadow2)}
+.connect-side{padding:22px;min-height:330px}.positive-side{background:linear-gradient(180deg,#fff,#f5fbe9)}.behaviour-side{background:linear-gradient(180deg,#fff,#fff4f1)}
+.connect-icon{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;font-size:20px;background:#eef7ff;color:var(--blue);margin-bottom:14px}.behaviour-side .connect-icon{background:#fff0ed;color:var(--coral)}
+.connect-kicker{display:block;font-size:10px;font-weight:950;text-transform:uppercase;letter-spacing:.09em;color:#73879a}.connect-side h3{font-size:25px;line-height:1.05;color:var(--navy);margin:7px 0 16px}
+.connect-event{padding:12px 13px;border-radius:16px;background:#fff;border:1px solid #dfe9f0;margin-top:9px}.connect-event strong,.connect-event small{display:block}.connect-event strong{font-size:13px;color:var(--navy)}.connect-event small{font-size:10px;line-height:1.45;color:var(--muted);margin-top:3px}.positive-event{border-left:4px solid var(--green)}.behaviour-event{border-left:4px solid var(--coral)}
+.connect-arrow{display:grid;place-items:center;color:#9bb1c4;font-size:19px}
+.connect-record{padding:23px;border-color:#cddfea;box-shadow:0 22px 50px rgba(11,35,65,.10)}.connect-record-label{display:inline-flex;padding:6px 9px;border-radius:999px;background:#edf6ff;color:#2477c9;font-size:9px;font-weight:950;letter-spacing:.09em}
+.connect-record-head{display:flex;align-items:center;gap:12px;margin:14px 0}.connect-avatar{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;background:var(--navy);color:#fff;font-weight:900}.connect-record-head strong,.connect-record-head small{display:block}.connect-record-head strong{font-size:16px;color:var(--navy)}.connect-record-head small{font-size:10px;color:var(--muted);margin-top:2px}
+.connect-timeline{display:grid;gap:7px}.connect-line{display:grid;grid-template-columns:30px 1fr;gap:9px;align-items:start;padding:10px;border-radius:14px;background:#f8fbfd}.connect-line>i{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;background:#fff}.connect-line strong,.connect-line small{display:block}.connect-line strong{font-size:11px;color:var(--navy)}.connect-line small{font-size:9px;color:var(--muted);line-height:1.35;margin-top:2px}.connect-line.good>i{color:var(--green)}.connect-line.concern>i{color:var(--coral)}.connect-line.action>i{color:var(--gold)}.connect-line.closed>i{color:var(--blue)}
+.connect-leadership{display:grid;grid-template-columns:.8fr 1.2fr;gap:24px;align-items:center;margin-top:20px;padding:24px;border-radius:28px;background:linear-gradient(135deg,#0b2341,#174a76);color:#fff}.connect-leadership-copy span{font-size:9px;font-weight:950;letter-spacing:.11em;color:#b8e978}.connect-leadership-copy h3{font-size:28px;line-height:1.04;margin:7px 0;color:#fff}.connect-leadership-copy p{font-size:12px;line-height:1.55;color:#c7d8e7;margin:0}.connect-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.connect-kpis>div{padding:14px;border-radius:16px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.11)}.connect-kpis span,.connect-kpis small{display:block;color:#c6d7e5;font-size:9px;line-height:1.25}.connect-kpis strong{display:block;margin-top:5px;color:#fff;font-size:23px}.connect-kpis small{margin-top:4px;font-size:8px}
+.connect-principle{display:flex;gap:12px;align-items:flex-start;margin-top:14px;padding:14px 16px;border-radius:18px;background:#f7fbfe;border:1px solid var(--line);color:#5f7488}.connect-principle>i{color:var(--blue);margin-top:3px}.connect-principle p{font-size:11px;line-height:1.55;margin:0}.connect-principle strong{color:var(--navy)}
+.compact-culture-path{grid-template-columns:repeat(3,1fr)!important}.compact-board-story{margin-top:28px!important}.compact-board-story .board-shot img{height:330px!important}
+#what .feature-list{gap:8px}#what .feature-row{padding:9px 10px}
+#why .why-conclusion{margin-top:18px}
+@media(max-width:1080px){.connect-map{grid-template-columns:1fr}.connect-arrow{transform:rotate(90deg)}.connect-leadership{grid-template-columns:1fr}.connect-kpis{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:680px){.connect-map{display:flex;overflow-x:auto;gap:10px;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:8px}.connect-map::-webkit-scrollbar{display:none}.connect-side,.connect-record{flex:0 0 86%;min-width:86%;scroll-snap-align:center;min-height:auto}.connect-arrow{display:none}.connect-leadership{padding:18px}.connect-leadership-copy h3{font-size:24px}.connect-kpis{grid-template-columns:1fr 1fr}.compact-culture-path{display:flex!important;overflow-x:auto!important;grid-template-columns:none!important}.compact-culture-path .culture-step{flex:0 0 84%!important}.compact-board-story .board-shot img{height:auto!important}}
+
+/* =========================================================
+   FINAL CONVERSION TIGHTENING — IMPLEMENTATION + PRICING
+   ========================================================= */
+.culture-compact{padding:76px 0!important}
+.culture-compact-head{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;align-items:end}
+.culture-compact-head .section-head h2{font-size:clamp(36px,4.4vw,56px)!important}
+.culture-support-chip{display:flex;align-items:center;gap:14px;padding:18px 20px;border:1px solid #dcebc9;border-radius:22px;background:#f5faef}
+.culture-support-icon{width:46px;height:46px;flex:0 0 46px;display:grid;place-items:center;border-radius:14px;background:#e6f5d4;color:#68a72f;font-size:18px}
+.culture-support-chip strong,.culture-support-chip small{display:block}.culture-support-chip strong{color:var(--navy);font-size:14px}.culture-support-chip small{margin-top:4px;color:#667d90;font-size:10px;line-height:1.4}
+.culture-compact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
+.culture-compact-grid article{display:flex;gap:12px;align-items:flex-start;padding:16px;border:1px solid var(--line);border-radius:20px;background:#fff;box-shadow:0 9px 22px rgba(11,35,65,.045)}
+.culture-compact-grid article>span{width:32px;height:32px;flex:0 0 32px;display:grid;place-items:center;border-radius:10px;background:var(--navy);color:#fff;font-size:11px;font-weight:900}
+.culture-compact-grid strong,.culture-compact-grid small{display:block}.culture-compact-grid strong{color:var(--navy);font-size:13px}.culture-compact-grid small{margin-top:3px;color:var(--muted);font-size:10px;line-height:1.45}
+.culture-board-proof{display:grid;grid-template-columns:.72fr 1.28fr;gap:24px;align-items:center;margin-top:26px;padding:22px;border:1px solid var(--line);border-radius:26px;background:#fff;box-shadow:var(--shadow2)}
+.culture-board-copy h3{font-size:29px;line-height:1.04;color:var(--navy);margin:12px 0 8px}.culture-board-copy p{margin:0;color:var(--muted);font-size:13px;line-height:1.55}
+.culture-board-images{display:grid;grid-template-columns:1fr 36px 1fr;gap:9px;align-items:center}.culture-board-images .board-shot{border-radius:18px!important}.culture-board-images .board-shot img{height:250px!important;object-fit:cover!important}.culture-board-images .board-label{padding:9px 11px!important}.culture-board-images .board-label small{font-size:9px!important}.culture-board-arrow{display:grid;place-items:center;color:#6e8599;font-size:14px}
+.pricing-proof-row{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin:25px auto -18px}.pricing-proof-row span{display:inline-flex;align-items:center;gap:7px;padding:9px 12px;border-radius:999px;background:#f5faef;border:1px solid #dcebc9;color:#516d3d;font-size:10px;font-weight:900}.pricing-proof-row i{color:#72aa38}
+#pricing .pricing-grid{margin-top:36px!important}#pricing .include-list{gap:8px!important}#pricing .include{padding:11px 12px!important}#pricing .include span{display:block;margin-top:3px;color:#718397;font-size:10px;line-height:1.4}
+@media(max-width:900px){.culture-compact-head,.culture-board-proof{grid-template-columns:1fr}.culture-compact-grid{grid-template-columns:1fr 1fr}.culture-board-images .board-shot img{height:230px!important}}
+@media(max-width:680px){.culture-compact{padding:48px 0!important}.culture-compact-grid{display:flex;overflow-x:auto;gap:9px;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:6px}.culture-compact-grid::-webkit-scrollbar{display:none}.culture-compact-grid article{flex:0 0 82%;scroll-snap-align:start}.culture-board-proof{padding:16px!important}.culture-board-images{grid-template-columns:1fr}.culture-board-arrow{transform:rotate(90deg);padding:2px}.culture-board-images .board-shot img{height:auto!important;aspect-ratio:4/3!important}.pricing-proof-row{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none;padding-bottom:5px}.pricing-proof-row::-webkit-scrollbar{display:none}.pricing-proof-row span{flex:0 0 auto}}
+
+/* === V18 REALISTIC BEHAVIOUR PRODUCT PREVIEW === */
+.behaviour-product{background:linear-gradient(180deg,#f8fbfe 0%,#fff 100%)}
+.behaviour-product-intro{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr);gap:18px;align-items:center;margin-top:36px}
+.behaviour-product-copy{padding:24px 26px;border-radius:26px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow2)}
+.behaviour-product-kicker{font-size:10px;font-weight:950;letter-spacing:.11em;color:#7c3aed}.behaviour-product-copy h3{font-size:32px;margin:7px 0 8px;color:var(--navy)}.behaviour-product-copy p{margin:0;color:var(--muted);font-size:14px;line-height:1.65}
+.behaviour-product-flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:18px}.behaviour-product-flow span{display:inline-flex;align-items:center;gap:7px;padding:9px 11px;border-radius:999px;background:#f7f5ff;border:1px solid #e5ddff;color:#5b45be;font-size:11px;font-weight:900}.behaviour-product-flow>i{font-size:10px;color:#a6b6c5}
+.behaviour-product-note{display:flex;gap:13px;align-items:flex-start;padding:22px;border-radius:24px;background:#0b2341;color:#fff}.behaviour-product-note>i{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:rgba(135,194,50,.15);color:#b7e87a;flex:0 0 auto}.behaviour-product-note strong,.behaviour-product-note span{display:block}.behaviour-product-note strong{font-size:14px}.behaviour-product-note span{margin-top:5px;color:#c3d3e0;font-size:12px;line-height:1.55}
+.behaviour-demo{margin-top:20px;border:1px solid #dfe7ef;border-radius:30px;background:#fff;box-shadow:0 28px 70px rgba(11,35,65,.14);overflow:hidden}
+.behaviour-demo-topbar{display:flex;justify-content:space-between;gap:20px;align-items:center;padding:17px 20px;background:#0c1e2c;color:#fff}.behaviour-demo-topbar>div:first-child{display:grid;grid-template-columns:auto 1fr;gap:3px 9px;align-items:center}.behaviour-demo-label{grid-row:1/3;width:max-content;display:inline-flex;align-items:center;gap:6px;padding:7px 9px;border-radius:10px;background:rgba(255,255,255,.08);color:#b8e978;font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.07em}.behaviour-demo-topbar strong{font-size:14px}.behaviour-demo-topbar small{font-size:9px;color:#91a5b6}
+.behaviour-demo-tabs{display:flex;gap:5px;padding:4px;border-radius:12px;background:rgba(255,255,255,.07)}.behaviour-demo-tab{border:0;background:transparent;color:#aebdca;padding:9px 11px;border-radius:9px;font-size:10px;font-weight:800;cursor:pointer;white-space:nowrap}.behaviour-demo-tab i{margin-right:5px}.behaviour-demo-tab.active{background:#fff;color:#6d28d9;box-shadow:0 3px 10px rgba(0,0,0,.15)}
+.behaviour-demo-stage{background:#f4f7fa;min-height:510px}.behaviour-pane{display:none}.behaviour-pane.active{display:block}.product-app-header{min-height:62px;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px;background:linear-gradient(135deg,#7c3aed,#6d28d9);color:#fff}.product-app-header>div:first-child{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.product-app-header strong{font:700 15px Poppins,Outfit,sans-serif}.product-app-header small{font-size:9px;color:rgba(255,255,255,.78)}.header-student{width:100%;margin-left:24px}.product-profile-pills{display:flex;gap:6px;flex-wrap:wrap}.product-profile-pills span{padding:5px 8px;border-radius:999px;background:rgba(255,255,255,.94);color:#334155;font-size:9px;font-weight:800}.product-profile-pills .tier{background:#e9f8e9;color:#24733d}.product-profile-pills .incident-pill{background:#fff0d6;color:#9a5a00}.product-close{width:30px;height:30px;display:grid;place-items:center;border-radius:9px;background:rgba(255,255,255,.15);font-size:18px}
+.product-profile-body{padding:20px;max-width:1180px;margin:auto}.product-student-identity{display:flex;align-items:center;gap:12px;padding:14px;border:1px solid #e2e8f0;border-radius:14px;background:#fff}.product-avatar{width:46px;height:46px;display:grid;place-items:center;border-radius:50%;background:#ede9fe;color:#6d28d9;font-weight:900}.product-student-identity>div:nth-child(2){flex:1}.product-student-identity strong,.product-student-identity span{display:block}.product-student-identity strong{font-size:15px;color:#0f172a}.product-student-identity span{margin-top:2px;color:#64748b;font-size:10px}.product-student-identity button{border:1px solid #bfdbfe;background:#eff6ff;color:#1d4ed8;border-radius:9px;padding:8px 11px;font-size:9px;font-weight:800}
+.product-recognition-snapshot{margin-top:12px;padding:14px;border:1px solid #dbeafe;border-left:4px solid #3b82f6;border-radius:14px;background:linear-gradient(135deg,#f8fbff,#fff)}.product-snapshot-title{display:flex;justify-content:space-between;gap:12px;align-items:center}.product-snapshot-title span{color:#1e40af;font-size:11px;font-weight:900;text-transform:uppercase}.product-snapshot-title span i{margin-right:5px}.product-snapshot-title small{font-size:9px;color:#64748b}.product-snapshot-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.product-snapshot-grid>div{padding:12px;border-radius:10px}.product-snapshot-grid span,.product-snapshot-grid strong,.product-snapshot-grid small{display:block}.product-snapshot-grid span{font-size:9px;font-weight:800;color:#64748b}.product-snapshot-grid strong{font-size:22px;margin-top:5px}.product-snapshot-grid small{font-size:8px;color:#64748b}.product-positive{background:#f0fdf4;border:1px solid #bbf7d0}.product-positive strong{color:#15803d}.product-deduction{background:#fff7ed;border:1px solid #fed7aa}.product-deduction strong{color:#c2410c}
+.product-history-head{display:flex;justify-content:space-between;gap:10px;align-items:center;margin:17px 2px 8px}.product-history-head strong{font-size:12px;color:#0f172a}.product-history-head span{font-size:9px;color:#94a3b8}.product-history{display:grid;grid-template-columns:1fr 1fr;gap:8px}.product-history-row{display:grid;grid-template-columns:34px 1fr auto;gap:9px;align-items:center;padding:10px 11px;background:#fff;border:1px solid #e2e8f0;border-radius:11px}.product-history-row>i{width:32px;height:32px;display:grid;place-items:center;border-radius:10px}.product-history-row strong,.product-history-row span{display:block}.product-history-row strong{font-size:10px;color:#0f172a}.product-history-row span{font-size:8px;color:#64748b;margin-top:2px}.product-history-row>small{font-size:8px;color:#94a3b8}.product-history-row.good>i{background:#f0fdf4;color:#16a34a}.product-history-row.concern>i{background:#fff7ed;color:#ea580c}.product-history-row.action>i{background:#f5f3ff;color:#7c3aed}.product-history-row.closed>i{background:#eff6ff;color:#2563eb}
+.incident-preview-body{padding:18px 20px 20px;max-width:1180px;margin:auto}.quick-presets-preview{padding:11px;border-radius:12px;background:#eef2f6}.quick-presets-preview>span{display:block;font-size:9px;font-weight:800;color:#64748b;margin-bottom:8px}.quick-presets-preview>div{display:flex;gap:7px;overflow-x:auto}.quick-presets-preview button{flex:0 0 auto;border:1px solid #e2e8f0;background:#fff;border-left:3px solid #f59e0b;border-radius:999px;padding:7px 12px;font-size:9px;font-weight:700;color:#475569}.incident-form-preview{margin-top:12px}.incident-fields{display:grid;gap:10px;margin-bottom:10px}.incident-fields.three{grid-template-columns:repeat(3,1fr)}.incident-fields.two{grid-template-columns:repeat(2,1fr)}.incident-form-preview label{display:block;color:#334155;font-size:9px;font-weight:700}.incident-form-preview input,.incident-form-preview select,.incident-form-preview textarea{width:100%;margin-top:5px;border:1px solid #dbe3ea;border-radius:9px;background:#fff;padding:9px 10px;color:#334155;font:600 10px Inter,Outfit,sans-serif}.incident-description-preview textarea{min-height:58px;resize:none}.incident-advanced-preview{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:10px;padding:11px 12px;border:1px solid #e2e8f0;border-radius:10px;background:#fff}.incident-advanced-preview>div{margin-right:auto;color:#334155;font-size:10px}.incident-advanced-preview>div i{color:#7c3aed;margin-right:5px}.follow-chip{padding:6px 9px;border-radius:999px;background:#f5f3ff;color:#6d28d9;font-size:8px;font-weight:800}.incident-preview-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:11px}.incident-preview-actions button{border:0;border-radius:9px;padding:9px 14px;font-size:9px;font-weight:900}.incident-preview-actions .secondary{background:#eef2f6;color:#475569}.incident-preview-actions .primary{background:linear-gradient(105deg,#7c3aed,#6d28d9);color:#fff}
+.leadership-preview-body{padding:18px 20px 20px;max-width:1180px;margin:auto}.leadership-header small{width:100%;margin-left:24px}.leadership-preview-section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px}.leadership-preview-section-title strong,.leadership-preview-section-title small{display:block}.leadership-preview-section-title strong{font-size:12px;color:#0f172a}.leadership-preview-section-title small{margin-top:2px;font-size:8px;color:#64748b}.leadership-preview-section-title>span{padding:6px 8px;border-radius:8px;background:#f1f5f9;color:#64748b;font-size:8px;font-weight:800}.leadership-attention-preview{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.attn{display:flex;align-items:center;gap:8px;padding:10px;background:#fff;border:1px solid #e2e8f0;border-radius:11px}.attn>i{width:34px;height:34px;display:grid;place-items:center;border-radius:10px}.attn strong,.attn span{display:block}.attn strong{font-size:20px;color:#0f172a}.attn span{font-size:8px;color:#64748b;font-weight:700}.attn.urgent{border-color:#fecaca}.attn.urgent>i{background:#fef2f2;color:#dc2626}.attn.warning{border-color:#fde68a}.attn.warning>i{background:#fffbeb;color:#d97706}.attn.parent>i{background:#eff6ff;color:#2563eb}.attn.reflection>i{background:#f5f3ff;color:#7c3aed}.snapshot-title{margin-top:16px}.leadership-snapshot-preview{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.leadership-snapshot-preview>div{display:grid;grid-template-columns:32px 1fr;gap:2px 9px;align-items:center;padding:10px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:11px}.leadership-snapshot-preview i{grid-row:1/4;width:32px;height:32px;display:grid;place-items:center;border-radius:9px;background:#fff;color:#7c3aed}.leadership-snapshot-preview strong{font-size:17px;color:#0f172a}.leadership-snapshot-preview span{font-size:8px;font-weight:800;color:#64748b;text-transform:uppercase}.leadership-snapshot-preview small{font-size:7px;color:#64748b}.leadership-chart-preview{margin-top:10px;padding:11px;background:#fff;border:1px solid #e2e8f0;border-radius:12px}.chart-copy{display:flex;justify-content:space-between;align-items:center}.chart-copy strong{font-size:10px;color:#0f172a}.chart-copy small{font-size:8px;color:#94a3b8}.leadership-chart-preview svg{display:block;width:100%;height:105px;margin-top:5px}
+.behaviour-demo-caption{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}.behaviour-demo-caption>div{display:grid;grid-template-columns:38px 1fr;gap:3px 10px;align-items:center;padding:13px 14px;border-radius:16px;background:#fff;border:1px solid var(--line)}.behaviour-demo-caption i{grid-row:1/3;width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:#f5f3ff;color:#7c3aed}.behaviour-demo-caption strong{font-size:11px;color:var(--navy)}.behaviour-demo-caption span{font-size:9px;line-height:1.4;color:var(--muted)}
+@media(max-width:900px){.behaviour-product-intro{grid-template-columns:1fr}.behaviour-demo-topbar{align-items:flex-start;flex-direction:column}.behaviour-demo-tabs{width:100%;overflow-x:auto}.behaviour-demo-tab{flex:1}.product-history{grid-template-columns:1fr}.leadership-attention-preview,.leadership-snapshot-preview{grid-template-columns:repeat(2,1fr)}.behaviour-demo-caption{grid-template-columns:1fr}}
+@media(max-width:680px){.behaviour-product-copy{padding:19px}.behaviour-product-copy h3{font-size:27px}.behaviour-product-flow{display:grid;grid-template-columns:1fr}.behaviour-product-flow>i{transform:rotate(90deg);margin:auto}.behaviour-demo{border-radius:22px}.behaviour-demo-topbar{padding:13px}.behaviour-demo-tabs{scrollbar-width:none}.behaviour-demo-tab{flex:0 0 auto}.behaviour-demo-stage{min-height:540px}.product-app-header{padding:10px 12px}.product-profile-pills{width:100%;overflow-x:auto;flex-wrap:nowrap}.product-profile-body,.incident-preview-body,.leadership-preview-body{padding:12px}.product-student-identity{align-items:flex-start}.product-student-identity button{display:none}.product-snapshot-title{align-items:flex-start;flex-direction:column}.product-snapshot-grid{grid-template-columns:1fr 1fr}.incident-fields.three,.incident-fields.two{grid-template-columns:1fr 1fr}.incident-fields.three label:last-child{grid-column:1/-1}.leadership-attention-preview,.leadership-snapshot-preview{grid-template-columns:1fr 1fr}.leadership-chart-preview svg{height:90px}.behaviour-demo-caption{display:none}}
+@media(max-width:420px){.product-snapshot-grid,.incident-fields.three,.incident-fields.two,.leadership-attention-preview,.leadership-snapshot-preview{grid-template-columns:1fr}.incident-fields.three label:last-child{grid-column:auto}.behaviour-demo-stage{min-height:600px}}
+
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
@@ -6185,14 +6354,7 @@ maxresdefault is what produced the grey placeholder.
 <img alt="TrackEDU logo" src="https://trackedu.github.io/common-assets/trackedulogono.png"/>
 <span>Track<em>EDU</em></span>
 </a>
-<div class="navlinks">
-<a href="#culture">How it works</a>
-<a href="#what">What you get</a>
-<a href="#why">Why TrackEDU</a>
-<a href="#toolkit">Teacher tools</a>
-<a data-trust-nav="desktop" data-trust-trigger="true" href="#">Data &amp; Privacy</a><a href="#pricing">Pricing</a>
-
-</div>
+<div class="navlinks"><a href="#behaviour">How it connects</a><a href="#what">For your school</a><a href="#why">Why TrackEDU</a><a href="#culture">Implementation</a><a data-trust-nav="desktop" data-trust-trigger="true" href="#">Data &amp; Privacy</a><a href="#pricing">Pricing</a></div>
 <div class="nav-actions">
 <a class="btn btn-secondary" data-demo-trigger="true" href="#">
 <i class="fa-regular fa-calendar"></i> Book demo
@@ -6208,79 +6370,28 @@ maxresdefault is what produced the grey placeholder.
 </nav>
 <div aria-hidden="true" class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
 <aside aria-hidden="true" class="mobile-drawer" id="mobileSlideMenu">
-
-  <div class="mobile-drawer-head">
-    <a class="brand" data-mobile-close href="#top">
-      <img alt="TrackEDU logo" src="https://trackedu.github.io/common-assets/trackedulogono.png">
-      <span>Track<em>EDU</em></span>
-    </a>
-
-    <button aria-label="Close menu" class="mobile-close" id="closeMenuBtn" type="button">
-      <i class="fa-solid fa-xmark"></i>
-    </button>
-  </div>
-
-  <nav aria-label="Mobile navigation" class="mobile-links">
-
-    <a data-mobile-close href="#culture">
-      <i class="fa-solid fa-seedling"></i>
-      <span>How it works</span>
-    </a>
-
-    <a data-mobile-close href="#what">
-      <i class="fa-solid fa-box-open"></i>
-      <span>What your school gets</span>
-    </a>
-
-    <a data-mobile-close href="#why">
-      <i class="fa-solid fa-compass"></i>
-      <span>Why TrackEDU</span>
-    </a>
-
-    <a data-mobile-close href="#toolkit">
-      <i class="fa-solid fa-wand-magic-sparkles"></i>
-      <span>Teacher tools</span>
-    </a>
-
-    <a data-mobile-close data-trust-nav="mobile" data-trust-trigger="true" href="#">
-      <i class="fa-solid fa-shield-halved"></i>
-      <span>Data &amp; Privacy</span>
-    </a>
-
-    <a data-mobile-close href="#pricing">
-      <i class="fa-solid fa-tag"></i>
-      <span>Pricing</span>
-    </a>
-
-    <a data-mobile-close href="#faq">
-      <i class="fa-solid fa-circle-question"></i>
-      <span>FAQ</span>
-    </a>
-
-    <a href="https://www.trackedu.net/contact.html">
-      <i class="fa-solid fa-envelope"></i>
-      <span>Contact us</span>
-    </a>
-
-  </nav>
-
-  <div class="mobile-drawer-actions">
-
-    <a class="btn btn-primary" data-pilot-trigger="true" href="#">
+<div class="mobile-drawer-head">
+<a class="brand" data-mobile-close="" href="#top">
+<img alt="TrackEDU logo" src="https://trackedu.github.io/common-assets/trackedulogono.png"/>
+<span>Track<em>EDU</em></span>
+</a>
+<button aria-label="Close menu" class="mobile-close" id="closeMenuBtn" type="button">
+<i class="fa-solid fa-xmark"></i>
+</button>
+</div>
+<nav aria-label="Mobile navigation" class="mobile-links"><a data-mobile-close="" href="#behaviour"><i class="fa-solid fa-link"></i>How it connects</a><a data-mobile-close="" href="#what"><i class="fa-solid fa-box-open"></i>For your school</a><a data-mobile-close="" href="#why"><i class="fa-solid fa-compass"></i>Why TrackEDU</a><a data-mobile-close="" href="#culture"><i class="fa-solid fa-people-roof"></i>Implementation</a><a data-mobile-close="" data-trust-trigger="true" href="#"><i class="fa-solid fa-shield-halved"></i>Data &amp; Privacy</a><a data-mobile-close="" href="#pricing"><i class="fa-solid fa-tag"></i>Pricing</a><a data-mobile-close="" href="#faq"><i class="fa-solid fa-circle-question"></i>FAQ</a></nav>
+<div class="mobile-drawer-actions">
+<a class="btn btn-primary" data-pilot-trigger="true" href="#">
       Start free pilot
       <i class="fa-solid fa-arrow-right"></i>
-    </a>
-
-    <a class="btn btn-secondary" data-demo-trigger="true" href="#">
+</a>
+<a class="btn btn-secondary" data-demo-trigger="true" href="#">
       Book demo
     </a>
-
-    <a class="mobile-login-link" href="https://housepoint.trackedu.net/" target="_blank" rel="noopener">
+<a class="mobile-login-link" href="https://housepoint.trackedu.net/" rel="noopener" target="_blank">
       Login
     </a>
-
-  </div>
-
+</div>
 </aside>
 <header class="hero-video-enabled hero">
 <div aria-hidden="true" class="hero-video-bg">
@@ -6289,7 +6400,7 @@ maxresdefault is what produced the grey placeholder.
 </div>
 <div class="hero-video-overlay"></div>
 </div>
-<div class="shell hero-grid"><div class="hero-copy reveal show"><span class="eyebrow"><i class="fa-solid fa-school"></i> House points software for schools</span><h1>A House points system <span class="blue">teachers can run</span> and <span class="green">students want to use.</span></h1><p class="lead">TrackEDU brings House points, student engagement, live standings, school dashboards and House culture together in one connected system.</p><div class="hero-google-callout">
+<div class="shell hero-grid"><div class="hero-copy reveal show"><span class="eyebrow"><i class="fa-solid fa-school"></i> School culture platform</span><h1><span class="blue">House points.</span> Recognition. Behaviour. <span class="green">One connected system.</span></h1><p class="lead">Run House points, positive recognition and behaviour from one place. Teachers can reward students, record incidents and manage follow-up, while school leaders see the complete picture across students, classes, Houses and the whole school.</p><div class="hero-google-callout">
 <div class="google-mark"><i class="fab fa-google"></i></div>
 <div class="google-copy">
 <div class="google-topline"><span>NEW</span><strong>Google Classroom integration</strong></div>
@@ -6297,411 +6408,259 @@ maxresdefault is what produced the grey placeholder.
 </div>
 <i class="fa-solid fa-circle-check google-check"></i>
 </div>
-<div class="hero-actions"><a class="btn btn-primary" data-pilot-trigger="true" href="#">Start your free 30-day pilot <i class="fa-solid fa-arrow-right"></i></a><a class="btn btn-secondary hero-secondary" href="#what"><i class="fa-solid fa-eye"></i> See exactly what you get</a></div>
+<div class="hero-actions"><a class="btn btn-primary" data-pilot-trigger="true" href="#">Start your free 30-day pilot <i class="fa-solid fa-arrow-right"></i></a><a class="btn btn-secondary hero-secondary" href="#behaviour"><i class="fa-solid fa-link"></i> See how it connects</a></div>
 <div class="hero-proof">
-  <span class="proof-pill">
-    <i class="fa-solid fa-check"></i>
+<span class="proof-pill">
+<i class="fa-solid fa-check"></i>
     30 days free
   </span>
-
-  <span class="proof-pill">
-    <i class="fa-solid fa-check"></i>
+<span class="proof-pill">
+<i class="fa-solid fa-check"></i>
     No credit card
   </span>
-
-  <span class="proof-pill">
-    <i class="fa-solid fa-check"></i>
+<span class="proof-pill">
+<i class="fa-solid fa-check"></i>
     Setup support included
   </span>
 </div>
 </div>
 <div class="hero-ecosystem reveal show"><div class="orbit"></div><div class="product-window teacher-window" id="heroTeacherDemo">
-
-  <div class="window-top">
-    <span class="dot r"></span>
-    <span class="dot y"></span>
-    <span class="dot g"></span>
-    <span class="window-title">TrackEDU Teacher App</span>
-  </div>
-
-  <div class="teacher-ui">
-
-    <aside class="teacher-sidebar">
-
-      <div class="mini-logo">
-        <img alt="" src="https://trackedu.github.io/common-assets/teacherapp.png"/>
-        <span>Teacher App</span>
-      </div>
-
-      <div class="mini-nav">
-        <span class="active"><i class="fa-solid fa-gauge"></i> Dashboard</span>
-        <span><i class="fa-solid fa-users"></i> Students</span>
-        <span><i class="fa-solid fa-shield-halved"></i> Houses</span>
-        <span><i class="fa-solid fa-trophy"></i> Challenges</span>
-        <span><i class="fa-solid fa-chart-simple"></i> Reports</span>
-        <span><i class="fa-solid fa-wand-magic-sparkles"></i> Toolkit</span>
-      </div>
-
-    </aside>
-
-    <main class="teacher-main hero-teacher-main">
-
-  <!-- STUDENTS MANAGEMENT -->
-  <section
-    class="hero-teacher-view hero-students-view is-active"
-    id="heroTeacherStudentsView"
-  >
-
-    <div class="hero-teacher-view-head">
-
-      <div>
-        <small>GRADE 4A</small>
-        <div class="ui-heading">Students Management</div>
-      </div>
-
-      <span class="hero-teacher-count">
-        <i class="fa-solid fa-users"></i>
+<div class="window-top">
+<span class="dot r"></span>
+<span class="dot y"></span>
+<span class="dot g"></span>
+<span class="window-title">TrackEDU Teacher App</span>
+</div>
+<div class="teacher-ui">
+<aside class="teacher-sidebar">
+<div class="mini-logo">
+<img alt="" src="https://trackedu.github.io/common-assets/teacherapp.png"/>
+<span>Teacher App</span>
+</div>
+<div class="mini-nav">
+<span class="active"><i class="fa-solid fa-gauge"></i> Dashboard</span>
+<span><i class="fa-solid fa-users"></i> Students</span>
+<span><i class="fa-solid fa-shield-halved"></i> Houses</span>
+<span><i class="fa-solid fa-trophy"></i> Challenges</span>
+<span><i class="fa-solid fa-chart-simple"></i> Reports</span>
+<span><i class="fa-solid fa-wand-magic-sparkles"></i> Toolkit</span>
+</div>
+</aside>
+<main class="teacher-main hero-teacher-main">
+<!-- STUDENTS MANAGEMENT -->
+<section class="hero-teacher-view hero-students-view is-active" id="heroTeacherStudentsView">
+<div class="hero-teacher-view-head">
+<div>
+<small>GRADE 4A</small>
+<div class="ui-heading">Students Management</div>
+</div>
+<span class="hero-teacher-count">
+<i class="fa-solid fa-users"></i>
         4 students
       </span>
-
-    </div>
-
-    <div class="hero-manage-grid">
-
-      <div
-        class="hero-manage-card"
-        id="heroManagedAM"
-      >
-        <span class="hero-manage-avatar">AM</span>
-
-        <div>
-          <b>AM</b>
-          <small>
+</div>
+<div class="hero-manage-grid">
+<div class="hero-manage-card" id="heroManagedAM">
+<span class="hero-manage-avatar">AM</span>
+<div>
+<b>AM</b>
+<small>
             Flame •
             <span id="heroManagedPoints">280 pts</span>
-          </small>
-        </div>
-
-        <i class="fa-solid fa-circle-check hero-manage-check"></i>
-      </div>
-
-
-      <div class="hero-manage-card">
-
-        <span class="hero-manage-avatar">JL</span>
-
-        <div>
-          <b>JL</b>
-          <small>Acacia • 250 pts</small>
-        </div>
-
-      </div>
-
-
-      <div class="hero-manage-card">
-
-        <span class="hero-manage-avatar">SK</span>
-
-        <div>
-          <b>SK</b>
-          <small>Willow • 220 pts</small>
-        </div>
-
-      </div>
-
-
-      <div class="hero-manage-card">
-
-        <span class="hero-manage-avatar">RP</span>
-
-        <div>
-          <b>RP</b>
-          <small>Wisteria • 210 pts</small>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="hero-award-control">
-
-      <div>
-        <small>Selected student</small>
-        <strong id="heroAwardStudentLabel">
+</small>
+</div>
+<i class="fa-solid fa-circle-check hero-manage-check"></i>
+</div>
+<div class="hero-manage-card">
+<span class="hero-manage-avatar">JL</span>
+<div>
+<b>JL</b>
+<small>Acacia • 250 pts</small>
+</div>
+</div>
+<div class="hero-manage-card">
+<span class="hero-manage-avatar">SK</span>
+<div>
+<b>SK</b>
+<small>Willow • 220 pts</small>
+</div>
+</div>
+<div class="hero-manage-card">
+<span class="hero-manage-avatar">RP</span>
+<div>
+<b>RP</b>
+<small>Wisteria • 210 pts</small>
+</div>
+</div>
+</div>
+<div class="hero-award-control">
+<div>
+<small>Selected student</small>
+<strong id="heroAwardStudentLabel">
           Choose a student
         </strong>
-      </div>
-
-      <button
-        class="hero-award-action"
-        id="heroTeacherAwardButton"
-        type="button"
-        tabindex="-1"
-      >
-        <i class="fa-solid fa-plus"></i>
+</div>
+<button class="hero-award-action" id="heroTeacherAwardButton" tabindex="-1" type="button">
+<i class="fa-solid fa-plus"></i>
         10 points
       </button>
-
-    </div>
-
-
-    <div
-      class="hero-award-confirm"
-      id="heroTeacherAwardConfirm"
-    >
-      <i class="fa-solid fa-circle-check"></i>
-
-      <span>
-        <strong>Points awarded</strong>
-        <small>AM • Flame +10</small>
-      </span>
-    </div>
-
-  </section>
-
-
-  <!-- TEACHER TOOLKIT -->
-  <section
-    class="hero-teacher-view hero-toolkit-view"
-    id="heroTeacherToolkitView"
-  >
-
-    <div class="hero-teacher-view-head">
-
-      <div>
-        <small>CLASSROOM TOOLS</small>
-        <div class="ui-heading">Teacher Toolkit</div>
-      </div>
-
-      <span class="hero-toolkit-live">
-        <i class="fa-solid fa-wand-magic-sparkles"></i>
+</div>
+<div class="hero-award-confirm" id="heroTeacherAwardConfirm">
+<i class="fa-solid fa-circle-check"></i>
+<span>
+<strong>Points awarded</strong>
+<small>AM • Flame +10</small>
+</span>
+</div>
+</section>
+<!-- TEACHER TOOLKIT -->
+<section class="hero-teacher-view hero-toolkit-view" id="heroTeacherToolkitView">
+<div class="hero-teacher-view-head">
+<div>
+<small>CLASSROOM TOOLS</small>
+<div class="ui-heading">Teacher Toolkit</div>
+</div>
+<span class="hero-toolkit-live">
+<i class="fa-solid fa-wand-magic-sparkles"></i>
         Built in
       </span>
-
-    </div>
-
-
-    <div class="hero-toolkit-grid">
-
-      <div class="hero-toolkit-card">
-        <i class="fa-solid fa-hat-wizard"></i>
-        <b>Magic Hat</b>
-        <small>Pick a student at random</small>
-      </div>
-
-      <div class="hero-toolkit-card">
-        <i class="fa-solid fa-people-group"></i>
-        <b>Squad Builder</b>
-        <small>Create groups instantly</small>
-      </div>
-
-      <div class="hero-toolkit-card">
-        <i class="fa-solid fa-hourglass-half"></i>
-        <b>Magic Timer</b>
-        <small>Keep activities on track</small>
-      </div>
-
-    </div>
-
-
-    <div class="hero-toolkit-footer">
-      <i class="fa-solid fa-circle-check"></i>
+</div>
+<div class="hero-toolkit-grid">
+<div class="hero-toolkit-card">
+<i class="fa-solid fa-hat-wizard"></i>
+<b>Magic Hat</b>
+<small>Pick a student at random</small>
+</div>
+<div class="hero-toolkit-card">
+<i class="fa-solid fa-people-group"></i>
+<b>Squad Builder</b>
+<small>Create groups instantly</small>
+</div>
+<div class="hero-toolkit-card">
+<i class="fa-solid fa-hourglass-half"></i>
+<b>Magic Timer</b>
+<small>Keep activities on track</small>
+</div>
+</div>
+<div class="hero-toolkit-footer">
+<i class="fa-solid fa-circle-check"></i>
       Useful classroom tools inside the Teacher App
     </div>
-
-  </section>
-
+</section>
 </main>
-
-  </div>
-
+</div>
 </div>
 <div class="product-window student-window">
-
-  <div class="window-top">
-    <span class="dot r"></span>
-    <span class="dot y"></span>
-    <span class="dot g"></span>
-    <span class="window-title">Student Portal</span>
-  </div>
-
-  <div
-    class="student-demo-stage"
-    id="heroStudentDemo"
-    aria-hidden="true"
-  >
-
-    <!-- LOGIN SCENE -->
-    <div class="student-login-scene">
-
-      <div class="student-login-logo">
-        <img
-          alt=""
-          src="https://trackedu.github.io/common-assets/studentapp.png"
-        />
-      </div>
-
-      <strong class="student-login-title">
+<div class="window-top">
+<span class="dot r"></span>
+<span class="dot y"></span>
+<span class="dot g"></span>
+<span class="window-title">Student Portal</span>
+</div>
+<div aria-hidden="true" class="student-demo-stage" id="heroStudentDemo">
+<!-- LOGIN SCENE -->
+<div class="student-login-scene">
+<div class="student-login-logo">
+<img alt="" src="https://trackedu.github.io/common-assets/studentapp.png"/>
+</div>
+<strong class="student-login-title">
         STUDENT SIGN IN
       </strong>
-
-      <span class="student-login-subtitle">
+<span class="student-login-subtitle">
   Enter your Student ID and Class Code
 </span>
-
 <span class="student-login-no-email">
-  <i class="fa-solid fa-lock"></i>
+<i class="fa-solid fa-lock"></i>
   No student email required
 </span>
-
 <div class="student-login-fields">
-
-        <div class="student-login-field student-id-field">
-          <i class="fa-solid fa-id-card"></i>
-
-          <span
-            class="student-login-value"
-            id="heroStudentId"
-            data-placeholder="STUDENT ID"
-          ></span>
-        </div>
-
-        <div class="student-login-field student-code-field">
-          <i class="fa-solid fa-key"></i>
-
-          <span
-            class="student-login-value"
-            id="heroClassCode"
-            data-placeholder="CLASS CODE"
-          ></span>
-        </div>
-
-      </div>
-
-      <div
-        class="student-login-button"
-        id="heroStudentSignIn"
-      >
-        <i class="fa-solid fa-right-to-bracket"></i>
-
-        <span id="heroStudentSignInText">
+<div class="student-login-field student-id-field">
+<i class="fa-solid fa-id-card"></i>
+<span class="student-login-value" data-placeholder="STUDENT ID" id="heroStudentId"></span>
+</div>
+<div class="student-login-field student-code-field">
+<i class="fa-solid fa-key"></i>
+<span class="student-login-value" data-placeholder="CLASS CODE" id="heroClassCode"></span>
+</div>
+</div>
+<div class="student-login-button" id="heroStudentSignIn">
+<i class="fa-solid fa-right-to-bracket"></i>
+<span id="heroStudentSignInText">
           SIGN IN
         </span>
-      </div>
-
-      <small class="student-login-hint">
+</div>
+<small class="student-login-hint">
         Class Code is one word. Ask your teacher if you do not know it.
       </small>
-
-    </div>
-
-
-    <!-- EXISTING PORTAL DASHBOARD -->
-    <div class="student-ui student-dashboard-scene">
-
-      <div class="student-school">
-        <img
-          alt=""
-          src="https://trackedu.github.io/common-assets/studentapp.png"
-        />
-        <span>Your school • House Points</span>
-      </div>
-
-      <div class="student-houses">
-
-        <div class="student-house">
-          <i class="fa-solid fa-fire" style="color:#ec6b5d"></i>
-          <b>Flame</b>
-          <small>#1</small>
-        </div>
-
-        <div class="student-house">
-          <i class="fa-solid fa-sun" style="color:#f3bc3f"></i>
-          <b>Acacia</b>
-          <small>#2</small>
-        </div>
-
-        <div class="student-house">
-          <i class="fa-solid fa-leaf" style="color:#65c476"></i>
-          <b>Willow</b>
-          <small>#3</small>
-        </div>
-
-        <div class="student-house">
-          <i class="fa-solid fa-star" style="color:#8a78ee"></i>
-          <b>Wisteria</b>
-          <small>#4</small>
-        </div>
-
-      </div>
-
-      <div class="student-progress">
-        <strong>Your Learner’s Journey • 360 pts</strong>
-
-        <div class="progress-line">
-          <i></i>
-        </div>
-      </div>
-
-      <div class="student-game-grid">
-
-        <div class="student-game">
-          <i class="fa-solid fa-fire-flame-curved"></i>
+</div>
+<!-- EXISTING PORTAL DASHBOARD -->
+<div class="student-ui student-dashboard-scene">
+<div class="student-school">
+<img alt="" src="https://trackedu.github.io/common-assets/studentapp.png"/>
+<span>Your school • House Points</span>
+</div>
+<div class="student-houses">
+<div class="student-house">
+<i class="fa-solid fa-fire" style="color:#ec6b5d"></i>
+<b>Flame</b>
+<small>#1</small>
+</div>
+<div class="student-house">
+<i class="fa-solid fa-sun" style="color:#f3bc3f"></i>
+<b>Acacia</b>
+<small>#2</small>
+</div>
+<div class="student-house">
+<i class="fa-solid fa-leaf" style="color:#65c476"></i>
+<b>Willow</b>
+<small>#3</small>
+</div>
+<div class="student-house">
+<i class="fa-solid fa-star" style="color:#8a78ee"></i>
+<b>Wisteria</b>
+<small>#4</small>
+</div>
+</div>
+<div class="student-progress">
+<strong>Your Learner’s Journey • 360 pts</strong>
+<div class="progress-line">
+<i></i>
+</div>
+</div>
+<div class="student-game-grid">
+<div class="student-game">
+<i class="fa-solid fa-fire-flame-curved"></i>
           Streak
         </div>
-
-        <div class="student-game">
-          <i class="fa-solid fa-bolt"></i>
+<div class="student-game">
+<i class="fa-solid fa-bolt"></i>
           Power Boost
         </div>
-
-        <div class="student-game">
-          <i class="fa-solid fa-id-card"></i>
+<div class="student-game">
+<i class="fa-solid fa-id-card"></i>
           Card Binder
         </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
 </div>
-
-
-
-
 </div>
-
-<button
-  class="hero-real-school-proof"
-  id="openConwayVideoHero"
-  type="button"
-  aria-label="Watch TrackEDU in action at Conway Christian School">
-
-  <span class="hero-real-school-play">
-    <i class="fa-solid fa-play"></i>
-  </span>
-
-  <span class="hero-real-school-copy">
-    <small>
-      <i class="fa-solid fa-circle-check"></i>
+</div>
+</div>
+</div>
+<button aria-label="Watch TrackEDU in action at Conway Christian School" class="hero-real-school-proof" id="openConwayVideoHero" type="button">
+<span class="hero-real-school-play">
+<i class="fa-solid fa-play"></i>
+</span>
+<span class="hero-real-school-copy">
+<small>
+<i class="fa-solid fa-circle-check"></i>
       REAL SCHOOL PROOF
     </small>
-
-    <strong>Watch TrackEDU in action</strong>
-
-    <em>Conway Christian School · 1:16</em>
-  </span>
-
-  <i class="fa-solid fa-arrow-right hero-real-school-arrow"></i>
-
+<strong>Watch TrackEDU in action</strong>
+<em>Conway Christian School · 1:16</em>
+</span>
+<i class="fa-solid fa-arrow-right hero-real-school-arrow"></i>
 </button>
-
 </div>
-</header>
-<section class="hero-trust-strip" id="trust">
+</header><section class="hero-trust-strip" id="trust">
 <div class="shell">
 <div class="hero-trust-strip-grid reveal">
 <article class="hero-trust-strip-item">
@@ -6722,8 +6681,7 @@ maxresdefault is what produced the grey placeholder.
 </article>
 </div>
 </div>
-</section>
-<section class="partner-proof" id="school-partners">
+</section><section class="partner-proof" id="school-partners">
 <div class="shell">
 <div class="partner-proof-head reveal">
 <div class="partner-proof-kicker">
@@ -6739,174 +6697,187 @@ maxresdefault is what produced the grey placeholder.
 <img alt="Conway Christian School logo" src="data:image/png;base64,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"/>
 </div>
 <div class="partner-copy">
-
 <span class="partner-label">
 <i class="fa-solid fa-circle-check"></i>
 Not a demo. Real school use.
 </span>
-
 <div class="partner-school-meta">
 <strong>Conway Christian School</strong>
 <span><i class="fa-solid fa-location-dot"></i> United States</span>
 </div>
-
 <h2>See TrackEDU House Points being used by a real school.</h2>
-
 <p>
 Teachers and students at Conway Christian School are using TrackEDU to recognise achievement, build House spirit and encourage participation.
 </p>
-
 <div class="partner-proof-pills">
 <span><i class="fa-solid fa-chalkboard-user"></i> Teachers awarding points</span>
 <span><i class="fa-solid fa-users"></i> Students participating</span>
 <span><i class="fa-solid fa-trophy"></i> House culture in action</span>
 </div>
-
 <div class="partner-copy-actions">
-
 <button class="partner-watch-btn" id="openConwayVideo" type="button">
 <i class="fa-solid fa-play"></i>
 Watch the 1:16 video
 </button>
-
-<a
-  class="partner-pilot-link"
-  data-pilot-trigger="true"
-  href="#">
+<a class="partner-pilot-link" data-pilot-trigger="true" href="#">
 Start free for 30 days
 <i class="fa-solid fa-arrow-right"></i>
 </a>
-
-<a class="partner-school-link"
-   href="https://www.conwaychristianschool.org/"
-   rel="noopener"
-   target="_blank">
+<a class="partner-school-link" href="https://www.conwaychristianschool.org/" rel="noopener" target="_blank">
 Visit school
 <i class="fa-solid fa-arrow-up-right-from-square"></i>
 </a>
-
 </div>
-
 </div>
-
-<button
-  class="partner-video-card"
-  id="openConwayVideoPreview"
-  type="button"
-  aria-label="Watch TrackEDU House Points in action at Conway Christian School">
-
+<button aria-label="Watch TrackEDU House Points in action at Conway Christian School" class="partner-video-card" id="openConwayVideoPreview" type="button">
 <div class="partner-video-thumb"></div>
-
 <div class="partner-video-overlay-card">
-
 <span class="partner-video-play">
 <i class="fa-solid fa-play"></i>
 </span>
-
 <div>
 <strong>House Points in Action</strong>
 <small>Conway Christian School • 1:16</small>
 </div>
-
 </div>
-
 </button>
 </article>
 </div>
-</section>
-<section class="section culture-launch" id="culture">
+</section><section class="section behaviour-connect behaviour-product" id="behaviour">
 <div class="shell">
-<div class="culture-intro reveal">
+<div class="section-head center reveal">
+<span class="eyebrow"><i class="fa-solid fa-link"></i> Connected recognition + behaviour</span>
+<h2>See the whole student story, not separate systems.</h2>
+<p class="lead">Positive recognition and House points sit alongside behaviour incidents, follow-up and leadership insight. The same student record connects what is going well with what needs attention.</p>
+</div>
+
+<div class="behaviour-product-intro reveal">
+<div class="behaviour-product-copy">
+<span class="behaviour-product-kicker">HOW IT WORKS</span>
+<h3>Recognise. Record. Follow up. Understand.</h3>
+<p>Teachers can move from recognition to behaviour support without losing context. Leaders can then move from one student to patterns across classes, Houses and the whole school.</p>
+<div class="behaviour-product-flow">
+<span><i class="fa-solid fa-star"></i> Recognition + House points</span>
+<i class="fa-solid fa-arrow-right"></i>
+<span><i class="fa-solid fa-user-graduate"></i> One student record</span>
+<i class="fa-solid fa-arrow-right"></i>
+<span><i class="fa-solid fa-chart-line"></i> Whole-school insight</span>
+</div>
+</div>
+<div class="behaviour-product-note">
+<i class="fa-solid fa-circle-info"></i>
+<div><strong>Connected, not reduced to points.</strong><span>Incidents keep their category, severity, context and follow-up. House points remain the recognition and culture layer.</span></div>
+</div>
+</div>
+
+<div class="behaviour-demo reveal" data-behaviour-demo>
+<div class="behaviour-demo-topbar">
 <div>
-<span class="eyebrow"><i class="fa-solid fa-people-roof"></i> Included with every school licence</span>
-<h2>We do not just give you the software. We help you build the House culture around it.</h2>
-<p class="lead">TrackEDU includes free House Leader training to help schools launch, strengthen and sustain a House system that staff understand, students want to join and leaders can keep growing.</p>
+<span class="behaviour-demo-label"><i class="fa-solid fa-display"></i> Product preview</span>
+<strong>TrackEDU Behaviour &amp; Support</strong>
+<small>Representative sample data</small>
 </div>
-<div class="culture-promise training-open" role="button" tabindex="0" data-training-trigger>
-  <span class="promise-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+<div class="behaviour-demo-tabs" role="tablist" aria-label="Behaviour product preview">
+<button class="behaviour-demo-tab active" type="button" role="tab" aria-selected="true" data-behaviour-tab="profile"><i class="fa-solid fa-user-graduate"></i> Student Profile</button>
+<button class="behaviour-demo-tab" type="button" role="tab" aria-selected="false" data-behaviour-tab="incident"><i class="fa-solid fa-plus-circle"></i> Log Incident</button>
+<button class="behaviour-demo-tab" type="button" role="tab" aria-selected="false" data-behaviour-tab="leadership"><i class="fa-solid fa-chalkboard-user"></i> Leadership</button>
+</div>
+</div>
 
-  <strong>Free House Leader Training</strong>
+<div class="behaviour-demo-stage">
+<!-- STUDENT PROFILE -->
+<div class="behaviour-pane active" data-behaviour-pane="profile">
+<div class="product-app-header">
+<div><i class="fa-solid fa-user-graduate"></i><strong>Student Profile</strong></div>
+<div class="product-profile-pills"><span>Grade 5</span><span>5C</span><span class="tier">Tier 1</span><span class="incident-pill">2 incidents</span></div>
+</div>
+<div class="product-profile-body">
+<div class="product-student-identity">
+<div class="product-avatar">AM</div>
+<div><strong>Alex Morgan</strong><span>Willow House · Grade 5</span></div>
+<button type="button"><i class="fa-solid fa-arrow-up-right-from-square"></i> Open recognition</button>
+</div>
+<div class="product-recognition-snapshot">
+<div class="product-snapshot-title"><span><i class="fa-solid fa-star"></i> Recognition Snapshot</span><small>Positive recognition context shown alongside Behaviour &amp; Support.</small></div>
+<div class="product-snapshot-grid">
+<div class="product-positive"><span>Positive Recognition</span><strong>+12</strong><small>This school year</small></div>
+<div class="product-deduction"><span>Behaviour-linked deductions</span><strong>−4</strong><small>This school year</small></div>
+</div>
+</div>
+<div class="product-history-head"><strong>Student history</strong><span>Recognition + behaviour + follow-up</span></div>
+<div class="product-history">
+<div class="product-history-row good"><i class="fa-solid fa-star"></i><div><strong>+5 Teamwork</strong><span>Positive recognition · House points added</span></div><small>Today</small></div>
+<div class="product-history-row concern"><i class="fa-solid fa-triangle-exclamation"></i><div><strong>Disruption · Tier 1</strong><span>Behaviour incident · classroom disruption</span></div><small>Yesterday</small></div>
+<div class="product-history-row action"><i class="fa-solid fa-pen-to-square"></i><div><strong>Reflection assigned</strong><span>Follow-up action linked to incident</span></div><small>Yesterday</small></div>
+<div class="product-history-row closed"><i class="fa-solid fa-phone"></i><div><strong>Parent contact completed</strong><span>Action completed · record updated</span></div><small>Today</small></div>
+</div>
+</div>
+</div>
 
-  <p>Practical support for the technology <em>and</em> the culture around it.</p>
+<!-- INCIDENT -->
+<div class="behaviour-pane" data-behaviour-pane="incident">
+<div class="product-app-header">
+<div><i class="fa-solid fa-plus-circle"></i><strong>Add Incident</strong><small class="header-student"><i class="fa-solid fa-user-graduate"></i> Alex Morgan</small></div>
+<span class="product-close">×</span>
+</div>
+<div class="incident-preview-body">
+<div class="quick-presets-preview"><span>⚡ Quick Presets</span><div><button>Disruption</button><button>Late to class</button><button>Unsafe behaviour</button><button>Defiance</button></div></div>
+<div class="incident-form-preview">
+<div class="incident-fields three"><label>Tier<select><option>Tier 1</option></select></label><label>Date<input value="05/10/2026" readonly></label><label>Period/Lesson<input value="Period 3" readonly></label></div>
+<div class="incident-fields three"><label>Behaviour Type<select><option>Disruption</option></select></label><label>Category<select><option>Classroom behaviour</option></select></label><label>Severity<input value="Medium" readonly></label></div>
+<label class="incident-description-preview">Description<textarea readonly>Repeated disruption during independent work after reminder.</textarea></label>
+<div class="incident-fields two"><label>Handled By<input value="Ms Taylor" readonly></label><label>Action Taken<select><option>Restorative conversation</option></select></label></div>
+<div class="incident-advanced-preview"><div><i class="fa-solid fa-wrench"></i><strong>Follow-up</strong></div><span class="follow-chip"><i class="fa-solid fa-pen-to-square"></i> Reflection required</span><span class="follow-chip"><i class="fa-solid fa-users"></i> Parent contact</span></div>
+<div class="incident-preview-actions"><button class="secondary">Cancel</button><button class="primary"><i class="fa-solid fa-check"></i> Save incident</button></div>
+</div>
+</div>
+</div>
 
-  <button class="training-learn-btn" type="button" data-training-trigger>
-    Explore the training
-    <i class="fa-solid fa-arrow-right"></i>
-  </button>
+<!-- LEADERSHIP -->
+<div class="behaviour-pane" data-behaviour-pane="leadership">
+<div class="product-app-header leadership-header">
+<div><i class="fa-solid fa-chalkboard-user"></i><strong>School Leaders Dashboard</strong><small>Showing all students</small></div>
+<span class="product-close">×</span>
 </div>
+<div class="leadership-preview-body">
+<div class="leadership-preview-section-title"><div><strong>Needs Attention</strong><small>Outstanding actions that need follow-up.</small></div></div>
+<div class="leadership-attention-preview">
+<div class="attn urgent"><i class="fa-solid fa-triangle-exclamation"></i><div><strong>5</strong><span>Students needing attention</span></div></div>
+<div class="attn warning"><i class="fa-solid fa-list-check"></i><div><strong>30</strong><span>Outstanding actions</span></div></div>
+<div class="attn parent"><i class="fa-solid fa-users"></i><div><strong>15</strong><span>Parent contacts</span></div></div>
+<div class="attn reflection"><i class="fa-solid fa-pen-to-square"></i><div><strong>15</strong><span>Reflections</span></div></div>
 </div>
-<div aria-label="TrackEDU House culture implementation pathway" class="culture-path reveal">
-<div aria-hidden="true" class="culture-line"><span></span></div>
-<article class="culture-step cs1 active">
-<div class="culture-number">1</div>
-<div class="culture-icon"><i class="fa-solid fa-compass"></i></div>
-<h3>Set the foundations</h3>
-<p>Clarify what your Houses stand for, what should earn recognition and how the system supports your school values.</p>
-</article>
-<article class="culture-step cs2">
-<div class="culture-number">2</div>
-<div class="culture-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
-<h3>Get staff on board</h3>
-<p>Create simple routines teachers can use consistently, so awarding points feels easy rather than like extra admin.</p>
-</article>
-<article class="culture-step cs3">
-<div class="culture-number">3</div>
-<div class="culture-icon"><i class="fa-solid fa-users"></i></div>
-<h3>Get students involved</h3>
-<p>Use student leadership, challenges, rewards and shared goals to give students more reasons to care about their House.</p>
-</article>
-<article class="culture-step cs4">
-<div class="culture-number">4</div>
-<div class="culture-icon"><i class="fa-solid fa-display"></i></div>
-<h3>Make Houses visible</h3>
-<p>Connect the digital system to assemblies, displays, corridors and classrooms so House culture is seen every day.</p>
-</article>
-<article class="culture-step cs5">
-<div class="culture-number">5</div>
-<div class="culture-icon"><i class="fa-solid fa-seedling"></i></div>
-<h3>Keep it growing</h3>
-<p>Use participation, recognition patterns and school data to refine what works and keep momentum going.</p>
-</article>
+<div class="leadership-preview-section-title snapshot-title"><div><strong>Behaviour Snapshot</strong><small>School-wide activity · Last 30 Days</small></div><span>Last 30 Days <i class="fa-solid fa-chevron-down"></i></span></div>
+<div class="leadership-snapshot-preview">
+<div><i class="fa-solid fa-chart-simple"></i><strong>42</strong><span>Incidents</span><small>↓ 8% vs prior period</small></div>
+<div><i class="fa-solid fa-user-graduate"></i><strong>27</strong><span>Students</span><small>5.4% of school</small></div>
+<div><i class="fa-solid fa-repeat"></i><strong>6</strong><span>Repeat students</span><small>Needs review</small></div>
+<div><i class="fa-solid fa-star"></i><strong>+284</strong><span>Positive recognition</span><small>This period</small></div>
 </div>
-<div class="board-story reveal">
-<div class="board-story-copy">
-<span class="eyebrow"><i class="fa-solid fa-arrow-right-arrow-left"></i> Physical + digital</span>
-<h3>Take the House system off the screen and into school life.</h3>
-<p>A strong House system should be visible where students actually spend their day. TrackEDU connects live digital activity with physical House boards, student leadership, challenges, achievements and assemblies.</p>
-<div class="board-benefits">
-<span><i class="fa-solid fa-trophy"></i> Live standings become assembly moments</span>
-<span><i class="fa-solid fa-star"></i> Recognition becomes visible around school</span>
-<span><i class="fa-solid fa-bullhorn"></i> Challenges become shared experiences</span>
-<span><i class="fa-solid fa-heart"></i> House identity becomes part of everyday culture</span>
-</div>
-</div>
-<div class="board-transform">
-<figure aria-label="Open full image: Before — A House board waiting to come alive" class="board-shot before-card" data-board-lightbox="0" role="button" tabindex="0">
-<div class="board-label"><span>Before</span><small>A House board waiting to come alive</small></div>
-<img alt="House board before the full TrackEDU physical-to-digital approach" src="https://housepoint.trackedu.net/board.png"/>
-<div class="board-view-overlay"><span><i class="fa-solid fa-expand"></i> View full image</span></div></figure>
-<div aria-hidden="true" class="board-arrow"><span class="arrow-pulse"><i class="fa-solid fa-arrow-right"></i></span><small>Connect the system to school life</small></div>
-<figure aria-label="Open full image: After — A visible hub for House culture" class="board-shot after-card" data-board-lightbox="1" role="button" tabindex="0">
-<div class="board-label after"><span>After</span><small>A visible hub for House culture</small></div>
-<img alt="House board after connecting TrackEDU activity to physical school culture" src="https://housepoint.trackedu.net/board2.png"/>
-<div class="board-view-overlay"><span><i class="fa-solid fa-expand"></i> View full image</span></div></figure>
-</div>
-</div>
-<div class="training-strip reveal">
-<div class="training-heading"><span><i class="fa-solid fa-lightbulb"></i></span><div><strong>What the training covers</strong><small>Not just how to click the buttons.</small></div></div>
-<div class="training-pills">
-<span>House culture foundations</span><span>Staff buy-in</span><span>Student buy-in</span><span>Recognition routines</span><span>Student leadership</span><span>Challenges &amp; events</span><span>Assemblies</span><span>Physical House boards</span><span>Best-practice implementation</span>
+<div class="leadership-chart-preview">
+<div class="chart-copy"><strong>Incident trend</strong><small>Daily incidents over the selected period</small></div>
+<svg viewBox="0 0 700 150" preserveAspectRatio="none" aria-label="Sample incident trend chart">
+<defs><linearGradient id="behaviourPreviewGradient" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#7c3aed" stop-opacity=".22"/><stop offset="100%" stop-color="#7c3aed" stop-opacity="0"/></linearGradient></defs>
+<path d="M0,115 C60,108 80,65 135,78 S220,120 270,92 S350,42 405,65 S485,112 535,78 S610,38 700,58 L700,150 L0,150 Z" fill="url(#behaviourPreviewGradient)"/>
+<path d="M0,115 C60,108 80,65 135,78 S220,120 270,92 S350,42 405,65 S485,112 535,78 S610,38 700,58" fill="none" stroke="#7c3aed" stroke-width="4" stroke-linecap="round"/>
+</svg>
 </div>
 </div>
 </div>
-</section>
-<section class="section soft" id="what"><div class="shell"><div class="section-head center reveal"><span class="eyebrow"><i class="fa-solid fa-box-open"></i> What your school actually gets</span><h2>Now see exactly what your school gets.</h2><p class="lead">TrackEDU gives teachers the working tools, students their own engaging experience, and school leaders the controls and visibility to run the programme properly.</p></div><div class="audience-grid">
-<article class="aud-card teacher reveal"><div class="aud-icon"><i class="fa-solid fa-chalkboard-user"></i></div><h3>For teachers</h3><p>A practical working app designed around what staff need during a normal school day.</p><div class="feature-list"><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong>Award points quickly</strong><span>Individual, group, class or whole-House recognition.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong>Manage students and classes</strong><span>Filter, edit, import and organise school rosters.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong>Google Classroom + CSV import</strong><span>Bring existing classes in instead of rebuilding them manually.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong>Classroom toolkit</strong><span>Magic Hat, timers, roles, groups, quizzes, games and more.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong>History, reports and export</strong><span>Review awards, correct mistakes and export school data.</span></div></div></div></article>
-<article class="aud-card student reveal"><div class="aud-icon"><i class="fa-solid fa-user-graduate"></i></div><h3>For students</h3><p>Not just a score. A dedicated portal that gives students reasons to return and take part.</p><div class="feature-list"><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong>Personal progress</strong><span>See points, House standing and individual growth.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong>Learner’s Journey</strong><span>Progress through character levels and unlock collectible cards.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong>Daily streaks + rewards</strong><span>Encourage repeat engagement without reducing everything to prizes.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong>House Power Boosts</strong><span>Turn individual participation into collective House progress.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong>Quizzes, polls + missions</strong><span>Give students active ways to contribute beyond being awarded points.</span></div></div></div></article>
-<article class="aud-card leader reveal"><div class="aud-icon"><i class="fa-solid fa-school-flag"></i></div><h3>For school leaders</h3><p>Whole-school controls and visibility so the House system is manageable, not dependent on spreadsheets.</p><div class="feature-list"><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong>School branding + House identity</strong><span>Use your school logo, colours, Houses, mottos and values.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong>Live leaderboards + projector view</strong><span>Bring current standings into assemblies and shared spaces.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong>Official class standings</strong><span>See class competition alongside wider House progress.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong>Behaviour + school dashboards</strong><span>Track patterns and maintain a wider view of student activity.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong>Admin access + data export</strong><span>Control staff access and retain usable school records.</span></div></div></div></article>
-</div></div></section>
-<section class="section"><div class="shell"><div class="ecosystem-layout"><div class="eco-copy reveal"><span class="eyebrow"><i class="fa-solid fa-arrows-spin"></i> The TrackEDU difference</span><h3>Points are only the start of the loop.</h3><p>A House system becomes valuable when recognition leads to participation, participation builds belonging, and school leaders can see what is happening. TrackEDU is designed around that full loop rather than a single points screen.</p><div class="eco-stack"><div class="eco-line"><span class="eco-num">1</span><div><b>Recognise</b><span>Teachers award meaningful points in the moment.</span></div></div><div class="eco-line"><span class="eco-num">2</span><div><b>Make it visible</b><span>Leaderboards, class standings and public displays keep momentum alive.</span></div></div><div class="eco-line"><span class="eco-num">3</span><div><b>Give students agency</b><span>Students track progress, vote, solve missions, build streaks and contribute to House goals.</span></div></div><div class="eco-line"><span class="eco-num">4</span><div><b>Use the data</b><span>Leaders retain records, reports, behaviour insights and exports.</span></div></div><div class="eco-line"><span class="eco-num">5</span><div><b>Take it beyond the screen</b><span>Assemblies, House boards, challenges and PD connect the platform to school culture.</span></div></div></div></div><div class="eco-flow reveal"><div class="loop"><div class="loop-card lc1"><i class="fa-solid fa-star"></i><b>Recognise</b><span>Quick points, reasons, classes and Houses.</span></div><div class="arrow"><i class="fa-solid fa-arrow-right"></i></div><div class="loop-card lc2"><i class="fa-solid fa-gamepad"></i><b>Engage</b><span>Streaks, cards, quizzes, missions and boosts.</span></div><div class="loop-card lc3"><i class="fa-solid fa-users"></i><b>Belong</b><span>House identity, class pride and collective goals.</span></div><div class="loop-center"><div>Connected ecosystem</div></div><div class="loop-card lc4"><i class="fa-solid fa-chart-column"></i><b>Understand</b><span>Reports, history, standings and analytics.</span></div><div class="loop-card lc5"><i class="fa-solid fa-school"></i><b>Bring it to life</b><span>Assemblies, boards, challenges and PD.</span></div></div></div></div></div></section>
-<section class="full-video-story" id="product-video">
+</div>
+</div>
+
+<div class="behaviour-demo-caption reveal">
+<div><i class="fa-solid fa-user-check"></i><strong>One student</strong><span>Recognition and behaviour stay connected to the same record.</span></div>
+<div><i class="fa-solid fa-list-check"></i><strong>One workflow</strong><span>Incidents carry context, action and follow-up, not just a deduction.</span></div>
+<div><i class="fa-solid fa-chart-line"></i><strong>One leadership view</strong><span>Move from an individual student to school-wide patterns and outstanding actions.</span></div>
+</div>
+</div>
+</section><section class="section soft" id="what"><div class="shell"><div class="section-head center reveal"><span class="eyebrow"><i class="fa-solid fa-box-open"></i> What your school actually gets</span><h2>Built for teachers, students and school leaders.</h2><p class="lead">The same system supports the everyday teacher workflow, the student experience and the leadership view.</p></div><div class="audience-grid">
+<article class="aud-card teacher reveal"><div class="aud-icon"><i class="fa-solid fa-chalkboard-user"></i></div><h3>For teachers</h3><p>Fast tools for the moments that happen during a normal school day.</p><div class="feature-list"><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong>Recognise quickly</strong><span>Award positive recognition and House points to individuals, groups, classes or Houses.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong>Record incidents + follow-up</strong><span>Log behaviour, reflections, parent contact and outstanding actions in the same workflow.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong>Manage classes and students</strong><span>Import, organise and work with school rosters without rebuilding them manually.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong>Built-in classroom tools</strong><span>Timers, groups, roles, random pickers, quizzes, games and more.</span></div></div></div></article>
+<article class="aud-card student reveal"><div class="aud-icon"><i class="fa-solid fa-user-graduate"></i></div><h3>For students</h3><p>A Student Portal that turns House points into participation rather than just a score.</p><div class="feature-list"><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong>Personal progress</strong><span>See points, House standing and individual growth.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong>Learner’s Journey</strong><span>Progress through character levels and collectible cards.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong>Challenges + participation</strong><span>Missions, quizzes, polls, streaks and House Power Boosts.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong>No student email required</strong><span>School-managed access designed for practical use.</span></div></div></div></article>
+<article class="aud-card leader reveal"><div class="aud-icon"><i class="fa-solid fa-school-flag"></i></div><h3>For school leaders</h3><p>Whole-school visibility without separate spreadsheets for recognition, behaviour and follow-up.</p><div class="feature-list"><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong>Recognition + behaviour overview</strong><span>See incidents, positive recognition, reflections, parent contacts and outstanding actions together.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong>Students needing attention</strong><span>Spot patterns and unresolved follow-up earlier.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong>House + class standings</strong><span>Keep participation, competition and school culture visible.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong>Reports, permissions + exports</strong><span>Maintain oversight and usable school records.</span></div></div></div></article>
+</div></div></section><section class="full-video-story" id="product-video">
 <div class="full-video-media old-product-video">
 <iframe allow="autoplay; encrypted-media; picture-in-picture" loading="lazy" src="https://www.youtube.com/embed/rDBz3GPZSFE?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=rDBz3GPZSFE&amp;controls=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1" title="TrackEDU Student Portal in action"></iframe>
 <div class="full-video-shade"></div>
@@ -6916,178 +6887,97 @@ Visit school
 <p>They can follow progress, build streaks, collect cards, join missions and contribute to shared House goals — turning points into an experience they can take part in.</p>
 </div>
 </div>
-</section>
-<section class="section why-simple" id="why">
+</section><section class="section why-simple" id="why">
 <div class="shell">
 <div class="section-head center reveal">
 <span class="eyebrow"><i class="fa-solid fa-compass"></i> Why TrackEDU?</span>
-<h2>Do you need a points tracker, or a House system?</h2>
-<p class="lead">Both can record points. The difference is what you want those points to do next.</p>
+<h2>A points tracker records totals. TrackEDU connects the school around them.</h2>
+<p class="lead">If you only need to award points and show a leaderboard, a simple tracker may be enough. TrackEDU is for schools that want recognition, behaviour, student engagement and House culture working together.</p>
 </div>
 <div class="choice-grid reveal">
 <article class="choice-card simple-choice">
-<div class="choice-label"><i class="fa-solid fa-list-ol"></i> If you only need the basics</div>
-<h3>Count points. Show the leaderboard.</h3>
-<p>A simple tracker may be enough if your goal is mainly to record awards and display House totals.</p>
-<div class="choice-flow compact">
-<span>Award</span><i class="fa-solid fa-arrow-right"></i><span>Total</span><i class="fa-solid fa-arrow-right"></i><span>Leaderboard</span>
-</div>
-<div class="choice-note">Simple, focused and perfectly reasonable for schools that do not need anything more.</div>
+<div class="choice-label"><i class="fa-solid fa-list-ol"></i> Basic points tracker</div>
+<h3>Award → total → leaderboard.</h3>
+<p>Useful if the job is simply to record points and show House standings.</p>
+<div class="choice-flow compact"><span>Award</span><i class="fa-solid fa-arrow-right"></i><span>Total</span><i class="fa-solid fa-arrow-right"></i><span>Leaderboard</span></div>
 </article>
 <article class="choice-card trackedu-choice">
-<div class="choice-label"><i class="fa-solid fa-school-circle-check"></i> If you want the House system to grow</div>
-<h3>Turn recognition into participation, belonging and school culture.</h3>
-<p>TrackEDU starts with House points, then connects the teacher workflow, student experience, leadership visibility and the things students actually see around school.</p>
-<div class="choice-flow trackedu-flow">
-<span><i class="fa-solid fa-star"></i> Recognise</span>
-<i class="fa-solid fa-arrow-right"></i>
-<span><i class="fa-solid fa-eye"></i> Make visible</span>
-<i class="fa-solid fa-arrow-right"></i>
-<span><i class="fa-solid fa-gamepad"></i> Engage</span>
-<i class="fa-solid fa-arrow-right"></i>
-<span><i class="fa-solid fa-heart"></i> Build belonging</span>
-</div>
+<div class="choice-label"><i class="fa-solid fa-circle-nodes"></i> TrackEDU</div>
+<h3>Recognise. Respond. Engage. Understand.</h3>
+<p>House points and positive recognition connect with behaviour incidents, follow-up, the Student Portal, live standings and leadership insight.</p>
+<div class="choice-flow trackedu-flow"><span><i class="fa-solid fa-star"></i> Recognise</span><i class="fa-solid fa-arrow-right"></i><span><i class="fa-solid fa-clipboard-check"></i> Respond</span><i class="fa-solid fa-arrow-right"></i><span><i class="fa-solid fa-gamepad"></i> Engage</span><i class="fa-solid fa-arrow-right"></i><span><i class="fa-solid fa-chart-line"></i> Understand</span></div>
 </article>
 </div>
-<div class="why-proof-grid">
-<article class="why-proof reveal">
-<div class="why-proof-icon blue"><i class="fa-solid fa-chalkboard-user"></i></div>
-<div><span class="why-proof-kicker">For teachers</span><h3>One place to run more of the school day.</h3><p>Award points, manage students and classes, run challenges, and use built-in tools such as random pickers, groups, roles, timers, quizzes and games.</p></div>
-</article>
-<article class="why-proof reveal">
-<div class="why-proof-icon purple"><i class="fa-solid fa-mobile-screen-button"></i></div>
-<div><span class="why-proof-kicker">For students</span><h3>They do more than check a score.</h3><p>The Student Portal gives students progress, cards, streaks, missions, polls, milestones and shared House goals, so they have reasons to come back and participate.</p></div>
-</article>
-<article class="why-proof reveal">
-<div class="why-proof-icon green"><i class="fa-solid fa-chart-line"></i></div>
-<div><span class="why-proof-kicker">For school leaders</span><h3>See the system, not just the final total.</h3><p>Live standings, dashboards, award history, behaviour tools and exports give leaders a clearer view of what is happening across the school.</p></div>
-</article>
-<article class="why-proof reveal">
-<div class="why-proof-icon gold"><i class="fa-solid fa-people-roof"></i></div>
-<div><span class="why-proof-kicker">For House culture</span><h3>Bring it into assemblies, corridors and everyday school life.</h3><p>Physical House boards, challenges and free House Leader training help schools build staff buy-in, student participation and stronger House identity beyond the software.</p></div>
-</article>
+<div class="why-conclusion reveal"><div class="why-conclusion-icon"><i class="fa-solid fa-link"></i></div><div><span>The difference</span><h3>One school culture system instead of disconnected tools.</h3><p>Teachers work in one place, students see one joined-up experience and leaders get one clearer view of recognition, behaviour and participation across the school.</p></div></div>
 </div>
-<div class="why-conclusion reveal">
-<div class="why-conclusion-icon"><i class="fa-solid fa-link"></i></div>
-<div>
-<span>The TrackEDU difference</span>
-<h3>It connects what teachers do, what students experience and what the whole school sees.</h3>
-<p>You are not adding another isolated classroom tool. You are giving your House programme one connected place to recognise, engage, organise, celebrate and grow.</p>
+</section><section class="section culture-launch culture-compact" id="culture">
+<div class="shell">
+<div class="culture-compact-head reveal">
+<div class="section-head">
+<span class="eyebrow"><i class="fa-solid fa-people-roof"></i> Implementation support included</span>
+<h2>Launch it well. Keep it visible.</h2>
+<p class="lead">TrackEDU includes practical support to help staff use the system consistently and turn digital activity into visible school culture.</p>
+</div>
+<div class="culture-support-chip">
+<span class="culture-support-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+<div><strong>Free House Leader training</strong><small>Staff buy-in · recognition routines · student leadership · assemblies · challenges</small></div>
 </div>
 </div>
+<div class="culture-compact-grid reveal">
+<article><span>1</span><div><strong>Launch clearly</strong><small>Set expectations, House identity and recognition routines.</small></div></article>
+<article><span>2</span><div><strong>Build participation</strong><small>Give staff and students simple reasons to use it consistently.</small></div></article>
+<article><span>3</span><div><strong>Keep it visible</strong><small>Connect live data to assemblies, challenges and House boards.</small></div></article>
 </div>
-</section>
-<section class="section" id="toolkit"><div class="shell"><div class="section-head reveal"><span class="eyebrow"><i class="fa-solid fa-wand-magic-sparkles"></i> Built into the Teacher App</span><h2>Useful on Monday morning, not just at prize-giving.</h2><p class="lead">TrackEDU includes classroom tools that teachers can actually use during lessons, helping the platform earn a place in everyday workflow rather than becoming another tab opened once a week.</p></div><div class="toolkit-wrap"><div class="tool-copy reveal"><h3>A House platform that gives teachers something back.</h3><p>When staff already use the platform for class routines, grouping, timers, quizzes and participation, House points can sit naturally inside existing teaching rather than feeling like extra admin.</p></div><div class="tool-grid"><div class="tool-card reveal"><i class="fa-solid fa-hat-wizard"></i><b>Magic Hat</b><span>Random student picker for fair participation.</span></div><div class="tool-card reveal"><i class="fa-solid fa-people-group"></i><b>Squad Builder</b><span>Create balanced groups randomly or by House.</span></div><div class="tool-card reveal"><i class="fa-solid fa-masks-theater"></i><b>Role Roulette</b><span>Assign classroom roles fairly and playfully.</span></div><div class="tool-card reveal"><i class="fa-solid fa-hourglass-half"></i><b>Magic Timer</b><span>Keep activities moving without leaving the app.</span></div><div class="tool-card reveal"><i class="fa-solid fa-map"></i><b>Quest Board</b><span>Turn questions and tasks into a visual challenge.</span></div><div class="tool-card reveal"><i class="fa-solid fa-dice"></i><b>Snakes &amp; Ladders</b><span>Let Houses race through a familiar game format.</span></div><div class="tool-card reveal"><i class="fa-solid fa-gift"></i><b>Loot Drop</b><span>Create secret reward codes students can claim.</span></div><div class="tool-card reveal"><i class="fa-solid fa-flag-checkered"></i><b>Live Challenge</b><span>Run reusable multi-round House events and assemblies.</span></div><div class="tool-card reveal"><i class="fa-solid fa-chart-pie"></i><b>Student Insights</b><span>Bring class activity and recent celebrations together.</span></div></div><button aria-expanded="false" class="mobile-section-toggle" id="mobileToolsToggle" type="button">Show all teacher tools <i class="fa-solid fa-chevron-down"></i></button></div></div></section>
-<section class="section" id="pricing"><div class="shell"><div class="section-head center reveal"><span class="eyebrow"><i class="fa-solid fa-tag"></i> Transparent school pricing</span><h2>Try TrackEDU free. Know the price before you decide.</h2><p class="lead">Start with a 30-day school pilot with no credit card required. Annual school licence pricing is based on student enrolment, so you can see the cost before deciding whether to continue.</p></div><div class="pricing-grid"><div class="price-card reveal"><span class="eyebrow"><i class="fa-solid fa-calculator"></i> Calculate your school price</span><h3>30-Day School Pilot</h3><p>Set up your Houses, staff, classes and students, then use TrackEDU in your own school context before deciding.</p><div class="calculator"><div class="calc-top"><div><label class="label" for="schoolStudentCount">How many students are in your school?</label><div class="input-wrap"><input class="field" id="schoolStudentCount" inputmode="numeric" max="10000" min="1" step="1" type="number" value="500"/><span class="suffix">students</span></div></div><div><label class="label" for="schoolPriceCurrency">Currency</label><select class="select" id="schoolPriceCurrency"><option value="USD">USD</option><option value="GBP">GBP</option><option value="EUR">EUR</option></select></div></div><div class="price-box"><div class="price-title">Your annual school licence</div><div class="big-price" id="schoolLicencePrice">US$1,100 <span class="per">/ year</span></div><p class="small-note" id="schoolPriceEquivalent" style="display:none"></p><p class="small-note">30-day pilot free. Charged annually only if your school chooses to continue.</p><p class="small-note" id="schoolPriceStatus"></p></div><div class="anchors"><div class="anchor"><b>Up to 250</b><span id="priceAnchor250">from US$750</span></div><div class="anchor"><b>500 students</b><span id="priceAnchor500">US$1,100</span></div><div class="anchor"><b>1,000 students</b><span id="priceAnchor1000">US$1,700</span></div><div class="anchor"><b>3,000 students</b><span id="priceAnchor3000">US$3,500</span></div></div><p class="small-note">GBP and EUR amounts are approximate conversions of the USD licence price using the latest available exchange rate.</p></div></div><div class="price-card reveal">
-
-  <span class="eyebrow">
-    <i class="fa-solid fa-box"></i>
+<div class="culture-board-proof reveal">
+<div class="culture-board-copy">
+<span class="eyebrow"><i class="fa-solid fa-arrow-right-arrow-left"></i> Physical + digital</span>
+<h3>Bring the House system into everyday school life.</h3>
+<p>Use live standings, recognition and challenges in assemblies, corridors and shared spaces, not only on a screen.</p>
+</div>
+<div class="culture-board-images">
+<figure aria-label="Open full image: Before" class="board-shot before-card" data-board-lightbox="0" role="button" tabindex="0">
+<div class="board-label"><span>Before</span><small>A House board waiting to come alive</small></div>
+<img alt="House board before the TrackEDU physical-to-digital approach" src="https://housepoint.trackedu.net/board.png"/>
+<div class="board-view-overlay"><span><i class="fa-solid fa-expand"></i> View full image</span></div>
+</figure>
+<div class="culture-board-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+<figure aria-label="Open full image: After" class="board-shot after-card" data-board-lightbox="1" role="button" tabindex="0">
+<div class="board-label after"><span>After</span><small>A visible hub for House culture</small></div>
+<img alt="House board after connecting TrackEDU activity to physical school culture" src="https://housepoint.trackedu.net/board2.png"/>
+<div class="board-view-overlay"><span><i class="fa-solid fa-expand"></i> View full image</span></div>
+</figure>
+</div>
+</div>
+</div>
+</section><section class="section" id="pricing"><div class="shell"><div class="section-head center reveal"><span class="eyebrow"><i class="fa-solid fa-tag"></i> Transparent school pricing</span><h2>30 days free. Then one clear annual price.</h2><p class="lead">Pilot TrackEDU in your own school with no credit card required. If it fits, continue on a school licence based on student enrolment.</p></div><div class="pricing-proof-row reveal"><span><i class="fa-solid fa-check"></i> 30 days free</span><span><i class="fa-solid fa-check"></i> No credit card</span><span><i class="fa-solid fa-check"></i> Full system included</span><span><i class="fa-solid fa-check"></i> Setup support included</span></div><div class="pricing-grid"><div class="price-card reveal"><span class="eyebrow"><i class="fa-solid fa-calculator"></i> Calculate your school price</span><h3>Start with the full system free for 30 days.</h3><p>Set up your Houses, staff, classes and students, then decide after using TrackEDU in a real school context.</p><div class="calculator"><div class="calc-top"><div><label class="label" for="schoolStudentCount">How many students are in your school?</label><div class="input-wrap"><input class="field" id="schoolStudentCount" inputmode="numeric" max="10000" min="1" step="1" type="number" value="500"/><span class="suffix">students</span></div></div><div><label class="label" for="schoolPriceCurrency">Currency</label><select class="select" id="schoolPriceCurrency"><option value="USD">USD</option><option value="GBP">GBP</option><option value="EUR">EUR</option></select></div></div><div class="price-box"><div class="price-title">Your annual school licence</div><div class="big-price" id="schoolLicencePrice">US$1,100 <span class="per">/ year</span></div><p class="small-note" id="schoolPriceEquivalent" style="display:none"></p><p class="small-note">30-day pilot free. Charged annually only if your school chooses to continue.</p><p class="small-note" id="schoolPriceStatus"></p></div><div class="anchors"><div class="anchor"><b>Up to 250</b><span id="priceAnchor250">from US$750</span></div><div class="anchor"><b>500 students</b><span id="priceAnchor500">US$1,100</span></div><div class="anchor"><b>1,000 students</b><span id="priceAnchor1000">US$1,700</span></div><div class="anchor"><b>3,000 students</b><span id="priceAnchor3000">US$3,500</span></div></div><p class="small-note">GBP and EUR amounts are approximate conversions of the USD licence price using the latest available exchange rate.</p></div></div><div class="price-card reveal">
+<span class="eyebrow">
+<i class="fa-solid fa-box"></i>
     Included
   </span>
-
-  <h3>
-    Everything your school needs, in one licence.
-  </h3>
-
-  <p>
-    One connected system for staff, students and school leaders.
-  </p>
-
-  <div class="include-list">
-
-    <div class="include">
-      <i class="fa-solid fa-circle-check"></i>
-      <div>
-        <b>Teacher App + Student Portal</b>
-      </div>
-    </div>
-
-    <div class="include">
-      <i class="fa-solid fa-circle-check"></i>
-      <div>
-        <b>House points + live leaderboards</b>
-      </div>
-    </div>
-
-    <div class="include">
-      <i class="fa-solid fa-circle-check"></i>
-      <div>
-        <b>Behaviour Tracker + dashboards</b>
-      </div>
-    </div>
-
-    <div class="include">
-      <i class="fa-solid fa-circle-check"></i>
-      <div>
-        <b>Google Classroom, imports + exports</b>
-      </div>
-    </div>
-
-    <div class="include">
-      <i class="fa-solid fa-circle-check"></i>
-      <div>
-        <b>Setup support + House Leader training</b>
-      </div>
-    </div>
-
-    <div class="include">
-      <i class="fa-solid fa-gift"></i>
-      <div>
-        <b>Bonus: TrackEDU Facilities free for 12 months</b>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="price-actions">
-
-    <a
-      class="btn btn-primary"
-      data-pilot-trigger="true"
-      href="#"
-    >
+<h3>One licence. The complete TrackEDU system.</h3>
+<p>No separate behaviour or student-engagement add-ons.</p>
+<div class="include-list"><div class="include"><i class="fa-solid fa-star"></i><div><b>House points + positive recognition</b><span>Fast awarding, live standings and class/House visibility.</span></div></div><div class="include"><i class="fa-solid fa-clipboard-list"></i><div><b>Behaviour incidents + follow-up</b><span>Incident records, reflections, parent contact and outstanding actions.</span></div></div><div class="include"><i class="fa-solid fa-user-graduate"></i><div><b>Teacher App + Student Portal</b><span>Staff workflows and a student experience in the same school system.</span></div></div><div class="include"><i class="fa-solid fa-circle-nodes"></i><div><b>Dashboards, imports + support</b><span>Leadership insight, Google Classroom/CSV tools, exports and House Leader training.</span></div></div></div>
+<div class="price-actions">
+<a class="btn btn-primary" data-pilot-trigger="true" href="#">
       Start free 30-day pilot
       <i class="fa-solid fa-arrow-right"></i>
-    </a>
-
-  </div>
-
+</a>
 </div>
-
+</div>
 <div class="pricing-buyer-actions">
-
-  <button
-    class="btn btn-secondary payment-options-btn"
-    data-payment-trigger="true"
-    type="button"
-  >
-    <i class="fa-solid fa-building-columns"></i>
+<button class="btn btn-secondary payment-options-btn" data-payment-trigger="true" type="button">
+<i class="fa-solid fa-building-columns"></i>
     Payment &amp; procurement options
   </button>
-
-  <a
-    class="btn btn-secondary"
-    data-demo-trigger="true"
-    href="#"
-  >
-    <i class="fa-regular fa-calendar"></i>
+<a class="btn btn-secondary" data-demo-trigger="true" href="#">
+<i class="fa-regular fa-calendar"></i>
     Book a demo
   </a>
-
-  <a
-    class="btn btn-secondary"
-    href="https://drive.google.com/file/d/1WB33PEYY0Gc5emDOIpS5hPpK4sGh8s-v/view?usp=sharing"
-    target="_blank"
-    rel="noopener"
-  >
-    <i class="fa-solid fa-file-pdf"></i>
+<a class="btn btn-secondary" href="https://drive.google.com/file/d/1WB33PEYY0Gc5emDOIpS5hPpK4sGh8s-v/view?usp=sharing" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-pdf"></i>
     View School Overview
   </a>
-
-</div></div></div></section>
-
-<section class="section soft" id="faq"><div class="shell"><div class="section-head center reveal"><span class="eyebrow"><i class="fa-solid fa-circle-question"></i> FAQ</span><h2>What schools usually want to know.</h2></div><div class="faq reveal"><details open=""><summary>Is TrackEDU just a digital House points system?</summary><p>No. House points are the core, but the platform also includes teacher tools, a dedicated Student Portal, school dashboards, challenges, behaviour tools, reporting, imports and implementation support.</p></details><details><summary>Do students need school email accounts?</summary><p>No. The Student Portal is designed to work without requiring student email accounts.</p></details><details><summary>Can we bring in our existing classes?</summary><p>Yes. TrackEDU supports CSV import and includes a Google Classroom connection workflow so schools can review and import existing class rosters.</p></details><details><summary>Can we use our own House names, colours and identity?</summary><p>Yes. TrackEDU supports school branding and House identity, including school and House visual settings, names, colours and related information.</p></details><details><summary>What makes TrackEDU different from a simpler points app?</summary><p>The main difference is breadth. TrackEDU connects teacher workflow, student engagement, school-wide competition, classroom utilities, leadership visibility and real-world House culture rather than stopping at point entry and a leaderboard.</p></details><details><summary>How much does it cost?</summary><p>Annual school licence pricing starts from US$750 and scales with student enrolment. Use the calculator above to estimate your school’s price.</p></details></div><button aria-expanded="false" class="mobile-section-toggle" id="mobileFaqToggle" type="button">Show all FAQs <i class="fa-solid fa-chevron-down"></i></button></div></section>
-<section class="final"><div class="shell"><div class="final-card reveal"><h2>Do not just digitise your House points. <span>Build a House culture students notice.</span></h2><p>Start with the full school system, free House Leader training and 30 days to test it with your own staff and students.</p><div class="final-actions"><a class="btn btn-primary" data-pilot-trigger="true" href="#">Start free 30-day pilot <i class="fa-solid fa-arrow-right"></i></a><a class="btn btn-secondary" href="https://cal.com/trackedu-a9dbpy/30min" rel="noopener" target="_blank"><i class="fa-regular fa-calendar"></i> Book a demo</a></div></div></div></section>
+</div></div></div></section><section class="section soft" id="faq"><div class="shell"><div class="section-head center reveal"><span class="eyebrow"><i class="fa-solid fa-circle-question"></i> FAQ</span><h2>What schools usually want to know.</h2></div><div class="faq reveal"><details open=""><summary>Is TrackEDU just a digital House points system?</summary><p>No. House points are the culture and recognition layer, but TrackEDU also connects positive recognition, behaviour incidents, follow-up actions, student records, school dashboards, the Student Portal, challenges, reporting and implementation support.</p></details><details><summary>Do students need school email accounts?</summary><p>No. The Student Portal is designed to work without requiring student email accounts.</p></details><details><summary>Can we bring in our existing classes?</summary><p>Yes. TrackEDU supports CSV import and includes a Google Classroom connection workflow so schools can review and import existing class rosters.</p></details><details><summary>Can we use our own House names, colours and identity?</summary><p>Yes. TrackEDU supports school branding and House identity, including school and House visual settings, names, colours and related information.</p></details><details><summary>What makes TrackEDU different from a simpler points app?</summary><p>The main difference is connection. Positive recognition and House points, behaviour incidents, follow-up actions, student engagement and leadership dashboards all work around the same school data rather than living in separate systems.</p></details><details><summary>How much does it cost?</summary><p>Annual school licence pricing starts from US$750 and scales with student enrolment. Use the calculator above to estimate your school’s price.</p></details></div><button aria-expanded="false" class="mobile-section-toggle" id="mobileFaqToggle" type="button">Show all FAQs <i class="fa-solid fa-chevron-down"></i></button></div></section><section class="final"><div class="shell"><div class="final-card reveal"><h2>See whether TrackEDU fits your school. <span>Try it for 30 days.</span></h2><p>Set up your Houses, staff and students, use the full system in your own school context, and decide after the pilot whether it is worth continuing.</p><div class="final-actions"><a class="btn btn-primary" data-pilot-trigger="true" href="#">Start free 30-day pilot <i class="fa-solid fa-arrow-right"></i></a><a class="btn btn-secondary" href="https://cal.com/trackedu-a9dbpy/30min" rel="noopener" target="_blank"><i class="fa-regular fa-calendar"></i> Book a demo</a></div></div></div></section>
 <footer class="site-footer">
 <div class="shell footer-main">
 <div class="footer-brand-col">
@@ -7096,7 +6986,7 @@ Visit school
 <img alt="TrackEDU logo" src="https://trackedu.github.io/common-assets/trackedulogono.png"/>
 <span>Track<em>EDU</em></span>
 </a>
-<p>A connected school culture platform for recognition, House systems, student engagement and behaviour support.</p>
+<p>A connected school culture platform for House points, positive recognition, behaviour incidents, student engagement and whole-school insight.</p>
 <div class="footer-badges">
 <span><i class="fa-solid fa-building-shield"></i> UK Registered</span>
 <span><i class="fa-solid fa-shield-halved"></i> ICO Registered</span>
@@ -7138,7 +7028,6 @@ Visit school
 <a href="https://www.trackedu.net/help-center.html" rel="noopener" target="_blank"><i class="fa-solid fa-life-ring"></i> Help Center</a>
 <a href="https://www.trackedu.net/contact.html"><i class="fa-solid fa-envelope"></i> Contact Us</a>
 <a href="mailto:hello@trackedu.net">hello@trackedu.net</a>
-
 <a href="https://housepoint.trackedu.net/" rel="noopener" target="_blank">Login</a>
 </div>
 </div>
@@ -7232,157 +7121,99 @@ studentInput.addEventListener('input',()=>{if(studentInput.value===''){priceDisp
 <!-- =========================================================
      SCHOOL LICENCE PAYMENT OPTIONS MODAL
 ========================================================= -->
-<div
-  aria-hidden="true"
-  aria-labelledby="paymentOptionsTitle"
-  aria-modal="true"
-  class="te-modal"
-  id="paymentOptionsModal"
-  role="dialog"
->
-  <div
-    class="te-modal-backdrop"
-    data-close-payment=""
-  ></div>
-
-  <div class="te-modal-panel payment-options-panel">
-
-    <button
-      aria-label="Close"
-      class="te-modal-close"
-      data-close-payment=""
-      type="button"
-    >
-      <i class="fa-solid fa-xmark"></i>
-    </button>
-
-    <div class="payment-options-head">
-
-      <div class="te-modal-icon">
-        <i class="fa-solid fa-building-columns"></i>
-      </div>
-
-      <div>
-        <span class="te-modal-kicker">
+<div aria-hidden="true" aria-labelledby="paymentOptionsTitle" aria-modal="true" class="te-modal" id="paymentOptionsModal" role="dialog">
+<div class="te-modal-backdrop" data-close-payment=""></div>
+<div class="te-modal-panel payment-options-panel">
+<button aria-label="Close" class="te-modal-close" data-close-payment="" type="button">
+<i class="fa-solid fa-xmark"></i>
+</button>
+<div class="payment-options-head">
+<div class="te-modal-icon">
+<i class="fa-solid fa-building-columns"></i>
+</div>
+<div>
+<span class="te-modal-kicker">
           School licence
         </span>
-
-        <h2 id="paymentOptionsTitle">
+<h2 id="paymentOptionsTitle">
           Choose the payment route that works for your school.
         </h2>
-      </div>
-
-    </div>
-
-    <p class="te-modal-intro">
+</div>
+</div>
+<p class="te-modal-intro">
       Schools have different purchasing and approval processes.
       TrackEDU supports online payment, invoice and bank transfer,
       as well as an internal purchase approval route.
     </p>
-
-    <div class="payment-pilot-note">
-      <i class="fa-solid fa-circle-check"></i>
-
-      <div>
-        <strong>
+<div class="payment-pilot-note">
+<i class="fa-solid fa-circle-check"></i>
+<div>
+<strong>
           Nothing to pay during your 30-day pilot.
         </strong>
-
-        <span>
+<span>
           Choose a payment route only if your school decides to continue with an annual School Licence.
         </span>
-      </div>
-    </div>
-
-    <div class="payment-method-grid">
-
-      <article class="payment-method-card primary">
-
-        <div class="payment-method-icon">
-          <i class="fa-solid fa-credit-card"></i>
-        </div>
-
-        <h3>Pay Online</h3>
-
-        <p>
+</div>
+</div>
+<div class="payment-method-grid">
+<article class="payment-method-card primary">
+<div class="payment-method-icon">
+<i class="fa-solid fa-credit-card"></i>
+</div>
+<h3>Pay Online</h3>
+<p>
           Pay the annual School Licence securely by card.
           Online subscriptions renew automatically each year
           unless cancelled.
         </p>
-
-        <span class="payment-method-tag">
+<span class="payment-method-tag">
           Secure online payment
         </span>
-
-      </article>
-
-      <article class="payment-method-card">
-
-        <div class="payment-method-icon">
-          <i class="fa-solid fa-file-invoice-dollar"></i>
-        </div>
-
-        <h3>Invoice / Bank Transfer</h3>
-
-        <p>
+</article>
+<article class="payment-method-card">
+<div class="payment-method-icon">
+<i class="fa-solid fa-file-invoice-dollar"></i>
+</div>
+<h3>Invoice / Bank Transfer</h3>
+<p>
           Request an invoice and pay by bank transfer through
           your school's normal finance or procurement process.
           Renewal is handled annually.
         </p>
-
-        <span class="payment-method-tag">
+<span class="payment-method-tag">
           Manual annual renewal
         </span>
-
-      </article>
-
-      <article class="payment-method-card">
-
-        <div class="payment-method-icon">
-          <i class="fa-solid fa-user-check"></i>
-        </div>
-
-        <h3>Send Purchase Request</h3>
-
-        <p>
+</article>
+<article class="payment-method-card">
+<div class="payment-method-icon">
+<i class="fa-solid fa-user-check"></i>
+</div>
+<h3>Send Purchase Request</h3>
+<p>
           Send the School Licence request to your principal,
           finance team or budget holder for approval first.
           Once approved, the school can pay online or by
           invoice / bank transfer.
         </p>
-
-        <span class="payment-method-tag">
+<span class="payment-method-tag">
           Internal approval route
         </span>
-
-      </article>
-
-    </div>
-
-    <div class="payment-options-footer">
-
-      <p>
+</article>
+</div>
+<div class="payment-options-footer">
+<p>
         The School Licence is billed annually.
         Schools with more than 3,000 students can contact
         TrackEDU for tailored pricing and procurement support.
       </p>
-
-      <button
-        class="btn btn-primary"
-        data-pilot-trigger="true"
-        data-close-payment=""
-        type="button"
-      >
+<button class="btn btn-primary" data-close-payment="" data-pilot-trigger="true" type="button">
         Start free 30-day pilot
         <i class="fa-solid fa-arrow-right"></i>
-      </button>
-
-    </div>
-
-  </div>
+</button>
 </div>
-
-
+</div>
+</div>
 <!-- =========================================================
      TRACKEDU DEMO QUALIFICATION MODAL
 ========================================================= -->
@@ -7433,34 +7264,17 @@ studentInput.addEventListener('input',()=>{if(studentInput.value===''){priceDisp
 <button class="te-link-btn" data-trust-trigger="" type="button">Data &amp; Privacy <i class="fa-solid fa-arrow-right"></i></button>
 </div>
 <div class="te-modal-actions">
-
-  <button
-    class="btn btn-primary"
-    id="continueToCalBtn"
-    type="button"
-  >
+<button class="btn btn-primary" id="continueToCalBtn" type="button">
     Continue to booking
     <i class="fa-solid fa-arrow-right"></i>
-  </button>
-
-  <a
-    class="btn btn-secondary"
-    href="https://drive.google.com/file/d/1WB33PEYY0Gc5emDOIpS5hPpK4sGh8s-v/view?usp=sharing"
-    target="_blank"
-    rel="noopener"
-  >
-    <i class="fa-solid fa-file-pdf"></i>
+</button>
+<a class="btn btn-secondary" href="https://drive.google.com/file/d/1WB33PEYY0Gc5emDOIpS5hPpK4sGh8s-v/view?usp=sharing" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-pdf"></i>
     View School Overview
   </a>
-
-  <button
-    class="btn btn-secondary"
-    data-close-demo=""
-    type="button"
-  >
+<button class="btn btn-secondary" data-close-demo="" type="button">
     Not ready yet
   </button>
-
 </div>
 <button data-cal-config='{"layout":"month_view"}' data-cal-link="trackedu-a9dbpy/30min" data-cal-namespace="30min" id="hiddenCalLauncher" style="display:none" type="button"></button>
 </div>
@@ -7473,14 +7287,12 @@ studentInput.addEventListener('input',()=>{if(studentInput.value===''){priceDisp
 <div class="te-modal-panel te-pilot-panel">
 <button aria-label="Close" class="te-modal-close" data-close-pilot="" type="button"><i class="fa-solid fa-xmark"></i></button>
 <div class="pilot-modal-head">
-  <div class="te-modal-icon pilot"><i class="fa-solid fa-rocket"></i></div>
-
-  <div class="pilot-modal-head-copy">
-    <span class="te-modal-kicker">30-day school pilot</span>
-    <h2 id="pilotGuideTitle">Create your school in about one minute.</h2>
-  </div>
+<div class="te-modal-icon pilot"><i class="fa-solid fa-rocket"></i></div>
+<div class="pilot-modal-head-copy">
+<span class="te-modal-kicker">30-day school pilot</span>
+<h2 id="pilotGuideTitle">Create your school in about one minute.</h2>
 </div>
-
+</div>
 <p class="te-modal-intro pilot-modal-intro">You will create the school directly inside the TrackEDU House Points app. No credit card is required.</p>
 <div class="pilot-steps">
 <div class="pilot-step"><span>1</span><div><strong>Open the House Points app</strong><small>Click the button below to open TrackEDU.</small></div></div>
@@ -9119,7 +8931,6 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
   }, {passive:true});
 })();
 </script>
-
 <script>
 (function(){
   const toolsBtn = document.getElementById('mobileToolsToggle');
@@ -9143,242 +8954,164 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
   }
 })();
 </script>
-
-
-
-
-
-
-
 <!-- =========================================================
      FREE HOUSE LEADER TRAINING MODAL
 ========================================================= -->
-
-<div
-  class="te-modal"
-  id="trainingModal"
-  aria-hidden="true"
-  role="dialog"
-  aria-modal="true"
-  aria-labelledby="trainingModalTitle"
->
-
-  <div class="te-modal-backdrop" data-training-close></div>
-
-  <div class="te-modal-panel training-modal-panel">
-
-    <button
-      class="te-modal-close"
-      type="button"
-      aria-label="Close"
-      data-training-close
-    >
-      <i class="fa-solid fa-xmark"></i>
-    </button>
-
-
-    <div class="training-modal-header">
-
-      <div class="training-modal-icon">
-        <i class="fa-solid fa-graduation-cap"></i>
-      </div>
-
-      <div>
-        <span class="te-modal-kicker">Included with your school licence</span>
-
-        <h2 id="trainingModalTitle">
+<div aria-hidden="true" aria-labelledby="trainingModalTitle" aria-modal="true" class="te-modal" id="trainingModal" role="dialog">
+<div class="te-modal-backdrop" data-training-close=""></div>
+<div class="te-modal-panel training-modal-panel">
+<button aria-label="Close" class="te-modal-close" data-training-close="" type="button">
+<i class="fa-solid fa-xmark"></i>
+</button>
+<div class="training-modal-header">
+<div class="training-modal-icon">
+<i class="fa-solid fa-graduation-cap"></i>
+</div>
+<div>
+<span class="te-modal-kicker">Included with your school licence</span>
+<h2 id="trainingModalTitle">
           Free House Leader Training
         </h2>
-      </div>
-
-    </div>
-
-
-    <div class="training-intro">
-
-      <strong>
+</div>
+</div>
+<div class="training-intro">
+<strong>
         Build the culture around the House system — not just the points.
       </strong>
-
-      <p>
+<p>
         Practical training for House Leaders and school teams who want stronger
         participation, clearer routines and a House identity students actually
         experience throughout the school week.
       </p>
-
-      <span class="training-independent">
-        <i class="fa-solid fa-circle-check"></i>
+<span class="training-independent">
+<i class="fa-solid fa-circle-check"></i>
         Useful with or without TrackEDU.
       </span>
-
-    </div>
-
-
-    <div class="training-topics">
-
-      <article>
-        <div class="training-topic-icon blue">
-          <i class="fa-solid fa-flag"></i>
-        </div>
-
-        <div>
-          <strong>House identity &amp; values</strong>
-          <p>
+</div>
+<div class="training-topics">
+<article>
+<div class="training-topic-icon blue">
+<i class="fa-solid fa-flag"></i>
+</div>
+<div>
+<strong>House identity &amp; values</strong>
+<p>
             Clarify House names, colours, symbols, mottos and the behaviours
             your values should create.
           </p>
-        </div>
-      </article>
-
-
-      <article>
-        <div class="training-topic-icon purple">
-          <i class="fa-solid fa-user-group"></i>
-        </div>
-
-        <div>
-          <strong>House Captains</strong>
-          <p>
+</div>
+</article>
+<article>
+<div class="training-topic-icon purple">
+<i class="fa-solid fa-user-group"></i>
+</div>
+<div>
+<strong>House Captains</strong>
+<p>
             Select, interview, train and support student leaders with clear
             weekly responsibilities.
           </p>
-        </div>
-      </article>
-
-
-      <article>
-        <div class="training-topic-icon gold">
-          <i class="fa-solid fa-bullhorn"></i>
-        </div>
-
-        <div>
-          <strong>Assemblies &amp; weekly rhythm</strong>
-          <p>
+</div>
+</article>
+<article>
+<div class="training-topic-icon gold">
+<i class="fa-solid fa-bullhorn"></i>
+</div>
+<div>
+<strong>Assemblies &amp; weekly rhythm</strong>
+<p>
             Build short, repeatable House moments that create visibility and
             momentum beyond major events.
           </p>
-        </div>
-      </article>
-
-
-      <article>
-        <div class="training-topic-icon coral">
-          <i class="fa-solid fa-people-group"></i>
-        </div>
-
-        <div>
-          <strong>Staff buy-in</strong>
-          <p>
+</div>
+</article>
+<article>
+<div class="training-topic-icon coral">
+<i class="fa-solid fa-people-group"></i>
+</div>
+<div>
+<strong>Staff buy-in</strong>
+<p>
             Reduce friction with simple recognition routines, shared
             expectations and one clear weekly ask.
           </p>
-        </div>
-      </article>
-
-
-      <article>
-        <div class="training-topic-icon green">
-          <i class="fa-solid fa-clipboard-check"></i>
-        </div>
-
-        <div>
-          <strong>Launch planning</strong>
-          <p>
+</div>
+</article>
+<article>
+<div class="training-topic-icon green">
+<i class="fa-solid fa-clipboard-check"></i>
+</div>
+<div>
+<strong>Launch planning</strong>
+<p>
             Prepare House documents, communication, boards and the first two
             weeks before students arrive.
           </p>
-        </div>
-      </article>
-
-
-      <article>
-        <div class="training-topic-icon blue">
-          <i class="fa-solid fa-display"></i>
-        </div>
-
-        <div>
-          <strong>Physical + digital culture</strong>
-          <p>
+</div>
+</article>
+<article>
+<div class="training-topic-icon blue">
+<i class="fa-solid fa-display"></i>
+</div>
+<div>
+<strong>Physical + digital culture</strong>
+<p>
             Connect House boards, assemblies and student leadership with live
             standings, challenges and consistent records.
           </p>
-        </div>
-      </article>
-
-    </div>
-
-
-    <div class="training-practical">
-
-      <div class="training-practical-copy">
-
-        <span>Practical, school-ready support</span>
-
-        <h3>
+</div>
+</article>
+</div>
+<div class="training-practical">
+<div class="training-practical-copy">
+<span>Practical, school-ready support</span>
+<h3>
           Leave with a plan your school can actually use.
         </h3>
-
-        <p>
+<p>
           The training includes practical planning around House visibility,
           weekly routines, leadership, staff participation, recognition and
           measuring what is working.
         </p>
-
-      </div>
-
-
-      <div class="training-takeaways">
-
-        <div>
-          <i class="fa-solid fa-toolbox"></i>
-          <span>
-            <strong>House Culture Planning Toolkit</strong>
+</div>
+<div class="training-takeaways">
+<div>
+<i class="fa-solid fa-toolbox"></i>
+<span>
+<strong>House Culture Planning Toolkit</strong>
             Templates and practical planning resources.
           </span>
-        </div>
-
-        <div>
-          <i class="fa-solid fa-calendar-check"></i>
-          <span>
-            <strong>Implementation planning</strong>
+</div>
+<div>
+<i class="fa-solid fa-calendar-check"></i>
+<span>
+<strong>Implementation planning</strong>
             Turn the ideas into clear actions for your school.
           </span>
-        </div>
-
-        <div>
-          <i class="fa-solid fa-comments"></i>
-          <span>
-            <strong>Optional school clinic</strong>
+</div>
+<div>
+<i class="fa-solid fa-comments"></i>
+<span>
+<strong>Optional school clinic</strong>
             Focused support for applying the ideas in your own context.
           </span>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="training-modal-footer">
-
-      <div>
-        <strong>Culture first. Technology second.</strong>
-
-        <span>
+</div>
+</div>
+</div>
+<div class="training-modal-footer">
+<div>
+<strong>Culture first. Technology second.</strong>
+<span>
           TrackEDU can support the system digitally, but the training is about
           helping the House culture work in real school life.
         </span>
-      </div>
-
-      <button class="btn btn-primary" type="button" data-training-close>
+</div>
+<button class="btn btn-primary" data-training-close="" type="button">
         Got it
       </button>
-
-    </div>
-
-  </div>
 </div>
-
-
+</div>
+</div>
 <script>
 (function(){
 
@@ -9455,37 +9188,15 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
 
 })();
 </script>
-
-
-
-
-
-<div
-  class="school-video-modal"
-  id="conwayVideoModal"
-  aria-hidden="true">
-
-  <div class="school-video-modal-inner">
-
-    <button
-      class="school-video-close"
-      id="closeConwayVideo"
-      type="button"
-      aria-label="Close video">
-      <i class="fa-solid fa-xmark"></i>
-    </button>
-
-    <iframe
-      id="conwayVideoFrame"
-      title="TrackEDU House Points in action at Conway Christian School"
-      allow="autoplay; encrypted-media; picture-in-picture"
-      allowfullscreen>
-    </iframe>
-
-  </div>
-
+<div aria-hidden="true" class="school-video-modal" id="conwayVideoModal">
+<div class="school-video-modal-inner">
+<button aria-label="Close video" class="school-video-close" id="closeConwayVideo" type="button">
+<i class="fa-solid fa-xmark"></i>
+</button>
+<iframe allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen="" id="conwayVideoFrame" title="TrackEDU House Points in action at Conway Christian School">
+</iframe>
 </div>
-
+</div>
 <script>
 (function(){
 
@@ -9541,7 +9252,6 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
 
 })();
 </script>
-
 <script>
 (function(){
 
@@ -9906,7 +9616,6 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
 
 })();
 </script>
-
 <script>
 (function(){
 
@@ -10251,7 +9960,6 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
 
 })();
 </script>
-
 <script>
 (function(){
 
@@ -10695,7 +10403,6 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
 
 })();
 </script>
-
 <script>
 (function(){
 
@@ -11184,6 +10891,22 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
 
   }
 
+})();
+</script>
+
+<script>
+(function(){
+  document.querySelectorAll('[data-behaviour-demo]').forEach(function(demo){
+    const tabs=[...demo.querySelectorAll('[data-behaviour-tab]')];
+    const panes=[...demo.querySelectorAll('[data-behaviour-pane]')];
+    tabs.forEach(function(tab){
+      tab.addEventListener('click',function(){
+        const target=tab.getAttribute('data-behaviour-tab');
+        tabs.forEach(function(t){t.classList.toggle('active',t===tab);t.setAttribute('aria-selected',t===tab?'true':'false');});
+        panes.forEach(function(p){p.classList.toggle('active',p.getAttribute('data-behaviour-pane')===target);});
+      });
+    });
+  });
 })();
 </script>
 
