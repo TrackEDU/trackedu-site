@@ -6639,7 +6639,7 @@ maxresdefault is what produced the grey placeholder.
 
 <div class="language-picker">
 <i class="fa-solid fa-globe"></i>
-<select aria-label="Choose language" id="languageSelect">
+<select aria-label="Choose language" data-i18n-aria="choose_language" id="languageSelect">
 <option value="en">English</option>
 <option value="es">Español</option>
 <option value="ar">العربية</option>
@@ -6670,7 +6670,32 @@ maxresdefault is what produced the grey placeholder.
 <i class="fa-solid fa-xmark"></i>
 </button>
 </div>
-<nav aria-label="Mobile navigation" class="mobile-links"><a data-mobile-close="" href="#behaviour"><i class="fa-solid fa-link"></i><span data-i18n="nav_connects">How it connects</span></a><a data-mobile-close="" href="#what"><i class="fa-solid fa-box-open"></i><span data-i18n="nav_school">For your school</span></a><a data-mobile-close="" href="#why"><i class="fa-solid fa-compass"></i><span data-i18n="nav_why">Why TrackEDU</span></a><a data-mobile-close="" href="#culture"><i class="fa-solid fa-people-roof"></i><span data-i18n="nav_implementation">Implementation</span></a><a data-mobile-close="" data-trust-trigger="true" href="#"><i class="fa-solid fa-shield-halved"></i><span data-i18n="nav_privacy">Data &amp; Privacy</span></a><a data-mobile-close="" href="#pricing"><i class="fa-solid fa-tag"></i><span data-i18n="nav_pricing">Pricing</span></a><a data-mobile-close="" href="#faq"><i class="fa-solid fa-circle-question"></i><span data-i18n="nav_faq">FAQ</span></a></nav>
+<nav aria-label="Mobile navigation" class="mobile-links">
+<a data-mobile-close="" href="#what">
+<i class="fa-solid fa-box-open"></i>
+<span data-i18n="nav_school">What you get</span>
+</a>
+
+<a data-mobile-close="" href="#why">
+<i class="fa-solid fa-compass"></i>
+<span data-i18n="nav_why">Why TrackEDU</span>
+</a>
+
+<a data-mobile-close="" data-trust-trigger="true" href="#">
+<i class="fa-solid fa-shield-halved"></i>
+<span data-i18n="nav_trust">Trust &amp; Security</span>
+</a>
+
+<a data-mobile-close="" href="#pricing">
+<i class="fa-solid fa-tag"></i>
+<span data-i18n="nav_pricing">Pricing</span>
+</a>
+
+<a data-mobile-close="" href="#faq">
+<i class="fa-solid fa-circle-question"></i>
+<span data-i18n="nav_faq">FAQ</span>
+</a>
+</nav>
 
 <div class="mobile-language-picker">
 <div class="mobile-language-label">
@@ -6678,7 +6703,7 @@ maxresdefault is what produced the grey placeholder.
 <span data-i18n="language">Language</span>
 </div>
 
-<select aria-label="Choose language" id="mobileLanguageSelect">
+<select aria-label="Choose language" data-i18n-aria="choose_language" id="mobileLanguageSelect">
 <option value="en">English</option>
 <option value="es">Español</option>
 <option value="ar">العربية</option>
@@ -7282,7 +7307,7 @@ Teachers and students at Conway Christian School are using TrackEDU to recognise
 <i class="fa-solid fa-file-pdf"></i>
     <span data-i18n="pricing_overview">View School Overview</span>
   </a>
-</div></div></div></section><section class="section soft" id="faq"><div class="shell"><div class="section-head center reveal"><span class="eyebrow"><i class="fa-solid fa-circle-question"></i> FAQ</span><h2 data-i18n="faq_title">What schools usually want to know.</h2></div><div class="faq reveal"><details open=""><summary data-i18n="faq_q1">Is TrackEDU just a digital House points system?</summary><p data-i18n="faq_a1">No. House points are the culture and recognition layer, but TrackEDU also connects positive recognition, behaviour incidents, follow-up actions, student records, school dashboards, the Student Portal, challenges, reporting and implementation support.</p></details><details><summary data-i18n="faq_q2">Do students need school email accounts?</summary><p data-i18n="faq_a2">No. The Student Portal is designed to work without requiring student email accounts.</p></details><details><summary data-i18n="faq_q3">Can we bring in our existing classes?</summary><p data-i18n="faq_a3">Yes. TrackEDU supports CSV import and includes a Google Classroom connection workflow so schools can review and import existing class rosters.</p></details><details><summary data-i18n="faq_q4">Can we use our own House names, colours and identity?</summary><p data-i18n="faq_a4">Yes. TrackEDU supports school branding and House identity, including school and House visual settings, names, colours and related information.</p></details><details><summary data-i18n="faq_q5">What makes TrackEDU different from a simpler points app?</summary><p data-i18n="faq_a5">The main difference is connection. Positive recognition and House points, behaviour incidents, follow-up actions, student engagement and leadership dashboards all work around the same school data rather than living in separate systems.</p></details><details><summary data-i18n="faq_q6">How much does it cost?</summary><p data-i18n="faq_a6">Annual school licence pricing starts from US$750 and scales with student enrolment. Use the calculator above to estimate your school’s price.</p></details></div><button aria-expanded="false" class="mobile-section-toggle" id="mobileFaqToggle" type="button"><span data-i18n="faq_show_all">Show all FAQs</span> <i class="fa-solid fa-chevron-down"></i></button></div></section><section class="final"><div class="shell"><div class="final-card reveal"><h2 data-i18n-html="final_title">See whether TrackEDU fits your school. <span>Try it for 30 days.</span></h2><p data-i18n="final_copy">Set up your Houses, staff and students, use the full system in your own school context, and decide after the pilot whether it is worth continuing.</p><div class="final-actions"><a class="btn btn-primary" data-pilot-trigger="true" href="#"><span data-i18n="pricing_start_pilot">Start free 30-day pilot</span> <i class="fa-solid fa-arrow-right"></i></a><a class="btn btn-secondary" href="https://cal.com/trackedu-a9dbpy/30min" rel="noopener" target="_blank"><i class="fa-regular fa-calendar"></i> <span data-i18n="pricing_demo">Book a demo</span></a></div></div></div></section>
+</div></div></div></section><section class="section soft" id="faq"><div class="shell"><div class="section-head center reveal"><span class="eyebrow"><i class="fa-solid fa-circle-question"></i> <span data-i18n="nav_faq">FAQ</span></span><h2 data-i18n="faq_title">What schools usually want to know.</h2></div><div class="faq reveal"><details open=""><summary data-i18n="faq_q1">Is TrackEDU just a digital House points system?</summary><p data-i18n="faq_a1">No. House points are the culture and recognition layer, but TrackEDU also connects positive recognition, behaviour incidents, follow-up actions, student records, school dashboards, the Student Portal, challenges, reporting and implementation support.</p></details><details><summary data-i18n="faq_q2">Do students need school email accounts?</summary><p data-i18n="faq_a2">No. The Student Portal is designed to work without requiring student email accounts.</p></details><details><summary data-i18n="faq_q3">Can we bring in our existing classes?</summary><p data-i18n="faq_a3">Yes. TrackEDU supports CSV import and includes a Google Classroom connection workflow so schools can review and import existing class rosters.</p></details><details><summary data-i18n="faq_q4">Can we use our own House names, colours and identity?</summary><p data-i18n="faq_a4">Yes. TrackEDU supports school branding and House identity, including school and House visual settings, names, colours and related information.</p></details><details><summary data-i18n="faq_q5">What makes TrackEDU different from a simpler points app?</summary><p data-i18n="faq_a5">The main difference is connection. Positive recognition and House points, behaviour incidents, follow-up actions, student engagement and leadership dashboards all work around the same school data rather than living in separate systems.</p></details><details><summary data-i18n="faq_q6">How much does it cost?</summary><p data-i18n="faq_a6">Annual school licence pricing starts from US$750 and scales with student enrolment. Use the calculator above to estimate your school’s price.</p></details></div><button aria-expanded="false" class="mobile-section-toggle" id="mobileFaqToggle" type="button"><span data-i18n="faq_show_all">Show all FAQs</span> <i class="fa-solid fa-chevron-down"></i></button></div></section><section class="final"><div class="shell"><div class="final-card reveal"><h2 data-i18n-html="final_title">See whether TrackEDU fits your school. <span>Try it for 30 days.</span></h2><p data-i18n="final_copy">Set up your Houses, staff and students, use the full system in your own school context, and decide after the pilot whether it is worth continuing.</p><div class="final-actions"><a class="btn btn-primary" data-pilot-trigger="true" href="#"><span data-i18n="pricing_start_pilot">Start free 30-day pilot</span> <i class="fa-solid fa-arrow-right"></i></a><a class="btn btn-secondary" href="https://cal.com/trackedu-a9dbpy/30min" rel="noopener" target="_blank"><i class="fa-regular fa-calendar"></i> <span data-i18n="pricing_demo">Book a demo</span></a></div></div></div></section>
 <footer class="site-footer">
 <div class="shell footer-main">
 <div class="footer-brand-col">
@@ -9503,15 +9528,7 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
 </script>
 <script>
 (function(){
-  const toolsBtn = document.getElementById('mobileToolsToggle');
-  const toolGrid = document.querySelector('#toolkit .tool-grid');
-  if(toolsBtn && toolGrid){
-    toolsBtn.addEventListener('click', () => {
-      const expanded = toolGrid.classList.toggle('mobile-expanded');
-      toolsBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-      toolsBtn.childNodes[0].nodeValue = expanded ? 'Show fewer teacher tools ' : 'Show all teacher tools ';
-    });
-  }
+
 
   const faqBtn = document.getElementById('mobileFaqToggle');
   const faq = document.querySelector('#faq .faq');
@@ -13943,6 +13960,1041 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
 
   translateBehaviourPreview(
     getBehaviourLanguage()
+  );
+
+})();
+</script>
+
+<style>
+
+/* =========================================
+   RTL POLISH — TRUST + TRAINING
+========================================= */
+
+html[dir="rtl"] #trustModal,
+html[dir="rtl"] #trainingModal{
+  direction:rtl;
+  text-align:right;
+  font-family:"Noto Sans Arabic",Outfit,system-ui,sans-serif;
+}
+
+html[dir="rtl"] #trustModal h2,
+html[dir="rtl"] #trustModal h3,
+html[dir="rtl"] #trustModal h4,
+html[dir="rtl"] #trainingModal h2,
+html[dir="rtl"] #trainingModal h3,
+html[dir="rtl"] #trainingModal h4{
+  font-family:"Noto Sans Arabic",Outfit,system-ui,sans-serif!important;
+}
+
+html[dir="rtl"] #trustModal .text-left{
+  text-align:right!important;
+}
+
+html[dir="rtl"] #trustModal a[href^="mailto:"]{
+  direction:ltr;
+  unicode-bidi:isolate;
+  display:inline-block;
+}
+
+html[dir="rtl"] #trainingModal .training-modal-footer,
+html[dir="rtl"] #trainingModal .training-modal-header,
+html[dir="rtl"] #trainingModal .training-topic-icon{
+  direction:rtl;
+}
+
+</style>
+
+<script>
+(function(){
+
+  const translations={
+
+    es:{
+
+      /* TRUST CENTRE */
+
+      "TrackEDU Trust Centre":
+        "Centro de confianza de TrackEDU",
+
+      "Privacy, Security & Data":
+        "Privacidad, seguridad y datos",
+
+      "Last updated: September 2026":
+        "Última actualización: septiembre de 2026",
+
+      "Download PDF":
+        "Descargar PDF",
+
+      "Built for school data reviews":
+        "Diseñado para la revisión de datos escolares",
+
+      "Understand how TrackEDU handles school data in minutes.":
+        "Entiende en minutos cómo gestiona TrackEDU los datos escolares.",
+
+      "Clear information for school leaders, IT teams, data-protection leads and procurement teams considering TrackEDU.":
+        "Información clara para líderes escolares, equipos de TI, responsables de protección de datos y equipos de contratación que estén evaluando TrackEDU.",
+
+      "No advertising":
+        "Sin publicidad",
+
+      "No ad-supported student experience":
+        "Sin publicidad en la experiencia del estudiante",
+
+      "No student email required":
+        "No se requiere correo electrónico del estudiante",
+
+      "Student Portal access without personal email accounts":
+        "Acceso al Student Portal sin cuentas personales de correo electrónico",
+
+      "School data controls":
+        "Controles sobre los datos escolares",
+
+      "Export and deletion tools for administrators":
+        "Herramientas de exportación y eliminación para administradores",
+
+      "ICO registered":
+        "Registrado en ICO",
+
+      "Registration reference ZC146923":
+        "Referencia de registro ZC146923",
+
+      "Quick answers":
+        "Respuestas rápidas",
+
+      "The questions schools usually ask first.":
+        "Las preguntas que los colegios suelen hacer primero.",
+
+      "Does TrackEDU sell student data?":
+        "¿TrackEDU vende datos de estudiantes?",
+
+      "No. TrackEDU does not sell student data and does not use student records for advertising.":
+        "No. TrackEDU no vende datos de estudiantes ni utiliza sus registros con fines publicitarios.",
+
+      "Do students need email accounts?":
+        "¿Los estudiantes necesitan cuentas de correo electrónico?",
+
+      "No. The Student Portal uses student identifiers and school-managed access rather than requiring students to create personal email accounts.":
+        "No. Student Portal utiliza identificadores de estudiantes y acceso gestionado por el colegio, sin exigir que los estudiantes creen cuentas personales de correo electrónico.",
+
+      "Who controls school records?":
+        "¿Quién controla los registros escolares?",
+
+      "School administrators have tools to manage, export and delete school records within TrackEDU.":
+        "Los administradores del colegio disponen de herramientas para gestionar, exportar y eliminar registros escolares dentro de TrackEDU.",
+
+      "Can our school review the legal documents?":
+        "¿Puede nuestro colegio revisar los documentos legales?",
+
+      "Yes. The Privacy Policy, Data Processing Agreement and Terms of Use are available directly from this Trust Centre.":
+        "Sí. La Política de privacidad, el Acuerdo de tratamiento de datos y las Condiciones de uso están disponibles directamente desde este Centro de confianza.",
+
+      "Data lifecycle":
+        "Ciclo de vida de los datos",
+
+      "From school setup to deletion.":
+        "Desde la configuración del colegio hasta la eliminación de los datos.",
+
+      "1. School adds data":
+        "1. El colegio añade los datos",
+
+      "Schools add the information needed to operate their TrackEDU environment, including staff, classes, houses and student records.":
+        "Los colegios añaden la información necesaria para utilizar su entorno TrackEDU, incluidos el personal, las clases, las Houses y los registros de estudiantes.",
+
+      "2. Data supports the service":
+        "2. Los datos permiten prestar el servicio",
+
+      "School records are used to provide TrackEDU features such as points, leaderboards, student access, reporting and behaviour workflows.":
+        "Los registros escolares se utilizan para ofrecer funciones de TrackEDU como puntos, clasificaciones, acceso de estudiantes, informes y flujos de trabajo de comportamiento.",
+
+      "3. Schools can export":
+        "3. Los colegios pueden exportar",
+
+      "Administrators can export supported school records and reporting data when needed.":
+        "Los administradores pueden exportar los registros escolares y datos de informes compatibles cuando sea necesario.",
+
+      "4. Schools can delete":
+        "4. Los colegios pueden eliminar",
+
+      "Administrative data-management tools allow schools to permanently remove school data when required.":
+        "Las herramientas administrativas de gestión de datos permiten a los colegios eliminar permanentemente los datos escolares cuando sea necesario.",
+
+      "Security & infrastructure":
+        "Seguridad e infraestructura",
+
+      "How TrackEDU is delivered.":
+        "Cómo se presta TrackEDU.",
+
+      "Google authentication":
+        "Autenticación con Google",
+
+      "TrackEDU uses Google Sign-In for supported authenticated school-user access.":
+        "TrackEDU utiliza Google Sign-In para el acceso autenticado de usuarios escolares compatibles.",
+
+      "Firebase infrastructure":
+        "Infraestructura Firebase",
+
+      "TrackEDU uses Firebase services for cloud database and application infrastructure.":
+        "TrackEDU utiliza servicios de Firebase para la base de datos en la nube y la infraestructura de la aplicación.",
+
+      "Managed access":
+        "Acceso gestionado",
+
+      "TrackEDU uses authentication and application access controls to separate school and administrative workflows.":
+        "TrackEDU utiliza controles de autenticación y acceso para separar los flujos de trabajo escolares y administrativos.",
+
+      "Role-based access":
+        "Acceso basado en roles",
+
+      "TrackEDU separates student, teacher, school administrator and TrackEDU administrative workflows. Access is designed around the role and task being performed rather than giving every user the same level of access.":
+        "TrackEDU separa los flujos de trabajo de estudiantes, docentes, administradores escolares y administración de TrackEDU. El acceso se configura según el rol y la tarea, en lugar de proporcionar el mismo nivel de acceso a todos los usuarios.",
+
+      "Security incidents":
+        "Incidentes de seguridad",
+
+      "Schools can report suspected privacy or security incidents directly to":
+        "Los colegios pueden informar de posibles incidentes de privacidad o seguridad directamente a",
+
+      ". TrackEDU will investigate reported incidents and communicate with affected customers where required.":
+        ". TrackEDU investigará los incidentes comunicados y contactará con los clientes afectados cuando sea necesario.",
+
+      "Important:":
+        "Importante:",
+
+      "This Trust Centre explains TrackEDU's current product architecture and data practices. It is not a substitute for your school's own legal, safeguarding or data-protection assessment.":
+        "Este Centro de confianza explica la arquitectura actual del producto TrackEDU y sus prácticas de datos. No sustituye la evaluación legal, de protección o de protección de datos que realice tu propio colegio.",
+
+      "Data protection":
+        "Protección de datos",
+
+      "What your IT or data-protection team may ask.":
+        "Lo que puede preguntar tu equipo de TI o protección de datos.",
+
+      "Where is TrackEDU data hosted?":
+        "¿Dónde se alojan los datos de TrackEDU?",
+
+      "TrackEDU uses Google Firebase and related Google cloud services for application infrastructure and database services.":
+        "TrackEDU utiliza Google Firebase y servicios relacionados de Google Cloud para la infraestructura de la aplicación y los servicios de base de datos.",
+
+      "Schools requiring confirmation of the specific hosting and processing locations used by their TrackEDU environment can request this information during procurement or data-protection review.":
+        "Los colegios que necesiten confirmar las ubicaciones específicas de alojamiento y tratamiento utilizadas por su entorno TrackEDU pueden solicitar esta información durante el proceso de contratación o revisión de protección de datos.",
+
+      "Does TrackEDU use third-party service providers?":
+        "¿TrackEDU utiliza proveedores externos?",
+
+      "Yes. TrackEDU relies on specialist technology providers to deliver parts of the service.":
+        "Sí. TrackEDU utiliza proveedores tecnológicos especializados para prestar determinadas partes del servicio.",
+
+      "Provider":
+        "Proveedor",
+
+      "Purpose":
+        "Finalidad",
+
+      "Authentication through Google Sign-In":
+        "Autenticación mediante Google Sign-In",
+
+      "Application infrastructure and cloud database":
+        "Infraestructura de la aplicación y base de datos en la nube",
+
+      "Additional website or communication providers may be used for functions such as support, booking or contact forms. Schools can request the current provider list during procurement.":
+        "Pueden utilizarse otros proveedores web o de comunicación para funciones como soporte, reservas o formularios de contacto. Los colegios pueden solicitar la lista actual de proveedores durante la contratación.",
+
+      "How long does TrackEDU keep school data?":
+        "¿Durante cuánto tiempo conserva TrackEDU los datos escolares?",
+
+      "Schools can manage and delete data through TrackEDU's administrative tools.":
+        "Los colegios pueden gestionar y eliminar datos mediante las herramientas administrativas de TrackEDU.",
+
+      "Specific contractual retention periods, including any periods following account closure, should be confirmed in the school's Data Processing Agreement or procurement documentation.":
+        "Los periodos contractuales específicos de conservación, incluidos los posteriores al cierre de una cuenta, deben confirmarse en el Acuerdo de tratamiento de datos o en la documentación de contratación del colegio.",
+
+      "How are access, correction or deletion requests handled?":
+        "¿Cómo se gestionan las solicitudes de acceso, corrección o eliminación?",
+
+      "A school normally remains the first point of contact for requests concerning its student and staff records.":
+        "Normalmente, el colegio sigue siendo el primer punto de contacto para las solicitudes relacionadas con los registros de sus estudiantes y personal.",
+
+      "TrackEDU can support authorised school administrators with access, export, correction and deletion workflows where required.":
+        "TrackEDU puede ayudar a los administradores escolares autorizados con procesos de acceso, exportación, corrección y eliminación cuando sea necesario.",
+
+      "Privacy enquiries can be sent to":
+        "Las consultas sobre privacidad pueden enviarse a",
+
+      "Does TrackEDU use AI to make decisions about students?":
+        "¿TrackEDU utiliza IA para tomar decisiones sobre los estudiantes?",
+
+      "TrackEDU's House Points and Behavior Tracker workflows are designed to support teachers and school leaders rather than replace professional judgement.":
+        "Los flujos de trabajo de House Points y Behavior Tracker de TrackEDU están diseñados para apoyar a docentes y líderes escolares, no para sustituir el criterio profesional.",
+
+      "TrackEDU does not present automated output as a substitute for safeguarding, pastoral, disciplinary or educational decisions made by authorised school staff.":
+        "TrackEDU no presenta resultados automatizados como sustituto de las decisiones de protección, bienestar, disciplina o educación tomadas por personal escolar autorizado.",
+
+      "What about international schools and international data transfers?":
+        "¿Qué ocurre con los colegios internacionales y las transferencias internacionales de datos?",
+
+      "TrackEDU serves schools in different jurisdictions and uses cloud-based technology providers.":
+        "TrackEDU presta servicio a colegios de distintas jurisdicciones y utiliza proveedores tecnológicos basados en la nube.",
+
+      "Schools with specific requirements concerning international transfers, contractual safeguards or local data-residency obligations should raise these during procurement so that the relevant processing information can be reviewed.":
+        "Los colegios con requisitos específicos sobre transferencias internacionales, garantías contractuales o residencia local de datos deben plantearlos durante la contratación para poder revisar la información de tratamiento correspondiente.",
+
+      "Company information":
+        "Información de la empresa",
+
+      "Clear accountability.":
+        "Responsabilidad clara.",
+
+      "Legal entity":
+        "Entidad jurídica",
+
+      "England & Wales":
+        "Inglaterra y Gales",
+
+      "Company number":
+        "Número de empresa",
+
+      "UK registered company":
+        "Empresa registrada en Reino Unido",
+
+      "ICO registration":
+        "Registro ICO",
+
+      "Data protection registration":
+        "Registro de protección de datos",
+
+      "Privacy contact":
+        "Contacto de privacidad",
+
+      "Privacy, security, DPA and procurement enquiries":
+        "Consultas sobre privacidad, seguridad, DPA y contratación",
+
+      "For procurement teams":
+        "Para equipos de contratación",
+
+      "Take the information with you.":
+        "Lleva la información contigo.",
+
+      "Download the short Trust Summary or review the full legal documents with your IT, procurement or data-protection team.":
+        "Descarga el resumen de confianza o revisa los documentos legales completos con tu equipo de TI, contratación o protección de datos.",
+
+      "Trust Summary":
+        "Resumen de confianza",
+
+      "Privacy Policy":
+        "Política de privacidad",
+
+      "Read full policy":
+        "Leer política completa",
+
+      "Data Processing Agreement":
+        "Acuerdo de tratamiento de datos",
+
+      "Review the DPA":
+        "Revisar el DPA",
+
+      "Terms of Use":
+        "Condiciones de uso",
+
+      "Review terms":
+        "Revisar condiciones",
+
+      "Need TrackEDU approved by your school?":
+        "¿Necesitas que tu colegio apruebe TrackEDU?",
+
+      "Download the Trust Summary and share it with your IT manager, data-protection lead or procurement team. If they have further questions, they can contact TrackEDU directly.":
+        "Descarga el Resumen de confianza y compártelo con tu responsable de TI, protección de datos o equipo de contratación. Si tienen más preguntas, pueden contactar directamente con TrackEDU.",
+
+      "Contact TrackEDU":
+        "Contactar con TrackEDU",
+
+      "Download Trust Summary PDF":
+        "Descargar resumen de confianza en PDF",
+
+
+      /* TRAINING */
+
+      "Included with your school licence":
+        "Incluido con tu licencia escolar",
+
+      "Free House Leader Training":
+        "Formación gratuita para House Leaders",
+
+      "Build the culture around the House system — not just the points.":
+        "Construye la cultura alrededor del sistema House, no únicamente de los puntos.",
+
+      "Practical training for House Leaders and school teams who want stronger participation, clearer routines and a House identity students actually experience throughout the school week.":
+        "Formación práctica para House Leaders y equipos escolares que buscan una mayor participación, rutinas más claras y una identidad House que los estudiantes experimenten durante toda la semana escolar.",
+
+      "Useful with or without TrackEDU.":
+        "Útil con o sin TrackEDU.",
+
+      "House identity & values":
+        "Identidad y valores de House",
+
+      "Clarify House names, colours, symbols, mottos and the behaviours your values should create.":
+        "Define nombres, colores, símbolos y lemas de House, así como los comportamientos que deberían generar tus valores.",
+
+      "House Captains":
+        "House Captains",
+
+      "Select, interview, train and support student leaders with clear weekly responsibilities.":
+        "Selecciona, entrevista, forma y apoya a los líderes estudiantiles con responsabilidades semanales claras.",
+
+      "Assemblies & weekly rhythm":
+        "Asambleas y ritmo semanal",
+
+      "Build short, repeatable House moments that create visibility and momentum beyond major events.":
+        "Crea momentos House breves y repetibles que generen visibilidad e impulso más allá de los grandes eventos.",
+
+      "Staff buy-in":
+        "Participación del personal",
+
+      "Reduce friction with simple recognition routines, shared expectations and one clear weekly ask.":
+        "Reduce la fricción con rutinas de reconocimiento sencillas, expectativas compartidas y una petición semanal clara.",
+
+      "Launch planning":
+        "Planificación del lanzamiento",
+
+      "Prepare House documents, communication, boards and the first two weeks before students arrive.":
+        "Prepara documentos House, comunicación, paneles y las primeras dos semanas antes de la llegada de los estudiantes.",
+
+      "Physical + digital culture":
+        "Cultura física + digital",
+
+      "Connect House boards, assemblies and student leadership with live standings, challenges and consistent records.":
+        "Conecta los paneles House, las asambleas y el liderazgo estudiantil con clasificaciones en directo, retos y registros coherentes.",
+
+      "Practical, school-ready support":
+        "Apoyo práctico listo para el colegio",
+
+      "Leave with a plan your school can actually use.":
+        "Termina con un plan que tu colegio realmente pueda utilizar.",
+
+      "The training includes practical planning around House visibility, weekly routines, leadership, staff participation, recognition and measuring what is working.":
+        "La formación incluye planificación práctica sobre visibilidad de House, rutinas semanales, liderazgo, participación del personal, reconocimiento y medición de lo que funciona.",
+
+      "House Culture Planning Toolkit":
+        "Kit de planificación de cultura House",
+
+      "Templates and practical planning resources.":
+        "Plantillas y recursos prácticos de planificación.",
+
+      "Implementation planning":
+        "Planificación de implementación",
+
+      "Turn the ideas into clear actions for your school.":
+        "Convierte las ideas en acciones claras para tu colegio.",
+
+      "Optional school clinic":
+        "Sesión opcional para el colegio",
+
+      "Focused support for applying the ideas in your own context.":
+        "Apoyo específico para aplicar las ideas en tu propio contexto.",
+
+      "Culture first. Technology second.":
+        "Primero la cultura. Después la tecnología.",
+
+      "TrackEDU can support the system digitally, but the training is about helping the House culture work in real school life.":
+        "TrackEDU puede apoyar el sistema digitalmente, pero la formación se centra en hacer que la cultura House funcione en la vida escolar real.",
+
+      "Got it":
+        "Entendido"
+
+    },
+
+
+    ar:{
+
+      /* TRUST CENTRE */
+
+      "TrackEDU Trust Centre":
+        "مركز الثقة في TrackEDU",
+
+      "Privacy, Security & Data":
+        "الخصوصية والأمان والبيانات",
+
+      "Last updated: September 2026":
+        "آخر تحديث: سبتمبر 2026",
+
+      "Download PDF":
+        "تنزيل PDF",
+
+      "Built for school data reviews":
+        "مصمم لمراجعات بيانات المدارس",
+
+      "Understand how TrackEDU handles school data in minutes.":
+        "تعرّف في دقائق على كيفية تعامل TrackEDU مع بيانات المدرسة.",
+
+      "Clear information for school leaders, IT teams, data-protection leads and procurement teams considering TrackEDU.":
+        "معلومات واضحة لقادة المدارس وفرق تقنية المعلومات ومسؤولي حماية البيانات وفرق المشتريات الذين يدرسون استخدام TrackEDU.",
+
+      "No advertising":
+        "بدون إعلانات",
+
+      "No ad-supported student experience":
+        "لا توجد إعلانات ضمن تجربة الطلاب",
+
+      "No student email required":
+        "لا حاجة إلى بريد إلكتروني للطالب",
+
+      "Student Portal access without personal email accounts":
+        "وصول إلى بوابة الطلاب دون حسابات بريد إلكتروني شخصية",
+
+      "School data controls":
+        "ضوابط بيانات المدرسة",
+
+      "Export and deletion tools for administrators":
+        "أدوات تصدير وحذف للمسؤولين",
+
+      "ICO registered":
+        "مسجل لدى ICO",
+
+      "Registration reference ZC146923":
+        "رقم التسجيل ZC146923",
+
+      "Quick answers":
+        "إجابات سريعة",
+
+      "The questions schools usually ask first.":
+        "الأسئلة التي تطرحها المدارس عادةً أولاً.",
+
+      "Does TrackEDU sell student data?":
+        "هل يبيع TrackEDU بيانات الطلاب؟",
+
+      "No. TrackEDU does not sell student data and does not use student records for advertising.":
+        "لا. لا يبيع TrackEDU بيانات الطلاب ولا يستخدم سجلات الطلاب لأغراض الإعلان.",
+
+      "Do students need email accounts?":
+        "هل يحتاج الطلاب إلى حسابات بريد إلكتروني؟",
+
+      "No. The Student Portal uses student identifiers and school-managed access rather than requiring students to create personal email accounts.":
+        "لا. تستخدم بوابة الطلاب معرفات الطلاب ووصولاً تديره المدرسة بدلاً من مطالبة الطلاب بإنشاء حسابات بريد إلكتروني شخصية.",
+
+      "Who controls school records?":
+        "من يتحكم في سجلات المدرسة؟",
+
+      "School administrators have tools to manage, export and delete school records within TrackEDU.":
+        "يمتلك مسؤولو المدرسة أدوات لإدارة سجلات المدرسة وتصديرها وحذفها داخل TrackEDU.",
+
+      "Can our school review the legal documents?":
+        "هل يمكن لمدرستنا مراجعة المستندات القانونية؟",
+
+      "Yes. The Privacy Policy, Data Processing Agreement and Terms of Use are available directly from this Trust Centre.":
+        "نعم. تتوفر سياسة الخصوصية واتفاقية معالجة البيانات وشروط الاستخدام مباشرةً من مركز الثقة هذا.",
+
+      "Data lifecycle":
+        "دورة حياة البيانات",
+
+      "From school setup to deletion.":
+        "من إعداد المدرسة حتى حذف البيانات.",
+
+      "1. School adds data":
+        "1. تضيف المدرسة البيانات",
+
+      "Schools add the information needed to operate their TrackEDU environment, including staff, classes, houses and student records.":
+        "تضيف المدارس المعلومات اللازمة لتشغيل بيئة TrackEDU الخاصة بها، بما في ذلك الموظفون والفصول والفرق المدرسية وسجلات الطلاب.",
+
+      "2. Data supports the service":
+        "2. تُستخدم البيانات لتقديم الخدمة",
+
+      "School records are used to provide TrackEDU features such as points, leaderboards, student access, reporting and behaviour workflows.":
+        "تُستخدم سجلات المدرسة لتقديم ميزات TrackEDU مثل النقاط ولوحات الترتيب ووصول الطلاب والتقارير وسير عمل السلوك.",
+
+      "3. Schools can export":
+        "3. يمكن للمدارس التصدير",
+
+      "Administrators can export supported school records and reporting data when needed.":
+        "يمكن للمسؤولين تصدير سجلات المدرسة المدعومة وبيانات التقارير عند الحاجة.",
+
+      "4. Schools can delete":
+        "4. يمكن للمدارس الحذف",
+
+      "Administrative data-management tools allow schools to permanently remove school data when required.":
+        "تتيح أدوات إدارة البيانات للمسؤولين إزالة بيانات المدرسة نهائياً عند الحاجة.",
+
+      "Security & infrastructure":
+        "الأمان والبنية التحتية",
+
+      "How TrackEDU is delivered.":
+        "كيفية تقديم TrackEDU.",
+
+      "Google authentication":
+        "المصادقة عبر Google",
+
+      "TrackEDU uses Google Sign-In for supported authenticated school-user access.":
+        "يستخدم TrackEDU تسجيل الدخول عبر Google للوصول الموثق للمستخدمين المدرسيين المدعومين.",
+
+      "Firebase infrastructure":
+        "بنية Firebase التحتية",
+
+      "TrackEDU uses Firebase services for cloud database and application infrastructure.":
+        "يستخدم TrackEDU خدمات Firebase لقاعدة البيانات السحابية والبنية التحتية للتطبيق.",
+
+      "Managed access":
+        "وصول مُدار",
+
+      "TrackEDU uses authentication and application access controls to separate school and administrative workflows.":
+        "يستخدم TrackEDU ضوابط المصادقة والوصول إلى التطبيق للفصل بين سير العمل المدرسي والإداري.",
+
+      "Role-based access":
+        "الوصول القائم على الأدوار",
+
+      "TrackEDU separates student, teacher, school administrator and TrackEDU administrative workflows. Access is designed around the role and task being performed rather than giving every user the same level of access.":
+        "يفصل TrackEDU بين سير عمل الطلاب والمعلمين ومسؤولي المدرسة وإدارة TrackEDU. ويُحدد الوصول وفق الدور والمهمة بدلاً من منح جميع المستخدمين مستوى الوصول نفسه.",
+
+      "Security incidents":
+        "الحوادث الأمنية",
+
+      "Schools can report suspected privacy or security incidents directly to":
+        "يمكن للمدارس الإبلاغ عن حوادث الخصوصية أو الأمان المشتبه بها مباشرةً إلى",
+
+      ". TrackEDU will investigate reported incidents and communicate with affected customers where required.":
+        ". سيحقق TrackEDU في الحوادث المُبلغ عنها ويتواصل مع العملاء المتأثرين عند الحاجة.",
+
+      "Important:":
+        "مهم:",
+
+      "This Trust Centre explains TrackEDU's current product architecture and data practices. It is not a substitute for your school's own legal, safeguarding or data-protection assessment.":
+        "يشرح مركز الثقة هذا بنية منتج TrackEDU الحالية وممارسات البيانات، ولا يُعد بديلاً عن التقييم القانوني أو تقييم الحماية أو حماية البيانات الخاص بمدرستك.",
+
+      "Data protection":
+        "حماية البيانات",
+
+      "What your IT or data-protection team may ask.":
+        "ما قد يسأل عنه فريق تقنية المعلومات أو حماية البيانات في مدرستك.",
+
+      "Where is TrackEDU data hosted?":
+        "أين تتم استضافة بيانات TrackEDU؟",
+
+      "TrackEDU uses Google Firebase and related Google cloud services for application infrastructure and database services.":
+        "يستخدم TrackEDU Google Firebase وخدمات Google السحابية ذات الصلة للبنية التحتية للتطبيق وخدمات قواعد البيانات.",
+
+      "Schools requiring confirmation of the specific hosting and processing locations used by their TrackEDU environment can request this information during procurement or data-protection review.":
+        "يمكن للمدارس التي تحتاج إلى تأكيد مواقع الاستضافة والمعالجة المحددة المستخدمة في بيئة TrackEDU الخاصة بها طلب هذه المعلومات أثناء المشتريات أو مراجعة حماية البيانات.",
+
+      "Does TrackEDU use third-party service providers?":
+        "هل يستخدم TrackEDU مزودي خدمات خارجيين؟",
+
+      "Yes. TrackEDU relies on specialist technology providers to deliver parts of the service.":
+        "نعم. يعتمد TrackEDU على مزودي تقنيات متخصصين لتقديم أجزاء من الخدمة.",
+
+      "Provider":
+        "المزوّد",
+
+      "Purpose":
+        "الغرض",
+
+      "Authentication through Google Sign-In":
+        "المصادقة من خلال Google Sign-In",
+
+      "Application infrastructure and cloud database":
+        "البنية التحتية للتطبيق وقاعدة البيانات السحابية",
+
+      "Additional website or communication providers may be used for functions such as support, booking or contact forms. Schools can request the current provider list during procurement.":
+        "قد تُستخدم خدمات إضافية للموقع أو الاتصالات لوظائف مثل الدعم والحجز ونماذج التواصل. ويمكن للمدارس طلب قائمة المزودين الحالية أثناء إجراءات المشتريات.",
+
+      "How long does TrackEDU keep school data?":
+        "كم من الوقت يحتفظ TrackEDU ببيانات المدرسة؟",
+
+      "Schools can manage and delete data through TrackEDU's administrative tools.":
+        "يمكن للمدارس إدارة البيانات وحذفها من خلال أدوات TrackEDU الإدارية.",
+
+      "Specific contractual retention periods, including any periods following account closure, should be confirmed in the school's Data Processing Agreement or procurement documentation.":
+        "يجب تأكيد فترات الاحتفاظ التعاقدية المحددة، بما في ذلك أي فترة بعد إغلاق الحساب، ضمن اتفاقية معالجة البيانات أو مستندات المشتريات الخاصة بالمدرسة.",
+
+      "How are access, correction or deletion requests handled?":
+        "كيف تتم معالجة طلبات الوصول أو التصحيح أو الحذف؟",
+
+      "A school normally remains the first point of contact for requests concerning its student and staff records.":
+        "تظل المدرسة عادةً جهة الاتصال الأولى للطلبات المتعلقة بسجلات الطلاب والموظفين.",
+
+      "TrackEDU can support authorised school administrators with access, export, correction and deletion workflows where required.":
+        "يمكن لـ TrackEDU دعم مسؤولي المدرسة المصرح لهم في إجراءات الوصول والتصدير والتصحيح والحذف عند الحاجة.",
+
+      "Privacy enquiries can be sent to":
+        "يمكن إرسال استفسارات الخصوصية إلى",
+
+      "Does TrackEDU use AI to make decisions about students?":
+        "هل يستخدم TrackEDU الذكاء الاصطناعي لاتخاذ قرارات بشأن الطلاب؟",
+
+      "TrackEDU's House Points and Behavior Tracker workflows are designed to support teachers and school leaders rather than replace professional judgement.":
+        "صُممت عمليات House Points وBehavior Tracker في TrackEDU لدعم المعلمين وقادة المدارس، لا لاستبدال الحكم المهني.",
+
+      "TrackEDU does not present automated output as a substitute for safeguarding, pastoral, disciplinary or educational decisions made by authorised school staff.":
+        "لا يقدم TrackEDU المخرجات الآلية بديلاً عن قرارات الحماية أو الرعاية أو الانضباط أو التعليم التي يتخذها موظفو المدرسة المصرح لهم.",
+
+      "What about international schools and international data transfers?":
+        "ماذا عن المدارس الدولية ونقل البيانات دولياً؟",
+
+      "TrackEDU serves schools in different jurisdictions and uses cloud-based technology providers.":
+        "يخدم TrackEDU مدارس في ولايات قضائية مختلفة ويستخدم مزودي تقنيات سحابية.",
+
+      "Schools with specific requirements concerning international transfers, contractual safeguards or local data-residency obligations should raise these during procurement so that the relevant processing information can be reviewed.":
+        "ينبغي للمدارس التي لديها متطلبات محددة بشأن النقل الدولي أو الضمانات التعاقدية أو متطلبات إقامة البيانات محلياً طرحها أثناء المشتريات حتى يمكن مراجعة معلومات المعالجة ذات الصلة.",
+
+      "Company information":
+        "معلومات الشركة",
+
+      "Clear accountability.":
+        "مسؤولية واضحة.",
+
+      "Legal entity":
+        "الكيان القانوني",
+
+      "England & Wales":
+        "إنجلترا وويلز",
+
+      "Company number":
+        "رقم الشركة",
+
+      "UK registered company":
+        "شركة مسجلة في المملكة المتحدة",
+
+      "ICO registration":
+        "تسجيل ICO",
+
+      "Data protection registration":
+        "تسجيل حماية البيانات",
+
+      "Privacy contact":
+        "جهة اتصال الخصوصية",
+
+      "Privacy, security, DPA and procurement enquiries":
+        "استفسارات الخصوصية والأمان واتفاقية DPA والمشتريات",
+
+      "For procurement teams":
+        "لفرق المشتريات",
+
+      "Take the information with you.":
+        "احتفظ بالمعلومات معك.",
+
+      "Download the short Trust Summary or review the full legal documents with your IT, procurement or data-protection team.":
+        "نزّل ملخص الثقة المختصر أو راجع المستندات القانونية الكاملة مع فريق تقنية المعلومات أو المشتريات أو حماية البيانات.",
+
+      "Trust Summary":
+        "ملخص الثقة",
+
+      "Privacy Policy":
+        "سياسة الخصوصية",
+
+      "Read full policy":
+        "قراءة السياسة كاملة",
+
+      "Data Processing Agreement":
+        "اتفاقية معالجة البيانات",
+
+      "Review the DPA":
+        "مراجعة DPA",
+
+      "Terms of Use":
+        "شروط الاستخدام",
+
+      "Review terms":
+        "مراجعة الشروط",
+
+      "Need TrackEDU approved by your school?":
+        "هل تحتاج إلى اعتماد TrackEDU من مدرستك؟",
+
+      "Download the Trust Summary and share it with your IT manager, data-protection lead or procurement team. If they have further questions, they can contact TrackEDU directly.":
+        "نزّل ملخص الثقة وشاركه مع مسؤول تقنية المعلومات أو مسؤول حماية البيانات أو فريق المشتريات. وإذا كانت لديهم أسئلة إضافية، فيمكنهم التواصل مع TrackEDU مباشرةً.",
+
+      "Contact TrackEDU":
+        "تواصل مع TrackEDU",
+
+      "Download Trust Summary PDF":
+        "تنزيل ملخص الثقة PDF",
+
+
+      /* TRAINING */
+
+      "Included with your school licence":
+        "مشمول مع ترخيص مدرستك",
+
+      "Free House Leader Training":
+        "تدريب مجاني لقادة الفرق المدرسية",
+
+      "Build the culture around the House system — not just the points.":
+        "ابنِ الثقافة حول نظام الفرق المدرسية، لا حول النقاط فقط.",
+
+      "Practical training for House Leaders and school teams who want stronger participation, clearer routines and a House identity students actually experience throughout the school week.":
+        "تدريب عملي لقادة الفرق المدرسية وفرق المدرسة الذين يريدون مشاركة أقوى وروتيناً أوضح وهوية للفرق يعيشها الطلاب فعلياً طوال الأسبوع الدراسي.",
+
+      "Useful with or without TrackEDU.":
+        "مفيد مع TrackEDU أو بدونه.",
+
+      "House identity & values":
+        "هوية الفرق المدرسية والقيم",
+
+      "Clarify House names, colours, symbols, mottos and the behaviours your values should create.":
+        "حدّد أسماء الفرق وألوانها ورموزها وشعاراتها والسلوكيات التي ينبغي أن تعززها قيمك.",
+
+      "House Captains":
+        "قادة الفرق الطلاب",
+
+      "Select, interview, train and support student leaders with clear weekly responsibilities.":
+        "اختر قادة الطلاب وقابلهم ودرّبهم وادعمهم بمسؤوليات أسبوعية واضحة.",
+
+      "Assemblies & weekly rhythm":
+        "التجمعات والإيقاع الأسبوعي",
+
+      "Build short, repeatable House moments that create visibility and momentum beyond major events.":
+        "أنشئ لحظات قصيرة ومتكررة للفرق المدرسية تعزز الظهور والاستمرارية خارج الفعاليات الكبرى.",
+
+      "Staff buy-in":
+        "مشاركة الموظفين",
+
+      "Reduce friction with simple recognition routines, shared expectations and one clear weekly ask.":
+        "قلّل التعقيد من خلال روتين تقدير بسيط وتوقعات مشتركة ومطلب أسبوعي واضح.",
+
+      "Launch planning":
+        "التخطيط للإطلاق",
+
+      "Prepare House documents, communication, boards and the first two weeks before students arrive.":
+        "جهّز مستندات الفرق المدرسية والتواصل واللوحات وخطة أول أسبوعين قبل وصول الطلاب.",
+
+      "Physical + digital culture":
+        "ثقافة مادية + رقمية",
+
+      "Connect House boards, assemblies and student leadership with live standings, challenges and consistent records.":
+        "اربط لوحات الفرق المدرسية والتجمعات وقيادة الطلاب بالترتيب المباشر والتحديات والسجلات المتسقة.",
+
+      "Practical, school-ready support":
+        "دعم عملي جاهز للمدرسة",
+
+      "Leave with a plan your school can actually use.":
+        "اخرج بخطة تستطيع مدرستك استخدامها فعلياً.",
+
+      "The training includes practical planning around House visibility, weekly routines, leadership, staff participation, recognition and measuring what is working.":
+        "يشمل التدريب تخطيطاً عملياً لظهور الفرق المدرسية والروتين الأسبوعي والقيادة ومشاركة الموظفين والتقدير وقياس ما ينجح.",
+
+      "House Culture Planning Toolkit":
+        "حزمة تخطيط ثقافة الفرق المدرسية",
+
+      "Templates and practical planning resources.":
+        "قوالب وموارد عملية للتخطيط.",
+
+      "Implementation planning":
+        "تخطيط التطبيق",
+
+      "Turn the ideas into clear actions for your school.":
+        "حوّل الأفكار إلى إجراءات واضحة لمدرستك.",
+
+      "Optional school clinic":
+        "جلسة اختيارية للمدرسة",
+
+      "Focused support for applying the ideas in your own context.":
+        "دعم مركّز لتطبيق الأفكار في سياق مدرستك.",
+
+      "Culture first. Technology second.":
+        "الثقافة أولاً. التكنولوجيا ثانياً.",
+
+      "TrackEDU can support the system digitally, but the training is about helping the House culture work in real school life.":
+        "يمكن لـ TrackEDU دعم النظام رقمياً، لكن التدريب يركز على جعل ثقافة الفرق المدرسية تعمل في الحياة المدرسية الفعلية.",
+
+      "Got it":
+        "فهمت"
+
+    }
+
+  };
+
+
+  const roots=[
+    document.getElementById('trustModal'),
+    document.getElementById('trainingModal')
+  ].filter(Boolean);
+
+
+  const originals=
+    new WeakMap();
+
+
+  function currentLanguage(){
+
+    const lang=
+      (
+        document.documentElement.lang ||
+        'en'
+      ).toLowerCase();
+
+    if(lang.startsWith('ar')){
+      return 'ar';
+    }
+
+    if(lang.startsWith('es')){
+      return 'es';
+    }
+
+    return 'en';
+
+  }
+
+
+  function normaliseText(value){
+
+    return value
+      .replace(/\s+/g,' ')
+      .trim();
+
+  }
+
+
+  const nodes=[];
+
+
+  roots.forEach(root=>{
+
+    const walker=
+      document.createTreeWalker(
+        root,
+        NodeFilter.SHOW_TEXT
+      );
+
+    while(walker.nextNode()){
+
+      const node=
+        walker.currentNode;
+
+      const parent=
+        node.parentElement;
+
+      if(
+        !parent ||
+        ['SCRIPT','STYLE'].includes(
+          parent.tagName
+        )
+      ){
+        continue;
+      }
+
+      if(
+        normaliseText(
+          node.nodeValue || ''
+        )
+      ){
+
+        originals.set(
+          node,
+          node.nodeValue
+        );
+
+        nodes.push(node);
+
+      }
+
+    }
+
+  });
+
+
+  function translateSchoolModals(language){
+
+    const lang=
+      translations[language]
+        ? language
+        : 'en';
+
+    const dictionary=
+      translations[lang] || {};
+
+
+    nodes.forEach(node=>{
+
+      const original=
+        originals.get(node);
+
+      if(
+        typeof original !== 'string'
+      ){
+        return;
+      }
+
+      const source=
+        normaliseText(original);
+
+      const translated=
+        lang === 'en'
+          ? source
+          : (
+              dictionary[source] ||
+              source
+            );
+
+      const leading=
+        (
+          original.match(/^\s*/) ||
+          ['']
+        )[0];
+
+      const trailing=
+        (
+          original.match(/\s*$/) ||
+          ['']
+        )[0];
+
+      node.nodeValue=
+        leading +
+        translated +
+        trailing;
+
+    });
+
+
+    const trustClose=
+      document.querySelector(
+        '#trustModal button[aria-label]'
+      );
+
+    if(trustClose){
+
+      trustClose.setAttribute(
+        'aria-label',
+        lang === 'ar'
+          ? 'إغلاق مركز الثقة'
+          : lang === 'es'
+            ? 'Cerrar Centro de confianza'
+            : 'Close Trust Centre'
+      );
+
+    }
+
+
+    const trainingClose=
+      document.querySelector(
+        '#trainingModal .te-modal-close'
+      );
+
+    if(trainingClose){
+
+      trainingClose.setAttribute(
+        'aria-label',
+        lang === 'ar'
+          ? 'إغلاق'
+          : lang === 'es'
+            ? 'Cerrar'
+            : 'Close'
+      );
+
+    }
+
+  }
+
+
+  document.addEventListener(
+    'trackedu:languagechange',
+    function(event){
+
+      translateSchoolModals(
+        event.detail.language
+      );
+
+    }
+  );
+
+
+  translateSchoolModals(
+    currentLanguage()
   );
 
 })();
