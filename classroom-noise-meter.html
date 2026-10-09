@@ -2384,6 +2384,56 @@
       font-weight: 900;
     }
 
+
+    .school-housepoints-promo {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(135, 194, 50, 0.10);
+      border: 1px solid rgba(135, 194, 50, 0.28);
+      text-align: center;
+    }
+
+
+    .school-housepoints-promo-title {
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 900;
+      line-height: 1.25;
+    }
+
+
+    .school-housepoints-promo-copy {
+      color: #cbd5e1;
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+
+    .school-housepoints-promo-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 2px;
+      color: #fbbf24;
+      font-size: 11px;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+
+    .school-housepoints-promo-link:hover {
+      color: #fde68a;
+      transform: translateY(-1px);
+    }
+
+
     .seo-noscript {
       padding: 24px;
       max-width: 760px;
@@ -3412,9 +3462,9 @@
   target="_blank"
   rel="noopener noreferrer"
   class="tools-link"
-  aria-label="Try Class Board free with over 20 classroom tools"
+  aria-label="Teachers: Try Class Board free"
 >
-  Like this? Try Class Board Free · 20+ Tools →
+  Teachers: Try Class Board Free →
 </a>
         </div>
         <button class="settings-trigger" id="settingsTriggerBtn" aria-label="Open settings">
@@ -3528,6 +3578,30 @@
           <p class="seo-mini-copy">
             <strong>Free online classroom noise meter</strong> for teachers, designed for smartboards, calm transitions and quick whole-class volume checks.
           </p>
+
+          <div
+            id="schoolHousePointsPromo"
+            class="school-housepoints-promo"
+          >
+            <div class="school-housepoints-promo-title">
+              Using this across your school?
+            </div>
+
+            <div class="school-housepoints-promo-copy">
+              Take House Points and student recognition school-wide with TrackEDU.
+            </div>
+
+            <a
+              href="https://www.trackedu.net/housepoints.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="school-housepoints-promo-link"
+            >
+              Explore TrackEDU House Points
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+
           <button id="installPwaBtn" class="install-pwa-btn">
             <i class="fas fa-download"></i> Download App
           </button>
@@ -4972,6 +5046,23 @@
         }
         showStatusMessage('New round ready. Press Start when you want to begin again.', 'success');
         stopMeter(false);
+
+
+        const schoolPromo =
+          document.getElementById(
+            'schoolHousePointsPromo'
+          );
+
+
+        if (
+          schoolPromo
+        ) {
+
+          schoolPromo.style.display =
+            'flex';
+
+        }
+
       }, 5200);
     }
 
@@ -5194,6 +5285,23 @@
     }
 
     async function startMeter() {
+
+      const schoolPromo =
+        document.getElementById(
+          'schoolHousePointsPromo'
+        );
+
+
+      if (
+        schoolPromo
+      ) {
+
+        schoolPromo.style.display =
+          'none';
+
+      }
+
+
       if (timerSeconds <= 0 || streakAwarded) resetTimer();
 
       const audioReady = await initAudio();
