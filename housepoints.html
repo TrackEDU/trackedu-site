@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 
 <html lang="en-GB">
@@ -8,17 +9,17 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>School House Point Tracker & House Points System | TrackEDU</title>
 
-<meta content="TrackEDU connects House points, recognition, Incidents & Support, live leaderboards and school reporting in one platform. Try our free 30-day school pilot." name="description"/>
+<meta content="TrackEDU connects House points, recognition, School Store rewards, Incidents & Support, live leaderboards and school reporting in one platform. Try our free 30-day school pilot." name="description"/>
 
 <meta content="School House Point Tracker & House Points System | TrackEDU" property="og:title"/>
-<meta content="TrackEDU connects House points, recognition, Incidents & Support, live leaderboards and school reporting in one platform. Try our free 30-day school pilot." property="og:description"/>
+<meta content="TrackEDU connects House points, recognition, School Store rewards, Incidents & Support, live leaderboards and school reporting in one platform. Try our free 30-day school pilot." property="og:description"/>
 <meta content="website" property="og:type"/>
 <meta content="https://www.trackedu.net/housepoints.html" property="og:url"/>
 <meta content="en_GB" property="og:locale"/>
 
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="School House Point Tracker & House Points System | TrackEDU" name="twitter:title"/>
-<meta content="TrackEDU connects House points, recognition, Incidents & Support, live leaderboards and school reporting in one platform. Try our free 30-day school pilot." name="twitter:description"/>
+<meta content="TrackEDU connects House points, recognition, School Store rewards, Incidents & Support, live leaderboards and school reporting in one platform. Try our free 30-day school pilot." name="twitter:description"/>
 
 <link href="https://www.trackedu.net/housepoints.html" rel="canonical"/>
 <link href="https://trackedu.github.io/common-assets/trackedulogono.png" rel="icon"/>
@@ -6598,6 +6599,28 @@ maxresdefault is what produced the grey placeholder.
 
 
 
+
+/* School Store: lightweight product showcase, no external images or requests */
+.school-store-section{background:linear-gradient(180deg,#f8fcff,#fff);border-top:1px solid #e5edf5}
+.store-showcase{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:34px;align-items:center;margin-top:34px}
+.store-showcase-copy h3{font-size:clamp(27px,3.4vw,42px);line-height:1.08;color:var(--navy);margin:12px 0}
+.store-showcase-copy p{color:var(--muted);font-size:15px;line-height:1.7}
+.store-benefits{display:grid;gap:10px;margin:20px 0}
+.store-benefits>div{display:flex;gap:11px;align-items:flex-start;font-size:13px;line-height:1.5;color:#425d72}
+.store-benefits i{color:#66a52d;margin-top:3px}
+.store-preview{padding:20px;border:1px solid #dce9f2;background:#fff;border-radius:25px;box-shadow:var(--shadow2)}
+.store-preview-header{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:15px;flex-wrap:wrap}
+.store-preview-header strong{font-family:Fredoka,sans-serif;font-size:19px;color:var(--navy)}
+.store-preview-header span{font-size:10px;font-weight:800;color:#56718a;background:#edf6ff;padding:7px 10px;border-radius:999px}
+.store-demo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.store-demo-card{min-width:0;display:flex;flex-direction:column;gap:8px;padding:12px;border:1px solid #e1eaf1;border-radius:16px;background:#fafdff}
+.store-demo-icon{height:72px;display:grid;place-items:center;border-radius:12px;background:#edf5fc;font-size:35px}
+.store-demo-card strong{font-size:12px;line-height:1.3;color:var(--navy)}
+.store-demo-card small{font-size:11px;font-weight:800;color:#538622}
+.store-preview-note{font-size:10px;color:#8294a5;margin:12px 0 0;line-height:1.4}
+.store-showcase-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+@media(max-width:900px){.store-showcase{grid-template-columns:1fr;gap:18px}}
+@media(max-width:520px){.store-preview{padding:13px;border-radius:19px}.store-demo-grid{gap:6px}.store-demo-card{padding:8px;border-radius:12px}.store-demo-icon{height:52px;font-size:26px}.store-demo-card strong{font-size:10px}.store-demo-card small{font-size:10px}.store-showcase-copy p{font-size:13px}.store-showcase-actions .btn{width:100%}}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
@@ -7207,7 +7230,7 @@ Teachers and students at Conway Christian School are using TrackEDU to recognise
 </div>
 </section><section class="section soft" id="what"><div class="shell"><div class="section-head center reveal"><span class="eyebrow"><i class="fa-solid fa-box-open"></i> <span data-i18n="what_eyebrow">What your school actually gets</span></span><h2 data-i18n="what_title">Built for teachers, students and school leaders.</h2><p class="lead" data-i18n="what_lead">The same system supports the everyday teacher workflow, the student experience and the leadership view.</p></div><div class="audience-grid">
 <article class="aud-card teacher reveal"><div class="aud-icon"><i class="fa-solid fa-chalkboard-user"></i></div><h3 data-i18n="teachers_title">For teachers</h3><p data-i18n="teachers_intro">Fast tools for the moments that happen during a normal school day.</p><div class="feature-list"><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="teachers_feature1">Recognise quickly</strong><span data-i18n="teachers_feature1_copy">Award positive recognition and House points to individuals, groups, classes or Houses.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="teachers_feature2">Record incidents + follow-up</strong><span data-i18n="teachers_feature2_copy">Log behaviour, reflections, parent contact and outstanding actions in the same workflow.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="teachers_feature3">Manage classes and students</strong><span data-i18n="teachers_feature3_copy">Import, organise and work with school rosters without rebuilding them manually.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="teachers_feature4">Built-in classroom tools</strong><span data-i18n="teachers_feature4_copy">Timers, groups, roles, random pickers, quizzes, games and more.</span></div></div></div></article>
-<article class="aud-card student reveal"><div class="aud-icon"><i class="fa-solid fa-user-graduate"></i></div><h3 data-i18n="students_title">For students</h3><p data-i18n="students_intro">A Student Portal that turns House points into participation rather than just a score.</p><div class="feature-list"><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="students_feature1">Personal progress</strong><span data-i18n="students_feature1_copy">See points, House standing and individual growth.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="students_feature2">Learner’s Journey</strong><span data-i18n="students_feature2_copy">Progress through character levels and collectible cards.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="students_feature3">Challenges + participation</strong><span data-i18n="students_feature3_copy">Missions, quizzes, polls, streaks and House Power Boosts.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="students_feature4">No student email required</strong><span data-i18n="students_feature4_copy">School-managed access designed for practical use.</span></div></div></div></article>
+<article class="aud-card student reveal"><div class="aud-icon"><i class="fa-solid fa-user-graduate"></i></div><h3 data-i18n="students_title">For students</h3><p data-i18n="students_intro">A Student Portal that turns House points into participation rather than just a score.</p><div class="feature-list"><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="students_feature1">Personal progress</strong><span data-i18n="students_feature1_copy">See points, House standing and individual growth.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="students_feature2">Learner’s Journey</strong><span data-i18n="students_feature2_copy">Progress through character levels and collectible cards.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="students_feature3">Challenges + participation</strong><span data-i18n="students_feature3_copy">Missions, quizzes, polls, streaks and House Power Boosts.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="store_student_feature">School Store rewards</strong><span data-i18n="store_student_feature_copy">Browse rewards and request them with earned Store Points.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="students_feature4">No student email required</strong><span data-i18n="students_feature4_copy">School-managed access designed for practical use.</span></div></div></div></article>
 <article class="aud-card leader reveal"><div class="aud-icon"><i class="fa-solid fa-school-flag"></i></div><h3 data-i18n="leaders_title">For school leaders</h3><p data-i18n="leaders_intro">Whole-school visibility without separate spreadsheets for recognition, behaviour and follow-up.</p><div class="feature-list"><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="leaders_feature1">Recognition + behaviour overview</strong><span data-i18n="leaders_feature1_copy">See incidents, positive recognition, reflections, parent contacts and outstanding actions together.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="leaders_feature2">Students needing attention</strong><span data-i18n="leaders_feature2_copy">Spot patterns and unresolved follow-up earlier.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="leaders_feature3">House + class standings</strong><span data-i18n="leaders_feature3_copy">Keep participation, competition and school culture visible.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="leaders_feature4">Reports, permissions + exports</strong><span data-i18n="leaders_feature4_copy">Maintain oversight and usable school records.</span></div></div></div></article>
 </div></div></section><section class="full-video-story" id="product-video">
 <div class="full-video-media old-product-video">
@@ -7281,14 +7304,45 @@ Teachers and students at Conway Christian School are using TrackEDU to recognise
 </div>
 </div>
 </div>
-</section><section class="section" id="pricing"><div class="shell"><div class="section-head center reveal"><span class="eyebrow"><i class="fa-solid fa-tag"></i> <span data-i18n="pricing_eyebrow">Transparent school pricing</span></span><h2 data-i18n="pricing_title">30 days free. Then one clear annual price.</h2><p class="lead" data-i18n="pricing_lead">Pilot TrackEDU in your own school with no credit card required. If it fits, continue on a school licence based on student enrolment.</p></div><div class="pricing-proof-row reveal"><span><i class="fa-solid fa-check"></i> <span data-i18n="proof_30">30 days free</span></span><span><i class="fa-solid fa-check"></i> <span data-i18n="proof_no_card">No credit card</span></span><span><i class="fa-solid fa-check"></i> <span data-i18n="pricing_full_system">Full system included</span></span><span><i class="fa-solid fa-check"></i> <span data-i18n="proof_setup">Setup support included</span></span></div><div class="pricing-grid"><div class="price-card reveal"><span class="eyebrow"><i class="fa-solid fa-calculator"></i> <span data-i18n="pricing_calculator">Calculate your school price</span></span><h3 data-i18n="pricing_trial_title">Start with the full system free for 30 days.</h3><p data-i18n="pricing_trial_copy">Set up your Houses, staff, classes and students, then decide after using TrackEDU in a real school context.</p><div class="calculator"><div class="calc-top"><div><label class="label" for="schoolStudentCount" data-i18n="pricing_student_question">How many students are in your school?</label><div class="input-wrap"><input class="field" id="schoolStudentCount" inputmode="numeric" max="10000" min="1" step="1" type="number" value="500"/><span class="suffix" data-i18n="pricing_students">students</span></div></div><div><label class="label" for="schoolPriceCurrency" data-i18n="pricing_currency">Currency</label><select class="select" id="schoolPriceCurrency"><option value="USD">USD</option><option value="GBP">GBP</option><option value="EUR">EUR</option></select></div></div><div class="price-box"><div class="price-title" data-i18n="pricing_annual_licence">Your annual school licence</div><div class="big-price" id="schoolLicencePrice">US$1,100 <span class="per">/ year</span></div><p class="small-note" id="schoolPriceEquivalent" style="display:none"></p><p class="small-note" data-i18n="pricing_charge_note">30-day pilot free. Charged annually only if your school chooses to continue.</p><p class="small-note" id="schoolPriceStatus"></p></div><div class="anchors"><div class="anchor"><b data-i18n="pricing_up_to_250">Up to 250</b><span id="priceAnchor250">from US$750</span></div><div class="anchor"><b data-i18n="pricing_500_students">500 students</b><span id="priceAnchor500">US$1,100</span></div><div class="anchor"><b data-i18n="pricing_1000_students">1,000 students</b><span id="priceAnchor1000">US$1,700</span></div><div class="anchor"><b data-i18n="pricing_3000_students">3,000 students</b><span id="priceAnchor3000">US$3,500</span></div></div><p class="small-note" data-i18n="pricing_exchange_note">GBP and EUR amounts are approximate conversions of the USD licence price using the latest available exchange rate.</p></div></div><div class="price-card reveal">
+</section><section class="section school-store-section" id="school-store">
+<div class="shell">
+<div class="section-head center reveal">
+<span class="eyebrow"><i class="fa-solid fa-gift"></i> <span data-i18n="store_eyebrow">NEW · School Store</span></span>
+<h2 data-i18n="store_title">Turn recognition into rewards.</h2>
+<p class="lead" data-i18n="store_lead">Give students more to work towards with a school-managed reward catalogue, separate Store Points and a clear approval process.</p>
+</div>
+<div class="store-showcase">
+<div class="store-showcase-copy reveal">
+<h3 data-i18n="store_subtitle">A reward shop your school controls.</h3>
+<p data-i18n="store_description">Schools choose the rewards, set their point prices and manage stock. Students browse what is available and request rewards when they have enough Store Points. Staff review requests before collection.</p>
+<div class="store-benefits">
+<div><i class="fa-solid fa-circle-check"></i><span data-i18n="store_benefit1">Manage rewards, prices and availability from the Teacher App.</span></div>
+<div><i class="fa-solid fa-circle-check"></i><span data-i18n="store_benefit2">Help students request rewards, with staff-assisted verification when needed.</span></div>
+<div><i class="fa-solid fa-circle-check"></i><span data-i18n="store_benefit3">Keep Store Points separate from House Points, so House standings do not change when rewards are redeemed.</span></div>
+</div>
+<div class="store-showcase-actions"><a class="btn btn-primary" href="#pricing"><span data-i18n="store_cta">Included in TrackEDU</span><i class="fa-solid fa-arrow-right"></i></a></div>
+</div>
+<div class="store-preview reveal" aria-label="Illustrative School Store reward catalogue">
+<div class="store-preview-header"><strong data-i18n="store_preview_title">Explore school rewards</strong><span data-i18n="store_preview_badge">Example catalogue</span></div>
+<div class="store-demo-grid">
+<div class="store-demo-card"><div class="store-demo-icon" aria-hidden="true">🏆</div><strong data-i18n="store_sample1">Special Prize</strong><small>100 pts</small></div>
+<div class="store-demo-card"><div class="store-demo-icon" aria-hidden="true">🔖</div><strong data-i18n="store_sample2">Bookmark</strong><small>20 pts</small></div>
+<div class="store-demo-card"><div class="store-demo-icon" aria-hidden="true">📏</div><strong data-i18n="store_sample3">Colourful Ruler</strong><small>25 pts</small></div>
+</div>
+<p class="store-preview-note" data-i18n="store_preview_note">Illustration only. Each school manages its own rewards, prices and stock.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="pricing"><div class="shell"><div class="section-head center reveal"><span class="eyebrow"><i class="fa-solid fa-tag"></i> <span data-i18n="pricing_eyebrow">Transparent school pricing</span></span><h2 data-i18n="pricing_title">30 days free. Then one clear annual price.</h2><p class="lead" data-i18n="pricing_lead">Pilot TrackEDU in your own school with no credit card required. If it fits, continue on a school licence based on student enrolment.</p></div><div class="pricing-proof-row reveal"><span><i class="fa-solid fa-check"></i> <span data-i18n="proof_30">30 days free</span></span><span><i class="fa-solid fa-check"></i> <span data-i18n="proof_no_card">No credit card</span></span><span><i class="fa-solid fa-check"></i> <span data-i18n="pricing_full_system">Full system included</span></span><span><i class="fa-solid fa-check"></i> <span data-i18n="proof_setup">Setup support included</span></span></div><div class="pricing-grid"><div class="price-card reveal"><span class="eyebrow"><i class="fa-solid fa-calculator"></i> <span data-i18n="pricing_calculator">Calculate your school price</span></span><h3 data-i18n="pricing_trial_title">Start with the full system free for 30 days.</h3><p data-i18n="pricing_trial_copy">Set up your Houses, staff, classes and students, then decide after using TrackEDU in a real school context.</p><div class="calculator"><div class="calc-top"><div><label class="label" for="schoolStudentCount" data-i18n="pricing_student_question">How many students are in your school?</label><div class="input-wrap"><input class="field" id="schoolStudentCount" inputmode="numeric" max="10000" min="1" step="1" type="number" value="500"/><span class="suffix" data-i18n="pricing_students">students</span></div></div><div><label class="label" for="schoolPriceCurrency" data-i18n="pricing_currency">Currency</label><select class="select" id="schoolPriceCurrency"><option value="USD">USD</option><option value="GBP">GBP</option><option value="EUR">EUR</option></select></div></div><div class="price-box"><div class="price-title" data-i18n="pricing_annual_licence">Your annual school licence</div><div class="big-price" id="schoolLicencePrice">US$1,100 <span class="per">/ year</span></div><p class="small-note" id="schoolPriceEquivalent" style="display:none"></p><p class="small-note" data-i18n="pricing_charge_note">30-day pilot free. Charged annually only if your school chooses to continue.</p><p class="small-note" id="schoolPriceStatus"></p></div><div class="anchors"><div class="anchor"><b data-i18n="pricing_up_to_250">Up to 250</b><span id="priceAnchor250">from US$750</span></div><div class="anchor"><b data-i18n="pricing_500_students">500 students</b><span id="priceAnchor500">US$1,100</span></div><div class="anchor"><b data-i18n="pricing_1000_students">1,000 students</b><span id="priceAnchor1000">US$1,700</span></div><div class="anchor"><b data-i18n="pricing_3000_students">3,000 students</b><span id="priceAnchor3000">US$3,500</span></div></div><p class="small-note" data-i18n="pricing_exchange_note">GBP and EUR amounts are approximate conversions of the USD licence price using the latest available exchange rate.</p></div></div><div class="price-card reveal">
 <span class="eyebrow">
 <i class="fa-solid fa-box"></i>
     <span data-i18n="pricing_included">Included</span>
   </span>
 <h3 data-i18n="pricing_complete_title">One licence. The complete TrackEDU system.</h3>
 <p data-i18n="pricing_complete_copy">No separate behaviour or student-engagement add-ons.</p>
-<div class="include-list"><div class="include"><i class="fa-solid fa-star"></i><div><b data-i18n="pricing_include1">House points + positive recognition</b><span data-i18n="pricing_include1_copy">Fast awarding, live standings and class/House visibility.</span></div></div><div class="include"><i class="fa-solid fa-clipboard-list"></i><div><b data-i18n="pricing_include2">Behaviour incidents + follow-up</b><span data-i18n="pricing_include2_copy">Incident records, reflections, parent contact and outstanding actions.</span></div></div><div class="include"><i class="fa-solid fa-user-graduate"></i><div><b data-i18n="pricing_include3">Teacher App + Student Portal</b><span data-i18n="pricing_include3_copy">Staff workflows and a student experience in the same school system.</span></div></div><div class="include"><i class="fa-solid fa-circle-nodes"></i><div><b data-i18n="pricing_include4">Dashboards, imports + support</b><span data-i18n="pricing_include4_copy">Leadership insight, Google Classroom/CSV tools, exports and House Leader training.</span></div></div></div>
+<div class="include-list"><div class="include"><i class="fa-solid fa-star"></i><div><b data-i18n="pricing_include1">House points + positive recognition</b><span data-i18n="pricing_include1_copy">Fast awarding, live standings and class/House visibility.</span></div></div><div class="include"><i class="fa-solid fa-clipboard-list"></i><div><b data-i18n="pricing_include2">Behaviour incidents + follow-up</b><span data-i18n="pricing_include2_copy">Incident records, reflections, parent contact and outstanding actions.</span></div></div><div class="include"><i class="fa-solid fa-user-graduate"></i><div><b data-i18n="pricing_include3">Teacher App + Student Portal</b><span data-i18n="pricing_include3_copy">Staff workflows and a student experience in the same school system.</span></div></div><div class="include"><i class="fa-solid fa-circle-nodes"></i><div><b data-i18n="pricing_include4">Dashboards, imports + support</b><span data-i18n="pricing_include4_copy">Leadership insight, Google Classroom/CSV tools, exports and House Leader training.</span></div></div><div class="include"><i class="fa-solid fa-gift"></i><div><b data-i18n="store_pricing">School Store + rewards</b><span data-i18n="store_pricing_copy">Custom reward catalogue, Store Points, stock and staff-managed requests.</span></div></div>
+</div>
 <div class="price-actions">
 <a class="btn btn-primary" data-pilot-trigger="true" href="#">
       <span data-i18n="pricing_start_pilot">Start free 30-day pilot</span>
@@ -7329,6 +7383,7 @@ Teachers and students at Conway Christian School are using TrackEDU to recognise
 <h5 data-i18n="footer_platform">Platform</h5>
 <a href="#what" data-i18n="footer_teacher_app">Teacher App</a>
 <a href="#what" data-i18n="footer_student_portal">Student Portal</a>
+<a href="#school-store" data-i18n="store_footer">School Store</a>
 <a href="#what" data-i18n="footer_behaviour">Behavior Tracker</a>
 <a href="#pricing" data-i18n="footer_plans">Plans</a>
 </div>
@@ -11798,7 +11853,7 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
 
     en: {
       page_title: 'School House Point Tracker & House Points System | TrackEDU',
-      meta_description: 'TrackEDU connects House points, recognition, Incidents & Support, live leaderboards and school reporting in one platform. Try our free 30-day school pilot.',
+      meta_description: 'TrackEDU connects House points, recognition, School Store rewards, Incidents & Support, live leaderboards and school reporting in one platform. Try our free 30-day school pilot.',
 
       nav_connects: 'How it connects',
       nav_school: 'What you get',
@@ -11939,6 +11994,27 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
       why_difference: 'The difference',
       why_conclusion_title: 'One school culture system instead of disconnected tools.',
       why_conclusion_copy: 'Teachers work in one place, students see one joined-up experience and leaders get one clearer view of recognition, behaviour and participation across the school.',
+
+      store_eyebrow: 'School Store',
+      store_title: 'Turn recognition into rewards.',
+      store_lead: 'Give students more to work towards with a school-managed reward catalogue, separate Store Points and a clear approval process.',
+      store_subtitle: 'A reward shop your school controls.',
+      store_description: 'Schools choose the rewards, set their point prices and manage stock. Students browse what is available and request rewards when they have enough Store Points. Staff review requests before collection.',
+      store_benefit1: 'Manage rewards, prices and availability from the Teacher App.',
+      store_benefit2: 'Help students request rewards, with staff-assisted verification when needed.',
+      store_benefit3: 'Keep Store Points separate from House Points, so House standings do not change when rewards are redeemed.',
+      store_cta: 'Included in TrackEDU',
+      store_preview_title: 'Explore school rewards',
+      store_preview_badge: 'Example catalogue',
+      store_sample1: 'Special Prize',
+      store_sample2: 'Bookmark',
+      store_sample3: 'Colourful Ruler',
+      store_preview_note: 'Illustration only. Each school manages its own rewards, prices and stock.',
+      store_student_feature: 'School Store rewards',
+      store_student_feature_copy: 'Browse rewards and request them with earned Store Points.',
+      store_pricing: 'School Store + rewards',
+      store_pricing_copy: 'Custom reward catalogue, Store Points, stock and staff-managed requests.',
+      store_footer: 'School Store',
 
       pricing_eyebrow: 'Transparent school pricing',
       pricing_title: '30 days free. Then one clear annual price.',
@@ -12270,6 +12346,27 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
       why_conclusion_title: 'Un único sistema de cultura escolar en lugar de herramientas desconectadas.',
       why_conclusion_copy: 'Los docentes trabajan en un solo lugar, los estudiantes disfrutan de una experiencia integrada y los líderes obtienen una visión más clara del reconocimiento, el comportamiento y la participación en todo el colegio.',
 
+      store_eyebrow: 'Tienda escolar',
+      store_title: 'Convierte el reconocimiento en recompensas.',
+      store_lead: 'Motiva al alumnado con un catálogo de recompensas gestionado por el colegio, puntos de tienda independientes y un proceso de aprobación claro.',
+      store_subtitle: 'Una tienda de recompensas bajo el control del colegio.',
+      store_description: 'El colegio elige las recompensas, fija sus precios en puntos y controla las existencias. Los estudiantes pueden explorar el catálogo y solicitar recompensas cuando tengan suficientes puntos de tienda. El personal revisa las solicitudes antes de la entrega.',
+      store_benefit1: 'Gestiona las recompensas, los precios y la disponibilidad desde la aplicación docente.',
+      store_benefit2: 'Ayuda a los estudiantes a solicitar recompensas mediante verificación del personal cuando sea necesario.',
+      store_benefit3: 'Los puntos de tienda son independientes de los puntos de House; canjear recompensas no modifica la clasificación.',
+      store_cta: 'Incluida en TrackEDU',
+      store_preview_title: 'Explora las recompensas',
+      store_preview_badge: 'Catálogo de ejemplo',
+      store_sample1: 'Premio especial',
+      store_sample2: 'Marcapáginas',
+      store_sample3: 'Regla de colores',
+      store_preview_note: 'Imagen ilustrativa. Cada colegio gestiona sus propias recompensas, precios y existencias.',
+      store_student_feature: 'Recompensas de la tienda escolar',
+      store_student_feature_copy: 'Explora recompensas y solicítalas con los puntos de tienda obtenidos.',
+      store_pricing: 'Tienda escolar y recompensas',
+      store_pricing_copy: 'Catálogo personalizable, puntos de tienda, existencias y solicitudes supervisadas por el personal.',
+      store_footer: 'Tienda escolar',
+
       pricing_eyebrow: 'Precios transparentes para colegios',
       pricing_title: '30 días gratis. Después, un único precio anual claro.',
       pricing_lead: 'Prueba TrackEDU en tu propio colegio durante 30 días sin necesidad de tarjeta de crédito. Si encaja, continúa con una licencia escolar basada en el número de estudiantes.',
@@ -12599,6 +12696,27 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
       why_difference: 'الفرق',
       why_conclusion_title: 'نظام واحد لثقافة المدرسة بدلاً من أدوات منفصلة.',
       why_conclusion_copy: 'يعمل المعلمون في مكان واحد، ويحصل الطلاب على تجربة مترابطة، بينما يحصل القادة على رؤية أوضح للتقدير والسلوك والمشاركة في جميع أنحاء المدرسة.',
+
+      store_eyebrow: 'متجر المدرسة',
+      store_title: 'حوّل التقدير إلى مكافآت.',
+      store_lead: 'حفّز الطلاب من خلال كتالوج مكافآت تديره المدرسة ونقاط متجر منفصلة وآلية واضحة للموافقة.',
+      store_subtitle: 'متجر مكافآت تتحكم فيه مدرستك.',
+      store_description: 'تختار المدرسة المكافآت وتحدد أسعارها بالنقاط وتدير المخزون. يستطيع الطلاب تصفح المكافآت وطلبها عندما تتوفر لديهم نقاط متجر كافية. ويراجع الموظفون الطلبات قبل التسليم.',
+      store_benefit1: 'إدارة المكافآت والأسعار والتوافر من تطبيق المعلم.',
+      store_benefit2: 'مساعدة الطلاب في طلب المكافآت مع التحقق بواسطة الموظفين عند الحاجة.',
+      store_benefit3: 'نقاط المتجر منفصلة عن نقاط الفرق المدرسية، لذا لا يتغير ترتيب الفرق عند استبدال المكافآت.',
+      store_cta: 'مشمول في TrackEDU',
+      store_preview_title: 'استكشف مكافآت المدرسة',
+      store_preview_badge: 'كتالوج توضيحي',
+      store_sample1: 'جائزة خاصة',
+      store_sample2: 'فاصل كتاب',
+      store_sample3: 'مسطرة ملونة',
+      store_preview_note: 'عرض توضيحي فقط. تدير كل مدرسة مكافآتها وأسعارها ومخزونها.',
+      store_student_feature: 'مكافآت متجر المدرسة',
+      store_student_feature_copy: 'تصفح المكافآت واطلبها باستخدام نقاط المتجر المكتسبة.',
+      store_pricing: 'متجر المدرسة والمكافآت',
+      store_pricing_copy: 'كتالوج مكافآت مخصص ونقاط متجر ومخزون وطلبات يشرف عليها الموظفون.',
+      store_footer: 'متجر المدرسة',
 
       pricing_eyebrow: 'أسعار واضحة للمدارس',
       pricing_title: '30 يوماً مجاناً. ثم سعر سنوي واضح.',
