@@ -1,6 +1,7 @@
 
 
 
+
 <!DOCTYPE html>
 
 <html lang="en-GB">
@@ -6621,6 +6622,76 @@ maxresdefault is what produced the grey placeholder.
 .store-showcase-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
 @media(max-width:900px){.store-showcase{grid-template-columns:1fr;gap:18px}}
 @media(max-width:520px){.store-preview{padding:13px;border-radius:19px}.store-demo-grid{gap:6px}.store-demo-card{padding:8px;border-radius:12px}.store-demo-icon{height:52px;font-size:26px}.store-demo-card strong{font-size:10px}.store-demo-card small{font-size:10px}.store-showcase-copy p{font-size:13px}.store-showcase-actions .btn{width:100%}}
+
+/* === TRACKEDU PILOT JOURNEY: CLEAR FIRST-VISIT EXPERIENCE === */
+/* The hero's moving YouTube wallpaper was decorative; product UI and school video remain. */
+.hero-video-enabled .hero-video-bg{
+  background:radial-gradient(circle at 77% 35%,#184972 0%,#0b2847 42%,#06172d 100%);
+}
+.hero-video-enabled .hero-video-overlay{
+  background:linear-gradient(90deg,rgba(3,14,29,.48),rgba(4,19,38,.12) 70%,rgba(5,22,42,.04))!important;
+}
+.hero-video-enabled .hero-copy h1{max-width:760px;line-height:1.07!important}
+.pilot-how-link{
+  display:inline-flex;align-items:center;gap:8px;margin-top:14px;
+  border:0;background:transparent;color:#dceafb;text-decoration:underline;
+  text-underline-offset:4px;font-size:12px;font-weight:700;cursor:pointer;padding:4px 0;
+}
+.pilot-how-link:hover,.pilot-how-link:focus-visible{color:#b8e978}
+/* Clear outcome-first overview, with role-by-role detail available on request. */
+.outcomes-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:32px 0 0}
+.outcome-tile{
+  display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:21px 19px;
+  background:#fff;border:1px solid #d9e6ef;border-radius:23px;
+  box-shadow:0 10px 26px rgba(11,35,65,.055);min-height:225px;
+  transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease;
+}
+.outcome-tile:hover,.outcome-tile:focus-visible{
+  border-color:#9ec9e2;transform:translateY(-3px);box-shadow:0 17px 34px rgba(11,35,65,.1)
+}
+.outcome-tile>i{width:45px;height:45px;border-radius:14px;display:grid;place-items:center;background:#eaf6ff;color:#1d78c5;font-size:19px}
+.outcome-tile:nth-child(2)>i{background:#fff0ed;color:#cc6255}
+.outcome-tile:nth-child(3)>i{background:#f0edff;color:#7262d8}
+.outcome-tile:nth-child(4)>i{background:#eef9df;color:#629d28}
+.outcome-tile strong{font:700 22px/1.08 Fredoka,system-ui,sans-serif;color:#0b2341}
+.outcome-tile>span{font-size:13px;line-height:1.55;color:#65798c;flex:1}
+.outcome-tile small{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:900;color:#176fca}
+.pilot-path{margin:30px 0 0;padding:28px;border:1px solid #d8e8d0;border-radius:26px;background:linear-gradient(120deg,#f5fbed,#f3f9ff);}
+.pilot-path-head{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:center}
+.pilot-path-eyebrow{font-size:10px;color:#548129;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.pilot-path h3{font:700 clamp(25px,2.7vw,34px)/1.08 Fredoka,system-ui,sans-serif;color:#0b2341;margin:7px 0 0}
+.pilot-path-head p{margin:0;color:#526b80;font-size:14px;line-height:1.55}
+.pilot-path-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:22px}
+.pilot-path-steps>div{display:grid;grid-template-columns:33px 1fr;gap:5px 10px;align-content:start;padding:16px;background:#fff;border:1px solid #dce8f2;border-radius:17px}
+.pilot-path-steps b{display:grid;place-items:center;grid-row:1/3;width:32px;height:32px;border-radius:10px;background:#0b2341;color:#fff;font-size:12px}
+.pilot-path-steps strong{color:#0b2341;font-size:13px;line-height:1.3}
+.pilot-path-steps span{color:#60758a;font-size:11px;line-height:1.45}
+.pilot-path-bottom{display:flex;align-items:center;justify-content:space-between;gap:13px;flex-wrap:wrap;margin-top:17px}
+.pilot-path-bottom>span{display:inline-flex;align-items:center;gap:8px;color:#5d7488;font-size:11px}
+.pilot-path-bottom>span i{color:#679d2f}
+.outcomes-role-details{margin:20px 0 0;border:1px solid #dce8f2;border-radius:18px;background:#fff;overflow:hidden}
+.outcomes-role-details>summary{display:flex;align-items:center;gap:10px;padding:17px 21px;cursor:pointer;font-weight:850;color:#194468;font-size:13px;list-style:none}
+.outcomes-role-details>summary::-webkit-details-marker{display:none}
+.outcomes-role-details>summary>.outcomes-role-chevron{margin-left:auto;font-size:10px;transition:transform .2s ease}
+.outcomes-role-details[open]>summary>.outcomes-role-chevron{transform:rotate(180deg)}
+.outcomes-role-details .audience-grid{margin:0;padding:0 18px 18px}
+@media(max-width:1080px){.outcomes-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.pilot-path-head{grid-template-columns:1fr}}
+@media(max-width:680px){
+  .hero-video-enabled .hero-video-overlay{background:linear-gradient(180deg,rgba(3,14,29,.5),rgba(3,14,29,.28))!important}
+  .outcomes-grid{grid-template-columns:1fr;gap:10px;margin-top:21px}
+  .outcome-tile{min-height:0;padding:17px;gap:8px}
+  .outcome-tile strong{font-size:20px}
+  .outcome-tile>span{font-size:12px}
+  .pilot-path{padding:19px 15px;border-radius:20px;margin-top:22px}
+  .pilot-path-steps{grid-template-columns:1fr;gap:9px}
+  .pilot-path-head p{font-size:12px}
+  .pilot-path-bottom .btn{width:100%}
+  .outcomes-role-details .audience-grid{padding:0 10px 14px}
+  .outcomes-role-details>summary{padding:14px 12px;font-size:12px}
+}
+html[dir="rtl"] .pilot-path-steps>div{grid-template-columns:33px minmax(0,1fr)}
+html[dir="rtl"] .outcomes-role-details>summary>.outcomes-role-chevron{margin-left:0;margin-right:auto}
+
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
@@ -6675,7 +6746,7 @@ maxresdefault is what produced the grey placeholder.
 <a class="btn btn-secondary" data-demo-trigger="true" href="#">
 <i class="fa-regular fa-calendar"></i> <span data-i18n="cta_book_demo">Book demo</span>
       </a>
-<a class="btn btn-primary" data-pilot-trigger="true" href="#">
+<a class="btn btn-primary" href="https://housepoint.trackedu.net/">
         <span data-i18n="cta_start_pilot">Start free pilot</span> <i class="fa-solid fa-arrow-right"></i>
 </a>
 </div>
@@ -6736,7 +6807,7 @@ maxresdefault is what produced the grey placeholder.
 </div>
 
 <div class="mobile-drawer-actions">
-<a class="btn btn-primary" data-pilot-trigger="true" href="#">
+<a class="btn btn-primary" href="https://housepoint.trackedu.net/">
       <span data-i18n="cta_start_pilot">Start free pilot</span>
       <i class="fa-solid fa-arrow-right"></i>
 </a>
@@ -6750,12 +6821,9 @@ maxresdefault is what produced the grey placeholder.
 </aside>
 <header class="hero-video-enabled hero">
 <div aria-hidden="true" class="hero-video-bg">
-<div class="youtube-cover">
-<iframe allow="autoplay; encrypted-media" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/5ZtD6QWo_Kg?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=5ZtD6QWo_Kg&amp;controls=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1&amp;disablekb=1" tabindex="-1" title=""></iframe>
-</div>
 <div class="hero-video-overlay"></div>
 </div>
-<div class="shell hero-grid"><div class="hero-copy reveal show"><span class="eyebrow"><i class="fa-solid fa-school"></i> <span data-i18n="hero_eyebrow">School culture platform</span></span><h1 data-i18n-html="hero_title"><span class="blue">House points.</span> Recognition. Behaviour. <span class="green">One connected system.</span></h1><p class="lead" data-i18n="hero_lead">TrackEDU is a school house point tracker and house points reward system connecting recognition, behaviour and follow-up. Award points quickly and see school-wide progress.</p><div class="hero-google-callout">
+<div class="shell hero-grid"><div class="hero-copy reveal show"><span class="eyebrow"><i class="fa-solid fa-school"></i> <span data-i18n="hero_eyebrow">School culture platform</span></span><h1 data-i18n-html="hero_title">One platform. <span class="green">A more connected school.</span></h1><p class="lead" data-i18n="hero_lead">Recognise students, support behaviour and bring House Points, rewards and school reporting together in one place.</p><div class="hero-google-callout">
 <div class="google-mark"><i class="fab fa-google"></i></div>
 <div class="google-copy">
 <div class="google-topline"><span data-i18n="google_new">NEW</span><strong data-i18n="google_integration">Google Classroom integration</strong></div>
@@ -6763,7 +6831,7 @@ maxresdefault is what produced the grey placeholder.
 </div>
 <i class="fa-solid fa-circle-check google-check"></i>
 </div>
-<div class="hero-actions"><a class="btn btn-primary" data-pilot-trigger="true" href="#"><span data-i18n="hero_pilot">Start your free 30-day pilot</span> <i class="fa-solid fa-arrow-right"></i></a><a class="btn btn-secondary hero-secondary" href="#behaviour"><i class="fa-solid fa-link"></i> <span data-i18n="hero_connects">See how it connects</span></a></div>
+<div class="hero-actions"><a class="btn btn-primary" href="https://housepoint.trackedu.net/"><span data-i18n="hero_pilot">Start your free 30-day pilot</span> <i class="fa-solid fa-arrow-right"></i></a><a class="btn btn-secondary hero-secondary" href="#what"><i class="fa-solid fa-compass"></i> <span data-i18n="hero_connects">Explore the platform</span></a></div>
 <div class="hero-proof">
 <span class="proof-pill">
 <i class="fa-solid fa-check"></i>
@@ -6778,6 +6846,7 @@ maxresdefault is what produced the grey placeholder.
     <span data-i18n="proof_setup">Setup support included</span>
   </span>
 </div>
+<button class="pilot-how-link" type="button" data-pilot-trigger="true"><i class="fa-solid fa-circle-info"></i> <span data-i18n="pilot_how_link">How does the free pilot work?</span></button>
 </div>
 <div class="hero-ecosystem reveal show"><div class="orbit"></div><div class="product-window teacher-window" id="heroTeacherDemo">
 <div class="window-top">
@@ -7015,28 +7084,7 @@ maxresdefault is what produced the grey placeholder.
 <i class="fa-solid fa-arrow-right hero-real-school-arrow"></i>
 </button>
 </div>
-</header><section class="hero-trust-strip" id="trust">
-<div class="shell">
-<div class="hero-trust-strip-grid reveal">
-<article class="hero-trust-strip-item">
-<div class="hero-trust-strip-icon uk"><i class="fa-solid fa-building-shield"></i></div>
-<div><strong data-i18n="trust_uk">UK Registered</strong><span data-i18n="trust_company">Company #17216557</span></div>
-</article>
-<article class="hero-trust-strip-item">
-<div class="hero-trust-strip-icon blue"><i class="fa-solid fa-shield-halved"></i></div>
-<div><strong data-i18n="trust_ico">ICO Registered</strong><span>ZC146923</span></div>
-</article>
-<article class="hero-trust-strip-item">
-<div class="hero-trust-strip-icon green"><i class="fa-solid fa-lock"></i></div>
-<div><strong data-i18n="trust_no_email">No student email required</strong><span data-i18n="trust_school_access">School-managed access</span></div>
-</article>
-<article class="hero-trust-strip-item">
-<div class="hero-trust-strip-icon gold"><i class="fa-solid fa-ban"></i></div>
-<div><strong data-i18n="trust_no_ads">No Ads. Ever.</strong><span data-i18n="trust_no_ads_copy">No ad-supported student experience</span></div>
-</article>
-</div>
-</div>
-</section><section class="partner-proof" id="school-partners">
+</header><section class="partner-proof" id="school-partners">
 <div class="shell">
 <div class="partner-proof-head reveal">
 <div class="partner-proof-kicker">
@@ -7060,7 +7108,7 @@ maxresdefault is what produced the grey placeholder.
 <strong>Conway Christian School</strong>
 <span><i class="fa-solid fa-location-dot"></i> <span data-i18n="partner_country">United States</span></span>
 </div>
-<h2 data-i18n="partner_title">See TrackEDU House Points being used by a real school.</h2>
+<h2 data-i18n="partner_title">See TrackEDU in action at Conway Christian School.</h2>
 <p data-i18n="partner_copy">
 Teachers and students at Conway Christian School are using TrackEDU to recognise achievement, build House spirit and encourage participation.
 </p>
@@ -7074,7 +7122,7 @@ Teachers and students at Conway Christian School are using TrackEDU to recognise
 <i class="fa-solid fa-play"></i>
 <span data-i18n="partner_watch">Watch the 1:16 video</span>
 </button>
-<a class="partner-pilot-link" data-pilot-trigger="true" href="#">
+<a class="partner-pilot-link" href="https://housepoint.trackedu.net/">
 <span data-i18n="partner_pilot">Start free for 30 days</span>
 <i class="fa-solid fa-arrow-right"></i>
 </a>
@@ -7098,7 +7146,52 @@ Teachers and students at Conway Christian School are using TrackEDU to recognise
 </button>
 </article>
 </div>
-</section><section class="section behaviour-connect behaviour-product" id="behaviour">
+</section><section class="hero-trust-strip" id="trust">
+<div class="shell">
+<div class="hero-trust-strip-grid reveal">
+<article class="hero-trust-strip-item">
+<div class="hero-trust-strip-icon uk"><i class="fa-solid fa-building-shield"></i></div>
+<div><strong data-i18n="trust_uk">UK Registered</strong><span data-i18n="trust_company">Company #17216557</span></div>
+</article>
+<article class="hero-trust-strip-item">
+<div class="hero-trust-strip-icon blue"><i class="fa-solid fa-shield-halved"></i></div>
+<div><strong data-i18n="trust_ico">ICO Registered</strong><span>ZC146923</span></div>
+</article>
+<article class="hero-trust-strip-item">
+<div class="hero-trust-strip-icon green"><i class="fa-solid fa-lock"></i></div>
+<div><strong data-i18n="trust_no_email">No student email required</strong><span data-i18n="trust_school_access">School-managed access</span></div>
+</article>
+<article class="hero-trust-strip-item">
+<div class="hero-trust-strip-icon gold"><i class="fa-solid fa-ban"></i></div>
+<div><strong data-i18n="trust_no_ads">No Ads. Ever.</strong><span data-i18n="trust_no_ads_copy">No ad-supported student experience</span></div>
+</article>
+</div>
+</div>
+</section><section class="section soft" id="what"><div class="shell"><div class="section-head center reveal"><span class="eyebrow"><i class="fa-solid fa-box-open"></i> <span data-i18n="what_eyebrow">One platform, everyday school needs</span></span><h2 data-i18n="what_title">Help your school thrive, without juggling separate tools.</h2><p class="lead" data-i18n="what_lead">Choose where to begin. Recognise progress, support students, simplify school routines and see the bigger picture.</p></div>
+<div class="outcomes-grid reveal">
+<a class="outcome-tile" href="#school-store"><i class="fa-solid fa-award"></i><strong data-i18n="outcome1_title">Celebrate achievement</strong><span data-i18n="outcome1_copy">Recognition, House Points, rewards and student progress.</span><small><span data-i18n="outcomes_explore">See how it works</span> <i class="fa-solid fa-arrow-right"></i></small></a>
+<a class="outcome-tile" href="#behaviour"><i class="fa-solid fa-hand-holding-heart"></i><strong data-i18n="outcome2_title">Support students</strong><span data-i18n="outcome2_copy">Behaviour records, incidents and clear follow-up.</span><small><span data-i18n="outcomes_explore">See how it works</span> <i class="fa-solid fa-arrow-right"></i></small></a>
+<a class="outcome-tile" href="#culture"><i class="fa-solid fa-chalkboard-user"></i><strong data-i18n="outcome3_title">Help teachers</strong><span data-i18n="outcome3_copy">Class workflows, practical classroom tools and school activities.</span><small><span data-i18n="outcomes_explore">See how it works</span> <i class="fa-solid fa-arrow-right"></i></small></a>
+<a class="outcome-tile" href="#why"><i class="fa-solid fa-chart-line"></i><strong data-i18n="outcome4_title">Understand your school</strong><span data-i18n="outcome4_copy">Dashboards and reports that help leaders see patterns.</span><small><span data-i18n="outcomes_explore">See how it works</span> <i class="fa-solid fa-arrow-right"></i></small></a>
+</div>
+<div class="pilot-path reveal" id="getting-started">
+<div class="pilot-path-head"><div><span class="pilot-path-eyebrow" data-i18n="pilot_path_label">A simple way to begin</span><h3 data-i18n="pilot_path_title">Try TrackEDU with your own school, at your pace.</h3></div><p data-i18n="pilot_path_intro">Your 30-day pilot includes the complete platform. No credit card, no automatic charge and no need to activate everything at once.</p></div>
+<div class="pilot-path-steps">
+<div><b>1</b><strong data-i18n="pilot_path_s1_title">Create your school</strong><span data-i18n="pilot_path_s1_copy">Choose Create School inside the Teacher App.</span></div>
+<div><b>2</b><strong data-i18n="pilot_path_s2_title">Bring in your students</strong><span data-i18n="pilot_path_s2_copy">Import from Google Classroom or CSV, or add students manually.</span></div>
+<div><b>3</b><strong data-i18n="pilot_path_s3_title">Explore what matters</strong><span data-i18n="pilot_path_s3_copy">Start with recognition, rewards, behaviour or reporting. Add more later.</span></div>
+</div>
+<div class="pilot-path-bottom"><span><i class="fa-solid fa-plug"></i> <span data-i18n="pilot_path_wonde">Wonde MIS/SIS integration: in development</span></span><a class="btn btn-primary" href="https://housepoint.trackedu.net/"><span data-i18n="pilot_path_cta">Start your free pilot</span><i class="fa-solid fa-arrow-right"></i></a></div>
+</div>
+<details class="outcomes-role-details">
+<summary><i class="fa-solid fa-users"></i> <span data-i18n="outcomes_roles_toggle">Explore the tools for teachers, students and school leaders</span><i class="fa-solid fa-chevron-down outcomes-role-chevron"></i></summary>
+<div class="audience-grid">
+<article class="aud-card teacher reveal"><div class="aud-icon"><i class="fa-solid fa-chalkboard-user"></i></div><h3 data-i18n="teachers_title">For teachers</h3><p data-i18n="teachers_intro">Fast tools for the moments that happen during a normal school day.</p><div class="feature-list"><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="teachers_feature1">Recognise quickly</strong><span data-i18n="teachers_feature1_copy">Award positive recognition and House points to individuals, groups, classes or Houses.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="teachers_feature2">Record incidents + follow-up</strong><span data-i18n="teachers_feature2_copy">Log behaviour, reflections, parent contact and outstanding actions in the same workflow.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="teachers_feature3">Manage classes and students</strong><span data-i18n="teachers_feature3_copy">Import, organise and work with school rosters without rebuilding them manually.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="teachers_feature4">Built-in classroom tools</strong><span data-i18n="teachers_feature4_copy">Timers, groups, roles, random pickers, quizzes, games and more.</span></div></div></div></article>
+<article class="aud-card student reveal"><div class="aud-icon"><i class="fa-solid fa-user-graduate"></i></div><h3 data-i18n="students_title">For students</h3><p data-i18n="students_intro">A Student Portal that turns House points into participation rather than just a score.</p><div class="feature-list"><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="students_feature1">Personal progress</strong><span data-i18n="students_feature1_copy">See points, House standing and individual growth.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="students_feature2">Learner’s Journey</strong><span data-i18n="students_feature2_copy">Progress through character levels and collectible cards.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="students_feature3">Challenges + participation</strong><span data-i18n="students_feature3_copy">Missions, quizzes, polls, streaks and House Power Boosts.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="store_student_feature">School Store rewards</strong><span data-i18n="store_student_feature_copy">Browse rewards and request them with earned Store Points.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="students_feature4">No student email required</strong><span data-i18n="students_feature4_copy">School-managed access designed for practical use.</span></div></div></div></article>
+<article class="aud-card leader reveal"><div class="aud-icon"><i class="fa-solid fa-school-flag"></i></div><h3 data-i18n="leaders_title">For school leaders</h3><p data-i18n="leaders_intro">Whole-school visibility without separate spreadsheets for recognition, behaviour and follow-up.</p><div class="feature-list"><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="leaders_feature1">Recognition + behaviour overview</strong><span data-i18n="leaders_feature1_copy">See incidents, positive recognition, reflections, parent contacts and outstanding actions together.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="leaders_feature2">Students needing attention</strong><span data-i18n="leaders_feature2_copy">Spot patterns and unresolved follow-up earlier.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="leaders_feature3">House + class standings</strong><span data-i18n="leaders_feature3_copy">Keep participation, competition and school culture visible.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="leaders_feature4">Reports, permissions + exports</strong><span data-i18n="leaders_feature4_copy">Maintain oversight and usable school records.</span></div></div></div></article>
+</div>
+</details>
+</div></section><section class="section behaviour-connect behaviour-product" id="behaviour">
 <div class="shell">
 <div class="section-head center reveal">
 <span class="eyebrow"><i class="fa-solid fa-link"></i> <span data-i18n="behaviour_eyebrow">Connected recognition + behaviour</span></span>
@@ -7228,11 +7321,7 @@ Teachers and students at Conway Christian School are using TrackEDU to recognise
 <div><i class="fa-solid fa-chart-line"></i><strong>One leadership view</strong><span>Move from an individual student to school-wide patterns and outstanding actions.</span></div>
 </div>
 </div>
-</section><section class="section soft" id="what"><div class="shell"><div class="section-head center reveal"><span class="eyebrow"><i class="fa-solid fa-box-open"></i> <span data-i18n="what_eyebrow">What your school actually gets</span></span><h2 data-i18n="what_title">Built for teachers, students and school leaders.</h2><p class="lead" data-i18n="what_lead">The same system supports the everyday teacher workflow, the student experience and the leadership view.</p></div><div class="audience-grid">
-<article class="aud-card teacher reveal"><div class="aud-icon"><i class="fa-solid fa-chalkboard-user"></i></div><h3 data-i18n="teachers_title">For teachers</h3><p data-i18n="teachers_intro">Fast tools for the moments that happen during a normal school day.</p><div class="feature-list"><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="teachers_feature1">Recognise quickly</strong><span data-i18n="teachers_feature1_copy">Award positive recognition and House points to individuals, groups, classes or Houses.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="teachers_feature2">Record incidents + follow-up</strong><span data-i18n="teachers_feature2_copy">Log behaviour, reflections, parent contact and outstanding actions in the same workflow.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="teachers_feature3">Manage classes and students</strong><span data-i18n="teachers_feature3_copy">Import, organise and work with school rosters without rebuilding them manually.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="teachers_feature4">Built-in classroom tools</strong><span data-i18n="teachers_feature4_copy">Timers, groups, roles, random pickers, quizzes, games and more.</span></div></div></div></article>
-<article class="aud-card student reveal"><div class="aud-icon"><i class="fa-solid fa-user-graduate"></i></div><h3 data-i18n="students_title">For students</h3><p data-i18n="students_intro">A Student Portal that turns House points into participation rather than just a score.</p><div class="feature-list"><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="students_feature1">Personal progress</strong><span data-i18n="students_feature1_copy">See points, House standing and individual growth.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="students_feature2">Learner’s Journey</strong><span data-i18n="students_feature2_copy">Progress through character levels and collectible cards.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="students_feature3">Challenges + participation</strong><span data-i18n="students_feature3_copy">Missions, quizzes, polls, streaks and House Power Boosts.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="store_student_feature">School Store rewards</strong><span data-i18n="store_student_feature_copy">Browse rewards and request them with earned Store Points.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="students_feature4">No student email required</strong><span data-i18n="students_feature4_copy">School-managed access designed for practical use.</span></div></div></div></article>
-<article class="aud-card leader reveal"><div class="aud-icon"><i class="fa-solid fa-school-flag"></i></div><h3 data-i18n="leaders_title">For school leaders</h3><p data-i18n="leaders_intro">Whole-school visibility without separate spreadsheets for recognition, behaviour and follow-up.</p><div class="feature-list"><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="leaders_feature1">Recognition + behaviour overview</strong><span data-i18n="leaders_feature1_copy">See incidents, positive recognition, reflections, parent contacts and outstanding actions together.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="leaders_feature2">Students needing attention</strong><span data-i18n="leaders_feature2_copy">Spot patterns and unresolved follow-up earlier.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="leaders_feature3">House + class standings</strong><span data-i18n="leaders_feature3_copy">Keep participation, competition and school culture visible.</span></div></div><div class="feature-row"><i class="fa-solid fa-check"></i><div><strong data-i18n="leaders_feature4">Reports, permissions + exports</strong><span data-i18n="leaders_feature4_copy">Maintain oversight and usable school records.</span></div></div></div></article>
-</div></div></section><section class="full-video-story" id="product-video">
+</section><section class="full-video-story" id="product-video">
 <div class="full-video-media old-product-video">
 <iframe allow="autoplay; encrypted-media; picture-in-picture" loading="lazy" src="https://www.youtube.com/embed/rDBz3GPZSFE?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=rDBz3GPZSFE&amp;controls=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1" title="TrackEDU Student Portal in action"></iframe>
 <div class="full-video-shade"></div>
@@ -7344,7 +7433,7 @@ Teachers and students at Conway Christian School are using TrackEDU to recognise
 <div class="include-list"><div class="include"><i class="fa-solid fa-star"></i><div><b data-i18n="pricing_include1">House points + positive recognition</b><span data-i18n="pricing_include1_copy">Fast awarding, live standings and class/House visibility.</span></div></div><div class="include"><i class="fa-solid fa-clipboard-list"></i><div><b data-i18n="pricing_include2">Behaviour incidents + follow-up</b><span data-i18n="pricing_include2_copy">Incident records, reflections, parent contact and outstanding actions.</span></div></div><div class="include"><i class="fa-solid fa-user-graduate"></i><div><b data-i18n="pricing_include3">Teacher App + Student Portal</b><span data-i18n="pricing_include3_copy">Staff workflows and a student experience in the same school system.</span></div></div><div class="include"><i class="fa-solid fa-circle-nodes"></i><div><b data-i18n="pricing_include4">Dashboards, imports + support</b><span data-i18n="pricing_include4_copy">Leadership insight, Google Classroom/CSV tools, exports and House Leader training.</span></div></div><div class="include"><i class="fa-solid fa-gift"></i><div><b data-i18n="store_pricing">School Store + rewards</b><span data-i18n="store_pricing_copy">Custom reward catalogue, Store Points, stock and staff-managed requests.</span></div></div>
 </div>
 <div class="price-actions">
-<a class="btn btn-primary" data-pilot-trigger="true" href="#">
+<a class="btn btn-primary" href="https://housepoint.trackedu.net/">
       <span data-i18n="pricing_start_pilot">Start free 30-day pilot</span>
       <i class="fa-solid fa-arrow-right"></i>
 </a>
@@ -7363,7 +7452,7 @@ Teachers and students at Conway Christian School are using TrackEDU to recognise
 <i class="fa-solid fa-file-pdf"></i>
     <span data-i18n="pricing_overview">View School Overview</span>
   </a>
-</div></div></div></section><section class="section soft" id="faq"><div class="shell"><div class="section-head center reveal"><span class="eyebrow"><i class="fa-solid fa-circle-question"></i> <span data-i18n="nav_faq">FAQ</span></span><h2 data-i18n="faq_title">What schools usually want to know.</h2></div><div class="faq reveal"><details open=""><summary data-i18n="faq_q1">Is TrackEDU just a digital House points system?</summary><p data-i18n="faq_a1">No. House points are the culture and recognition layer, but TrackEDU also connects positive recognition, behaviour incidents, follow-up actions, student records, school dashboards, the Student Portal, challenges, reporting and implementation support.</p></details><details><summary data-i18n="faq_q2">Do students need school email accounts?</summary><p data-i18n="faq_a2">No. The Student Portal is designed to work without requiring student email accounts.</p></details><details><summary data-i18n="faq_q3">Can we bring in our existing classes?</summary><p data-i18n="faq_a3">Yes. TrackEDU supports CSV import and includes a Google Classroom connection workflow so schools can review and import existing class rosters.</p></details><details><summary data-i18n="faq_q4">Can we use our own House names, colours and identity?</summary><p data-i18n="faq_a4">Yes. TrackEDU supports school branding and House identity, including school and House visual settings, names, colours and related information.</p></details><details><summary data-i18n="faq_q5">Is TrackEDU a house points app for schools or just a tracker?</summary><p data-i18n="faq_a5">TrackEDU is a house points app for schools with live standings, positive recognition, behaviour incidents, follow-up, student engagement and leadership dashboards sharing the same school data.</p></details><details><summary data-i18n="faq_q6">Can schools try this online house points tracker free for 30 days?</summary><p data-i18n="faq_a6">Yes. TrackEDU offers a free 30-day school pilot with no credit card required. After the pilot, annual licence pricing starts from US$750 and scales with student enrolment. Use the calculator above to estimate your school’s price.</p></details></div><button aria-expanded="false" class="mobile-section-toggle" id="mobileFaqToggle" type="button"><span data-i18n="faq_show_all">Show all FAQs</span> <i class="fa-solid fa-chevron-down"></i></button></div></section><section class="final"><div class="shell"><div class="final-card reveal"><h2 data-i18n-html="final_title">See whether TrackEDU fits your school. <span>Try it for 30 days.</span></h2><p data-i18n="final_copy">Set up your Houses, staff and students, use the full system in your own school context, and decide after the pilot whether it is worth continuing.</p><div class="final-actions"><a class="btn btn-primary" data-pilot-trigger="true" href="#"><span data-i18n="pricing_start_pilot">Start free 30-day pilot</span> <i class="fa-solid fa-arrow-right"></i></a><a class="btn btn-secondary" href="https://cal.com/trackedu-a9dbpy/30min" rel="noopener" target="_blank"><i class="fa-regular fa-calendar"></i> <span data-i18n="pricing_demo">Book a demo</span></a></div></div></div></section>
+</div></div></div></section><section class="section soft" id="faq"><div class="shell"><div class="section-head center reveal"><span class="eyebrow"><i class="fa-solid fa-circle-question"></i> <span data-i18n="nav_faq">FAQ</span></span><h2 data-i18n="faq_title">What schools usually want to know.</h2></div><div class="faq reveal"><details open=""><summary data-i18n="faq_q1">Is TrackEDU just a digital House points system?</summary><p data-i18n="faq_a1">No. House points are the culture and recognition layer, but TrackEDU also connects positive recognition, behaviour incidents, follow-up actions, student records, school dashboards, the Student Portal, challenges, reporting and implementation support.</p></details><details><summary data-i18n="faq_q2">Do students need school email accounts?</summary><p data-i18n="faq_a2">No. The Student Portal is designed to work without requiring student email accounts.</p></details><details><summary data-i18n="faq_q3">Can we bring in our existing classes?</summary><p data-i18n="faq_a3">Yes. TrackEDU supports CSV import and includes a Google Classroom connection workflow so schools can review and import existing class rosters.</p></details><details><summary data-i18n="faq_q4">Can we use our own House names, colours and identity?</summary><p data-i18n="faq_a4">Yes. TrackEDU supports school branding and House identity, including school and House visual settings, names, colours and related information.</p></details><details><summary data-i18n="faq_q5">Is TrackEDU a house points app for schools or just a tracker?</summary><p data-i18n="faq_a5">TrackEDU is a house points app for schools with live standings, positive recognition, behaviour incidents, follow-up, student engagement and leadership dashboards sharing the same school data.</p></details><details><summary data-i18n="faq_q6">Can schools try this online house points tracker free for 30 days?</summary><p data-i18n="faq_a6">Yes. TrackEDU offers a free 30-day school pilot with no credit card required. After the pilot, annual licence pricing starts from US$750 and scales with student enrolment. Use the calculator above to estimate your school’s price.</p></details></div><button aria-expanded="false" class="mobile-section-toggle" id="mobileFaqToggle" type="button"><span data-i18n="faq_show_all">Show all FAQs</span> <i class="fa-solid fa-chevron-down"></i></button></div></section><section class="final"><div class="shell"><div class="final-card reveal"><h2 data-i18n-html="final_title">See whether TrackEDU fits your school. <span>Try it for 30 days.</span></h2><p data-i18n="final_copy">Set up your Houses, staff and students, use the full system in your own school context, and decide after the pilot whether it is worth continuing.</p><div class="final-actions"><a class="btn btn-primary" href="https://housepoint.trackedu.net/"><span data-i18n="pricing_start_pilot">Start free 30-day pilot</span> <i class="fa-solid fa-arrow-right"></i></a><a class="btn btn-secondary" href="https://cal.com/trackedu-a9dbpy/30min" rel="noopener" target="_blank"><i class="fa-regular fa-calendar"></i> <span data-i18n="pricing_demo">Book a demo</span></a></div></div></div></section>
 <footer class="site-footer">
 <div class="shell footer-main">
 <div class="footer-brand-col">
@@ -7434,10 +7523,19 @@ Teachers and students at Conway Christian School are using TrackEDU to recognise
 <span>ICO registered · Ref: ZC146923</span>
 </div>
 </footer>
-<div class="mobilebar"><a class="btn btn-secondary" data-demo-trigger="true" href="#"><span data-i18n="cta_book_demo">Book demo</span></a><a class="btn btn-primary" data-pilot-trigger="true" href="#"><span data-i18n="cta_start_pilot">Start free pilot</span></a></div>
+<div class="mobilebar"><a class="btn btn-secondary" data-demo-trigger="true" href="#"><span data-i18n="cta_book_demo">Book demo</span></a><a class="btn btn-primary" href="https://housepoint.trackedu.net/"><span data-i18n="cta_start_pilot">Start free pilot</span></a></div>
 <script>
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.1});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const el=document.querySelector(a.getAttribute('href'));if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth'})}}));
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const href = a.getAttribute('href');
+    if (!href || href === '#') return;
+    const destination = document.getElementById(href.slice(1));
+    if (!destination) return;
+    e.preventDefault();
+    destination.scrollIntoView({ behavior: 'smooth' });
+  });
+});
 (function(){
 const studentInput=document.getElementById('schoolStudentCount'),currencySelect=document.getElementById('schoolPriceCurrency'),priceDisplay=document.getElementById('schoolLicencePrice'),equivalentDisplay=document.getElementById('schoolPriceEquivalent'),statusDisplay=document.getElementById('schoolPriceStatus');if(!studentInput||!currencySelect||!priceDisplay||!equivalentDisplay||!statusDisplay)return;
 let exchangeRates={USD:1,GBP:null,EUR:null},exchangeRatesLoaded=false;
@@ -7736,10 +7834,10 @@ loadExchangeRates();
 <p data-i18n="payment_footer">
         The School Licence is billed annually. Schools with more than 3,000 students can contact TrackEDU for tailored pricing and procurement support.
 </p>
-<button class="btn btn-primary" data-close-payment="" data-pilot-trigger="true" type="button">
+<a class="btn btn-primary" href="https://housepoint.trackedu.net/">
         <span data-i18n="pricing_start_pilot">Start free 30-day pilot</span>
         <i class="fa-solid fa-arrow-right"></i>
-</button>
+</a>
 </div>
 </div>
 </div>
@@ -7761,8 +7859,8 @@ loadExchangeRates();
 <div class="demo-qualifier">
 <i class="fa-solid fa-school-circle-check"></i>
 <div>
-<strong data-i18n="demo_qualifier_title">For school decision-makers seriously evaluating TrackEDU.</strong>
-<span data-i18n="demo_qualifier_copy">Please don’t book a casual introduction call. This session is for schools considering the platform.</span>
+<strong data-i18n="demo_qualifier_title">See how TrackEDU could work at your school.</strong>
+<span data-i18n="demo_qualifier_copy">A guided walkthrough for school leaders, teachers and IT teams. Ask about the features, setup or pilot that matter to you.</span>
 </div>
 </div>
 
@@ -7770,8 +7868,8 @@ loadExchangeRates();
 
 <article>
 <span class="demo-scan-icon"><i class="fa-regular fa-clock"></i></span>
-<strong data-i18n="demo_time_title">Allow about 60 minutes</strong>
-<small data-i18n="demo_time_copy">We may run longer if your questions or setup need more time.</small>
+<strong data-i18n="demo_time_title">30-minute guided demo</strong>
+<small data-i18n="demo_time_copy">We can focus on the tools and questions most relevant to your school.</small>
 </article>
 
 <article>
@@ -7830,18 +7928,18 @@ loadExchangeRates();
 <div class="te-modal-icon pilot"><i class="fa-solid fa-rocket"></i></div>
 <div class="pilot-modal-head-copy">
 <span class="te-modal-kicker" data-i18n="pilot_kicker">30-day school pilot</span>
-<h2 id="pilotGuideTitle" data-i18n="pilot_title">Create your school in about one minute.</h2>
+<h2 id="pilotGuideTitle" data-i18n="pilot_title">Start a free 30-day school pilot.</h2>
 </div>
 </div>
 
-<p class="te-modal-intro pilot-modal-intro" data-i18n="pilot_intro">You will create the school directly inside the TrackEDU House Points app. No credit card is required.</p>
+<p class="te-modal-intro pilot-modal-intro" data-i18n="pilot_intro">Set up your school in TrackEDU and explore the features that matter most to your team. No credit card or payment commitment is required for the pilot.</p>
 
 <div class="pilot-steps">
 
 <div class="pilot-step">
 <span>1</span>
 <div>
-<strong data-i18n="pilot_step1">Open the House Points app</strong>
+<strong data-i18n="pilot_step1">Open the TrackEDU Teacher App</strong>
 <small data-i18n="pilot_step1_copy">Click the button below to open TrackEDU.</small>
 </div>
 </div>
@@ -7868,7 +7966,7 @@ loadExchangeRates();
 
 <div class="pilot-tip">
 <i class="fa-solid fa-circle-info"></i>
-<span data-i18n="pilot_tip">Start with a House, a few students and your first point. You can add the rest of your school later.</span>
+<span data-i18n="pilot_tip">Start with recognition, House Points, rewards or Incidents &amp; Support. You can add more staff, students and features as you go.</span>
 </div>
 
 <div class="te-modal-actions">
@@ -11884,16 +11982,39 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
       cta_book_demo: 'Book demo',
       cta_start_pilot: 'Start free pilot',
 
+      pilot_how_link: 'How does the free pilot work?',
+      outcomes_roles_toggle: 'Explore tools for teachers, students and school leaders',
+      outcomes_explore: 'Explore',
+      outcome1_title: 'Celebrate achievement',
+      outcome1_copy: 'Recognition, House Points, rewards and student progress.',
+      outcome2_title: 'Support students',
+      outcome2_copy: 'Behaviour records, incidents and clear follow-up.',
+      outcome3_title: 'Help teachers',
+      outcome3_copy: 'Class workflows, practical classroom tools and school activities.',
+      outcome4_title: 'Understand your school',
+      outcome4_copy: 'Dashboards and reports that help leaders see patterns.',
+      pilot_path_label: 'A simple way to begin',
+      pilot_path_title: 'Try TrackEDU with your own school, at your pace.',
+      pilot_path_intro: 'Your 30-day pilot includes the complete platform. No credit card, no automatic charge and no need to activate everything at once.',
+      pilot_path_s1_title: 'Create your school',
+      pilot_path_s1_copy: 'Choose Create School inside the Teacher App.',
+      pilot_path_s2_title: 'Bring in your students',
+      pilot_path_s2_copy: 'Import from Google Classroom or CSV, or add students manually.',
+      pilot_path_s3_title: 'Explore what matters',
+      pilot_path_s3_copy: 'Start with recognition, rewards, behaviour or reporting. Add more later.',
+      pilot_path_wonde: 'Wonde MIS/SIS integration: in development',
+      pilot_path_cta: 'Start your free pilot',
+
       hero_eyebrow: 'School culture platform',
-      hero_title: '<span class="blue">House points.</span> Recognition. Incidents & Support. <span class="green">One connected system.</span>',
-      hero_lead: 'TrackEDU connects House points, positive recognition, Incidents & Support and school-wide reporting in one platform. Award points quickly, record incidents and manage follow-up.',
+      hero_title: '<span class="blue">One platform.</span> <span class="green">A more connected school.</span>',
+      hero_lead: 'Recognise students, support behaviour and bring House Points, rewards and school reporting together in one place.',
 
       google_new: 'NEW',
       google_integration: 'Google Classroom integration',
       google_import: 'Import your classes and students directly from Google Classroom.',
 
       hero_pilot: 'Start your free 30-day pilot',
-      hero_connects: 'See how it connects',
+      hero_connects: 'Explore the platform',
 
       proof_30: '30 days free',
       proof_no_card: 'No credit card',
@@ -11901,7 +12022,7 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
 
       partner_real: 'Not a demo. Real school use.',
       partner_country: 'United States',
-      partner_title: 'See TrackEDU House Points being used by a real school.',
+      partner_title: 'See TrackEDU in action at Conway Christian School.',
       partner_copy: 'Teachers and students at Conway Christian School are using TrackEDU to recognise achievement, build House spirit and encourage participation.',
       partner_teachers: 'Teachers awarding points',
       partner_students: 'Students participating',
@@ -11920,9 +12041,9 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
       behaviour_flow_record: 'One student record',
       behaviour_flow_insight: 'Whole-school insight',
 
-      what_eyebrow: 'What your school actually gets',
-      what_title: 'Built for teachers, students and school leaders.',
-      what_lead: 'The same system supports the everyday teacher workflow, the student experience and the leadership view.',
+      what_eyebrow: 'One platform, everyday school needs',
+      what_title: 'Help your school thrive, without juggling separate tools.',
+      what_lead: 'Choose where to begin. Recognise progress, support students, simplify school routines and see the bigger picture.',
 
       portal_kicker: 'Student Portal in action',
       portal_title: 'Students do more than watch the leaderboard.',
@@ -12116,10 +12237,10 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
 
       demo_kicker: 'Before you book',
       demo_title: 'Book a TrackEDU demo',
-      demo_qualifier_title: 'For school decision-makers seriously evaluating TrackEDU.',
-      demo_qualifier_copy: 'Please don’t book a casual introduction call. This session is for schools considering the platform.',
-      demo_time_title: 'Allow about 60 minutes',
-      demo_time_copy: 'We may run longer if your questions or setup need more time.',
+      demo_qualifier_title: 'See how TrackEDU could work at your school.',
+      demo_qualifier_copy: 'A guided walkthrough for school leaders, teachers and IT teams. Ask about the features, setup or pilot that matter to you.',
+      demo_time_title: '30-minute guided demo',
+      demo_time_copy: 'We can focus on the tools and questions most relevant to your school.',
       demo_live_title: 'See the system live',
       demo_live_copy: 'Teacher access, awarding points, Student Portal, tools, standings and school setup.',
       demo_questions_title: 'Bring your questions',
@@ -12131,15 +12252,15 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
       demo_not_ready: 'Not ready yet',
 
       pilot_kicker: '30-day school pilot',
-      pilot_title: 'Create your school in about one minute.',
-      pilot_intro: 'You will create the school directly inside the TrackEDU House Points app. No credit card is required.',
-      pilot_step1: 'Open the House Points app',
+      pilot_title: 'Start a free 30-day school pilot.',
+      pilot_intro: 'Set up your school in TrackEDU and explore the features that matter most to your team. No credit card or payment commitment is required for the pilot.',
+      pilot_step1: 'Open the TrackEDU Teacher App',
       pilot_step1_copy: 'Click the button below to open TrackEDU.',
       pilot_step2: 'Choose “Create School”',
       pilot_step2_copy: 'This starts your school setup.',
       pilot_step3: 'Sign in with your school account',
       pilot_step3_copy: 'If your school uses Google, sign in with your school Google account.',
-      pilot_tip: 'Start with a House, a few students and your first point. You can add the rest of your school later.',
+      pilot_tip: 'Start with recognition, House Points, rewards or Incidents & Support. You can add more staff, students and features as you go.',
       pilot_open_app: 'Create Your School',
 
       preview_teacher_app: 'TrackEDU Teacher App',
@@ -12235,16 +12356,39 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
       cta_book_demo: 'Reservar demo',
       cta_start_pilot: 'Iniciar piloto gratuito',
 
+      pilot_how_link: '¿Cómo funciona el piloto gratuito?',
+      outcomes_roles_toggle: 'Explora las herramientas para docentes, estudiantes y directivos',
+      outcomes_explore: 'Explorar',
+      outcome1_title: 'Celebra los logros',
+      outcome1_copy: 'Reconocimiento, puntos de House, recompensas y progreso.',
+      outcome2_title: 'Apoya a los estudiantes',
+      outcome2_copy: 'Registros de comportamiento, incidentes y seguimiento.',
+      outcome3_title: 'Facilita la labor docente',
+      outcome3_copy: 'Gestión de clases, herramientas didácticas y actividades escolares.',
+      outcome4_title: 'Comprende tu colegio',
+      outcome4_copy: 'Paneles e informes que ayudan a detectar patrones.',
+      pilot_path_label: 'Una forma sencilla de empezar',
+      pilot_path_title: 'Prueba TrackEDU en tu colegio, a tu ritmo.',
+      pilot_path_intro: 'El piloto gratuito de 30 días incluye toda la plataforma. Sin tarjeta de crédito, sin cargos automáticos y sin tener que activar todo a la vez.',
+      pilot_path_s1_title: 'Crea tu colegio',
+      pilot_path_s1_copy: 'Selecciona Crear colegio en la aplicación docente.',
+      pilot_path_s2_title: 'Añade a tus estudiantes',
+      pilot_path_s2_copy: 'Importa desde Google Classroom o CSV, o añádelos manualmente.',
+      pilot_path_s3_title: 'Prueba lo que necesites',
+      pilot_path_s3_copy: 'Empieza con reconocimiento, recompensas, comportamiento o informes.',
+      pilot_path_wonde: 'Integración Wonde MIS/SIS: en desarrollo',
+      pilot_path_cta: 'Comenzar piloto gratuito',
+
       hero_eyebrow: 'Plataforma para la cultura escolar',
-      hero_title: '<span class="blue">Puntos de House.</span> Reconocimiento. Comportamiento. <span class="green">Un único sistema conectado.</span>',
-      hero_lead: 'Gestiona los puntos de House, el reconocimiento positivo y el comportamiento desde un solo lugar. Los docentes pueden premiar a los estudiantes, registrar incidencias y gestionar el seguimiento, mientras los líderes escolares obtienen una visión completa de los estudiantes, las clases, las Houses y todo el colegio.',
+      hero_title: '<span class="blue">Una plataforma.</span> <span class="green">Un colegio más conectado.</span>',
+      hero_lead: 'Reconoce al alumnado, gestiona el comportamiento y reúne los puntos de House, las recompensas y los informes escolares en un solo lugar.',
 
       google_new: 'NUEVO',
       google_integration: 'Integración con Google Classroom',
       google_import: 'Importa tus clases y estudiantes directamente desde Google Classroom.',
 
       hero_pilot: 'Inicia tu piloto gratuito de 30 días',
-      hero_connects: 'Descubre cómo se conecta',
+      hero_connects: 'Explorar la plataforma',
 
       proof_30: '30 días gratis',
       proof_no_card: 'Sin tarjeta de crédito',
@@ -12252,7 +12396,7 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
 
       partner_real: 'No es una demo. Uso real en un colegio.',
       partner_country: 'Estados Unidos',
-      partner_title: 'Mira cómo un colegio real utiliza TrackEDU House Points.',
+      partner_title: 'Mira TrackEDU en acción en Conway Christian School.',
       partner_copy: 'Los docentes y estudiantes de Conway Christian School utilizan TrackEDU para reconocer los logros, fortalecer el espíritu de House y fomentar la participación.',
       partner_teachers: 'Docentes otorgando puntos',
       partner_students: 'Estudiantes participando',
@@ -12271,9 +12415,9 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
       behaviour_flow_record: 'Un único registro del estudiante',
       behaviour_flow_insight: 'Visión de todo el colegio',
 
-      what_eyebrow: 'Lo que realmente obtiene tu colegio',
-      what_title: 'Creado para docentes, estudiantes y líderes escolares.',
-      what_lead: 'El mismo sistema respalda el trabajo diario del docente, la experiencia del estudiante y la visión de liderazgo.',
+      what_eyebrow: 'Una plataforma para las necesidades del colegio',
+      what_title: 'Ayuda a tu colegio sin alternar entre herramientas.',
+      what_lead: 'Empieza por lo que más necesitas: reconocer avances, apoyar al alumnado, simplificar tareas y entender lo que sucede.',
 
       portal_kicker: 'Student Portal en acción',
       portal_title: 'Los estudiantes hacen mucho más que mirar la clasificación.',
@@ -12467,10 +12611,10 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
 
       demo_kicker: 'Antes de reservar',
       demo_title: 'Reserva una demo de TrackEDU',
-      demo_qualifier_title: 'Para responsables escolares que estén evaluando seriamente TrackEDU.',
-      demo_qualifier_copy: 'Por favor, no reserves una llamada introductoria informal. Esta sesión está dirigida a colegios que están considerando la plataforma.',
-      demo_time_title: 'Reserva aproximadamente 60 minutos',
-      demo_time_copy: 'Podemos necesitar algo más de tiempo si tienes preguntas o necesidades específicas de configuración.',
+      demo_qualifier_title: 'Descubre cómo podría funcionar TrackEDU en tu colegio.',
+      demo_qualifier_copy: 'Una visita guiada para directivos, docentes y equipos de TI. Pregunta por las funciones, la configuración o el piloto.',
+      demo_time_title: 'Demo guiada de 30 minutos',
+      demo_time_copy: 'Nos centraremos en las funciones y preguntas más importantes para tu colegio.',
       demo_live_title: 'Mira el sistema en directo',
       demo_live_copy: 'Acceso para docentes, asignación de puntos, Student Portal, herramientas, clasificaciones y configuración del colegio.',
       demo_questions_title: 'Trae tus preguntas',
@@ -12482,15 +12626,15 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
       demo_not_ready: 'Todavía no',
 
       pilot_kicker: 'Piloto escolar de 30 días',
-      pilot_title: 'Crea tu colegio en aproximadamente un minuto.',
-      pilot_intro: 'Crearás el colegio directamente dentro de la aplicación TrackEDU House Points. No se requiere tarjeta de crédito.',
-      pilot_step1: 'Abre la aplicación House Points',
+      pilot_title: 'Comienza un piloto escolar gratuito de 30 días.',
+      pilot_intro: 'Configura tu colegio en TrackEDU y prueba las funciones que más interesen a tu equipo. No necesitas tarjeta de crédito ni compromiso de pago.',
+      pilot_step1: 'Abre la aplicación docente de TrackEDU',
       pilot_step1_copy: 'Haz clic en el botón inferior para abrir TrackEDU.',
       pilot_step2: 'Selecciona “Create School”',
       pilot_step2_copy: 'Esto inicia la configuración de tu colegio.',
       pilot_step3: 'Inicia sesión con tu cuenta escolar',
       pilot_step3_copy: 'Si tu colegio utiliza Google, inicia sesión con tu cuenta Google del colegio.',
-      pilot_tip: 'Empieza con una House, unos pocos estudiantes y tu primer punto. Puedes añadir el resto del colegio más adelante.',
+      pilot_tip: 'Empieza por el reconocimiento, los puntos de House, las recompensas o los incidentes y el apoyo. Añade más docentes, estudiantes y funciones después.',
       pilot_open_app: 'Crear tu colegio',
 
       preview_teacher_app: 'Aplicación docente TrackEDU',
@@ -12586,16 +12730,39 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
       cta_book_demo: 'احجز عرضاً توضيحياً',
       cta_start_pilot: 'ابدأ تجربة مجانية',
 
+      pilot_how_link: 'كيف تعمل التجربة المجانية؟',
+      outcomes_roles_toggle: 'استكشف أدوات المعلمين والطلاب وقادة المدارس',
+      outcomes_explore: 'استكشف',
+      outcome1_title: 'احتفِ بالإنجازات',
+      outcome1_copy: 'التقدير ونقاط الفرق والمكافآت وتقدم الطلاب.',
+      outcome2_title: 'ادعم الطلاب',
+      outcome2_copy: 'سجلات السلوك والحوادث والمتابعة الواضحة.',
+      outcome3_title: 'ادعم المعلمين',
+      outcome3_copy: 'إدارة الفصول والأدوات الصفية والأنشطة المدرسية.',
+      outcome4_title: 'افهم مدرستك',
+      outcome4_copy: 'لوحات معلومات وتقارير تساعد القيادة على تحديد الأنماط.',
+      pilot_path_label: 'طريقة بسيطة للبدء',
+      pilot_path_title: 'جرّب TrackEDU في مدرستك وبالوتيرة التي تناسبك.',
+      pilot_path_intro: 'تشمل التجربة المجانية لمدة 30 يوماً المنصة الكاملة. دون بطاقة ائتمان أو رسوم تلقائية أو حاجة لتفعيل كل شيء دفعة واحدة.',
+      pilot_path_s1_title: 'أنشئ مدرستك',
+      pilot_path_s1_copy: 'اختر إنشاء مدرسة داخل تطبيق المعلمين.',
+      pilot_path_s2_title: 'أضف الطلاب',
+      pilot_path_s2_copy: 'استورد من Google Classroom أو CSV أو أضفهم يدوياً.',
+      pilot_path_s3_title: 'استكشف ما تحتاج إليه',
+      pilot_path_s3_copy: 'ابدأ بالتقدير أو المكافآت أو السلوك أو التقارير ثم أضف المزيد.',
+      pilot_path_wonde: 'تكامل Wonde MIS/SIS: قيد التطوير',
+      pilot_path_cta: 'ابدأ التجربة المجانية',
+
       hero_eyebrow: 'منصة لثقافة المدرسة',
-      hero_title: '<span class="blue">نقاط الفرق المدرسية.</span> التقدير. السلوك. <span class="green">نظام واحد متكامل.</span>',
-      hero_lead: 'أدِر نقاط الفرق المدرسية والتقدير الإيجابي والسلوك من مكان واحد. يستطيع المعلمون مكافأة الطلاب وتسجيل الحوادث وإدارة المتابعة، بينما يحصل قادة المدرسة على صورة متكاملة للطلاب والفصول والفرق المدرسية والمدرسة بأكملها.',
+      hero_title: '<span class="blue">منصة واحدة.</span> <span class="green">مدرسة أكثر ترابطاً.</span>',
+      hero_lead: 'قدّر الطلاب وادعم سلوكهم واجمع نقاط الفرق والمكافآت والتقارير المدرسية في مكان واحد.',
 
       google_new: 'جديد',
       google_integration: 'تكامل Google Classroom',
       google_import: 'استورد فصولك وطلابك مباشرةً من Google Classroom.',
 
       hero_pilot: 'ابدأ تجربتك المجانية لمدة 30 يوماً',
-      hero_connects: 'اكتشف كيف يتكامل',
+      hero_connects: 'استكشف المنصة',
 
       proof_30: '30 يوماً مجاناً',
       proof_no_card: 'لا حاجة إلى بطاقة ائتمان',
@@ -12603,7 +12770,7 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
 
       partner_real: 'ليست نسخة تجريبية. استخدام حقيقي في مدرسة.',
       partner_country: 'الولايات المتحدة',
-      partner_title: 'شاهد كيف تستخدم مدرسة حقيقية نظام TrackEDU لنقاط الفرق المدرسية.',
+      partner_title: 'شاهد TrackEDU قيد الاستخدام في Conway Christian School.',
       partner_copy: 'يستخدم المعلمون والطلاب في Conway Christian School نظام TrackEDU لتقدير الإنجازات وتعزيز روح الفرق المدرسية وتشجيع المشاركة.',
       partner_teachers: 'المعلمون يمنحون النقاط',
       partner_students: 'الطلاب يشاركون',
@@ -12622,9 +12789,9 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
       behaviour_flow_record: 'سجل واحد للطالب',
       behaviour_flow_insight: 'رؤية على مستوى المدرسة',
 
-      what_eyebrow: 'ما تحصل عليه مدرستك فعلياً',
-      what_title: 'مصمم للمعلمين والطلاب وقادة المدارس.',
-      what_lead: 'يدعم النظام نفسه العمل اليومي للمعلم وتجربة الطالب ورؤية القيادة المدرسية.',
+      what_eyebrow: 'منصة واحدة لاحتياجات المدرسة اليومية',
+      what_title: 'ساعد مدرستك على النجاح دون التنقل بين أدوات منفصلة.',
+      what_lead: 'ابدأ بما يهم مدرستك: تقدير التقدم ودعم الطلاب وتبسيط العمل المدرسي وفهم الصورة الأشمل.',
 
       portal_kicker: 'بوابة الطلاب قيد الاستخدام',
       portal_title: 'يفعل الطلاب أكثر من مجرد مشاهدة لوحة الترتيب.',
@@ -12818,10 +12985,10 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
 
       demo_kicker: 'قبل الحجز',
       demo_title: 'احجز عرضاً توضيحياً لـ TrackEDU',
-      demo_qualifier_title: 'مخصص لصنّاع القرار في المدارس الذين يقيّمون TrackEDU بجدية.',
-      demo_qualifier_copy: 'يرجى عدم حجز مكالمة تعريفية عامة. هذه الجلسة مخصصة للمدارس التي تدرس استخدام المنصة.',
-      demo_time_title: 'خصص نحو 60 دقيقة',
-      demo_time_copy: 'قد تستغرق الجلسة وقتاً أطول إذا كانت لديك أسئلة أو احتياجات إعداد إضافية.',
+      demo_qualifier_title: 'اكتشف كيف يمكن أن تعمل TrackEDU في مدرستك.',
+      demo_qualifier_copy: 'عرض إرشادي لقادة المدارس والمعلمين وفرق تقنية المعلومات. اطرح أسئلتك حول الميزات والإعداد والتجربة.',
+      demo_time_title: 'عرض إرشادي لمدة 30 دقيقة',
+      demo_time_copy: 'نركز على الأدوات والأسئلة الأكثر أهمية لمدرستك.',
       demo_live_title: 'شاهد النظام مباشرة',
       demo_live_copy: 'وصول المعلمين ومنح النقاط وبوابة الطلاب والأدوات والترتيب وإعداد المدرسة.',
       demo_questions_title: 'أحضر أسئلتك',
@@ -12833,15 +13000,15 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
       demo_not_ready: 'لست مستعداً بعد',
 
       pilot_kicker: 'تجربة مدرسية لمدة 30 يوماً',
-      pilot_title: 'أنشئ مدرستك في نحو دقيقة واحدة.',
-      pilot_intro: 'ستنشئ المدرسة مباشرة داخل تطبيق TrackEDU House Points. ولا تحتاج إلى بطاقة ائتمان.',
-      pilot_step1: 'افتح تطبيق House Points',
+      pilot_title: 'ابدأ تجربة مدرسية مجانية لمدة 30 يوماً.',
+      pilot_intro: 'أنشئ مدرستك في TrackEDU واستكشف الميزات التي يحتاج إليها فريقك. لا حاجة إلى بطاقة ائتمان أو التزام بالدفع خلال التجربة.',
+      pilot_step1: 'افتح تطبيق TrackEDU للمعلمين',
       pilot_step1_copy: 'اضغط على الزر أدناه لفتح TrackEDU.',
       pilot_step2: 'اختر “Create School”',
       pilot_step2_copy: 'يبدأ هذا إعداد مدرستك.',
       pilot_step3: 'سجّل الدخول باستخدام حساب المدرسة',
       pilot_step3_copy: 'إذا كانت مدرستك تستخدم Google، فسجّل الدخول باستخدام حساب Google المدرسي.',
-      pilot_tip: 'ابدأ بفريق مدرسي وعدد قليل من الطلاب وامنح أول نقطة. يمكنك إضافة بقية المدرسة لاحقاً.',
+      pilot_tip: 'ابدأ بالتقدير أو نقاط الفرق أو المكافآت أو الحوادث والدعم. يمكنك إضافة مزيد من الموظفين والطلاب والميزات لاحقاً.',
       pilot_open_app: 'إنشاء مدرستك',
 
       proof_real_school: 'استخدام حقيقي في مدرسة',
