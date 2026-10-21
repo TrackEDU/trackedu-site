@@ -553,6 +553,29 @@
     .demo-actions .btn{min-height:46px;font-size:12px}
     @media(max-width:760px){.launch-inner{grid-template-columns:1fr;gap:13px}.launch-actions{flex-direction:row;flex-wrap:wrap}.launch-actions .btn{flex:1;min-width:180px}.trust-item{width:208px}.demo-shell{padding:21px}.demo-grid{grid-template-columns:1fr}.demo-grid article{padding:13px}.demo-grid svg{margin-bottom:6px}.demo-privacy{flex-wrap:wrap}.demo-actions{display:grid;grid-template-columns:1fr}.demo-actions .btn{width:100%}}
     @media(prefers-reduced-motion:reduce){.trust-track{animation:none!important}}
+
+    /* Compact, optional House Points software comparison */
+    .compare-section{padding:0 0 54px;background:#fff}
+    .compare-details{border:1px solid #dce7ef;border-radius:19px;background:#f8fbfd;overflow:hidden}
+    .compare-details summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:23px 26px;cursor:pointer}
+    .compare-details summary::-webkit-details-marker{display:none}
+    .compare-details summary:focus-visible{outline:3px solid #389eec;outline-offset:-5px}
+    .compare-summary-title{display:block;font:600 clamp(20px,2.3vw,27px)/1.2 Fredoka,Outfit,sans-serif;color:var(--navy)}
+    .compare-summary-copy{display:block;font-size:13px;color:var(--muted);margin-top:6px;line-height:1.5}
+    .compare-toggle{display:inline-flex;gap:8px;align-items:center;white-space:nowrap;font-size:12px;color:#286c2d;font-weight:850}
+    .compare-toggle::after{content:'+';font-size:23px;font-weight:500;line-height:1}
+    .compare-details[open] .compare-toggle::after{content:'−'}
+    .compare-body{border-top:1px solid #dce7ef;padding:22px 26px 25px}
+    .compare-body>p{margin:0 0 17px;color:var(--muted);font-size:13px;line-height:1.65}
+    .compare-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
+    .compare-card{background:#fff;border:1px solid #dfe9f0;border-radius:13px;padding:15px}
+    .compare-card.featured{background:#eff9e9;border-color:#b9dda2}
+    .compare-card h3{font-size:15px;font-weight:850;color:#173a55;margin:0 0 7px}
+    .compare-card p{font-size:12px;line-height:1.55;color:#607587;margin:0}
+    .compare-card a{display:inline-block;margin-top:10px;font-size:11px;font-weight:800;color:#2b6f37;text-decoration:underline;text-underline-offset:2px}
+    .compare-note{font-size:11px!important;margin-top:15px!important}
+    @media(max-width:760px){.compare-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:560px){.compare-section{padding-bottom:35px}.compare-details summary{padding:18px;align-items:flex-start}.compare-summary-title{font-size:20px}.compare-summary-copy{font-size:12px}.compare-toggle{font-size:0}.compare-toggle::after{font-size:23px}.compare-body{padding:16px}.compare-grid{grid-template-columns:1fr}.compare-card{padding:13px}}
   </style>
 </head>
 <body>
@@ -900,6 +923,56 @@
           <details><summary>Does TrackEDU offer free school training?</summary><p>Yes. We provide free professional development for school leaders, staff and House Leaders. Specialist House Leader training focuses on student and staff buy-in, House identity, student leadership and school culture.</p></details>
           <details><summary>What happens after the free 30-day pilot?</summary><p>The pilot requires no credit card and does not automatically become paid. Schools choose whether to subscribe. Paid Stripe subscriptions renew annually unless cancelled, and you can cancel anytime to prevent the next renewal.</p></details>
         </div>
+      </div>
+    </section>
+
+    <section class="compare-section" aria-labelledby="compare-heading">
+      <div class="wrap">
+        <details class="compare-details">
+          <summary>
+            <span>
+              <strong class="compare-summary-title" id="compare-heading">Comparing school House Points trackers?</strong>
+              <span class="compare-summary-copy">See how TrackEDU and other popular approaches serve different school needs.</span>
+            </span>
+            <span class="compare-toggle" aria-hidden="true">Compare options</span>
+          </summary>
+          <div class="compare-body">
+            <p>Some House Points tools focus on a simple classroom leaderboard. Others support a school-wide House system, recognition, rewards or behaviour workflows. Choose the features your school actually needs.</p>
+            <div class="compare-grid">
+              <article class="compare-card featured">
+                <h3>TrackEDU House Points</h3>
+                <p>A connected whole-school platform for House standings, recognition, student progress, School Store rewards, incidents and leadership reporting.</p>
+                <a href="https://www.trackedu.net/housepoints.html">Explore TrackEDU</a>
+              </article>
+              <article class="compare-card">
+                <h3>LiveSchool</h3>
+                <p>Whole-school positive behaviour, House Points and student rewards, with tools for staff and administrators.</p>
+                <a href="https://whyliveschool.com/" target="_blank" rel="noopener noreferrer">Visit LiveSchool</a>
+              </article>
+              <article class="compare-card">
+                <h3>RCA House App</h3>
+                <p>A House Points app associated with the Ron Clark Academy House System, including staff point awards and parent visibility.</p>
+                <a href="https://rcahousesystem.com/house-app/" target="_blank" rel="noopener noreferrer">Visit RCA House App</a>
+              </article>
+              <article class="compare-card">
+                <h3>Leaderboarded</h3>
+                <p>A browser-based classroom leaderboard for displaying live points and team standings, without requiring student accounts.</p>
+                <a href="https://leaderboarded.com/" target="_blank" rel="noopener noreferrer">Visit Leaderboarded</a>
+              </article>
+              <article class="compare-card">
+                <h3>Sage Teachers</h3>
+                <p>A free classroom points board with student mascot cards, tap-to-award points and no pupil accounts.</p>
+                <a href="https://sageteachers.com/house-points" target="_blank" rel="noopener noreferrer">Visit Sage Teachers</a>
+              </article>
+              <article class="compare-card">
+                <h3>Scorekeeper</h3>
+                <p>A browser-based House Points scoreboard for tracking team totals and displaying classroom standings.</p>
+                <a href="https://www.scorekeeper.co/house-points-tracker" target="_blank" rel="noopener noreferrer">Visit Scorekeeper</a>
+              </article>
+            </div>
+            <p class="compare-note">Descriptions summarise publicly available product information as of October 2026. Features and plans may change. TrackEDU is independent of the other platforms named here.</p>
+          </div>
+        </details>
       </div>
     </section>
 
