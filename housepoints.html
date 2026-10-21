@@ -4,6 +4,7 @@
 
 
 
+
 <!DOCTYPE html>
 
 <html lang="en-GB">
@@ -106,7 +107,11 @@
   color:#8195a8;
   font-size:9px;
   pointer-events:none;
-}.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:50px;padding:0 18px;border-radius:16px;border:0;font-size:13px;font-weight:900;cursor:pointer;transition:.18s ease}.btn:hover{transform:translateY(-2px)}.btn-primary{color:#fff;background:linear-gradient(180deg,#91cf48,#77b72f);box-shadow:0 14px 30px rgba(134,199,59,.25)}.btn-secondary{background:#fff;border:1px solid var(--line);color:var(--navy);box-shadow:0 8px 18px rgba(11,35,65,.04)}.btn-navy{background:var(--navy);color:#fff}
+}.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:50px;padding:0 18px;border-radius:16px;border:0;font-size:13px;font-weight:900;cursor:pointer;transition:.18s ease}.btn:hover{transform:translateY(-2px)}.btn-primary{
+  color:#fff;
+  background:linear-gradient(180deg,#86C43B 0%,#78B82F 100%);
+  box-shadow:0 12px 26px rgba(120,184,47,.22);
+}.btn-secondary{background:#fff;border:1px solid var(--line);color:var(--navy);box-shadow:0 8px 18px rgba(11,35,65,.04)}.btn-navy{background:var(--navy);color:#fff}
 /* ARABIC / RTL */
 
 html[dir="rtl"] body{
@@ -637,8 +642,8 @@ body.menu-open{overflow:hidden}
 }
 .hero-video-enabled .hero-copy .eyebrow i{color:#b8e978}
 .hero-video-enabled .hero-copy h1{color:#fff;text-shadow:0 3px 24px rgba(0,0,0,.22)}
-.hero-video-enabled .hero-copy h1 .blue{color:#70c4ff}
-.hero-video-enabled .hero-copy h1 .green{color:#b8e978}
+.hero-video-enabled .hero-copy h1 .blue{color:#8FD2FF}
+.hero-video-enabled .hero-copy h1 .green{color:#A7DD69}
 .hero-video-enabled .hero-copy .lead{color:#d9e8f5}
 .hero-video-enabled .hero-secondary{
   color:#fff;
@@ -1382,9 +1387,16 @@ html[dir="rtl"] .hero-integrations{
 
 /* Clearer secondary button */
 .hero-video-enabled .hero-secondary{
-  background:rgba(255,255,255,.14) !important;
-  border-color:rgba(255,255,255,.32) !important;
-  box-shadow:0 10px 28px rgba(0,0,0,.12) !important;
+  color:#fff!important;
+  background:rgba(255,255,255,.07)!important;
+  border:1px solid rgba(255,255,255,.25)!important;
+  box-shadow:none!important;
+  backdrop-filter:blur(10px);
+}
+
+.hero-video-enabled .hero-secondary:hover{
+  background:rgba(255,255,255,.13)!important;
+  border-color:rgba(255,255,255,.40)!important;
 }
 
 /* Keep proof pills visible without making them dominant */
@@ -7278,6 +7290,21 @@ html[dir="rtl"] .outcomes-role-details>summary>.outcomes-role-chevron{margin-lef
 .te-offer-contact{display:flex;flex-wrap:wrap;align-items:center;gap:7px;font-size:12px;color:#55718a;margin:14px 0 0}
 .te-offer-contact a{font-weight:900;color:#146bb6;text-decoration:underline;text-underline-offset:3px}
 @media(max-width:680px){.te-programme-note{padding:12px}.te-offer-how{font-size:18px}.te-offer-contact{line-height:1.5}}
+
+
+
+
+
+@media (min-width:1081px){
+  .hero-video-enabled .hero-copy .eyebrow{
+    font-size:12px!important;
+    font-weight:700!important;
+    letter-spacing:.02em!important;
+    color:#C7DBED!important;
+  }
+}
+
+
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
@@ -7903,7 +7930,7 @@ html[dir="rtl"] .outcomes-role-details>summary>.outcomes-role-chevron{margin-lef
 <a class="te-product-card" href="#teacher-tools"><span class="te-product-icon"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i></span><span class="te-product-text"><strong>12+ Classroom Tools</strong><small>Timers, random pickers, groups, quizzes and more.</small></span><i class="fa-solid fa-arrow-right te-product-arrow" aria-hidden="true"></i></a>
 <a class="te-product-card" href="#behaviour"><span class="te-product-icon"><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i></span><span class="te-product-text"><strong>Incident Reporting</strong><small>Record concerns, actions and follow-up in one place.</small></span><i class="fa-solid fa-arrow-right te-product-arrow" aria-hidden="true"></i></a>
 </div>
-<details class="te-optional-detail te-goals-detail" open><summary>Explore TrackEDU by school goal <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
+<details class="te-optional-detail te-goals-detail"><summary>Explore TrackEDU by school goal <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
 <div class="outcomes-grid reveal">
 <a class="outcome-tile" href="#school-store"><i class="fa-solid fa-award"></i><strong data-i18n="outcome1_title">Celebrate achievement</strong><span data-i18n="outcome1_copy">Recognition, House Points, rewards and student progress.</span><small><span data-i18n="outcomes_explore">See how it works</span> <i class="fa-solid fa-arrow-right"></i></small></a>
 <a class="outcome-tile" href="#behaviour"><i class="fa-solid fa-hand-holding-heart"></i><strong data-i18n="outcome2_title">Support students</strong><span data-i18n="outcome2_copy">Behaviour records, incidents and clear follow-up.</span><small><span data-i18n="outcomes_explore">See how it works</span> <i class="fa-solid fa-arrow-right"></i></small></a>
@@ -7911,7 +7938,7 @@ html[dir="rtl"] .outcomes-role-details>summary>.outcomes-role-chevron{margin-lef
 <a class="outcome-tile" href="#why"><i class="fa-solid fa-chart-line"></i><strong data-i18n="outcome4_title">Understand your school</strong><span data-i18n="outcome4_copy">Dashboards and reports that help leaders see patterns.</span><small><span data-i18n="outcomes_explore">See how it works</span> <i class="fa-solid fa-arrow-right"></i></small></a>
 </div>
 </details>
-<details class="te-optional-detail te-setup-detail" open><summary>How to set up your free school pilot <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
+<details class="te-optional-detail te-setup-detail"><summary>How to set up your free school pilot <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
 <div class="pilot-path reveal" id="getting-started">
 <div class="pilot-path-head"><div><span class="pilot-path-eyebrow" data-i18n="pilot_path_label">A simple way to begin</span><h3 data-i18n="pilot_path_title">Try TrackEDU with your own school, at your pace.</h3></div><p data-i18n="pilot_path_intro">Your 30-day pilot includes the complete platform. No credit card, no automatic charge and no need to activate everything at once.</p></div>
 <div class="pilot-path-steps">
@@ -7919,7 +7946,7 @@ html[dir="rtl"] .outcomes-role-details>summary>.outcomes-role-chevron{margin-lef
 <div><b>2</b><strong data-i18n="pilot_path_s2_title">Bring in your students</strong><span data-i18n="pilot_path_s2_copy">Import from Google Classroom or CSV, or add students manually.</span></div>
 <div><b>3</b><strong data-i18n="pilot_path_s3_title">Explore what matters</strong><span data-i18n="pilot_path_s3_copy">Start with recognition, rewards, behaviour or reporting. Add more later.</span></div>
 </div>
-<div class="pilot-path-bottom"><span><i class="fa-solid fa-plug"></i> <span data-i18n="pilot_path_wonde">Wonde MIS/SIS integration: in development</span></span><a class="btn btn-primary" href="https://housepoint.trackedu.net/"><span data-i18n="pilot_path_cta">Start your free pilot</span><i class="fa-solid fa-arrow-right"></i></a></div>
+<div class="pilot-path-bottom"><span><i class="fa-solid fa-plug"></i> <span data-i18n="pilot_path_wonde">Wonde MIS/SIS: live for paid schools, demo for pilots</span></span><a class="btn btn-primary" href="https://housepoint.trackedu.net/"><span data-i18n="pilot_path_cta">Start your free pilot</span><i class="fa-solid fa-arrow-right"></i></a></div>
 </div>
 </details>
 <details class="outcomes-role-details">
@@ -8054,11 +8081,13 @@ html[dir="rtl"] .outcomes-role-details>summary>.outcomes-role-chevron{margin-lef
 </div>
 </div>
 
+<details class="te-more-detail"><summary>See how recognition and incident follow-up connect <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
 <div class="behaviour-demo-caption reveal">
 <div><i class="fa-solid fa-user-check"></i><strong>One student</strong><span>Recognition and behaviour stay connected to the same record.</span></div>
 <div><i class="fa-solid fa-list-check"></i><strong>One workflow</strong><span>Incidents carry context, action and follow-up, not just a deduction.</span></div>
 <div><i class="fa-solid fa-chart-line"></i><strong>One leadership view</strong><span>Move from an individual student to school-wide patterns and outstanding actions.</span></div>
 </div>
+</details>
 </div>
 </section><section class="full-video-story" id="product-video">
 <div class="full-video-media old-product-video">
@@ -8091,7 +8120,9 @@ html[dir="rtl"] .outcomes-role-details>summary>.outcomes-role-chevron{margin-lef
 <div class="choice-flow trackedu-flow"><span><i class="fa-solid fa-star"></i> <span data-i18n="why_recognise">Recognise</span></span><i class="fa-solid fa-arrow-right"></i><span><i class="fa-solid fa-clipboard-check"></i> <span data-i18n="why_respond">Respond</span></span><i class="fa-solid fa-arrow-right"></i><span><i class="fa-solid fa-gamepad"></i> <span data-i18n="why_engage">Engage</span></span><i class="fa-solid fa-arrow-right"></i><span><i class="fa-solid fa-chart-line"></i> <span data-i18n="why_understand">Understand</span></span></div>
 </article>
 </div>
+<details class="te-more-detail"><summary>Why a connected platform matters <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
 <div class="why-conclusion reveal"><div class="why-conclusion-icon"><i class="fa-solid fa-link"></i></div><div><span data-i18n="why_difference">The difference</span><h3 data-i18n="why_conclusion_title">One school culture system instead of disconnected tools.</h3><p data-i18n="why_conclusion_copy">Teachers work in one place, students see one joined-up experience and leaders get one clearer view of recognition, behaviour and participation across the school.</p></div></div>
+</details>
 </div>
 </section><section class="section culture-launch culture-compact" id="culture"><span id="house-points" class="te-scroll-target" aria-hidden="true"></span>
 <div class="shell">
@@ -8169,7 +8200,7 @@ html[dir="rtl"] .outcomes-role-details>summary>.outcomes-role-chevron{margin-lef
   </span>
 <h3 data-i18n="pricing_complete_title">One licence. The complete TrackEDU system.</h3>
 <p data-i18n="pricing_complete_copy">No separate behaviour or student-engagement add-ons.</p>
-<details class="te-mobile-included" open>
+<details class="te-mobile-included">
 <summary data-i18n="mobile_included_toggle">See everything included</summary>
 <div class="include-list"><div class="include"><i class="fa-solid fa-star"></i><div><b data-i18n="pricing_include1">House points + positive recognition</b><span data-i18n="pricing_include1_copy">Fast awarding, live standings and class/House visibility.</span></div></div><div class="include"><i class="fa-solid fa-clipboard-list"></i><div><b data-i18n="pricing_include2">Behaviour incidents + follow-up</b><span data-i18n="pricing_include2_copy">Incident records, reflections, parent contact and outstanding actions.</span></div></div><div class="include"><i class="fa-solid fa-user-graduate"></i><div><b data-i18n="pricing_include3">Teacher App + Student Portal</b><span data-i18n="pricing_include3_copy">Staff workflows and a student experience in the same school system.</span></div></div><div class="include"><i class="fa-solid fa-circle-nodes"></i><div><b data-i18n="pricing_include4">Dashboards, imports + support</b><span data-i18n="pricing_include4_copy">Leadership insight, Google Classroom/CSV tools, exports and House Leader training.</span></div></div><div class="include"><i class="fa-solid fa-gift"></i><div><b data-i18n="store_pricing">School Store + rewards</b><span data-i18n="store_pricing_copy">Custom reward catalogue, Store Points, stock and staff-managed requests.</span></div></div>
 </div>
@@ -8194,7 +8225,15 @@ html[dir="rtl"] .outcomes-role-details>summary>.outcomes-role-chevron{margin-lef
 <i class="fa-solid fa-file-pdf"></i>
     <span data-i18n="pricing_overview">View School Overview</span>
   </a>
-</div></div></div></section><section class="section soft" id="faq"><div class="shell"><div class="section-head center reveal"><span class="eyebrow"><i class="fa-solid fa-circle-question"></i> <span data-i18n="nav_faq">FAQ</span></span><h2 data-i18n="faq_title">What schools usually want to know.</h2></div><div class="faq reveal"><details open=""><summary data-i18n="faq_q1">Is TrackEDU just a digital House points system?</summary><p data-i18n="faq_a1">No. House points are the culture and recognition layer, but TrackEDU also connects positive recognition, behaviour incidents, follow-up actions, student records, school dashboards, the Student Portal, challenges, reporting and implementation support.</p></details><details><summary data-i18n="faq_q2">Do students need school email accounts?</summary><p data-i18n="faq_a2">No. The Student Portal is designed to work without requiring student email accounts.</p></details><details><summary data-i18n="faq_q3">Can we bring in our existing classes?</summary><p data-i18n="faq_a3">Yes. TrackEDU supports CSV import and includes a Google Classroom connection workflow so schools can review and import existing class rosters.</p></details><details><summary data-i18n="faq_q4">Can we use our own House names, colours and identity?</summary><p data-i18n="faq_a4">Yes. TrackEDU supports school branding and House identity, including school and House visual settings, names, colours and related information.</p></details><details><summary data-i18n="faq_q5">Is TrackEDU a house points app for schools or just a tracker?</summary><p data-i18n="faq_a5">TrackEDU is a house points app for schools with live standings, positive recognition, behaviour incidents, follow-up, student engagement and leadership dashboards sharing the same school data.</p></details><details><summary data-i18n="faq_q6">Can schools try this online house points tracker free for 30 days?</summary><p data-i18n="faq_a6">Yes. The first 30 days are free and no credit card is needed. Eligible schools can request free access until 31 July 2027. From August 2027, qualifying schools that choose to subscribe can receive 20% off their first five paid annual licences. There is no automatic paid subscription.</p></details></div><button aria-expanded="false" class="mobile-section-toggle" id="mobileFaqToggle" type="button"><span data-i18n="faq_show_all">Show all FAQs</span> <i class="fa-solid fa-chevron-down"></i></button></div></section><section class="final"><div class="shell"><div class="final-card reveal"><h2 data-i18n-html="final_title">See whether TrackEDU fits your school. <span>Try it for 30 days.</span></h2><p data-i18n="final_copy">Set up your Houses, staff and students, use the full system in your own school context, and decide after the pilot whether it is worth continuing.</p><div class="final-actions"><a class="btn btn-primary" href="https://housepoint.trackedu.net/"><span data-i18n="pricing_start_pilot">Start free 30-day pilot</span> <i class="fa-solid fa-arrow-right"></i></a><a class="btn btn-secondary" href="https://cal.com/trackedu-a9dbpy/30min" rel="noopener" target="_blank"><i class="fa-regular fa-calendar"></i> <span data-i18n="pricing_demo">Book a demo</span></a></div></div></div></section>
+</div></div></div></section><section class="section soft" id="faq"><div class="shell"><div class="section-head center reveal"><span class="eyebrow"><i class="fa-solid fa-circle-question"></i> <span data-i18n="nav_faq">FAQ</span></span><h2 data-i18n="faq_title">What schools usually want to know.</h2></div><div class="faq reveal"><details><summary data-i18n="faq_q1">Is TrackEDU just a digital House points system?</summary><p data-i18n="faq_a1">No. House points are the culture and recognition layer, but TrackEDU also connects positive recognition, behaviour incidents, follow-up actions, student records, school dashboards, the Student Portal, challenges, reporting and implementation support.</p></details><details><summary data-i18n="faq_q2">Do students need school email accounts?</summary><p data-i18n="faq_a2">No. The Student Portal is designed to work without requiring student email accounts.</p></details><details><summary data-i18n="faq_q3">Can we bring in our existing classes?</summary><p data-i18n="faq_a3">Yes. Import students and classes using CSV or connect Google Classroom to review and import existing class rosters.</p></details>
+<details>
+  <summary data-i18n="faq_q_wonde">Does TrackEDU integrate with Wonde?</summary>
+  <p data-i18n="faq_a_wonde">Yes. Wonde MIS/SIS integration is live. Pilot schools can explore it in demo mode, while paid subscribers can connect their school's MIS/SIS through Wonde to sync student and class data.</p>
+</details>
+<details>
+  <summary data-i18n="faq_q_pd">Does TrackEDU offer free professional development?</summary>
+  <p data-i18n="faq_a_pd">Yes. TrackEDU offers free professional development for school leaders, teachers and House Leaders. Our specialist House Leader training helps schools gain student and staff buy-in, strengthen House identity, develop student leadership and build a positive, lasting school culture.</p>
+</details><details><summary data-i18n="faq_q4">Can we use our own House names, colours and identity?</summary><p data-i18n="faq_a4">Yes. TrackEDU supports school branding and House identity, including school and House visual settings, names, colours and related information.</p></details><details><summary data-i18n="faq_q5">Is TrackEDU a house points app for schools or just a tracker?</summary><p data-i18n="faq_a5">TrackEDU is a house points app for schools with live standings, positive recognition, behaviour incidents, follow-up, student engagement and leadership dashboards sharing the same school data.</p></details><details><summary data-i18n="faq_q6">Can schools try this online house points tracker free for 30 days?</summary><p data-i18n="faq_a6">Yes. The first 30 days are free and no credit card is needed. Eligible schools can request free access until 31 July 2027. From August 2027, qualifying schools that choose to subscribe can receive 20% off their first five paid annual licences. There is no automatic paid subscription.</p></details></div><button aria-expanded="false" class="mobile-section-toggle" id="mobileFaqToggle" type="button"><span data-i18n="faq_show_all">Show all FAQs</span> <i class="fa-solid fa-chevron-down"></i></button></div></section><section class="final"><div class="shell"><div class="final-card reveal"><h2 data-i18n-html="final_title">See whether TrackEDU fits your school. <span>Try it for 30 days.</span></h2><p data-i18n="final_copy">Set up your Houses, staff and students, use the full system in your own school context, and decide after the pilot whether it is worth continuing.</p><div class="final-actions"><a class="btn btn-primary" href="https://housepoint.trackedu.net/"><span data-i18n="pricing_start_pilot">Start free 30-day pilot</span> <i class="fa-solid fa-arrow-right"></i></a><a class="btn btn-secondary" href="https://cal.com/trackedu-a9dbpy/30min" rel="noopener" target="_blank"><i class="fa-regular fa-calendar"></i> <span data-i18n="pricing_demo">Book a demo</span></a></div></div></div></section>
 <footer class="site-footer">
 <div class="shell footer-main">
 <div class="footer-brand-col">
@@ -12755,7 +12794,7 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
       pilot_path_s2_copy: 'Import from Google Classroom or CSV, or add students manually.',
       pilot_path_s3_title: 'Explore what matters',
       pilot_path_s3_copy: 'Start with recognition, rewards, behaviour or reporting. Add more later.',
-      pilot_path_wonde: 'Wonde MIS/SIS integration: in development',
+      pilot_path_wonde: 'Wonde MIS/SIS: live for paid schools, demo for pilots',
       pilot_path_cta: 'Start your free pilot',
 
       hero_eyebrow: 'School culture platform',
@@ -12936,7 +12975,11 @@ hero_lead: 'Move beyond spreadsheets. Celebrate student success, simplify incide
       faq_q2: 'Do students need school email accounts?',
       faq_a2: 'No. The Student Portal is designed to work without requiring student email accounts.',
       faq_q3: 'Can we bring in our existing classes?',
-      faq_a3: 'Yes. TrackEDU supports CSV import and includes a Google Classroom connection workflow so schools can review and import existing class rosters.',
+      faq_a3: 'Yes. Import students and classes using CSV or connect Google Classroom to review and import existing class rosters.',
+      faq_q_wonde: 'Does TrackEDU integrate with Wonde?',
+      faq_a_wonde: 'Yes. Wonde MIS/SIS integration is live. Pilot schools can explore it in demo mode, while paid subscribers can connect their school\'s MIS/SIS through Wonde to sync student and class data.',
+      faq_q_pd: 'Does TrackEDU offer free professional development?',
+      faq_a_pd: 'Yes. TrackEDU offers free professional development for school leaders, teachers and House Leaders. Our specialist House Leader training helps schools gain student and staff buy-in, strengthen House identity, develop student leadership and build a positive, lasting school culture.',
       faq_q4: 'Can we use our own House names, colours and identity?',
       faq_a4: 'Yes. TrackEDU supports school branding and House identity, including school and House visual settings, names, colours and related information.',
       faq_q5: 'Is TrackEDU a house points app for schools or just a tracker?',
@@ -13145,7 +13188,7 @@ hero_lead: 'Move beyond spreadsheets. Celebrate student success, simplify incide
       pilot_path_s2_copy: 'Importa desde Google Classroom o CSV, o añádelos manualmente.',
       pilot_path_s3_title: 'Prueba lo que necesites',
       pilot_path_s3_copy: 'Empieza con reconocimiento, recompensas, comportamiento o informes.',
-      pilot_path_wonde: 'Integración Wonde MIS/SIS: en desarrollo',
+      pilot_path_wonde: 'Wonde MIS/SIS: disponible para suscriptores de pago, demostración para centros en prueba',
       pilot_path_cta: 'Comenzar piloto gratuito',
 
       hero_eyebrow: 'Plataforma para la cultura escolar',
@@ -13327,6 +13370,10 @@ hero_lead: 'Motiva al alumnado, reconoce sus logros, registra incidencias y ahor
       faq_a2: 'No. Student Portal está diseñado para funcionar sin exigir cuentas de correo electrónico a los estudiantes.',
       faq_q3: '¿Podemos importar nuestras clases existentes?',
       faq_a3: 'Sí. TrackEDU admite importación mediante CSV e incluye un flujo de conexión con Google Classroom para revisar e importar las listas de clases existentes.',
+      faq_q_wonde: '¿TrackEDU se integra con Wonde?',
+      faq_a_wonde: 'Sí. La integración de Wonde MIS/SIS ya está disponible. Los centros en periodo de prueba pueden explorarla en modo de demostración, mientras que los suscriptores de pago pueden conectar su sistema de gestión escolar mediante Wonde para sincronizar los datos de estudiantes y clases.',
+      faq_q_pd: '¿Ofrece TrackEDU formación profesional gratuita?',
+      faq_a_pd: 'Sí. TrackEDU ofrece formación gratuita para equipos directivos, docentes y responsables de las Houses. Nuestra formación especializada ayuda a fomentar la participación de estudiantes y personal, fortalecer la identidad de las Houses, desarrollar el liderazgo estudiantil y crear una cultura escolar positiva y duradera.',
       faq_q4: '¿Podemos utilizar nuestros propios nombres, colores e identidad de House?',
       faq_a4: 'Sí. TrackEDU admite la identidad visual del colegio y de las Houses, incluidos nombres, colores y configuraciones visuales relacionadas.',
       faq_q5: '¿Qué diferencia a TrackEDU de una aplicación de puntos más sencilla?',
@@ -13535,7 +13582,7 @@ hero_lead: 'Motiva al alumnado, reconoce sus logros, registra incidencias y ahor
       pilot_path_s2_copy: 'استورد من Google Classroom أو CSV أو أضفهم يدوياً.',
       pilot_path_s3_title: 'استكشف ما تحتاج إليه',
       pilot_path_s3_copy: 'ابدأ بالتقدير أو المكافآت أو السلوك أو التقارير ثم أضف المزيد.',
-      pilot_path_wonde: 'تكامل Wonde MIS/SIS: قيد التطوير',
+      pilot_path_wonde: 'Wonde MIS/SIS: متاح للمشتركين المدفوعين، ووضع تجريبي للمدارس في الفترة التجريبية',
       pilot_path_cta: 'ابدأ التجربة المجانية',
 
       hero_eyebrow: 'منصة لثقافة المدرسة',
@@ -13717,6 +13764,10 @@ hero_lead: 'عزّز مشاركة الطلاب، وقدّر إنجازاتهم،
       faq_a2: 'لا. صُممت بوابة الطلاب للعمل دون الحاجة إلى حساب بريد إلكتروني للطالب.',
       faq_q3: 'هل يمكننا استيراد فصولنا الحالية؟',
       faq_a3: 'نعم. يدعم TrackEDU الاستيراد عبر CSV ويتضمن سير عمل للربط مع Google Classroom حتى تتمكن المدارس من مراجعة قوائم الفصول الحالية واستيرادها.',
+      faq_q_wonde: 'هل يتكامل TrackEDU مع Wonde؟',
+      faq_a_wonde: 'نعم. تكامل Wonde مع أنظمة إدارة معلومات المدارس متاح الآن. يمكن للمدارس خلال الفترة التجريبية استكشافه في الوضع التجريبي، بينما يستطيع المشتركون المدفوعون ربط نظام إدارة مدرستهم عبر Wonde لمزامنة بيانات الطلاب والفصول.',
+      faq_q_pd: 'هل يقدم TrackEDU تدريباً مهنياً مجانياً؟',
+      faq_a_pd: 'نعم. يقدم TrackEDU تدريباً مهنياً مجانياً لقيادات المدارس والمعلمين وقادة الفرق المدرسية. ويساعد التدريب المتخصص لقادة الفرق على تعزيز مشاركة الطلاب والموظفين، وترسيخ هوية الفرق المدرسية، وتطوير القيادة الطلابية، وبناء ثقافة مدرسية إيجابية ومستدامة.',
       faq_q4: 'هل يمكننا استخدام أسماء وألوان وهوية فرقنا المدرسية الخاصة؟',
       faq_a4: 'نعم. يدعم TrackEDU هوية المدرسة والفرق المدرسية، بما في ذلك الإعدادات المرئية والأسماء والألوان والمعلومات المرتبطة بها.',
       faq_q5: 'ما الذي يميز TrackEDU عن تطبيق نقاط أبسط؟',
@@ -16306,6 +16357,36 @@ section[id]{
   }
 }
 
+
+/* Progressive disclosure across desktop, tablet and mobile */
+#what .te-optional-detail{display:block!important;margin:12px 0!important;border:1px solid #dde9f1;border-radius:16px;background:#fff;overflow:hidden}
+#what .te-optional-detail>summary{display:flex!important;align-items:center;justify-content:space-between;gap:9px;padding:15px 17px;list-style:none;cursor:pointer;font-size:14px;font-weight:800;color:#15334f}
+#what .te-optional-detail>summary::-webkit-details-marker{display:none}
+#what .te-optional-detail>summary i{transition:transform .2s ease}
+#what .te-optional-detail[open]>summary i{transform:rotate(180deg)}
+#what .te-goals-detail .outcomes-grid{padding:10px 15px 17px;margin-top:0}
+#what .te-setup-detail .pilot-path{margin:10px 15px 17px}
+#teacher-tools .te-teacher-item:nth-child(n+5){display:none!important}
+#teacher-tools .te-teacher-grid.is-expanded .te-teacher-item:nth-child(n+5){display:flex!important}
+#teacher-tools .te-teacher-toggle{display:flex!important;align-items:center;justify-content:center;gap:9px;width:100%;margin-top:14px;padding:13px;border:1px solid #cddde9;border-radius:13px;background:#fff;color:#15334f;font-size:13px;font-weight:800;cursor:pointer}
+#teacher-tools .te-teacher-toggle:focus-visible,#what summary:focus-visible,.te-more-detail>summary:focus-visible,#pricing .te-mobile-included>summary:focus-visible{outline:3px solid #2585d2;outline-offset:3px}
+#pricing .te-mobile-included{display:block!important;margin-top:14px}
+#pricing .te-mobile-included>summary{display:flex!important;align-items:center;justify-content:space-between;min-height:46px;padding:12px 15px;list-style:none;cursor:pointer;border:1px solid #cfe1ee;border-radius:13px;background:#f1f8fd;color:#1a486f;font-size:13px;font-weight:800}
+#pricing .te-mobile-included>summary::-webkit-details-marker{display:none}
+#pricing .te-mobile-included>summary:after{content:'+';font-size:19px}
+#pricing .te-mobile-included[open]>summary:after{content:'−'}
+#pricing .te-mobile-included .include-list{margin-top:12px}
+.te-more-detail{margin-top:18px;border:1px solid #dbe7ef;border-radius:17px;background:#fff;overflow:hidden}
+.te-more-detail>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 18px;color:#15334f;font-size:14px;font-weight:800;cursor:pointer;list-style:none}
+.te-more-detail>summary::-webkit-details-marker{display:none}
+.te-more-detail>summary i{transition:transform .2s ease;font-size:11px}
+.te-more-detail[open]>summary i{transform:rotate(180deg)}
+.te-more-detail>.why-conclusion,.te-more-detail>.behaviour-demo-caption{margin:0 16px 16px!important}
+@media(max-width:680px){
+ #what .te-optional-detail>summary,.te-more-detail>summary{padding:13px 14px;font-size:12px}
+ #teacher-tools .te-teacher-toggle{font-size:12px}
+ .te-more-detail>.why-conclusion,.te-more-detail>.behaviour-demo-caption{margin:0 10px 10px!important}
+}
 </style>
 
 <script>
@@ -17303,27 +17384,9 @@ section[id]{
 })();
 </script>
 
+
 <script>
 (function(){
-  const node=document.querySelector('#pricing .te-mobile-included');
-  if(!node)return;
-  const query=window.matchMedia('(max-width:680px)');
-  function syncDisclosure(){node.open=!query.matches;}
-  syncDisclosure();
-  if(query.addEventListener)query.addEventListener('change',syncDisclosure);
-  else if(query.addListener)query.addListener(syncDisclosure);
-})();
-</script>
-<script>
-(function(){
- const d=document.querySelectorAll('#what .te-optional-detail');
- const m=window.matchMedia('(max-width:680px)');
- function adapt(){d.forEach(el=>{if(!el.dataset.teTouched){el.open=!m.matches;}})}
- d.forEach(el=>el.addEventListener('toggle',()=>{if(el.dataset.teSyncing)return;el.dataset.teTouched='1';}));
- // Initial states; desktop always shows content by default.
- d.forEach(el=>{el.dataset.teSyncing='1';el.open=!m.matches;});
- requestAnimationFrame(()=>d.forEach(el=>delete el.dataset.teSyncing));
- m.addEventListener?.('change',adapt);
  const btn=document.getElementById('teTeacherToggle'),grid=document.getElementById('teTeacherGrid');
  if(btn&&grid)btn.addEventListener('click',()=>{const expanded=grid.classList.toggle('is-expanded');btn.setAttribute('aria-expanded',String(expanded));btn.innerHTML=expanded?'Show fewer classroom tools <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>':'See all 12 classroom tools <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>';});
 })();
