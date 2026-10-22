@@ -236,16 +236,1823 @@ html[dir="rtl"] .hero-real-school-proof:hover .hero-real-school-arrow{
   margin-top:18px
 }
 
-.pricing-buyer-actions{
-  grid-column:1 / -1;
+/* =========================================================
+   GOOGLE-STYLE PRICING PLANS
+========================================================= */
+
+#pricing .pricing-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+  gap:20px;
+
+  align-items:stretch;
+
+  margin-top:34px;
+}
+
+
+#pricing .pricing-plan-card{
+  display:flex;
+  flex-direction:column;
+
+  min-width:0;
+  height:100%;
+
+  padding:30px;
+
+  border:
+    1px solid
+    #d7e1ea;
+
+  border-radius:
+    24px;
+
+  background:#fff;
+
+  box-shadow:
+    0 8px 24px
+    rgba(11,35,65,.06);
+}
+
+
+#pricing .school-plan-card{
+  border-color:
+    #d7e1ea;
+}
+
+
+#pricing .strategic-plan-card{
+  border:
+    2px solid
+    #2a8fe3;
+
+  box-shadow:
+    0 10px 30px
+    rgba(42,143,227,.10);
+}
+
+
+.pricing-plan-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+
+  gap:18px;
+
+  min-height:118px;
+}
+
+
+.pricing-plan-top > div{
+  min-width:0;
+}
+
+
+.pricing-plan-badge{
+  display:inline-flex;
+  align-items:center;
+
+  gap:7px;
+
+  margin-bottom:13px;
+
+  color:
+    #2563eb;
+
+  font-size:
+    11px;
+
+  font-weight:
+    800;
+}
+
+
+.pricing-plan-badge.standard{
+  color:
+    #557087;
+}
+
+
+.pricing-plan-badge i{
+  color:
+    #65a30d;
+}
+
+
+/* Strategic Partnership: single-line heading on desktop */
+
+@media(min-width:1081px){
+
+  #pricing .strategic-plan-card h3{
+    font-size:clamp(20px,2vw,27px)!important;
+    white-space:nowrap;
+    letter-spacing:-.035em;
+  }
+
+}
+
+@media(max-width:1080px){
+
+  #pricing .strategic-plan-card h3{
+    white-space:normal;
+    font-size:clamp(24px,4vw,30px);
+  }
+
+}
+
+#pricing .pricing-plan-card h3{
+  margin:
+    0
+    0
+    9px;
+
+  color:
+    var(--navy);
+
+  font-size:
+    30px;
+
+  line-height:
+    1.08;
+
+  letter-spacing:
+    -.025em;
+}
+
+
+.pricing-plan-description{
+  margin:0;
+
+  max-width:430px;
+
+  color:
+    var(--muted);
+
+  font-size:
+    14px;
+
+  line-height:
+    1.55;
+}
+
+
+.pricing-plan-premium,
+.pricing-plan-value{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  flex:
+    0
+    0
+    auto;
+
+  min-height:28px;
+
+  padding:
+    0
+    10px;
+
+  border-radius:
+    999px;
+
+  font-size:
+    10px;
+
+  font-weight:
+    800;
+
+  white-space:
+    nowrap;
+}
+
+
+.pricing-plan-premium{
+  background:
+    #eaf4ff;
+
+  color:
+    #176fc7;
+}
+
+
+.pricing-plan-value{
+  background:
+    #eef9df;
+
+  color:
+    #5e8c29;
+}
+
+
+/* SCHOOL PRICE */
+
+.school-plan-price{
+  min-height:92px;
+
+  margin-top:
+    19px;
+}
+
+
+.school-plan-price-label{
+  display:block;
+
+  margin-bottom:
+    5px;
+
+  color:
+    #64748b;
+
+  font-size:
+    11px;
+
+  font-weight:
+    800;
+}
+
+
+#pricing .school-plan-price .big-price{
+  margin-top:3px;
+
+  color:
+    var(--navy);
+
+  font-size:
+    42px;
+
+  line-height:
+    1;
+}
+
+
+#pricing .school-plan-price .big-price .per{
+  font-size:
+    13px;
+
+  font-weight:
+    700;
+
+  color:
+    #64748b;
+}
+
+
+#pricing .school-plan-price .te-price-before{
+  min-height:
+    16px;
+
+  color:
+    #8998a8;
+
+  font-size:
+    12px;
+}
+
+
+#pricing .school-plan-price .te-price-saving{
+  min-height:
+    18px;
+
+  margin:
+    5px
+    0
+    0;
+
+  color:
+    #5f8f26;
+
+  font-size:
+    11px;
+
+  font-weight:
+    800;
+}
+
+
+/* STRATEGIC PRICE */
+
+.pricing-plan-price{
+  display:flex;
+  align-items:baseline;
+  flex-wrap:wrap;
+
+  gap:6px;
+
+  min-height:92px;
+
+  margin-top:
+    19px;
+
+  color:
+    #64748b;
+
+  font-size:
+    13px;
+
+  font-weight:
+    700;
+}
+
+
+.pricing-plan-price strong{
+  color:
+    var(--navy);
+
+  font-family:
+    Fredoka,
+    system-ui,
+    sans-serif;
+
+  font-size:
+    42px;
+
+  line-height:
+    1;
+}
+
+
+.pricing-plan-from{
+  margin-right:
+    1px;
+}
+
+
+/* MATCHED CTA BUTTONS */
+
+.pricing-main-cta,
+.pricing-plan-contact{
+  width:100%;
+
+  min-height:
+    52px;
+
+  margin-top:
+    18px;
+
+  border-radius:
+    14px;
+}
+
+
+.pricing-plan-contact{
+  border:
+    1px solid
+    #2563eb;
+
+  background:
+    #2563eb;
+
+  color:#fff;
+}
+
+
+.pricing-plan-contact:hover{
+  background:
+    #1d4ed8;
+}
+
+
+/* DIVIDERS */
+
+.pricing-plan-divider{
+  width:100%;
+  height:1px;
+
+  margin:
+    25px
+    0;
+
+  background:
+    #e2e8f0;
+}
+
+
+/* FEATURE LIST */
+
+.pricing-plan-includes-title{
+  display:block;
+
+  margin-bottom:
+    16px;
+
+  color:
+    var(--navy);
+
+  font-size:
+    13px;
+
+  font-weight:
+    800;
+}
+
+
+.pricing-plan-features{
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+  gap:
+    13px
+    18px;
+}
+
+
+.pricing-plan-features > span{
+  display:flex;
+  align-items:flex-start;
+
+  gap:
+    9px;
+
+  min-width:0;
+
+  color:
+    #41566d;
+
+  font-size:
+    13px;
+
+  line-height:
+    1.4;
+}
+
+
+.pricing-plan-features i{
+  flex:
+    0
+    0
+    auto;
+
+  margin-top:
+    3px;
+
+  color:
+    #65a30d;
+
+  font-size:
+    11px;
+}
+
+
+.pricing-plan-features a{
+  color:
+    inherit;
+
+  text-decoration:
+    none;
+}
+
+
+.pricing-plan-features a:hover{
+  color:
+    #2563eb;
+
+  text-decoration:
+    underline;
+
+  text-underline-offset:
+    3px;
+}
+
+
+/* SCHOOL CALCULATOR */
+
+.school-price-calculator{
+  margin-top:auto;
+
+  padding:
+    20px;
+
+  border:
+    1px solid
+    #dce7ef;
+
+  border-radius:
+    18px;
+
+  background:
+    #f8fbfd;
+}
+
+
+.school-price-calculator-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+
+  gap:
+    16px;
+
+  margin-bottom:
+    17px;
+}
+
+
+.school-price-calculator-head strong{
+  display:block;
+
+  color:
+    var(--navy);
+
+  font-size:
+    14px;
+}
+
+
+.school-price-calculator-head span{
+  display:block;
+
+  margin-top:
+    3px;
+
+  color:
+    #718398;
+
+  font-size:
+    11px;
+
+  line-height:
+    1.4;
+}
+
+
+.school-price-calculator-head > i{
+  width:
+    36px;
+
+  height:
+    36px;
 
   display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
+  place-items:center;
 
-  gap:12px;
+  flex:
+    0
+    0
+    36px;
 
-  margin-top:2px;
+  border-radius:
+    11px;
+
+  background:
+    #eaf4ff;
+
+  color:
+    #2477c9;
 }
+
+
+.school-price-calculator .calc-top{
+  grid-template-columns:
+    minmax(0,1fr)
+    120px;
+
+  gap:
+    10px;
+}
+
+
+.school-price-calculator .field,
+.school-price-calculator .select{
+  min-height:
+    48px;
+
+  border-radius:
+    12px;
+
+  font-size:
+    15px;
+}
+
+
+.school-price-calculator .label{
+  font-size:
+    11px;
+}
+
+
+.school-price-calculator .te-launch-offer{
+  margin-top:
+    12px;
+
+  border-radius:
+    12px;
+}
+
+
+.school-price-calculator .te-programme-note{
+  margin-top:
+    10px;
+
+  border-radius:
+    12px;
+}
+
+
+.school-price-calculator .anchors{
+  margin-top:
+    13px;
+}
+
+
+.school-price-calculator .anchor{
+  padding:
+    9px
+    6px;
+
+  border-radius:
+    11px;
+}
+
+
+.school-price-calculator .anchor b{
+  font-size:
+    10px;
+}
+
+
+.school-price-calculator .anchor span{
+  font-size:
+    9px;
+}
+
+
+/* =========================================================
+   FULL-WIDTH SCHOOL LICENCE PRICE CALCULATOR
+========================================================= */
+
+.school-licence-calculator-row{
+  width:100%;
+
+  margin:
+    24px
+    0
+    18px;
+
+  overflow:hidden;
+
+  border:
+    1px solid
+    #cfe4b4;
+
+  border-radius:
+    20px;
+
+  background:
+    #fbfff6;
+
+  box-shadow:
+    0
+    8px
+    22px
+    rgba(11,35,65,.045);
+}
+
+
+.school-licence-calculator-row > summary{
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:
+    22px;
+
+  min-height:
+    82px;
+
+  padding:
+    14px
+    18px;
+
+  list-style:none;
+
+  cursor:pointer;
+}
+
+
+.school-licence-calculator-row > summary::-webkit-details-marker{
+  display:none;
+}
+
+
+.school-calculator-summary-main{
+  display:flex;
+
+  align-items:center;
+
+  gap:
+    14px;
+
+  min-width:0;
+}
+
+
+.school-calculator-icon{
+  width:
+    46px;
+
+  height:
+    46px;
+
+  display:grid;
+
+  place-items:center;
+
+  flex:
+    0
+    0
+    46px;
+
+  border-radius:
+    14px;
+
+  background:
+    #e9f7d9;
+
+  color:
+    #669f2b;
+
+  font-size:
+    16px;
+}
+
+
+.school-calculator-summary-copy{
+  min-width:0;
+}
+
+
+.school-calculator-plan-tag{
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:
+    6px;
+
+  margin-bottom:
+    4px;
+
+  color:
+    #5c8e2b;
+
+  font-size:
+    9px;
+
+  font-weight:
+    900;
+
+  letter-spacing:
+    .06em;
+
+  text-transform:
+    uppercase;
+}
+
+
+.school-calculator-summary-copy > strong{
+  display:block;
+
+  color:
+    var(--navy);
+
+  font-size:
+    15px;
+
+  line-height:
+    1.25;
+}
+
+
+.school-calculator-summary-copy > small{
+  display:block;
+
+  margin-top:
+    3px;
+
+  color:
+    #6d8194;
+
+  font-size:
+    11px;
+
+  line-height:
+    1.4;
+}
+
+
+.school-calculator-open{
+  display:flex;
+
+  align-items:center;
+
+  gap:
+    9px;
+
+  flex:
+    0
+    0
+    auto;
+
+  padding:
+    9px
+    12px;
+
+  border:
+    1px solid
+    #cfe4b4;
+
+  border-radius:
+    999px;
+
+  background:
+    #fff;
+
+  color:
+    #507b29;
+
+  font-size:
+    10px;
+
+  font-weight:
+    900;
+}
+
+
+.school-calculator-open i{
+  font-size:
+    9px;
+
+  transition:
+    transform
+    .2s
+    ease;
+}
+
+
+.school-licence-calculator-row[open]
+.school-calculator-open i{
+  transform:
+    rotate(180deg);
+}
+
+
+.school-licence-calculator-row[open]{
+  border-color:
+    #aad27c;
+
+  box-shadow:
+    0
+    12px
+    30px
+    rgba(102,159,43,.09);
+}
+
+
+.school-licence-calculator-row
+.school-price-calculator{
+  margin:0;
+
+  padding:
+    20px;
+
+  border:0;
+
+  border-top:
+    1px solid
+    #dcebc8;
+
+  border-radius:0;
+
+  background:
+    #fff;
+}
+
+
+.school-licence-calculator-row
+.school-price-calculator
+.calc-top{
+  grid-template-columns:
+    minmax(0,1fr)
+    160px;
+
+  gap:
+    14px;
+}
+
+
+@media(max-width:680px){
+
+  .school-licence-calculator-row{
+    margin:
+      18px
+      0
+      14px;
+
+    border-radius:
+      18px;
+  }
+
+
+  .school-licence-calculator-row > summary{
+    align-items:flex-start;
+
+    min-height:
+      0;
+
+    padding:
+      14px;
+
+    gap:
+      10px;
+  }
+
+
+  .school-calculator-icon{
+    width:
+      40px;
+
+    height:
+      40px;
+
+    flex-basis:
+      40px;
+
+    border-radius:
+      12px;
+  }
+
+
+  .school-calculator-plan-tag{
+    font-size:
+      8px;
+
+    line-height:
+      1.3;
+  }
+
+
+  .school-calculator-summary-copy > strong{
+    font-size:
+      13px;
+  }
+
+
+  .school-calculator-summary-copy > small{
+    font-size:
+      10px;
+  }
+
+
+  .school-calculator-open span{
+    display:none;
+  }
+
+
+  .school-calculator-open{
+    width:
+      34px;
+
+    height:
+      34px;
+
+    padding:0;
+
+    justify-content:center;
+  }
+
+
+  .school-licence-calculator-row
+  .school-price-calculator{
+    padding:
+      15px;
+  }
+
+
+  .school-licence-calculator-row
+  .school-price-calculator
+  .calc-top{
+    grid-template-columns:
+      1fr;
+  }
+
+}
+
+
+/* =========================================================
+   COMPACT SCHOOL LICENCE CALCULATOR
+========================================================= */
+
+.school-licence-calculator-static{
+  overflow:hidden;
+}
+
+
+/* Main desktop row */
+
+.school-calculator-primary-row{
+  display:grid;
+
+  grid-template-columns:
+    minmax(360px,1.45fr)
+    minmax(280px,1fr)
+    150px
+    auto;
+
+  align-items:end;
+
+  gap:18px;
+
+  padding:
+    18px;
+}
+
+
+.school-calculator-identity{
+  display:flex;
+
+  align-items:center;
+
+  gap:14px;
+
+  min-width:0;
+}
+
+
+.school-calculator-field{
+  min-width:0;
+}
+
+
+.school-calculator-primary-row .label{
+  margin-bottom:6px;
+
+  font-size:11px;
+}
+
+
+.school-calculator-primary-row .field,
+.school-calculator-primary-row .select{
+  min-height:50px;
+
+  border-radius:13px;
+
+  font-size:15px;
+}
+
+
+.school-calculator-live{
+  display:inline-flex;
+
+  align-items:center;
+  justify-content:center;
+
+  gap:7px;
+
+  min-height:42px;
+
+  margin-bottom:4px;
+
+  padding:
+    0
+    12px;
+
+  border:
+    1px solid
+    #cfe4b4;
+
+  border-radius:
+    999px;
+
+  background:
+    #fff;
+
+  color:
+    #507b29;
+
+  font-size:
+    10px;
+
+  font-weight:
+    900;
+
+  white-space:
+    nowrap;
+}
+
+
+.school-calculator-live i{
+  color:
+    #6ca52d;
+}
+
+
+/* Collapsed secondary information */
+
+.school-calculator-more{
+  border-top:
+    1px solid
+    #dcebc8;
+
+  background:
+    #fff;
+}
+
+
+.school-calculator-more > summary{
+  display:flex;
+
+  align-items:center;
+  justify-content:space-between;
+
+  gap:14px;
+
+  min-height:48px;
+
+  padding:
+    0
+    18px;
+
+  list-style:none;
+
+  cursor:pointer;
+
+  color:
+    #5d7386;
+
+  font-size:
+    11px;
+
+  font-weight:
+    800;
+}
+
+
+.school-calculator-more > summary::-webkit-details-marker{
+  display:none;
+}
+
+
+.school-calculator-more > summary > span{
+  display:flex;
+
+  align-items:center;
+
+  gap:8px;
+}
+
+
+.school-calculator-more > summary > span i{
+  color:
+    #6ca52d;
+}
+
+
+.school-calculator-more > summary > i{
+  color:
+    #8496a7;
+
+  font-size:
+    9px;
+
+  transition:
+    transform
+    .2s
+    ease;
+}
+
+
+.school-calculator-more[open]
+> summary > i{
+  transform:
+    rotate(180deg);
+}
+
+
+.school-calculator-more-content{
+  padding:
+    0
+    18px
+    18px;
+}
+
+
+.school-calculator-more-content
+.te-programme-note{
+  margin-top:
+    5px;
+}
+
+
+/* Tablet */
+
+@media(max-width:1080px){
+
+  .school-calculator-primary-row{
+    grid-template-columns:
+      1fr
+      1fr;
+
+    align-items:end;
+  }
+
+
+  .school-calculator-identity{
+    grid-column:
+      1 / -1;
+  }
+
+
+  .school-calculator-live{
+    position:absolute;
+
+    right:
+      38px;
+
+    margin-top:
+      4px;
+  }
+
+}
+
+
+/* Phone */
+
+@media(max-width:680px){
+
+  .school-calculator-primary-row{
+    grid-template-columns:
+      1fr;
+
+    gap:
+      13px;
+
+    padding:
+      14px;
+  }
+
+
+  .school-calculator-identity{
+    grid-column:auto;
+
+    align-items:flex-start;
+  }
+
+
+  .school-calculator-live{
+    position:static;
+
+    width:max-content;
+
+    margin:
+      0;
+  }
+
+
+  .school-calculator-primary-row .field,
+  .school-calculator-primary-row .select{
+    min-height:
+      52px;
+  }
+
+
+  .school-calculator-more > summary{
+    padding:
+      0
+      14px;
+  }
+
+
+  .school-calculator-more-content{
+    padding:
+      0
+      14px
+      14px;
+  }
+
+}
+
+
+/* =========================================================
+   SCHOOL LICENCE CARD - COMPACT PRICE CALCULATOR
+========================================================= */
+
+#pricing .school-plan-card .school-licence-calculator-static{
+  width:100%;
+  margin:12px 0 16px;
+  border:1px solid #dcebc8;
+  border-radius:15px;
+  background:#f9fcf5;
+  box-shadow:none;
+  overflow:hidden;
+}
+
+/* Hide the old introductory heading inside the calculator */
+
+#pricing .school-plan-card .school-calculator-identity{
+  display:none;
+}
+
+/* Compact input layout */
+
+#pricing .school-plan-card .school-calculator-primary-row{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(105px,.45fr);
+  gap:10px;
+  align-items:end;
+  padding:13px;
+}
+
+#pricing .school-plan-card .school-calculator-field{
+  min-width:0;
+}
+
+#pricing .school-plan-card .school-calculator-field .label{
+  display:block;
+  margin-bottom:6px;
+  font-size:11px;
+  font-weight:800;
+  line-height:1.35;
+  color:var(--navy);
+}
+
+#pricing .school-plan-card .school-calculator-field .field,
+#pricing .school-plan-card .school-calculator-field .select{
+  width:100%;
+  min-width:0;
+  height:44px;
+  min-height:44px;
+  padding:0 12px;
+  border-radius:11px;
+  background:#fff;
+  font-size:14px;
+  font-weight:800;
+}
+
+#pricing .school-plan-card .school-calculator-field .field{
+  padding-right:72px;
+}
+
+#pricing .school-plan-card .input-wrap .suffix{
+  right:10px;
+  font-size:10px;
+}
+
+/* Compact live-update indicator */
+
+#pricing .school-plan-card .school-calculator-live{
+  position:static!important;
+  grid-column:1 / -1;
+  justify-self:start;
+  width:auto;
+  min-height:0;
+  margin:0;
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+  color:#5f8f26;
+  font-size:10px;
+  font-weight:800;
+  white-space:normal;
+}
+
+#pricing .school-plan-card .school-calculator-live i{
+  color:#6ca52d;
+}
+
+/* Keep additional pricing information collapsed */
+
+#pricing .school-plan-card .school-calculator-more{
+  margin:0;
+  background:#fff;
+}
+
+#pricing .school-plan-card .school-calculator-more > summary{
+  min-height:40px;
+  padding:8px 13px;
+  font-size:10px;
+  line-height:1.4;
+}
+
+/* Tablet */
+
+@media(max-width:1080px){
+
+  #pricing .school-plan-card .school-calculator-primary-row{
+    grid-template-columns:minmax(0,1fr) minmax(105px,.45fr);
+  }
+
+  #pricing .school-plan-card .school-calculator-live{
+    position:static!important;
+    right:auto!important;
+  }
+
+}
+
+/* Mobile */
+
+@media(max-width:480px){
+
+  #pricing .school-plan-card .school-calculator-primary-row{
+    grid-template-columns:minmax(0,1fr);
+    gap:10px;
+    padding:12px;
+  }
+
+  #pricing .school-plan-card .school-calculator-field .field,
+  #pricing .school-plan-card .school-calculator-field .select{
+    min-height:46px!important;
+    height:46px;
+    font-size:14px;
+  }
+
+  #pricing .school-plan-card .school-calculator-live{
+    grid-column:1;
+    justify-self:start;
+    font-size:10px;
+  }
+
+}
+
+
+/* MOBILE PRICING IMPROVEMENTS */
+
+@media(max-width:680px){
+
+  /* Student count and currency side by side */
+
+  #pricing .school-plan-card
+  .school-calculator-primary-row{
+    display:grid!important;
+    grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)!important;
+    gap:10px!important;
+    align-items:end!important;
+    padding:12px!important;
+  }
+
+  #pricing .school-plan-card
+  .school-calculator-identity{
+    display:none!important;
+  }
+
+  #pricing .school-plan-card
+  .school-calculator-field{
+    min-width:0!important;
+  }
+
+  /* Shorter student label, mobile only */
+
+  #pricing .school-plan-card
+  label[for="schoolStudentCount"]{
+    font-size:0!important;
+    line-height:1.3!important;
+  }
+
+  #pricing .school-plan-card
+  label[for="schoolStudentCount"]::after{
+    content:"Students";
+    font-size:12px;
+    font-weight:800;
+    color:var(--navy);
+  }
+
+  #pricing .school-plan-card
+  label[for="schoolPriceCurrency"]{
+    font-size:12px!important;
+  }
+
+  #pricing .school-plan-card
+  .school-calculator-field .field,
+  #pricing .school-plan-card
+  .school-calculator-field .select{
+    width:100%!important;
+    min-width:0!important;
+    min-height:46px!important;
+    height:46px!important;
+    padding:0 10px!important;
+    font-size:15px!important;
+  }
+
+  #pricing .school-plan-card
+  .school-calculator-field .field{
+    padding-right:58px!important;
+  }
+
+  #pricing .school-plan-card
+  .input-wrap .suffix{
+    right:8px!important;
+    font-size:9px!important;
+  }
+
+  #pricing .school-plan-card
+  .school-calculator-live{
+    position:static!important;
+    grid-column:1 / -1!important;
+    justify-self:start!important;
+    margin:0!important;
+    min-height:0!important;
+  }
+
+  /* Shorter expandable feature sections */
+
+  #pricing .pricing-features-toggle{
+    margin-top:0;
+  }
+
+  #pricing .pricing-features-toggle > summary{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    min-height:50px;
+    padding:12px 0;
+    cursor:pointer;
+    list-style:none;
+    color:var(--navy);
+    font-size:13px;
+    font-weight:800;
+    line-height:1.4;
+  }
+
+  #pricing .pricing-features-toggle
+  > summary::-webkit-details-marker{
+    display:none;
+  }
+
+  #pricing .pricing-features-toggle
+  > summary i{
+    flex-shrink:0;
+    color:#6ca52d;
+    transition:transform .2s ease;
+  }
+
+  #pricing .pricing-features-toggle[open]
+  > summary i{
+    transform:rotate(180deg);
+  }
+
+  #pricing .pricing-features-toggle
+  .pricing-plan-features{
+    padding:8px 0 12px;
+    grid-template-columns:1fr!important;
+    gap:12px!important;
+  }
+
+}
+
+/* Desktop: show all features without expanding */
+
+@media(min-width:681px){
+
+  #pricing .pricing-features-toggle > summary{
+    display:none!important;
+  }
+
+  #pricing .pricing-features-toggle
+  > .pricing-features-body{
+    display:block!important;
+  }
+
+  #pricing .pricing-features-toggle
+  .pricing-plan-includes-title{
+    display:block;
+  }
+
+}
+
+
+/* STRATEGIC PARTNERSHIP NOTE */
+
+.strategic-plan-note{
+  display:flex;
+  align-items:flex-start;
+
+  gap:
+    12px;
+
+  margin-top:auto;
+
+  padding:
+    16px;
+
+  border:
+    1px solid
+    #dce8f2;
+
+  border-radius:
+    16px;
+
+  background:
+    #f8fbfd;
+}
+
+
+.strategic-plan-note > i{
+  width:
+    34px;
+
+  height:
+    34px;
+
+  display:grid;
+  place-items:center;
+
+  flex:
+    0
+    0
+    34px;
+
+  border-radius:
+    10px;
+
+  background:
+    #eaf4ff;
+
+  color:
+    #2477c9;
+}
+
+
+.strategic-plan-note strong{
+  display:block;
+
+  color:
+    var(--navy);
+
+  font-size:
+    12px;
+}
+
+
+.strategic-plan-note span{
+  display:block;
+
+  margin-top:
+    3px;
+
+  color:
+    #718398;
+
+  font-size:
+    10px;
+
+  line-height:
+    1.45;
+}
+
+
+/* BUYER ACTIONS */
+
+.pricing-buyer-actions{
+  grid-column:
+    1 / -1;
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,minmax(0,1fr));
+
+  gap:
+    12px;
+
+  margin-top:
+    18px;
+}
+
+
+/* TABLET */
+
+@media(max-width:1080px){
+
+  #pricing .pricing-grid{
+    grid-template-columns:
+      1fr;
+
+    max-width:
+      760px;
+
+    margin-left:
+      auto;
+
+    margin-right:
+      auto;
+  }
+
+
+  .pricing-plan-top{
+    min-height:
+      auto;
+  }
+
+
+  .school-price-calculator{
+    margin-top:
+      0;
+  }
+
+}
+
+
+/* PHONE */
+
+@media(max-width:680px){
+
+  #pricing .pricing-plan-card{
+    padding:
+      20px;
+
+    border-radius:
+      20px;
+  }
+
+
+  #pricing .pricing-plan-card h3{
+    font-size:
+      26px;
+  }
+
+
+  .pricing-plan-top{
+    gap:
+      10px;
+  }
+
+
+  .pricing-plan-premium,
+  .pricing-plan-value{
+    font-size:
+      9px;
+
+    padding:
+      0
+      8px;
+  }
+
+
+  #pricing .school-plan-price .big-price,
+  .pricing-plan-price strong{
+    font-size:
+      36px;
+  }
+
+
+  .pricing-plan-features{
+    grid-template-columns:
+      1fr;
+
+    gap:
+      11px;
+  }
+
+
+  .school-price-calculator{
+    padding:
+      16px;
+  }
+
+
+  .school-price-calculator .calc-top{
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .school-price-calculator .anchors{
+    grid-template-columns:
+      repeat(2,minmax(0,1fr)) !important;
+  }
+
+
+  .pricing-buyer-actions{
+    grid-template-columns:
+      1fr;
+
+    gap:
+      8px;
+  }
+
+}
+
+
+@media(max-width:420px){
+
+  .school-price-calculator .anchors{
+    grid-template-columns:
+      1fr !important;
+  }
+
+}
+
+
 
 .pricing-buyer-actions .btn{
   width:100%;
@@ -269,6 +2076,801 @@ html[dir="rtl"] .hero-real-school-proof:hover .hero-real-school-arrow{
   }
 
 }
+
+
+/* =========================================================
+   COMPACT SCHOOL-LEADER PRICING EXPERIENCE
+========================================================= */
+
+#pricing{
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #f8fbfe 100%
+    );
+}
+
+
+#pricing .section-head{
+  max-width:
+    900px;
+}
+
+
+#pricing .section-head h2{
+  max-width:
+    820px;
+
+  margin-left:
+    auto;
+
+  margin-right:
+    auto;
+}
+
+
+#pricing .section-head .lead{
+  max-width:
+    780px;
+
+  margin-left:
+    auto;
+
+  margin-right:
+    auto;
+}
+
+
+/* Launch programme */
+
+.pricing-launch-strip{
+  display:grid;
+
+  grid-template-columns:
+    auto
+    minmax(0,1fr)
+    auto;
+
+  align-items:center;
+
+  gap:
+    15px;
+
+  max-width:
+    1040px;
+
+  margin:
+    25px
+    auto
+    0;
+
+  padding:
+    14px
+    16px;
+
+  border:
+    1px solid
+    #dcebc8;
+
+  border-radius:
+    18px;
+
+  background:
+    #f5faef;
+}
+
+
+.pricing-launch-icon{
+  width:
+    40px;
+
+  height:
+    40px;
+
+  display:grid;
+
+  place-items:center;
+
+  border-radius:
+    12px;
+
+  background:
+    #e6f5d4;
+
+  color:
+    #659d2d;
+}
+
+
+.pricing-launch-copy strong,
+.pricing-launch-copy span{
+  display:block;
+}
+
+
+.pricing-launch-copy strong{
+  color:
+    var(--navy);
+
+  font-size:
+    12px;
+}
+
+
+.pricing-launch-copy span{
+  margin-top:
+    3px;
+
+  color:
+    #65798b;
+
+  font-size:
+    11px;
+
+  line-height:
+    1.4;
+}
+
+
+.pricing-launch-strip > a{
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:
+    7px;
+
+  color:
+    #2563eb;
+
+  font-size:
+    11px;
+
+  font-weight:
+    800;
+
+  white-space:
+    nowrap;
+}
+
+
+/* Proof row */
+
+#pricing .pricing-proof-row{
+  margin-top:
+    15px;
+
+  margin-bottom:
+    0;
+}
+
+
+/* Plans */
+
+#pricing .pricing-grid{
+  margin-top:
+    26px;
+
+  gap:
+    22px;
+
+  align-items:
+    stretch;
+}
+
+
+#pricing .pricing-plan-card{
+  display:
+    grid;
+
+  grid-template-rows:
+    auto
+    auto
+    auto
+    auto
+    1fr;
+
+  align-content:
+    start;
+
+  padding:
+    30px;
+
+  border-radius:
+    26px;
+
+  box-shadow:
+    0
+    10px
+    30px
+    rgba(11,35,65,.055);
+}
+
+
+#pricing .school-plan-card{
+  border-color:
+    #dbe5ee;
+}
+
+
+#pricing .strategic-plan-card{
+  border-width:
+    1.5px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #fbfdff 100%
+    );
+
+  box-shadow:
+    0
+    12px
+    30px
+    rgba(42,143,227,.09);
+}
+
+
+#pricing .pricing-plan-top{
+  display:
+    grid;
+
+  grid-template-columns:
+    minmax(0,1fr)
+    auto;
+
+  align-items:
+    start;
+
+  gap:
+    16px;
+
+  min-height:
+    128px;
+}
+
+
+#pricing .pricing-plan-card h3{
+  margin:
+    0
+    0
+    10px;
+
+  font-size:
+    clamp(21px,2.3vw,29px);
+
+  line-height:
+    1.12;
+
+  letter-spacing:
+    -.03em;
+}
+
+
+#pricing .pricing-plan-description{
+  max-width:
+    450px;
+}
+
+
+#pricing .pricing-plan-premium,
+#pricing .pricing-plan-value{
+  align-self:
+    start;
+
+  max-width:
+    158px;
+
+  min-height:
+    32px;
+
+  padding:
+    7px
+    12px;
+
+  line-height:
+    1.25;
+
+  text-align:
+    center;
+
+  white-space:
+    normal;
+}
+
+
+#pricing .school-plan-price{
+  min-height:
+    104px;
+
+  margin-top:
+    16px;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  justify-content:
+    flex-end;
+}
+
+
+#pricing .pricing-plan-price{
+  display:
+    flex;
+
+  align-items:
+    flex-end;
+
+  flex-wrap:
+    wrap;
+
+  gap:
+    6px;
+
+  min-height:
+    104px;
+
+  margin-top:
+    16px;
+
+  padding-bottom:
+    4px;
+}
+
+
+#pricing .pricing-main-cta,
+#pricing .pricing-plan-contact{
+  min-height:
+    56px;
+
+  margin-top:
+    14px;
+
+  border-radius:
+    16px;
+}
+
+
+#pricing .pricing-plan-divider{
+  margin:
+    22px
+    0
+    18px;
+}
+
+
+#pricing .pricing-plan-features{
+  gap:
+    12px
+    18px;
+
+  align-content:
+    start;
+}
+
+
+#pricing .pricing-plan-features > span{
+  font-size:
+    13px;
+
+  line-height:
+    1.45;
+}
+
+
+#pricing .strategic-plan-helper{
+  min-height:
+    38px;
+
+  margin:
+    6px
+    0
+    0;
+
+  color:
+    #6b7f92;
+
+  font-size:
+    12px;
+
+  line-height:
+    1.45;
+}
+
+
+@media(max-width:680px){
+
+  #pricing .pricing-plan-card{
+    padding:
+      20px;
+
+    border-radius:
+      20px;
+  }
+
+
+  #pricing .pricing-plan-top{
+    min-height:
+      0;
+
+    grid-template-columns:
+      1fr;
+
+    gap:
+      10px;
+  }
+
+
+  #pricing .pricing-plan-premium,
+  #pricing .pricing-plan-value{
+    max-width:
+      fit-content;
+  }
+
+
+  #pricing .school-plan-price,
+  #pricing .pricing-plan-price{
+    min-height:
+      unset;
+  }
+
+
+  #pricing .strategic-plan-helper{
+    min-height:
+      0;
+  }
+
+}
+
+
+/* Expandable calculator */
+
+.pricing-plan-details{
+  margin-top:
+    20px;
+
+  border:
+    1px solid
+    #dce7ef;
+
+  border-radius:
+    16px;
+
+  background:
+    #f8fbfd;
+
+  overflow:
+    hidden;
+}
+
+
+.pricing-plan-details > summary{
+  list-style:none;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:
+    16px;
+
+  min-height:
+    64px;
+
+  padding:
+    12px
+    15px;
+
+  cursor:pointer;
+
+  background:
+    #f8fbfd;
+}
+
+
+.pricing-plan-details > summary::-webkit-details-marker{
+  display:none;
+}
+
+
+.pricing-plan-details > summary > span{
+  display:flex;
+
+  align-items:center;
+
+  gap:
+    11px;
+}
+
+
+.pricing-plan-details > summary > span > i{
+  width:
+    36px;
+
+  height:
+    36px;
+
+  display:grid;
+
+  place-items:center;
+
+  flex:
+    0
+    0
+    36px;
+
+  border-radius:
+    11px;
+
+  background:
+    #eaf4ff;
+
+  color:
+    #2477c9;
+}
+
+
+.pricing-plan-details summary strong,
+.pricing-plan-details summary small{
+  display:block;
+}
+
+
+.pricing-plan-details summary strong{
+  color:
+    var(--navy);
+
+  font-size:
+    12px;
+}
+
+
+.pricing-plan-details summary small{
+  margin-top:
+    2px;
+
+  color:
+    #718398;
+
+  font-size:
+    10px;
+}
+
+
+.pricing-details-chevron{
+  color:
+    #8295a7;
+
+  font-size:
+    11px;
+
+  transition:
+    transform
+    .2s
+    ease;
+}
+
+
+.pricing-plan-details[open]
+.pricing-details-chevron{
+  transform:
+    rotate(180deg);
+}
+
+
+#pricing .pricing-plan-details
+.school-price-calculator{
+  margin:
+    0;
+
+  padding:
+    17px;
+
+  border:
+    0;
+
+  border-top:
+    1px solid
+    #dce7ef;
+
+  border-radius:
+    0;
+
+  background:
+    #fff;
+}
+
+
+#pricing .pricing-proof-row-bottom{
+  margin-top:18px;
+  margin-bottom:10px;
+}
+
+
+#pricing .pricing-proof-row-bottom + .pricing-choice-guidance{
+  margin-top:0;
+}
+
+#pricing .pricing-launch-strip-bottom{
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+
+#pricing .pricing-launch-strip-bottom + .pricing-choice-guidance{
+  margin-top:0;
+}
+
+/* Guidance for school leaders */
+
+.pricing-choice-guidance{
+  display:flex;
+
+  align-items:flex-start;
+
+  gap:
+    11px;
+
+  max-width:
+    900px;
+
+  margin:
+    18px
+    auto
+    0;
+
+  padding:
+    13px
+    15px;
+
+  border:
+    1px solid
+    #dce7ef;
+
+  border-radius:
+    16px;
+
+  background:
+    #fff;
+}
+
+
+.pricing-choice-guidance > i{
+  margin-top:
+    2px;
+
+  color:
+    #2477c9;
+}
+
+
+.pricing-choice-guidance strong,
+.pricing-choice-guidance span{
+  display:block;
+}
+
+
+.pricing-choice-guidance strong{
+  color:
+    var(--navy);
+
+  font-size:
+    12px;
+}
+
+
+.pricing-choice-guidance span{
+  margin-top:
+    2px;
+
+  color:
+    #687c90;
+
+  font-size:
+    11px;
+
+  line-height:
+    1.45;
+}
+
+
+/* Tablet */
+
+@media(max-width:1080px){
+
+  .pricing-launch-strip{
+    max-width:
+      760px;
+  }
+
+
+  #pricing .pricing-grid{
+    max-width:
+      760px;
+  }
+
+
+  .pricing-choice-guidance{
+    max-width:
+      760px;
+  }
+
+}
+
+
+/* Phone */
+
+@media(max-width:680px){
+
+  .pricing-launch-strip{
+    grid-template-columns:
+      auto
+      minmax(0,1fr);
+
+    gap:
+      11px;
+
+    padding:
+      13px;
+  }
+
+
+  .pricing-launch-strip > a{
+    grid-column:
+      1 / -1;
+
+    padding-left:
+      51px;
+
+    white-space:
+      normal;
+  }
+
+
+  #pricing .pricing-plan-card{
+    padding:
+      19px;
+  }
+
+
+  #pricing .pricing-plan-top{
+    min-height:
+      0;
+  }
+
+
+  #pricing .pricing-plan-premium,
+  #pricing .pricing-plan-value{
+    max-width:
+      118px;
+  }
+
+
+  .pricing-plan-details > summary{
+    min-height:
+      60px;
+
+    padding:
+      11px
+      12px;
+  }
+
+
+  .pricing-choice-guidance{
+    margin-top:
+      13px;
+  }
+
+}
+
+
 /* FAQ + FINAL */
 .faq{max-width:900px;margin:40px auto 0;display:grid;gap:13px}.faq details{background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px 21px;box-shadow:var(--shadow2)}.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:15px;font-size:17px;font-weight:900;color:var(--navy)}.faq summary::-webkit-details-marker{display:none}.faq summary:after{content:'+';color:var(--blue);font-size:25px}.faq details[open] summary:after{content:'–'}.faq p{font-size:14px;line-height:1.65;color:var(--muted);margin:11px 0 3px}.final{padding:20px 0 105px}.final-card{position:relative;overflow:hidden;padding:38px;border-radius:32px;background:linear-gradient(135deg,#0b2341,#194e7f);color:#fff;box-shadow:0 32px 75px rgba(11,35,65,.22)}.final-card:before{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.06);right:-55px;bottom:-70px}.final-card h2{font-size:clamp(38px,5.2vw,64px);line-height:.94;margin:0;max-width:820px}.final-card h2 span{color:#b3e875}.final-card p{font-size:17px;line-height:1.65;color:#d2e2ef;max-width:760px}.final-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}footer{padding:0 0 105px}.foot{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;padding-top:28px;border-top:1px solid var(--line)}.foot p{font-size:13px;line-height:1.6;color:var(--muted);max-width:490px}.foot-links{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;font-weight:800;color:#5f758b}.mobilebar{display:none}
 @media(max-width:1080px){.hero-grid,.ecosystem-layout,.toolkit-wrap,.physical-grid,.pricing-grid{grid-template-columns:1fr}.audience-grid{grid-template-columns:1fr}.tool-copy{position:static}.hero-ecosystem{min-height:610px}.why-head{grid-template-columns:1fr}.tool-grid{grid-template-columns:repeat(3,1fr)}}
@@ -2471,6 +5073,117 @@ body.modal-lock{overflow:hidden}
   .te-pilot-panel .te-modal-actions .btn{
     width:100%!important;
     min-height:52px!important
+  }
+}
+
+/* =========================================================
+   COMPACT DEMO BOOKING MODAL
+========================================================= */
+
+.te-demo-panel {
+  width:min(760px,94vw)!important;
+  padding:32px!important;
+}
+
+.te-demo-panel .demo-modal-head {
+  margin-bottom:18px;
+}
+
+.te-demo-panel .demo-simple-intro {
+  margin:0 0 18px;
+  color:#64748b;
+  font-size:14px;
+  line-height:1.6;
+}
+
+.te-demo-panel .demo-simple-benefits {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:12px 20px;
+  margin-bottom:20px;
+  color:#334155;
+  font-size:13px;
+  font-weight:700;
+}
+
+.te-demo-panel .demo-simple-benefits > span {
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
+
+.te-demo-panel .demo-simple-benefits i {
+  color:#65a30d;
+  font-size:12px;
+}
+
+.te-demo-panel .te-modal-actions {
+  margin-top:0!important;
+  gap:12px!important;
+}
+
+.te-demo-panel .demo-simple-links {
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:12px 24px;
+  margin-top:18px;
+}
+
+.te-demo-panel .demo-simple-link {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  border:0;
+  padding:5px 0;
+  background:transparent;
+  color:#2563eb;
+  font-family:inherit;
+  font-size:12px;
+  font-weight:800;
+  line-height:1.4;
+  text-decoration:none;
+  cursor:pointer;
+}
+
+.te-demo-panel .demo-simple-link:hover {
+  color:#174da3;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+
+.te-demo-panel .demo-simple-link:focus-visible {
+  outline:3px solid #2563eb;
+  outline-offset:4px;
+  border-radius:3px;
+}
+
+@media(max-width:680px) {
+  .te-demo-panel {
+    width:100%!important;
+    max-width:none!important;
+    max-height:94dvh!important;
+    padding:28px 20px 24px!important;
+    border-radius:28px 28px 0 0!important;
+  }
+
+  .te-demo-panel .demo-simple-benefits {
+    display:grid;
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+
+  .te-demo-panel .te-modal-actions {
+    display:grid!important;
+    grid-template-columns:1fr!important;
+  }
+
+  .te-demo-panel .demo-simple-links {
+    justify-content:center;
+    gap:10px 18px;
   }
 }
 
@@ -8193,39 +10906,632 @@ html[dir="rtl"] .outcomes-role-details>summary>.outcomes-role-chevron{margin-lef
 </div>
 </div>
 </section>
-<section class="section" id="pricing"><div class="shell"><div class="section-head center reveal"><span class="eyebrow"><i class="fa-solid fa-tag"></i> <span data-i18n="pricing_eyebrow">Transparent school pricing</span></span><h2 data-i18n="pricing_title">30 days free. More time for eligible schools.</h2><p class="lead" data-i18n="pricing_lead">No credit card. Eligible schools may request free access until 31 July 2027. From August 2027, approved schools can receive 20% off their first five paid years.</p></div><div class="pricing-proof-row reveal"><span><i class="fa-solid fa-check"></i> <span data-i18n="proof_30">30 days free</span></span><span><i class="fa-solid fa-check"></i> <span data-i18n="proof_no_card">No credit card</span></span><span><i class="fa-solid fa-check"></i> <span data-i18n="pricing_full_system">Full system included</span></span><span><i class="fa-solid fa-check"></i> <span data-i18n="proof_setup">Setup support included</span></span></div><div class="pricing-grid"><div class="price-card reveal"><span class="eyebrow"><i class="fa-solid fa-calculator"></i> <span data-i18n="pricing_calculator">Calculate your school price</span></span><h3 data-i18n="pricing_trial_title">Start with the full system free for 30 days.</h3><p data-i18n="pricing_trial_copy"> You can then request extended free access if your school is eligible.</p><div class="calculator"><div class="te-programme-note"><strong data-i18n="offer_programme_title">2026–27 School Launch Programme</strong><a href="mailto:hello@trackedu.net?subject=TrackEDU%20School%20Launch%20Programme" data-i18n="offer_request">Ask about extended free access</a></div><div class="calc-top"><div><label class="label" for="schoolStudentCount" data-i18n="pricing_student_question">How many students are in your school?</label><div class="input-wrap"><input class="field" id="schoolStudentCount" inputmode="numeric" max="10000" min="1" step="1" type="number" value="500"/><span class="suffix" data-i18n="pricing_students">students</span></div></div><div><label class="label" for="schoolPriceCurrency" data-i18n="pricing_currency">Currency</label><select class="select" id="schoolPriceCurrency"><option value="USD">USD</option><option value="GBP">GBP</option><option value="EUR">EUR</option></select></div></div><div class="te-launch-offer"><i class="fa-solid fa-bolt"></i><strong data-i18n="offer_badge">20% off for five paid years</strong><span data-i18n="offer_badge_detail">2026–27 School Launch Programme</span></div><div class="price-box"><div class="price-title" data-i18n="offer_price_title">Your annual licence</div><div class="te-price-before" id="tePriceBefore" aria-live="polite"></div><div class="big-price" id="schoolLicencePrice">US$880 <span class="per">/ year</span></div><p class="te-price-saving" id="tePriceSaving" aria-live="polite"></p><p class="small-note" id="schoolPriceEquivalent" style="display:none"></p><p class="small-note te-offer-note" data-i18n="offer_note">For eligible schools that choose to subscribe from August 2027. The 20% discount applies to each of your first five paid annual licences. Normal pricing applies afterwards.</p><p class="small-note" data-i18n="pricing_charge_note">Your free trial does not automatically become paid. Stripe subscriptions renew annually unless cancelled. Cancel anytime to stop the next renewal.</p><p class="small-note" id="schoolPriceStatus"></p></div><div class="anchors"><div class="anchor"><b data-i18n="pricing_up_to_250">Up to 250</b><span id="priceAnchor250">from US$600</span></div><div class="anchor"><b data-i18n="pricing_500_students">500 students</b><span id="priceAnchor500">US$880</span></div><div class="anchor"><b data-i18n="pricing_1000_students">1,000 students</b><span id="priceAnchor1000">US$1,360</span></div><div class="anchor"><b data-i18n="pricing_3000_students">3,000 students</b><span id="priceAnchor3000">US$2,800</span></div></div><p class="small-note" data-i18n="pricing_exchange_note">GBP and EUR are approximate conversions of the USD licence price using the latest available exchange rate.</p></div></div><div class="price-card reveal">
-<span class="eyebrow">
-<i class="fa-solid fa-box"></i>
-    <span data-i18n="pricing_included">Included</span>
-  </span>
-<h3 data-i18n="pricing_complete_title">One licence. The complete TrackEDU system.</h3>
-<p data-i18n="pricing_complete_copy">No separate behaviour or student-engagement add-ons.</p>
-<details class="te-mobile-included">
-<summary data-i18n="mobile_included_toggle">See everything included</summary>
-<div class="include-list"><div class="include"><i class="fa-solid fa-star"></i><div><b data-i18n="pricing_include1">House points + positive recognition</b><span data-i18n="pricing_include1_copy">Fast awarding, live standings and class/House visibility.</span></div></div><div class="include"><i class="fa-solid fa-clipboard-list"></i><div><b data-i18n="pricing_include2">Behaviour incidents + follow-up</b><span data-i18n="pricing_include2_copy">Incident records, reflections, parent contact and outstanding actions.</span></div></div><div class="include"><i class="fa-solid fa-user-graduate"></i><div><b data-i18n="pricing_include3">Teacher App + Student Portal</b><span data-i18n="pricing_include3_copy">Staff workflows and a student experience in the same school system.</span></div></div><div class="include"><i class="fa-solid fa-circle-nodes"></i><div><b data-i18n="pricing_include4">Dashboards, imports + support</b><span data-i18n="pricing_include4_copy">Leadership insight, Google Classroom/CSV tools, exports and House Leader training.</span></div></div><div class="include"><i class="fa-solid fa-gift"></i><div><b data-i18n="store_pricing">School Store + rewards</b><span data-i18n="store_pricing_copy">Custom reward catalogue, Store Points, stock and staff-managed requests.</span></div></div>
-</div>
-</details>
-<div class="price-actions">
-<a class="btn btn-primary" href="https://housepoint.trackedu.net/">
-      <span data-i18n="pricing_start_pilot">Start free 30-day pilot</span>
-      <i class="fa-solid fa-arrow-right"></i>
-</a>
-</div>
-</div>
-<div class="pricing-buyer-actions">
-<button class="btn btn-secondary payment-options-btn" data-payment-trigger="true" type="button">
-<i class="fa-solid fa-building-columns"></i>
-    <span data-i18n="pricing_payment">Payment &amp; procurement options</span>
-  </button>
-<a class="btn btn-secondary" data-demo-trigger="true" href="#">
-<i class="fa-regular fa-calendar"></i>
-    <span data-i18n="pricing_demo">Book a demo</span>
-  </a>
-<a class="btn btn-secondary" href="https://drive.google.com/file/d/1WB33PEYY0Gc5emDOIpS5hPpK4sGh8s-v/view?usp=sharing" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-pdf"></i>
-    <span data-i18n="pricing_overview">View School Overview</span>
-  </a>
-</div></div></div></section><section class="section soft" id="faq"><div class="shell"><div class="section-head center reveal"><span class="eyebrow"><i class="fa-solid fa-circle-question"></i> <span data-i18n="nav_faq">FAQ</span></span><h2 data-i18n="faq_title">What schools usually want to know.</h2></div><div class="faq reveal"><details><summary data-i18n="faq_q1">Is TrackEDU just a digital House points system?</summary><p data-i18n="faq_a1">No. House points are the culture and recognition layer, but TrackEDU also connects positive recognition, behaviour incidents, follow-up actions, student records, school dashboards, the Student Portal, challenges, reporting and implementation support.</p></details><details><summary data-i18n="faq_q2">Do students need school email accounts?</summary><p data-i18n="faq_a2">No. The Student Portal is designed to work without requiring student email accounts.</p></details><details><summary data-i18n="faq_q3">Can we bring in our existing classes?</summary><p data-i18n="faq_a3">Yes. Import students and classes using CSV or connect Google Classroom to review and import existing class rosters.</p></details>
+<section class="section" id="pricing">
+
+  <div class="shell">
+
+    <div class="section-head center reveal">
+
+      <span class="eyebrow">
+        <i class="fa-solid fa-tag"></i>
+        Transparent school pricing
+      </span>
+
+      <h2>
+        Choose the right plan for your school.
+      </h2>
+
+      <p class="lead">
+        Every School Licence includes the complete TrackEDU platform.
+        Strategic Partnership adds wider school tools, training and hands-on support.
+      </p>
+
+    </div>
+
+
+
+
+
+
+
+
+    <div class="school-licence-calculator-row school-licence-calculator-static reveal">
+
+
+      <div class="school-calculator-primary-row">
+
+
+        <div class="school-calculator-identity">
+
+          <div class="school-calculator-icon">
+            <i class="fa-solid fa-calculator"></i>
+          </div>
+
+          <div class="school-calculator-summary-copy">
+
+            <span class="school-calculator-plan-tag">
+              <i class="fa-solid fa-school"></i>
+              SCHOOL LICENCE · FOR INDIVIDUAL SCHOOLS
+            </span>
+
+            <strong>
+              Calculate your School Licence price
+            </strong>
+
+            <small>
+              Enter your student number and choose your currency.
+            </small>
+
+          </div>
+
+        </div>
+
+
+        <div class="school-calculator-field">
+
+          <label
+            class="label"
+            for="schoolStudentCount"
+            data-i18n="pricing_student_question"
+          >
+            How many students are in your school?
+          </label>
+
+          <div class="input-wrap">
+
+            <input
+              class="field"
+              id="schoolStudentCount"
+              inputmode="numeric"
+              max="10000"
+              min="1"
+              step="1"
+              type="number"
+              value="500"
+            />
+
+            <span
+              class="suffix"
+              data-i18n="pricing_students"
+            >
+              students
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="school-calculator-field school-calculator-currency">
+
+          <label
+            class="label"
+            for="schoolPriceCurrency"
+            data-i18n="pricing_currency"
+          >
+            Currency
+          </label>
+
+          <select
+            class="select"
+            id="schoolPriceCurrency"
+          >
+            <option value="USD">USD</option>
+            <option value="GBP">GBP</option>
+            <option value="EUR">EUR</option>
+          </select>
+
+        </div>
+
+
+        <span class="school-calculator-live">
+          <i class="fa-solid fa-bolt"></i>
+          Updates instantly
+        </span>
+
+
+      </div>
+
+
+      <details class="school-calculator-more">
+
+        <summary>
+
+          <span>
+            <i class="fa-solid fa-circle-info"></i>
+            More School Licence pricing details
+          </span>
+
+          <i class="fa-solid fa-chevron-down"></i>
+
+        </summary>
+
+
+        <div class="school-calculator-more-content">
+
+
+          <div class="te-programme-note">
+
+            <strong data-i18n="offer_programme_title">
+              2026–27 School Launch Programme
+            </strong>
+
+            <a
+              href="mailto:hello@trackedu.net?subject=TrackEDU%20School%20Launch%20Programme"
+              data-i18n="offer_request"
+            >
+              Ask about extended free access
+            </a>
+
+          </div>
+
+
+          <p
+            class="small-note"
+            id="schoolPriceEquivalent"
+            style="display:none"
+          ></p>
+
+          <p
+            class="small-note"
+            id="schoolPriceStatus"
+          ></p>
+
+
+          <div class="anchors">
+
+            <div class="anchor">
+              <b data-i18n="pricing_up_to_250">
+                Up to 250
+              </b>
+              <span id="priceAnchor250">
+                from US$600
+              </span>
+            </div>
+
+            <div class="anchor">
+              <b data-i18n="pricing_500_students">
+                500 students
+              </b>
+              <span id="priceAnchor500">
+                US$880
+              </span>
+            </div>
+
+            <div class="anchor">
+              <b data-i18n="pricing_1000_students">
+                1,000 students
+              </b>
+              <span id="priceAnchor1000">
+                US$1,360
+              </span>
+            </div>
+
+            <div class="anchor">
+              <b data-i18n="pricing_3000_students">
+                3,000 students
+              </b>
+              <span id="priceAnchor3000">
+                US$2,800
+              </span>
+            </div>
+
+          </div>
+
+
+          <p
+            class="small-note"
+            data-i18n="offer_note"
+          >
+            For eligible schools that choose to subscribe from August 2027.
+            The 20% discount applies to each of your first five paid annual licences.
+            Normal pricing applies afterwards.
+          </p>
+
+          <p
+            class="small-note"
+            data-i18n="pricing_charge_note"
+          >
+            Your free trial does not automatically become paid.
+            Stripe subscriptions renew annually unless cancelled.
+            Cancel anytime to stop the next renewal.
+          </p>
+
+          <p
+            class="small-note"
+            data-i18n="pricing_exchange_note"
+          >
+            GBP and EUR are approximate conversions of the USD licence price
+            using the latest available exchange rate.
+          </p>
+
+
+        </div>
+
+      </details>
+
+
+    </div>
+
+
+    <div class="pricing-grid">
+
+
+      <!-- SCHOOL LICENCE -->
+
+      <article class="price-card pricing-plan-card school-plan-card reveal">
+
+        <div class="pricing-plan-top">
+
+          <div>
+
+            <span class="pricing-plan-badge standard">
+              <i class="fa-solid fa-school"></i>
+              School Licence
+            </span>
+
+            <h3>
+              TrackEDU School Licence
+            </h3>
+
+            <p class="pricing-plan-description">
+              The complete TrackEDU platform for one school.
+            </p>
+
+          </div>
+
+          <span class="pricing-plan-value">
+            For individual schools
+          </span>
+
+        </div>
+
+        <script>
+          (() => {
+            const script = document.currentScript;
+            const calculator = document.querySelector(
+              '.school-licence-calculator-static'
+            );
+
+            if (calculator && script) {
+              script.before(calculator);
+            }
+          })();
+        </script>
+
+
+        <div class="school-plan-price">
+
+          <span class="school-plan-price-label">
+            Your annual licence
+          </span>
+
+          <div
+            class="te-price-before"
+            id="tePriceBefore"
+            aria-live="polite"
+          ></div>
+
+          <div
+            class="big-price"
+            id="schoolLicencePrice"
+          >
+            US$880
+            <span class="per">/ year</span>
+          </div>
+
+          <p
+            class="te-price-saving"
+            id="tePriceSaving"
+            aria-live="polite"
+          ></p>
+
+        </div>
+
+
+        <a
+          class="btn btn-primary pricing-main-cta"
+          href="https://housepoint.trackedu.net/"
+        >
+          Start free 30-day pilot
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+
+        <div class="pricing-plan-divider"></div>
+
+
+        <details class="pricing-features-toggle">
+
+          <summary>
+            <span>Included with every School Licence</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </summary>
+
+          <div class="pricing-features-body">
+
+            <strong class="pricing-plan-includes-title">
+              Included with every School Licence
+            </strong>
+
+            <div class="pricing-plan-features">
+
+          <span>
+            <i class="fa-solid fa-check"></i>
+            House Points + positive recognition
+          </span>
+
+          <span>
+            <i class="fa-solid fa-check"></i>
+            Teacher App
+          </span>
+
+          <span>
+            <i class="fa-solid fa-check"></i>
+            Student Portal
+          </span>
+
+          <span>
+            <i class="fa-solid fa-check"></i>
+            School Store + rewards
+          </span>
+
+          <span>
+            <i class="fa-solid fa-check"></i>
+            Incident Recording
+          </span>
+
+          <span>
+            <i class="fa-solid fa-check"></i>
+            Dashboards, reports + imports
+          </span>
+
+            </div>
+
+          </div>
+
+        </details>
+
+
+
+
+      </article>
+
+
+      <!-- STRATEGIC PARTNERSHIP -->
+
+      <article class="price-card pricing-plan-card strategic-plan-card reveal">
+
+        <div class="pricing-plan-top">
+
+          <div>
+
+            <span class="pricing-plan-badge">
+              <i class="fa-solid fa-handshake"></i>
+              Strategic Partnership
+            </span>
+
+            <h3>
+              TrackEDU Strategic Partnership
+            </h3>
+
+            <p class="pricing-plan-description">
+              Extend TrackEDU into wider school operations with additional
+              tools, staff training and hands-on implementation support.
+            </p>
+
+          </div>
+
+          <span class="pricing-plan-premium">
+            For wider school operations
+          </span>
+
+        </div>
+
+
+        <div class="pricing-plan-price">
+
+          <span class="pricing-plan-from">
+            From
+          </span>
+
+          <strong>
+            US$12,000
+          </strong>
+
+          <span>
+            / year
+          </span>
+
+        </div>
+
+        <p class="strategic-plan-helper">
+          Best for schools that want wider operational tools, guided rollout and staff training.
+        </p>
+
+
+        <a
+          class="btn pricing-plan-contact"
+          href="mailto:hello@trackedu.net?subject=TrackEDU%20Strategic%20Partnership"
+        >
+          Talk to us about your school
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+
+        <div class="pricing-plan-divider"></div>
+
+
+        <details class="pricing-features-toggle">
+
+          <summary>
+            <span>Everything in the School Licence, plus</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </summary>
+
+          <div class="pricing-features-body">
+
+            <strong class="pricing-plan-includes-title">
+              Everything in the School Licence, plus
+            </strong>
+
+            <div class="pricing-plan-features strategic-features">
+
+          <span>
+            <i class="fa-solid fa-check"></i>
+            <a
+              href="https://www.trackedu.net/facilities.html"
+              target="_blank"
+              rel="noopener"
+            >
+              Facility Room Booking
+            </a>
+          </span>
+
+          <span>
+            <i class="fa-solid fa-check"></i>
+            <a
+              href="https://dailyteachertools.com/"
+              target="_blank"
+              rel="noopener"
+            >
+              Classroom Screen tools
+            </a>
+          </span>
+
+          <span>
+            <i class="fa-solid fa-check"></i>
+            Priority onboarding
+          </span>
+
+          <span>
+            <i class="fa-solid fa-check"></i>
+            Staff training
+          </span>
+
+          <span>
+            <i class="fa-solid fa-check"></i>
+            Implementation support
+          </span>
+
+          <span>
+            <i class="fa-solid fa-check"></i>
+            Priority support
+          </span>
+
+            </div>
+
+          </div>
+
+        </details>
+
+
+       
+
+      </article>
+
+    </div>
+
+
+    <div class="pricing-buyer-actions">
+
+      <button
+        class="btn btn-secondary payment-options-btn"
+        data-payment-trigger="true"
+        type="button"
+      >
+        <i class="fa-solid fa-building-columns"></i>
+        <span data-i18n="pricing_payment">
+          Payment &amp; procurement options
+        </span>
+      </button>
+
+      <a
+        class="btn btn-secondary"
+        data-demo-trigger="true"
+        href="#"
+      >
+        <i class="fa-regular fa-calendar"></i>
+        <span data-i18n="pricing_demo">
+          Book a demo
+        </span>
+      </a>
+
+      <a
+        class="btn btn-secondary"
+        href="https://drive.google.com/file/d/1WB33PEYY0Gc5emDOIpS5hPpK4sGh8s-v/view?usp=sharing"
+        rel="noopener"
+        target="_blank"
+      >
+        <i class="fa-solid fa-file-pdf"></i>
+        <span data-i18n="pricing_overview">
+          View School Overview
+        </span>
+      </a>
+
+    </div>
+
+
+    <div class="pricing-proof-row pricing-proof-row-bottom reveal">
+
+      <span>
+        <i class="fa-solid fa-check"></i>
+        <span data-i18n="proof_30">30 days free</span>
+      </span>
+
+      <span>
+        <i class="fa-solid fa-check"></i>
+        <span data-i18n="proof_no_card">No credit card</span>
+      </span>
+
+      <span>
+        <i class="fa-solid fa-check"></i>
+        <span data-i18n="pricing_full_system">Full system included</span>
+      </span>
+
+      <span>
+        <i class="fa-solid fa-check"></i>
+        <span data-i18n="proof_setup">Setup support included</span>
+      </span>
+
+    </div>
+
+
+    <div class="pricing-launch-strip pricing-launch-strip-bottom reveal">
+
+      <div class="pricing-launch-icon">
+        <i class="fa-solid fa-bolt"></i>
+      </div>
+
+      <div class="pricing-launch-copy">
+
+        <strong>
+          2026–27 School Launch Programme
+        </strong>
+
+        <span>
+          Start free for 30 days. Eligible schools can request free access until
+          31 July 2027 and receive 20% off their first five paid years.
+        </span>
+
+      </div>
+
+      <a
+        href="mailto:hello@trackedu.net?subject=TrackEDU%20School%20Launch%20Programme"
+      >
+        Ask about extended free access
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<section class="section soft" id="faq"><div class="shell"><div class="section-head center reveal"><span class="eyebrow"><i class="fa-solid fa-circle-question"></i> <span data-i18n="nav_faq">FAQ</span></span><h2 data-i18n="faq_title">What schools usually want to know.</h2></div><div class="faq reveal"><details><summary data-i18n="faq_q1">Is TrackEDU just a digital House points system?</summary><p data-i18n="faq_a1">No. House points are the culture and recognition layer, but TrackEDU also connects positive recognition, behaviour incidents, follow-up actions, student records, school dashboards, the Student Portal, challenges, reporting and implementation support.</p></details><details><summary data-i18n="faq_q2">Do students need school email accounts?</summary><p data-i18n="faq_a2">No. The Student Portal is designed to work without requiring student email accounts.</p></details><details><summary data-i18n="faq_q3">Can we bring in our existing classes?</summary><p data-i18n="faq_a3">Yes. Import students and classes using CSV or connect Google Classroom to review and import existing class rosters.</p></details>
 <details>
   <summary data-i18n="faq_q_wonde">Does TrackEDU integrate with Wonde?</summary>
   <p data-i18n="faq_a_wonde">Yes. Wonde MIS/SIS integration is live. Pilot schools can explore it in demo mode, while paid subscribers can connect their school's MIS/SIS through Wonde to sync student and class data.</p>
@@ -8233,7 +11539,7 @@ html[dir="rtl"] .outcomes-role-details>summary>.outcomes-role-chevron{margin-lef
 <details>
   <summary data-i18n="faq_q_pd">Does TrackEDU offer free professional development?</summary>
   <p data-i18n="faq_a_pd">Yes. TrackEDU offers free professional development for school leaders, teachers and House Leaders. Our specialist House Leader training helps schools gain student and staff buy-in, strengthen House identity, develop student leadership and build a positive, lasting school culture.</p>
-</details><details><summary data-i18n="faq_q4">Can we use our own House names, colours and identity?</summary><p data-i18n="faq_a4">Yes. TrackEDU supports school branding and House identity, including school and House visual settings, names, colours and related information.</p></details><details><summary data-i18n="faq_q5">Is TrackEDU a house points app for schools or just a tracker?</summary><p data-i18n="faq_a5">TrackEDU is a house points app for schools with live standings, positive recognition, behaviour incidents, follow-up, student engagement and leadership dashboards sharing the same school data.</p></details><details><summary data-i18n="faq_q6">Can schools try this online house points tracker free for 30 days?</summary><p data-i18n="faq_a6">Yes. The first 30 days are free and no credit card is needed. Eligible schools can request free access until 31 July 2027. From August 2027, qualifying schools that choose to subscribe can receive 20% off their first five paid annual licences. There is no automatic paid subscription.</p></details></div><button aria-expanded="false" class="mobile-section-toggle" id="mobileFaqToggle" type="button"><span data-i18n="faq_show_all">Show all FAQs</span> <i class="fa-solid fa-chevron-down"></i></button></div></section><section class="final"><div class="shell"><div class="final-card reveal"><h2 data-i18n-html="final_title">See whether TrackEDU fits your school. <span>Try it for 30 days.</span></h2><p data-i18n="final_copy">Set up your Houses, staff and students, use the full system in your own school context, and decide after the pilot whether it is worth continuing.</p><div class="final-actions"><a class="btn btn-primary" href="https://housepoint.trackedu.net/"><span data-i18n="pricing_start_pilot">Start free 30-day pilot</span> <i class="fa-solid fa-arrow-right"></i></a><a class="btn btn-secondary" href="https://cal.com/trackedu-a9dbpy/30min" rel="noopener" target="_blank"><i class="fa-regular fa-calendar"></i> <span data-i18n="pricing_demo">Book a demo</span></a></div></div></div></section>
+</details><details><summary data-i18n="faq_q4">Can we use our own House names, colours and identity?</summary><p data-i18n="faq_a4">Yes. TrackEDU supports school branding and House identity, including school and House visual settings, names, colours and related information.</p></details><details><summary data-i18n="faq_q5">Is TrackEDU a house points app for schools or just a tracker?</summary><p data-i18n="faq_a5">TrackEDU is a house points app for schools with live standings, positive recognition, behaviour incidents, follow-up, student engagement and leadership dashboards sharing the same school data.</p></details><details><summary data-i18n="faq_q6">Can schools try this online house points tracker free for 30 days?</summary><p data-i18n="faq_a6">Yes. The first 30 days are free and no credit card is needed. Eligible schools can request free access until 31 July 2027. From August 2027, qualifying schools that choose to subscribe can receive 20% off their first five paid annual licences. There is no automatic paid subscription.</p></details></div><button aria-expanded="false" class="mobile-section-toggle" id="mobileFaqToggle" type="button"><span data-i18n="faq_show_all">Show all FAQs</span> <i class="fa-solid fa-chevron-down"></i></button></div></section><section class="final"><div class="shell"><div class="final-card reveal"><h2 data-i18n-html="final_title">See whether it fits your school. <span>Try it for 30 days.</span></h2><p data-i18n="final_copy">Set up your Houses, staff and students, use the full system in your own school context, and decide after the pilot whether it is worth continuing.</p><div class="final-actions"><a class="btn btn-primary" href="https://housepoint.trackedu.net/"><span data-i18n="pricing_start_pilot">Start free 30-day pilot</span> <i class="fa-solid fa-arrow-right"></i></a><a class="btn btn-secondary" href="https://cal.com/trackedu-a9dbpy/30min" rel="noopener" target="_blank"><i class="fa-regular fa-calendar"></i> <span data-i18n="pricing_demo">Book a demo</span></a></div></div></div></section>
 <footer class="site-footer">
 <div class="shell footer-main">
 <div class="footer-brand-col">
@@ -8648,47 +11954,14 @@ loadExchangeRates();
 </div>
 </div>
 
-<div class="demo-qualifier">
-<i class="fa-solid fa-school-circle-check"></i>
-<div>
-<strong data-i18n="demo_qualifier_title">See how TrackEDU could work at your school.</strong>
-<span data-i18n="demo_qualifier_copy">A guided walkthrough for school leaders, teachers and IT teams. Ask about the features, setup or pilot that matter to you.</span>
-</div>
-</div>
+<p class="demo-simple-intro" data-i18n="demo_qualifier_copy">
+See TrackEDU in action and ask about the features, setup and pricing that matter to your school.
+</p>
 
-<div class="demo-scan-grid">
-
-<article>
-<span class="demo-scan-icon"><i class="fa-regular fa-clock"></i></span>
-<strong data-i18n="demo_time_title">30-minute guided demo</strong>
-<small data-i18n="demo_time_copy">We can focus on the tools and questions most relevant to your school.</small>
-</article>
-
-<article>
-<span class="demo-scan-icon"><i class="fa-solid fa-display"></i></span>
-<strong data-i18n="demo_live_title">See the system live</strong>
-<small data-i18n="demo_live_copy">Teacher access, awarding points, Student Portal, tools, standings and school setup.</small>
-</article>
-
-<article>
-<span class="demo-scan-icon"><i class="fa-solid fa-comments"></i></span>
-<strong data-i18n="demo_questions_title">Bring your questions</strong>
-<small data-i18n="demo_questions_copy">Bill will answer them directly and show how TrackEDU would work in your school.</small>
-</article>
-
-</div>
-
-<div class="demo-location-note">
-<i class="fa-solid fa-earth-asia"></i>
-<span data-i18n-html="demo_location"><strong>TrackEDU Ltd is UK-based.</strong> Founder Bill is currently in Asia, so available booking times may reflect Asian time zones.</span>
-</div>
-
-<div class="it-director-box">
-<div class="it-director-copy">
-<i class="fa-solid fa-shield-halved"></i>
-<div><strong data-i18n="demo_it_title">IT, data protection or procurement?</strong><span data-i18n="demo_it_copy">Review how TrackEDU handles school data before booking.</span></div>
-</div>
-<button class="te-link-btn" data-trust-trigger="" type="button"><span data-i18n="nav_privacy">Data &amp; Privacy</span> <i class="fa-solid fa-arrow-right"></i></button>
+<div class="demo-simple-benefits" aria-label="What to expect">
+<span><i class="fa-solid fa-check" aria-hidden="true"></i> <span data-i18n="demo_time_title">30-minute live demo</span></span>
+<span><i class="fa-solid fa-check" aria-hidden="true"></i> <span data-i18n="demo_live_title">See the system live</span></span>
+<span><i class="fa-solid fa-check" aria-hidden="true"></i> <span data-i18n="demo_questions_title">Bring your questions</span></span>
 </div>
 
 <div class="te-modal-actions">
@@ -8697,14 +11970,23 @@ loadExchangeRates();
     <i class="fa-solid fa-arrow-right"></i>
 </button>
 
-<a class="btn btn-secondary" href="https://drive.google.com/file/d/1WB33PEYY0Gc5emDOIpS5hPpK4sGh8s-v/view?usp=sharing" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-pdf"></i>
-    <span data-i18n="pricing_overview">View School Overview</span>
-</a>
-
 <button class="btn btn-secondary" data-close-demo="" type="button">
     <span data-i18n="demo_not_ready">Not ready yet</span>
 </button>
+</div>
+
+<div class="demo-simple-links">
+<button class="demo-simple-link" data-trust-trigger="" type="button">
+<i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+<span data-i18n="nav_privacy">Data &amp; Privacy</span>
+<i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+</button>
+
+<a class="demo-simple-link" href="https://drive.google.com/file/d/1WB33PEYY0Gc5emDOIpS5hPpK4sGh8s-v/view?usp=sharing" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+<span data-i18n="pricing_overview">View School Overview</span>
+<i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+</a>
 </div>
 <button data-cal-config='{"layout":"month_view"}' data-cal-link="trackedu-a9dbpy/30min" data-cal-namespace="30min" id="hiddenCalLauncher" style="display:none" type="button"></button>
 </div>
@@ -12988,7 +16270,7 @@ hero_lead: 'Move beyond spreadsheets. Celebrate student success, simplify incide
       faq_a6: 'Yes. The first 30 days are free and no credit card is needed. Eligible schools can request free access until 31 July 2027. From August 2027, qualifying schools that choose to subscribe can receive 20% off their first five paid annual licences. There is no automatic paid subscription.',
       faq_show_all: 'Show all FAQs',
 
-      final_title: 'See whether TrackEDU fits your school. <span>Try it for 30 days.</span>',
+      final_title: 'See whether it fits your school. <span>Try it for 30 days.</span>',
       final_copy: 'Set up your Houses, staff and students, use the full system in your own school context, and decide after the pilot whether it is worth continuing.',
 
       footer_teacher_app: 'Teacher App',
@@ -13041,8 +16323,8 @@ hero_lead: 'Move beyond spreadsheets. Celebrate student success, simplify incide
       demo_kicker: 'Before you book',
       demo_title: 'Book a TrackEDU demo',
       demo_qualifier_title: 'See how TrackEDU could work at your school.',
-      demo_qualifier_copy: 'A guided walkthrough for school leaders, teachers and IT teams. Ask about the features, setup or pilot that matter to you.',
-      demo_time_title: '30-minute guided demo',
+      demo_qualifier_copy: 'See TrackEDU in action and ask about the features, setup and pricing that matter to your school.',
+      demo_time_title: '30-minute live demo',
       demo_time_copy: 'We can focus on the tools and questions most relevant to your school.',
       demo_live_title: 'See the system live',
       demo_live_copy: 'Teacher access, awarding points, Student Portal, tools, standings and school setup.',
