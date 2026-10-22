@@ -1,5 +1,7 @@
 
 
+
+
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
@@ -65,7 +67,7 @@
         "applicationCategory":"EducationalApplication",
         "operatingSystem":"Web",
         "url":"https://www.trackedu.net/housepoints.html",
-        "description":"A digital school House Points tracker with live House leaderboards, student progress, badges and recognition, School Store rewards, behaviour and incident support, classroom tools and reporting.",
+        "description":"A digital school House Points tracker with live House leaderboards, student progress, badges and recognition, School Store rewards, behaviour and incident support and classroom tools.",
         "publisher":{"@id":"https://www.trackedu.net/#organization"}
       },
       {
@@ -140,20 +142,46 @@
     .menu-btn{display:none;margin-left:auto;align-items:center;justify-content:center;width:45px;height:45px;background:#f3f8fc;border:1px solid var(--line);border-radius:12px;color:var(--navy)}
     .mobile-nav{display:none}
     /* Hero */
-    .hero{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(115deg,#071a30 3%,#0b2848 65%,#123e66 100%);color:#fff}
-    .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(circle at 92% 24%,rgba(81,171,238,.19),transparent 35%),radial-gradient(circle at 38% 115%,rgba(127,200,61,.09),transparent 55%)}
+    .hero{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(115deg,#f5fff1 0%,#eff9f6 48%,#e9f4ff 100%);color:var(--navy)}
+    .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(circle at 94% 4%,rgba(107,188,227,.20),transparent 38%),radial-gradient(circle at 5% 90%,rgba(133,195,65,.16),transparent 43%)}
     .hero .wrap{position:relative}
-    .hero-grid{min-height:625px;display:grid;grid-template-columns:1.03fr .97fr;gap:50px;align-items:center;padding:82px 0 66px}
+    .hero-grid{min-height:0;display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:clamp(20px,3vw,40px);align-items:center;padding:clamp(22px,2.5vw,36px) 0}
     .hero-copy{position:relative;z-index:1}
-    .hero-kicker{display:inline-flex;align-items:center;gap:9px;font-size:11px;font-weight:850;color:#d8e9f5;letter-spacing:.11em;text-transform:uppercase}
+    .hero-kicker{display:inline-flex;align-items:center;gap:9px;font-size:11px;font-weight:850;color:#4c7e29;letter-spacing:.11em;text-transform:uppercase}
     .hero-kicker .dot{width:9px;height:9px;border-radius:50%;background:#a6df69;box-shadow:0 0 0 5px rgba(166,223,105,.12)}
-    .hero h1{font-family:Fredoka,Outfit,sans-serif;font-weight:600;font-size:clamp(48px,4.9vw,72px);line-height:1.025;letter-spacing:-.04em;margin:22px 0 0;max-width:730px}
-    .hero h1 em{font-style:normal;color:var(--lime)}
-    .hero-copy>p{font-size:17px;color:#d9e7f2;line-height:1.68;max-width:550px;margin:23px 0 0}
-    .hero-actions{display:flex;flex-wrap:wrap;gap:11px;margin-top:29px}
-    .hero-badges{display:flex;gap:15px;align-items:center;flex-wrap:wrap;margin-top:22px}
-    .hero-badges span{display:inline-flex;gap:6px;align-items:center;color:#cbddeb;font-size:12px;font-weight:650}
-    .hero-badges .icon{width:15px;height:15px;color:#a5de6b}
+    .hero h1{font-family:Fredoka,Outfit,sans-serif;font-weight:600;font-size:clamp(48px,5.1vw,72px);line-height:1.025;letter-spacing:-.04em;margin:14px 0 0;max-width:730px;color:#102d2a}
+    .hero h1 em{font-style:normal;color:#5d9d24}
+    .hero-copy>p{font-size:17px;color:#466275;line-height:1.58;max-width:550px;margin:13px 0 0}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:17px}
+    .hero-badges{display:flex;gap:9px 14px;align-items:center;flex-wrap:wrap;margin-top:12px}
+    .hero-badges span{display:inline-flex;gap:7px;align-items:center;color:#355a4f;font-size:12.5px;font-weight:700}
+    .hero-badges .icon{width:15px;height:15px;color:#5caa2d}
+    /* Homepage hero artwork */
+    .hero .btn-white{background:#fff;color:#173b51;border-color:#c4dcd8;box-shadow:0 8px 24px rgba(9,42,57,.05)}
+    .hero .btn-white:hover{background:#f9fffc;border-color:#98c3b4}
+
+    .hero-artwork{
+      position:relative;
+      min-width:0;
+    }
+
+    .hero-artwork-frame{
+      position:relative;
+      width:100%;
+      aspect-ratio:1;
+      overflow:hidden;
+      border-radius:25px;
+      background:#e7f5e8;
+      box-shadow:0 16px 40px rgba(30,98,85,.09);
+    }
+
+    .hero-artwork-frame img{
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      object-position:center;
+    }
     /* Illustrative (not falsely represented as a screenshot) product UI */
     .hero-visual{position:relative;min-width:0}
     .app-display{position:relative;background:#f8fbfe;border:1px solid rgba(255,255,255,.46);border-radius:24px;overflow:hidden;box-shadow:0 34px 90px rgba(0,0,0,.33);transform:perspective(1300px) rotateY(-5deg) rotateX(1deg)}
@@ -287,6 +315,241 @@
     .value-icon .icon{width:23px;height:23px}
     .value-card h3{font-family:Fredoka,Outfit,sans-serif;font-weight:600;font-size:24px;letter-spacing:-.025em;color:var(--navy);margin:18px 0 9px}
     .value-card p{font-size:14px;line-height:1.68;color:#657b8d;margin:0}
+    /* Before and after comparisons */
+    .before-after-section{
+      padding:48px 0 30px;
+      background:#ffffff;
+      border-bottom:1px solid #e5edf3;
+    }
+
+    .before-after-heading{
+      max-width:800px;
+      margin:0 auto;
+      text-align:center;
+    }
+
+    .before-after-heading .section-heading{
+      max-width:none;
+      margin:12px auto 0;
+      font-size:clamp(25px,2.8vw,36px);
+      white-space:nowrap;
+    }
+
+    .before-after-heading .section-lead{
+      max-width:680px;
+      margin:13px auto 0;
+      font-size:15px;
+      line-height:1.6;
+    }
+
+    .before-after-switch{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:5px;
+      width:min(100%,440px);
+      margin:27px auto 20px;
+      padding:5px;
+      background:#edf4f8;
+      border:1px solid #dfe9ef;
+      border-radius:14px;
+    }
+
+    .before-after-tab{
+      min-width:0;
+      min-height:45px;
+      padding:10px 12px;
+      border:0;
+      border-radius:10px;
+      background:transparent;
+      color:#526e82;
+      font-size:13px;
+      font-weight:800;
+      line-height:1.3;
+      cursor:pointer;
+    }
+
+    .before-after-tab.active{
+      background:#ffffff;
+      color:#437c24;
+      box-shadow:0 3px 12px rgba(7,28,51,.09);
+    }
+
+    .before-after-panel[hidden]{
+      display:none!important;
+    }
+
+    .before-after-panel{
+      width:min(1200px,100%);
+      max-width:100%;
+      margin:0 auto;
+    }
+
+    .before-after-image-link{
+      display:block;
+      width:100%;
+      overflow:hidden;
+      border:0;
+      border-radius:0;
+      background:#f4f8fb;
+      box-shadow:none;
+    }
+
+    .before-after-image-link img{
+      display:block;
+      width:100%;
+      height:auto;
+      aspect-ratio:2 / 1;
+      object-fit:contain;
+    }
+
+    .before-after-panel>p{
+      max-width:900px;
+      margin:0 auto;
+      padding:18px 20px 0;
+      text-align:center;
+      color:#476679;
+      font-size:clamp(13px,1.1vw,16px);
+      font-weight:750;
+      line-height:1.45;
+    }
+
+    .before-after-note{
+      max-width:820px;
+      margin:0 auto;
+      padding:7px 20px 0;
+      text-align:center;
+      color:#718697;
+      font-size:11px;
+      font-weight:400;
+      line-height:1.5;
+    }
+
+    @media(max-width:650px){
+      .before-after-section{
+        padding:35px 0 24px;
+      }
+
+      .before-after-heading .section-heading{
+        font-size:clamp(27px,7.5vw,35px);
+        white-space:normal;
+        text-wrap:balance;
+      }
+
+      .before-after-heading .section-lead{
+        font-size:13px;
+        line-height:1.5;
+      }
+
+      .before-after-switch{
+        margin:21px auto 15px;
+        gap:4px;
+        padding:4px;
+      }
+
+      .before-after-tab{
+        min-height:46px;
+        padding:9px 6px;
+        font-size:12px;
+      }
+
+      .before-after-image-link{
+        border-radius:0;
+        box-shadow:none;
+      }
+
+      .before-after-panel>p{
+        margin:0 auto;
+        padding:13px 17px 0;
+        font-size:12px;
+      }
+
+      .before-after-note{
+        margin:0 auto;
+        padding:6px 17px 0;
+        font-size:10px;
+      }
+    }
+
+    /* Flagship platform */
+    .flagship-section {
+      background:linear-gradient(180deg,#f5fbf2 0%,#ffffff 100%);
+    }
+
+    .flagship-grid {
+      display:grid;
+      grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+      align-items:center;
+      gap:clamp(24px,3.8vw,48px);
+    }
+
+    .flagship-copy {
+      min-width:0;
+    }
+
+    .flagship-copy .section-heading {
+      max-width:520px;
+      font-size:clamp(34px,3.5vw,49px);
+    }
+
+    .flagship-copy .section-lead {
+      max-width:490px;
+      margin-bottom:25px;
+    }
+
+    .flagship-preview {
+      min-width:0;
+      padding:14px;
+      border:1px solid #dce9d8;
+      border-radius:30px;
+      background:#ffffff;
+      box-shadow:0 20px 55px rgba(7,28,51,.08);
+    }
+
+    .flagship-preview .hero-visual {
+      width:100%;
+      min-width:0;
+      max-width:none;
+      margin:0;
+    }
+
+    .flagship-preview .app-display {
+      transform:none;
+    }
+
+    .flagship-preview .ui-note {
+      display:none;
+    }
+
+    @media(max-width:1050px) {
+      .flagship-grid {
+        grid-template-columns:1fr;
+        gap:32px;
+      }
+
+      .flagship-preview {
+        width:100%;
+        max-width:650px;
+        margin-inline:auto;
+      }
+    }
+
+    @media(max-width:650px) {
+      .flagship-preview {
+        padding:9px;
+        border-radius:21px;
+      }
+
+      .flagship-copy .section-heading {
+        font-size:clamp(32px,8.5vw,40px);
+      }
+
+      .flagship-copy .btn {
+        width:100%;
+        white-space:normal;
+        text-align:center;
+      }
+    }
+
     /* Product */
     .product-grid{display:grid;grid-template-columns:1fr .95fr;gap:65px;align-items:center}
     .product-copy .section-lead{max-width:545px}
@@ -324,6 +587,62 @@
     .other-card h3{font-size:17px;font-weight:850;margin:0 0 5px;color:#173651}
     .other-card p{font-size:12px;line-height:1.52;color:#6a8091;margin:0}
     .other-arrow{width:19px;height:19px;color:#3d80b1}
+
+    /* Combined school products enquiry */
+    .school-bundle{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:28px;
+      margin-top:22px;
+      padding:25px 28px;
+      border:1px solid #d6e9c8;
+      border-radius:20px;
+      background:linear-gradient(110deg,#edf9e8,#f5fbf5);
+    }
+    .school-bundle-copy{
+      min-width:0;
+    }
+    .school-bundle .eyebrow{
+      color:#568a2c;
+    }
+    .school-bundle h3{
+      margin:8px 0;
+      font-family:Fredoka,Outfit,sans-serif;
+      font-size:24px;
+      font-weight:600;
+      color:#193e30;
+    }
+    .school-bundle p{
+      margin:0;
+      max-width:600px;
+      font-size:13px;
+      line-height:1.6;
+      color:#557064;
+    }
+    .school-bundle .btn{
+      flex-shrink:0;
+      white-space:normal;
+      text-align:center;
+    }
+
+    @media(max-width:760px){
+      .school-bundle{
+        flex-direction:column;
+        align-items:stretch;
+        gap:18px;
+        margin-top:16px;
+        padding:22px 20px;
+      }
+      .school-bundle h3{
+        font-size:22px;
+      }
+      .school-bundle .btn{
+        width:100%;
+        min-height:48px;
+      }
+    }
+
     /* FAQs */
     .faq-section{padding:70px 0 80px}
     .faq-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:60px;align-items:start}
@@ -369,7 +688,7 @@
     /* responsive */
     @media(max-width:1100px){
       .header-inner{gap:16px}.nav-links{gap:17px}.header-actions .btn:first-child{display:none}
-      .hero-grid{gap:29px}.hero h1{font-size:clamp(43px,4.9vw,62px)}
+      .hero-grid{gap:30px}.hero h1{font-size:clamp(43px,4.9vw,62px)}
       .app-body{grid-template-columns:65px minmax(0,1fr)}.app-main{padding:18px 15px}
     }
     @media(max-width:900px){
@@ -424,7 +743,8 @@
           padding:18px 20px max(28px,env(safe-area-inset-bottom));
         }
       }
-      .hero-grid{grid-template-columns:1fr;max-width:720px;padding:65px 0 57px;gap:48px;min-height:0}
+      .hero-grid{grid-template-columns:minmax(0,1fr);max-width:720px;padding:43px 0 45px;gap:26px;min-height:0}
+      .hero-artwork{width:100%;max-width:620px;margin-inline:auto}
       .hero h1{max-width:710px;font-size:clamp(46px,7vw,65px)}
       .hero-visual{max-width:600px;width:100%;margin-inline:auto}.app-display{transform:none}
       .proof-inner{grid-template-columns:1fr auto;gap:18px}.proof-line{grid-column:1/-1;grid-row:2;border-left:0;border-top:1px solid #e5edf2;padding:15px 0 0}
@@ -435,10 +755,57 @@
       .wrap{width:calc(100% - 34px)}
       .section{padding:60px 0}
       .header-inner{min-height:65px}.brand{font-size:24px}.brand img{height:33px;width:33px}
-      .hero-grid{padding:49px 0 44px;gap:40px}.hero-kicker{font-size:9.5px}.hero h1{font-size:clamp(38px,9.1vw,52px);margin-top:18px}
-      .hero-copy>p{font-size:15px;line-height:1.6;margin-top:17px}
-      .hero-actions{display:grid;grid-template-columns:1fr;gap:9px;margin-top:22px}.hero-actions .btn{width:100%}
-      .hero-badges{gap:10px 14px;margin-top:16px}.hero-badges span{font-size:10.5px}
+      .hero-grid{
+        padding:15px 0 16px;
+        gap:12px;
+      }
+      .hero-kicker{
+        font-size:10px;
+        line-height:1.4;
+        letter-spacing:.065em;
+      }
+      .hero h1{
+        font-size:clamp(33px,8.1vw,44px);
+        line-height:1.09;
+        margin-top:12px;
+        letter-spacing:-.035em;
+        text-wrap:balance;
+      }
+      .hero-artwork-frame{
+        aspect-ratio:1;
+        min-height:0;
+        border-radius:20px;
+      }
+      .hero-copy>p{
+        font-size:14px;
+        line-height:1.5;
+        margin-top:13px;
+        max-width:560px;
+      }
+      .hero-actions{
+        display:grid;
+        grid-template-columns:minmax(0,1fr);
+        gap:9px;
+        margin-top:18px;
+      }
+      .hero-actions .btn{
+        width:100%;
+        min-width:0;
+        min-height:48px;
+        white-space:normal;
+        text-align:center;
+        padding:11px 12px;
+        font-size:12.5px;
+        line-height:1.35;
+      }
+      .hero-badges{
+        gap:8px 13px;
+        margin-top:15px;
+      }
+      .hero-badges span{
+        font-size:11px;
+        line-height:1.35;
+      }
       .app-body{grid-template-columns:48px minmax(0,1fr);min-height:auto}.app-side{padding:11px 5px;gap:8px}.app-side-logo{width:27px;height:27px;margin:0 auto 4px}.app-main{padding:14px 10px 13px}
       .app-main h2{font-size:16px}.app-overline,.app-chip{font-size:8px}.app-chip{padding:6px 7px}
       .app-stats{gap:5px;margin-top:11px}.app-stat{padding:9px 6px;border-radius:9px}.app-stat small{font-size:7.5px}.app-stat strong{font-size:17px;margin-top:4px}
@@ -456,7 +823,74 @@
       .end-section{padding:0 0 55px}.end-panel{padding:32px 23px;border-radius:21px}.end-panel h2{font-size:34px}.end-panel p{font-size:13px}.end-actions{display:grid;grid-template-columns:1fr;gap:9px}.end-actions .btn{white-space:normal}
       .site-footer{padding-top:40px}.footer-grid{grid-template-columns:1fr 1fr;gap:26px 17px}.footer-brand{grid-column:1/-1}.footer-col h3{font-size:10px}.footer-col a{font-size:11px}.footer-legal{display:block;margin-top:32px}.footer-legal p+p{margin-top:10px}
     }
-    @media(max-width:370px){.hero h1{font-size:36px}.app-stats{grid-template-columns:1fr 1fr 1fr}.app-chip{display:none}.ui-note{display:none}.footer-grid{grid-template-columns:1fr}}
+    /* Phone-friendly hero, navigation, proof and interactive preview */
+    @media(max-width:650px){
+      .hero-artwork{
+        width:calc(100% + 34px);
+        max-width:none;
+        margin-left:-17px;
+        margin-right:-17px;
+      }
+      .hero-artwork-frame{
+        width:100%;
+        aspect-ratio:1;
+        border-radius:0;
+        box-shadow:none;
+      }
+      .hero-artwork-frame img{
+        display:block;
+        width:100%;
+        height:100%;
+        object-fit:contain;
+        object-position:center;
+      }
+      .hero-badges .icon{width:15px;height:15px}
+      .mobile-nav a{min-height:52px;line-height:1.4}
+      .proof-inner .video-trigger{max-width:100%;white-space:normal}
+      .flagship-preview{overflow:hidden}
+      .flagship-preview .app-display{border-radius:15px;box-shadow:0 12px 26px rgba(7,28,51,.10)}
+      .flagship-preview .app-main{padding:12px 9px}
+      .flagship-preview .app-preview-tab{min-height:38px;font-size:clamp(9px,2.6vw,11px);line-height:1.2}
+      .flagship-preview .app-stat small{font-size:clamp(8px,2vw,10px)}
+      .flagship-preview .app-stat strong{font-size:clamp(15px,4vw,19px)}
+      .flagship-preview .app-pane h3{line-height:1.3}
+      .flagship-preview .activity-item{line-height:1.4;overflow-wrap:anywhere}
+      .more-top>p{max-width:none}
+    }
+    @media(max-width:420px){
+      .hero h1{font-size:clamp(32px,8.2vw,37px)}
+      .hero-badges{
+        display:flex;
+        flex-wrap:nowrap;
+        align-items:center;
+        justify-content:space-between;
+        gap:5px;
+        width:100%;
+      }
+      .hero-badges span{
+        display:inline-flex;
+        flex:0 1 auto;
+        min-width:0;
+        gap:3px;
+        font-size:clamp(8px,2.15vw,10px);
+        line-height:1.2;
+        white-space:nowrap;
+        letter-spacing:-.15px;
+      }
+      .hero-badges .icon{
+        width:11px;
+        height:11px;
+        flex:none;
+      }
+      .flagship-preview .app-body{grid-template-columns:36px minmax(0,1fr)}
+      .flagship-preview .app-side{padding:10px 3px;gap:5px}
+      .flagship-preview .app-side-item{height:27px}
+      .flagship-preview .app-main{padding:10px 6px}
+      .flagship-preview .app-lower{gap:5px}
+      .flagship-preview .app-pane{padding:8px 5px}
+      .flagship-preview .activity-icon{display:none}
+    }
+    @media(max-width:370px){.hero h1{font-size:34px}.app-stats{grid-template-columns:1fr 1fr 1fr}.app-chip{display:none}.ui-note{display:none}.footer-grid{grid-template-columns:1fr}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important;transform:none!important}}
 
     /* School launch programme, immediately below hero */
@@ -518,6 +952,23 @@
     }
     .launch-actions{display:flex;flex-direction:column;gap:8px;min-width:207px}
     .launch-actions .btn{min-height:45px;font-size:12px;white-space:normal;text-align:center}
+
+    .launch-copy-mobile,
+    .launch-eligibility-mobile{
+      display:none;
+    }
+
+    @media(max-width:650px){
+      .launch-copy-desktop,
+      .launch-eligibility-desktop{
+        display:none;
+      }
+
+      .launch-copy-mobile,
+      .launch-eligibility-mobile{
+        display:block;
+      }
+    }
     /* Accessible looping trust strip */
     .trust-ribbon{background:#fff;border-bottom:1px solid #e5edf3;padding:16px 0 17px;overflow:hidden}
     .trust-heading{text-align:center;margin:0 0 12px;color:#5d7286;font-size:10px;letter-spacing:.13em;text-transform:uppercase;font-weight:850}
@@ -553,6 +1004,64 @@
     .demo-actions .btn{min-height:46px;font-size:12px}
     @media(max-width:760px){.launch-inner{grid-template-columns:1fr;gap:13px}.launch-actions{flex-direction:row;flex-wrap:wrap}.launch-actions .btn{flex:1;min-width:180px}.trust-item{width:208px}.demo-shell{padding:21px}.demo-grid{grid-template-columns:1fr}.demo-grid article{padding:13px}.demo-grid svg{margin-bottom:6px}.demo-privacy{flex-wrap:wrap}.demo-actions{display:grid;grid-template-columns:1fr}.demo-actions .btn{width:100%}}
     @media(prefers-reduced-motion:reduce){.trust-track{animation:none!important}}
+
+    /* Compact school launch offer on phones */
+    @media(max-width:650px){
+      .launch-band{
+        padding:22px 0 24px;
+      }
+
+      .launch-inner{
+        gap:16px;
+      }
+
+      .launch-eyebrow{
+        font-size:10px;
+        letter-spacing:.065em;
+      }
+
+      .launch-band h2{
+        font-size:clamp(21px,5.8vw,26px);
+        line-height:1.2;
+        margin:7px 0 9px;
+      }
+
+      .launch-band p{
+        font-size:12.5px;
+        line-height:1.5;
+      }
+
+      .launch-eligibility{
+        font-size:11px!important;
+        line-height:1.45!important;
+        margin-top:10px!important;
+      }
+
+      .launch-details{
+        margin-top:9px;
+      }
+
+      .launch-details summary{
+        font-size:11.5px;
+        padding:4px 0;
+      }
+
+      .launch-actions{
+        display:grid;
+        grid-template-columns:minmax(0,1fr);
+        gap:9px;
+        min-width:0;
+      }
+
+      .launch-actions .btn{
+        width:100%;
+        min-width:0;
+        min-height:46px;
+        padding:10px 13px;
+        font-size:12px;
+        line-height:1.35;
+      }
+    }
 
     /* Compact, optional House Points software comparison */
     .compare-section{padding:0 0 54px;background:#fff}
@@ -607,8 +1116,7 @@
         <span>Track<span>EDU</span></span>
       </a>
       <nav class="nav-links" aria-label="Main navigation">
-        <a href="#why-trackedu">Why TrackEDU</a>
-        <a href="#house-points">House Points</a>
+        <a href="https://www.trackedu.net/housepoints.html">House Points</a>
         <a href="#other-products">Other tools</a>
         <a href="https://www.trackedu.net/housepoints.html#pricing">Pricing</a>
 
@@ -622,8 +1130,7 @@
       </button>
     </div>
     <nav id="mobileNav" class="mobile-nav" aria-label="Mobile navigation" aria-hidden="true" inert>
-      <a href="#why-trackedu">Why TrackEDU <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-      <a href="#house-points">House Points <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a href="https://www.trackedu.net/housepoints.html">House Points <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       <a href="#other-products">Other tools <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       <a href="https://www.trackedu.net/housepoints.html#pricing">Pricing <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
 
@@ -636,119 +1143,170 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="wrap hero-grid">
         <div class="hero-copy">
-          <span class="hero-kicker"><span class="dot" aria-hidden="true"></span> Digital school House Points tracker &amp; recognition software</span>
-          <h1 id="hero-title">A school House Points tracker that builds <em>a stronger school culture.</em></h1>
-          <p>Award points, see live House leaderboards, recognise achievement and manage student rewards. Support positive behaviour and give school leaders clear reports, all in one House Points platform.</p>
+          <span class="hero-kicker"><span class="dot" aria-hidden="true"></span> Move beyond spreadsheets.</span>
+          <h1 id="hero-title">One platform for <em>your school.</em></h1>
+          <p>House Points, student recognition, behaviour and incident recording and classroom tools. Bring everyday school workflows together and give staff more time to focus on students.</p>
           <div class="hero-actions">
             <a class="btn btn-green" href="https://www.trackedu.net/housepoints.html">Explore TrackEDU House Points <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
             <button class="btn btn-white" type="button" data-video-trigger><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg> See it in a real school</button>
           </div>
           <div class="hero-badges" aria-label="Pilot benefits">
             <span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> 30 days free</span>
-            <span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> No credit card</span>
+            <span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> No credit card required</span>
             <span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Setup support included</span>
           </div>
         </div>
-        <div class="hero-visual">
-          <div class="app-display" aria-label="Illustrative interactive TrackEDU school overview">
-            <div class="app-top"><span class="app-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>TrackEDU · School overview</span></div>
-            <div class="app-body">
-              <div class="app-side" aria-hidden="true">
-                <div class="app-side-logo"><svg class="icon"><use href="#i-trophy"/></svg></div>
-                <div class="app-side-item active"><svg class="icon"><use href="#i-chart"/></svg></div>
-                <div class="app-side-item"><svg class="icon"><use href="#i-users"/></svg></div>
-                <div class="app-side-item"><svg class="icon"><use href="#i-trophy"/></svg></div>
-                <div class="app-side-item"><svg class="icon"><use href="#i-gift"/></svg></div>
-                <div class="app-side-item"><svg class="icon"><use href="#i-clipboard"/></svg></div>
-              </div>
-              <div class="app-main">
-                <div class="app-main-head">
-                  <div>
-                    <span class="app-overline">Whole-school overview</span>
-                    <h2>Welcome to TrackEDU</h2>
-                  </div>
-                </div>
-
-                <div class="app-preview-tabs" role="tablist" aria-label="Explore TrackEDU features">
-                  <button class="app-preview-tab active" type="button" role="tab" id="preview-tab-houses" aria-controls="preview-houses" aria-selected="true" tabindex="0" data-preview-tab="houses">House Points</button>
-                  <button class="app-preview-tab" type="button" role="tab" id="preview-tab-store" aria-controls="preview-store" aria-selected="false" tabindex="-1" data-preview-tab="store">School Store</button>
-                  <button class="app-preview-tab" type="button" role="tab" id="preview-tab-incidents" aria-controls="preview-incidents" aria-selected="false" tabindex="-1" data-preview-tab="incidents">Incidents</button>
-                </div>
-
-                <div id="preview-houses" class="app-preview-panel" role="tabpanel" aria-labelledby="preview-tab-houses">
-                  <div class="app-stats">
-                    <div class="app-stat"><small>House points awarded</small><strong>4,860</strong></div>
-                    <div class="app-stat"><small>Recognitions</small><strong>312</strong></div>
-                    <div class="app-stat"><small>Active Houses</small><strong>4</strong></div>
-                  </div>
-                  <div class="app-lower">
-                    <div class="app-pane">
-                      <h3>House standings</h3>
-                      <div class="house-row" style="--house:#3e9bdf"><i class="house-dot"></i><span>Blue House</span><strong>1,420</strong></div><div class="house-track" style="--house:#3e9bdf;--bar:95%"><i></i></div>
-                      <div class="house-row" style="--house:#76b94f"><i class="house-dot"></i><span>Green House</span><strong>1,285</strong></div><div class="house-track" style="--house:#76b94f;--bar:86%"><i></i></div>
-                      <div class="house-row" style="--house:#eb7469"><i class="house-dot"></i><span>Red House</span><strong>1,160</strong></div><div class="house-track" style="--house:#eb7469;--bar:77%"><i></i></div>
-                      <div class="house-row" style="--house:#edbc47"><i class="house-dot"></i><span>Yellow House</span><strong>995</strong></div><div class="house-track" style="--house:#edbc47;--bar:66%"><i></i></div>
-                    </div>
-                    <div class="app-pane">
-                      <h3>Connected school tools</h3>
-                      <div class="activity-item"><span class="activity-icon"><svg class="icon"><use href="#i-star"/></svg></span><span>Student recognition</span></div>
-                      <div class="activity-item"><span class="activity-icon blue"><svg class="icon"><use href="#i-clipboard"/></svg></span><span>Incidents &amp; Support</span></div>
-                      <div class="activity-item"><span class="activity-icon gold"><svg class="icon"><use href="#i-gift"/></svg></span><span>School Store rewards</span></div>
-                    </div>
-                  </div>
-                </div>
-
-                <div id="preview-store" class="app-preview-panel" role="tabpanel" aria-labelledby="preview-tab-store" hidden>
-                  <div class="app-stats">
-                    <div class="app-stat"><small>Rewards available</small><strong>18</strong></div>
-                    <div class="app-stat"><small>Ready to collect</small><strong>6</strong></div>
-                    <div class="app-stat"><small>Rewards collected</small><strong>42</strong></div>
-                  </div>
-                  <div class="app-lower">
-                    <div class="app-pane">
-                      <h3>School Store rewards</h3>
-                      <div class="activity-item"><span class="activity-icon gold"><svg class="icon"><use href="#i-gift"/></svg></span><span>Extra playtime</span></div>
-                      <div class="activity-item"><span class="activity-icon"><svg class="icon"><use href="#i-star"/></svg></span><span>Recognition certificate</span></div>
-                      <div class="activity-item"><span class="activity-icon blue"><svg class="icon"><use href="#i-trophy"/></svg></span><span>Special school privilege</span></div>
-                    </div>
-                    <div class="app-pane">
-                      <h3>Reward workflow</h3>
-                      <div class="activity-item">1. Student requests reward</div>
-                      <div class="activity-item">2. Staff review request</div>
-                      <div class="activity-item">3. Reward collected</div>
-                    </div>
-                  </div>
-                </div>
-
-                <div id="preview-incidents" class="app-preview-panel" role="tabpanel" aria-labelledby="preview-tab-incidents" hidden>
-                  <div class="app-stats">
-                    <div class="app-stat"><small>Incidents recorded</small><strong>24</strong></div>
-                    <div class="app-stat"><small>Under review</small><strong>5</strong></div>
-                    <div class="app-stat"><small>Resolved</small><strong>19</strong></div>
-                  </div>
-                  <div class="app-lower">
-                    <div class="app-pane">
-                      <h3>Behaviour &amp; incidents</h3>
-                      <div class="activity-item"><span class="activity-icon blue"><svg class="icon"><use href="#i-clipboard"/></svg></span><span>Record an incident</span></div>
-                      <div class="activity-item"><span class="activity-icon"><svg class="icon"><use href="#i-users"/></svg></span><span>Review student records</span></div>
-                      <div class="activity-item"><span class="activity-icon gold"><svg class="icon"><use href="#i-chart"/></svg></span><span>Monitor behaviour trends</span></div>
-                    </div>
-                    <div class="app-pane">
-                      <h3>School oversight</h3>
-                      <div class="activity-item">Centralised records</div>
-                      <div class="activity-item">Staff visibility</div>
-                      <div class="activity-item">Follow-up tracking</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <div class="hero-artwork">
+          <div class="hero-artwork-frame">
+            <img
+              src="./public/trackedu-homepage-hero-square.webp"
+              alt="Four smiling students celebrating House Points and school achievements in a bright classroom"
+              width="1280"
+              height="1280"
+              fetchpriority="high"
+              decoding="async"
+            >
           </div>
-          <div class="ui-note" aria-hidden="true"><span><svg class="icon"><use href="#i-check"/></svg></span><div><strong>Recognition with purpose</strong><small>Beyond a simple points counter</small></div></div>
-         
         </div>
       </div>
     </section>
+
+
+    <!-- Scrolling company and integration trust signals; duplicate track for continuous motion -->
+    <section class="trust-ribbon" aria-label="Trusted, connected and school-ready">
+      <p class="trust-heading">Trusted, Connected &amp; School-Ready</p>
+      <div class="trust-window" tabindex="0" aria-label="School-readiness and integration facts; scroll horizontally to explore">
+        <div class="trust-track">
+          <div class="trust-item"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg><span><strong>UK Registered</strong><small>Company #17216557</small></span></div>
+          <div class="trust-item"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>ICO Registered</strong><small>ZC146923</small></span></div>
+          <div class="trust-item"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg><span><strong>No student email required</strong><small>School-managed access</small></span></div>
+          <div class="trust-item"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg><span><strong>No Ads. Ever.</strong><small>No ad-supported student experience</small></span></div>
+          <div class="trust-item"><svg class="icon" aria-hidden="true"><use href="#i-graduation"/></svg><span><strong>Google Classroom</strong><small>Import classes and students</small></span></div>
+          <div class="trust-item"><svg class="icon" aria-hidden="true"><use href="#i-chart"/></svg><span><strong>Wonde MIS/SIS</strong><small>Live sync for paid schools; pilot demo</small></span></div>
+          <div class="trust-item" aria-hidden="true"><svg class="icon"><use href="#i-shield"/></svg><span><strong>UK Registered</strong><small>Company #17216557</small></span></div>
+          <div class="trust-item" aria-hidden="true"><svg class="icon"><use href="#i-check"/></svg><span><strong>ICO Registered</strong><small>ZC146923</small></span></div>
+          <div class="trust-item" aria-hidden="true"><svg class="icon"><use href="#i-users"/></svg><span><strong>No student email required</strong><small>School-managed access</small></span></div>
+          <div class="trust-item" aria-hidden="true"><svg class="icon"><use href="#i-shield"/></svg><span><strong>No Ads. Ever.</strong><small>No ad-supported student experience</small></span></div>
+          <div class="trust-item" aria-hidden="true"><svg class="icon"><use href="#i-graduation"/></svg><span><strong>Google Classroom</strong><small>Import classes and students</small></span></div>
+          <div class="trust-item" aria-hidden="true"><svg class="icon"><use href="#i-chart"/></svg><span><strong>Wonde MIS/SIS</strong><small>Live sync for paid schools; pilot demo</small></span></div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Illustrative before and after comparisons -->
+    <section class="before-after-section" aria-labelledby="before-after-title">
+      <div class="wrap">
+        <div class="before-after-heading">
+          <span class="eyebrow">See the difference</span>
+          <h2 class="heading section-heading" id="before-after-title">
+            From manual tracking to a more connected school.
+          </h2>
+          <p class="section-lead">
+            See how TrackEDU can simplify House Points and incident recording,
+            helping staff spend less time on admin and more time supporting students.
+          </p>
+        </div>
+
+        <div class="before-after-switch" role="tablist" aria-label="Compare TrackEDU workflows">
+          <button
+            type="button"
+            class="before-after-tab active"
+            id="before-after-houses-tab"
+            role="tab"
+            aria-controls="before-after-houses"
+            aria-selected="true"
+            tabindex="0"
+            data-before-after-tab="houses"
+          >
+            House Points
+          </button>
+          <button
+            type="button"
+            class="before-after-tab"
+            id="before-after-incidents-tab"
+            role="tab"
+            aria-controls="before-after-incidents"
+            aria-selected="false"
+            tabindex="-1"
+            data-before-after-tab="incidents"
+          >
+            Incidents &amp; Support
+          </button>
+        </div>
+
+        <div
+          class="before-after-panel"
+          id="before-after-houses"
+          role="tabpanel"
+          aria-labelledby="before-after-houses-tab"
+        >
+          <a
+            class="before-after-image-link"
+            href="./public/trackedu-before-after-house-points.webp"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View full-size House Points before and after comparison"
+          >
+            <img
+              src="./public/trackedu-before-after-house-points.webp"
+              alt="Before: a teacher manually records House Points on a whiteboard while students appear disengaged. After: students engage with a digital House leaderboard and Student Portal."
+              width="1774"
+              height="887"
+              loading="lazy"
+              decoding="async"
+            >
+          </a>
+          <p>House Points: from handwritten tallies to live standings and student recognition.</p>
+        </div>
+
+        <div
+          class="before-after-panel"
+          id="before-after-incidents"
+          role="tabpanel"
+          aria-labelledby="before-after-incidents-tab"
+          hidden
+        >
+          <a
+            class="before-after-image-link"
+            href="./public/trackedu-before-after-incidents.webp"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View full-size Incidents and Support before and after comparison"
+          >
+            <img
+              src="./public/trackedu-before-after-incidents.webp"
+              alt="Before: a teacher manages behaviour incident spreadsheets and paperwork. After: the teacher uses a TrackEDU-style student profile to review incidents, patterns and follow-up actions."
+              width="1774"
+              height="887"
+              loading="lazy"
+              decoding="async"
+            >
+          </a>
+          <p>Incidents &amp; Support: from scattered spreadsheets to organised records and follow-up.</p>
+        </div>
+
+        <p class="before-after-note">
+          Illustrative comparisons. Example screens and figures are for demonstration only.
+          Select an image to view it at full size.
+        </p>
+      </div>
+    </section>
+
+    <section class="proof" aria-label="Real school using TrackEDU">
+      <div class="wrap proof-inner">
+        <a class="proof-school" href="https://www.conwaychristianschool.org/" target="_blank" rel="noopener noreferrer" aria-label="Visit Conway Christian School's website">
+          <img class="proof-logo" src="https://irp.cdn-website.com/65d009b3/dms3rep/multi/opt/Conway-logo-61w.png" alt="Conway Christian School logo" width="56" height="56" loading="lazy">
+          <span><span class="proof-overline">Real school · Real use</span><strong>Conway Christian School</strong><small>United States</small></span>
+        </a>
+        <div class="proof-line"><strong>See House culture in action.</strong><span>Real teachers, real students and real participation.</span></div>
+        <button type="button" class="video-trigger" data-video-trigger aria-label="Watch the 1 minute 16 second Conway Christian School video">
+          <span class="video-thumb" aria-hidden="true"><i><svg class="icon"><use href="#i-play"/></svg></i></span>
+          <span>Watch the school video <small>Conway Christian School · 1:16</small></span>
+        </button>
+      </div>
+    </section>
+
 
 
     <!-- 2026-27 TrackEDU School Launch Programme -->
@@ -758,10 +1316,10 @@
           <div class="launch-eyebrow">2026–27 School Launch Offer</div>
 
           <h2 id="launch-offer-heading">
-            30 days free. Extend until July 2027.
+            30 days free. Extend until July.
           </h2>
 
-          <p>
+          <p class="launch-copy-desktop">
             <strong>No credit card. No commitment.</strong>
             Apply for an extended free pilot until
             <strong>31 July 2027</strong>, plus
@@ -769,9 +1327,19 @@
             if you choose to continue.
           </p>
 
-          <p class="launch-eligibility">
+          <p class="launch-copy-mobile">
+            <strong>No credit card. No commitment.</strong>
+            Eligible schools can extend their free pilot and get
+            <strong>20% off their first paid year.</strong>
+          </p>
+
+          <p class="launch-eligibility launch-eligibility-desktop">
             Priority for UK and US schools. Other countries welcome to apply.
             Extended access and discounts require approval.
+          </p>
+
+          <p class="launch-eligibility launch-eligibility-mobile">
+            UK &amp; US priority. Other schools welcome. Terms apply.
           </p>
 
           <details class="launch-details">
@@ -818,113 +1386,141 @@
         </div>
       </div>
     </section>
-    <!-- Scrolling company and integration trust signals; duplicate track for continuous motion -->
-    <section class="trust-ribbon" aria-label="Trusted, connected and school-ready">
-      <p class="trust-heading">Trusted, Connected &amp; School-Ready</p>
-      <div class="trust-window" tabindex="0" aria-label="School-readiness and integration facts; scroll horizontally to explore">
-        <div class="trust-track">
-          <div class="trust-item"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg><span><strong>UK Registered</strong><small>Company #17216557</small></span></div>
-          <div class="trust-item"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>ICO Registered</strong><small>ZC146923</small></span></div>
-          <div class="trust-item"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg><span><strong>No student email required</strong><small>School-managed access</small></span></div>
-          <div class="trust-item"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg><span><strong>No Ads. Ever.</strong><small>No ad-supported student experience</small></span></div>
-          <div class="trust-item"><svg class="icon" aria-hidden="true"><use href="#i-graduation"/></svg><span><strong>Google Classroom</strong><small>Import classes and students</small></span></div>
-          <div class="trust-item"><svg class="icon" aria-hidden="true"><use href="#i-chart"/></svg><span><strong>Wonde MIS/SIS</strong><small>Live sync for paid schools; pilot demo</small></span></div>
-          <div class="trust-item" aria-hidden="true"><svg class="icon"><use href="#i-shield"/></svg><span><strong>UK Registered</strong><small>Company #17216557</small></span></div>
-          <div class="trust-item" aria-hidden="true"><svg class="icon"><use href="#i-check"/></svg><span><strong>ICO Registered</strong><small>ZC146923</small></span></div>
-          <div class="trust-item" aria-hidden="true"><svg class="icon"><use href="#i-users"/></svg><span><strong>No student email required</strong><small>School-managed access</small></span></div>
-          <div class="trust-item" aria-hidden="true"><svg class="icon"><use href="#i-shield"/></svg><span><strong>No Ads. Ever.</strong><small>No ad-supported student experience</small></span></div>
-          <div class="trust-item" aria-hidden="true"><svg class="icon"><use href="#i-graduation"/></svg><span><strong>Google Classroom</strong><small>Import classes and students</small></span></div>
-          <div class="trust-item" aria-hidden="true"><svg class="icon"><use href="#i-chart"/></svg><span><strong>Wonde MIS/SIS</strong><small>Live sync for paid schools; pilot demo</small></span></div>
-        </div>
-      </div>
-    </section>
+    <!-- Trust strip moved above the school launch offer -->
 
-    <section class="proof" aria-label="Real school using TrackEDU">
-      <div class="wrap proof-inner">
-        <a class="proof-school" href="https://www.conwaychristianschool.org/" target="_blank" rel="noopener noreferrer" aria-label="Visit Conway Christian School's website">
-          <img class="proof-logo" src="https://irp.cdn-website.com/65d009b3/dms3rep/multi/opt/Conway-logo-61w.png" alt="Conway Christian School logo" width="56" height="56" loading="lazy">
-          <span><span class="proof-overline">Real school · Real use</span><strong>Conway Christian School</strong><small>United States</small></span>
-        </a>
-        <div class="proof-line"><strong>See House culture in action.</strong><span>Real teachers, real students and real participation.</span></div>
-        <button type="button" class="video-trigger" data-video-trigger aria-label="Watch the 1 minute 16 second Conway Christian School video">
-          <span class="video-thumb" aria-hidden="true"><i><svg class="icon"><use href="#i-play"/></svg></i></span>
-          <span>Watch the school video <small>Conway Christian School · 1:16</small></span>
-        </button>
-      </div>
-    </section>
 
-    <section class="section value-section" id="why-trackedu" aria-labelledby="why-title">
-      <div class="wrap">
-        <div class="section-header">
-          <span class="eyebrow"><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg> Why TrackEDU</span>
-          <h2 class="heading section-heading" id="why-title">More than points. More possibilities for your school.</h2>
-          <p class="section-lead">Turn everyday recognition into participation, belonging and better-informed support, without asking staff to juggle separate tools.</p>
-        </div>
-        <div class="value-grid">
-          <article class="value-card">
-            <div class="value-icon"><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg></div>
-            <h3>Celebrate what matters</h3>
-            <p>Recognise effort, achievement and positive contributions. Bring House Points, badges and rewards together in a system students can follow.</p>
-          </article>
-          <article class="value-card">
-            <div class="value-icon"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg></div>
-            <h3>Get everyone involved</h3>
-            <p>Give students their own Portal, help House Leaders build momentum and make it easier for staff to keep recognition part of school life.</p>
-          </article>
-          <article class="value-card">
-            <div class="value-icon"><svg class="icon" aria-hidden="true"><use href="#i-chart"/></svg></div>
-            <h3>See the bigger picture</h3>
-            <p>Connect recognition, behaviour and incident follow-up with useful reports so school leaders can understand progress across the school.</p>
-          </article>
-        </div>
-      </div>
-    </section>
 
-    <section class="section" id="house-points" aria-labelledby="product-title">
-      <div class="wrap product-grid">
-        <div class="product-copy">
-          <span class="eyebrow"><svg class="icon" aria-hidden="true"><use href="#i-trophy"/></svg> Our flagship platform</span>
-          <h2 class="heading section-heading" id="product-title">A whole-school House Points system with live standings.</h2>
-          <p class="section-lead">TrackEDU replaces manual House Points tallying with an online tracker for staff, students and school leaders. Award points, follow House leaderboards and connect recognition, rewards and reporting in one school platform.</p>
-          <div class="feature-stack">
-            <span class="feature-item"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Award points and recognition quickly</span>
-            <span class="feature-item"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Student Portal, challenges and progress</span>
-            <span class="feature-item"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> School Store rewards and collection</span>
-            <span class="feature-item"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Incident reporting and follow-up</span>
-            <span class="feature-item"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Classroom tools and school reporting</span>
-            <span class="feature-item"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Google Classroom and Wonde support</span>
+    <section class="section flagship-section" id="house-points" aria-labelledby="product-title">
+      <div class="wrap flagship-grid">
+
+        <div class="flagship-copy">
+          <span class="eyebrow">
+            <svg class="icon" aria-hidden="true"><use href="#i-trophy"/></svg>
+            Explore our flagship platform
+          </span>
+
+          <h2 class="heading section-heading" id="product-title">
+            Discover what TrackEDU can do for your school.
+          </h2>
+
+          <p class="section-lead">
+            Explore House Points, student progress, rewards, behaviour and incident support,
+            classroom tools and clear reporting in one connected platform.
+            Try the interactive preview to see how it works.
+          </p>
+
+          <a class="btn btn-green" href="https://www.trackedu.net/housepoints.html">
+            Explore TrackEDU House Points
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+        </div>
+
+        <div class="flagship-preview">
+          <div class="hero-visual">
+            <div class="app-display" aria-label="Illustrative interactive TrackEDU school overview">
+              <div class="app-top"><span class="app-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>TrackEDU · School overview</span></div>
+              <div class="app-body">
+                <div class="app-side" aria-hidden="true">
+                  <div class="app-side-logo"><svg class="icon"><use href="#i-trophy"/></svg></div>
+                  <div class="app-side-item active"><svg class="icon"><use href="#i-chart"/></svg></div>
+                  <div class="app-side-item"><svg class="icon"><use href="#i-users"/></svg></div>
+                  <div class="app-side-item"><svg class="icon"><use href="#i-trophy"/></svg></div>
+                  <div class="app-side-item"><svg class="icon"><use href="#i-gift"/></svg></div>
+                  <div class="app-side-item"><svg class="icon"><use href="#i-clipboard"/></svg></div>
+                </div>
+                <div class="app-main">
+                  <div class="app-main-head">
+                    <div>
+                      <span class="app-overline">Whole-school overview</span>
+                      <h2>Welcome to TrackEDU</h2>
+                    </div>
+                  </div>
+
+                  <div class="app-preview-tabs" role="tablist" aria-label="Explore TrackEDU features">
+                    <button class="app-preview-tab active" type="button" role="tab" id="preview-tab-houses" aria-controls="preview-houses" aria-selected="true" tabindex="0" data-preview-tab="houses">House Points</button>
+                    <button class="app-preview-tab" type="button" role="tab" id="preview-tab-store" aria-controls="preview-store" aria-selected="false" tabindex="-1" data-preview-tab="store">School Store</button>
+                    <button class="app-preview-tab" type="button" role="tab" id="preview-tab-incidents" aria-controls="preview-incidents" aria-selected="false" tabindex="-1" data-preview-tab="incidents">Incidents</button>
+                  </div>
+
+                  <div id="preview-houses" class="app-preview-panel" role="tabpanel" aria-labelledby="preview-tab-houses">
+                    <div class="app-stats">
+                      <div class="app-stat"><small>House points awarded</small><strong>4,860</strong></div>
+                      <div class="app-stat"><small>Recognitions</small><strong>312</strong></div>
+                      <div class="app-stat"><small>Active Houses</small><strong>4</strong></div>
+                    </div>
+                    <div class="app-lower">
+                      <div class="app-pane">
+                        <h3>House standings</h3>
+                        <div class="house-row" style="--house:#3e9bdf"><i class="house-dot"></i><span>Blue House</span><strong>1,420</strong></div><div class="house-track" style="--house:#3e9bdf;--bar:95%"><i></i></div>
+                        <div class="house-row" style="--house:#76b94f"><i class="house-dot"></i><span>Green House</span><strong>1,285</strong></div><div class="house-track" style="--house:#76b94f;--bar:86%"><i></i></div>
+                        <div class="house-row" style="--house:#eb7469"><i class="house-dot"></i><span>Red House</span><strong>1,160</strong></div><div class="house-track" style="--house:#eb7469;--bar:77%"><i></i></div>
+                        <div class="house-row" style="--house:#edbc47"><i class="house-dot"></i><span>Yellow House</span><strong>995</strong></div><div class="house-track" style="--house:#edbc47;--bar:66%"><i></i></div>
+                      </div>
+                      <div class="app-pane">
+                        <h3>Connected school tools</h3>
+                        <div class="activity-item"><span class="activity-icon"><svg class="icon"><use href="#i-star"/></svg></span><span>Student recognition</span></div>
+                        <div class="activity-item"><span class="activity-icon blue"><svg class="icon"><use href="#i-clipboard"/></svg></span><span>Incidents &amp; Support</span></div>
+                        <div class="activity-item"><span class="activity-icon gold"><svg class="icon"><use href="#i-gift"/></svg></span><span>School Store rewards</span></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div id="preview-store" class="app-preview-panel" role="tabpanel" aria-labelledby="preview-tab-store" hidden>
+                    <div class="app-stats">
+                      <div class="app-stat"><small>Rewards available</small><strong>18</strong></div>
+                      <div class="app-stat"><small>Ready to collect</small><strong>6</strong></div>
+                      <div class="app-stat"><small>Rewards collected</small><strong>42</strong></div>
+                    </div>
+                    <div class="app-lower">
+                      <div class="app-pane">
+                        <h3>School Store rewards</h3>
+                        <div class="activity-item"><span class="activity-icon gold"><svg class="icon"><use href="#i-gift"/></svg></span><span>Extra playtime</span></div>
+                        <div class="activity-item"><span class="activity-icon"><svg class="icon"><use href="#i-star"/></svg></span><span>Recognition certificate</span></div>
+                        <div class="activity-item"><span class="activity-icon blue"><svg class="icon"><use href="#i-trophy"/></svg></span><span>Special school privilege</span></div>
+                      </div>
+                      <div class="app-pane">
+                        <h3>Reward workflow</h3>
+                        <div class="activity-item">1. Student requests reward</div>
+                        <div class="activity-item">2. Staff review request</div>
+                        <div class="activity-item">3. Reward collected</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div id="preview-incidents" class="app-preview-panel" role="tabpanel" aria-labelledby="preview-tab-incidents" hidden>
+                    <div class="app-stats">
+                      <div class="app-stat"><small>Incidents recorded</small><strong>24</strong></div>
+                      <div class="app-stat"><small>Under review</small><strong>5</strong></div>
+                      <div class="app-stat"><small>Resolved</small><strong>19</strong></div>
+                    </div>
+                    <div class="app-lower">
+                      <div class="app-pane">
+                        <h3>Behaviour &amp; incidents</h3>
+                        <div class="activity-item"><span class="activity-icon blue"><svg class="icon"><use href="#i-clipboard"/></svg></span><span>Record an incident</span></div>
+                        <div class="activity-item"><span class="activity-icon"><svg class="icon"><use href="#i-users"/></svg></span><span>Review student records</span></div>
+                        <div class="activity-item"><span class="activity-icon gold"><svg class="icon"><use href="#i-chart"/></svg></span><span>Monitor behaviour trends</span></div>
+                      </div>
+                      <div class="app-pane">
+                        <h3>School oversight</h3>
+                        <div class="activity-item">Centralised records</div>
+                        <div class="activity-item">Staff visibility</div>
+                        <div class="activity-item">Follow-up tracking</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <a class="btn btn-dark" href="https://www.trackedu.net/housepoints.html">See all features and pricing <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          <div class="support-note"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg><span>CSV and Google Classroom imports are available. Wonde MIS/SIS is live for paid subscribers, with demo access for pilot schools.</span></div>
         </div>
-        <div class="product-visual">
-          <div class="product-image">
-            <img src="https://housepoint.trackedu.net/board.png" width="660" height="480" loading="lazy" alt="Example of a physical school House board linked to the TrackEDU digital House Points experience">
-            <div class="image-caption"><svg class="icon" aria-hidden="true"><use href="#i-trophy"/></svg><strong>House culture, in and beyond the classroom</strong><span>Physical + digital</span></div>
-          </div>
         </div>
+
       </div>
     </section>
 
-    <section class="training-section" aria-label="Free professional development">
-      <div class="wrap training-banner">
-        <div class="training-icon"><svg class="icon" aria-hidden="true"><use href="#i-graduation"/></svg></div>
-        <div><strong>Free training for schools, including House Leaders.</strong><p>Practical professional development for school leaders, staff and those leading Houses. Our specialist House training helps build staff and student buy-in, strengthen House identity and develop a positive, lasting school culture.</p></div>
-        <a class="btn btn-outline" href="https://www.trackedu.net/housepoints.html" aria-label="Explore House Points and school training">Explore school support <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-      </div>
-    </section>
 
-    <section class="faq-section" aria-labelledby="faq-title">
-      <div class="wrap faq-layout">
-        <div><span class="eyebrow"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> Quick answers</span><h2 class="heading section-heading" id="faq-title">Questions schools often ask.</h2><p class="section-lead">The essentials at a glance. Find full product details, pricing and FAQs on the House Points page.</p></div>
-        <div class="faq-box">
-          <details><summary>Is TrackEDU a House Points tracker for a whole school?</summary><p>Yes. TrackEDU is an online House Points system for school-wide use, with staff awarding, live House leaderboards, student recognition, a Student Portal and leadership reporting. Schools can use their own House names and colours.</p></details>
-          <details><summary>Can we import our existing classes?</summary><p>Yes. TrackEDU supports CSV import and Google Classroom connections. Wonde MIS/SIS integration is live for paid subscribers, while pilot schools can explore Wonde in demo mode.</p></details>
-          <details><summary>Does TrackEDU offer free school training?</summary><p>Yes. We provide free professional development for school leaders, staff and House Leaders. Specialist House Leader training focuses on student and staff buy-in, House identity, student leadership and school culture.</p></details>
-          <details><summary>What happens after the free 30-day pilot?</summary><p>The pilot requires no credit card and does not automatically become paid. Schools choose whether to subscribe. Paid Stripe subscriptions renew annually unless cancelled, and you can cancel anytime to prevent the next renewal.</p></details>
-        </div>
-      </div>
-    </section>
+
+
 
     <section class="compare-section" aria-labelledby="compare-heading">
       <div class="wrap">
@@ -976,19 +1572,6 @@
       </div>
     </section>
 
-    <section class="end-section" aria-labelledby="end-title">
-      <div class="wrap">
-        <div class="end-panel">
-          <span class="eyebrow">Ready to see what's possible?</span>
-          <h2 class="heading" id="end-title">Bring your school community <em>closer together.</em></h2>
-          <p>See how TrackEDU helps schools celebrate achievement, engage students and build an active House culture. Explore the complete platform or start with a free 30-day pilot.</p>
-          <div class="end-actions">
-            <a class="btn btn-green" href="https://www.trackedu.net/housepoints.html">Explore House Points <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-            <a class="btn btn-white" href="https://housepoint.trackedu.net/">Start your free 30-day pilot</a>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- Separate standalone TrackEDU products -->
     <section class="more-section" id="other-products" aria-labelledby="other-title">
@@ -1001,11 +1584,9 @@
             </h2>
           </div>
           <p>
-            TrackEDU also offers two independent school software products:
-            Facilities and Class Board.
-            <strong>Both are completely separate from TrackEDU House Points.</strong>
-            They are not House Points features, add-ons or part of the
-            House Points subscription. Each is accessed and used independently.
+            Explore TrackEDU Facilities and Class Board, two standalone
+            products designed to make everyday school life easier.
+            Each can be used independently of TrackEDU House Points.
           </p>
         </div>
 
@@ -1044,6 +1625,23 @@
             <svg class="icon other-arrow" aria-hidden="true">
               <use href="#i-arrow"/>
             </svg>
+          </a>
+        </div>
+
+        <div class="school-bundle">
+          <div class="school-bundle-copy">
+            <span class="eyebrow">More together</span>
+            <h3>Interested in all three TrackEDU products?</h3>
+            <p>
+              Looking for House Points, Facilities and Class Board
+              for your school? Explore pricing and ask about
+              combined school options.
+            </p>
+          </div>
+          <a class="btn btn-green"
+             href="https://www.trackedu.net/housepoints.html#pricing">
+            Explore school pricing &amp; options
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
           </a>
         </div>
       </div>
@@ -1092,18 +1690,21 @@
         <div><div class="demo-eyebrow">Before you book</div><h2 id="demo-title">Book a TrackEDU demo</h2></div>
         <button type="button" class="demo-close" data-demo-close aria-label="Close demo information"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
       </div>
-      <div class="demo-qualifier"><strong>See how TrackEDU could work at your school.</strong><p>A guided walkthrough for school leaders, teachers and IT teams. Ask about the features, setup or pilot that matter to you.</p></div>
-      <div class="demo-grid">
-        <article><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><strong>30-minute guided demo</strong><p>We can focus on the tools and questions most relevant to your school.</p></article>
-        <article><svg class="icon" aria-hidden="true"><use href="#i-board"/></svg><strong>See the system live</strong><p>Teacher access, awarding points, Student Portal, tools, standings and school setup.</p></article>
-        <article><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg><strong>Bring your questions</strong><p>Bill will answer them directly and show how TrackEDU would work in your school.</p></article>
+      <p style="margin:0 0 20px;color:#597187;font-size:14px;line-height:1.6;">
+        See TrackEDU in action and ask about the features, setup and pricing that matter to your school.
+      </p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px 18px;margin-bottom:22px;color:#17324a;font-size:13px;font-weight:700;">
+        <span>✓ 30-minute live demo</span>
+        <span>✓ Guided platform walkthrough</span>
+        <span>✓ Ask your questions</span>
       </div>
-      <p class="demo-location"><strong>TrackEDU Ltd is UK-based.</strong> Founder Bill is currently in Asia, so available booking times may reflect Asian time zones.</p>
-      <div class="demo-privacy"><div><strong>IT, data protection or procurement?</strong><p>Review how TrackEDU handles school data before booking.</p></div><a href="https://www.trackedu.net/dpa.html" target="_blank" rel="noopener noreferrer">Data &amp; Privacy ↗</a></div>
       <div class="demo-actions">
         <a class="btn btn-green" href="https://cal.com/trackedu-a9dbpy/30min" target="_blank" rel="noopener noreferrer">Continue to booking <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        <a class="btn btn-outline" href="https://drive.google.com/file/d/1WB33PEYY0Gc5emDOIpS5hPpK4sGh8s-v/view?usp=sharing" target="_blank" rel="noopener noreferrer">View School Overview</a>
         <button type="button" class="btn btn-outline" data-demo-close>Not ready yet</button>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:18px;font-size:12px;font-weight:700;color:#3971a3;">
+        <a href="https://www.trackedu.net/dpa.html" target="_blank" rel="noopener noreferrer">Data &amp; Privacy ↗</a>
+        <a href="https://drive.google.com/file/d/1WB33PEYY0Gc5emDOIpS5hPpK4sGh8s-v/view?usp=sharing" target="_blank" rel="noopener noreferrer">School Overview ↗</a>
       </div>
     </div>
   </dialog>
@@ -1180,6 +1781,57 @@
 
           event.preventDefault();
           activatePreview(previewTabs[nextIndex], true);
+        });
+      });
+
+      // Before and after comparison tabs
+      const comparisonTabs = Array.from(
+        document.querySelectorAll('[data-before-after-tab]')
+      );
+
+      const comparisonPanels = Array.from(
+        document.querySelectorAll('.before-after-panel')
+      );
+
+      function activateComparison(tab, moveFocus = false) {
+        if (!tab) return;
+
+        const selected = tab.dataset.beforeAfterTab;
+
+        comparisonTabs.forEach((button) => {
+          const active = button === tab;
+          button.classList.toggle('active', active);
+          button.setAttribute('aria-selected', String(active));
+          button.tabIndex = active ? 0 : -1;
+        });
+
+        comparisonPanels.forEach((panel) => {
+          panel.hidden = panel.id !== 'before-after-' + selected;
+        });
+
+        if (moveFocus) tab.focus();
+      }
+
+      comparisonTabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => activateComparison(tab));
+
+        tab.addEventListener('keydown', (event) => {
+          let nextIndex = index;
+
+          if (event.key === 'ArrowRight') {
+            nextIndex = (index + 1) % comparisonTabs.length;
+          } else if (event.key === 'ArrowLeft') {
+            nextIndex = (index - 1 + comparisonTabs.length) % comparisonTabs.length;
+          } else if (event.key === 'Home') {
+            nextIndex = 0;
+          } else if (event.key === 'End') {
+            nextIndex = comparisonTabs.length - 1;
+          } else {
+            return;
+          }
+
+          event.preventDefault();
+          activateComparison(comparisonTabs[nextIndex], true);
         });
       });
 
