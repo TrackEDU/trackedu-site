@@ -1809,7 +1809,7 @@ html[dir="rtl"] .hero-real-school-proof:hover .hero-real-school-arrow{
 
 }
 
-/* Desktop: show all features without expanding */
+/* Desktop: show all features */
 
 @media(min-width:681px){
 
@@ -1824,7 +1824,15 @@ html[dir="rtl"] .hero-real-school-proof:hover .hero-real-school-arrow{
 
   #pricing .pricing-features-toggle
   .pricing-plan-includes-title{
-    display:block;
+    display:block!important;
+  }
+
+  #pricing .pricing-features-toggle
+  .pricing-plan-features{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:12px 18px!important;
+    padding:0!important;
   }
 
 }
@@ -20673,5 +20681,36 @@ section[id]{
  if(btn&&grid)btn.addEventListener('click',()=>{const expanded=grid.classList.toggle('is-expanded');btn.setAttribute('aria-expanded',String(expanded));btn.innerHTML=expanded?'Show fewer classroom tools <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>':'See all 12 classroom tools <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>';});
 })();
 </script>
+<script>
+(function(){
+
+  const breakpoint = window.matchMedia('(min-width:681px)');
+
+  function updatePricingFeatures(){
+
+    document.querySelectorAll(
+      '#pricing .pricing-features-toggle'
+    ).forEach(function(section){
+
+      if(breakpoint.matches){
+        section.open = true;
+      }else{
+        section.open = false;
+      }
+
+    });
+
+  }
+
+  updatePricingFeatures();
+
+  breakpoint.addEventListener(
+    'change',
+    updatePricingFeatures
+  );
+
+})();
+</script>
+
 </body>
 </html>
