@@ -2,6 +2,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
@@ -1085,6 +1086,95 @@
     .compare-note{font-size:11px!important;margin-top:15px!important}
     @media(max-width:760px){.compare-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
     @media(max-width:560px){.compare-section{padding-bottom:35px}.compare-details summary{padding:18px;align-items:flex-start}.compare-summary-title{font-size:20px}.compare-summary-copy{font-size:12px}.compare-toggle{font-size:0}.compare-toggle::after{font-size:23px}.compare-body{padding:16px}.compare-grid{grid-template-columns:1fr}.compare-card{padding:13px}}
+
+    /* Full-width homepage hero, with the original hero as a reliable fallback */
+    .hero--wide{background:#f5fff1}
+    .hero-wide-stage{position:relative;width:100%;overflow:hidden}
+    .hero-wide-image{display:block;width:100%;height:auto;aspect-ratio:1672 / 941;object-fit:contain}
+    .hero-wide-actions{
+      position:absolute;left:6.35%;top:62%;z-index:2;
+      display:flex;align-items:center;gap:12px;
+    }
+    .hero-wide-actions .btn{min-height:clamp(42px,3.6vw,62px);font-size:clamp(11px,1.05vw,15px);padding:10px clamp(12px,1.35vw,22px)}
+    .hero-wide-actions .btn-white{background:#fff;color:#173b51;border-color:#c4dcd8}
+    .hero-original-backup{display:none}
+    .hero--wide.hero-image-failed .hero-wide-stage{display:none}
+    .hero--wide.hero-image-failed .hero-original-backup{display:block}
+    .hero-backup-title{font-family:Fredoka,Outfit,sans-serif;font-weight:600;font-size:clamp(48px,5.1vw,72px);line-height:1.025;letter-spacing:-.04em;margin:14px 0 0;max-width:730px;color:#102d2a}
+    .hero-backup-title em{font-style:normal;color:#5d9d24}
+    @media(max-width:1100px){
+      .hero--wide:not(.hero-image-failed) .hero-wide-stage{display:none}
+      .hero--wide .hero-original-backup{display:block}
+      .hero-backup-title{font-size:clamp(43px,4.9vw,62px)}
+    }
+    @media(max-width:900px){.hero-backup-title{max-width:710px;font-size:clamp(46px,7vw,65px)}}
+    @media(max-width:650px){.hero-backup-title{font-size:clamp(33px,8.1vw,44px);line-height:1.09;margin-top:12px;letter-spacing:-.035em;text-wrap:balance}}
+    @media(max-width:420px){.hero-backup-title{font-size:clamp(32px,8.2vw,37px)}}
+    @media(max-width:370px){.hero-backup-title{font-size:34px}}
+
+    /* Phone copy stays short without changing the desktop/tablet message. */
+    .hero-description-mobile{display:none}
+    @media(max-width:650px){
+      .hero--wide .hero-original-backup .hero-description-full{display:none}
+      .hero--wide .hero-original-backup .hero-description-mobile{display:block}
+    }
+
+    /* Tighter original hero on tablets and phones. Desktop wide hero stays unchanged. */
+    @media (min-width:651px) and (max-width:1100px){
+      .hero--wide .hero-original-backup .hero-grid{
+        width:min(100% - 40px,900px);
+        max-width:900px;
+        padding:26px 0 28px;
+        gap:20px;
+      }
+      .hero--wide .hero-original-backup .hero-artwork{
+        max-width:780px;
+      }
+      .hero--wide .hero-original-backup .hero-artwork-frame{
+        aspect-ratio:1;
+      }
+      .hero--wide .hero-original-backup .hero-copy>p{
+        margin-top:10px;
+      }
+      .hero--wide .hero-original-backup .hero-actions{
+        margin-top:14px;
+      }
+      .hero--wide .hero-original-backup .hero-badges{
+        margin-top:7px;
+      }
+      .hero--wide .hero-original-backup .hero-grid{
+        gap:13px;
+      }
+    }
+    @media (max-width:650px){
+      .hero--wide .hero-original-backup .hero-grid{
+        padding:12px 0 10px;
+        gap:8px;
+      }
+      .hero--wide .hero-original-backup .hero-backup-title{
+        margin-top:8px;
+        line-height:1.06;
+      }
+      .hero--wide .hero-original-backup .hero-copy>p{
+        margin-top:9px;
+        line-height:1.43;
+        font-size:13.5px;
+      }
+      .hero--wide .hero-original-backup .hero-actions{
+        margin-top:12px;
+        gap:7px;
+      }
+      .hero--wide .hero-original-backup .hero-actions .btn{
+        min-height:46px;
+      }
+      .hero--wide .hero-original-backup .hero-badges{
+        margin-top:6px;
+        margin-bottom:0;
+      }
+      .hero--wide .hero-original-backup .hero-grid{
+        gap:5px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1140,32 +1230,55 @@
   </header>
 
   <main>
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="wrap hero-grid">
-        <div class="hero-copy">
-          <span class="hero-kicker"><span class="dot" aria-hidden="true"></span> Move beyond spreadsheets.</span>
-          <h1 id="hero-title">One platform for <em>your school.</em></h1>
-          <p>House Points, student recognition, behaviour and incident recording and classroom tools. Bring everyday school workflows together and give staff more time to focus on students.</p>
-          <div class="hero-actions">
-            <a class="btn btn-green" href="https://www.trackedu.net/housepoints.html">Explore TrackEDU House Points <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-            <button class="btn btn-white" type="button" data-video-trigger><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg> See it in a real school</button>
-          </div>
-          <div class="hero-badges" aria-label="Pilot benefits">
-            <span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> 30 days free</span>
-            <span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> No credit card required</span>
-            <span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Setup support included</span>
-          </div>
+    <!-- Edge-to-edge homepage hero. The original split hero remains as a backup. -->
+    <section class="hero hero--wide" aria-labelledby="hero-title">
+      <h1 id="hero-title" class="sr-only">One platform for your school: House Points, recognition, incident recording and classroom tools</h1>
+
+      <div class="hero-wide-stage">
+        <img
+          class="hero-wide-image"
+          src="https://trackedu-housepoints.web.app/trackedu_homepage_hero_optimised.webp?v=20261023"
+          alt="TrackEDU platform dashboard and happy students, showing House Points, recognition, incident recording, classroom tools and school reporting"
+          width="1672"
+          height="941"
+          fetchpriority="high"
+          decoding="async"
+          onerror="this.closest('.hero--wide').classList.add('hero-image-failed')"
+        >
+        <div class="hero-wide-actions" aria-label="Explore TrackEDU">
+          <a class="btn btn-green" href="https://www.trackedu.net/housepoints.html">Explore TrackEDU House Points <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <button class="btn btn-white" type="button" data-video-trigger><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg> See it in a real school</button>
         </div>
-        <div class="hero-artwork">
-          <div class="hero-artwork-frame">
-            <img
-              src="https://trackedu-housepoints.web.app/trackedu-homepage-hero-square.webp"
-              alt="Four smiling students celebrating House Points and school achievements in a bright classroom"
-              width="1280"
-              height="1280"
-              fetchpriority="high"
-              decoding="async"
-            >
+      </div>
+
+      <!-- Original hero retained for phones, smaller screens and image-load failures. -->
+      <div class="hero-original-backup">
+        <div class="wrap hero-grid">
+          <div class="hero-copy">
+            <span class="hero-kicker"><span class="dot" aria-hidden="true"></span> Move beyond spreadsheets.</span>
+            <h2 class="hero-backup-title">One platform for <em>your school.</em></h2>
+            <p class="hero-description-full">House Points, student recognition, behaviour and incident recording and classroom tools. Bring everyday school workflows together and give staff more time to focus on students.</p>
+            <p class="hero-description-mobile">House Points, student recognition, incident recording and classroom tools in one place. Less admin for staff and more time for students.</p>
+            <div class="hero-actions">
+              <a class="btn btn-green" href="https://www.trackedu.net/housepoints.html">Explore TrackEDU House Points <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              <button class="btn btn-white" type="button" data-video-trigger><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg> See it in a real school</button>
+            </div>
+            <div class="hero-badges" aria-label="Pilot benefits">
+              <span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> 30 days free</span>
+              <span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> No credit card required</span>
+              <span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Setup support included</span>
+            </div>
+          </div>
+          <div class="hero-artwork">
+            <div class="hero-artwork-frame">
+              <img
+                src="https://trackedu-housepoints.web.app/trackedu-homepage-hero-square.webp?v=20261023"
+                alt="Students celebrating alongside the TrackEDU school platform"
+                width="1254"
+                height="1254"
+                decoding="async"
+              >
+            </div>
           </div>
         </div>
       </div>
