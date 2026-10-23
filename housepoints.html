@@ -10143,7 +10143,70 @@ body.te-viewer-lock{overflow:hidden!important}
 }
 
 
+/* Hero integration logos */
+.hero.hero-video-enabled .hero-integration-icon.wonde{
+  width:90px!important;
+  min-width:90px!important;
+  height:42px!important;
+  padding:5px 8px!important;
+}
 
+@media(max-width:680px){
+  .hero.hero-video-enabled .hero-integration-icon.wonde{
+    width:76px!important;
+    min-width:76px!important;
+    height:36px!important;
+  }
+}
+
+/* Desktop: clear size difference between hero buttons */
+@media(min-width:1101px){
+
+  .hero.hero-video-enabled .hero-actions{
+    align-items:center!important;
+    gap:12px!important;
+  }
+
+  .hero.hero-video-enabled .hero-actions a.btn.btn-primary{
+    height:70px!important;
+    min-height:70px!important;
+    padding:0 36px!important;
+    font-size:17px!important;
+    border-radius:18px!important;
+    white-space:nowrap!important;
+  }
+
+  .hero.hero-video-enabled .hero-actions button.btn.hero-secondary{
+    height:58px!important;
+    min-height:58px!important;
+    padding:0 24px!important;
+    font-size:14px!important;
+    border-radius:16px!important;
+    white-space:nowrap!important;
+  }
+}
+
+/* Larger buttons on iPad */
+@media(min-width:681px) and (max-width:1100px){
+  .hero.hero-video-enabled .hero-actions .btn{
+    min-height:62px!important;
+    padding:0 26px!important;
+    font-size:15px!important;
+    border-radius:17px!important;
+  }
+}
+
+/* Larger buttons on mobile */
+@media(max-width:680px){
+  .hero.hero-video-enabled .hero-actions .btn{
+    min-height:58px!important;
+    padding:0 16px!important;
+    font-size:14px!important;
+    border-radius:16px!important;
+  }
+}
+
+/* The pilot information opens from the secondary hero button. */
 
 
 </style>
@@ -10313,7 +10376,7 @@ body.te-viewer-lock{overflow:hidden!important}
 <a class="btn btn-primary" href="https://housepoint.trackedu.net/"><span data-i18n="hero_pilot">Start your free 30-day pilot</span> <i class="fa-solid fa-arrow-right"></i></a><button class="btn btn-secondary hero-secondary" data-pilot-trigger="true" type="button"><i class="fa-solid fa-circle-info"></i> <span data-i18n="pilot_how_link">How does the free pilot work?</span></button></div>
 <div class="hero-integrations hero-integrations-premium">
 <div class="hero-integrations-label">
-<span>Works with</span>
+<span>Import students and classes from</span>
 </div>
 <div class="hero-integrations-options">
 <div class="hero-integration-option">
@@ -10327,7 +10390,6 @@ body.te-viewer-lock{overflow:hidden!important}
 <span class="hero-integration-icon wonde">
 <img alt="Wonde" loading="lazy" src="https://www.deloitte.co.uk/fast50/assets/img/logos-winners/2021/wonde-logo.jpg"/>
 </span>
-<strong data-i18n="wonde_hero_title">Wonde MIS/SIS</strong>
 </div>
 </div>
 </div>
@@ -10638,54 +10700,7 @@ body.te-viewer-lock{overflow:hidden!important}
 </a>
 </div>
 </div>
-<div class="partner-capabilities">
-<div class="partner-capabilities-heading">
-<span>ONE CONNECTED SCHOOL PLATFORM</span>
-<strong>More ways to support your school.</strong>
-</div>
-<div class="partner-capabilities-grid">
-<a class="partner-capability" href="#product-video">
-<span class="partner-capability-icon student">
-<i class="fa-solid fa-user-graduate"></i>
-</span>
-<div>
-<strong>Student Engagement</strong>
-<span>Challenges, achievements and personal progress</span>
-</div>
-<i aria-hidden="true" class="fa-solid fa-arrow-up-right-from-square partner-capability-arrow"></i>
-</a>
-<a class="partner-capability" href="#teacher-tools">
-<span class="partner-capability-icon teacher">
-<i class="fa-solid fa-wand-magic-sparkles"></i>
-</span>
-<div>
-<strong>Teacher Tools</strong>
-<span>Classroom activities and time-saving tools</span>
-</div>
-<i aria-hidden="true" class="fa-solid fa-arrow-up-right-from-square partner-capability-arrow"></i>
-</a>
-<a class="partner-capability" href="#school-store">
-<span class="partner-capability-icon recognition">
-<i class="fa-solid fa-award"></i>
-</span>
-<div>
-<strong>Recognition &amp; Progress</strong>
-<span>Celebrate achievements and positive contributions</span>
-</div>
-<i aria-hidden="true" class="fa-solid fa-arrow-up-right-from-square partner-capability-arrow"></i>
-</a>
-<a class="partner-capability" href="#behaviour">
-<span class="partner-capability-icon incident">
-<i class="fa-solid fa-clipboard-list"></i>
-</span>
-<div>
-<strong>Incident Reporting</strong>
-<span>Record incidents, track concerns and support follow-up</span>
-</div>
-<i aria-hidden="true" class="fa-solid fa-arrow-up-right-from-square partner-capability-arrow"></i>
-</a>
-</div>
-</div>
+
 </article>
 </div>
 </section><section class="hero-trust-strip" id="trust">
@@ -18807,12 +18822,72 @@ html[dir="rtl"] #trainingModal .training-topic-icon{
    CONWAY SCHOOL - CLEAN CASE STUDY SECTION
 ========================================================= */
 
-#school-partners .partner-card{
-  grid-template-columns:88px minmax(0,1fr) minmax(300px,420px)!important;
-  gap:32px!important;
-  align-items:center!important;
-  padding:48px max(32px,calc((100vw - 1360px)/2))!important;
-  min-height:390px;
+/* Conway Christian School: centred desktop showcase */
+@media(min-width:1101px){
+
+  #school-partners .partner-card{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:center!important;
+    justify-content:center!important;
+
+    gap:14px!important;
+    min-height:0!important;
+    padding:48px 32px!important;
+    text-align:center!important;
+  }
+
+  #school-partners .partner-logo-wrap{
+    width:90px!important;
+    height:90px!important;
+    align-self:center!important;
+    justify-self:center!important;
+    margin:0 auto!important;
+  }
+
+  #school-partners .partner-copy-refined{
+    width:100%!important;
+    max-width:850px!important;
+    margin:0 auto!important;
+    text-align:center!important;
+  }
+
+  #school-partners .partner-copy-refined .partner-school-meta,
+  #school-partners .partner-copy-refined .partner-copy-actions{
+    justify-content:center!important;
+  }
+
+  #school-partners .partner-copy-refined h2{
+    max-width:850px!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+
+  #school-partners .partner-copy-refined p{
+    max-width:650px!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+}
+
+@media(min-width:901px){
+  #school-partners .partner-logo-wrap{
+    grid-column:1;
+    grid-row:1;
+    justify-self:start;
+    align-self:end!important;
+  }
+
+  #school-partners .partner-copy-refined{
+    grid-column:1;
+    grid-row:2;
+  }
+
+  #school-partners .partner-capabilities{
+    grid-column:2;
+    grid-row:1 / 3;
+    align-self:center;
+  }
 }
 
 #school-partners .partner-logo-wrap{
@@ -19776,8 +19851,25 @@ body{background:#f8fff9}
 .hero.hero-video-enabled .hero-conway-caption{padding:10px 12px!important;min-height:58px!important}
 /* Old overlapping mock dashboard and ornaments must not cover the video or background artwork */
 .hero.hero-video-enabled .hero-ecosystem>.orbit,.hero.hero-video-enabled .hero-ecosystem>.product-window,.hero.hero-video-enabled .hero-ecosystem>.float-note{display:none!important}
-/* Integrations already form part of the artwork at desktop sizes; avoid doubling them */
-.hero.hero-video-enabled .hero-integrations-premium{display:none!important}
+/* Show Google Classroom and Wonde below the hero buttons */
+.hero.hero-video-enabled .hero-integrations-premium{
+  display:flex!important;
+  margin-top:44px!important;
+}
+
+/* Desktop: align integration logos with the video bottom */
+@media(min-width:1101px){
+  .hero.hero-video-enabled .hero-copy{
+    position:relative!important;
+  }
+
+  .hero.hero-video-enabled .hero-integrations-premium{
+    position:absolute!important;
+    left:0!important;
+    bottom:-115px!important;
+    margin-top:0!important;
+  }
+}
 /* Recognisable rainbow storytelling across EVERY major chapter */
 #recognition-story{background:radial-gradient(ellipse at 2% 10%,#fff2ad 0,transparent 34%),radial-gradient(ellipse at 95% 82%,#c9f5d0 0,transparent 43%),#fffef7!important;position:relative;overflow:hidden}
 #explore-by-role{background:radial-gradient(ellipse at 100% 0%,#dccbff 0,transparent 38%),radial-gradient(ellipse at 0% 100%,#d7f4ff 0,transparent 42%),#f9f7ff!important;position:relative;overflow:hidden}
@@ -20052,7 +20144,7 @@ body{background:#f8fff9}
 
  .hero.hero-video-enabled .hero-ecosystem{
    position:relative!important;
-   padding:22px 0 24px!important;
+   padding:4px 0 24px!important;
    margin:0 auto!important;
    isolation:isolate;
    background:
@@ -20208,7 +20300,131 @@ body{background:#f8fff9}
  }
 }
 
+/* Mobile: keep both integrations on one line */
+@media(max-width:680px){
+
+  .hero.hero-video-enabled .hero-integrations-premium{
+    display:flex!important;
+    flex-direction:row!important;
+    flex-wrap:nowrap!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+    gap:8px!important;
+    width:100%!important;
+    max-width:100%!important;
+  }
+
+  .hero-integrations-premium .hero-integrations-label{
+    flex:0 1 auto!important;
+    min-width:0!important;
+    font-size:9px!important;
+    line-height:1.2!important;
+    white-space:nowrap!important;
+  }
+
+  .hero-integrations-premium .hero-integrations-options{
+    display:flex!important;
+    flex:0 0 auto!important;
+    flex-wrap:nowrap!important;
+    align-items:center!important;
+    gap:8px!important;
+  }
+
+  .hero-integrations-premium .hero-integration-option{
+    flex-wrap:nowrap!important;
+    gap:5px!important;
+  }
+
+  .hero-integrations-premium .hero-integration-option strong{
+    font-size:9px!important;
+    white-space:nowrap!important;
+  }
+
+  .hero-integrations-premium .hero-integration-icon.google{
+    width:24px!important;
+    min-width:24px!important;
+    height:24px!important;
+    font-size:14px!important;
+  }
+
+  .hero.hero-video-enabled .hero-integration-icon.wonde{
+    width:65px!important;
+    min-width:65px!important;
+    height:30px!important;
+    padding:3px 5px!important;
+  }
+
+  .hero-integrations-premium .hero-integrations-divider{
+    display:none!important;
+  }
+}
+
+@media(max-width:390px){
+  .hero-integrations-premium .hero-integrations-label,
+  .hero-integrations-premium .hero-integration-option strong{
+    font-size:8px!important;
+  }
+
+  .hero.hero-video-enabled .hero-integrations-premium{
+    gap:6px!important;
+  }
+
+  .hero-integrations-premium .hero-integrations-options{
+    gap:5px!important;
+  }
+}
+
+/* Mobile hero finishing touches */
+@media(max-width:680px){
+
+  /* Keep the integration row clear and aligned */
+  .hero.hero-video-enabled .hero-integrations-premium{
+    align-items:center!important;
+    column-gap:7px!important;
+  }
+
+  .hero.hero-video-enabled .hero-integrations-label{
+    color:#24445e!important;
+    font-size:9.5px!important;
+    font-weight:800!important;
+    letter-spacing:-.15px!important;
+    white-space:nowrap!important;
+  }
+
+  .hero.hero-video-enabled .hero-integration-option strong{
+    color:#24445e!important;
+    font-weight:800!important;
+  }
+
+  /* Keep the Wonde logo compact */
+  .hero.hero-video-enabled .hero-integration-icon.wonde{
+    width:60px!important;
+    min-width:60px!important;
+  }
+}
+
 @media(prefers-reduced-motion:reduce){.btn-primary:hover,#what .te-product-card:hover,#teacher-tools .te-teacher-item:hover{transform:none!important}}
+
+
+/* Cover the small decorative corner on phones only */
+@media(max-width:680px){
+  .hero.hero-video-enabled::after{
+    content:""!important;
+    display:block!important;
+    position:absolute!important;
+    top:0!important;
+    right:0!important;
+    left:auto!important;
+    bottom:auto!important;
+    width:90px!important;
+    height:22px!important;
+    border-radius:0!important;
+    background:linear-gradient(90deg,#f6fdf8,#f5fcf8)!important;
+    z-index:1!important;
+    pointer-events:none!important;
+  }
+}
+
 
 </style>
 <script>
