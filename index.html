@@ -317,6 +317,100 @@
     .value-icon .icon{width:23px;height:23px}
     .value-card h3{font-family:Fredoka,Outfit,sans-serif;font-weight:600;font-size:24px;letter-spacing:-.025em;color:var(--navy);margin:18px 0 9px}
     .value-card p{font-size:14px;line-height:1.68;color:#657b8d;margin:0}
+    /* Why TrackEDU: school-friendly introduction */
+    .why-trackedu{
+      padding:65px 0;
+      background:#f8fbfe;
+    }
+    .why-trackedu-head{
+      max-width:720px;
+      margin:0 auto 30px;
+      text-align:center;
+    }
+    .why-trackedu-head h2{
+      margin:12px 0;
+      font-size:clamp(30px,4vw,46px);
+    }
+    .why-trackedu-head p{
+      color:#597187;
+      font-size:16px;
+      line-height:1.6;
+      margin:0;
+    }
+    .why-trackedu-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
+    }
+    .why-trackedu-card{
+      padding:25px;
+      border:1px solid #dce7ef;
+      border-radius:20px;
+      background:#fff;
+      text-align:center;
+    }
+    .why-trackedu-card.solution{
+      background:#f1fae9;
+      border-color:#cfe7ba;
+    }
+    .why-trackedu-icon{
+      display:grid;
+      place-items:center;
+      width:50px;
+      height:50px;
+      margin:0 auto 15px;
+      border-radius:15px;
+      background:#eaf6ff;
+      color:#237dc2;
+    }
+    .why-trackedu-card.solution .why-trackedu-icon{
+      background:#e0f2ce;
+      color:#548b25;
+    }
+    .why-trackedu-icon svg{
+      width:25px;
+      height:25px;
+    }
+    .why-trackedu-card h3{
+      margin:0 0 9px;
+      color:#071c33;
+      font-size:20px;
+    }
+    .why-trackedu-card p{
+      margin:0;
+      color:#597187;
+      font-size:14px;
+      line-height:1.6;
+    }
+    .why-trackedu-founder{
+      margin:24px 0 0;
+      text-align:center;
+      color:#355a4f;
+      font-size:14px;
+      font-weight:800;
+    }
+    @media(max-width:650px){
+      .why-trackedu{
+        padding:45px 0;
+      }
+      .why-trackedu-grid{
+        grid-template-columns:1fr;
+        gap:11px;
+      }
+      .why-trackedu-card{
+        padding:21px;
+      }
+      .why-trackedu-head{
+        margin-bottom:23px;
+      }
+      .why-trackedu-head p{
+        font-size:14px;
+      }
+      .why-trackedu-founder{
+        font-size:12px;
+      }
+    }
+
     /* Before and after comparisons */
     .before-after-section{
       padding:48px 0 30px;
@@ -1308,6 +1402,72 @@
       </div>
     </section>
 
+
+    <!-- Why TrackEDU -->
+    <section class="why-trackedu" aria-labelledby="why-trackedu-title">
+      <div class="wrap">
+
+        <div class="why-trackedu-head">
+          <span class="eyebrow">WHY TRACKEDU?</span>
+          <h2 class="heading" id="why-trackedu-title">
+            Less admin. More time for students.
+          </h2>
+          <p>
+            School days are busy. TrackEDU helps teachers
+            and school leaders save time, celebrate students
+            and stay organised.
+          </p>
+        </div>
+
+        <div class="why-trackedu-grid">
+
+          <article class="why-trackedu-card">
+            <div class="why-trackedu-icon">
+              <svg class="icon" aria-hidden="true">
+                <use href="#i-clock"/>
+              </svg>
+            </div>
+            <h3>Too much to do?</h3>
+            <p>
+              Tracking points, rewards and school
+              records can take up valuable time.
+            </p>
+          </article>
+
+          <article class="why-trackedu-card">
+            <div class="why-trackedu-icon">
+              <svg class="icon" aria-hidden="true">
+                <use href="#i-clipboard"/>
+              </svg>
+            </div>
+            <h3>Too many steps?</h3>
+            <p>
+              Paper, spreadsheets and separate
+              tools can make school work harder.
+            </p>
+          </article>
+
+          <article class="why-trackedu-card solution">
+            <div class="why-trackedu-icon">
+              <svg class="icon" aria-hidden="true">
+                <use href="#i-check"/>
+              </svg>
+            </div>
+            <h3>Meet TrackEDU.</h3>
+            <p>
+              Bring House Points, rewards, student progress,
+              behaviour tools and reports into one place.
+            </p>
+          </article>
+
+        </div>
+
+        <p class="why-trackedu-founder">
+          Built by a teacher, for schools.
+        </p>
+
+      </div>
+    </section>
 
     <!-- Illustrative before and after comparisons -->
     <section class="before-after-section" aria-labelledby="before-after-title">
