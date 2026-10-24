@@ -21533,5 +21533,271 @@ body{background:#f8fff9}
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',ready);else ready();
 })();
 </script>
+
+<!-- TrackEDU Floating App Installation Card -->
+<style>
+  #tedInstallCard {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 900;
+    width: 170px;
+    max-width: calc(100vw - 24px);
+    padding: 8px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 13px;
+    box-shadow: 0 8px 32px rgba(15, 23, 42, 0.14);
+    font-family: inherit;
+    box-sizing: border-box;
+  }
+
+  #tedInstallCard[hidden] {
+    display: none !important;
+  }
+
+  .ted-install-heading {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 10px;
+    min-height: 25px;
+  }
+
+  .ted-install-heading-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #15803d;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.4;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .ted-install-heading-link:hover {
+    color: #166534;
+    text-decoration: underline;
+  }
+
+  .ted-install-heading-link:focus-visible {
+    outline: 3px solid #86efac;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  #tedInstallClose {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    border: 0;
+    border-radius: 7px;
+    background: transparent;
+    color: #64748b;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  #tedInstallClose:hover {
+    background: #f1f5f9;
+    color: #0f172a;
+  }
+
+  .ted-install-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  #tedInstallQR {
+    width: 112px;
+    height: 112px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 5px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+    box-sizing: border-box;
+  }
+
+  #tedInstallQR img,
+  #tedInstallQR canvas {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .ted-install-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .ted-install-actions p {
+    margin: 0;
+    color: #64748b;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  #tedInstallButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 112px;
+    max-width: 100%;
+    padding: 9px 8px;
+    background: #15803d;
+    border-radius: 9px;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 750;
+    text-decoration: none;
+    white-space: nowrap;
+    box-sizing: border-box;
+    transition: background 0.2s ease;
+  }
+
+  #tedInstallButton:hover {
+    background: #166534;
+    color: #ffffff;
+  }
+
+  #tedInstallButton:focus-visible,
+  #tedInstallClose:focus-visible {
+    outline: 3px solid #86efac;
+    outline-offset: 3px;
+  }
+
+  @media (max-width: 600px) {
+    #tedInstallCard {
+      right: 12px;
+      bottom: 12px;
+      width: 220px;
+      padding: 11px;
+      border-radius: 13px;
+    }
+
+    #tedInstallQR {
+      display: none;
+    }
+
+    .ted-install-heading {
+      margin-bottom: 7px;
+    }
+
+    .ted-install-actions {
+      gap: 7px;
+    }
+
+    .ted-install-actions p {
+      font-size: 10px;
+    }
+
+    #tedInstallButton {
+      padding: 9px 10px;
+    }
+  }
+</style>
+
+<aside id="tedInstallCard" aria-label="Get the TrackEDU App" hidden>
+  <div class="ted-install-heading">
+    <a
+      class="ted-install-heading-link"
+      href="https://housepoint.trackedu.net/?install=1"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <i class="fa-solid fa-download" aria-hidden="true"></i>
+      Install TrackEDU
+    </a>
+
+
+  </div>
+
+  <div class="ted-install-content">
+    <div id="tedInstallQR" aria-label="QR code to open TrackEDU"></div>
+  </div>
+</aside>
+
+<script>
+(function () {
+  const appUrl = 'https://housepoint.trackedu.net/?install=1';
+  const card = document.getElementById('tedInstallCard');
+  const qrContainer = document.getElementById('tedInstallQR');
+
+  if (!card || !qrContainer) return;
+
+  if (window.matchMedia('(display-mode: standalone)').matches ||
+      window.navigator.standalone === true) {
+    return;
+  }
+
+  card.hidden = false;
+
+  function showQRFallback() {
+    qrContainer.textContent = '';
+
+    const link = document.createElement('a');
+    link.href = appUrl;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.textContent = 'Open TrackEDU';
+    link.style.cssText =
+      'font-size:11px;color:#15803d;text-align:center;font-weight:700;';
+
+    qrContainer.appendChild(link);
+  }
+
+  if (window.matchMedia('(max-width: 600px)').matches) {
+    return;
+  }
+
+  const script = document.createElement('script');
+  script.src =
+    'https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';
+
+  script.onload = function () {
+    if (typeof QRCode !== 'function') {
+      showQRFallback();
+      return;
+    }
+
+    try {
+      new QRCode(qrContainer, {
+        text: appUrl,
+        width: 100,
+        height: 100,
+        colorDark: '#0f172a',
+        colorLight: '#ffffff',
+        correctLevel: QRCode.CorrectLevel.M
+      });
+    } catch (error) {
+      showQRFallback();
+    }
+  };
+
+  script.onerror = showQRFallback;
+
+  document.head.appendChild(script);
+})();
+</script>
+
 </body>
 </html>
