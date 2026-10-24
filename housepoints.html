@@ -10099,21 +10099,12 @@ body.te-viewer-lock{overflow:hidden!important}
     animation-delay: 0.28s;
   }
 
-  /* Animate the buttons individually, after the text */
-  .hero.hero-video-enabled .hero-actions {
-    animation: none;
-  }
-
+  /* Keep the main actions visible immediately on page load */
+  .hero.hero-video-enabled .hero-actions,
   .hero.hero-video-enabled .hero-actions .btn {
-    animation: trackeduButtonPop 0.65s cubic-bezier(.2,1.4,.4,1) both;
-  }
-
-  .hero.hero-video-enabled .hero-actions .btn-primary {
-    animation-delay: 0.65s;
-  }
-
-  .hero.hero-video-enabled .hero-actions .hero-secondary {
-    animation-delay: 0.82s;
+    animation: none !important;
+    opacity: 1;
+    transform: none;
   }
 
   /* Small hover effect for the two buttons */
@@ -10275,7 +10266,27 @@ body.te-viewer-lock{overflow:hidden!important}
 @media(max-width:900px){.te-house-gallery,.te-insight-proof{grid-template-columns:1fr}.te-feature-visual{margin-top:25px}}
 @media(max-width:680px){.td-visual.te-premium-frame{border-width:5px!important;border-radius:17px!important}.te-house-gallery{gap:14px}.te-house-caption{padding:16px}.te-house-caption strong{font-size:20px}.te-feature-visual{border-radius:20px}.te-feature-visual-top{padding:13px;flex-wrap:wrap}.te-feature-visual-top strong{font-size:17px}.te-insight-proof{padding:18px;border-radius:22px}.te-visual-label{top:7px;right:7px}.te-real-label{font-size:8px;padding:6px 8px}}
 @media(prefers-reduced-motion:reduce){.te-house-figure{transition:none}}
-</style></head>
+</style>
+
+<style>
+  /* Show only the current hero video from the first render */
+  .hero.hero-video-enabled .hero-ecosystem > :not(.hero-conway-player) {
+    display: none !important;
+  }
+
+  /* Reserve the current portrait video layout immediately */
+  .hero.hero-video-enabled .hero-conway-player {
+    display: block !important;
+    width: min(100%, 300px) !important;
+    max-width: 300px !important;
+    margin: 0 auto !important;
+  }
+
+  .hero.hero-video-enabled .hero-conway-video {
+    aspect-ratio: 9 / 16 !important;
+  }
+</style>
+</head>
 <body id="top">
 <nav class="nav" id="topNav">
 <div class="shell navin">
@@ -10397,7 +10408,7 @@ body.te-viewer-lock{overflow:hidden!important}
 <div class="hero-ecosystem reveal show">
 <div class="hero-conway-player">
 <div class="hero-conway-video">
-<iframe allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/Jo3HvL2D2wY?autoplay=1&amp;mute=1&amp;playsinline=1&amp;controls=1&amp;rel=0&amp;loop=1&amp;playlist=Jo3HvL2D2wY" title="TrackEDU in action at Conway Christian School"></iframe>
+<iframe allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/Jo3HvL2D2wY?autoplay=1&amp;mute=1&amp;playsinline=1&amp;controls=1&amp;rel=0&amp;loop=1&amp;playlist=Jo3HvL2D2wY" title="TrackEDU in action at Conway Christian School" onload="this.parentElement.classList.add('is-ready')"></iframe>
 </div>
 <div class="hero-conway-caption">
 <span class="hero-conway-live-dot"></span>
@@ -18590,6 +18601,23 @@ html[dir="rtl"] #trainingModal .training-topic-icon{
   border:0;
 }
 
+.hero-conway-video::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:2;
+  background:#07111f url("https://img.youtube.com/vi/Jo3HvL2D2wY/0.jpg") center/cover no-repeat;
+  opacity:1;
+  visibility:visible;
+  pointer-events:none;
+  transition:opacity .25s ease, visibility .25s ease;
+}
+
+.hero-conway-video.is-ready::after{
+  opacity:0;
+  visibility:hidden;
+}
+
 /* Below-video school identification */
 .hero-conway-caption{
   display:flex;
@@ -21692,9 +21720,10 @@ body{background:#f8fff9}
     #tedInstallCard {
       right: 12px;
       bottom: 12px;
-      width: 220px;
-      padding: 11px;
-      border-radius: 13px;
+      width: 148px;
+      padding: 9px 8px;
+      border-radius: 11px;
+      box-shadow: 0 4px 18px rgba(15, 23, 42, 0.12);
     }
 
     #tedInstallQR {
@@ -21702,19 +21731,14 @@ body{background:#f8fff9}
     }
 
     .ted-install-heading {
-      margin-bottom: 7px;
+      margin-bottom: 0;
+      min-height: 0;
     }
 
-    .ted-install-actions {
-      gap: 7px;
-    }
-
-    .ted-install-actions p {
-      font-size: 10px;
-    }
-
-    #tedInstallButton {
-      padding: 9px 10px;
+    .ted-install-heading-link {
+      font-size: 12px;
+      line-height: 1.2;
+      text-align: center;
     }
   }
 </style>
