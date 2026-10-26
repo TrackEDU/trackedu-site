@@ -287,18 +287,20 @@
     }
 
     /* Proof */
-    .proof{border-bottom:1px solid #e4edf2;background:#fff}
+    .proof{border-bottom:1px solid #243B50;background:#101F32}
     .proof-inner{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:26px;padding:22px 0}
     .proof-school{display:flex;gap:12px;align-items:center}
-    .proof-logo{width:56px;height:56px;padding:4px;border:1px solid #e5ecf1;border-radius:13px;background:#fff;object-fit:contain;flex:none}
-    .proof-overline{font-size:10px;color:#5f982c;font-weight:850;letter-spacing:.09em;text-transform:uppercase}
-    .proof-school strong{display:block;font-size:14px;color:#14334e;margin-top:3px}
-    .proof-school small{display:block;font-size:11px;color:#74899b;margin-top:2px}
-    .proof-line{border-left:1px solid #e1eaf0;padding-left:26px}
-    .proof-line strong{display:block;font-size:17px;font-weight:800;color:#0f2e48}
-    .proof-line span{display:block;font-size:12px;color:#708699;margin-top:4px}
-    .video-trigger{display:inline-flex;gap:11px;align-items:center;min-height:55px;padding:6px 15px 6px 7px;border:1px solid #d8e5ee;background:#f9fcfe;color:#153a58;border-radius:13px;white-space:nowrap;box-shadow:0 5px 15px rgba(7,28,51,.045)}
-    .video-trigger:hover{border-color:#9ecb79;background:#fff}
+    .proof-logo{width:56px;height:56px;padding:4px;border:1px solid #34485D;border-radius:13px;background:#fff;object-fit:contain;flex:none}
+    .proof-overline{font-size:10px;color:#A3D977;font-weight:850;letter-spacing:.09em;text-transform:uppercase}
+    .proof-school strong{display:block;font-size:14px;color:#FFFFFF;margin-top:3px}
+    .proof-school small{display:block;font-size:11px;color:#C3CEDA;margin-top:2px}
+    .proof-line{border-left:1px solid #34485D;padding-left:26px}
+    .proof-line strong{display:block;font-size:17px;font-weight:800;color:#FFFFFF}
+    .proof-line span{display:block;font-size:12px;color:#C3CEDA;margin-top:4px}
+    .proof-line .proof-overline{color:#A3D977}
+    .video-trigger{display:inline-flex;gap:11px;align-items:center;min-height:55px;padding:6px 15px 6px 7px;border:1px solid #40576C;background:#1D3248;color:#FFFFFF;border-radius:13px;white-space:nowrap;box-shadow:none}
+    .video-trigger:hover{border-color:#A3D977;background:#29445D}
+    .video-trigger small{color:#C3CEDA}
     .video-thumb{position:relative;width:81px;height:45px;border-radius:8px;background:#17314b url('https://img.youtube.com/vi/Jo3HvL2D2wY/hqdefault.jpg') center/cover no-repeat;overflow:hidden;flex:none}
     .video-thumb::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.18)}
     .video-thumb i{position:absolute;z-index:1;top:50%;left:50%;transform:translate(-50%,-50%);display:grid;place-items:center;width:25px;height:25px;background:#fff;color:#488c20;border-radius:50%}
@@ -1391,17 +1393,35 @@
           <div class="trust-item"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg><span><strong>No student email required</strong><small>School-managed access</small></span></div>
           <div class="trust-item"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg><span><strong>No Ads. Ever.</strong><small>No ad-supported student experience</small></span></div>
           <div class="trust-item"><svg class="icon" aria-hidden="true"><use href="#i-graduation"/></svg><span><strong>Google Classroom</strong><small>Import classes and students</small></span></div>
-          <div class="trust-item"><svg class="icon" aria-hidden="true"><use href="#i-chart"/></svg><span><strong>Wonde MIS/SIS</strong><small>Live sync for paid schools; pilot demo</small></span></div>
+          <div class="trust-item"><svg class="icon" aria-hidden="true"><use href="#i-chart"/></svg><span><strong>Wonde </strong><small>Live sync for paid schools; pilot demo</small></span></div>
           <div class="trust-item" aria-hidden="true"><svg class="icon"><use href="#i-shield"/></svg><span><strong>UK Registered</strong><small>Company #17216557</small></span></div>
           <div class="trust-item" aria-hidden="true"><svg class="icon"><use href="#i-check"/></svg><span><strong>ICO Registered</strong><small>ZC146923</small></span></div>
           <div class="trust-item" aria-hidden="true"><svg class="icon"><use href="#i-users"/></svg><span><strong>No student email required</strong><small>School-managed access</small></span></div>
           <div class="trust-item" aria-hidden="true"><svg class="icon"><use href="#i-shield"/></svg><span><strong>No Ads. Ever.</strong><small>No ad-supported student experience</small></span></div>
           <div class="trust-item" aria-hidden="true"><svg class="icon"><use href="#i-graduation"/></svg><span><strong>Google Classroom</strong><small>Import classes and students</small></span></div>
-          <div class="trust-item" aria-hidden="true"><svg class="icon"><use href="#i-chart"/></svg><span><strong>Wonde MIS/SIS</strong><small>Live sync for paid schools; pilot demo</small></span></div>
+          <div class="trust-item" aria-hidden="true"><svg class="icon"><use href="#i-chart"/></svg><span><strong>Wonde </strong><small>Live sync for paid schools; pilot demo</small></span></div>
         </div>
       </div>
     </section>
 
+
+    <section class="proof" aria-label="Real school using TrackEDU">
+      <div class="wrap proof-inner">
+        <a class="proof-school" href="https://www.conwaychristianschool.org/" target="_blank" rel="noopener noreferrer" aria-label="Visit Conway Christian School's website">
+          <img class="proof-logo" src="https://irp.cdn-website.com/65d009b3/dms3rep/multi/opt/Conway-logo-61w.png" alt="Conway Christian School logo" width="56" height="56" loading="lazy">
+          <span><span class="proof-overline">Real school · Real use</span><strong>Conway Christian School</strong><small>United States</small></span>
+        </a>
+        <div class="proof-line">
+          <span class="proof-overline">New School Partner · Jordan 🇯🇴</span>
+          <strong>Amman Baptist School</strong>
+          <span>Preparing to introduce TrackEDU to its school community.</span>
+        </div>
+        <button type="button" class="video-trigger" data-video-trigger aria-label="Watch the 1 minute 16 second Conway Christian School video">
+          <span class="video-thumb" aria-hidden="true"><i><svg class="icon"><use href="#i-play"/></svg></i></span>
+          <span>Watch the school video <small>Conway Christian School · 1:16</small></span>
+        </button>
+      </div>
+    </section>
 
     <!-- Why TrackEDU -->
     <section class="why-trackedu" aria-labelledby="why-trackedu-title">
@@ -1468,6 +1488,9 @@
 
       </div>
     </section>
+
+
+    
 
     <!-- Illustrative before and after comparisons -->
     <section class="before-after-section" aria-labelledby="before-after-title">
@@ -1568,19 +1591,7 @@
       </div>
     </section>
 
-    <section class="proof" aria-label="Real school using TrackEDU">
-      <div class="wrap proof-inner">
-        <a class="proof-school" href="https://www.conwaychristianschool.org/" target="_blank" rel="noopener noreferrer" aria-label="Visit Conway Christian School's website">
-          <img class="proof-logo" src="https://irp.cdn-website.com/65d009b3/dms3rep/multi/opt/Conway-logo-61w.png" alt="Conway Christian School logo" width="56" height="56" loading="lazy">
-          <span><span class="proof-overline">Real school · Real use</span><strong>Conway Christian School</strong><small>United States</small></span>
-        </a>
-        <div class="proof-line"><strong>See House culture in action.</strong><span>Real teachers, real students and real participation.</span></div>
-        <button type="button" class="video-trigger" data-video-trigger aria-label="Watch the 1 minute 16 second Conway Christian School video">
-          <span class="video-thumb" aria-hidden="true"><i><svg class="icon"><use href="#i-play"/></svg></i></span>
-          <span>Watch the school video <small>Conway Christian School · 1:16</small></span>
-        </button>
-      </div>
-    </section>
+    
 
 
 
