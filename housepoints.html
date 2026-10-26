@@ -3820,6 +3820,119 @@ html[dir="rtl"] .hero-integrations{
 }
 
 
+/* === INTERNATIONAL SCHOOL PARTNER UPDATE === */
+
+.partner-update {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 14px;
+  padding: 18px 22px;
+  background: #ffffff;
+  border: 1px solid #e1eaf2;
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(11, 35, 65, 0.035);
+}
+
+.partner-update-icon {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 13px;
+  background: #edf8e9;
+  color: #459b34;
+  font-size: 20px;
+}
+
+.partner-update-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.partner-update-label {
+  display: block;
+  margin-bottom: 5px;
+  color: #4d8d37;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+}
+
+.partner-update h3 {
+  margin: 0;
+  color: #0b2341;
+  font-size: 19px;
+  font-weight: 850;
+  line-height: 1.3;
+}
+
+.partner-update-country {
+  display: inline-block;
+  margin-left: 6px;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.partner-update p {
+  margin: 5px 0 0;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.partner-update-badge {
+  flex-shrink: 0;
+  padding: 8px 12px;
+  background: #f0f8ed;
+  border: 1px solid #d8eccc;
+  border-radius: 999px;
+  color: #468b32;
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+@media (max-width: 680px) {
+  .partner-update {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .partner-update-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 17px;
+  }
+
+  .partner-update-content {
+    flex: 1 1 calc(100% - 50px);
+  }
+
+  .partner-update h3 {
+    font-size: 16px;
+  }
+
+  .partner-update-country {
+    display: block;
+    margin: 5px 0 0;
+  }
+
+  .partner-update p {
+    font-size: 12px;
+  }
+
+  .partner-update-badge {
+    margin-left: 50px;
+    font-size: 10px;
+  }
+}
+
 /* === RECENT SCHOOL PARTNER PROOF === */
 .partner-proof{
   position:relative;
@@ -10674,6 +10787,11 @@ body.te-viewer-lock{overflow:hidden!important}
 </div>
 </header><section class="partner-proof" id="school-partners">
 <div class="shell">
+
+<h2 class="school-proof-heading">
+  TrackEDU in Schools
+</h2>
+
 <div class="partner-proof-head reveal">
 <div class="partner-proof-kicker">
 <i class="fa-solid fa-circle-check"></i> Real school. Real use.
@@ -10713,6 +10831,33 @@ body.te-viewer-lock{overflow:hidden!important}
 </div>
 
 </article>
+
+<div class="partner-update reveal">
+  <div class="partner-update-icon">
+    <i class="fa-solid fa-globe"></i>
+  </div>
+
+  <div class="partner-update-content">
+    <span class="partner-update-label">
+      INTERNATIONAL GROWTH
+    </span>
+
+    <h3>
+      TrackEDU welcomes Amman Baptist School
+      <span class="partner-update-country">🇯🇴 Jordan</span>
+    </h3>
+
+    <p>
+      Our newest school partner is preparing to introduce
+      TrackEDU to its school community.
+    </p>
+  </div>
+
+  <span class="partner-update-badge">
+    New School Partner
+  </span>
+</div>
+
 </div>
 </section><section class="hero-trust-strip" id="trust">
 <div class="hero-trust-heading">
@@ -18850,7 +18995,7 @@ html[dir="rtl"] #trainingModal .training-topic-icon{
    CONWAY SCHOOL - CLEAN CASE STUDY SECTION
 ========================================================= */
 
-/* Conway Christian School: centred desktop showcase */
+/* Conway Christian School: compact desktop showcase */
 @media(min-width:1101px){
 
   #school-partners .partner-card{
@@ -18859,9 +19004,9 @@ html[dir="rtl"] #trainingModal .training-topic-icon{
     align-items:center!important;
     justify-content:center!important;
 
-    gap:14px!important;
+    gap:8px!important;
     min-height:0!important;
-    padding:48px 32px!important;
+    padding:24px 28px!important;
     text-align:center!important;
   }
 
@@ -21743,7 +21888,397 @@ body{background:#f8fff9}
   }
 </style>
 
+<style>
+/* ==========================================
+   TRACKEDU IN SCHOOLS - FINAL COMPACT LAYOUT
+========================================== */
+
+@media (min-width: 901px) {
+
+  #school-partners .partner-card {
+    padding: 26px 24px !important;
+    gap: 8px !important;
+  }
+
+  #school-partners .partner-logo-wrap {
+    width: 68px !important;
+    height: 68px !important;
+    margin-bottom: 2px !important;
+  }
+
+  #school-partners .partner-copy-refined
+  .partner-school-meta {
+    margin-bottom: 8px !important;
+  }
+
+  #school-partners .partner-copy-refined
+  .partner-label {
+    margin-bottom: 8px !important;
+  }
+
+  #school-partners .partner-copy-refined h2 {
+    font-size: clamp(25px, 2.6vw, 36px) !important;
+    line-height: 1.12 !important;
+    max-width: 720px !important;
+  }
+
+  #school-partners .partner-copy-refined p {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    margin-top: 10px !important;
+  }
+
+  #school-partners .partner-copy-refined
+  .partner-copy-actions {
+    margin-top: 12px !important;
+  }
+}
+
+/* Keep Conway and Amman visually connected */
+
+#school-partners {
+  padding-bottom: 20px !important;
+}
+
+#school-partners .partner-update {
+  max-width: 1100px;
+  margin: 12px auto 0;
+  box-shadow: none;
+  border: 1px solid #e1eaf2;
+  background: #fff;
+}
+
+@media (max-width: 680px) {
+
+  #school-partners .partner-card {
+    padding: 18px 16px !important;
+    gap: 10px !important;
+  }
+
+  #school-partners .partner-logo-wrap {
+    width: 54px !important;
+    height: 54px !important;
+  }
+
+  #school-partners .partner-copy-refined h2 {
+    font-size: 22px !important;
+    line-height: 1.15 !important;
+  }
+
+  #school-partners .partner-copy-refined p {
+    font-size: 12px !important;
+    margin-top: 8px !important;
+  }
+
+  #school-partners .partner-update {
+    margin: 10px 12px 0;
+  }
+}
+</style>
+
+<style>
+/* =====================================
+   COMPACT SCHOOL SOCIAL PROOF
+===================================== */
+
+#school-partners {
+  padding: 26px 0 !important;
+  background: #f8fbfe !important;
+}
+
+#school-partners .shell {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 auto !important;
+  padding: 0 32px !important;
+  box-sizing: border-box !important;
+}
+
+.school-proof-heading {
+  margin: 0 0 18px;
+  color: #0b2341;
+  font-family: Fredoka, system-ui, sans-serif;
+  font-size: clamp(25px, 3vw, 34px);
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Conway */
+
+#school-partners .partner-card {
+  display: grid !important;
+  grid-template-columns: 66px minmax(0, 1fr) !important;
+  align-items: center !important;
+  justify-content: normal !important;
+  gap: 20px !important;
+
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 18px 22px !important;
+
+  background: #fff !important;
+  border: 1px solid #dce8f1 !important;
+  border-radius: 18px !important;
+  box-shadow: none !important;
+  text-align: left !important;
+  box-sizing: border-box !important;
+}
+
+#school-partners .partner-logo-wrap {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+
+  width: 66px !important;
+  height: 66px !important;
+  margin: 0 !important;
+
+  align-self: center !important;
+  justify-self: center !important;
+
+  border-radius: 14px !important;
+}
+
+#school-partners .partner-copy-refined {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  text-align: left !important;
+}
+
+#school-partners .partner-copy-refined
+.partner-school-meta {
+  justify-content: flex-start !important;
+  margin: 0 0 5px !important;
+}
+
+#school-partners .partner-copy-refined
+.partner-school-meta strong {
+  font-size: 17px !important;
+}
+
+/* School name becomes the main heading */
+
+#school-partners .partner-copy-refined h2 {
+  display: none !important;
+}
+
+#school-partners .partner-copy-refined
+.partner-label {
+  margin: 3px 0 4px !important;
+  font-size: 10px !important;
+}
+
+#school-partners .partner-copy-refined p {
+  display: block !important;
+  margin: 5px 0 0 !important;
+  max-width: none !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+  text-align: left !important;
+}
+
+#school-partners .partner-copy-refined
+.partner-copy-actions {
+  justify-content: flex-start !important;
+  margin-top: 7px !important;
+}
+
+/* Amman */
+
+#school-partners .partner-update {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 10px 0 0 !important;
+  padding: 16px 20px !important;
+
+  background: #fff !important;
+  border: 1px solid #dce8f1 !important;
+  border-radius: 18px !important;
+  box-shadow: none !important;
+
+  box-sizing: border-box !important;
+}
+
+/* Mobile */
+
+@media (max-width: 680px) {
+
+  #school-partners {
+    padding: 20px 0 !important;
+  }
+
+  #school-partners .shell {
+    padding: 0 12px !important;
+  }
+
+  .school-proof-heading {
+    font-size: 24px;
+    margin-bottom: 14px;
+  }
+
+  #school-partners .partner-card {
+    grid-template-columns: 52px minmax(0, 1fr) !important;
+    gap: 12px !important;
+    padding: 14px !important;
+    border-radius: 15px !important;
+  }
+
+  #school-partners .partner-logo-wrap {
+    width: 52px !important;
+    height: 52px !important;
+  }
+
+  #school-partners .partner-copy-refined
+  .partner-school-meta strong {
+    font-size: 14px !important;
+  }
+
+  #school-partners .partner-copy-refined p {
+    font-size: 12px !important;
+  }
+
+  #school-partners .partner-update {
+    padding: 14px !important;
+    border-radius: 15px !important;
+  }
+}
+
+/* =====================================
+   COLLAPSIBLE APP PANEL
+===================================== */
+
+#tedInstallToggle {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 12px;
+  background: #15803d;
+  color: #fff;
+  font: 800 12px Outfit, sans-serif;
+  cursor: pointer;
+}
+
+#tedInstallToggle:focus-visible {
+  outline: 3px solid #86efac;
+  outline-offset: 3px;
+}
+
+#tedInstallCard:not(.is-collapsed)
+#tedInstallToggle {
+  margin-bottom: 12px;
+}
+
+#tedInstallCard.is-collapsed {
+  width: auto !important;
+  padding: 5px !important;
+  background: #fff !important;
+  border-radius: 14px !important;
+  box-shadow: 0 5px 20px rgba(0,0,0,.12) !important;
+}
+
+#tedInstallCard.is-collapsed
+.ted-install-heading,
+#tedInstallCard.is-collapsed
+.ted-install-content {
+  display: none !important;
+}
+</style>
+
+<style>
+/* TrackEDU in Schools: refined desktop layout */
+@media (min-width: 1000px) {
+
+  #school-partners {
+    padding: 44px 0 !important;
+  }
+
+  #school-partners .shell {
+    display: grid !important;
+    grid-template-columns: 1.15fr 1fr !important;
+    gap: 18px !important;
+    align-items: stretch !important;
+    max-width: 1500px !important;
+    margin: 0 auto !important;
+    padding: 0 32px !important;
+  }
+
+  #school-partners .school-proof-heading {
+    grid-column: 1 / -1 !important;
+    margin: 0 0 8px !important;
+    text-align: center !important;
+  }
+
+  #school-partners .partner-proof-head {
+    display: none !important;
+  }
+
+  #school-partners .partner-card {
+    grid-column: 1 !important;
+    margin: 0 !important;
+    padding: 28px !important;
+    min-height: 190px !important;
+    height: 100% !important;
+    align-content: center !important;
+  }
+
+  #school-partners .partner-update {
+    grid-column: 2 !important;
+    margin: 0 !important;
+    padding: 28px !important;
+    min-height: 190px !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 18px !important;
+    flex-wrap: wrap !important;
+  }
+
+  #school-partners .partner-update > * {
+    min-width: 0;
+  }
+
+  #school-partners .partner-update .partner-status {
+    margin-left: 0 !important;
+  }
+}
+
+/* Stack naturally on tablets and phones */
+@media (max-width: 999px) {
+  #school-partners .shell {
+    display: block !important;
+    max-width: 760px !important;
+    margin: 0 auto !important;
+    padding: 0 18px !important;
+  }
+
+  #school-partners .partner-card {
+    margin-bottom: 14px !important;
+  }
+
+  #school-partners .partner-update {
+    margin-top: 0 !important;
+  }
+}
+</style>
+
 <aside id="tedInstallCard" aria-label="Get the TrackEDU App" hidden>
+
+  <button
+    type="button"
+    id="tedInstallToggle"
+    aria-expanded="false"
+    aria-controls="tedInstallDetails"
+  >
+    Get TrackEDU app
+  </button>
+
+  <div id="tedInstallDetails">
   <div class="ted-install-heading">
     <a
       class="ted-install-heading-link"
@@ -21761,6 +22296,7 @@ body{background:#f8fff9}
   <div class="ted-install-content">
     <div id="tedInstallQR" aria-label="QR code to open TrackEDU"></div>
   </div>
+  </div>
 </aside>
 
 <script>
@@ -21777,6 +22313,21 @@ body{background:#f8fff9}
   }
 
   card.hidden = false;
+  card.classList.add('is-collapsed');
+
+  const toggle = document.getElementById('tedInstallToggle');
+  const details = document.getElementById('tedInstallDetails');
+
+  if (toggle && details) {
+    toggle.addEventListener('click', function () {
+      const collapsed = card.classList.toggle('is-collapsed');
+
+      toggle.setAttribute('aria-expanded', String(!collapsed));
+      toggle.textContent = collapsed
+        ? 'Get TrackEDU app'
+        : '× Close';
+    });
+  }
 
   function showQRFallback() {
     qrContainer.textContent = '';
