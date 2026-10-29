@@ -3,6 +3,7 @@
 
 
 
+
 <!DOCTYPE html>
 
 <html lang="en-GB">
@@ -3131,7 +3132,14 @@ html[dir="rtl"] .hero-real-school-proof:hover .hero-real-school-arrow{
 .mobile-trust-mini{margin:8px 18px 16px;padding:14px;border-radius:20px;background:#f7fbfe;border:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .mobile-trust-mini>div{display:flex;gap:9px;align-items:flex-start}.mobile-trust-mini i{color:var(--green);margin-top:3px}.mobile-trust-mini strong,.mobile-trust-mini small{display:block}.mobile-trust-mini strong{font-size:11px;color:var(--navy)}.mobile-trust-mini small{font-size:10px;color:var(--muted);margin-top:2px}
 .mobile-drawer-actions{margin-top:auto;padding:14px 18px 20px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:9px;background:#fff}
-body.menu-open{overflow:hidden}
+body.menu-open {
+  overflow: hidden;
+}
+
+/* Hide floating TrackEDU app button when mobile menu is open */
+body.menu-open #tedInstallCard {
+  display: none !important;
+}
 
 /* Actual old product video used as hero background */
 .hero-video-bg{position:absolute;inset:0;overflow:hidden;z-index:0;background:#0b2341}
@@ -12635,7 +12643,6 @@ html[dir="rtl"] .hero.hero-video-enabled .hero-copy .lead {
 <i class="fa-solid fa-globe"></i>
 <select aria-label="Choose language" data-i18n-aria="choose_language" id="languageSelect">
 <option value="en">English</option>
-<option value="es">Español</option>
 <option value="ar">العربية</option>
 </select>
 <i class="fa-solid fa-chevron-down language-picker-arrow"></i>
@@ -12692,7 +12699,6 @@ html[dir="rtl"] .hero.hero-video-enabled .hero-copy .lead {
 </div>
 <select aria-label="Choose language" data-i18n-aria="choose_language" id="mobileLanguageSelect">
 <option value="en">English</option>
-<option value="es">Español</option>
 <option value="ar">العربية</option>
 </select>
 </div>
@@ -13440,7 +13446,7 @@ html[dir="rtl"] .hero.hero-video-enabled .hero-copy .lead {
 </div>
 </div>
 </section>
-<section aria-labelledby="td-launch-heading" class="td-launch" id="school-launch-offer"><div class="td-wrap td-launch-card"><div><span class="td-eyebrow">TrackEDU School Launch Offer</span><h2 id="td-launch-heading">30 days free. No credit card.</h2><p><strong>Free pilot:</strong> Eligible schools can extend free access until 31 July 2027.</p><p><strong>20% off for 5 years:</strong> Start a paid subscription by 31 December 2028 and keep the discount for your first five paid years.</p><p>New schools pay full price after the offer ends.</p><small><em>Terms and eligibility apply.</em></small></div><a class="td-link" href="https://housepoint.trackedu.net/">Start your free pilot <i class="fa-solid fa-arrow-right"></i></a></div></section>
+<section aria-labelledby="td-launch-heading" class="td-launch" id="school-launch-offer"><div class="td-wrap td-launch-card"><div><span class="td-eyebrow">TrackEDU School Launch Offer</span><h2 id="td-launch-heading">30 days free. No credit card.</h2><p><strong>Free pilot:</strong> Eligible schools can extend free access until 31 July 2027.</p><p>When free access ends, schools can choose whether to continue with a paid annual licence.</p><small><em>Terms and eligibility apply.</em></small></div><a class="td-link" href="https://housepoint.trackedu.net/">Start your free pilot <i class="fa-solid fa-arrow-right"></i></a></div></section>
 <section class="section" id="pricing">
 <div class="shell">
 <div class="section-head center reveal">
@@ -13555,7 +13561,7 @@ html[dir="rtl"] .hero.hero-video-enabled .hero-copy .lead {
 </div>
 </div>
 <p class="small-note" data-i18n="offer_note">
-            Start a paid subscription by 31 December 2028 to receive 20% off your first five paid annual licences. New schools pay full price after the offer ends. Terms and eligibility apply.
+            Try TrackEDU free for 30 days. Eligible schools can apply to extend free access until 31 July 2027. No payment is required unless your school chooses a paid annual licence.
           </p>
 <p class="small-note" data-i18n="pricing_charge_note">
             Your free trial does not automatically become paid.
@@ -13784,7 +13790,7 @@ html[dir="rtl"] .hero.hero-video-enabled .hero-copy .lead {
           2026–27 School Launch Programme
         </strong>
 <span>
-          30 days free. No credit card. Eligible schools can extend free access until 31 July 2027. Start a paid subscription by 31 December 2028 to keep 20% off for your first five paid years. Terms and eligibility apply.
+          30 days free. No credit card required. Eligible schools can apply to extend free access until 31 July 2027. Paid subscriptions are optional.
         </span>
 </div>
 <a href="mailto:hello@trackedu.net?subject=TrackEDU%20School%20Launch%20Programme">
@@ -13802,7 +13808,7 @@ html[dir="rtl"] .hero.hero-video-enabled .hero-copy .lead {
 <details>
 <summary data-i18n="faq_q_pd">Does TrackEDU offer free professional development?</summary>
 <p data-i18n="faq_a_pd">Yes. TrackEDU offers free professional development for school leaders, teachers and House Leaders. Our specialist House Leader training helps schools gain student and staff buy-in, strengthen House identity, develop student leadership and build a positive, lasting school culture.</p>
-</details><details><summary data-i18n="faq_q4">Can we use our own House names, colours and identity?</summary><p data-i18n="faq_a4">Yes. TrackEDU supports school branding and House identity, including school and House visual settings, names, colours and related information.</p></details><details><summary data-i18n="faq_q6">Can schools try this online house points tracker free for 30 days?</summary><p data-i18n="faq_a6">Yes. The first 30 days are free and no credit card is needed. Eligible schools can request free access until 31 July 2027. Start a paid subscription by 31 December 2028 and keep 20% off your first five paid years, subject to terms and eligibility. There is no automatic paid subscription.</p></details></div><button aria-expanded="false" class="mobile-section-toggle" id="mobileFaqToggle" type="button"><span data-i18n="faq_show_all">Show all FAQs</span> <i class="fa-solid fa-chevron-down"></i></button></div></section><section class="final"><div class="shell"><div class="final-card reveal"><h2 data-i18n-html="final_title">See whether it fits your school. <span>Try it for 30 days.</span></h2><p data-i18n="final_copy">Set up your Houses, staff and students, use the full system in your own school context, and decide after the pilot whether it is worth continuing.</p><div class="final-actions"><a class="btn btn-primary" href="https://housepoint.trackedu.net/"><span data-i18n="pricing_start_pilot">Start free 30-day pilot</span> <i class="fa-solid fa-arrow-right"></i></a><a class="btn btn-secondary" href="https://cal.com/trackedu-a9dbpy/30min" rel="noopener" target="_blank"><i class="fa-regular fa-calendar"></i> <span data-i18n="pricing_demo">Book a demo</span></a></div></div></div></section>
+</details><details><summary data-i18n="faq_q4">Can we use our own House names, colours and identity?</summary><p data-i18n="faq_a4">Yes. TrackEDU supports school branding and House identity, including school and House visual settings, names, colours and related information.</p></details><details><summary data-i18n="faq_q6">Can schools try this online house points tracker free for 30 days?</summary><p data-i18n="faq_a6">Yes. The first 30 days are free and no credit card is needed. Eligible schools can apply to extend free access until 31 July 2027. There is no automatic paid subscription.</p></details></div><button aria-expanded="false" class="mobile-section-toggle" id="mobileFaqToggle" type="button"><span data-i18n="faq_show_all">Show all FAQs</span> <i class="fa-solid fa-chevron-down"></i></button></div></section><section class="final"><div class="shell"><div class="final-card reveal"><h2 data-i18n-html="final_title">See whether it fits your school. <span>Try it for 30 days.</span></h2><p data-i18n="final_copy">Set up your Houses, staff and students, use the full system in your own school context, and decide after the pilot whether it is worth continuing.</p><div class="final-actions"><a class="btn btn-primary" href="https://housepoint.trackedu.net/"><span data-i18n="pricing_start_pilot">Start free 30-day pilot</span> <i class="fa-solid fa-arrow-right"></i></a><a class="btn btn-secondary" href="https://cal.com/trackedu-a9dbpy/30min" rel="noopener" target="_blank"><i class="fa-regular fa-calendar"></i> <span data-i18n="pricing_demo">Book a demo</span></a></div></div></div></section>
 <footer class="site-footer">
 <div class="shell footer-main">
 <div class="footer-brand-col">
@@ -13893,7 +13899,6 @@ const pricingTranslations={
     approximate:'Approximate conversion using the latest available exchange rate.',
     loading:'Loading the latest exchange rate…',
     enter:'Enter student enrolment',
-    save:'Save',fiveYears:'each year for your first five paid years'
   },
   es:{
     from:'desde ',
@@ -13904,7 +13909,6 @@ const pricingTranslations={
     approximate:'Conversión aproximada utilizando el último tipo de cambio disponible.',
     loading:'Cargando el último tipo de cambio…',
     enter:'Introduce el número de estudiantes',
-    save:'Ahorra',fiveYears:'cada año durante los primeros cinco años de pago'
   },
   ar:{
     from:'ابتداءً من ',
@@ -13915,7 +13919,6 @@ const pricingTranslations={
     approximate:'تحويل تقريبي باستخدام أحدث سعر صرف متاح.',
     loading:'جارٍ تحميل أحدث سعر صرف…',
     enter:'أدخل عدد الطلاب',
-    save:'وفّر',fiveYears:'سنوياً خلال أول خمس سنوات مدفوعة'
   }
 };
 
@@ -13952,7 +13955,7 @@ function renderPrice(){
   const conv=u=>c==='USD'?u:(exchangeRates[c]?u*exchangeRates[c]:u);
   const beforeEl=document.getElementById('tePriceBefore');
   const savingEl=document.getElementById('tePriceSaving');
-  const discountRate=0.80; // 20% launch discount on annual licence
+  const discountRate=1.00; // Standard annual licence price
 
 
   [
@@ -13975,9 +13978,9 @@ function renderPrice(){
     return;
   }
 
-  beforeEl.textContent=formatPrice(conv(usd),c)+' / year';
-  savingEl.textContent=priceText('save')+' '+formatPrice(conv(usd*0.20),c)+' '+priceText('fiveYears');
-  priceDisplay.innerHTML=formatPrice(conv(usd*discountRate),c)+' <span class="per">'+priceText('perYear')+'</span>';
+  beforeEl.textContent='';
+savingEl.textContent='';
+priceDisplay.innerHTML=formatPrice(conv(usd),c)+' <span class="per">'+priceText('perYear')+'</span>';
 
   if(c!=='USD'){
     equivalentDisplay.textContent=priceText('approximate');
@@ -14270,8 +14273,8 @@ See TrackEDU in action and ask about the features, setup and pricing that matter
 <div class="pilot-step">
 <span>3</span>
 <div>
-<strong data-i18n="pilot_step3">20% off for 5 paid years</strong>
-<small data-i18n="pilot_step3_copy">Start a paid plan by 31 December 2028 to get 20% off your first five paid years.</small>
+<strong data-i18n="pilot_step3">Choose what happens next</strong>
+<small data-i18n="pilot_step3_copy">Continue with a paid annual licence only if TrackEDU works for your school.</small>
 </div>
 </div>
 <p class="te-offer-contact"><i aria-hidden="true" class="fa-regular fa-envelope"></i> <a href="mailto:hello@trackedu.net?subject=TrackEDU%20Extended%20Free%20Access">hello@trackedu.net</a> <span data-i18n="offer_contact_copy">for extended access requests</span></p>
@@ -18074,7 +18077,6 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
 
   const supportedLanguages = [
     'en',
-    'es',
     'ar'
   ];
 
@@ -18111,10 +18113,7 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
       isArabic
     );
 
-    document.body.classList.toggle(
-      'language-es',
-      lang === 'es'
-    );
+
 
 
     /* Keep desktop + mobile selectors synchronised */
@@ -18454,7 +18453,7 @@ hero_lead: '<span class="hero-description-desktop">Move beyond spreadsheets. Giv
 
       pricing_eyebrow: 'Transparent school pricing',
       pricing_title: '30 days free. More time for eligible schools.',
-      pricing_lead: 'Try TrackEDU free for 30 days. No credit card needed. Eligible schools can request free access until 31 July 2027. Start a paid plan by 31 December 2028 to get 20% off your first five paid years.',
+      pricing_lead: 'Try TrackEDU free for 30 days. No credit card needed. Eligible schools can apply to extend free access until 31 July 2027.',
       pricing_full_system: 'Full system included',
       pricing_calculator: 'Calculate your school price',
       pricing_trial_title: 'Start with the full system free for 30 days.',
@@ -18501,7 +18500,7 @@ hero_lead: '<span class="hero-description-desktop">Move beyond spreadsheets. Giv
       faq_q5: 'Is TrackEDU a house points app for schools or just a tracker?',
       faq_a5: 'TrackEDU is a house points app for schools with live standings, positive recognition, behaviour incidents, follow-up, student engagement and leadership dashboards sharing the same school data.',
       faq_q6: 'Can schools try this online house points tracker free for 30 days?',
-      faq_a6: 'Yes. The first 30 days are free and no credit card is needed. Eligible schools can request free access until 31 July 2027. Start a paid subscription by 31 December 2028 and keep 20% off your first five paid years, subject to terms and eligibility. There is no automatic paid subscription.',
+      faq_a6: 'Yes. The first 30 days are free and no credit card is needed. Eligible schools can apply to extend free access until 31 July 2027. There is no automatic paid subscription.',
       faq_show_all: 'Show all FAQs',
 
       final_title: 'See whether it fits your school. <span>Try it for 30 days.</span>',
@@ -18569,10 +18568,10 @@ hero_lead: '<span class="hero-description-desktop">Move beyond spreadsheets. Giv
       demo_it_copy: 'Review how TrackEDU handles school data before booking.',
       demo_continue: 'Continue to booking',
       demo_not_ready: 'Not ready yet',
-      offer_badge: '20% off for five paid years',
+      offer_badge: '30 days free',
       offer_badge_detail: '2026–27 School Launch Programme',
       offer_price_title: 'Your annual licence',
-      offer_note: 'Start a paid plan by 31 December 2028 to get 20% off your first five paid years. New schools pay full price after the offer ends. Terms and eligibility apply.',
+      offer_note: 'Try TrackEDU free for 30 days. Eligible schools can apply to extend free access until 31 July 2027. No payment is required unless your school chooses a paid annual licence.',
       offer_programme_title: '2026–27 School Launch Programme',
       offer_programme_copy: 'Free for 30 days. Eligible schools can request free access until 31 July 2027. Any paid subscription is optional.',
       offer_request: 'Ask about extended free access',
@@ -18586,8 +18585,8 @@ hero_lead: '<span class="hero-description-desktop">Move beyond spreadsheets. Giv
       pilot_step1_copy: 'Use TrackEDU free for your first 30 days.',
       pilot_step2: 'Ask for more free time',
       pilot_step2_copy: 'Email hello@trackedu.net to ask for free access until 31 July 2027. We will check if your school qualifies.',
-      pilot_step3: '20% off for 5 paid years',
-      pilot_step3_copy: 'Start a paid plan by 31 December 2028 to get 20% off your first five paid years.',
+      pilot_step3: 'Choose what happens next',
+      pilot_step3_copy: 'Continue with a paid annual licence only if TrackEDU works for your school.',
       pilot_tip: 'No payment is required after your free access ends unless you choose to subscribe. Paid Stripe subscriptions renew annually. Cancel anytime to prevent the next renewal.',
       pilot_open_app: 'Create Your School',
 
@@ -18848,7 +18847,7 @@ hero_lead: 'Motiva al alumnado, reconoce sus logros, registra incidencias y ahor
 
       pricing_eyebrow: 'Precios transparentes para colegios',
       pricing_title: '30 días gratis. Más tiempo para los colegios elegibles.',
-      pricing_lead: 'Sin tarjeta de crédito. Los colegios elegibles pueden solicitar acceso gratuito hasta el 31 de julio de 2027. Desde agosto de 2027, los colegios aprobados pueden obtener un 20 % de descuento durante sus primeros cinco años de pago.',
+      pricing_lead: 'Prueba TrackEDU gratis durante 30 días. No necesitas tarjeta de crédito. Los colegios elegibles pueden solicitar acceso gratuito hasta el 31 de julio de 2027.',
       pricing_full_system: 'Sistema completo incluido',
       pricing_calculator: 'Calcula el precio para tu colegio',
       pricing_trial_title: 'Empieza con el sistema completo gratis durante 30 días.',
@@ -18895,7 +18894,7 @@ hero_lead: 'Motiva al alumnado, reconoce sus logros, registra incidencias y ahor
       faq_q5: '¿Qué diferencia a TrackEDU de una aplicación de puntos más sencilla?',
       faq_a5: 'La principal diferencia es la conexión. El reconocimiento positivo y los puntos de House, las incidencias de comportamiento, las acciones de seguimiento, la participación estudiantil y los paneles de liderazgo funcionan sobre los mismos datos escolares.',
       faq_q6: '¿Cuánto cuesta?',
-      faq_a6: 'Sí. Los primeros 30 días son gratuitos y no se necesita tarjeta. Los colegios elegibles pueden solicitar acceso gratuito hasta el 31 de julio de 2027. Desde agosto de 2027, los colegios que cumplan los requisitos y decidan suscribirse pueden obtener un 20 % de descuento durante sus primeros cinco años de licencia. No hay suscripción automática.',
+      faq_a6: 'Sí. Los primeros 30 días son gratuitos y no se necesita tarjeta de crédito. Los colegios elegibles pueden solicitar una ampliación gratuita hasta el 31 de julio de 2027. No hay suscripción de pago automática.',
       faq_show_all: 'Mostrar todas las preguntas',
 
       final_title: 'Comprueba si TrackEDU encaja en tu colegio. <span>Pruébalo durante 30 días.</span>',
@@ -18963,10 +18962,10 @@ hero_lead: 'Motiva al alumnado, reconoce sus logros, registra incidencias y ahor
       demo_it_copy: 'Consulta cómo gestiona TrackEDU los datos escolares antes de reservar.',
       demo_continue: 'Continuar con la reserva',
       demo_not_ready: 'Todavía no',
-      offer_badge: '20 % de descuento durante cinco años',
+      offer_badge: '30 días gratis',
       offer_badge_detail: 'Programa de lanzamiento escolar 2026–27',
-      offer_price_title: 'Tu licencia anual · años de pago 1–5',
-      offer_note: 'Para colegios elegibles que decidan suscribirse desde agosto de 2027. El descuento del 20 % se aplica a cada una de las primeras cinco licencias anuales pagadas. Después se aplica el precio normal.',
+      offer_price_title: 'Tu licencia anual',
+      offer_note: 'Prueba TrackEDU gratis durante 30 días. Los colegios elegibles pueden solicitar acceso gratuito hasta el 31 de julio de 2027. Solo se paga si el colegio decide contratar una licencia anual.',
       offer_programme_title: 'Programa de lanzamiento escolar 2026–27',
       offer_programme_copy: '30 días gratis. Los colegios elegibles pueden solicitar acceso gratuito hasta el 31 de julio de 2027. La suscripción de pago es opcional.',
       offer_request: 'Solicitar acceso gratuito ampliado',
@@ -18980,8 +18979,8 @@ hero_lead: 'Motiva al alumnado, reconoce sus logros, registra incidencias y ahor
       pilot_step1_copy: 'Utiliza TrackEDU gratis durante los primeros 30 días.',
       pilot_step2: 'Solicita una ampliación gratuita',
       pilot_step2_copy: '¿Necesitas más tiempo? Escribe a hello@trackedu.net para solicitar acceso gratuito hasta el 31 de julio de 2027. Confirmaremos si tu colegio cumple los requisitos.',
-      pilot_step3: 'Desde agosto de 2027: 20 % de descuento durante cinco años de pago',
-      pilot_step3_copy: 'Si tu colegio decide suscribirse, puede obtener un 20 % de descuento en la licencia anual durante los primeros cinco años de pago.',
+      pilot_step3: 'Decide qué hacer después',
+      pilot_step3_copy: 'Continúa con una licencia anual de pago solo si TrackEDU funciona para tu colegio.',
       pilot_tip: 'Tu colegio decide si continúa. No hay suscripción de pago automática ni obligación de compra. Si no se suscribe, no paga nada.',
       pilot_open_app: 'Crear tu colegio',
 
@@ -19242,7 +19241,7 @@ hero_lead: 'عزّز مشاركة الطلاب، وقدّر إنجازاتهم،
 
       pricing_eyebrow: 'أسعار واضحة للمدارس',
       pricing_title: '30 يوماً مجاناً، ومدة أطول للمدارس المؤهلة.',
-      pricing_lead: 'لا حاجة إلى بطاقة ائتمان. يمكن للمدارس المؤهلة طلب الوصول المجاني حتى 31 يوليو 2027. وبدءاً من أغسطس 2027، يمكن للمدارس المعتمدة الحصول على خصم 20٪ خلال أول خمس سنوات مدفوعة.',
+      pricing_lead: 'جرّب TrackEDU مجاناً لمدة 30 يوماً دون بطاقة ائتمان. يمكن للمدارس المؤهلة طلب تمديد الوصول المجاني حتى 31 يوليو 2027.',
       pricing_full_system: 'النظام الكامل مشمول',
       pricing_calculator: 'احسب سعر مدرستك',
       pricing_trial_title: 'ابدأ بالنظام الكامل مجاناً لمدة 30 يوماً.',
@@ -19289,7 +19288,7 @@ hero_lead: 'عزّز مشاركة الطلاب، وقدّر إنجازاتهم،
       faq_q5: 'ما الذي يميز TrackEDU عن تطبيق نقاط أبسط؟',
       faq_a5: 'الفرق الرئيسي هو الترابط. يعمل التقدير الإيجابي ونقاط الفرق المدرسية وحوادث السلوك وإجراءات المتابعة ومشاركة الطلاب ولوحات معلومات القيادة حول بيانات المدرسة نفسها بدلاً من وجودها في أنظمة منفصلة.',
       faq_q6: 'كم تبلغ التكلفة؟',
-      faq_a6: 'نعم. أول 30 يوماً مجانية ولا حاجة إلى بطاقة ائتمان. يمكن للمدارس المؤهلة طلب الوصول المجاني حتى 31 يوليو 2027. وبدءاً من أغسطس 2027، يمكن للمدارس المؤهلة التي تختار الاشتراك الحصول على خصم 20٪ خلال أول خمس سنوات مدفوعة. لا يوجد اشتراك تلقائي.',
+      faq_a6: 'نعم. أول 30 يوماً مجانية دون الحاجة إلى بطاقة ائتمان. يمكن للمدارس المؤهلة طلب تمديد الوصول المجاني حتى 31 يوليو 2027. لا يوجد اشتراك مدفوع تلقائي.',
       faq_show_all: 'عرض جميع الأسئلة الشائعة',
 
       final_title: 'اكتشف ما إذا كان TrackEDU مناسباً لمدرستك. <span>جرّبه لمدة 30 يوماً.</span>',
@@ -19357,10 +19356,10 @@ hero_lead: 'عزّز مشاركة الطلاب، وقدّر إنجازاتهم،
       demo_it_copy: 'راجع كيفية تعامل TrackEDU مع بيانات المدرسة قبل الحجز.',
       demo_continue: 'متابعة الحجز',
       demo_not_ready: 'لست مستعداً بعد',
-      offer_badge: 'خصم 20٪ لخمس سنوات مدفوعة',
+      offer_badge: '30 يوماً مجاناً',
       offer_badge_detail: 'برنامج إطلاق المدارس 2026–27',
-      offer_price_title: 'الترخيص السنوي · السنوات المدفوعة 1–5',
-      offer_note: 'للمدارس المؤهلة التي تختار الاشتراك بدءاً من أغسطس 2027. يسري خصم 20٪ على كل من أول خمسة تراخيص سنوية مدفوعة، وبعدها ينطبق السعر العادي.',
+      offer_price_title: 'الترخيص السنوي',
+      offer_note: 'جرّب TrackEDU مجاناً لمدة 30 يوماً. يمكن للمدارس المؤهلة طلب تمديد الوصول المجاني حتى 31 يوليو 2027. لا يلزم الدفع إلا إذا اختارت المدرسة ترخيصاً سنوياً مدفوعاً.',
       offer_programme_title: 'برنامج إطلاق المدارس 2026–27',
       offer_programme_copy: '30 يوماً مجاناً. يمكن للمدارس المؤهلة طلب الوصول المجاني حتى 31 يوليو 2027. الاشتراك المدفوع اختياري.',
       offer_request: 'استفسر عن تمديد الوصول المجاني',
@@ -19374,8 +19373,8 @@ hero_lead: 'عزّز مشاركة الطلاب، وقدّر إنجازاتهم،
       pilot_step1_copy: 'استخدم TrackEDU مجاناً خلال أول 30 يوماً.',
       pilot_step2: 'اطلب تمديد الوصول المجاني',
       pilot_step2_copy: 'هل تحتاج إلى وقت إضافي؟ راسل hello@trackedu.net لطلب الوصول المجاني حتى 31 يوليو 2027. سنؤكد لك ما إذا كانت مدرستك مؤهلة.',
-      pilot_step3: 'من أغسطس 2027: خصم 20٪ لخمس سنوات مدفوعة',
-      pilot_step3_copy: 'إذا اختارت مدرستك الاشتراك، فيمكنها الحصول على خصم 20٪ على الترخيص السنوي خلال أول خمس سنوات مدفوعة.',
+      pilot_step3: 'اختر الخطوة التالية',
+      pilot_step3_copy: 'استمر بترخيص سنوي مدفوع فقط إذا كان TrackEDU مناسباً لمدرستك.',
       pilot_tip: 'تقرر مدرستك ما إذا كانت ستستمر. لا يوجد اشتراك مدفوع تلقائي أو التزام بالشراء، ولن تدفع شيئاً إذا قررت عدم الاشتراك.',
       pilot_open_app: 'إنشاء مدرستك',
 
@@ -19794,11 +19793,7 @@ hero_lead: 'عزّز مشاركة الطلاب، وقدّر إنجازاتهم،
 
       ogLocale.setAttribute(
         'content',
-        lang === 'ar'
-          ? 'ar_AR'
-          : lang === 'es'
-            ? 'es_ES'
-            : 'en_GB'
+        lang === 'ar' ? 'ar_AR' : 'en_GB'
       );
 
     }
@@ -22711,14 +22706,10 @@ hero_lead: 'عزّز مشاركة الطلاب، وقدّر إنجازاتهم،
     'Incidents carry context, action and follow-up, not just a deduction.': ['Cada incidente incluye contexto, acciones y seguimiento, no solo un descuento de puntos.', 'تشمل كل حادثة السياق والإجراءات والمتابعة، وليس خصم النقاط فقط.'],
     'Move from an individual student to school-wide patterns and outstanding actions.': ['Pasa de un alumno a las tendencias y acciones pendientes de todo el colegio.', 'انتقل من سجل طالب واحد إلى أنماط المدرسة والإجراءات المعلقة.'],
     'Follow incident records, support actions and patterns in one place, with clear information for school leaders.': ['Consulta incidentes, medidas de apoyo y tendencias en un mismo lugar.', 'تابع سجلات الحوادث وإجراءات الدعم والأنماط في مكان واحد.'],
-    '20% off for 5 years:': ['20 % de descuento durante 5 años:', 'خصم ٢٠٪ لمدة خمس سنوات:'],
-    'Start a paid subscription by 31 December 2028 and keep the discount for your first five paid years.': ['Empieza una suscripción de pago antes del 31 de diciembre de 2028 y conserva el descuento durante los primeros cinco años.', 'ابدأ اشتراكاً مدفوعاً بحلول ٣١ ديسمبر ٢٠٢٨ واحتفظ بالخصم في أول خمس سنوات مدفوعة.'],
-    'New schools pay full price after the offer ends.': ['Los nuevos colegios pagarán el precio normal cuando termine la oferta.', 'تدفع المدارس الجديدة السعر الكامل بعد انتهاء العرض.'],
     'Every School Licence includes the complete TrackEDU platform. Strategic Partnership adds wider school tools, training and hands-on implementation support.': ['Cada licencia escolar incluye toda la plataforma. La alianza estratégica añade más herramientas y formación.', 'يشمل كل ترخيص مدرسي المنصة الكاملة. وتضيف الشراكة الاستراتيجية أدوات أوسع وتدريباً ودعم إعداد.'],
     'SCHOOL LICENCE · FOR INDIVIDUAL SCHOOLS': ['LICENCIA ESCOLAR · PARA COLEGIOS', 'ترخيص مدرسي · للمدارس الفردية'],
     'Extend TrackEDU into wider school operations with additional tools, staff training and hands-on implementation support.': ['Amplía TrackEDU con más herramientas escolares, formación y apoyo para empezar.', 'وسّع استخدام TrackEDU بأدوات مدرسية إضافية وتدريب الموظفين ودعم الإعداد.'],
     'Best for schools that want wider operational tools, guided rollout and staff training.': ['Ideal para colegios que quieren más herramientas, ayuda para empezar y formación.', 'مناسب للمدارس التي تريد أدوات أوسع وإطلاقاً موجهاً وتدريباً للموظفين.'],
-    '30 days free. No credit card. Eligible schools can extend free access until 31 July 2027. Start a paid subscription by 31 December 2028 to keep 20% off your first five paid years.': ['30 días gratis, sin tarjeta. Los colegios que cumplan los requisitos pueden seguir gratis hasta el 31 de julio de 2027.', '٣٠ يوماً مجاناً دون بطاقة بنكية. يمكن للمدارس المؤهلة تمديد الوصول المجاني حتى ٣١ يوليو ٢٠٢٧.'],
     'TrackEDU vs ClassDojo': ['TrackEDU frente a ClassDojo', 'مقارنة TrackEDU وClassDojo'],
     'ICO registered · Ref: ZC146923': ['Inscrito en ICO · Ref.: ZC146923', 'مسجل لدى ICO · المرجع: ZC146923']
   };
