@@ -2,6 +2,7 @@
 
 
 
+
 <!DOCTYPE html>
 
 <html lang="en-GB">
@@ -10399,6 +10400,2222 @@ body.te-viewer-lock{overflow:hidden!important}
     aspect-ratio: 9 / 16 !important;
   }
 </style>
+<style>
+
+/* =========================================
+   RTL POLISH — TRUST + TRAINING
+========================================= */
+
+html[dir="rtl"] #trustModal,
+html[dir="rtl"] #trainingModal{
+  direction:rtl;
+  text-align:right;
+  font-family:"Noto Sans Arabic",Outfit,system-ui,sans-serif;
+}
+
+html[dir="rtl"] #trustModal h2,
+html[dir="rtl"] #trustModal h3,
+html[dir="rtl"] #trustModal h4,
+html[dir="rtl"] #trainingModal h2,
+html[dir="rtl"] #trainingModal h3,
+html[dir="rtl"] #trainingModal h4{
+  font-family:"Noto Sans Arabic",Outfit,system-ui,sans-serif!important;
+}
+
+html[dir="rtl"] #trustModal .text-left{
+  text-align:right!important;
+}
+
+html[dir="rtl"] #trustModal a[href^="mailto:"]{
+  direction:ltr;
+  unicode-bidi:isolate;
+  display:inline-block;
+}
+
+html[dir="rtl"] #trainingModal .training-modal-footer,
+html[dir="rtl"] #trainingModal .training-modal-header,
+html[dir="rtl"] #trainingModal .training-topic-icon{
+  direction:rtl;
+}
+
+
+/* =========================================================
+   TRACKEDU TRUST + INTEGRATIONS MARQUEE
+   Continuous, slow movement from left to right
+========================================================= */
+
+.hero-trust-strip{
+  position:relative;
+  padding:18px 0;
+  overflow:hidden;
+  background:#f8fbfe;
+  border-top:1px solid #dce8f2;
+  border-bottom:1px solid #dce8f2;
+}
+
+.hero-trust-marquee{
+  position:relative;
+  width:100%;
+  overflow:hidden;
+}
+
+.hero-trust-marquee-track{
+  display:flex;
+  width:max-content;
+  align-items:stretch;
+  will-change:transform;
+}
+
+.hero-trust-marquee-group{
+  display:flex;
+  flex:0 0 auto;
+  align-items:stretch;
+  gap:12px;
+  padding-right:12px;
+}
+
+.hero-trust-marquee .hero-trust-strip-item{
+  display:flex;
+  flex:0 0 252px;
+  width:252px;
+  min-width:252px;
+  min-height:72px;
+  align-items:center;
+  gap:12px;
+  padding:13px 16px;
+  border:1px solid #d8e4ee;
+  border-radius:17px;
+  background:#fff;
+  box-shadow:0 5px 16px rgba(11,35,65,.04);
+  box-sizing:border-box;
+}
+
+.hero-trust-marquee .hero-trust-strip-item strong{
+  display:block;
+  color:#17324f;
+  font-size:12px;
+  font-weight:900;
+  line-height:1.3;
+}
+
+.hero-trust-marquee .hero-trust-strip-item span{
+  display:block;
+  margin-top:3px;
+  color:#71859a;
+  font-size:10px;
+  line-height:1.35;
+}
+
+.hero-trust-marquee .hero-trust-strip-icon{
+  display:grid;
+  flex:0 0 40px;
+  place-items:center;
+  width:40px;
+  height:40px;
+  border-radius:12px;
+  background:#eef6ff;
+  color:#2477c9;
+  font-size:15px;
+}
+
+.hero-trust-marquee .hero-trust-strip-icon.google{
+  background:#fff;
+  color:#4285f4;
+  border:1px solid #e4ebf2;
+  font-size:21px;
+}
+
+.hero-trust-marquee .hero-trust-strip-icon.wonde{
+  width:62px;
+  flex-basis:62px;
+  background:#fff;
+  border:1px solid #e4ebf2;
+  padding:5px;
+}
+
+.hero-trust-marquee .hero-trust-strip-icon.wonde img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
+/* Start with two identical groups for a seamless loop */
+.hero-trust-marquee-track.is-ready{
+  animation:trackEduTrustMove 48s linear infinite;
+}
+
+/* Left to right */
+@keyframes trackEduTrustMove{
+  from{
+    transform:translateX(-50%);
+  }
+  to{
+    transform:translateX(0);
+  }
+}
+
+/* Pause when visitors hover over the strip */
+.hero-trust-marquee:hover .hero-trust-marquee-track{
+  animation-play-state:paused;
+}
+
+/* Subtle fading at the edges */
+.hero-trust-marquee{
+  -webkit-mask-image:linear-gradient(
+    to right,
+    transparent,
+    #000 5%,
+    #000 95%,
+    transparent
+  );
+  mask-image:linear-gradient(
+    to right,
+    transparent,
+    #000 5%,
+    #000 95%,
+    transparent
+  );
+}
+
+/* Mobile */
+@media(max-width:680px){
+
+  .hero-trust-strip{
+    padding:12px 0!important;
+  }
+
+  .hero-description-desktop {
+    display:none!important;
+  }
+
+  .hero-description-mobile {
+    display:inline!important;
+  }
+
+  .hero-trust-marquee .hero-trust-strip-item{
+    flex:0 0 220px!important;
+    width:220px!important;
+    min-width:220px!important;
+    min-height:65px!important;
+    padding:10px 12px!important;
+  }
+
+  .hero-trust-marquee .hero-trust-strip-icon{
+    flex-basis:35px;
+    width:35px;
+    height:35px;
+  }
+
+  .hero-trust-marquee .hero-trust-strip-icon.wonde{
+    flex-basis:54px;
+    width:54px;
+  }
+
+  .hero-trust-marquee-track.is-ready{
+    animation-duration:55s;
+  }
+}
+
+
+@media(min-width:681px){
+  .hero-description-mobile{
+    display:none!important;
+  }
+
+  .hero-description-desktop{
+    display:inline!important;
+  }
+}
+
+/* Accessibility: respect reduced-motion preference */
+@media(prefers-reduced-motion:reduce){
+
+  .hero-trust-marquee{
+    overflow-x:auto;
+    -webkit-mask-image:none;
+    mask-image:none;
+  }
+
+  .hero-trust-marquee-track.is-ready{
+    animation:none!important;
+    transform:none!important;
+  }
+
+  .hero-trust-marquee-track .hero-trust-marquee-group[aria-hidden="true"]{
+    display:none;
+  }
+}
+
+/* Trust and integrations section heading */
+
+.hero-trust-heading{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  padding:0 20px;
+  margin:0 auto 20px;
+}
+
+.hero-trust-heading h2{
+  margin:0;
+  color:#17324f;
+  font-family:Fredoka,system-ui,sans-serif;
+  font-size:clamp(20px,2.2vw,28px);
+  font-weight:600;
+  line-height:1.2;
+  letter-spacing:-.025em;
+}
+
+/* Mobile */
+
+@media(max-width:680px){
+
+  .hero-trust-heading{
+    margin-bottom:15px;
+    padding:0 16px;
+  }
+
+  .hero-trust-heading h2{
+    font-size:21px;
+    line-height:1.25;
+  }
+
+}
+
+/* =========================================================
+   PREMIUM CONWAY SCHOOL HERO VIDEO
+========================================================= */
+
+/* Keep the video within the existing right-hand hero column */
+.hero-video-enabled .hero-ecosystem{
+  position:relative;
+  display:flex;
+  align-items:center;
+  width:100%;
+  min-width:0;
+  min-height:545px;
+  overflow:visible;
+}
+
+/* Hide the previous rotating product previews */
+.hero-video-enabled .hero-ecosystem > :not(.hero-conway-player){
+  display:none!important;
+}
+
+/* The video player */
+.hero-conway-player{
+  position:relative;
+  width:100%;
+  min-width:0;
+  overflow:hidden;
+  border-radius:24px;
+  background:#07111f;
+  border:1px solid rgba(255,255,255,.20);
+  box-shadow:
+    0 30px 70px rgba(0,0,0,.34),
+    0 0 0 5px rgba(255,255,255,.035);
+}
+
+/* Proper 16:9 YouTube video */
+.hero-conway-video{
+  position:relative;
+  width:100%;
+  aspect-ratio:16 / 9;
+  background:#07111f;
+}
+
+.hero-conway-video iframe{
+  position:absolute;
+  inset:0;
+  display:block;
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+.hero-conway-video::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:2;
+  background:#07111f url("https://img.youtube.com/vi/Jo3HvL2D2wY/0.jpg") center/cover no-repeat;
+  opacity:1;
+  visibility:visible;
+  pointer-events:none;
+  transition:opacity .25s ease, visibility .25s ease;
+}
+
+.hero-conway-video.is-ready::after{
+  opacity:0;
+  visibility:hidden;
+}
+
+/* Below-video school identification */
+.hero-conway-caption{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:9px;
+  padding:15px 18px;
+  color:#dce8f4;
+  background:linear-gradient(90deg,#0c2139,#142d49);
+}
+
+.hero-conway-live-dot{
+  width:8px;
+  height:8px;
+  flex:0 0 8px;
+  border-radius:50%;
+  background:#91d447;
+  box-shadow:0 0 0 4px rgba(145,212,71,.12);
+}
+
+.hero-conway-caption span:nth-child(2){
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.09em;
+  color:#aee67a;
+}
+
+.hero-conway-caption strong{
+  font-size:11px;
+  font-weight:800;
+  margin-left:auto;
+  color:#fff;
+}
+
+/* Hide the duplicate floating Watch Video button */
+.hero-video-enabled .hero-real-school-proof{
+  display:none!important;
+}
+
+/* Tablet */
+@media(max-width:1080px){
+  .hero-video-enabled .hero-ecosystem{
+    min-height:0!important;
+    margin-top:8px;
+  }
+}
+
+/* Mobile */
+@media(max-width:680px){
+
+  .hero-video-enabled .hero-ecosystem{
+    min-height:0!important;
+    width:100%;
+    overflow:visible;
+    margin-top:8px;
+  }
+
+  .hero-conway-player{
+    border-radius:18px;
+    box-shadow:0 18px 40px rgba(0,0,0,.24);
+  }
+
+  .hero-conway-caption{
+    padding:12px;
+    gap:7px;
+  }
+
+  .hero-conway-caption span:nth-child(2){
+    font-size:8px;
+  }
+
+  .hero-conway-caption strong{
+    font-size:10px;
+    margin-left:0;
+  }
+}
+
+/* =====================================================
+   PREMIUM HERO: TEACHER APP + PORTRAIT SCHOOL VIDEO
+===================================================== */
+
+@media(min-width:681px){
+
+  .hero-video-enabled .hero-ecosystem{
+    position:relative;
+    display:block;
+    width:100%;
+    min-height:545px;
+    overflow:visible;
+  }
+
+  /* Restore the animated Teacher App */
+  .hero-video-enabled .hero-ecosystem > .teacher-window{
+    display:block!important;
+    position:absolute;
+    left:0;
+    top:65px;
+    width:77%;
+    height:72%;
+    transform:none;
+    z-index:3;
+    border-radius:24px;
+    box-shadow:0 24px 65px rgba(0,0,0,.25);
+  }
+
+  /* Keep the old Student Portal preview hidden */
+  .hero-video-enabled .hero-ecosystem > .student-window{
+    display:none!important;
+  }
+
+  /* Portrait video on the right */
+  .hero-video-enabled .hero-conway-player{
+    position:absolute;
+    top:18px;
+    right:0;
+    width:43%;
+    max-width:255px;
+    z-index:6;
+    border-radius:21px;
+    overflow:hidden;
+    border:2px solid rgba(255,255,255,.25);
+    background:#07111f;
+    box-shadow:
+      0 28px 65px rgba(0,0,0,.34),
+      0 0 0 5px rgba(255,255,255,.035);
+  }
+
+  /* Match the original portrait aspect ratio */
+  .hero-conway-video{
+    position:relative;
+    width:100%;
+    aspect-ratio:9 / 16;
+    background:#07111f;
+  }
+
+  .hero-conway-video iframe{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    display:block;
+    border:0;
+  }
+
+  /* Compact identification beneath the video */
+  .hero-conway-caption{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:4px;
+    padding:11px 13px;
+    background:#102841;
+  }
+
+  .hero-conway-caption .hero-conway-live-dot{
+    display:none;
+  }
+
+  .hero-conway-caption span:nth-child(2){
+    font-size:9px;
+    letter-spacing:.07em;
+    color:#b8e978;
+  }
+
+  .hero-conway-caption strong{
+    margin:0;
+    font-size:11px;
+    color:#fff;
+    line-height:1.3;
+  }
+}
+
+/* =====================================================
+   MOBILE: SHOW PORTRAIT VIDEO WITHOUT CRAMPING IT
+===================================================== */
+
+@media(max-width:680px){
+
+  .hero-video-enabled .hero-ecosystem{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    min-height:0!important;
+    width:100%;
+    margin-top:20px;
+    overflow:visible;
+  }
+
+  /* Avoid overlapping tiny previews on narrow screens */
+  .hero-video-enabled .hero-ecosystem > .teacher-window,
+  .hero-video-enabled .hero-ecosystem > .student-window{
+    display:none!important;
+  }
+
+  .hero-video-enabled .hero-conway-player{
+    position:relative;
+    top:auto;
+    right:auto;
+    width:min(100%,270px);
+    max-width:270px;
+    border-radius:19px;
+    overflow:hidden;
+    border:2px solid rgba(255,255,255,.20);
+    box-shadow:0 20px 48px rgba(0,0,0,.25);
+  }
+
+  .hero-conway-video{
+    width:100%;
+    aspect-ratio:9 / 16;
+  }
+
+  .hero-conway-video iframe{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    border:0;
+  }
+
+  .hero-conway-caption{
+    padding:11px 13px;
+  }
+
+  .hero-conway-caption strong{
+    font-size:11px;
+  }
+}
+
+/* =========================================================
+   CONWAY SCHOOL - CLEAN CASE STUDY SECTION
+========================================================= */
+
+/* Conway Christian School: compact desktop showcase */
+@media(min-width:1101px){
+
+  #school-partners .partner-card{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:center!important;
+    justify-content:center!important;
+
+    gap:8px!important;
+    min-height:0!important;
+    padding:24px 28px!important;
+    text-align:center!important;
+  }
+
+  #school-partners .partner-logo-wrap{
+    width:90px!important;
+    height:90px!important;
+    align-self:center!important;
+    justify-self:center!important;
+    margin:0 auto!important;
+  }
+
+  #school-partners .partner-copy-refined{
+    width:100%!important;
+    max-width:850px!important;
+    margin:0 auto!important;
+    text-align:center!important;
+  }
+
+  #school-partners .partner-copy-refined .partner-school-meta,
+  #school-partners .partner-copy-refined .partner-copy-actions{
+    justify-content:center!important;
+  }
+
+  #school-partners .partner-copy-refined h2{
+    max-width:850px!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+
+  #school-partners .partner-copy-refined p{
+    max-width:650px!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+}
+
+@media(min-width:901px){
+  #school-partners .partner-logo-wrap{
+    grid-column:1;
+    grid-row:1;
+    justify-self:start;
+    align-self:end!important;
+  }
+
+  #school-partners .partner-copy-refined{
+    grid-column:1;
+    grid-row:2;
+  }
+
+  #school-partners .partner-capabilities{
+    grid-column:2;
+    grid-row:1 / 3;
+    align-self:center;
+  }
+}
+
+#school-partners .partner-logo-wrap{
+  width:82px!important;
+  height:82px!important;
+  align-self:center;
+}
+
+#school-partners .partner-copy-refined{
+  max-width:750px;
+}
+
+#school-partners .partner-copy-refined .partner-school-meta{
+  margin:0 0 18px!important;
+}
+
+#school-partners .partner-copy-refined .partner-label{
+  margin-bottom:12px!important;
+}
+
+#school-partners .partner-copy-refined h2{
+  max-width:750px!important;
+  font-size:clamp(32px,3.1vw,48px)!important;
+  line-height:1.08!important;
+  letter-spacing:-.035em!important;
+}
+
+#school-partners .partner-copy-refined p{
+  display:block!important;
+  max-width:560px!important;
+  margin-top:17px!important;
+  font-size:16px!important;
+  line-height:1.6!important;
+}
+
+#school-partners .partner-copy-refined .partner-copy-actions{
+  display:flex!important;
+  align-items:center!important;
+  gap:12px!important;
+  margin-top:22px!important;
+}
+
+#school-partners .partner-copy-refined .partner-school-link{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  color:#236da5!important;
+  font-size:13px;
+  font-weight:850;
+  text-decoration:none;
+}
+
+#school-partners .partner-copy-refined .partner-school-link:hover{
+  color:#0b2341!important;
+}
+
+/* Capability showcase */
+
+#school-partners .partner-capabilities{
+  display:grid;
+  gap:10px;
+  padding:22px;
+  border:1px solid #dce8f2;
+  border-radius:24px;
+  background:linear-gradient(145deg,#f6fbff,#eff7fd);
+  box-shadow:0 14px 36px rgba(11,35,65,.06);
+  min-width:0;
+}
+
+#school-partners .partner-capabilities-heading{
+  display:grid;
+  gap:5px;
+  padding:0 3px 8px;
+}
+
+#school-partners .partner-capabilities-heading > span{
+  color:#659d32;
+  font-size:10px;
+  font-weight:950;
+  letter-spacing:.10em;
+}
+
+#school-partners .partner-capabilities-heading > strong{
+  color:#0b2341;
+  font-family:Fredoka,system-ui,sans-serif;
+  font-size:22px;
+  line-height:1.15;
+}
+
+#school-partners .partner-capability{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  min-width:0;
+  padding:14px;
+  border:1px solid #e3ecf4;
+  border-radius:16px;
+  background:#fff;
+}
+
+#school-partners .partner-capability-icon{
+  display:grid;
+  place-items:center;
+  flex:0 0 43px;
+  width:43px;
+  height:43px;
+  border-radius:13px;
+  font-size:17px;
+}
+
+#school-partners .partner-capability-icon.student{
+  background:#eef0ff;
+  color:#7663d7;
+}
+
+#school-partners .partner-capability-icon.teacher{
+  background:#eaf5ff;
+  color:#2483cc;
+}
+
+#school-partners .partner-capability-icon.recognition{
+  background:#eef9e3;
+  color:#68a431;
+}
+
+#school-partners .partner-capability > div{
+  min-width:0;
+}
+
+#school-partners .partner-capability > div > strong{
+  display:block;
+  color:#17324f;
+  font-size:13px;
+  font-weight:900;
+  line-height:1.3;
+}
+
+#school-partners .partner-capability > div > span{
+  display:block;
+  margin-top:4px;
+  color:#6a8095;
+  font-size:11px;
+  line-height:1.45;
+}
+
+/* Tablet */
+
+@media(max-width:1100px){
+  #school-partners .partner-card{
+    grid-template-columns:72px minmax(0,1fr)!important;
+    gap:20px!important;
+    padding:36px 28px!important;
+  }
+
+  #school-partners .partner-logo-wrap{
+    width:72px!important;
+    height:72px!important;
+  }
+
+  #school-partners .partner-capabilities{
+    grid-column:1 / -1;
+  }
+}
+
+/* Mobile */
+
+@media(max-width:680px){
+  #school-partners .partner-card{
+    display:grid!important;
+    grid-template-columns:58px minmax(0,1fr)!important;
+    gap:14px!important;
+    padding:26px 18px!important;
+    min-height:0!important;
+  }
+
+  #school-partners .partner-logo-wrap{
+    width:58px!important;
+    height:58px!important;
+    align-self:start!important;
+  }
+
+  #school-partners .partner-copy-refined{
+    grid-column:2;
+    min-width:0;
+  }
+
+  #school-partners .partner-copy-refined .partner-school-meta{
+    margin-bottom:10px!important;
+  }
+
+  #school-partners .partner-copy-refined h2{
+    font-size:25px!important;
+    line-height:1.12!important;
+  }
+
+  #school-partners .partner-copy-refined p{
+    display:block!important;
+    font-size:13px!important;
+    line-height:1.55!important;
+  }
+
+  #school-partners .partner-capabilities{
+    grid-column:1 / -1;
+    padding:14px;
+    border-radius:19px;
+    margin-top:4px;
+  }
+
+  #school-partners .partner-capabilities-heading > strong{
+    font-size:19px;
+  }
+
+  #school-partners .partner-capability{
+    padding:11px;
+  }
+
+  #school-partners .partner-capability > div > strong{
+    font-size:12px;
+  }
+
+  #school-partners .partner-capability > div > span{
+    font-size:10px;
+  }
+}
+
+
+/* =====================================================
+   CONWAY SECTION - FOUR CONNECTED CAPABILITIES
+===================================================== */
+
+#school-partners .partner-capabilities{
+  width:100%;
+  min-width:0;
+  gap:14px;
+  padding:22px;
+}
+
+#school-partners .partner-capabilities-heading{
+  padding:0 2px 5px;
+  gap:6px;
+}
+
+#school-partners .partner-capabilities-heading > strong{
+  font-size:21px;
+  line-height:1.2;
+}
+
+/* Four equal capability cards */
+
+#school-partners .partner-capabilities-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+
+#school-partners .partner-capability{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:flex-start;
+  gap:11px;
+  min-width:0;
+  padding:16px 13px;
+  border-radius:16px;
+}
+
+#school-partners .partner-capability-icon{
+  flex:0 0 40px;
+  width:40px;
+  height:40px;
+  border-radius:12px;
+  font-size:16px;
+}
+
+#school-partners .partner-capability > div > strong{
+  font-size:13px;
+  line-height:1.3;
+}
+
+#school-partners .partner-capability > div > span{
+  font-size:11px;
+  line-height:1.45;
+  margin-top:5px;
+}
+
+/* Incident Reporting - coral */
+
+#school-partners .partner-capability-icon.incident{
+  background:#fff0e9;
+  color:#e57948;
+}
+
+/* Mobile: one card per row */
+
+@media(max-width:680px){
+
+  #school-partners .partner-capabilities{
+    padding:15px;
+    gap:12px;
+  }
+
+  #school-partners .partner-capabilities-heading > strong{
+    font-size:19px;
+  }
+
+  #school-partners .partner-capabilities-grid{
+    grid-template-columns:1fr;
+    gap:8px;
+  }
+
+  #school-partners .partner-capability{
+    flex-direction:row;
+    align-items:center;
+    gap:12px;
+    padding:12px;
+    border-radius:14px;
+  }
+
+  #school-partners .partner-capability-icon{
+    flex:0 0 40px;
+    width:40px;
+    height:40px;
+  }
+
+  #school-partners .partner-capability > div > strong{
+    font-size:12px;
+  }
+
+  #school-partners .partner-capability > div > span{
+    font-size:10px;
+    line-height:1.4;
+  }
+
+}
+
+
+/* TrackEDU hero: clearer desktop hierarchy */
+@media (min-width:1081px){
+
+  .hero-video-enabled .hero-copy h1{
+    font-size:clamp(42px,4.15vw,67px)!important;
+    line-height:1.08!important;
+    letter-spacing:-.045em!important;
+    max-width:720px!important;
+    margin-top:14px!important;
+  }
+
+  .hero-video-enabled .hero-copy .lead{
+    max-width:610px!important;
+    font-size:17px!important;
+    line-height:1.6!important;
+    margin-top:19px!important;
+  }
+
+  .hero-video-enabled .hero-actions{
+    margin-top:22px!important;
+  }
+
+}
+
+/* ================================================================
+   TRACKEDU 2026 | FOCUSED MOBILE REFINEMENT
+   Tighter scanning, real product visuals, accessible expandable details
+   ================================================================ */
+.hero-brand-promise{
+  margin:0 0 15px;
+  color:#c9dced;
+  font-size:12px;
+  line-height:1.45;
+  font-weight:750;
+  letter-spacing:.035em;
+}
+.hero-video-enabled .hero-copy h1{
+  max-width:790px;
+  line-height:1.06!important;
+  text-wrap:balance;
+}
+.hero-video-enabled .hero-copy .lead{max-width:670px;}
+.te-mobile-included > summary{display:none;}
+@media (min-width:681px){
+  .te-mobile-included{display:contents;}
+}
+@media (max-width:1100px) and (min-width:681px){
+  .hero-video-enabled .hero-grid{
+    grid-template-columns:minmax(0,1.02fr) minmax(280px,.92fr)!important;
+    gap:24px!important;
+    align-items:center!important;
+  }
+
+  .hero-video-enabled .hero-copy{
+    min-width:0;
+    max-width:none;
+  }
+
+  .hero-video-enabled .hero-copy h1{
+    font-size:clamp(40px,5.2vw,58px)!important;
+    max-width:100%!important;
+  }
+
+  .hero-video-enabled .hero-copy .lead{
+    max-width:100%!important;
+  }
+
+  .hero-video-enabled .hero-ecosystem{
+    min-height:500px!important;
+    margin-top:0!important;
+  }
+
+  .hero-video-enabled .hero-ecosystem > .teacher-window{
+    left:0!important;
+    top:74px!important;
+    width:74%!important;
+    height:68%!important;
+  }
+
+  .hero-video-enabled .hero-conway-player{
+    top:22px!important;
+    right:0!important;
+    width:42%!important;
+    max-width:250px!important;
+  }
+}
+
+@media (max-width:900px) and (min-width:681px){
+  .hero-video-enabled .hero-grid{
+    grid-template-columns:minmax(0,1fr) minmax(240px,320px)!important;
+    gap:20px!important;
+  }
+
+  .hero-video-enabled .hero-copy h1{
+    font-size:clamp(34px,5.8vw,48px)!important;
+  }
+
+  .hero-video-enabled .hero-copy .lead{
+    font-size:15px!important;
+    line-height:1.55!important;
+  }
+
+  .hero-video-enabled .hero-actions{
+    gap:9px!important;
+  }
+
+  .hero-video-enabled .hero-actions .btn{
+    min-height:48px!important;
+    padding:0 16px!important;
+    font-size:13px!important;
+  }
+
+  .hero-video-enabled .hero-ecosystem{
+    min-height:430px!important;
+  }
+
+  .hero-video-enabled .hero-ecosystem > .teacher-window{
+    top:66px!important;
+    width:73%!important;
+    height:65%!important;
+  }
+
+  .hero-video-enabled .hero-conway-player{
+    width:42%!important;
+    max-width:210px!important;
+  }
+}
+@media (max-width:680px){
+  :root{scroll-padding-top:72px;}
+  html,body{max-width:100%;overflow-x:clip;}
+  .shell{width:calc(100% - 32px)!important;max-width:560px;}
+  .navin{height:64px!important;}
+  .brand{font-size:23px!important;}
+  .brand img{width:30px!important;height:30px!important;}
+  .hamburger{min-width:44px;min-height:44px;}
+  .hero-video-enabled.hero{
+    padding:28px 0 29px!important;
+    overflow:hidden;
+  }
+  .hero-video-enabled .hero-grid{gap:12px!important;}
+  .hero-video-enabled .hero-copy{max-width:100%;min-width:0;}
+  .hero-brand-promise{font-size:11px;margin:0 0 11px;letter-spacing:.01em;}
+  .hero-video-enabled .hero-copy h1{
+    font-size:clamp(30px,8.1vw,39px)!important;
+    line-height:1.075!important;
+    margin:0!important;
+    letter-spacing:-.04em!important;
+    max-width:100%;
+    text-wrap:pretty;
+  }
+  .hero-video-enabled .hero-copy .lead{
+    font-size:14px!important;
+    line-height:1.48!important;
+    margin:13px 0 0!important;
+    text-wrap:pretty;
+  }
+  .hero-actions{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,.88fr)!important;gap:8px!important;margin-top:18px!important;}
+  .hero-actions .btn{min-height:47px!important;padding:9px 10px!important;border-radius:13px!important;font-size:11px!important;gap:5px!important;line-height:1.24!important;text-align:center;white-space:normal;}
+  .hero-actions .btn i{font-size:11px!important;}
+  .pilot-how-link{font-size:11px!important;margin-top:9px!important;}
+  .hero-video-enabled .hero-integrations.hero-integrations-premium{
+    margin-top:16px!important;gap:8px!important;align-items:center!important;
+  }
+  .hero-integrations-premium .hero-integrations-label{font-size:10px!important;}
+  .hero-integrations-premium .hero-integrations-options{gap:9px!important;}
+  .hero-integrations-premium .hero-integration-option{gap:5px!important;}
+  .hero-integrations-premium .hero-integration-option strong{font-size:10px!important;}
+  .hero-integrations-premium .hero-integration-icon.google{
+    width:27px!important;height:27px!important;min-width:27px!important;
+  }
+  .hero-integrations-premium .hero-integration-icon.wonde{
+    width:47px!important;height:27px!important;min-width:47px!important;
+  }
+  /* Previous rule hid this entire showcase on mobile. Restore it. */
+  .hero-video-enabled .hero-ecosystem{
+    display:block!important;position:relative!important;
+    min-height:252px!important;height:252px!important;
+    margin:12px auto 0!important;
+    max-width:390px!important;
+    overflow:visible!important;
+    width:100%!important;
+  }
+  .hero-video-enabled .hero-ecosystem > :not(.hero-conway-player):not(.teacher-window){display:none!important;}
+  .hero-video-enabled .hero-ecosystem > .teacher-window{
+    display:block!important;position:absolute!important;
+    top:20px!important;left:0!important;
+    width:85%!important;height:208px!important;
+    transform:none!important;
+    border-radius:15px!important;
+    z-index:3!important;
+    box-shadow:0 14px 32px rgba(0,0,0,.2)!important;
+  }
+  .hero-video-enabled .hero-ecosystem > .teacher-window .window-top{height:31px!important;padding:0 8px!important;}
+  .hero-video-enabled .hero-ecosystem > .teacher-window .teacher-ui{height:calc(100% - 31px)!important;}
+  .hero-video-enabled .hero-ecosystem > .teacher-window .teacher-sidebar{padding:6px 3px!important;}
+  .hero-video-enabled .hero-ecosystem > .teacher-window .teacher-main{padding:6px!important;}
+  .hero-video-enabled .hero-conway-player{
+    position:absolute!important;top:0!important;right:0!important;left:auto!important;
+    width:38%!important;max-width:140px!important;
+    border-radius:15px!important;overflow:hidden!important;
+    z-index:6!important;
+    border:2px solid rgba(255,255,255,.32)!important;
+    box-shadow:0 16px 36px rgba(0,0,0,.3)!important;
+  }
+  .hero-video-enabled .hero-conway-video{aspect-ratio:9/16!important;}
+  .hero-conway-caption{padding:7px 8px!important;gap:2px!important;}
+  .hero-conway-caption span:nth-child(2){font-size:7px!important;letter-spacing:0!important;}
+  .hero-conway-caption strong{font-size:8px!important;line-height:1.2!important;}
+  .hero-trust-heading{margin:0 auto 10px!important;}
+  .hero-trust-heading h2{font-size:18px!important;line-height:1.25!important;}
+  .hero-trust-strip{padding:14px 0!important;}
+  .hero-trust-marquee .hero-trust-strip-item{min-height:56px!important;padding:10px 12px!important;}
+  /* Real school case study: shorter, clearer, brand-led. */
+  #school-partners{padding:0!important;background:#f8fbfe!important;}
+  #school-partners .shell{width:100%!important;max-width:none!important;padding:0!important;}
+  #school-partners .partner-card{
+    display:grid!important;grid-template-columns:48px minmax(0,1fr)!important;
+    gap:12px!important;padding:24px 16px 25px!important;
+    min-height:0!important;border-radius:0!important;border-left:0!important;border-right:0!important;
+    box-shadow:none!important;
+  }
+  #school-partners .partner-logo-wrap{
+    width:48px!important;height:48px!important;border-radius:13px!important;
+    align-self:start!important;
+  }
+  #school-partners .partner-copy-refined{grid-column:2!important;}
+  #school-partners .partner-copy-refined .partner-school-meta{margin:0 0 9px!important;gap:5px!important;}
+  #school-partners .partner-copy-refined .partner-school-meta strong{font-size:12px!important;}
+  #school-partners .partner-copy-refined .partner-school-meta span{font-size:10px!important;}
+  #school-partners .partner-copy-refined .partner-label{font-size:9px!important;margin:0 0 8px!important;}
+  #school-partners .partner-copy-refined h2{font-size:clamp(23px,6.2vw,29px)!important;line-height:1.12!important;letter-spacing:-.03em!important;}
+  #school-partners .partner-copy-refined p{display:block!important;font-size:12px!important;line-height:1.45!important;margin:9px 0 0!important;}
+  #school-partners .partner-copy-refined .partner-copy-actions{margin-top:12px!important;}
+  #school-partners .partner-copy-refined .partner-school-link{font-size:11px!important;}
+  #school-partners .partner-capabilities{
+    grid-column:1/-1!important;display:block!important;margin:5px 0 0!important;
+    padding:14px!important;border-radius:18px!important;
+  }
+  #school-partners .partner-capabilities-heading{padding:0 0 10px!important;gap:3px!important;}
+  #school-partners .partner-capabilities-heading>span{font-size:9px!important;}
+  #school-partners .partner-capabilities-heading>strong{font-size:17px!important;}
+  #school-partners .partner-capabilities-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important;}
+  #school-partners .partner-capability{
+    display:flex!important;flex-direction:column!important;align-items:flex-start!important;
+    gap:8px!important;padding:12px!important;border-radius:13px!important;
+    min-height:125px!important;
+  }
+  #school-partners .partner-capability-icon{width:33px!important;height:33px!important;flex:0 0 33px!important;font-size:14px!important;border-radius:10px!important;}
+  #school-partners .partner-capability>div>strong{font-size:12px!important;line-height:1.2!important;}
+  #school-partners .partner-capability>div>span{font-size:10px!important;line-height:1.35!important;margin-top:4px!important;}
+  /* Literacy Tree-inspired at-a-glance story: four compact outcomes. */
+  .section{padding:43px 0!important;}
+  .section-head{margin-bottom:17px!important;}
+  .section h2,.section-head h2{font-size:clamp(28px,7.3vw,34px)!important;line-height:1.07!important;letter-spacing:-.03em!important;}
+  .section-head .lead{font-size:13px!important;line-height:1.45!important;margin-top:10px!important;}
+  .eyebrow{font-size:9px!important;padding:6px 9px!important;}
+  #what .outcomes-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important;margin-top:18px!important;}
+  #what .outcome-tile{min-width:0;min-height:150px!important;padding:13px 11px!important;gap:7px!important;border-radius:16px!important;}
+  #what .outcome-tile>i{width:34px!important;height:34px!important;font-size:15px!important;border-radius:10px!important;}
+  #what .outcome-tile strong{font-size:16px!important;line-height:1.16!important;}
+  #what .outcome-tile>span{font-size:11px!important;line-height:1.35!important;flex:1;}
+  #what .outcome-tile small{font-size:10px!important;margin-top:1px;}
+  #what .pilot-path{padding:15px!important;margin-top:18px!important;border-radius:18px!important;}
+  #what .pilot-path h3{font-size:22px!important;}
+  #what .pilot-path-head p{font-size:12px!important;line-height:1.45!important;}
+  #what .pilot-path-steps{gap:7px!important;margin-top:13px!important;}
+  #what .pilot-path-steps>div{padding:10px!important;border-radius:13px!important;}
+  #what .pilot-path-steps strong{font-size:12px!important;}
+  #what .pilot-path-steps span{font-size:11px!important;line-height:1.35!important;}
+  #what .pilot-path-bottom{margin-top:12px!important;}
+  #what .outcomes-role-details{margin-top:13px!important;}
+  #what .outcomes-role-details>summary{padding:13px!important;font-size:12px!important;}
+  /* Behaviour demonstration: keep interactive tabs, eliminate stacked text fluff. */
+  #behaviour .behaviour-product-intro{gap:10px!important;margin-top:18px!important;}
+  #behaviour .behaviour-product-copy{padding:16px!important;border-radius:18px!important;}
+  #behaviour .behaviour-product-copy h3{font-size:23px!important;line-height:1.12!important;}
+  #behaviour .behaviour-product-copy p{font-size:12px!important;line-height:1.45!important;}
+  #behaviour .behaviour-product-flow{display:flex!important;flex-wrap:wrap!important;gap:5px!important;margin-top:11px!important;}
+  #behaviour .behaviour-product-flow>i{display:none!important;}
+  #behaviour .behaviour-product-flow span{font-size:10px!important;padding:6px 8px!important;}
+  #behaviour .behaviour-product-note{padding:14px!important;border-radius:16px!important;}
+  #behaviour .behaviour-product-note strong{font-size:12px!important;}
+  #behaviour .behaviour-product-note span{font-size:11px!important;line-height:1.4!important;}
+  #behaviour .behaviour-demo{margin-top:12px!important;border-radius:18px!important;}
+  #behaviour .behaviour-demo-stage{min-height:0!important;}
+  #behaviour .behaviour-demo-tabs{gap:3px!important;overflow-x:auto!important;}
+  #behaviour .behaviour-demo-tab{font-size:10px!important;white-space:nowrap!important;padding:8px 9px!important;}
+  #behaviour .product-profile-body,#behaviour .incident-preview-body,#behaviour .leadership-preview-body{padding:10px!important;}
+  #behaviour .product-history{grid-template-columns:1fr!important;gap:6px!important;}
+  #behaviour .product-history-row{padding:8px!important;}
+  #behaviour .product-student-identity{padding:9px!important;}
+  /* Continue with genuinely useful visuals while shortening the long sales sections. */
+  #why .choice-grid,#why .why-proof-grid{margin-top:18px!important;}
+  #why .choice-card{padding:17px!important;border-radius:18px!important;}
+  #why .choice-card h3{font-size:25px!important;}
+  #why .choice-card>p{font-size:12px!important;line-height:1.45!important;}
+  #why .choice-flow{margin-top:12px!important;gap:5px!important;}
+  #why .choice-flow span{padding:7px 9px!important;font-size:10px!important;}
+  #why .why-proof{padding:16px!important;border-radius:18px!important;}
+  #why .why-proof h3{font-size:20px!important;}
+  #why .why-proof p{font-size:12px!important;line-height:1.45!important;}
+  #why .why-conclusion{margin-top:12px!important;padding:17px!important;border-radius:18px!important;}
+  #why .why-conclusion h3{font-size:23px!important;}
+  #why .why-conclusion p{font-size:12px!important;line-height:1.45!important;}
+  #culture .culture-compact-grid{margin-top:16px!important;}
+  #culture .culture-board-proof{margin-top:20px!important;padding:14px!important;}
+  #culture .culture-board-copy h3{font-size:25px!important;line-height:1.12!important;}
+  #culture .culture-board-copy p{font-size:12px!important;line-height:1.45!important;}
+  #culture .culture-board-images .board-shot img{max-height:220px!important;object-fit:cover!important;}
+  #school-store .store-showcase{margin-top:17px!important;gap:15px!important;}
+  #school-store .store-showcase h3{font-size:25px!important;}
+  #school-store .store-showcase p{font-size:12px!important;line-height:1.45!important;}
+  #school-store .store-preview{padding:12px!important;}
+  /* Pricing: all details available with a native disclosure, not hidden. */
+  #pricing .pricing-grid{gap:12px!important;margin-top:18px!important;}
+  #pricing .price-card{padding:17px!important;border-radius:19px!important;}
+  #pricing .price-card h3{font-size:26px!important;line-height:1.1!important;}
+  #pricing .price-card>p{font-size:12px!important;line-height:1.45!important;}
+  #pricing .calculator{padding:13px!important;border-radius:16px!important;}
+  #pricing .price-box{padding:12px!important;border-radius:15px!important;}
+  #pricing .anchors{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:7px!important;}
+  #pricing .anchor{padding:8px!important;}
+  #pricing .anchor b{font-size:11px!important;}
+  #pricing .include-list{gap:7px!important;margin-top:12px!important;}
+  #pricing .include{padding:9px!important;}
+  #pricing .include span{font-size:11px!important;line-height:1.4!important;}
+  #pricing .te-mobile-included{display:block;border:0;margin-top:14px;}
+  #pricing .te-mobile-included >summary{
+    display:flex;align-items:center;justify-content:space-between;list-style:none;
+    min-height:44px;padding:10px 13px;border:1px solid #cfe1ee;border-radius:13px;
+    background:#f1f8fd;color:#1a486f;font-size:12px;font-weight:850;cursor:pointer;
+  }
+  #pricing .te-mobile-included >summary::-webkit-details-marker{display:none;}
+  #pricing .te-mobile-included >summary:after{content:'+';font-size:20px;line-height:1;}
+  #pricing .te-mobile-included[open] >summary:after{content:'−';}
+  #pricing .te-mobile-included .include-list{margin-top:10px!important;}
+  #faq .faq{margin-top:16px!important;gap:9px!important;}
+  #faq details{padding:10px 14px!important;border-radius:14px!important;}
+  #faq summary{padding:7px 0!important;font-size:13px!important;line-height:1.35!important;}
+  #faq details p{font-size:12px!important;line-height:1.45!important;}
+  #faq #mobileFaqToggle{min-height:45px;}
+  .final-card{padding:20px 17px!important;border-radius:18px!important;}
+  .final-card h2{font-size:29px!important;}
+  .final-card p{font-size:13px!important;line-height:1.45!important;}
+  .footer-main{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:22px 15px!important;}
+  .footer-brand-col{grid-column:1/-1!important;}
+  .site-footer{padding-top:28px!important;}
+}
+@media(max-width:360px){
+  .hero-actions{grid-template-columns:1fr!important;}
+  #school-partners .partner-capability{padding:10px!important;}
+  #what .outcome-tile{padding:10px!important;}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-video-enabled .hero-ecosystem .teacher-window{animation:none!important;}
+}
+
+/* Hero headline: accommodate all three platform features */
+@media (min-width:1081px){
+  .hero-video-enabled .hero-copy h1{
+    font-size:clamp(39px,3.6vw,58px)!important;
+    line-height:1.1!important;
+    letter-spacing:-.035em!important;
+    max-width:720px!important;
+    overflow-wrap:normal;
+  }
+}
+
+/* Tablet */
+@media (min-width:681px) and (max-width:1080px){
+  .hero-video-enabled .hero-copy h1{
+    font-size:clamp(35px,4.5vw,48px)!important;
+    line-height:1.12!important;
+  }
+}
+
+/* Mobile */
+@media (max-width:680px){
+  .hero-video-enabled .hero-copy h1{
+    font-size:clamp(30px,8vw,40px)!important;
+    line-height:1.12!important;
+    letter-spacing:-.035em!important;
+  }
+}
+
+/* Clickable Conway capability cards */
+
+#school-partners a.partner-capability{
+  position:relative;
+  cursor:pointer;
+  text-decoration:none!important;
+  transition:
+    transform .2s ease,
+    border-color .2s ease,
+    box-shadow .2s ease;
+}
+
+#school-partners a.partner-capability:hover{
+  transform:translateY(-3px);
+  border-color:#b4d4e9;
+  box-shadow:0 9px 24px rgba(11,35,65,.09);
+}
+
+#school-partners a.partner-capability:focus-visible{
+  outline:3px solid #2586d0;
+  outline-offset:3px;
+}
+
+#school-partners .partner-capability-arrow{
+  position:absolute;
+  top:13px;
+  right:13px;
+  color:#8197ab;
+  font-size:11px;
+  opacity:.65;
+  transition:transform .2s ease,opacity .2s ease;
+}
+
+#school-partners a.partner-capability:hover .partner-capability-arrow{
+  opacity:1;
+  transform:translate(2px,-2px);
+}
+
+@media(max-width:680px){
+  #school-partners .partner-capability-arrow{
+    top:12px;
+    right:12px;
+    font-size:10px;
+  }
+
+  #school-partners a.partner-capability{
+    padding-right:30px!important;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  #school-partners a.partner-capability,
+  #school-partners .partner-capability-arrow{
+    transition:none!important;
+  }
+}
+
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:100px;
+}
+
+section[id]{
+  scroll-margin-top:100px;
+}
+
+@media(max-width:680px){
+  html{
+    scroll-padding-top:76px;
+  }
+
+  section[id]{
+    scroll-margin-top:76px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{
+    scroll-behavior:auto;
+  }
+}
+
+
+/* Progressive disclosure across desktop, tablet and mobile */
+#what .te-optional-detail{display:block!important;margin:12px 0!important;border:1px solid #dde9f1;border-radius:16px;background:#fff;overflow:hidden}
+#what .te-optional-detail>summary{display:flex!important;align-items:center;justify-content:space-between;gap:9px;padding:15px 17px;list-style:none;cursor:pointer;font-size:14px;font-weight:800;color:#15334f}
+#what .te-optional-detail>summary::-webkit-details-marker{display:none}
+#what .te-optional-detail>summary i{transition:transform .2s ease}
+#what .te-optional-detail[open]>summary i{transform:rotate(180deg)}
+#what .te-goals-detail .outcomes-grid{padding:10px 15px 17px;margin-top:0}
+#what .te-setup-detail .pilot-path{margin:10px 15px 17px}
+#teacher-tools .te-teacher-item:nth-child(n+5){display:none!important}
+#teacher-tools .te-teacher-grid.is-expanded .te-teacher-item:nth-child(n+5){display:flex!important}
+#teacher-tools .te-teacher-toggle{display:flex!important;align-items:center;justify-content:center;gap:9px;width:100%;margin-top:14px;padding:13px;border:1px solid #cddde9;border-radius:13px;background:#fff;color:#15334f;font-size:13px;font-weight:800;cursor:pointer}
+#teacher-tools .te-teacher-toggle:focus-visible,#what summary:focus-visible,.te-more-detail>summary:focus-visible,#pricing .te-mobile-included>summary:focus-visible{outline:3px solid #2585d2;outline-offset:3px}
+#pricing .te-mobile-included{display:block!important;margin-top:14px}
+#pricing .te-mobile-included>summary{display:flex!important;align-items:center;justify-content:space-between;min-height:46px;padding:12px 15px;list-style:none;cursor:pointer;border:1px solid #cfe1ee;border-radius:13px;background:#f1f8fd;color:#1a486f;font-size:13px;font-weight:800}
+#pricing .te-mobile-included>summary::-webkit-details-marker{display:none}
+#pricing .te-mobile-included>summary:after{content:'+';font-size:19px}
+#pricing .te-mobile-included[open]>summary:after{content:'−'}
+#pricing .te-mobile-included .include-list{margin-top:12px}
+.te-more-detail{margin-top:18px;border:1px solid #dbe7ef;border-radius:17px;background:#fff;overflow:hidden}
+.te-more-detail>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 18px;color:#15334f;font-size:14px;font-weight:800;cursor:pointer;list-style:none}
+.te-more-detail>summary::-webkit-details-marker{display:none}
+.te-more-detail>summary i{transition:transform .2s ease;font-size:11px}
+.te-more-detail[open]>summary i{transform:rotate(180deg)}
+.te-more-detail>.why-conclusion,.te-more-detail>.behaviour-demo-caption{margin:0 16px 16px!important}
+@media(max-width:680px){
+ #what .te-optional-detail>summary,.te-more-detail>summary{padding:13px 14px;font-size:12px}
+ #teacher-tools .te-teacher-toggle{font-size:12px}
+ .te-more-detail>.why-conclusion,.te-more-detail>.behaviour-demo-caption{margin:0 10px 10px!important}
+}
+
+/* ===== 2026 UNIFIED TRACKEDU EXPERIENCE ===== */
+:root{--td-green:#86c73b;--td-deep:#0b2341;--td-ink:#173149}
+.hero.hero-video-enabled{position:relative!important;isolation:isolate!important;background:#eff9ed!important;padding:clamp(48px,5vw,84px) 0!important;overflow:hidden!important;color:var(--td-deep)!important}
+.hero.hero-video-enabled::before{content:""!important;position:absolute!important;inset:0!important;width:auto!important;height:auto!important;top:0!important;left:0!important;right:0!important;bottom:0!important;border-radius:0!important;background:linear-gradient(104deg,rgba(250,255,246,.96) 0%,rgba(244,253,246,.9) 45%,rgba(233,246,255,.4) 100%),url('https://trackedu-housepoints.web.app/housepoints-hero-background.webp') center/cover no-repeat!important;z-index:0!important;pointer-events:none}
+.hero.hero-video-enabled::after{content:""!important;position:absolute!important;right:-8%!important;left:auto!important;top:4%!important;bottom:auto!important;width:42vw!important;height:42vw!important;border-radius:50%!important;background:radial-gradient(circle,rgba(134,199,59,.14),transparent 70%)!important;z-index:0!important;pointer-events:none}
+.hero.hero-video-enabled .hero-video-bg,.hero.hero-video-enabled .hero-video-overlay{display:none!important}
+.hero.hero-video-enabled .hero-grid{position:relative!important;z-index:2!important;display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr)!important;gap:clamp(26px,4vw,64px)!important;align-items:center!important;width:min(1380px,calc(100% - 64px))!important;max-width:1380px!important;margin:auto!important}
+.hero.hero-video-enabled .hero-copy{max-width:650px!important;min-width:0!important}
+.hero.hero-video-enabled .hero-brand-promise{display:inline-flex!important;align-items:center!important;padding:8px 13px!important;margin:0 0 16px!important;background:#e8f7dc!important;border:1px solid #cae8b5!important;border-radius:100px!important;color:#53842b!important;font-size:12px!important;font-weight:900!important;letter-spacing:.025em!important}
+.hero.hero-video-enabled .hero-copy h1{font-size:clamp(42px,4.2vw,72px)!important;line-height:1.04!important;letter-spacing:-.043em!important;color:var(--td-deep)!important;text-shadow:none!important;margin:0!important;max-width:750px!important}
+.hero.hero-video-enabled .hero-copy h1 .blue{color:var(--td-deep)!important}.hero.hero-video-enabled .hero-copy h1 .green{color:#61a52d!important}
+.hero.hero-video-enabled .hero-copy .lead{color:#466379!important;text-shadow:none!important;font-size:clamp(16px,1.25vw,19px)!important;line-height:1.55!important;margin-top:18px!important;max-width:585px!important}
+.hero.hero-video-enabled .hero-actions{display:flex!important;flex-wrap:wrap!important;gap:11px!important;margin-top:23px!important}
+.hero.hero-video-enabled .hero-actions .btn{min-height:54px!important;white-space:normal!important;border-radius:13px!important;font-size:13px!important;padding:12px 19px!important;text-align:center!important}
+.hero.hero-video-enabled .hero-actions .btn-primary{color:#0b2341!important;background:linear-gradient(180deg,#a4dc60,#84c736)!important;box-shadow:0 9px 18px rgba(75,140,28,.16)!important}
+.hero.hero-video-enabled .hero-actions .hero-secondary{color:#15374d!important;background:#fff!important;border:1px solid #c8dce5!important;box-shadow:none!important;backdrop-filter:none!important}
+.hero.hero-video-enabled .pilot-how-link{color:#395b72!important}
+.hero.hero-video-enabled .hero-integrations-premium .hero-integrations-label,.hero.hero-video-enabled .hero-integrations-premium .hero-integration-option strong{color:#425d72!important}
+.hero.hero-video-enabled .hero-integrations-premium .hero-integrations-divider{background:#c8d9dc!important}
+.hero.hero-video-enabled .hero-ecosystem{display:block!important;position:relative!important;width:100%!important;max-width:760px!important;height:auto!important;min-height:0!important;margin:0!important;overflow:visible!important;transform:none!important}
+.hero.hero-video-enabled .hero-ecosystem > :not(.hero-conway-player){display:none!important}
+.hero.hero-video-enabled .hero-conway-player{
+  display:block!important;
+  position:relative!important;
+  inset:auto!important;
+  transform:none!important;
+  width:min(100%,270px)!important;
+height:auto!important;
+max-width:270px!important;
+margin:0 auto!important;
+  overflow:hidden!important;
+  border-radius:22px!important;
+  border:1px solid rgba(20,52,73,.12)!important;
+  box-shadow:0 16px 38px rgba(21,69,64,.16),0 0 0 3px rgba(255,255,255,.55)!important;
+  z-index:2!important;
+}
+
+.hero.hero-video-enabled .hero-conway-video{
+  position:relative!important;
+  width:100%!important;
+  height:auto!important;
+  aspect-ratio:9/16!important;
+}
+.hero.hero-video-enabled .hero-conway-video iframe{display:block!important;width:100%!important;height:100%!important;position:absolute!important;inset:0!important}
+.hero.hero-video-enabled .hero-conway-caption{display:flex!important;position:relative!important;transform:none!important;background:linear-gradient(90deg,#0c2139,#142d49)!important;color:#e8f4fc!important}
+@media(max-width:1100px){.hero.hero-video-enabled{padding:38px 0 44px!important}.hero.hero-video-enabled .hero-grid{grid-template-columns:1fr!important;gap:26px!important;width:min(760px,calc(100% - 44px))!important}.hero.hero-video-enabled .hero-copy{max-width:760px!important}.hero.hero-video-enabled .hero-ecosystem{max-width:760px!important;margin:0 auto!important}.hero.hero-video-enabled .hero-copy h1{font-size:clamp(38px,6vw,61px)!important}}
+@media(max-width:680px){.hero.hero-video-enabled{padding:27px 0 32px!important}.hero.hero-video-enabled .hero-grid{width:calc(100% - 30px)!important;gap:19px!important}.hero.hero-video-enabled .hero-brand-promise{font-size:10px!important;padding:7px 10px!important;margin-bottom:13px!important}.hero.hero-video-enabled .hero-copy h1{font-size:clamp(34px,9vw,45px)!important;line-height:1.08!important}.hero.hero-video-enabled .hero-copy .lead{font-size:15px!important;line-height:1.52!important;margin-top:12px!important}.hero.hero-video-enabled .hero-actions{display:grid!important;grid-template-columns:1fr!important;margin-top:16px!important;gap:9px!important}.hero.hero-video-enabled .hero-actions .btn{width:100%!important;min-height:49px!important;font-size:12px!important}.hero.hero-video-enabled .hero-conway-player{border-radius:15px!important;box-shadow:0 12px 34px rgba(21,69,64,.17)!important}.hero.hero-video-enabled .hero-conway-caption{padding:11px 12px!important}}
+/* Consistent navigation with the TrackEDU homepage */
+.nav{background:rgba(255,255,255,.98)!important;border-bottom:1px solid #e3edf2!important;backdrop-filter:blur(15px)!important}.nav .brand{color:#0b2341!important}.nav .btn-primary{background:linear-gradient(180deg,#a4dc60,#84c736)!important;color:#0b2341!important;box-shadow:none!important}
+/* New story blocks */
+.td-story{padding:clamp(58px,6vw,96px) 0;position:relative;overflow:hidden;background:#fff}.td-story.alt{background:linear-gradient(180deg,#f7fcf5,#f5faff)}.td-wrap{width:min(1220px,calc(100% - 42px));margin:auto}.td-head{max-width:810px;margin:0 auto 35px;text-align:center}.td-eyebrow{font-size:12px;color:#628f33;font-weight:900;text-transform:uppercase;letter-spacing:.09em}.td-head h2{font:700 clamp(34px,4.3vw,58px)/1.04 Fredoka,system-ui,sans-serif;color:#0b2341;letter-spacing:-.035em;margin:14px 0}.td-head p{font-size:17px;line-height:1.6;color:#597185;margin:0}.td-recognise{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center;gap:30px}.td-rec-copy h2{font:700 clamp(33px,4vw,56px)/1.06 Fredoka,system-ui,sans-serif;letter-spacing:-.035em;color:#0b2341;margin:10px 0}.td-rec-copy p{font-size:17px;line-height:1.6;color:#597185}.td-rec-note{font-size:12px!important;color:#638076!important}.td-mascot-stage{min-height:440px;position:relative;border-radius:35px;background:radial-gradient(circle at 50% 53%,#e3f8d2 0%,#f4fcea 48%,#f8fbff 78%);display:grid;place-items:center;isolation:isolate}.td-mascot-stage img{width:min(50%,270px);height:auto;max-height:265px;object-fit:contain;filter:drop-shadow(0 15px 14px rgba(32,78,23,.13))}.td-skill{position:absolute;display:flex;align-items:center;gap:8px;background:#fff;padding:11px 13px;border:1px solid #dce9e9;border-radius:17px;box-shadow:0 9px 22px rgba(11,35,65,.08);font-size:13px;font-weight:800;color:#233f59}.td-skill i{color:#70ad35}.td-skill.a{top:9%;left:4%}.td-skill.b{top:9%;right:4%}.td-skill.c{top:43%;left:1%}.td-skill.d{top:43%;right:1%}.td-skill.e{bottom:10%;left:9%}.td-skill.f{bottom:10%;right:7%}.td-placeholder{display:grid;place-items:center;min-height:250px;border:2px dashed #b9d6be;border-radius:24px;background:#f4faef;color:#476d39;text-align:center;padding:24px}.td-placeholder i{font-size:34px;color:#83bb52}.td-placeholder strong{display:block;margin-top:12px;font-size:16px}.td-placeholder small{display:block;margin-top:8px;max-width:350px;line-height:1.5}.td-role-tabs,.td-product-tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:24px}.td-tab{border:1px solid #d3e2e9;border-radius:13px;padding:12px 18px;background:white;color:#3d5b72;font-size:14px;font-weight:800;cursor:pointer}.td-tab[aria-selected=true]{background:#e6f6d8;border-color:#81c241;color:#284c19}.td-panel{display:none;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:30px;align-items:center;padding:28px;background:#fff;border:1px solid #e1ebef;border-radius:26px;box-shadow:0 15px 35px rgba(11,35,65,.05)}.td-panel.is-active{display:grid}.td-panel h3{font:700 clamp(25px,3vw,40px)/1.1 Fredoka,system-ui,sans-serif;color:#0b2341;margin:0 0 12px}.td-panel p{font-size:16px;line-height:1.65;color:#567086}.td-panel ul{padding-left:20px;color:#476479;line-height:1.9;font-size:14px}.td-panel img{max-width:100%;width:100%;height:auto;max-height:470px;object-fit:contain;border-radius:17px}.td-image-frame{min-width:0}.td-image-frame img{border:1px solid #dce8ee;box-shadow:0 13px 26px rgba(11,35,65,.07)}.td-story-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:19px}.td-link{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 18px;border-radius:12px;background:#8dcc48;color:#0b2341;font-size:13px;font-weight:900}.td-link.secondary{background:#fff;border:1px solid #cbdfe8}.td-launch{padding:34px 0;background:linear-gradient(115deg,#e7f7d7,#e8f5ff);border-block:1px solid #d5e8d6}.td-launch-card{display:flex;gap:24px;justify-content:space-between;align-items:center}.td-launch h2{font:700 clamp(26px,3vw,40px)/1.1 Fredoka,system-ui,sans-serif;color:#0b2341;margin:6px 0 10px}.td-launch p{color:#41617a;line-height:1.6;font-size:14px;margin:5px 0}.td-launch small{font-size:12px;color:#657e8b}.td-launch .td-link{white-space:nowrap}.td-visually-hidden{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+@media(max-width:850px){.td-recognise,.td-panel{grid-template-columns:1fr}.td-rec-copy{text-align:center}.td-mascot-stage{min-height:400px}.td-panel{padding:20px}.td-launch-card{align-items:flex-start;flex-direction:column}}
+@media(max-width:520px){.td-story{padding:55px 0}.td-wrap{width:calc(100% - 30px)}.td-head{text-align:left}.td-head h2{font-size:36px}.td-head p{font-size:15px}.td-mascot-stage{min-height:320px;border-radius:23px}.td-mascot-stage img{width:42%}.td-skill{font-size:10px;padding:8px 9px;border-radius:12px;gap:5px}.td-skill.a{top:5%;left:2%}.td-skill.b{top:5%;right:2%}.td-skill.c{top:36%;left:1%}.td-skill.d{top:36%;right:1%}.td-skill.e{bottom:6%;left:2%}.td-skill.f{bottom:6%;right:2%}.td-tab{font-size:12px;padding:10px 12px;flex:1}.td-panel{padding:16px;gap:15px}.td-story-actions{flex-direction:column}.td-link{width:100%}}
+@media(prefers-reduced-motion:reduce){.td-tab,.td-link{transition:none!important}}
+
+
+
+/* House Points hero: balanced portrait video */
+
+@media (min-width:1025px) {
+  .hero.hero-video-enabled .hero-grid {
+    align-items:center!important;
+  }
+
+  .hero.hero-video-enabled .hero-conway-player {
+    width:min(100%,270px)!important;
+    max-width:270px!important;
+    margin:0 auto!important;
+  }
+}
+
+@media (max-width:1024px) {
+  .hero.hero-video-enabled .hero-conway-player {
+    width:min(100%,280px)!important;
+    max-width:280px!important;
+    margin:18px auto 0!important;
+  }
+}
+
+
+/* ==========================================================
+ TRACKEDU PLAYFUL REDESIGN 2026 | DISTINCTIVE VISUAL SYSTEM
+ The whole-site treatment is intentionally much more visible.
+ Keep copy, scripts, links, modals, language switching intact.
+ ========================================================== */
+:root{--play-green:#8bd63e;--play-ink:#0a2444;--play-lime:#e1ffb2;--play-mint:#e5fff3;--play-yellow:#fff2ad;--play-blue:#dbf1ff;--play-purple:#eee8ff;--play-pink:#ffe5ec;--play-outline:#bddbbd}
+body{background:#f8fff9}
+/* rounded friendly brand typography, energetic controls */
+.section h2,.td-story h2,.td-launch h2{font-family:Fredoka,Outfit,sans-serif!important;letter-spacing:-.045em!important}
+.section-head h2{font-size:clamp(38px,4.55vw,64px)!important;line-height:1.04!important}
+.section-head .lead{color:#41617a!important;font-size:clamp(15px,1.5vw,19px)!important}
+.eyebrow,.td-kicker,.story-kicker{border-radius:999px!important;background:#e9ffd8!important;border:1.5px solid #b8e48c!important;color:#317315!important;box-shadow:0 4px 0 rgba(116,174,62,.12)!important;padding:10px 16px!important}
+.btn-primary{background:linear-gradient(180deg,#a6ef55,#78cc23)!important;border:1px solid #73bf29!important;box-shadow:0 6px 0 #60a921,0 14px 24px rgba(106,174,42,.21)!important;color:#092343!important;border-radius:18px!important}
+.btn-primary:hover{transform:translateY(-3px)!important;box-shadow:0 9px 0 #60a921,0 20px 28px rgba(106,174,42,.23)!important}
+.btn-secondary{border:1.5px solid #c5d9eb!important;border-radius:18px!important;box-shadow:0 4px 0 rgba(28,61,92,.07)!important}
+.nav{background:rgba(255,255,255,.96)!important;border-bottom:2px solid #e4f1e6!important}
+.navin .brand{letter-spacing:-.055em!important}
+/* The original artwork has a fully reserved 9:16 portrait-video slot */
+.hero.hero-video-enabled{position:relative!important;min-height:clamp(660px,55vw,870px)!important;padding:0!important;background:#f2fff5!important;isolation:isolate;overflow:hidden!important}
+.hero.hero-video-enabled:before{content:""!important;display:block!important;position:absolute!important;inset:0!important;width:100%!important;height:100%!important;border-radius:0!important;background-image:url('https://trackedu-housepoints.web.app/trackedu-hero-background.webp')!important;background-size:100% 100%!important;background-position:center!important;background-repeat:no-repeat!important;z-index:0!important;pointer-events:none}
+.hero.hero-video-enabled:after{display:none!important}
+.hero.hero-video-enabled .hero-video-bg{display:none!important}
+.hero.hero-video-enabled .hero-grid{position:relative!important;z-index:2!important;width:min(1500px,calc(100% - 96px))!important;max-width:none!important;margin:auto!important;min-height:clamp(660px,55vw,870px)!important;display:grid!important;grid-template-columns:minmax(0,55fr) minmax(0,45fr)!important;gap:0!important;align-items:center!important}
+.hero.hero-video-enabled .hero-copy{max-width:780px!important;padding:15px 4.5vw 55px 0!important;align-self:center!important}
+@media(min-width:1101px){
+ .hero.hero-video-enabled .hero-copy{
+   padding:0 4.5vw 65px 0!important;
+   transform:translateY(-45px);
+ }
+
+ .hero.hero-video-enabled .hero-brand-promise{
+   transform:translateY(-25px)!important;
+ }
+}
+.hero.hero-video-enabled .hero-copy h1{font-family:Fredoka,Outfit,sans-serif!important;color:#0a2444!important;font-size:clamp(39px,4.2vw,71px)!important;line-height:1.065!important;letter-spacing:-.052em!important;text-shadow:none!important;max-width:750px!important}
+.hero.hero-video-enabled .hero-copy h1 .blue{color:#0a2444!important}
+.hero.hero-video-enabled .hero-copy h1 .green{color:#4aaa19!important}
+.hero.hero-video-enabled .hero-brand-promise{display:inline-flex!important;padding:10px 16px!important;border:1.5px solid #a4d98c!important;border-radius:999px!important;background:rgba(234,255,216,.84)!important;color:#367c20!important;font-size:clamp(12px,1.15vw,16px)!important;font-weight:900!important;box-shadow:0 4px 0 rgba(87,159,55,.08)!important}
+.hero.hero-video-enabled .hero-copy .lead{color:#46647d!important;text-shadow:none!important;font-size:clamp(15px,1.45vw,20px)!important;line-height:1.53!important;max-width:650px!important}
+.hero.hero-video-enabled .hero-secondary{color:#0a2444!important;background:rgba(255,255,255,.95)!important;border:1.5px solid #cee1f0!important;backdrop-filter:none!important;box-shadow:0 4px 0 rgba(11,35,65,.08)!important}
+.hero.hero-video-enabled .pilot-how-link{color:#355477!important}
+/* Video remains LIVE, never embed a still in the backdrop */
+.hero.hero-video-enabled .hero-ecosystem{display:flex!important;align-items:center!important;justify-content:center!important;min-width:0!important;min-height:0!important;height:100%!important;margin:0!important;padding:30px 8.5% 30px 2%!important;background:transparent!important;overflow:visible!important}
+.hero.hero-video-enabled .hero-conway-player{position:relative!important;inset:auto!important;transform:none!important;display:block!important;width:min(100%,300px)!important;max-width:300px!important;height:auto!important;margin:0!important;z-index:10!important;border:7px solid white!important;border-radius:30px!important;overflow:hidden!important;box-shadow:0 20px 52px rgba(38,112,79,.16)!important}
+.hero.hero-video-enabled .hero-conway-video{width:100%!important;aspect-ratio:9/16!important;height:auto!important;min-height:0!important;overflow:hidden!important;background:#0c2947!important}
+.hero.hero-video-enabled .hero-conway-video iframe{width:100%!important;height:100%!important;min-height:0!important;position:absolute!important;inset:0!important;border:0!important}
+.hero.hero-video-enabled .hero-conway-caption{padding:10px 12px!important;min-height:58px!important}
+/* Old overlapping mock dashboard and ornaments must not cover the video or background artwork */
+.hero.hero-video-enabled .hero-ecosystem>.orbit,.hero.hero-video-enabled .hero-ecosystem>.product-window,.hero.hero-video-enabled .hero-ecosystem>.float-note{display:none!important}
+/* Show Google Classroom and Wonde below the hero buttons */
+.hero.hero-video-enabled .hero-integrations-premium{
+  display:flex!important;
+  margin-top:44px!important;
+}
+
+/* Desktop: align integration logos with the video bottom */
+@media(min-width:1101px){
+  .hero.hero-video-enabled .hero-copy{
+    position:relative!important;
+  }
+
+  .hero.hero-video-enabled .hero-integrations-premium{
+    position:absolute!important;
+    left:0!important;
+    bottom:-115px!important;
+    margin-top:0!important;
+  }
+}
+/* Recognisable rainbow storytelling across EVERY major chapter */
+#recognition-story{background:radial-gradient(ellipse at 2% 10%,#fff2ad 0,transparent 34%),radial-gradient(ellipse at 95% 82%,#c9f5d0 0,transparent 43%),#fffef7!important;position:relative;overflow:hidden}
+#explore-by-role{background:radial-gradient(ellipse at 100% 0%,#dccbff 0,transparent 38%),radial-gradient(ellipse at 0% 100%,#d7f4ff 0,transparent 42%),#f9f7ff!important;position:relative;overflow:hidden}
+#product-showcase{background:radial-gradient(ellipse at 8% 85%,#fce1ec 0,transparent 35%),radial-gradient(ellipse at 95% 5%,#c7f8df 0,transparent 40%),#fffafc!important;position:relative;overflow:hidden}
+#what{background:radial-gradient(ellipse at 2% 10%,#bdf2f0 0,transparent 30%),radial-gradient(ellipse at 98% 90%,#e0d6ff 0,transparent 36%),#f7fbff!important;overflow:hidden}
+#teacher-tools{background:radial-gradient(ellipse at 0% 85%,#ffe4bf,transparent 40%),radial-gradient(ellipse at 98% 0%,#d0fae6,transparent 40%),#fffdf3!important;overflow:hidden}
+#behaviour{background:radial-gradient(ellipse at 100% 5%,#e9d6ff,transparent 35%),radial-gradient(ellipse at 0% 100%,#c4f7e6,transparent 42%),#fcf9ff!important;overflow:hidden}
+#why{background:radial-gradient(ellipse at 0% 5%,#f9e9a6,transparent 38%),radial-gradient(ellipse at 100% 100%,#c7ecff,transparent 44%),#fffefa!important;overflow:hidden}
+#culture{background:radial-gradient(ellipse at 5% 95%,#e5d5ff,transparent 38%),radial-gradient(ellipse at 98% 12%,#c6f3c9,transparent 40%),#fafff6!important;overflow:hidden}
+#school-store{background:radial-gradient(ellipse at 1% 75%,#ffdaea,transparent 40%),radial-gradient(ellipse at 98% 8%,#ffedb2,transparent 39%),#fff7fa!important;overflow:hidden}
+#school-launch-offer{background:radial-gradient(ellipse at 100% 15%,#cbf4a8,transparent 42%),radial-gradient(ellipse at 0% 95%,#c6eaff,transparent 44%),#f8fff2!important;overflow:hidden}
+#pricing{background:radial-gradient(ellipse at 1% 10%,#d4e7ff,transparent 39%),radial-gradient(ellipse at 98% 85%,#e7ffd0,transparent 43%),#f9fcff!important;overflow:hidden}
+#faq{background:radial-gradient(ellipse at 96% 7%,#f4e0ff,transparent 40%),radial-gradient(ellipse at 4% 98%,#dbf8d5,transparent 42%),#fffaff!important;overflow:hidden}
+/* Large bold decorative bubbles with no invented product claims */
+#recognition-story:before,#explore-by-role:before,#product-showcase:before,#what:before,#teacher-tools:before,#behaviour:before,#why:before,#culture:before,#school-store:before,#school-launch-offer:before,#pricing:before,#faq:before{content:'✦'!important;display:grid;place-items:center;position:absolute;right:2%;top:35px;width:87px;height:87px;border-radius:28px;transform:rotate(13deg);background:#f7d24c;color:#fff;font-size:46px;text-shadow:0 3px 0 rgba(0,0,0,.07);box-shadow:0 8px 0 rgba(187,141,30,.24),0 15px 35px rgba(15,45,60,.08);opacity:.8;pointer-events:none;z-index:0}
+#explore-by-role:before,#behaviour:before,#culture:before,#faq:before{content:'★'!important;background:#926de4;box-shadow:0 8px 0 #6f4eba,0 15px 35px rgba(15,45,60,.08)}
+#product-showcase:before,#teacher-tools:before,#school-store:before{content:'♥'!important;background:#ff798b;box-shadow:0 8px 0 #e04f70,0 15px 35px rgba(15,45,60,.08)}
+#what:before,#why:before,#school-launch-offer:before{background:#71cf47;box-shadow:0 8px 0 #49a427,0 15px 35px rgba(15,45,60,.08)}
+@media(max-width:680px){
+  #what::before{
+    display:none!important;
+    content:none!important;
+  }
+}
+#recognition-story:after,#explore-by-role:after,#product-showcase:after,#what:after,#teacher-tools:after,#behaviour:after,#why:after,#culture:after,#school-store:after,#school-launch-offer:after,#pricing:after,#faq:after{content:''!important;position:absolute;left:-85px;bottom:25px;width:255px;height:255px;border:22px solid rgba(139,214,62,.12);border-radius:48% 52% 65% 35%;transform:rotate(-25deg);z-index:0;pointer-events:none}
+#explore-by-role:after,#behaviour:after,#culture:after,#faq:after{border-color:rgba(135,89,217,.12)}
+#product-showcase:after,#teacher-tools:after,#school-store:after{border-color:rgba(244,110,130,.12)}
+#recognition-story>.shell,#explore-by-role>.shell,#product-showcase>.shell,#what>.shell,#teacher-tools>.shell,#behaviour>.shell,#why>.shell,#culture>.shell,#school-store>.shell,#school-launch-offer>.shell,#pricing>.shell,#faq>.shell{position:relative;z-index:1}
+/* Cards look like collectible stickers, not generic enterprise slabs */
+#what .te-product-card,#teacher-tools .te-teacher-item,.aud-card,.tool-card,.why-proof,.culture-step,.story-card,.td-panel,.td-card,.td-role-card,.td-feature-card{border-radius:26px!important;box-shadow:0 7px 0 rgba(35,73,82,.09),0 16px 30px rgba(26,75,86,.045)!important;border:1.5px solid rgba(106,150,163,.24)!important;transition:transform .22s cubic-bezier(.2,.8,.2,1),box-shadow .22s ease!important}
+#what .te-product-card:hover,#teacher-tools .te-teacher-item:hover,.aud-card:hover,.tool-card:hover,.why-proof:hover,.culture-step:hover,.story-card:hover,.td-panel:hover,.td-card:hover,.td-role-card:hover{transform:translateY(-7px) rotate(-.45deg)!important;box-shadow:0 12px 0 rgba(35,73,82,.08),0 25px 45px rgba(26,75,86,.09)!important}
+#what .te-product-card:nth-child(6n+1){background:#eeffe1!important;border-color:#b8dc98!important}
+#what .te-product-card:nth-child(6n+2){background:#e8f5ff!important;border-color:#accfe9!important}
+#what .te-product-card:nth-child(6n+3){background:#fff3d9!important;border-color:#efdb9e!important}
+#what .te-product-card:nth-child(6n+4){background:#f1eaff!important;border-color:#d0bdf7!important}
+#what .te-product-card:nth-child(6n+5){background:#ffe9f0!important;border-color:#f1bdcf!important}
+#what .te-product-card:nth-child(6n){background:#e9fff6!important;border-color:#a7decb!important}
+#teacher-tools .te-teacher-item:nth-child(5n+1){background:#eeffe1!important}
+#teacher-tools .te-teacher-item:nth-child(5n+2){background:#e8f5ff!important}
+#teacher-tools .te-teacher-item:nth-child(5n+3){background:#fff0d8!important}
+#teacher-tools .te-teacher-item:nth-child(5n+4){background:#f0eaff!important}
+#teacher-tools .te-teacher-item:nth-child(5n){background:#ffebf0!important}
+#what .te-product-icon,.aud-icon,.story-icon,.culture-icon,.why-proof-icon{border-radius:20px!important;transform:rotate(-5deg);box-shadow:0 6px 0 rgba(11,35,65,.1)!important}
+#what .te-product-card:nth-child(even) .te-product-icon{transform:rotate(6deg)}
+/* Extra depth and bold card-edge colours */
+#pricing .pricing-plan-card{border-radius:32px!important;box-shadow:0 10px 0 #dcebd7,0 24px 48px rgba(32,69,86,.08)!important}
+#pricing .school-plan-card{border:2px solid #85c841!important;border-top:10px solid #85c841!important;background:linear-gradient(180deg,#f7ffef,#fff 23%)!important}
+#pricing .strategic-plan-card{border:2px solid #669de9!important;border-top:10px solid #669de9!important;background:linear-gradient(180deg,#eef7ff,#fff 23%)!important}
+.faq details{border:2px solid #d6c9f4!important;box-shadow:0 6px 0 rgba(107,77,164,.10)!important;background:rgba(255,255,255,.9)!important}
+.faq details[open]{border-color:#8bd63e!important;background:#f7fff0!important}
+.final-card{border-radius:38px!important;background:radial-gradient(circle at 87% 22%,rgba(162,239,72,.24),transparent 34%),linear-gradient(135deg,#0a2444,#176080)!important;border:3px solid #a5e47b!important;box-shadow:0 12px 0 rgba(9,53,67,.15),0 30px 56px rgba(17,60,74,.13)!important}
+/* Responsive: original decorative video slot doesn't suit stacked cards */
+@media(max-width:1100px){
+ .hero.hero-video-enabled{
+   min-height:0!important;
+   padding:44px 0 52px!important;
+   background:linear-gradient(155deg,#f8fff5 0%,#f3fbff 58%,#eaf8ef 100%)!important;
+ }
+
+ .hero.hero-video-enabled:before{
+   background:none!important;
+   background-image:none!important;
+   opacity:0!important;
+ }
+
+ .hero.hero-video-enabled:after{
+   display:none!important;
+ }
+
+ .hero.hero-video-enabled .hero-grid{
+   width:min(760px,calc(100% - 48px))!important;
+   min-height:0!important;
+   display:grid!important;
+   grid-template-columns:minmax(0,1fr)!important;
+   gap:30px!important;
+   align-items:start!important;
+ }
+
+ .hero.hero-video-enabled .hero-copy{
+   width:100%!important;
+   max-width:100%!important;
+   padding:0!important;
+ }
+
+ .hero.hero-video-enabled .hero-copy h1{
+   font-size:clamp(37px,5.7vw,59px)!important;
+   max-width:700px!important;
+ }
+
+ .hero.hero-video-enabled .hero-ecosystem{
+   width:100%!important;
+   max-width:100%!important;
+   height:auto!important;
+   min-height:0!important;
+   padding:8px 0 0!important;
+   margin:0 auto!important;
+   display:flex!important;
+   align-items:center!important;
+   justify-content:center!important;
+ }
+
+ .hero.hero-video-enabled .hero-conway-player{
+   width:min(100%,288px)!important;
+   max-width:288px!important;
+   margin:0 auto!important;
+ }
+
+ .hero.hero-video-enabled .hero-integrations-premium{
+   display:flex!important;
+   position:relative!important;
+   width:auto!important;
+   height:auto!important;
+   margin-top:21px!important;
+   overflow:visible!important;
+ }
+
+ .hero.hero-video-enabled .hero-integrations-premium .hero-integration-option strong{
+   color:#24445e!important;
+ }
+
+ .hero.hero-video-enabled .hero-integrations-label{
+   color:#355477!important;
+ }
+
+ .hero.hero-video-enabled .hero-integrations-divider{
+   background:#b9d4dd!important;
+ }
+}
+/* iPad portrait and landscape only */
+@media(min-width:681px) and (max-width:1100px){
+
+ .hero.hero-video-enabled{
+   padding:32px 0 40px!important;
+   background:linear-gradient(135deg,#f8fff6 0%,#f4fbff 65%,#e9f8ef 100%)!important;
+ }
+
+ .hero.hero-video-enabled::before,
+ .hero.hero-video-enabled::after{
+   content:none!important;
+   display:none!important;
+   background-image:none!important;
+ }
+
+ .hero.hero-video-enabled .hero-grid{
+   display:grid!important;
+   width:calc(100% - 44px)!important;
+   max-width:1040px!important;
+   min-height:0!important;
+   grid-template-columns:minmax(0,1fr) minmax(215px,34%)!important;
+   gap:clamp(16px,2.5vw,28px)!important;
+   align-items:center!important;
+ }
+
+ .hero.hero-video-enabled .hero-copy{
+   width:100%!important;
+   min-width:0!important;
+   max-width:none!important;
+   padding:0!important;
+   align-self:center!important;
+ }
+
+ .hero.hero-video-enabled .hero-brand-promise{
+   max-width:100%!important;
+ }
+
+ .hero.hero-video-enabled .hero-copy h1{
+   font-size:clamp(32px,4.1vw,46px)!important;
+   line-height:1.1!important;
+   max-width:100%!important;
+ }
+
+ .hero.hero-video-enabled .hero-copy .lead{
+   max-width:100%!important;
+   font-size:clamp(13px,1.6vw,16px)!important;
+   line-height:1.5!important;
+ }
+
+ .hero.hero-video-enabled .hero-actions{
+   display:flex!important;
+   flex-wrap:wrap!important;
+   gap:9px!important;
+ }
+
+ .hero.hero-video-enabled .hero-actions .btn{
+   min-height:44px!important;
+   padding:10px 12px!important;
+   font-size:11px!important;
+ }
+
+ .hero.hero-video-enabled .hero-integrations-premium{
+   max-width:100%!important;
+   gap:9px!important;
+ }
+
+ .hero.hero-video-enabled .hero-ecosystem{
+   display:flex!important;
+   position:relative!important;
+   width:100%!important;
+   max-width:100%!important;
+   min-width:0!important;
+   min-height:0!important;
+   height:auto!important;
+   margin:0!important;
+   padding:0!important;
+   align-items:center!important;
+   justify-content:center!important;
+   align-self:center!important;
+ }
+
+ .hero.hero-video-enabled .hero-conway-player{
+   position:relative!important;
+   top:auto!important;
+   right:auto!important;
+   left:auto!important;
+   width:100%!important;
+   max-width:270px!important;
+   margin:0 auto!important;
+ }
+
+ .hero.hero-video-enabled .hero-conway-video{
+   aspect-ratio:9 / 16!important;
+ }
+
+}
+@media(max-width:680px){
+ .hero.hero-video-enabled{
+   padding:25px 0 42px!important;
+ }
+
+ .hero.hero-video-enabled::before,
+ .hero.hero-video-enabled::after{
+   content:none!important;
+   display:none!important;
+ }
+
+ .hero.hero-video-enabled .hero-grid{
+   width:calc(100% - 32px)!important;
+   gap:26px!important;
+ }
+
+ .hero.hero-video-enabled .hero-copy h1{
+   font-size:clamp(30px,7.8vw,39px)!important;
+   line-height:1.12!important;
+   letter-spacing:-.035em!important;
+ }
+
+ .hero.hero-video-enabled .hero-copy h1 .blue,
+ .hero.hero-video-enabled .hero-copy h1 .green{
+   display:inline!important;
+   white-space:normal!important;
+ }
+
+ .hero.hero-video-enabled .hero-brand-promise{
+   display:none!important;
+ }
+
+ .hero.hero-video-enabled .hero-copy .lead{
+   max-width:100%!important;
+   font-size:15px!important;
+   line-height:1.6!important;
+   margin-top:16px!important;
+ }
+
+ .hero.hero-video-enabled .hero-actions{
+   margin-top:22px!important;
+   gap:10px!important;
+ }
+
+ .hero.hero-video-enabled .hero-actions .btn{
+   min-height:52px!important;
+ }
+
+ .hero.hero-video-enabled .hero-ecosystem{
+   position:relative!important;
+   padding:4px 0 24px!important;
+   margin:0 auto!important;
+   isolation:isolate;
+   background:
+     radial-gradient(ellipse at 50% 52%,rgba(150,229,109,.24),transparent 65%),
+     radial-gradient(circle at 17% 75%,rgba(183,222,255,.23),transparent 35%)!important;
+ }
+
+ .hero.hero-video-enabled .hero-ecosystem::before{
+   content:"✦"!important;
+   display:block!important;
+   position:absolute!important;
+   top:11%!important;
+   left:5%!important;
+   width:auto!important;
+   height:auto!important;
+   color:#f4c63d!important;
+   font-size:31px!important;
+   line-height:1!important;
+   transform:rotate(-14deg)!important;
+   background:none!important;
+   box-shadow:none!important;
+   opacity:.9!important;
+   pointer-events:none!important;
+   z-index:0!important;
+ }
+
+ .hero.hero-video-enabled .hero-ecosystem::after{
+   content:"✦"!important;
+   display:block!important;
+   position:absolute!important;
+   right:6%!important;
+   bottom:17%!important;
+   width:auto!important;
+   height:auto!important;
+   color:#72c84b!important;
+   font-size:26px!important;
+   line-height:1!important;
+   transform:rotate(18deg)!important;
+   background:none!important;
+   box-shadow:none!important;
+   opacity:.85!important;
+   pointer-events:none!important;
+   z-index:0!important;
+ }
+
+ .hero.hero-video-enabled .hero-conway-player{
+   position:relative!important;
+   width:min(75vw,270px)!important;
+   max-width:270px!important;
+   margin:0 auto!important;
+   z-index:1!important;
+   box-shadow:0 18px 45px rgba(40,106,72,.2)!important;
+ }
+
+ .hero.hero-video-enabled .hero-grid{
+   gap:15px!important;
+ }
+
+ .hero.hero-video-enabled .hero-integrations-premium{
+   margin-top:18px!important;
+ }
+
+ #product-showcase .td-product-tabs{
+   display:flex!important;
+   flex-wrap:nowrap!important;
+   justify-content:flex-start!important;
+   gap:9px!important;
+   width:100%!important;
+   max-width:100%!important;
+   overflow-x:auto!important;
+   overflow-y:hidden!important;
+   padding:4px 1px 13px!important;
+   margin-bottom:18px!important;
+   scroll-snap-type:x proximity;
+   -webkit-overflow-scrolling:touch;
+   scrollbar-width:none;
+ }
+
+ #product-showcase .td-product-tabs::-webkit-scrollbar{
+   display:none;
+ }
+
+ #product-showcase .td-product-tabs .td-tab{
+   flex:0 0 auto!important;
+   width:auto!important;
+   min-height:46px!important;
+   padding:11px 16px!important;
+   font-size:13px!important;
+   line-height:1.2!important;
+   white-space:nowrap!important;
+   scroll-snap-align:start;
+ }
+
+ #product-showcase .td-head{
+   margin-bottom:21px!important;
+ }
+
+ #product-showcase .td-head h2{
+   font-size:clamp(32px,8vw,40px)!important;
+   line-height:1.1!important;
+ }
+
+ #product-showcase .td-head p{
+   font-size:15px!important;
+   line-height:1.55!important;
+ }
+
+ #recognition-story:before,#explore-by-role:before,#product-showcase:before,#what:before,#teacher-tools:before,#behaviour:before,#why:before,#culture:before,#school-store:before,#school-launch-offer:before,#pricing:before,#faq:before{width:46px;height:46px;font-size:25px;top:17px;right:12px;border-radius:15px}
+ #recognition-story:after,#explore-by-role:after,#product-showcase:after,#what:after,#teacher-tools:after,#behaviour:after,#why:after,#culture:after,#school-store:after,#school-launch-offer:after,#pricing:after,#faq:after{width:145px;height:145px;border-width:13px;left:-82px}
+ #pricing .pricing-plan-card{border-radius:23px!important}
+}
+
+
+/* Mobile: keep the green headline phrase together
+   and put pilot help directly after the main button */
+@media(max-width:680px){
+ .hero.hero-video-enabled .hero-copy h1 .green{
+   display:inline-block!important;
+   white-space:nowrap!important;
+   font-size:.78em!important;
+   line-height:1.15!important;
+ }
+
+ .hero.hero-video-enabled .hero-copy{
+   display:flex!important;
+   flex-direction:column!important;
+   align-items:stretch!important;
+ }
+
+ .hero.hero-video-enabled .hero-actions{
+   display:contents!important;
+ }
+
+ .hero.hero-video-enabled .hero-actions .btn-primary{
+   order:1!important;
+   margin-top:10px!important;
+ }
+
+
+
+ .hero.hero-video-enabled .hero-actions .hero-secondary{
+   order:2!important;
+   margin-top:11px!important;
+   display:flex!important;
+   align-items:center!important;
+   justify-content:center!important;
+   text-align:center!important;
+ }
+
+ .hero.hero-video-enabled .hero-integrations-premium{
+   order:4!important;
+   margin-top:20px!important;
+ }
+}
+
+/* Mobile: keep both integrations on one line */
+@media(max-width:680px){
+
+  .hero.hero-video-enabled .hero-integrations-premium{
+    display:flex!important;
+    flex-direction:row!important;
+    flex-wrap:nowrap!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+    gap:8px!important;
+    width:100%!important;
+    max-width:100%!important;
+  }
+
+  .hero-integrations-premium .hero-integrations-label{
+    flex:0 1 auto!important;
+    min-width:0!important;
+    font-size:9px!important;
+    line-height:1.2!important;
+    white-space:nowrap!important;
+  }
+
+  .hero-integrations-premium .hero-integrations-options{
+    display:flex!important;
+    flex:0 0 auto!important;
+    flex-wrap:nowrap!important;
+    align-items:center!important;
+    gap:8px!important;
+  }
+
+  .hero-integrations-premium .hero-integration-option{
+    flex-wrap:nowrap!important;
+    gap:5px!important;
+  }
+
+  .hero-integrations-premium .hero-integration-option strong{
+    font-size:9px!important;
+    white-space:nowrap!important;
+  }
+
+  .hero-integrations-premium .hero-integration-icon.google{
+    width:24px!important;
+    min-width:24px!important;
+    height:24px!important;
+    font-size:14px!important;
+  }
+
+  .hero.hero-video-enabled .hero-integration-icon.wonde{
+    width:65px!important;
+    min-width:65px!important;
+    height:30px!important;
+    padding:3px 5px!important;
+  }
+
+  .hero-integrations-premium .hero-integrations-divider{
+    display:none!important;
+  }
+}
+
+@media(max-width:390px){
+  .hero-integrations-premium .hero-integrations-label,
+  .hero-integrations-premium .hero-integration-option strong{
+    font-size:8px!important;
+  }
+
+  .hero.hero-video-enabled .hero-integrations-premium{
+    gap:6px!important;
+  }
+
+  .hero-integrations-premium .hero-integrations-options{
+    gap:5px!important;
+  }
+}
+
+/* Mobile hero finishing touches */
+@media(max-width:680px){
+
+  /* Keep the integration row clear and aligned */
+  .hero.hero-video-enabled .hero-integrations-premium{
+    align-items:center!important;
+    column-gap:7px!important;
+  }
+
+  .hero.hero-video-enabled .hero-integrations-label{
+    color:#24445e!important;
+    font-size:9.5px!important;
+    font-weight:800!important;
+    letter-spacing:-.15px!important;
+    white-space:nowrap!important;
+  }
+
+  .hero.hero-video-enabled .hero-integration-option strong{
+    color:#24445e!important;
+    font-weight:800!important;
+  }
+
+  /* Keep the Wonde logo compact */
+  .hero.hero-video-enabled .hero-integration-icon.wonde{
+    width:60px!important;
+    min-width:60px!important;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){.btn-primary:hover,#what .te-product-card:hover,#teacher-tools .te-teacher-item:hover{transform:none!important}}
+
+
+/* Cover the small decorative corner on phones only */
+@media(max-width:680px){
+  .hero.hero-video-enabled::after{
+    content:""!important;
+    display:block!important;
+    position:absolute!important;
+    top:0!important;
+    right:0!important;
+    left:auto!important;
+    bottom:auto!important;
+    width:90px!important;
+    height:22px!important;
+    border-radius:0!important;
+    background:linear-gradient(90deg,#f6fdf8,#f5fcf8)!important;
+    z-index:1!important;
+    pointer-events:none!important;
+  }
+}
+
+
+</style>
+<style>
+/* Arabic: keep the real video, remove English-only background art. */
+html[dir="rtl"] .hero.hero-video-enabled {
+  background:linear-gradient(135deg,#f5fff0 0%,#effcf5 55%,#e9f7ff 100%)!important;
+}
+html[dir="rtl"] .hero.hero-video-enabled::before,
+html[dir="rtl"] .hero.hero-video-enabled::after {
+  content:none!important;
+  display:none!important;
+}
+html[dir="rtl"] .hero.hero-video-enabled .hero-copy {
+  text-align:right!important;
+  min-width:0!important;
+}
+html[dir="rtl"] .hero.hero-video-enabled .hero-copy h1 {
+  font-size:clamp(30px,3.1vw,54px)!important;
+  line-height:1.34!important;
+  max-width:100%!important;
+}
+html[dir="rtl"] .hero.hero-video-enabled .hero-copy .lead {
+  line-height:1.85!important;
+}
+@media(max-width:1100px) {
+  html[dir="rtl"] .hero.hero-video-enabled .hero-copy h1 {
+    font-size:clamp(30px,5.5vw,48px)!important;
+  }
+}
+</style>
 </head>
 <body id="top">
 <nav class="nav" id="topNav">
@@ -18412,2194 +20629,7 @@ hero_lead: 'عزّز مشاركة الطلاب، وقدّر إنجازاتهم،
 
 })();
 </script>
-<style>
 
-/* =========================================
-   RTL POLISH — TRUST + TRAINING
-========================================= */
-
-html[dir="rtl"] #trustModal,
-html[dir="rtl"] #trainingModal{
-  direction:rtl;
-  text-align:right;
-  font-family:"Noto Sans Arabic",Outfit,system-ui,sans-serif;
-}
-
-html[dir="rtl"] #trustModal h2,
-html[dir="rtl"] #trustModal h3,
-html[dir="rtl"] #trustModal h4,
-html[dir="rtl"] #trainingModal h2,
-html[dir="rtl"] #trainingModal h3,
-html[dir="rtl"] #trainingModal h4{
-  font-family:"Noto Sans Arabic",Outfit,system-ui,sans-serif!important;
-}
-
-html[dir="rtl"] #trustModal .text-left{
-  text-align:right!important;
-}
-
-html[dir="rtl"] #trustModal a[href^="mailto:"]{
-  direction:ltr;
-  unicode-bidi:isolate;
-  display:inline-block;
-}
-
-html[dir="rtl"] #trainingModal .training-modal-footer,
-html[dir="rtl"] #trainingModal .training-modal-header,
-html[dir="rtl"] #trainingModal .training-topic-icon{
-  direction:rtl;
-}
-
-
-/* =========================================================
-   TRACKEDU TRUST + INTEGRATIONS MARQUEE
-   Continuous, slow movement from left to right
-========================================================= */
-
-.hero-trust-strip{
-  position:relative;
-  padding:18px 0;
-  overflow:hidden;
-  background:#f8fbfe;
-  border-top:1px solid #dce8f2;
-  border-bottom:1px solid #dce8f2;
-}
-
-.hero-trust-marquee{
-  position:relative;
-  width:100%;
-  overflow:hidden;
-}
-
-.hero-trust-marquee-track{
-  display:flex;
-  width:max-content;
-  align-items:stretch;
-  will-change:transform;
-}
-
-.hero-trust-marquee-group{
-  display:flex;
-  flex:0 0 auto;
-  align-items:stretch;
-  gap:12px;
-  padding-right:12px;
-}
-
-.hero-trust-marquee .hero-trust-strip-item{
-  display:flex;
-  flex:0 0 252px;
-  width:252px;
-  min-width:252px;
-  min-height:72px;
-  align-items:center;
-  gap:12px;
-  padding:13px 16px;
-  border:1px solid #d8e4ee;
-  border-radius:17px;
-  background:#fff;
-  box-shadow:0 5px 16px rgba(11,35,65,.04);
-  box-sizing:border-box;
-}
-
-.hero-trust-marquee .hero-trust-strip-item strong{
-  display:block;
-  color:#17324f;
-  font-size:12px;
-  font-weight:900;
-  line-height:1.3;
-}
-
-.hero-trust-marquee .hero-trust-strip-item span{
-  display:block;
-  margin-top:3px;
-  color:#71859a;
-  font-size:10px;
-  line-height:1.35;
-}
-
-.hero-trust-marquee .hero-trust-strip-icon{
-  display:grid;
-  flex:0 0 40px;
-  place-items:center;
-  width:40px;
-  height:40px;
-  border-radius:12px;
-  background:#eef6ff;
-  color:#2477c9;
-  font-size:15px;
-}
-
-.hero-trust-marquee .hero-trust-strip-icon.google{
-  background:#fff;
-  color:#4285f4;
-  border:1px solid #e4ebf2;
-  font-size:21px;
-}
-
-.hero-trust-marquee .hero-trust-strip-icon.wonde{
-  width:62px;
-  flex-basis:62px;
-  background:#fff;
-  border:1px solid #e4ebf2;
-  padding:5px;
-}
-
-.hero-trust-marquee .hero-trust-strip-icon.wonde img{
-  display:block;
-  width:100%;
-  height:100%;
-  object-fit:contain;
-}
-
-/* Start with two identical groups for a seamless loop */
-.hero-trust-marquee-track.is-ready{
-  animation:trackEduTrustMove 48s linear infinite;
-}
-
-/* Left to right */
-@keyframes trackEduTrustMove{
-  from{
-    transform:translateX(-50%);
-  }
-  to{
-    transform:translateX(0);
-  }
-}
-
-/* Pause when visitors hover over the strip */
-.hero-trust-marquee:hover .hero-trust-marquee-track{
-  animation-play-state:paused;
-}
-
-/* Subtle fading at the edges */
-.hero-trust-marquee{
-  -webkit-mask-image:linear-gradient(
-    to right,
-    transparent,
-    #000 5%,
-    #000 95%,
-    transparent
-  );
-  mask-image:linear-gradient(
-    to right,
-    transparent,
-    #000 5%,
-    #000 95%,
-    transparent
-  );
-}
-
-/* Mobile */
-@media(max-width:680px){
-
-  .hero-trust-strip{
-    padding:12px 0!important;
-  }
-
-  .hero-description-desktop {
-    display:none!important;
-  }
-
-  .hero-description-mobile {
-    display:inline!important;
-  }
-
-  .hero-trust-marquee .hero-trust-strip-item{
-    flex:0 0 220px!important;
-    width:220px!important;
-    min-width:220px!important;
-    min-height:65px!important;
-    padding:10px 12px!important;
-  }
-
-  .hero-trust-marquee .hero-trust-strip-icon{
-    flex-basis:35px;
-    width:35px;
-    height:35px;
-  }
-
-  .hero-trust-marquee .hero-trust-strip-icon.wonde{
-    flex-basis:54px;
-    width:54px;
-  }
-
-  .hero-trust-marquee-track.is-ready{
-    animation-duration:55s;
-  }
-}
-
-
-@media(min-width:681px){
-  .hero-description-mobile{
-    display:none!important;
-  }
-
-  .hero-description-desktop{
-    display:inline!important;
-  }
-}
-
-/* Accessibility: respect reduced-motion preference */
-@media(prefers-reduced-motion:reduce){
-
-  .hero-trust-marquee{
-    overflow-x:auto;
-    -webkit-mask-image:none;
-    mask-image:none;
-  }
-
-  .hero-trust-marquee-track.is-ready{
-    animation:none!important;
-    transform:none!important;
-  }
-
-  .hero-trust-marquee-track .hero-trust-marquee-group[aria-hidden="true"]{
-    display:none;
-  }
-}
-
-/* Trust and integrations section heading */
-
-.hero-trust-heading{
-  position:relative;
-  z-index:2;
-  text-align:center;
-  padding:0 20px;
-  margin:0 auto 20px;
-}
-
-.hero-trust-heading h2{
-  margin:0;
-  color:#17324f;
-  font-family:Fredoka,system-ui,sans-serif;
-  font-size:clamp(20px,2.2vw,28px);
-  font-weight:600;
-  line-height:1.2;
-  letter-spacing:-.025em;
-}
-
-/* Mobile */
-
-@media(max-width:680px){
-
-  .hero-trust-heading{
-    margin-bottom:15px;
-    padding:0 16px;
-  }
-
-  .hero-trust-heading h2{
-    font-size:21px;
-    line-height:1.25;
-  }
-
-}
-
-/* =========================================================
-   PREMIUM CONWAY SCHOOL HERO VIDEO
-========================================================= */
-
-/* Keep the video within the existing right-hand hero column */
-.hero-video-enabled .hero-ecosystem{
-  position:relative;
-  display:flex;
-  align-items:center;
-  width:100%;
-  min-width:0;
-  min-height:545px;
-  overflow:visible;
-}
-
-/* Hide the previous rotating product previews */
-.hero-video-enabled .hero-ecosystem > :not(.hero-conway-player){
-  display:none!important;
-}
-
-/* The video player */
-.hero-conway-player{
-  position:relative;
-  width:100%;
-  min-width:0;
-  overflow:hidden;
-  border-radius:24px;
-  background:#07111f;
-  border:1px solid rgba(255,255,255,.20);
-  box-shadow:
-    0 30px 70px rgba(0,0,0,.34),
-    0 0 0 5px rgba(255,255,255,.035);
-}
-
-/* Proper 16:9 YouTube video */
-.hero-conway-video{
-  position:relative;
-  width:100%;
-  aspect-ratio:16 / 9;
-  background:#07111f;
-}
-
-.hero-conway-video iframe{
-  position:absolute;
-  inset:0;
-  display:block;
-  width:100%;
-  height:100%;
-  border:0;
-}
-
-.hero-conway-video::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:2;
-  background:#07111f url("https://img.youtube.com/vi/Jo3HvL2D2wY/0.jpg") center/cover no-repeat;
-  opacity:1;
-  visibility:visible;
-  pointer-events:none;
-  transition:opacity .25s ease, visibility .25s ease;
-}
-
-.hero-conway-video.is-ready::after{
-  opacity:0;
-  visibility:hidden;
-}
-
-/* Below-video school identification */
-.hero-conway-caption{
-  display:flex;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:9px;
-  padding:15px 18px;
-  color:#dce8f4;
-  background:linear-gradient(90deg,#0c2139,#142d49);
-}
-
-.hero-conway-live-dot{
-  width:8px;
-  height:8px;
-  flex:0 0 8px;
-  border-radius:50%;
-  background:#91d447;
-  box-shadow:0 0 0 4px rgba(145,212,71,.12);
-}
-
-.hero-conway-caption span:nth-child(2){
-  font-size:9px;
-  font-weight:900;
-  letter-spacing:.09em;
-  color:#aee67a;
-}
-
-.hero-conway-caption strong{
-  font-size:11px;
-  font-weight:800;
-  margin-left:auto;
-  color:#fff;
-}
-
-/* Hide the duplicate floating Watch Video button */
-.hero-video-enabled .hero-real-school-proof{
-  display:none!important;
-}
-
-/* Tablet */
-@media(max-width:1080px){
-  .hero-video-enabled .hero-ecosystem{
-    min-height:0!important;
-    margin-top:8px;
-  }
-}
-
-/* Mobile */
-@media(max-width:680px){
-
-  .hero-video-enabled .hero-ecosystem{
-    min-height:0!important;
-    width:100%;
-    overflow:visible;
-    margin-top:8px;
-  }
-
-  .hero-conway-player{
-    border-radius:18px;
-    box-shadow:0 18px 40px rgba(0,0,0,.24);
-  }
-
-  .hero-conway-caption{
-    padding:12px;
-    gap:7px;
-  }
-
-  .hero-conway-caption span:nth-child(2){
-    font-size:8px;
-  }
-
-  .hero-conway-caption strong{
-    font-size:10px;
-    margin-left:0;
-  }
-}
-
-/* =====================================================
-   PREMIUM HERO: TEACHER APP + PORTRAIT SCHOOL VIDEO
-===================================================== */
-
-@media(min-width:681px){
-
-  .hero-video-enabled .hero-ecosystem{
-    position:relative;
-    display:block;
-    width:100%;
-    min-height:545px;
-    overflow:visible;
-  }
-
-  /* Restore the animated Teacher App */
-  .hero-video-enabled .hero-ecosystem > .teacher-window{
-    display:block!important;
-    position:absolute;
-    left:0;
-    top:65px;
-    width:77%;
-    height:72%;
-    transform:none;
-    z-index:3;
-    border-radius:24px;
-    box-shadow:0 24px 65px rgba(0,0,0,.25);
-  }
-
-  /* Keep the old Student Portal preview hidden */
-  .hero-video-enabled .hero-ecosystem > .student-window{
-    display:none!important;
-  }
-
-  /* Portrait video on the right */
-  .hero-video-enabled .hero-conway-player{
-    position:absolute;
-    top:18px;
-    right:0;
-    width:43%;
-    max-width:255px;
-    z-index:6;
-    border-radius:21px;
-    overflow:hidden;
-    border:2px solid rgba(255,255,255,.25);
-    background:#07111f;
-    box-shadow:
-      0 28px 65px rgba(0,0,0,.34),
-      0 0 0 5px rgba(255,255,255,.035);
-  }
-
-  /* Match the original portrait aspect ratio */
-  .hero-conway-video{
-    position:relative;
-    width:100%;
-    aspect-ratio:9 / 16;
-    background:#07111f;
-  }
-
-  .hero-conway-video iframe{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    display:block;
-    border:0;
-  }
-
-  /* Compact identification beneath the video */
-  .hero-conway-caption{
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-    gap:4px;
-    padding:11px 13px;
-    background:#102841;
-  }
-
-  .hero-conway-caption .hero-conway-live-dot{
-    display:none;
-  }
-
-  .hero-conway-caption span:nth-child(2){
-    font-size:9px;
-    letter-spacing:.07em;
-    color:#b8e978;
-  }
-
-  .hero-conway-caption strong{
-    margin:0;
-    font-size:11px;
-    color:#fff;
-    line-height:1.3;
-  }
-}
-
-/* =====================================================
-   MOBILE: SHOW PORTRAIT VIDEO WITHOUT CRAMPING IT
-===================================================== */
-
-@media(max-width:680px){
-
-  .hero-video-enabled .hero-ecosystem{
-    display:flex;
-    justify-content:center;
-    align-items:flex-start;
-    min-height:0!important;
-    width:100%;
-    margin-top:20px;
-    overflow:visible;
-  }
-
-  /* Avoid overlapping tiny previews on narrow screens */
-  .hero-video-enabled .hero-ecosystem > .teacher-window,
-  .hero-video-enabled .hero-ecosystem > .student-window{
-    display:none!important;
-  }
-
-  .hero-video-enabled .hero-conway-player{
-    position:relative;
-    top:auto;
-    right:auto;
-    width:min(100%,270px);
-    max-width:270px;
-    border-radius:19px;
-    overflow:hidden;
-    border:2px solid rgba(255,255,255,.20);
-    box-shadow:0 20px 48px rgba(0,0,0,.25);
-  }
-
-  .hero-conway-video{
-    width:100%;
-    aspect-ratio:9 / 16;
-  }
-
-  .hero-conway-video iframe{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    border:0;
-  }
-
-  .hero-conway-caption{
-    padding:11px 13px;
-  }
-
-  .hero-conway-caption strong{
-    font-size:11px;
-  }
-}
-
-/* =========================================================
-   CONWAY SCHOOL - CLEAN CASE STUDY SECTION
-========================================================= */
-
-/* Conway Christian School: compact desktop showcase */
-@media(min-width:1101px){
-
-  #school-partners .partner-card{
-    display:flex!important;
-    flex-direction:column!important;
-    align-items:center!important;
-    justify-content:center!important;
-
-    gap:8px!important;
-    min-height:0!important;
-    padding:24px 28px!important;
-    text-align:center!important;
-  }
-
-  #school-partners .partner-logo-wrap{
-    width:90px!important;
-    height:90px!important;
-    align-self:center!important;
-    justify-self:center!important;
-    margin:0 auto!important;
-  }
-
-  #school-partners .partner-copy-refined{
-    width:100%!important;
-    max-width:850px!important;
-    margin:0 auto!important;
-    text-align:center!important;
-  }
-
-  #school-partners .partner-copy-refined .partner-school-meta,
-  #school-partners .partner-copy-refined .partner-copy-actions{
-    justify-content:center!important;
-  }
-
-  #school-partners .partner-copy-refined h2{
-    max-width:850px!important;
-    margin-left:auto!important;
-    margin-right:auto!important;
-  }
-
-  #school-partners .partner-copy-refined p{
-    max-width:650px!important;
-    margin-left:auto!important;
-    margin-right:auto!important;
-  }
-}
-
-@media(min-width:901px){
-  #school-partners .partner-logo-wrap{
-    grid-column:1;
-    grid-row:1;
-    justify-self:start;
-    align-self:end!important;
-  }
-
-  #school-partners .partner-copy-refined{
-    grid-column:1;
-    grid-row:2;
-  }
-
-  #school-partners .partner-capabilities{
-    grid-column:2;
-    grid-row:1 / 3;
-    align-self:center;
-  }
-}
-
-#school-partners .partner-logo-wrap{
-  width:82px!important;
-  height:82px!important;
-  align-self:center;
-}
-
-#school-partners .partner-copy-refined{
-  max-width:750px;
-}
-
-#school-partners .partner-copy-refined .partner-school-meta{
-  margin:0 0 18px!important;
-}
-
-#school-partners .partner-copy-refined .partner-label{
-  margin-bottom:12px!important;
-}
-
-#school-partners .partner-copy-refined h2{
-  max-width:750px!important;
-  font-size:clamp(32px,3.1vw,48px)!important;
-  line-height:1.08!important;
-  letter-spacing:-.035em!important;
-}
-
-#school-partners .partner-copy-refined p{
-  display:block!important;
-  max-width:560px!important;
-  margin-top:17px!important;
-  font-size:16px!important;
-  line-height:1.6!important;
-}
-
-#school-partners .partner-copy-refined .partner-copy-actions{
-  display:flex!important;
-  align-items:center!important;
-  gap:12px!important;
-  margin-top:22px!important;
-}
-
-#school-partners .partner-copy-refined .partner-school-link{
-  display:inline-flex;
-  align-items:center;
-  gap:9px;
-  color:#236da5!important;
-  font-size:13px;
-  font-weight:850;
-  text-decoration:none;
-}
-
-#school-partners .partner-copy-refined .partner-school-link:hover{
-  color:#0b2341!important;
-}
-
-/* Capability showcase */
-
-#school-partners .partner-capabilities{
-  display:grid;
-  gap:10px;
-  padding:22px;
-  border:1px solid #dce8f2;
-  border-radius:24px;
-  background:linear-gradient(145deg,#f6fbff,#eff7fd);
-  box-shadow:0 14px 36px rgba(11,35,65,.06);
-  min-width:0;
-}
-
-#school-partners .partner-capabilities-heading{
-  display:grid;
-  gap:5px;
-  padding:0 3px 8px;
-}
-
-#school-partners .partner-capabilities-heading > span{
-  color:#659d32;
-  font-size:10px;
-  font-weight:950;
-  letter-spacing:.10em;
-}
-
-#school-partners .partner-capabilities-heading > strong{
-  color:#0b2341;
-  font-family:Fredoka,system-ui,sans-serif;
-  font-size:22px;
-  line-height:1.15;
-}
-
-#school-partners .partner-capability{
-  display:flex;
-  align-items:center;
-  gap:13px;
-  min-width:0;
-  padding:14px;
-  border:1px solid #e3ecf4;
-  border-radius:16px;
-  background:#fff;
-}
-
-#school-partners .partner-capability-icon{
-  display:grid;
-  place-items:center;
-  flex:0 0 43px;
-  width:43px;
-  height:43px;
-  border-radius:13px;
-  font-size:17px;
-}
-
-#school-partners .partner-capability-icon.student{
-  background:#eef0ff;
-  color:#7663d7;
-}
-
-#school-partners .partner-capability-icon.teacher{
-  background:#eaf5ff;
-  color:#2483cc;
-}
-
-#school-partners .partner-capability-icon.recognition{
-  background:#eef9e3;
-  color:#68a431;
-}
-
-#school-partners .partner-capability > div{
-  min-width:0;
-}
-
-#school-partners .partner-capability > div > strong{
-  display:block;
-  color:#17324f;
-  font-size:13px;
-  font-weight:900;
-  line-height:1.3;
-}
-
-#school-partners .partner-capability > div > span{
-  display:block;
-  margin-top:4px;
-  color:#6a8095;
-  font-size:11px;
-  line-height:1.45;
-}
-
-/* Tablet */
-
-@media(max-width:1100px){
-  #school-partners .partner-card{
-    grid-template-columns:72px minmax(0,1fr)!important;
-    gap:20px!important;
-    padding:36px 28px!important;
-  }
-
-  #school-partners .partner-logo-wrap{
-    width:72px!important;
-    height:72px!important;
-  }
-
-  #school-partners .partner-capabilities{
-    grid-column:1 / -1;
-  }
-}
-
-/* Mobile */
-
-@media(max-width:680px){
-  #school-partners .partner-card{
-    display:grid!important;
-    grid-template-columns:58px minmax(0,1fr)!important;
-    gap:14px!important;
-    padding:26px 18px!important;
-    min-height:0!important;
-  }
-
-  #school-partners .partner-logo-wrap{
-    width:58px!important;
-    height:58px!important;
-    align-self:start!important;
-  }
-
-  #school-partners .partner-copy-refined{
-    grid-column:2;
-    min-width:0;
-  }
-
-  #school-partners .partner-copy-refined .partner-school-meta{
-    margin-bottom:10px!important;
-  }
-
-  #school-partners .partner-copy-refined h2{
-    font-size:25px!important;
-    line-height:1.12!important;
-  }
-
-  #school-partners .partner-copy-refined p{
-    display:block!important;
-    font-size:13px!important;
-    line-height:1.55!important;
-  }
-
-  #school-partners .partner-capabilities{
-    grid-column:1 / -1;
-    padding:14px;
-    border-radius:19px;
-    margin-top:4px;
-  }
-
-  #school-partners .partner-capabilities-heading > strong{
-    font-size:19px;
-  }
-
-  #school-partners .partner-capability{
-    padding:11px;
-  }
-
-  #school-partners .partner-capability > div > strong{
-    font-size:12px;
-  }
-
-  #school-partners .partner-capability > div > span{
-    font-size:10px;
-  }
-}
-
-
-/* =====================================================
-   CONWAY SECTION - FOUR CONNECTED CAPABILITIES
-===================================================== */
-
-#school-partners .partner-capabilities{
-  width:100%;
-  min-width:0;
-  gap:14px;
-  padding:22px;
-}
-
-#school-partners .partner-capabilities-heading{
-  padding:0 2px 5px;
-  gap:6px;
-}
-
-#school-partners .partner-capabilities-heading > strong{
-  font-size:21px;
-  line-height:1.2;
-}
-
-/* Four equal capability cards */
-
-#school-partners .partner-capabilities-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:10px;
-}
-
-#school-partners .partner-capability{
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  justify-content:flex-start;
-  gap:11px;
-  min-width:0;
-  padding:16px 13px;
-  border-radius:16px;
-}
-
-#school-partners .partner-capability-icon{
-  flex:0 0 40px;
-  width:40px;
-  height:40px;
-  border-radius:12px;
-  font-size:16px;
-}
-
-#school-partners .partner-capability > div > strong{
-  font-size:13px;
-  line-height:1.3;
-}
-
-#school-partners .partner-capability > div > span{
-  font-size:11px;
-  line-height:1.45;
-  margin-top:5px;
-}
-
-/* Incident Reporting - coral */
-
-#school-partners .partner-capability-icon.incident{
-  background:#fff0e9;
-  color:#e57948;
-}
-
-/* Mobile: one card per row */
-
-@media(max-width:680px){
-
-  #school-partners .partner-capabilities{
-    padding:15px;
-    gap:12px;
-  }
-
-  #school-partners .partner-capabilities-heading > strong{
-    font-size:19px;
-  }
-
-  #school-partners .partner-capabilities-grid{
-    grid-template-columns:1fr;
-    gap:8px;
-  }
-
-  #school-partners .partner-capability{
-    flex-direction:row;
-    align-items:center;
-    gap:12px;
-    padding:12px;
-    border-radius:14px;
-  }
-
-  #school-partners .partner-capability-icon{
-    flex:0 0 40px;
-    width:40px;
-    height:40px;
-  }
-
-  #school-partners .partner-capability > div > strong{
-    font-size:12px;
-  }
-
-  #school-partners .partner-capability > div > span{
-    font-size:10px;
-    line-height:1.4;
-  }
-
-}
-
-
-/* TrackEDU hero: clearer desktop hierarchy */
-@media (min-width:1081px){
-
-  .hero-video-enabled .hero-copy h1{
-    font-size:clamp(42px,4.15vw,67px)!important;
-    line-height:1.08!important;
-    letter-spacing:-.045em!important;
-    max-width:720px!important;
-    margin-top:14px!important;
-  }
-
-  .hero-video-enabled .hero-copy .lead{
-    max-width:610px!important;
-    font-size:17px!important;
-    line-height:1.6!important;
-    margin-top:19px!important;
-  }
-
-  .hero-video-enabled .hero-actions{
-    margin-top:22px!important;
-  }
-
-}
-
-/* ================================================================
-   TRACKEDU 2026 | FOCUSED MOBILE REFINEMENT
-   Tighter scanning, real product visuals, accessible expandable details
-   ================================================================ */
-.hero-brand-promise{
-  margin:0 0 15px;
-  color:#c9dced;
-  font-size:12px;
-  line-height:1.45;
-  font-weight:750;
-  letter-spacing:.035em;
-}
-.hero-video-enabled .hero-copy h1{
-  max-width:790px;
-  line-height:1.06!important;
-  text-wrap:balance;
-}
-.hero-video-enabled .hero-copy .lead{max-width:670px;}
-.te-mobile-included > summary{display:none;}
-@media (min-width:681px){
-  .te-mobile-included{display:contents;}
-}
-@media (max-width:1100px) and (min-width:681px){
-  .hero-video-enabled .hero-grid{
-    grid-template-columns:minmax(0,1.02fr) minmax(280px,.92fr)!important;
-    gap:24px!important;
-    align-items:center!important;
-  }
-
-  .hero-video-enabled .hero-copy{
-    min-width:0;
-    max-width:none;
-  }
-
-  .hero-video-enabled .hero-copy h1{
-    font-size:clamp(40px,5.2vw,58px)!important;
-    max-width:100%!important;
-  }
-
-  .hero-video-enabled .hero-copy .lead{
-    max-width:100%!important;
-  }
-
-  .hero-video-enabled .hero-ecosystem{
-    min-height:500px!important;
-    margin-top:0!important;
-  }
-
-  .hero-video-enabled .hero-ecosystem > .teacher-window{
-    left:0!important;
-    top:74px!important;
-    width:74%!important;
-    height:68%!important;
-  }
-
-  .hero-video-enabled .hero-conway-player{
-    top:22px!important;
-    right:0!important;
-    width:42%!important;
-    max-width:250px!important;
-  }
-}
-
-@media (max-width:900px) and (min-width:681px){
-  .hero-video-enabled .hero-grid{
-    grid-template-columns:minmax(0,1fr) minmax(240px,320px)!important;
-    gap:20px!important;
-  }
-
-  .hero-video-enabled .hero-copy h1{
-    font-size:clamp(34px,5.8vw,48px)!important;
-  }
-
-  .hero-video-enabled .hero-copy .lead{
-    font-size:15px!important;
-    line-height:1.55!important;
-  }
-
-  .hero-video-enabled .hero-actions{
-    gap:9px!important;
-  }
-
-  .hero-video-enabled .hero-actions .btn{
-    min-height:48px!important;
-    padding:0 16px!important;
-    font-size:13px!important;
-  }
-
-  .hero-video-enabled .hero-ecosystem{
-    min-height:430px!important;
-  }
-
-  .hero-video-enabled .hero-ecosystem > .teacher-window{
-    top:66px!important;
-    width:73%!important;
-    height:65%!important;
-  }
-
-  .hero-video-enabled .hero-conway-player{
-    width:42%!important;
-    max-width:210px!important;
-  }
-}
-@media (max-width:680px){
-  :root{scroll-padding-top:72px;}
-  html,body{max-width:100%;overflow-x:clip;}
-  .shell{width:calc(100% - 32px)!important;max-width:560px;}
-  .navin{height:64px!important;}
-  .brand{font-size:23px!important;}
-  .brand img{width:30px!important;height:30px!important;}
-  .hamburger{min-width:44px;min-height:44px;}
-  .hero-video-enabled.hero{
-    padding:28px 0 29px!important;
-    overflow:hidden;
-  }
-  .hero-video-enabled .hero-grid{gap:12px!important;}
-  .hero-video-enabled .hero-copy{max-width:100%;min-width:0;}
-  .hero-brand-promise{font-size:11px;margin:0 0 11px;letter-spacing:.01em;}
-  .hero-video-enabled .hero-copy h1{
-    font-size:clamp(30px,8.1vw,39px)!important;
-    line-height:1.075!important;
-    margin:0!important;
-    letter-spacing:-.04em!important;
-    max-width:100%;
-    text-wrap:pretty;
-  }
-  .hero-video-enabled .hero-copy .lead{
-    font-size:14px!important;
-    line-height:1.48!important;
-    margin:13px 0 0!important;
-    text-wrap:pretty;
-  }
-  .hero-actions{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,.88fr)!important;gap:8px!important;margin-top:18px!important;}
-  .hero-actions .btn{min-height:47px!important;padding:9px 10px!important;border-radius:13px!important;font-size:11px!important;gap:5px!important;line-height:1.24!important;text-align:center;white-space:normal;}
-  .hero-actions .btn i{font-size:11px!important;}
-  .pilot-how-link{font-size:11px!important;margin-top:9px!important;}
-  .hero-video-enabled .hero-integrations.hero-integrations-premium{
-    margin-top:16px!important;gap:8px!important;align-items:center!important;
-  }
-  .hero-integrations-premium .hero-integrations-label{font-size:10px!important;}
-  .hero-integrations-premium .hero-integrations-options{gap:9px!important;}
-  .hero-integrations-premium .hero-integration-option{gap:5px!important;}
-  .hero-integrations-premium .hero-integration-option strong{font-size:10px!important;}
-  .hero-integrations-premium .hero-integration-icon.google{
-    width:27px!important;height:27px!important;min-width:27px!important;
-  }
-  .hero-integrations-premium .hero-integration-icon.wonde{
-    width:47px!important;height:27px!important;min-width:47px!important;
-  }
-  /* Previous rule hid this entire showcase on mobile. Restore it. */
-  .hero-video-enabled .hero-ecosystem{
-    display:block!important;position:relative!important;
-    min-height:252px!important;height:252px!important;
-    margin:12px auto 0!important;
-    max-width:390px!important;
-    overflow:visible!important;
-    width:100%!important;
-  }
-  .hero-video-enabled .hero-ecosystem > :not(.hero-conway-player):not(.teacher-window){display:none!important;}
-  .hero-video-enabled .hero-ecosystem > .teacher-window{
-    display:block!important;position:absolute!important;
-    top:20px!important;left:0!important;
-    width:85%!important;height:208px!important;
-    transform:none!important;
-    border-radius:15px!important;
-    z-index:3!important;
-    box-shadow:0 14px 32px rgba(0,0,0,.2)!important;
-  }
-  .hero-video-enabled .hero-ecosystem > .teacher-window .window-top{height:31px!important;padding:0 8px!important;}
-  .hero-video-enabled .hero-ecosystem > .teacher-window .teacher-ui{height:calc(100% - 31px)!important;}
-  .hero-video-enabled .hero-ecosystem > .teacher-window .teacher-sidebar{padding:6px 3px!important;}
-  .hero-video-enabled .hero-ecosystem > .teacher-window .teacher-main{padding:6px!important;}
-  .hero-video-enabled .hero-conway-player{
-    position:absolute!important;top:0!important;right:0!important;left:auto!important;
-    width:38%!important;max-width:140px!important;
-    border-radius:15px!important;overflow:hidden!important;
-    z-index:6!important;
-    border:2px solid rgba(255,255,255,.32)!important;
-    box-shadow:0 16px 36px rgba(0,0,0,.3)!important;
-  }
-  .hero-video-enabled .hero-conway-video{aspect-ratio:9/16!important;}
-  .hero-conway-caption{padding:7px 8px!important;gap:2px!important;}
-  .hero-conway-caption span:nth-child(2){font-size:7px!important;letter-spacing:0!important;}
-  .hero-conway-caption strong{font-size:8px!important;line-height:1.2!important;}
-  .hero-trust-heading{margin:0 auto 10px!important;}
-  .hero-trust-heading h2{font-size:18px!important;line-height:1.25!important;}
-  .hero-trust-strip{padding:14px 0!important;}
-  .hero-trust-marquee .hero-trust-strip-item{min-height:56px!important;padding:10px 12px!important;}
-  /* Real school case study: shorter, clearer, brand-led. */
-  #school-partners{padding:0!important;background:#f8fbfe!important;}
-  #school-partners .shell{width:100%!important;max-width:none!important;padding:0!important;}
-  #school-partners .partner-card{
-    display:grid!important;grid-template-columns:48px minmax(0,1fr)!important;
-    gap:12px!important;padding:24px 16px 25px!important;
-    min-height:0!important;border-radius:0!important;border-left:0!important;border-right:0!important;
-    box-shadow:none!important;
-  }
-  #school-partners .partner-logo-wrap{
-    width:48px!important;height:48px!important;border-radius:13px!important;
-    align-self:start!important;
-  }
-  #school-partners .partner-copy-refined{grid-column:2!important;}
-  #school-partners .partner-copy-refined .partner-school-meta{margin:0 0 9px!important;gap:5px!important;}
-  #school-partners .partner-copy-refined .partner-school-meta strong{font-size:12px!important;}
-  #school-partners .partner-copy-refined .partner-school-meta span{font-size:10px!important;}
-  #school-partners .partner-copy-refined .partner-label{font-size:9px!important;margin:0 0 8px!important;}
-  #school-partners .partner-copy-refined h2{font-size:clamp(23px,6.2vw,29px)!important;line-height:1.12!important;letter-spacing:-.03em!important;}
-  #school-partners .partner-copy-refined p{display:block!important;font-size:12px!important;line-height:1.45!important;margin:9px 0 0!important;}
-  #school-partners .partner-copy-refined .partner-copy-actions{margin-top:12px!important;}
-  #school-partners .partner-copy-refined .partner-school-link{font-size:11px!important;}
-  #school-partners .partner-capabilities{
-    grid-column:1/-1!important;display:block!important;margin:5px 0 0!important;
-    padding:14px!important;border-radius:18px!important;
-  }
-  #school-partners .partner-capabilities-heading{padding:0 0 10px!important;gap:3px!important;}
-  #school-partners .partner-capabilities-heading>span{font-size:9px!important;}
-  #school-partners .partner-capabilities-heading>strong{font-size:17px!important;}
-  #school-partners .partner-capabilities-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important;}
-  #school-partners .partner-capability{
-    display:flex!important;flex-direction:column!important;align-items:flex-start!important;
-    gap:8px!important;padding:12px!important;border-radius:13px!important;
-    min-height:125px!important;
-  }
-  #school-partners .partner-capability-icon{width:33px!important;height:33px!important;flex:0 0 33px!important;font-size:14px!important;border-radius:10px!important;}
-  #school-partners .partner-capability>div>strong{font-size:12px!important;line-height:1.2!important;}
-  #school-partners .partner-capability>div>span{font-size:10px!important;line-height:1.35!important;margin-top:4px!important;}
-  /* Literacy Tree-inspired at-a-glance story: four compact outcomes. */
-  .section{padding:43px 0!important;}
-  .section-head{margin-bottom:17px!important;}
-  .section h2,.section-head h2{font-size:clamp(28px,7.3vw,34px)!important;line-height:1.07!important;letter-spacing:-.03em!important;}
-  .section-head .lead{font-size:13px!important;line-height:1.45!important;margin-top:10px!important;}
-  .eyebrow{font-size:9px!important;padding:6px 9px!important;}
-  #what .outcomes-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important;margin-top:18px!important;}
-  #what .outcome-tile{min-width:0;min-height:150px!important;padding:13px 11px!important;gap:7px!important;border-radius:16px!important;}
-  #what .outcome-tile>i{width:34px!important;height:34px!important;font-size:15px!important;border-radius:10px!important;}
-  #what .outcome-tile strong{font-size:16px!important;line-height:1.16!important;}
-  #what .outcome-tile>span{font-size:11px!important;line-height:1.35!important;flex:1;}
-  #what .outcome-tile small{font-size:10px!important;margin-top:1px;}
-  #what .pilot-path{padding:15px!important;margin-top:18px!important;border-radius:18px!important;}
-  #what .pilot-path h3{font-size:22px!important;}
-  #what .pilot-path-head p{font-size:12px!important;line-height:1.45!important;}
-  #what .pilot-path-steps{gap:7px!important;margin-top:13px!important;}
-  #what .pilot-path-steps>div{padding:10px!important;border-radius:13px!important;}
-  #what .pilot-path-steps strong{font-size:12px!important;}
-  #what .pilot-path-steps span{font-size:11px!important;line-height:1.35!important;}
-  #what .pilot-path-bottom{margin-top:12px!important;}
-  #what .outcomes-role-details{margin-top:13px!important;}
-  #what .outcomes-role-details>summary{padding:13px!important;font-size:12px!important;}
-  /* Behaviour demonstration: keep interactive tabs, eliminate stacked text fluff. */
-  #behaviour .behaviour-product-intro{gap:10px!important;margin-top:18px!important;}
-  #behaviour .behaviour-product-copy{padding:16px!important;border-radius:18px!important;}
-  #behaviour .behaviour-product-copy h3{font-size:23px!important;line-height:1.12!important;}
-  #behaviour .behaviour-product-copy p{font-size:12px!important;line-height:1.45!important;}
-  #behaviour .behaviour-product-flow{display:flex!important;flex-wrap:wrap!important;gap:5px!important;margin-top:11px!important;}
-  #behaviour .behaviour-product-flow>i{display:none!important;}
-  #behaviour .behaviour-product-flow span{font-size:10px!important;padding:6px 8px!important;}
-  #behaviour .behaviour-product-note{padding:14px!important;border-radius:16px!important;}
-  #behaviour .behaviour-product-note strong{font-size:12px!important;}
-  #behaviour .behaviour-product-note span{font-size:11px!important;line-height:1.4!important;}
-  #behaviour .behaviour-demo{margin-top:12px!important;border-radius:18px!important;}
-  #behaviour .behaviour-demo-stage{min-height:0!important;}
-  #behaviour .behaviour-demo-tabs{gap:3px!important;overflow-x:auto!important;}
-  #behaviour .behaviour-demo-tab{font-size:10px!important;white-space:nowrap!important;padding:8px 9px!important;}
-  #behaviour .product-profile-body,#behaviour .incident-preview-body,#behaviour .leadership-preview-body{padding:10px!important;}
-  #behaviour .product-history{grid-template-columns:1fr!important;gap:6px!important;}
-  #behaviour .product-history-row{padding:8px!important;}
-  #behaviour .product-student-identity{padding:9px!important;}
-  /* Continue with genuinely useful visuals while shortening the long sales sections. */
-  #why .choice-grid,#why .why-proof-grid{margin-top:18px!important;}
-  #why .choice-card{padding:17px!important;border-radius:18px!important;}
-  #why .choice-card h3{font-size:25px!important;}
-  #why .choice-card>p{font-size:12px!important;line-height:1.45!important;}
-  #why .choice-flow{margin-top:12px!important;gap:5px!important;}
-  #why .choice-flow span{padding:7px 9px!important;font-size:10px!important;}
-  #why .why-proof{padding:16px!important;border-radius:18px!important;}
-  #why .why-proof h3{font-size:20px!important;}
-  #why .why-proof p{font-size:12px!important;line-height:1.45!important;}
-  #why .why-conclusion{margin-top:12px!important;padding:17px!important;border-radius:18px!important;}
-  #why .why-conclusion h3{font-size:23px!important;}
-  #why .why-conclusion p{font-size:12px!important;line-height:1.45!important;}
-  #culture .culture-compact-grid{margin-top:16px!important;}
-  #culture .culture-board-proof{margin-top:20px!important;padding:14px!important;}
-  #culture .culture-board-copy h3{font-size:25px!important;line-height:1.12!important;}
-  #culture .culture-board-copy p{font-size:12px!important;line-height:1.45!important;}
-  #culture .culture-board-images .board-shot img{max-height:220px!important;object-fit:cover!important;}
-  #school-store .store-showcase{margin-top:17px!important;gap:15px!important;}
-  #school-store .store-showcase h3{font-size:25px!important;}
-  #school-store .store-showcase p{font-size:12px!important;line-height:1.45!important;}
-  #school-store .store-preview{padding:12px!important;}
-  /* Pricing: all details available with a native disclosure, not hidden. */
-  #pricing .pricing-grid{gap:12px!important;margin-top:18px!important;}
-  #pricing .price-card{padding:17px!important;border-radius:19px!important;}
-  #pricing .price-card h3{font-size:26px!important;line-height:1.1!important;}
-  #pricing .price-card>p{font-size:12px!important;line-height:1.45!important;}
-  #pricing .calculator{padding:13px!important;border-radius:16px!important;}
-  #pricing .price-box{padding:12px!important;border-radius:15px!important;}
-  #pricing .anchors{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:7px!important;}
-  #pricing .anchor{padding:8px!important;}
-  #pricing .anchor b{font-size:11px!important;}
-  #pricing .include-list{gap:7px!important;margin-top:12px!important;}
-  #pricing .include{padding:9px!important;}
-  #pricing .include span{font-size:11px!important;line-height:1.4!important;}
-  #pricing .te-mobile-included{display:block;border:0;margin-top:14px;}
-  #pricing .te-mobile-included >summary{
-    display:flex;align-items:center;justify-content:space-between;list-style:none;
-    min-height:44px;padding:10px 13px;border:1px solid #cfe1ee;border-radius:13px;
-    background:#f1f8fd;color:#1a486f;font-size:12px;font-weight:850;cursor:pointer;
-  }
-  #pricing .te-mobile-included >summary::-webkit-details-marker{display:none;}
-  #pricing .te-mobile-included >summary:after{content:'+';font-size:20px;line-height:1;}
-  #pricing .te-mobile-included[open] >summary:after{content:'−';}
-  #pricing .te-mobile-included .include-list{margin-top:10px!important;}
-  #faq .faq{margin-top:16px!important;gap:9px!important;}
-  #faq details{padding:10px 14px!important;border-radius:14px!important;}
-  #faq summary{padding:7px 0!important;font-size:13px!important;line-height:1.35!important;}
-  #faq details p{font-size:12px!important;line-height:1.45!important;}
-  #faq #mobileFaqToggle{min-height:45px;}
-  .final-card{padding:20px 17px!important;border-radius:18px!important;}
-  .final-card h2{font-size:29px!important;}
-  .final-card p{font-size:13px!important;line-height:1.45!important;}
-  .footer-main{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:22px 15px!important;}
-  .footer-brand-col{grid-column:1/-1!important;}
-  .site-footer{padding-top:28px!important;}
-}
-@media(max-width:360px){
-  .hero-actions{grid-template-columns:1fr!important;}
-  #school-partners .partner-capability{padding:10px!important;}
-  #what .outcome-tile{padding:10px!important;}
-}
-@media(prefers-reduced-motion:reduce){
-  .hero-video-enabled .hero-ecosystem .teacher-window{animation:none!important;}
-}
-
-/* Hero headline: accommodate all three platform features */
-@media (min-width:1081px){
-  .hero-video-enabled .hero-copy h1{
-    font-size:clamp(39px,3.6vw,58px)!important;
-    line-height:1.1!important;
-    letter-spacing:-.035em!important;
-    max-width:720px!important;
-    overflow-wrap:normal;
-  }
-}
-
-/* Tablet */
-@media (min-width:681px) and (max-width:1080px){
-  .hero-video-enabled .hero-copy h1{
-    font-size:clamp(35px,4.5vw,48px)!important;
-    line-height:1.12!important;
-  }
-}
-
-/* Mobile */
-@media (max-width:680px){
-  .hero-video-enabled .hero-copy h1{
-    font-size:clamp(30px,8vw,40px)!important;
-    line-height:1.12!important;
-    letter-spacing:-.035em!important;
-  }
-}
-
-/* Clickable Conway capability cards */
-
-#school-partners a.partner-capability{
-  position:relative;
-  cursor:pointer;
-  text-decoration:none!important;
-  transition:
-    transform .2s ease,
-    border-color .2s ease,
-    box-shadow .2s ease;
-}
-
-#school-partners a.partner-capability:hover{
-  transform:translateY(-3px);
-  border-color:#b4d4e9;
-  box-shadow:0 9px 24px rgba(11,35,65,.09);
-}
-
-#school-partners a.partner-capability:focus-visible{
-  outline:3px solid #2586d0;
-  outline-offset:3px;
-}
-
-#school-partners .partner-capability-arrow{
-  position:absolute;
-  top:13px;
-  right:13px;
-  color:#8197ab;
-  font-size:11px;
-  opacity:.65;
-  transition:transform .2s ease,opacity .2s ease;
-}
-
-#school-partners a.partner-capability:hover .partner-capability-arrow{
-  opacity:1;
-  transform:translate(2px,-2px);
-}
-
-@media(max-width:680px){
-  #school-partners .partner-capability-arrow{
-    top:12px;
-    right:12px;
-    font-size:10px;
-  }
-
-  #school-partners a.partner-capability{
-    padding-right:30px!important;
-  }
-}
-
-@media(prefers-reduced-motion:reduce){
-  #school-partners a.partner-capability,
-  #school-partners .partner-capability-arrow{
-    transition:none!important;
-  }
-}
-
-html{
-  scroll-behavior:smooth;
-  scroll-padding-top:100px;
-}
-
-section[id]{
-  scroll-margin-top:100px;
-}
-
-@media(max-width:680px){
-  html{
-    scroll-padding-top:76px;
-  }
-
-  section[id]{
-    scroll-margin-top:76px;
-  }
-}
-
-@media(prefers-reduced-motion:reduce){
-  html{
-    scroll-behavior:auto;
-  }
-}
-
-
-/* Progressive disclosure across desktop, tablet and mobile */
-#what .te-optional-detail{display:block!important;margin:12px 0!important;border:1px solid #dde9f1;border-radius:16px;background:#fff;overflow:hidden}
-#what .te-optional-detail>summary{display:flex!important;align-items:center;justify-content:space-between;gap:9px;padding:15px 17px;list-style:none;cursor:pointer;font-size:14px;font-weight:800;color:#15334f}
-#what .te-optional-detail>summary::-webkit-details-marker{display:none}
-#what .te-optional-detail>summary i{transition:transform .2s ease}
-#what .te-optional-detail[open]>summary i{transform:rotate(180deg)}
-#what .te-goals-detail .outcomes-grid{padding:10px 15px 17px;margin-top:0}
-#what .te-setup-detail .pilot-path{margin:10px 15px 17px}
-#teacher-tools .te-teacher-item:nth-child(n+5){display:none!important}
-#teacher-tools .te-teacher-grid.is-expanded .te-teacher-item:nth-child(n+5){display:flex!important}
-#teacher-tools .te-teacher-toggle{display:flex!important;align-items:center;justify-content:center;gap:9px;width:100%;margin-top:14px;padding:13px;border:1px solid #cddde9;border-radius:13px;background:#fff;color:#15334f;font-size:13px;font-weight:800;cursor:pointer}
-#teacher-tools .te-teacher-toggle:focus-visible,#what summary:focus-visible,.te-more-detail>summary:focus-visible,#pricing .te-mobile-included>summary:focus-visible{outline:3px solid #2585d2;outline-offset:3px}
-#pricing .te-mobile-included{display:block!important;margin-top:14px}
-#pricing .te-mobile-included>summary{display:flex!important;align-items:center;justify-content:space-between;min-height:46px;padding:12px 15px;list-style:none;cursor:pointer;border:1px solid #cfe1ee;border-radius:13px;background:#f1f8fd;color:#1a486f;font-size:13px;font-weight:800}
-#pricing .te-mobile-included>summary::-webkit-details-marker{display:none}
-#pricing .te-mobile-included>summary:after{content:'+';font-size:19px}
-#pricing .te-mobile-included[open]>summary:after{content:'−'}
-#pricing .te-mobile-included .include-list{margin-top:12px}
-.te-more-detail{margin-top:18px;border:1px solid #dbe7ef;border-radius:17px;background:#fff;overflow:hidden}
-.te-more-detail>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 18px;color:#15334f;font-size:14px;font-weight:800;cursor:pointer;list-style:none}
-.te-more-detail>summary::-webkit-details-marker{display:none}
-.te-more-detail>summary i{transition:transform .2s ease;font-size:11px}
-.te-more-detail[open]>summary i{transform:rotate(180deg)}
-.te-more-detail>.why-conclusion,.te-more-detail>.behaviour-demo-caption{margin:0 16px 16px!important}
-@media(max-width:680px){
- #what .te-optional-detail>summary,.te-more-detail>summary{padding:13px 14px;font-size:12px}
- #teacher-tools .te-teacher-toggle{font-size:12px}
- .te-more-detail>.why-conclusion,.te-more-detail>.behaviour-demo-caption{margin:0 10px 10px!important}
-}
-
-/* ===== 2026 UNIFIED TRACKEDU EXPERIENCE ===== */
-:root{--td-green:#86c73b;--td-deep:#0b2341;--td-ink:#173149}
-.hero.hero-video-enabled{position:relative!important;isolation:isolate!important;background:#eff9ed!important;padding:clamp(48px,5vw,84px) 0!important;overflow:hidden!important;color:var(--td-deep)!important}
-.hero.hero-video-enabled::before{content:""!important;position:absolute!important;inset:0!important;width:auto!important;height:auto!important;top:0!important;left:0!important;right:0!important;bottom:0!important;border-radius:0!important;background:linear-gradient(104deg,rgba(250,255,246,.96) 0%,rgba(244,253,246,.9) 45%,rgba(233,246,255,.4) 100%),url('https://trackedu-housepoints.web.app/housepoints-hero-background.webp') center/cover no-repeat!important;z-index:0!important;pointer-events:none}
-.hero.hero-video-enabled::after{content:""!important;position:absolute!important;right:-8%!important;left:auto!important;top:4%!important;bottom:auto!important;width:42vw!important;height:42vw!important;border-radius:50%!important;background:radial-gradient(circle,rgba(134,199,59,.14),transparent 70%)!important;z-index:0!important;pointer-events:none}
-.hero.hero-video-enabled .hero-video-bg,.hero.hero-video-enabled .hero-video-overlay{display:none!important}
-.hero.hero-video-enabled .hero-grid{position:relative!important;z-index:2!important;display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr)!important;gap:clamp(26px,4vw,64px)!important;align-items:center!important;width:min(1380px,calc(100% - 64px))!important;max-width:1380px!important;margin:auto!important}
-.hero.hero-video-enabled .hero-copy{max-width:650px!important;min-width:0!important}
-.hero.hero-video-enabled .hero-brand-promise{display:inline-flex!important;align-items:center!important;padding:8px 13px!important;margin:0 0 16px!important;background:#e8f7dc!important;border:1px solid #cae8b5!important;border-radius:100px!important;color:#53842b!important;font-size:12px!important;font-weight:900!important;letter-spacing:.025em!important}
-.hero.hero-video-enabled .hero-copy h1{font-size:clamp(42px,4.2vw,72px)!important;line-height:1.04!important;letter-spacing:-.043em!important;color:var(--td-deep)!important;text-shadow:none!important;margin:0!important;max-width:750px!important}
-.hero.hero-video-enabled .hero-copy h1 .blue{color:var(--td-deep)!important}.hero.hero-video-enabled .hero-copy h1 .green{color:#61a52d!important}
-.hero.hero-video-enabled .hero-copy .lead{color:#466379!important;text-shadow:none!important;font-size:clamp(16px,1.25vw,19px)!important;line-height:1.55!important;margin-top:18px!important;max-width:585px!important}
-.hero.hero-video-enabled .hero-actions{display:flex!important;flex-wrap:wrap!important;gap:11px!important;margin-top:23px!important}
-.hero.hero-video-enabled .hero-actions .btn{min-height:54px!important;white-space:normal!important;border-radius:13px!important;font-size:13px!important;padding:12px 19px!important;text-align:center!important}
-.hero.hero-video-enabled .hero-actions .btn-primary{color:#0b2341!important;background:linear-gradient(180deg,#a4dc60,#84c736)!important;box-shadow:0 9px 18px rgba(75,140,28,.16)!important}
-.hero.hero-video-enabled .hero-actions .hero-secondary{color:#15374d!important;background:#fff!important;border:1px solid #c8dce5!important;box-shadow:none!important;backdrop-filter:none!important}
-.hero.hero-video-enabled .pilot-how-link{color:#395b72!important}
-.hero.hero-video-enabled .hero-integrations-premium .hero-integrations-label,.hero.hero-video-enabled .hero-integrations-premium .hero-integration-option strong{color:#425d72!important}
-.hero.hero-video-enabled .hero-integrations-premium .hero-integrations-divider{background:#c8d9dc!important}
-.hero.hero-video-enabled .hero-ecosystem{display:block!important;position:relative!important;width:100%!important;max-width:760px!important;height:auto!important;min-height:0!important;margin:0!important;overflow:visible!important;transform:none!important}
-.hero.hero-video-enabled .hero-ecosystem > :not(.hero-conway-player){display:none!important}
-.hero.hero-video-enabled .hero-conway-player{
-  display:block!important;
-  position:relative!important;
-  inset:auto!important;
-  transform:none!important;
-  width:min(100%,270px)!important;
-height:auto!important;
-max-width:270px!important;
-margin:0 auto!important;
-  overflow:hidden!important;
-  border-radius:22px!important;
-  border:1px solid rgba(20,52,73,.12)!important;
-  box-shadow:0 16px 38px rgba(21,69,64,.16),0 0 0 3px rgba(255,255,255,.55)!important;
-  z-index:2!important;
-}
-
-.hero.hero-video-enabled .hero-conway-video{
-  position:relative!important;
-  width:100%!important;
-  height:auto!important;
-  aspect-ratio:9/16!important;
-}
-.hero.hero-video-enabled .hero-conway-video iframe{display:block!important;width:100%!important;height:100%!important;position:absolute!important;inset:0!important}
-.hero.hero-video-enabled .hero-conway-caption{display:flex!important;position:relative!important;transform:none!important;background:linear-gradient(90deg,#0c2139,#142d49)!important;color:#e8f4fc!important}
-@media(max-width:1100px){.hero.hero-video-enabled{padding:38px 0 44px!important}.hero.hero-video-enabled .hero-grid{grid-template-columns:1fr!important;gap:26px!important;width:min(760px,calc(100% - 44px))!important}.hero.hero-video-enabled .hero-copy{max-width:760px!important}.hero.hero-video-enabled .hero-ecosystem{max-width:760px!important;margin:0 auto!important}.hero.hero-video-enabled .hero-copy h1{font-size:clamp(38px,6vw,61px)!important}}
-@media(max-width:680px){.hero.hero-video-enabled{padding:27px 0 32px!important}.hero.hero-video-enabled .hero-grid{width:calc(100% - 30px)!important;gap:19px!important}.hero.hero-video-enabled .hero-brand-promise{font-size:10px!important;padding:7px 10px!important;margin-bottom:13px!important}.hero.hero-video-enabled .hero-copy h1{font-size:clamp(34px,9vw,45px)!important;line-height:1.08!important}.hero.hero-video-enabled .hero-copy .lead{font-size:15px!important;line-height:1.52!important;margin-top:12px!important}.hero.hero-video-enabled .hero-actions{display:grid!important;grid-template-columns:1fr!important;margin-top:16px!important;gap:9px!important}.hero.hero-video-enabled .hero-actions .btn{width:100%!important;min-height:49px!important;font-size:12px!important}.hero.hero-video-enabled .hero-conway-player{border-radius:15px!important;box-shadow:0 12px 34px rgba(21,69,64,.17)!important}.hero.hero-video-enabled .hero-conway-caption{padding:11px 12px!important}}
-/* Consistent navigation with the TrackEDU homepage */
-.nav{background:rgba(255,255,255,.98)!important;border-bottom:1px solid #e3edf2!important;backdrop-filter:blur(15px)!important}.nav .brand{color:#0b2341!important}.nav .btn-primary{background:linear-gradient(180deg,#a4dc60,#84c736)!important;color:#0b2341!important;box-shadow:none!important}
-/* New story blocks */
-.td-story{padding:clamp(58px,6vw,96px) 0;position:relative;overflow:hidden;background:#fff}.td-story.alt{background:linear-gradient(180deg,#f7fcf5,#f5faff)}.td-wrap{width:min(1220px,calc(100% - 42px));margin:auto}.td-head{max-width:810px;margin:0 auto 35px;text-align:center}.td-eyebrow{font-size:12px;color:#628f33;font-weight:900;text-transform:uppercase;letter-spacing:.09em}.td-head h2{font:700 clamp(34px,4.3vw,58px)/1.04 Fredoka,system-ui,sans-serif;color:#0b2341;letter-spacing:-.035em;margin:14px 0}.td-head p{font-size:17px;line-height:1.6;color:#597185;margin:0}.td-recognise{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center;gap:30px}.td-rec-copy h2{font:700 clamp(33px,4vw,56px)/1.06 Fredoka,system-ui,sans-serif;letter-spacing:-.035em;color:#0b2341;margin:10px 0}.td-rec-copy p{font-size:17px;line-height:1.6;color:#597185}.td-rec-note{font-size:12px!important;color:#638076!important}.td-mascot-stage{min-height:440px;position:relative;border-radius:35px;background:radial-gradient(circle at 50% 53%,#e3f8d2 0%,#f4fcea 48%,#f8fbff 78%);display:grid;place-items:center;isolation:isolate}.td-mascot-stage img{width:min(50%,270px);height:auto;max-height:265px;object-fit:contain;filter:drop-shadow(0 15px 14px rgba(32,78,23,.13))}.td-skill{position:absolute;display:flex;align-items:center;gap:8px;background:#fff;padding:11px 13px;border:1px solid #dce9e9;border-radius:17px;box-shadow:0 9px 22px rgba(11,35,65,.08);font-size:13px;font-weight:800;color:#233f59}.td-skill i{color:#70ad35}.td-skill.a{top:9%;left:4%}.td-skill.b{top:9%;right:4%}.td-skill.c{top:43%;left:1%}.td-skill.d{top:43%;right:1%}.td-skill.e{bottom:10%;left:9%}.td-skill.f{bottom:10%;right:7%}.td-placeholder{display:grid;place-items:center;min-height:250px;border:2px dashed #b9d6be;border-radius:24px;background:#f4faef;color:#476d39;text-align:center;padding:24px}.td-placeholder i{font-size:34px;color:#83bb52}.td-placeholder strong{display:block;margin-top:12px;font-size:16px}.td-placeholder small{display:block;margin-top:8px;max-width:350px;line-height:1.5}.td-role-tabs,.td-product-tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:24px}.td-tab{border:1px solid #d3e2e9;border-radius:13px;padding:12px 18px;background:white;color:#3d5b72;font-size:14px;font-weight:800;cursor:pointer}.td-tab[aria-selected=true]{background:#e6f6d8;border-color:#81c241;color:#284c19}.td-panel{display:none;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:30px;align-items:center;padding:28px;background:#fff;border:1px solid #e1ebef;border-radius:26px;box-shadow:0 15px 35px rgba(11,35,65,.05)}.td-panel.is-active{display:grid}.td-panel h3{font:700 clamp(25px,3vw,40px)/1.1 Fredoka,system-ui,sans-serif;color:#0b2341;margin:0 0 12px}.td-panel p{font-size:16px;line-height:1.65;color:#567086}.td-panel ul{padding-left:20px;color:#476479;line-height:1.9;font-size:14px}.td-panel img{max-width:100%;width:100%;height:auto;max-height:470px;object-fit:contain;border-radius:17px}.td-image-frame{min-width:0}.td-image-frame img{border:1px solid #dce8ee;box-shadow:0 13px 26px rgba(11,35,65,.07)}.td-story-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:19px}.td-link{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 18px;border-radius:12px;background:#8dcc48;color:#0b2341;font-size:13px;font-weight:900}.td-link.secondary{background:#fff;border:1px solid #cbdfe8}.td-launch{padding:34px 0;background:linear-gradient(115deg,#e7f7d7,#e8f5ff);border-block:1px solid #d5e8d6}.td-launch-card{display:flex;gap:24px;justify-content:space-between;align-items:center}.td-launch h2{font:700 clamp(26px,3vw,40px)/1.1 Fredoka,system-ui,sans-serif;color:#0b2341;margin:6px 0 10px}.td-launch p{color:#41617a;line-height:1.6;font-size:14px;margin:5px 0}.td-launch small{font-size:12px;color:#657e8b}.td-launch .td-link{white-space:nowrap}.td-visually-hidden{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
-@media(max-width:850px){.td-recognise,.td-panel{grid-template-columns:1fr}.td-rec-copy{text-align:center}.td-mascot-stage{min-height:400px}.td-panel{padding:20px}.td-launch-card{align-items:flex-start;flex-direction:column}}
-@media(max-width:520px){.td-story{padding:55px 0}.td-wrap{width:calc(100% - 30px)}.td-head{text-align:left}.td-head h2{font-size:36px}.td-head p{font-size:15px}.td-mascot-stage{min-height:320px;border-radius:23px}.td-mascot-stage img{width:42%}.td-skill{font-size:10px;padding:8px 9px;border-radius:12px;gap:5px}.td-skill.a{top:5%;left:2%}.td-skill.b{top:5%;right:2%}.td-skill.c{top:36%;left:1%}.td-skill.d{top:36%;right:1%}.td-skill.e{bottom:6%;left:2%}.td-skill.f{bottom:6%;right:2%}.td-tab{font-size:12px;padding:10px 12px;flex:1}.td-panel{padding:16px;gap:15px}.td-story-actions{flex-direction:column}.td-link{width:100%}}
-@media(prefers-reduced-motion:reduce){.td-tab,.td-link{transition:none!important}}
-
-
-
-/* House Points hero: balanced portrait video */
-
-@media (min-width:1025px) {
-  .hero.hero-video-enabled .hero-grid {
-    align-items:center!important;
-  }
-
-  .hero.hero-video-enabled .hero-conway-player {
-    width:min(100%,270px)!important;
-    max-width:270px!important;
-    margin:0 auto!important;
-  }
-}
-
-@media (max-width:1024px) {
-  .hero.hero-video-enabled .hero-conway-player {
-    width:min(100%,280px)!important;
-    max-width:280px!important;
-    margin:18px auto 0!important;
-  }
-}
-
-
-/* ==========================================================
- TRACKEDU PLAYFUL REDESIGN 2026 | DISTINCTIVE VISUAL SYSTEM
- The whole-site treatment is intentionally much more visible.
- Keep copy, scripts, links, modals, language switching intact.
- ========================================================== */
-:root{--play-green:#8bd63e;--play-ink:#0a2444;--play-lime:#e1ffb2;--play-mint:#e5fff3;--play-yellow:#fff2ad;--play-blue:#dbf1ff;--play-purple:#eee8ff;--play-pink:#ffe5ec;--play-outline:#bddbbd}
-body{background:#f8fff9}
-/* rounded friendly brand typography, energetic controls */
-.section h2,.td-story h2,.td-launch h2{font-family:Fredoka,Outfit,sans-serif!important;letter-spacing:-.045em!important}
-.section-head h2{font-size:clamp(38px,4.55vw,64px)!important;line-height:1.04!important}
-.section-head .lead{color:#41617a!important;font-size:clamp(15px,1.5vw,19px)!important}
-.eyebrow,.td-kicker,.story-kicker{border-radius:999px!important;background:#e9ffd8!important;border:1.5px solid #b8e48c!important;color:#317315!important;box-shadow:0 4px 0 rgba(116,174,62,.12)!important;padding:10px 16px!important}
-.btn-primary{background:linear-gradient(180deg,#a6ef55,#78cc23)!important;border:1px solid #73bf29!important;box-shadow:0 6px 0 #60a921,0 14px 24px rgba(106,174,42,.21)!important;color:#092343!important;border-radius:18px!important}
-.btn-primary:hover{transform:translateY(-3px)!important;box-shadow:0 9px 0 #60a921,0 20px 28px rgba(106,174,42,.23)!important}
-.btn-secondary{border:1.5px solid #c5d9eb!important;border-radius:18px!important;box-shadow:0 4px 0 rgba(28,61,92,.07)!important}
-.nav{background:rgba(255,255,255,.96)!important;border-bottom:2px solid #e4f1e6!important}
-.navin .brand{letter-spacing:-.055em!important}
-/* The original artwork has a fully reserved 9:16 portrait-video slot */
-.hero.hero-video-enabled{position:relative!important;min-height:clamp(660px,55vw,870px)!important;padding:0!important;background:#f2fff5!important;isolation:isolate;overflow:hidden!important}
-.hero.hero-video-enabled:before{content:""!important;display:block!important;position:absolute!important;inset:0!important;width:100%!important;height:100%!important;border-radius:0!important;background-image:url('https://trackedu-housepoints.web.app/trackedu-hero-background.webp')!important;background-size:100% 100%!important;background-position:center!important;background-repeat:no-repeat!important;z-index:0!important;pointer-events:none}
-.hero.hero-video-enabled:after{display:none!important}
-.hero.hero-video-enabled .hero-video-bg{display:none!important}
-.hero.hero-video-enabled .hero-grid{position:relative!important;z-index:2!important;width:min(1500px,calc(100% - 96px))!important;max-width:none!important;margin:auto!important;min-height:clamp(660px,55vw,870px)!important;display:grid!important;grid-template-columns:minmax(0,55fr) minmax(0,45fr)!important;gap:0!important;align-items:center!important}
-.hero.hero-video-enabled .hero-copy{max-width:780px!important;padding:15px 4.5vw 55px 0!important;align-self:center!important}
-@media(min-width:1101px){
- .hero.hero-video-enabled .hero-copy{
-   padding:0 4.5vw 65px 0!important;
-   transform:translateY(-45px);
- }
-
- .hero.hero-video-enabled .hero-brand-promise{
-   transform:translateY(-25px)!important;
- }
-}
-.hero.hero-video-enabled .hero-copy h1{font-family:Fredoka,Outfit,sans-serif!important;color:#0a2444!important;font-size:clamp(39px,4.2vw,71px)!important;line-height:1.065!important;letter-spacing:-.052em!important;text-shadow:none!important;max-width:750px!important}
-.hero.hero-video-enabled .hero-copy h1 .blue{color:#0a2444!important}
-.hero.hero-video-enabled .hero-copy h1 .green{color:#4aaa19!important}
-.hero.hero-video-enabled .hero-brand-promise{display:inline-flex!important;padding:10px 16px!important;border:1.5px solid #a4d98c!important;border-radius:999px!important;background:rgba(234,255,216,.84)!important;color:#367c20!important;font-size:clamp(12px,1.15vw,16px)!important;font-weight:900!important;box-shadow:0 4px 0 rgba(87,159,55,.08)!important}
-.hero.hero-video-enabled .hero-copy .lead{color:#46647d!important;text-shadow:none!important;font-size:clamp(15px,1.45vw,20px)!important;line-height:1.53!important;max-width:650px!important}
-.hero.hero-video-enabled .hero-secondary{color:#0a2444!important;background:rgba(255,255,255,.95)!important;border:1.5px solid #cee1f0!important;backdrop-filter:none!important;box-shadow:0 4px 0 rgba(11,35,65,.08)!important}
-.hero.hero-video-enabled .pilot-how-link{color:#355477!important}
-/* Video remains LIVE, never embed a still in the backdrop */
-.hero.hero-video-enabled .hero-ecosystem{display:flex!important;align-items:center!important;justify-content:center!important;min-width:0!important;min-height:0!important;height:100%!important;margin:0!important;padding:30px 8.5% 30px 2%!important;background:transparent!important;overflow:visible!important}
-.hero.hero-video-enabled .hero-conway-player{position:relative!important;inset:auto!important;transform:none!important;display:block!important;width:min(100%,300px)!important;max-width:300px!important;height:auto!important;margin:0!important;z-index:10!important;border:7px solid white!important;border-radius:30px!important;overflow:hidden!important;box-shadow:0 20px 52px rgba(38,112,79,.16)!important}
-.hero.hero-video-enabled .hero-conway-video{width:100%!important;aspect-ratio:9/16!important;height:auto!important;min-height:0!important;overflow:hidden!important;background:#0c2947!important}
-.hero.hero-video-enabled .hero-conway-video iframe{width:100%!important;height:100%!important;min-height:0!important;position:absolute!important;inset:0!important;border:0!important}
-.hero.hero-video-enabled .hero-conway-caption{padding:10px 12px!important;min-height:58px!important}
-/* Old overlapping mock dashboard and ornaments must not cover the video or background artwork */
-.hero.hero-video-enabled .hero-ecosystem>.orbit,.hero.hero-video-enabled .hero-ecosystem>.product-window,.hero.hero-video-enabled .hero-ecosystem>.float-note{display:none!important}
-/* Show Google Classroom and Wonde below the hero buttons */
-.hero.hero-video-enabled .hero-integrations-premium{
-  display:flex!important;
-  margin-top:44px!important;
-}
-
-/* Desktop: align integration logos with the video bottom */
-@media(min-width:1101px){
-  .hero.hero-video-enabled .hero-copy{
-    position:relative!important;
-  }
-
-  .hero.hero-video-enabled .hero-integrations-premium{
-    position:absolute!important;
-    left:0!important;
-    bottom:-115px!important;
-    margin-top:0!important;
-  }
-}
-/* Recognisable rainbow storytelling across EVERY major chapter */
-#recognition-story{background:radial-gradient(ellipse at 2% 10%,#fff2ad 0,transparent 34%),radial-gradient(ellipse at 95% 82%,#c9f5d0 0,transparent 43%),#fffef7!important;position:relative;overflow:hidden}
-#explore-by-role{background:radial-gradient(ellipse at 100% 0%,#dccbff 0,transparent 38%),radial-gradient(ellipse at 0% 100%,#d7f4ff 0,transparent 42%),#f9f7ff!important;position:relative;overflow:hidden}
-#product-showcase{background:radial-gradient(ellipse at 8% 85%,#fce1ec 0,transparent 35%),radial-gradient(ellipse at 95% 5%,#c7f8df 0,transparent 40%),#fffafc!important;position:relative;overflow:hidden}
-#what{background:radial-gradient(ellipse at 2% 10%,#bdf2f0 0,transparent 30%),radial-gradient(ellipse at 98% 90%,#e0d6ff 0,transparent 36%),#f7fbff!important;overflow:hidden}
-#teacher-tools{background:radial-gradient(ellipse at 0% 85%,#ffe4bf,transparent 40%),radial-gradient(ellipse at 98% 0%,#d0fae6,transparent 40%),#fffdf3!important;overflow:hidden}
-#behaviour{background:radial-gradient(ellipse at 100% 5%,#e9d6ff,transparent 35%),radial-gradient(ellipse at 0% 100%,#c4f7e6,transparent 42%),#fcf9ff!important;overflow:hidden}
-#why{background:radial-gradient(ellipse at 0% 5%,#f9e9a6,transparent 38%),radial-gradient(ellipse at 100% 100%,#c7ecff,transparent 44%),#fffefa!important;overflow:hidden}
-#culture{background:radial-gradient(ellipse at 5% 95%,#e5d5ff,transparent 38%),radial-gradient(ellipse at 98% 12%,#c6f3c9,transparent 40%),#fafff6!important;overflow:hidden}
-#school-store{background:radial-gradient(ellipse at 1% 75%,#ffdaea,transparent 40%),radial-gradient(ellipse at 98% 8%,#ffedb2,transparent 39%),#fff7fa!important;overflow:hidden}
-#school-launch-offer{background:radial-gradient(ellipse at 100% 15%,#cbf4a8,transparent 42%),radial-gradient(ellipse at 0% 95%,#c6eaff,transparent 44%),#f8fff2!important;overflow:hidden}
-#pricing{background:radial-gradient(ellipse at 1% 10%,#d4e7ff,transparent 39%),radial-gradient(ellipse at 98% 85%,#e7ffd0,transparent 43%),#f9fcff!important;overflow:hidden}
-#faq{background:radial-gradient(ellipse at 96% 7%,#f4e0ff,transparent 40%),radial-gradient(ellipse at 4% 98%,#dbf8d5,transparent 42%),#fffaff!important;overflow:hidden}
-/* Large bold decorative bubbles with no invented product claims */
-#recognition-story:before,#explore-by-role:before,#product-showcase:before,#what:before,#teacher-tools:before,#behaviour:before,#why:before,#culture:before,#school-store:before,#school-launch-offer:before,#pricing:before,#faq:before{content:'✦'!important;display:grid;place-items:center;position:absolute;right:2%;top:35px;width:87px;height:87px;border-radius:28px;transform:rotate(13deg);background:#f7d24c;color:#fff;font-size:46px;text-shadow:0 3px 0 rgba(0,0,0,.07);box-shadow:0 8px 0 rgba(187,141,30,.24),0 15px 35px rgba(15,45,60,.08);opacity:.8;pointer-events:none;z-index:0}
-#explore-by-role:before,#behaviour:before,#culture:before,#faq:before{content:'★'!important;background:#926de4;box-shadow:0 8px 0 #6f4eba,0 15px 35px rgba(15,45,60,.08)}
-#product-showcase:before,#teacher-tools:before,#school-store:before{content:'♥'!important;background:#ff798b;box-shadow:0 8px 0 #e04f70,0 15px 35px rgba(15,45,60,.08)}
-#what:before,#why:before,#school-launch-offer:before{background:#71cf47;box-shadow:0 8px 0 #49a427,0 15px 35px rgba(15,45,60,.08)}
-@media(max-width:680px){
-  #what::before{
-    display:none!important;
-    content:none!important;
-  }
-}
-#recognition-story:after,#explore-by-role:after,#product-showcase:after,#what:after,#teacher-tools:after,#behaviour:after,#why:after,#culture:after,#school-store:after,#school-launch-offer:after,#pricing:after,#faq:after{content:''!important;position:absolute;left:-85px;bottom:25px;width:255px;height:255px;border:22px solid rgba(139,214,62,.12);border-radius:48% 52% 65% 35%;transform:rotate(-25deg);z-index:0;pointer-events:none}
-#explore-by-role:after,#behaviour:after,#culture:after,#faq:after{border-color:rgba(135,89,217,.12)}
-#product-showcase:after,#teacher-tools:after,#school-store:after{border-color:rgba(244,110,130,.12)}
-#recognition-story>.shell,#explore-by-role>.shell,#product-showcase>.shell,#what>.shell,#teacher-tools>.shell,#behaviour>.shell,#why>.shell,#culture>.shell,#school-store>.shell,#school-launch-offer>.shell,#pricing>.shell,#faq>.shell{position:relative;z-index:1}
-/* Cards look like collectible stickers, not generic enterprise slabs */
-#what .te-product-card,#teacher-tools .te-teacher-item,.aud-card,.tool-card,.why-proof,.culture-step,.story-card,.td-panel,.td-card,.td-role-card,.td-feature-card{border-radius:26px!important;box-shadow:0 7px 0 rgba(35,73,82,.09),0 16px 30px rgba(26,75,86,.045)!important;border:1.5px solid rgba(106,150,163,.24)!important;transition:transform .22s cubic-bezier(.2,.8,.2,1),box-shadow .22s ease!important}
-#what .te-product-card:hover,#teacher-tools .te-teacher-item:hover,.aud-card:hover,.tool-card:hover,.why-proof:hover,.culture-step:hover,.story-card:hover,.td-panel:hover,.td-card:hover,.td-role-card:hover{transform:translateY(-7px) rotate(-.45deg)!important;box-shadow:0 12px 0 rgba(35,73,82,.08),0 25px 45px rgba(26,75,86,.09)!important}
-#what .te-product-card:nth-child(6n+1){background:#eeffe1!important;border-color:#b8dc98!important}
-#what .te-product-card:nth-child(6n+2){background:#e8f5ff!important;border-color:#accfe9!important}
-#what .te-product-card:nth-child(6n+3){background:#fff3d9!important;border-color:#efdb9e!important}
-#what .te-product-card:nth-child(6n+4){background:#f1eaff!important;border-color:#d0bdf7!important}
-#what .te-product-card:nth-child(6n+5){background:#ffe9f0!important;border-color:#f1bdcf!important}
-#what .te-product-card:nth-child(6n){background:#e9fff6!important;border-color:#a7decb!important}
-#teacher-tools .te-teacher-item:nth-child(5n+1){background:#eeffe1!important}
-#teacher-tools .te-teacher-item:nth-child(5n+2){background:#e8f5ff!important}
-#teacher-tools .te-teacher-item:nth-child(5n+3){background:#fff0d8!important}
-#teacher-tools .te-teacher-item:nth-child(5n+4){background:#f0eaff!important}
-#teacher-tools .te-teacher-item:nth-child(5n){background:#ffebf0!important}
-#what .te-product-icon,.aud-icon,.story-icon,.culture-icon,.why-proof-icon{border-radius:20px!important;transform:rotate(-5deg);box-shadow:0 6px 0 rgba(11,35,65,.1)!important}
-#what .te-product-card:nth-child(even) .te-product-icon{transform:rotate(6deg)}
-/* Extra depth and bold card-edge colours */
-#pricing .pricing-plan-card{border-radius:32px!important;box-shadow:0 10px 0 #dcebd7,0 24px 48px rgba(32,69,86,.08)!important}
-#pricing .school-plan-card{border:2px solid #85c841!important;border-top:10px solid #85c841!important;background:linear-gradient(180deg,#f7ffef,#fff 23%)!important}
-#pricing .strategic-plan-card{border:2px solid #669de9!important;border-top:10px solid #669de9!important;background:linear-gradient(180deg,#eef7ff,#fff 23%)!important}
-.faq details{border:2px solid #d6c9f4!important;box-shadow:0 6px 0 rgba(107,77,164,.10)!important;background:rgba(255,255,255,.9)!important}
-.faq details[open]{border-color:#8bd63e!important;background:#f7fff0!important}
-.final-card{border-radius:38px!important;background:radial-gradient(circle at 87% 22%,rgba(162,239,72,.24),transparent 34%),linear-gradient(135deg,#0a2444,#176080)!important;border:3px solid #a5e47b!important;box-shadow:0 12px 0 rgba(9,53,67,.15),0 30px 56px rgba(17,60,74,.13)!important}
-/* Responsive: original decorative video slot doesn't suit stacked cards */
-@media(max-width:1100px){
- .hero.hero-video-enabled{
-   min-height:0!important;
-   padding:44px 0 52px!important;
-   background:linear-gradient(155deg,#f8fff5 0%,#f3fbff 58%,#eaf8ef 100%)!important;
- }
-
- .hero.hero-video-enabled:before{
-   background:none!important;
-   background-image:none!important;
-   opacity:0!important;
- }
-
- .hero.hero-video-enabled:after{
-   display:none!important;
- }
-
- .hero.hero-video-enabled .hero-grid{
-   width:min(760px,calc(100% - 48px))!important;
-   min-height:0!important;
-   display:grid!important;
-   grid-template-columns:minmax(0,1fr)!important;
-   gap:30px!important;
-   align-items:start!important;
- }
-
- .hero.hero-video-enabled .hero-copy{
-   width:100%!important;
-   max-width:100%!important;
-   padding:0!important;
- }
-
- .hero.hero-video-enabled .hero-copy h1{
-   font-size:clamp(37px,5.7vw,59px)!important;
-   max-width:700px!important;
- }
-
- .hero.hero-video-enabled .hero-ecosystem{
-   width:100%!important;
-   max-width:100%!important;
-   height:auto!important;
-   min-height:0!important;
-   padding:8px 0 0!important;
-   margin:0 auto!important;
-   display:flex!important;
-   align-items:center!important;
-   justify-content:center!important;
- }
-
- .hero.hero-video-enabled .hero-conway-player{
-   width:min(100%,288px)!important;
-   max-width:288px!important;
-   margin:0 auto!important;
- }
-
- .hero.hero-video-enabled .hero-integrations-premium{
-   display:flex!important;
-   position:relative!important;
-   width:auto!important;
-   height:auto!important;
-   margin-top:21px!important;
-   overflow:visible!important;
- }
-
- .hero.hero-video-enabled .hero-integrations-premium .hero-integration-option strong{
-   color:#24445e!important;
- }
-
- .hero.hero-video-enabled .hero-integrations-label{
-   color:#355477!important;
- }
-
- .hero.hero-video-enabled .hero-integrations-divider{
-   background:#b9d4dd!important;
- }
-}
-/* iPad portrait and landscape only */
-@media(min-width:681px) and (max-width:1100px){
-
- .hero.hero-video-enabled{
-   padding:32px 0 40px!important;
-   background:linear-gradient(135deg,#f8fff6 0%,#f4fbff 65%,#e9f8ef 100%)!important;
- }
-
- .hero.hero-video-enabled::before,
- .hero.hero-video-enabled::after{
-   content:none!important;
-   display:none!important;
-   background-image:none!important;
- }
-
- .hero.hero-video-enabled .hero-grid{
-   display:grid!important;
-   width:calc(100% - 44px)!important;
-   max-width:1040px!important;
-   min-height:0!important;
-   grid-template-columns:minmax(0,1fr) minmax(215px,34%)!important;
-   gap:clamp(16px,2.5vw,28px)!important;
-   align-items:center!important;
- }
-
- .hero.hero-video-enabled .hero-copy{
-   width:100%!important;
-   min-width:0!important;
-   max-width:none!important;
-   padding:0!important;
-   align-self:center!important;
- }
-
- .hero.hero-video-enabled .hero-brand-promise{
-   max-width:100%!important;
- }
-
- .hero.hero-video-enabled .hero-copy h1{
-   font-size:clamp(32px,4.1vw,46px)!important;
-   line-height:1.1!important;
-   max-width:100%!important;
- }
-
- .hero.hero-video-enabled .hero-copy .lead{
-   max-width:100%!important;
-   font-size:clamp(13px,1.6vw,16px)!important;
-   line-height:1.5!important;
- }
-
- .hero.hero-video-enabled .hero-actions{
-   display:flex!important;
-   flex-wrap:wrap!important;
-   gap:9px!important;
- }
-
- .hero.hero-video-enabled .hero-actions .btn{
-   min-height:44px!important;
-   padding:10px 12px!important;
-   font-size:11px!important;
- }
-
- .hero.hero-video-enabled .hero-integrations-premium{
-   max-width:100%!important;
-   gap:9px!important;
- }
-
- .hero.hero-video-enabled .hero-ecosystem{
-   display:flex!important;
-   position:relative!important;
-   width:100%!important;
-   max-width:100%!important;
-   min-width:0!important;
-   min-height:0!important;
-   height:auto!important;
-   margin:0!important;
-   padding:0!important;
-   align-items:center!important;
-   justify-content:center!important;
-   align-self:center!important;
- }
-
- .hero.hero-video-enabled .hero-conway-player{
-   position:relative!important;
-   top:auto!important;
-   right:auto!important;
-   left:auto!important;
-   width:100%!important;
-   max-width:270px!important;
-   margin:0 auto!important;
- }
-
- .hero.hero-video-enabled .hero-conway-video{
-   aspect-ratio:9 / 16!important;
- }
-
-}
-@media(max-width:680px){
- .hero.hero-video-enabled{
-   padding:25px 0 42px!important;
- }
-
- .hero.hero-video-enabled::before,
- .hero.hero-video-enabled::after{
-   content:none!important;
-   display:none!important;
- }
-
- .hero.hero-video-enabled .hero-grid{
-   width:calc(100% - 32px)!important;
-   gap:26px!important;
- }
-
- .hero.hero-video-enabled .hero-copy h1{
-   font-size:clamp(30px,7.8vw,39px)!important;
-   line-height:1.12!important;
-   letter-spacing:-.035em!important;
- }
-
- .hero.hero-video-enabled .hero-copy h1 .blue,
- .hero.hero-video-enabled .hero-copy h1 .green{
-   display:inline!important;
-   white-space:normal!important;
- }
-
- .hero.hero-video-enabled .hero-brand-promise{
-   display:none!important;
- }
-
- .hero.hero-video-enabled .hero-copy .lead{
-   max-width:100%!important;
-   font-size:15px!important;
-   line-height:1.6!important;
-   margin-top:16px!important;
- }
-
- .hero.hero-video-enabled .hero-actions{
-   margin-top:22px!important;
-   gap:10px!important;
- }
-
- .hero.hero-video-enabled .hero-actions .btn{
-   min-height:52px!important;
- }
-
- .hero.hero-video-enabled .hero-ecosystem{
-   position:relative!important;
-   padding:4px 0 24px!important;
-   margin:0 auto!important;
-   isolation:isolate;
-   background:
-     radial-gradient(ellipse at 50% 52%,rgba(150,229,109,.24),transparent 65%),
-     radial-gradient(circle at 17% 75%,rgba(183,222,255,.23),transparent 35%)!important;
- }
-
- .hero.hero-video-enabled .hero-ecosystem::before{
-   content:"✦"!important;
-   display:block!important;
-   position:absolute!important;
-   top:11%!important;
-   left:5%!important;
-   width:auto!important;
-   height:auto!important;
-   color:#f4c63d!important;
-   font-size:31px!important;
-   line-height:1!important;
-   transform:rotate(-14deg)!important;
-   background:none!important;
-   box-shadow:none!important;
-   opacity:.9!important;
-   pointer-events:none!important;
-   z-index:0!important;
- }
-
- .hero.hero-video-enabled .hero-ecosystem::after{
-   content:"✦"!important;
-   display:block!important;
-   position:absolute!important;
-   right:6%!important;
-   bottom:17%!important;
-   width:auto!important;
-   height:auto!important;
-   color:#72c84b!important;
-   font-size:26px!important;
-   line-height:1!important;
-   transform:rotate(18deg)!important;
-   background:none!important;
-   box-shadow:none!important;
-   opacity:.85!important;
-   pointer-events:none!important;
-   z-index:0!important;
- }
-
- .hero.hero-video-enabled .hero-conway-player{
-   position:relative!important;
-   width:min(75vw,270px)!important;
-   max-width:270px!important;
-   margin:0 auto!important;
-   z-index:1!important;
-   box-shadow:0 18px 45px rgba(40,106,72,.2)!important;
- }
-
- .hero.hero-video-enabled .hero-grid{
-   gap:15px!important;
- }
-
- .hero.hero-video-enabled .hero-integrations-premium{
-   margin-top:18px!important;
- }
-
- #product-showcase .td-product-tabs{
-   display:flex!important;
-   flex-wrap:nowrap!important;
-   justify-content:flex-start!important;
-   gap:9px!important;
-   width:100%!important;
-   max-width:100%!important;
-   overflow-x:auto!important;
-   overflow-y:hidden!important;
-   padding:4px 1px 13px!important;
-   margin-bottom:18px!important;
-   scroll-snap-type:x proximity;
-   -webkit-overflow-scrolling:touch;
-   scrollbar-width:none;
- }
-
- #product-showcase .td-product-tabs::-webkit-scrollbar{
-   display:none;
- }
-
- #product-showcase .td-product-tabs .td-tab{
-   flex:0 0 auto!important;
-   width:auto!important;
-   min-height:46px!important;
-   padding:11px 16px!important;
-   font-size:13px!important;
-   line-height:1.2!important;
-   white-space:nowrap!important;
-   scroll-snap-align:start;
- }
-
- #product-showcase .td-head{
-   margin-bottom:21px!important;
- }
-
- #product-showcase .td-head h2{
-   font-size:clamp(32px,8vw,40px)!important;
-   line-height:1.1!important;
- }
-
- #product-showcase .td-head p{
-   font-size:15px!important;
-   line-height:1.55!important;
- }
-
- #recognition-story:before,#explore-by-role:before,#product-showcase:before,#what:before,#teacher-tools:before,#behaviour:before,#why:before,#culture:before,#school-store:before,#school-launch-offer:before,#pricing:before,#faq:before{width:46px;height:46px;font-size:25px;top:17px;right:12px;border-radius:15px}
- #recognition-story:after,#explore-by-role:after,#product-showcase:after,#what:after,#teacher-tools:after,#behaviour:after,#why:after,#culture:after,#school-store:after,#school-launch-offer:after,#pricing:after,#faq:after{width:145px;height:145px;border-width:13px;left:-82px}
- #pricing .pricing-plan-card{border-radius:23px!important}
-}
-
-
-/* Mobile: keep the green headline phrase together
-   and put pilot help directly after the main button */
-@media(max-width:680px){
- .hero.hero-video-enabled .hero-copy h1 .green{
-   display:inline-block!important;
-   white-space:nowrap!important;
-   font-size:.78em!important;
-   line-height:1.15!important;
- }
-
- .hero.hero-video-enabled .hero-copy{
-   display:flex!important;
-   flex-direction:column!important;
-   align-items:stretch!important;
- }
-
- .hero.hero-video-enabled .hero-actions{
-   display:contents!important;
- }
-
- .hero.hero-video-enabled .hero-actions .btn-primary{
-   order:1!important;
-   margin-top:10px!important;
- }
-
-
-
- .hero.hero-video-enabled .hero-actions .hero-secondary{
-   order:2!important;
-   margin-top:11px!important;
-   display:flex!important;
-   align-items:center!important;
-   justify-content:center!important;
-   text-align:center!important;
- }
-
- .hero.hero-video-enabled .hero-integrations-premium{
-   order:4!important;
-   margin-top:20px!important;
- }
-}
-
-/* Mobile: keep both integrations on one line */
-@media(max-width:680px){
-
-  .hero.hero-video-enabled .hero-integrations-premium{
-    display:flex!important;
-    flex-direction:row!important;
-    flex-wrap:nowrap!important;
-    align-items:center!important;
-    justify-content:flex-start!important;
-    gap:8px!important;
-    width:100%!important;
-    max-width:100%!important;
-  }
-
-  .hero-integrations-premium .hero-integrations-label{
-    flex:0 1 auto!important;
-    min-width:0!important;
-    font-size:9px!important;
-    line-height:1.2!important;
-    white-space:nowrap!important;
-  }
-
-  .hero-integrations-premium .hero-integrations-options{
-    display:flex!important;
-    flex:0 0 auto!important;
-    flex-wrap:nowrap!important;
-    align-items:center!important;
-    gap:8px!important;
-  }
-
-  .hero-integrations-premium .hero-integration-option{
-    flex-wrap:nowrap!important;
-    gap:5px!important;
-  }
-
-  .hero-integrations-premium .hero-integration-option strong{
-    font-size:9px!important;
-    white-space:nowrap!important;
-  }
-
-  .hero-integrations-premium .hero-integration-icon.google{
-    width:24px!important;
-    min-width:24px!important;
-    height:24px!important;
-    font-size:14px!important;
-  }
-
-  .hero.hero-video-enabled .hero-integration-icon.wonde{
-    width:65px!important;
-    min-width:65px!important;
-    height:30px!important;
-    padding:3px 5px!important;
-  }
-
-  .hero-integrations-premium .hero-integrations-divider{
-    display:none!important;
-  }
-}
-
-@media(max-width:390px){
-  .hero-integrations-premium .hero-integrations-label,
-  .hero-integrations-premium .hero-integration-option strong{
-    font-size:8px!important;
-  }
-
-  .hero.hero-video-enabled .hero-integrations-premium{
-    gap:6px!important;
-  }
-
-  .hero-integrations-premium .hero-integrations-options{
-    gap:5px!important;
-  }
-}
-
-/* Mobile hero finishing touches */
-@media(max-width:680px){
-
-  /* Keep the integration row clear and aligned */
-  .hero.hero-video-enabled .hero-integrations-premium{
-    align-items:center!important;
-    column-gap:7px!important;
-  }
-
-  .hero.hero-video-enabled .hero-integrations-label{
-    color:#24445e!important;
-    font-size:9.5px!important;
-    font-weight:800!important;
-    letter-spacing:-.15px!important;
-    white-space:nowrap!important;
-  }
-
-  .hero.hero-video-enabled .hero-integration-option strong{
-    color:#24445e!important;
-    font-weight:800!important;
-  }
-
-  /* Keep the Wonde logo compact */
-  .hero.hero-video-enabled .hero-integration-icon.wonde{
-    width:60px!important;
-    min-width:60px!important;
-  }
-}
-
-@media(prefers-reduced-motion:reduce){.btn-primary:hover,#what .te-product-card:hover,#teacher-tools .te-teacher-item:hover{transform:none!important}}
-
-
-/* Cover the small decorative corner on phones only */
-@media(max-width:680px){
-  .hero.hero-video-enabled::after{
-    content:""!important;
-    display:block!important;
-    position:absolute!important;
-    top:0!important;
-    right:0!important;
-    left:auto!important;
-    bottom:auto!important;
-    width:90px!important;
-    height:22px!important;
-    border-radius:0!important;
-    background:linear-gradient(90deg,#f6fdf8,#f5fcf8)!important;
-    z-index:1!important;
-    pointer-events:none!important;
-  }
-}
-
-
-</style>
 <script>
 (function(){
 
@@ -22430,5 +22460,304 @@ body{background:#f8fff9}
 })();
 </script>
 
+<script>
+/* Extra translations for later homepage sections that are not data-i18n tagged. */
+(function () {
+  'use strict';
+  // English source text: [Spanish, Arabic]. Product names remain unchanged where useful.
+  const phrases = {
+    'Import students and classes from': ['Importa alumnos y clases desde', 'استورد الطلاب والصفوف من'],
+    'REAL SCHOOL. REAL TRACKEDU.': ['COLEGIO REAL. TRACKEDU REAL.', 'مدرسة حقيقية. استخدام حقيقي لـ TrackEDU.'],
+    'House Point Tracker': ['Registro de puntos de las casas', 'متتبع نقاط الفرق المدرسية'],
+    'Choose a student': ['Elige un alumno', 'اختر طالباً'],
+    'SIGN IN': ['INICIAR SESIÓN', 'تسجيل الدخول'],
+    'TrackEDU in Schools': ['TrackEDU en los colegios', 'TrackEDU في المدارس'],
+    'Real school. Real use.': ['Un colegio real. Uso real.', 'مدرسة حقيقية. استخدام حقيقي.'],
+    'REAL SCHOOL. REAL USE.': ['COLEGIO REAL. USO REAL.', 'مدرسة حقيقية. استخدام حقيقي.'],
+    'United States': ['Estados Unidos', 'الولايات المتحدة'],
+    'Bringing recognition and engagement into everyday school life.': ['Reconocer los logros y fomentar la participación cada día.', 'تقدير الإنجازات وتشجيع المشاركة كل يوم في المدرسة.'],
+    'Conway Christian School is using TrackEDU to recognise achievement and encourage student participation.': ['Conway Christian School usa TrackEDU para reconocer los logros y animar a los alumnos a participar.', 'تستخدم مدرسة Conway Christian School منصة TrackEDU لتقدير الإنجازات وتشجيع الطلاب على المشاركة.'],
+    'Visit Conway Christian School': ['Visita Conway Christian School', 'زيارة مدرسة Conway Christian School'],
+    'INTERNATIONAL GROWTH': ['CRECIMIENTO INTERNACIONAL', 'انتشار عالمي'],
+    'TrackEDU welcomes Amman Baptist School': ['TrackEDU da la bienvenida a Amman Baptist School', 'ترحب TrackEDU بمدرسة عمان المعمدانية'],
+    '🇯🇴 Jordan': ['🇯🇴 Jordania', '🇯🇴 الأردن'],
+    'Our newest school partner is preparing to introduce TrackEDU to its school community.': ['Nuestro nuevo colegio asociado se prepara para presentar TrackEDU a su comunidad.', 'تستعد مدرستنا الشريكة الجديدة لتقديم TrackEDU إلى مجتمعها المدرسي.'],
+    'New School Partner': ['Nuevo colegio asociado', 'مدرسة شريكة جديدة'],
+    'Trusted, Connected & School-Ready': ['Fiable, conectado y listo para tu colegio', 'موثوق ومترابط وجاهز للمدارس'],
+    'Import classes and students': ['Importa clases y alumnos', 'استورد الصفوف والطلاب'],
+    'Sync classes and students': ['Sincroniza clases y alumnos', 'زامن الصفوف والطلاب'],
+    'Celebrate every success': ['Celebra cada logro', 'احتفل بكل إنجاز'],
+    'Make every success count.': ['Cada logro cuenta.', 'كل إنجاز مهم.'],
+    'Celebrate kindness, teamwork and effort. Give students a reason to feel proud.': ['Celebra la amabilidad, el trabajo en equipo y el esfuerzo. Ayuda a los alumnos a sentirse orgullosos.', 'احتفل باللطف والعمل الجماعي والجهد. امنح الطلاب سبباً للفخر.'],
+    'Your school chooses what to celebrate.': ['Tu colegio elige qué celebrar.', 'مدرستك تختار ما تحتفل به.'],
+    'Explore student badges': ['Explora las insignias', 'استكشف شارات الطلاب'],
+    'Kindness': ['Amabilidad', 'اللطف'],
+    'Teamwork': ['Trabajo en equipo', 'العمل الجماعي'],
+    'Effort': ['Esfuerzo', 'الجهد'],
+    'Achievement': ['Logro', 'الإنجاز'],
+    'House Points': ['Puntos de las casas', 'نقاط الفرق المدرسية'],
+    'Student Badges': ['Insignias de alumnos', 'شارات الطلاب'],
+    'Student Management & Rewards': ['Alumnos y premios', 'إدارة الطلاب والمكافآت'],
+    'Manage classes, award points and celebrate student progress.': ['Gestiona clases, da puntos y celebra el progreso de tus alumnos.', 'أدر الصفوف وامنح النقاط واحتفل بتقدم الطلاب.'],
+    'House Achievements & Celebrations': ['Logros y celebraciones de las casas', 'إنجازات الفرق المدرسية واحتفالاتها'],
+    'Show House rankings, badges and achievements during assemblies.': ['Muestra clasificaciones, insignias y logros en las asambleas.', 'اعرض ترتيب الفرق والشارات والإنجازات في التجمعات المدرسية.'],
+    'Built for your whole school': ['Para todo tu colegio', 'صُمم لمدرستك كلها'],
+    'See what TrackEDU can do for you.': ['Descubre lo que TrackEDU puede hacer por ti.', 'اكتشف ما يمكن أن تقدمه TrackEDU لك.'],
+    'Choose your role to see how everyone stays connected.': ['Elige tu función y descubre cómo todos se mantienen conectados.', 'اختر دورك لترى كيف يبقى الجميع على اتصال.'],
+    'School Leaders': ['Directivos escolares', 'قادة المدارس'],
+    'Teachers': ['Docentes', 'المعلمون'],
+    'Students': ['Alumnos', 'الطلاب'],
+    'See your whole school.': ['Ve todo tu colegio.', 'شاهد مدرستك كلها.'],
+    'See House points, student progress and behaviour in one place.': ['Ve los puntos, el progreso y la conducta de los alumnos en un mismo lugar.', 'شاهد نقاط الفرق وتقدم الطلاب وسلوكهم في مكان واحد.'],
+    'Live House standings': ['Clasificación de las casas en directo', 'ترتيب الفرق المباشر'],
+    'Student progress and reports': ['Progreso e informes de alumnos', 'تقدم الطلاب وتقاريرهم'],
+    'Behaviour and follow-up': ['Conducta y seguimiento', 'السلوك والمتابعة'],
+    'View school pricing': ['Ver precios para colegios', 'عرض أسعار المدارس'],
+    'REAL TRACKEDU SCREEN': ['PANTALLA REAL DE TRACKEDU', 'صورة حقيقية من TrackEDU'],
+    'More recognition. Less admin.': ['Más reconocimiento. Menos trabajo.', 'تقدير أكثر. عمل إداري أقل.'],
+    'Teachers can recognise success, see student progress, manage rewards and use classroom tools.': ['Los docentes pueden reconocer logros, ver el progreso, gestionar premios y usar herramientas de clase.', 'يمكن للمعلمين تقدير الإنجازات ورؤية التقدم وإدارة المكافآت واستخدام أدوات الصف.'],
+    'Give points quickly': ['Da puntos al instante', 'امنح النقاط بسرعة'],
+    'Use school-approved recognition reasons': ['Usa motivos aprobados por el colegio', 'استخدم أسباب التقدير المعتمدة في المدرسة'],
+    'Save time with classroom tools': ['Ahorra tiempo con herramientas de clase', 'وفّر الوقت باستخدام أدوات الصف'],
+    'Explore classroom tools': ['Explora las herramientas de clase', 'استكشف أدوات الصف'],
+    'Every success feels special.': ['Cada logro es especial.', 'كل إنجاز مميز.'],
+    'Students see their progress, celebrate badges and take part in school competitions and rewards.': ['Los alumnos ven su progreso, consiguen insignias y participan en concursos y premios.', 'يرى الطلاب تقدمهم ويحتفلون بالشارات ويشاركون في مسابقات المدرسة ومكافآتها.'],
+    'Individual badges and achievements': ['Insignias y logros individuales', 'الشارات والإنجازات الفردية'],
+    'House pride and personal progress': ['Orgullo de la casa y progreso personal', 'الفخر بالفريق والتقدم الشخصي'],
+    'Student Portal and School Store': ['Portal del alumno y tienda escolar', 'بوابة الطلاب ومتجر المدرسة'],
+    'See rewards': ['Ver premios', 'عرض المكافآت'],
+    'Real tools. Real progress.': ['Herramientas reales. Progreso real.', 'أدوات حقيقية. تقدم حقيقي.'],
+    'See TrackEDU in action.': ['Mira TrackEDU en acción.', 'شاهد TrackEDU أثناء العمل.'],
+    'Explore actual TrackEDU screens. Select a feature, then click the image to see the details.': ['Explora pantallas reales de TrackEDU. Elige una función y pulsa la imagen para ver más.', 'استكشف شاشات TrackEDU الحقيقية. اختر أداة ثم اضغط على الصورة لرؤية التفاصيل.'],
+    'Badges': ['Insignias', 'الشارات'],
+    'Rewards': ['Premios', 'المكافآت'],
+    'Incidents': ['Incidentes', 'الحوادث'],
+    'Reports': ['Informes', 'التقارير'],
+    'Give every student a badge to be proud of.': ['Da a cada alumno una insignia de la que sentirse orgulloso.', 'امنح كل طالب شارة يفخر بها.'],
+    'Show custom student badges, recognition and progress in a way children enjoy.': ['Muestra insignias, logros y progreso de una forma que guste a los niños.', 'اعرض شارات الطلاب وإنجازاتهم وتقدمهم بطريقة يحبونها.'],
+    'Start free for 30 days': ['Prueba gratis 30 días', 'ابدأ مجاناً لمدة 30 يوماً'],
+    'Make every House Point count.': ['Haz que cada punto cuente.', 'اجعل كل نقطة مهمة.'],
+    'Build team spirit through live House leaderboards, competitions and school events.': ['Crea espíritu de equipo con clasificaciones, concursos y eventos escolares.', 'عزّز روح الفريق بترتيب الفرق المباشر والمسابقات والفعاليات المدرسية.'],
+    'Turn achievement into rewards.': ['Convierte los logros en premios.', 'حوّل الإنجازات إلى مكافآت.'],
+    'Schools can use the School Store to celebrate effort and progress.': ['Los colegios pueden usar la tienda escolar para celebrar el esfuerzo y el progreso.', 'يمكن للمدارس استخدام متجر المدرسة للاحتفال بالجهد والتقدم.'],
+    'Support students with the full picture.': ['Ayuda a los alumnos con toda la información.', 'ادعم الطلاب برؤية كاملة.'],
+    'Keep recognition and incidents connected while maintaining school-managed access.': ['Conecta el reconocimiento y los incidentes con acceso controlado por el colegio.', 'اربط التقدير بالحوادث مع بقاء التحكم في الوصول بيد المدرسة.'],
+    'See progress across your school.': ['Ve el progreso de todo tu colegio.', 'شاهد التقدم في مدرستك كلها.'],
+    'Review school activity and recognition to support better decisions.': ['Revisa la actividad y los logros para tomar mejores decisiones.', 'راجع نشاط المدرسة والتقدير لاتخاذ قرارات أفضل.'],
+    'Student Portal': ['Portal del alumno', 'بوابة الطلاب'],
+    'School Store': ['Tienda escolar', 'متجر المدرسة'],
+    'Classroom Tools': ['Herramientas de clase', 'أدوات الصف'],
+    'Incident Reporting': ['Registro de incidentes', 'تسجيل الحوادث'],
+    'Award points, customise Houses and follow live standings.': ['Da puntos, personaliza las casas y sigue la clasificación en directo.', 'امنح النقاط وخصص الفرق وتابع الترتيب المباشر.'],
+    'Student progress, challenges, streaks and rewards.': ['Progreso, retos, rachas y premios del alumno.', 'تقدم الطلاب وتحدياتهم وسلاسل إنجازهم ومكافآتهم.'],
+    'Manage rewards, Store Points and collection requests.': ['Gestiona premios, puntos de tienda y solicitudes de recogida.', 'أدر المكافآت ونقاط المتجر وطلبات الاستلام.'],
+    '12+ tools including timers, random pickers, groups and quizzes.': ['Más de 12 herramientas: temporizadores, selección al azar, grupos y pruebas.', 'أكثر من 12 أداة تشمل المؤقتات والاختيار العشوائي والمجموعات والاختبارات.'],
+    'Record concerns, actions and follow-up in one place.': ['Registra problemas, medidas y seguimiento en un mismo lugar.', 'سجّل المشكلات والإجراءات والمتابعة في مكان واحد.'],
+    'How to set up your free school pilot': ['Cómo iniciar la prueba gratis de tu colegio', 'كيف تبدأ التجربة المجانية لمدرستك'],
+    'Classroom Tools, ready when you need them': ['Herramientas de clase listas cuando las necesites', 'أدوات الصف جاهزة عندما تحتاج إليها'],
+    'REAL PRODUCT VIEW': ['VISTA REAL DEL PRODUCTO', 'عرض حقيقي للمنتج'],
+    'Explore the tools teachers can open in a few clicks.': ['Explora las herramientas que los docentes abren en pocos clics.', 'استكشف أدوات يفتحها المعلمون ببضع نقرات.'],
+    'INCLUDED CLASSROOM TOOLS': ['HERRAMIENTAS DE CLASE INCLUIDAS', 'أدوات الصف المشمولة'],
+    '12+ practical tools for everyday teaching.': ['Más de 12 herramientas para enseñar cada día.', 'أكثر من 12 أداة مفيدة للتدريس كل يوم.'],
+    'Pick students, make groups, time activities and keep lessons moving, inside the TrackEDU Teacher App.': ['Elige alumnos, crea grupos y mide el tiempo de las actividades desde la aplicación docente.', 'اختر الطلاب وأنشئ المجموعات وحدد وقت الأنشطة من داخل تطبيق المعلم.'],
+    'Magic Hat': ['Sombrero mágico', 'القبعة السحرية'],
+    'Pick a student at random.': ['Elige un alumno al azar.', 'اختر طالباً عشوائياً.'],
+    'Squad Builder': ['Creador de equipos', 'منشئ المجموعات'],
+    'Create student groups quickly.': ['Crea grupos de alumnos rápidamente.', 'أنشئ مجموعات الطلاب بسرعة.'],
+    'Magic Timer': ['Temporizador mágico', 'المؤقت السحري'],
+    'Keep activities on track.': ['Mantén las actividades a tiempo.', 'حافظ على سير الأنشطة في وقتها.'],
+    'Noise Monitor': ['Medidor de ruido', 'مراقب الضوضاء'],
+    'Track classroom noise.': ['Controla el ruido de clase.', 'راقب ضوضاء الصف.'],
+    'Class Dashboard': ['Panel de clase', 'لوحة الصف'],
+    'See your class at a glance.': ['Ve tu clase de un vistazo.', 'شاهد صفك بنظرة واحدة.'],
+    'Mystery Word': ['Palabra misteriosa', 'الكلمة الغامضة'],
+    'A quick word challenge.': ['Un reto rápido de palabras.', 'تحدٍ سريع للكلمات.'],
+    'House Timers': ['Temporizadores de casas', 'مؤقتات الفرق'],
+    'Time classroom challenges.': ['Cronometra los retos de clase.', 'حدد وقت تحديات الصف.'],
+    'Role Spinner': ['Ruleta de tareas', 'عجلة الأدوار'],
+    'Assign classroom jobs fairly.': ['Reparte las tareas de clase de forma justa.', 'وزّع مهام الصف بعدل.'],
+    'Group Maker': ['Creador de grupos', 'منشئ المجموعات'],
+    'Make groups in moments.': ['Crea grupos en segundos.', 'أنشئ مجموعات بسرعة.'],
+    'Quick Quiz': ['Prueba rápida', 'اختبار سريع'],
+    'Fast questions and class participation.': ['Preguntas rápidas y participación en clase.', 'أسئلة سريعة ومشاركة صفية.'],
+    'House of Fortune': ['Casa de la suerte', 'بيت الحظ'],
+    'Bring chance into class activities.': ['Añade sorpresa a las actividades de clase.', 'أضف عنصر المفاجأة إلى أنشطة الصف.'],
+    'Mindfulness Mode': ['Modo de calma', 'وضع الهدوء'],
+    'Short moments for focus.': ['Pausas cortas para concentrarse.', 'لحظات قصيرة للتركيز.'],
+    'See all 12 classroom tools': ['Ver las 12 herramientas de clase', 'عرض أدوات الصف الاثنتي عشرة'],
+    'Classroom tools are part of the Teacher App, alongside recognition, classes and school workflows.': ['Las herramientas de clase forman parte de la aplicación docente, junto con los puntos y las clases.', 'أدوات الصف جزء من تطبيق المعلم، إلى جانب التقدير والصفوف والمهام المدرسية.'],
+    'Connected, not reduced to points.': ['Conectado, no solo puntos.', 'مترابط، وليس مجرد نقاط.'],
+    'Incidents keep their category, severity, context and follow-up. House points remain the recognition and culture layer.': ['Cada incidente conserva su categoría, gravedad, contexto y seguimiento. Los puntos de las casas siguen siendo una forma de reconocer logros.', 'تحتفظ الحوادث بنوعها وشدتها وسياقها ومتابعتها. وتبقى نقاط الفرق وسيلة لتقدير الإنجازات.'],
+    'Product preview': ['Vista del producto', 'معاينة المنتج'],
+    'TrackEDU Behaviour & Support': ['Conducta y apoyo de TrackEDU', 'السلوك والدعم في TrackEDU'],
+    'Representative sample data': ['Datos de ejemplo', 'بيانات توضيحية'],
+    'Student Profile': ['Perfil del alumno', 'ملف الطالب'],
+    'Log Incident': ['Registrar incidente', 'تسجيل حادثة'],
+    'Leadership': ['Equipo directivo', 'القيادة المدرسية'],
+    'Grade 5': ['5.º curso', 'الصف الخامس'],
+    'Tier 1': ['Nivel 1', 'المستوى الأول'],
+    '2 incidents': ['2 incidentes', 'حادثتان'],
+    'Open recognition': ['Ver reconocimientos', 'عرض التقدير'],
+    'Recognition Snapshot': ['Resumen de reconocimientos', 'ملخص التقدير'],
+    'Positive recognition': ['Reconocimiento positivo', 'التقدير الإيجابي'],
+    'Positive Recognition': ['Reconocimiento positivo', 'التقدير الإيجابي'],
+    'This school year': ['Este curso escolar', 'هذا العام الدراسي'],
+    'Behaviour-linked deductions': ['Descuentos por conducta', 'خصومات مرتبطة بالسلوك'],
+    'Student history': ['Historial del alumno', 'سجل الطالب'],
+    'Today': ['Hoy', 'اليوم'],
+    'Yesterday': ['Ayer', 'أمس'],
+    'Reflection assigned': ['Reflexión asignada', 'تم تكليف الطالب بالتفكير في سلوكه'],
+    'Parent contact completed': ['Contacto con familia realizado', 'تم التواصل مع ولي الأمر'],
+    'Add Incident': ['Añadir incidente', 'إضافة حادثة'],
+    'Quick Presets': ['Opciones rápidas', 'خيارات سريعة'],
+    'Disruption': ['Interrupción', 'تعطيل الحصة'],
+    'Late to class': ['Llegada tarde', 'التأخر عن الحصة'],
+    'Unsafe behaviour': ['Conducta insegura', 'سلوك غير آمن'],
+    'Defiance': ['Desobediencia', 'رفض التعليمات'],
+    'Tier': ['Nivel', 'المستوى'],
+    'Date': ['Fecha', 'التاريخ'],
+    'Period/Lesson': ['Hora/Clase', 'الحصة'],
+    'Behaviour Type': ['Tipo de conducta', 'نوع السلوك'],
+    'Category': ['Categoría', 'الفئة'],
+    'Severity': ['Gravedad', 'الشدة'],
+    'Description': ['Descripción', 'الوصف'],
+    'Handled By': ['Gestionado por', 'تم التعامل معه بواسطة'],
+    'Action Taken': ['Medida tomada', 'الإجراء المتخذ'],
+    'Follow-up': ['Seguimiento', 'المتابعة'],
+    'Reflection required': ['Reflexión requerida', 'يلزم التفكير في السلوك'],
+    'Parent contact': ['Contacto con la familia', 'التواصل مع ولي الأمر'],
+    'Cancel': ['Cancelar', 'إلغاء'],
+    'Save incident': ['Guardar incidente', 'حفظ الحادثة'],
+    'School Leaders Dashboard': ['Panel de dirección', 'لوحة قيادة المدرسة'],
+    'Showing all students': ['Mostrando todos los alumnos', 'عرض جميع الطلاب'],
+    'Needs Attention': ['Necesita atención', 'يحتاج إلى اهتمام'],
+    'Outstanding actions that need follow-up.': ['Acciones pendientes de seguimiento.', 'إجراءات معلقة تحتاج إلى متابعة.'],
+    'Students needing attention': ['Alumnos que necesitan atención', 'طلاب يحتاجون إلى اهتمام'],
+    'Outstanding actions': ['Acciones pendientes', 'إجراءات معلقة'],
+    'Parent contacts': ['Contactos con familias', 'اتصالات أولياء الأمور'],
+    'Reflections': ['Reflexiones', 'التأملات'],
+    'Behaviour Snapshot': ['Resumen de conducta', 'ملخص السلوك'],
+    'Last 30 Days': ['Últimos 30 días', 'آخر 30 يوماً'],
+    'Repeat students': ['Alumnos con incidentes repetidos', 'طلاب تكررت حوادثهم'],
+    'Needs review': ['Necesita revisión', 'يحتاج إلى مراجعة'],
+    'Incident trend': ['Tendencia de incidentes', 'اتجاه الحوادث'],
+    'Daily incidents over the selected period': ['Incidentes diarios en el periodo elegido', 'الحوادث اليومية خلال الفترة المحددة'],
+    'See how recognition and incident follow-up connect': ['Ve cómo se conectan los logros y el seguimiento de incidentes', 'شاهد كيف يرتبط التقدير بمتابعة الحوادث'],
+    'One student': ['Un alumno', 'طالب واحد'],
+    'One workflow': ['Un proceso', 'طريقة عمل واحدة'],
+    'One leadership view': ['Una vista para dirección', 'عرض واحد للقيادة'],
+    'See what needs attention.': ['Ve qué necesita atención.', 'شاهد ما يحتاج إلى اهتمام.'],
+    'Why a connected platform matters': ['Por qué importa tener todo conectado', 'لماذا تهم المنصة المترابطة'],
+    'A real view of the School Store': ['Una vista real de la tienda escolar', 'عرض حقيقي لمتجر المدرسة'],
+    'Students can browse rewards and see what they are saving towards.': ['Los alumnos pueden ver los premios y cuánto les falta para conseguirlos.', 'يمكن للطلاب استعراض المكافآت ومعرفة ما يدخرون النقاط للحصول عليه.'],
+    'TrackEDU School Launch Offer': ['Oferta de lanzamiento de TrackEDU', 'عرض إطلاق TrackEDU للمدارس'],
+    '30 days free. No credit card.': ['30 días gratis. Sin tarjeta.', '30 يوماً مجاناً. دون بطاقة بنكية.'],
+    'Free pilot:': ['Prueba gratis:', 'تجربة مجانية:'],
+    'Eligible schools can extend free access until 31 July 2027.': ['Los colegios que cumplan los requisitos pueden seguir gratis hasta el 31 de julio de 2027.', 'يمكن للمدارس المؤهلة تمديد الوصول المجاني حتى 31 يوليو 2027.'],
+    'Terms and eligibility apply.': ['Se aplican condiciones y requisitos.', 'تُطبق الشروط ومعايير الأهلية.'],
+    'Start your free pilot': ['Empieza tu prueba gratis', 'ابدأ تجربتك المجانية'],
+    'Transparent school pricing': ['Precios claros para colegios', 'أسعار واضحة للمدارس'],
+    'Choose the right plan for your school.': ['Elige el plan adecuado para tu colegio.', 'اختر الخطة المناسبة لمدرستك.'],
+    'Calculate your School Licence price': ['Calcula el precio de tu licencia escolar', 'احسب سعر ترخيص مدرستك'],
+    'Enter your student number and choose your currency.': ['Introduce el número de alumnos y elige la moneda.', 'أدخل عدد الطلاب واختر العملة.'],
+    'Updates instantly': ['Se actualiza al instante', 'يُحدّث فوراً'],
+    'More School Licence pricing details': ['Más detalles de precios', 'المزيد من تفاصيل الأسعار'],
+    'School Licence': ['Licencia escolar', 'ترخيص المدرسة'],
+    'TrackEDU School Licence': ['Licencia escolar TrackEDU', 'ترخيص TrackEDU المدرسي'],
+    'The complete TrackEDU platform for one school.': ['Toda la plataforma TrackEDU para un colegio.', 'منصة TrackEDU الكاملة لمدرسة واحدة.'],
+    'For individual schools': ['Para colegios individuales', 'للمدارس الفردية'],
+    'Your annual licence': ['Tu licencia anual', 'ترخيصك السنوي'],
+    '/ year': ['/ año', '/ السنة'],
+    'Start free 30-day pilot': ['Inicia 30 días gratis', 'ابدأ تجربة مجانية لمدة 30 يوماً'],
+    'Included with every School Licence': ['Incluido en cada licencia escolar', 'مشمول في كل ترخيص مدرسي'],
+    'House Points + positive recognition': ['Puntos de las casas y reconocimiento positivo', 'نقاط الفرق والتقدير الإيجابي'],
+    'Teacher App': ['Aplicación docente', 'تطبيق المعلم'],
+    'School Store + rewards': ['Tienda escolar y premios', 'متجر المدرسة والمكافآت'],
+    'Incident Recording': ['Registro de incidentes', 'تسجيل الحوادث'],
+    'Dashboards, reports + imports': ['Paneles, informes e importación de datos', 'لوحات المعلومات والتقارير واستيراد البيانات'],
+    'Strategic Partnership': ['Alianza estratégica', 'شراكة استراتيجية'],
+    'TrackEDU Strategic Partnership': ['Alianza estratégica de TrackEDU', 'الشراكة الاستراتيجية مع TrackEDU'],
+    'For wider school operations': ['Para más tareas escolares', 'لتشغيل خدمات مدرسية أوسع'],
+    'From': ['Desde', 'ابتداءً من'],
+    'Talk to us about your school': ['Habla con nosotros sobre tu colegio', 'تحدث معنا عن مدرستك'],
+    'Everything in the School Licence, plus': ['Todo lo de la licencia escolar, más', 'كل ما في ترخيص المدرسة، بالإضافة إلى'],
+    'Facility Room Booking': ['Reserva de espacios escolares', 'حجز مرافق المدرسة'],
+    'Classroom Screen tools': ['Herramientas de pantalla de clase', 'أدوات شاشة الصف'],
+    'Priority onboarding': ['Puesta en marcha prioritaria', 'إعداد ذو أولوية'],
+    'Staff training': ['Formación del personal', 'تدريب الموظفين'],
+    'Implementation support': ['Ayuda para la puesta en marcha', 'دعم التطبيق'],
+    'Priority support': ['Ayuda prioritaria', 'دعم ذو أولوية'],
+    '2026–27 School Launch Programme': ['Programa de lanzamiento escolar 2026–27', 'برنامج إطلاق المدارس 2026–27'],
+    'Ask about extended free access': ['Pregunta por más tiempo gratis', 'اسأل عن تمديد الوصول المجاني'],
+    'For school leaders and authorised staff only.': ['Solo para directivos y personal autorizado.', 'لقادة المدارس والموظفين المصرح لهم فقط.'],
+    'Get TrackEDU app': ['Instalar la app de TrackEDU', 'احصل على تطبيق TrackEDU'],
+    'Get the': ['Consigue la', 'احصل على'],
+    'TrackEDU app': ['app de TrackEDU', 'تطبيق TrackEDU'],
+    'Positive recognition context shown alongside Behaviour & Support.': ['Los logros positivos aparecen junto al historial de conducta.', 'يظهر التقدير الإيجابي إلى جانب سجل السلوك والدعم.'],
+    'Recognition + behaviour + follow-up': ['Reconocimiento, conducta y seguimiento', 'التقدير والسلوك والمتابعة'],
+    '+5 Teamwork': ['+5 Trabajo en equipo', '٥+ للعمل الجماعي'],
+    'Positive recognition · House points added': ['Reconocimiento positivo · puntos añadidos', 'تقدير إيجابي · تمت إضافة نقاط الفريق'],
+    'Disruption · Tier 1': ['Interrupción · nivel 1', 'تعطيل الحصة · المستوى الأول'],
+    'Behaviour incident · classroom disruption': ['Incidente de conducta · interrupción en clase', 'حادثة سلوكية · تعطيل الحصة'],
+    'Follow-up action linked to incident': ['Seguimiento vinculado al incidente', 'إجراء متابعة مرتبط بالحادثة'],
+    'Action completed · record updated': ['Acción completada · registro actualizado', 'اكتمل الإجراء · تم تحديث السجل'],
+    '⚡ Quick Presets': ['⚡ Opciones rápidas', '⚡ خيارات سريعة'],
+    'Repeated disruption during independent work after reminder.': ['Interrupciones repetidas durante el trabajo individual después de un aviso.', 'تعطيل متكرر أثناء العمل الفردي بعد التنبيه.'],
+    'School-wide activity · Last 30 Days': ['Actividad escolar · últimos 30 días', 'نشاط المدرسة · آخر 30 يوماً'],
+    '↓ 8% vs prior period': ['↓ 8 % frente al periodo anterior', 'انخفاض ٨٪ عن الفترة السابقة'],
+    '5.4% of school': ['5,4 % del colegio', '٥٫٤٪ من المدرسة'],
+    'This period': ['Este periodo', 'هذه الفترة'],
+    'Recognition and behaviour stay connected to the same record.': ['Los logros y la conducta quedan en el mismo registro.', 'يبقى التقدير والسلوك مرتبطين بالسجل نفسه.'],
+    'Incidents carry context, action and follow-up, not just a deduction.': ['Cada incidente incluye contexto, acciones y seguimiento, no solo un descuento de puntos.', 'تشمل كل حادثة السياق والإجراءات والمتابعة، وليس خصم النقاط فقط.'],
+    'Move from an individual student to school-wide patterns and outstanding actions.': ['Pasa de un alumno a las tendencias y acciones pendientes de todo el colegio.', 'انتقل من سجل طالب واحد إلى أنماط المدرسة والإجراءات المعلقة.'],
+    'Follow incident records, support actions and patterns in one place, with clear information for school leaders.': ['Consulta incidentes, medidas de apoyo y tendencias en un mismo lugar.', 'تابع سجلات الحوادث وإجراءات الدعم والأنماط في مكان واحد.'],
+    '20% off for 5 years:': ['20 % de descuento durante 5 años:', 'خصم ٢٠٪ لمدة خمس سنوات:'],
+    'Start a paid subscription by 31 December 2028 and keep the discount for your first five paid years.': ['Empieza una suscripción de pago antes del 31 de diciembre de 2028 y conserva el descuento durante los primeros cinco años.', 'ابدأ اشتراكاً مدفوعاً بحلول ٣١ ديسمبر ٢٠٢٨ واحتفظ بالخصم في أول خمس سنوات مدفوعة.'],
+    'New schools pay full price after the offer ends.': ['Los nuevos colegios pagarán el precio normal cuando termine la oferta.', 'تدفع المدارس الجديدة السعر الكامل بعد انتهاء العرض.'],
+    'Every School Licence includes the complete TrackEDU platform. Strategic Partnership adds wider school tools, training and hands-on implementation support.': ['Cada licencia escolar incluye toda la plataforma. La alianza estratégica añade más herramientas y formación.', 'يشمل كل ترخيص مدرسي المنصة الكاملة. وتضيف الشراكة الاستراتيجية أدوات أوسع وتدريباً ودعم إعداد.'],
+    'SCHOOL LICENCE · FOR INDIVIDUAL SCHOOLS': ['LICENCIA ESCOLAR · PARA COLEGIOS', 'ترخيص مدرسي · للمدارس الفردية'],
+    'Extend TrackEDU into wider school operations with additional tools, staff training and hands-on implementation support.': ['Amplía TrackEDU con más herramientas escolares, formación y apoyo para empezar.', 'وسّع استخدام TrackEDU بأدوات مدرسية إضافية وتدريب الموظفين ودعم الإعداد.'],
+    'Best for schools that want wider operational tools, guided rollout and staff training.': ['Ideal para colegios que quieren más herramientas, ayuda para empezar y formación.', 'مناسب للمدارس التي تريد أدوات أوسع وإطلاقاً موجهاً وتدريباً للموظفين.'],
+    '30 days free. No credit card. Eligible schools can extend free access until 31 July 2027. Start a paid subscription by 31 December 2028 to keep 20% off your first five paid years.': ['30 días gratis, sin tarjeta. Los colegios que cumplan los requisitos pueden seguir gratis hasta el 31 de julio de 2027.', '٣٠ يوماً مجاناً دون بطاقة بنكية. يمكن للمدارس المؤهلة تمديد الوصول المجاني حتى ٣١ يوليو ٢٠٢٧.'],
+    'TrackEDU vs ClassDojo': ['TrackEDU frente a ClassDojo', 'مقارنة TrackEDU وClassDojo'],
+    'ICO registered · Ref: ZC146923': ['Inscrito en ICO · Ref.: ZC146923', 'مسجل لدى ICO · المرجع: ZC146923']
+  };
+
+  const originals = new WeakMap();
+  const textNodes = [];
+  const roots = [document.body];
+
+  function normalise(value) { return (value || '').replace(/\s+/g,' ').trim(); }
+  roots.forEach(root => {
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    while (walker.nextNode()) {
+      const node = walker.currentNode;
+      const element = node.parentElement;
+      if (!element || !normalise(node.nodeValue)) continue;
+      if (element.closest('[data-i18n],[data-i18n-html],[data-i18n-placeholder],.te-modal,.school-video-modal,script,style,noscript,svg,option,textarea')) continue;
+      const source = normalise(node.nodeValue);
+      if (!Object.prototype.hasOwnProperty.call(phrases, source)) continue;
+      originals.set(node, { text: node.nodeValue, source });
+      textNodes.push(node);
+    }
+  });
+
+  function setLanguage(lang) {
+    const index = lang === 'es' ? 0 : lang === 'ar' ? 1 : -1;
+    textNodes.forEach(node => {
+      const original = originals.get(node);
+      if (!original || !node.isConnected) return;
+      const text = index < 0 ? original.source : phrases[original.source][index];
+      const leading = (original.text.match(/^\s*/) || [''])[0];
+      const trailing = (original.text.match(/\s*$/) || [''])[0];
+      node.nodeValue = leading + text + trailing;
+    });
+  }
+  document.addEventListener('trackedu:languagechange', e => setLanguage(e.detail.language));
+  const pageLang = (document.documentElement.lang || 'en').toLowerCase();
+  setLanguage(pageLang.startsWith('ar') ? 'ar' : pageLang.startsWith('es') ? 'es' : 'en');
+})();
+
+</script>
 </body>
 </html>
