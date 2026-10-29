@@ -3,6 +3,9 @@
 
 
 
+
+
+
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
@@ -11,21 +14,21 @@
   <meta name="theme-color" content="#071c33">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="author" content="TrackEDU Ltd">
-  <title>School House Points Tracker &amp; Recognition Software | TrackEDU</title>
-  <meta name="description" content="TrackEDU is a digital house points tracker for schools, with live House leaderboards, student rewards, behaviour records and reporting. Start a free 30-day trial.">
+  <title>House Points, Behaviour &amp; Incident Tracking for Schools | TrackEDU</title>
+  <meta name="description" content="TrackEDU helps schools manage House Points, track behaviour and record student incidents. Reward students and manage school activities in one place. Try 30 days free.">
   <link rel="canonical" href="https://www.trackedu.net/">
   <link rel="icon" type="image/png" href="https://trackedu.github.io/common-assets/trackedulogono.png">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="TrackEDU">
   <meta property="og:locale" content="en_GB">
   <meta property="og:url" content="https://www.trackedu.net/">
-  <meta property="og:title" content="School House Points Tracker &amp; Recognition Software | TrackEDU">
-  <meta property="og:description" content="A whole-school digital House Points system with live leaderboards, recognition, School Store rewards, incidents and school reporting. Try TrackEDU free for 30 days.">
+  <meta property="og:title" content="House Points, Behaviour &amp; Incident Tracking for Schools | TrackEDU">
+  <meta property="og:description" content="Manage school House Points, record student incidents and track support in one platform. Try TrackEDU free for 30 days.">
   <meta property="og:image" content="https://housepoint.trackedu.net/board.png">
-  <meta property="og:image:alt" content="TrackEDU House Points supporting House culture in school">
+  <meta property="og:image:alt" content="TrackEDU school platform for House Points and student incident recording">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="School House Points Tracker &amp; Recognition Software | TrackEDU">
-  <meta name="twitter:description" content="Digital House Points tracking, live standings, student recognition, rewards and school reporting. Start TrackEDU's free 30-day trial.">
+  <meta name="twitter:title" content="House Points, Behaviour &amp; Incident Tracking for Schools | TrackEDU">
+  <meta name="twitter:description" content="House Points, incident recording and student support in one school platform. Start a free 30-day TrackEDU trial.">
   <meta name="twitter:image" content="https://housepoint.trackedu.net/board.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,7 +44,7 @@
         "name":"TrackEDU Ltd",
         "url":"https://www.trackedu.net/",
         "logo":"https://trackedu.github.io/common-assets/trackedulogono.png",
-        "description":"UK-registered provider of school House Points and recognition software, school room booking tools and classroom software.",
+        "description":"UK-registered provider of school incident recording, student support, House Points and classroom software.",
         "sameAs":["https://www.linkedin.com/company/trackedu/"]
       },
       {
@@ -54,32 +57,32 @@
       {
         "@type":"WebPage",
         "@id":"https://www.trackedu.net/#webpage",
-        "name":"School House Points Tracker & Recognition Software | TrackEDU",
+        "name":"House Points, Behaviour & Incident Tracking for Schools | TrackEDU",
         "url":"https://www.trackedu.net/",
-        "description":"TrackEDU provides a digital House Points tracker for schools, bringing live House standings, student recognition, rewards, incident support and school reporting into one platform.",
+        "description":"TrackEDU helps schools record student incidents, review follow-up and manage House Points, recognition, rewards and classroom tools in one platform.",
         "inLanguage":"en-GB",
         "isPartOf":{"@id":"https://www.trackedu.net/#website"},
-        "about":{"@id":"https://www.trackedu.net/#housepoints"},
+        "about":{"@id":"https://www.trackedu.net/#school-suite"},
         "publisher":{"@id":"https://www.trackedu.net/#organization"}
       },
       {
         "@type":"SoftwareApplication",
-        "@id":"https://www.trackedu.net/#housepoints",
-        "name":"TrackEDU House Points",
+        "@id":"https://www.trackedu.net/#school-suite",
+        "name":"TrackEDU School Suite",
         "applicationCategory":"EducationalApplication",
         "operatingSystem":"Web",
-        "url":"https://www.trackedu.net/housepoints.html",
-        "description":"A digital school House Points tracker with live House leaderboards, student progress, badges and recognition, School Store rewards, behaviour and incident support and classroom tools.",
+        "url":"https://www.trackedu.net/",
+        "description":"School software for recording student incidents and follow-up, managing House Points, recognising students, tracking rewards and using classroom tools.",
         "publisher":{"@id":"https://www.trackedu.net/#organization"}
       },
       {
         "@type":"ItemList",
         "@id":"https://www.trackedu.net/#other-products",
-        "name":"Additional TrackEDU school tools",
+        "name":"TrackEDU school tools",
         "numberOfItems":2,
         "itemListElement":[
-          {"@type":"ListItem","position":1,"name":"TrackEDU Facilities","url":"https://www.trackedu.net/facilities.html"},
-          {"@type":"ListItem","position":2,"name":"TrackEDU Class Board","url":"https://dailyteachertools.com/"}
+          {"@type":"ListItem","position":1,"name":"Incidents & Support","url":"https://www.trackedu.net/behavior.html"},
+          {"@type":"ListItem","position":2,"name":"TrackEDU School Suite","url":"https://www.trackedu.net/#house-points"}
         ]
       }
     ]
@@ -137,10 +140,40 @@
     .brand img{width:37px;height:37px;object-fit:contain}
     .brand span span{color:#7db83d}
     .nav-links{display:flex;gap:25px;align-items:center;margin-left:auto}
-    .nav-links a{font-size:13px;color:#4e667b;font-weight:750;transition:color .15s}
+    .nav-links a{font-size:13px;color:#4e667b;font-weight:750;transition:color .15s,background .15s}
     .nav-links a:hover{color:#1168ab}
+
+    .nav-links .nav-incidents{color:#1769aa}
+    .nav-links .nav-incidents:hover{color:#0b477b}
+
+    .nav-links .nav-housepoints{color:#438522}
+    .nav-links .nav-housepoints:hover{color:#2d6415}
+
+    .nav-links .nav-trial{
+      color:#a75b0b;
+      background:#fff3e0;
+      padding:10px 14px;
+      border-radius:10px;
+      white-space:nowrap;
+    }
+    .nav-links .nav-trial:hover{
+      color:#814306;
+      background:#ffe7bf;
+    }
     .header-actions{display:flex;gap:10px;align-items:center}
     .header-actions .btn{min-height:44px;padding:10px 15px;font-size:12px;border-radius:11px}
+    .header-actions .btn-create-school{
+      color:#1f2937;
+      background:#f59e0b;
+      border-color:#f59e0b;
+      box-shadow:0 6px 18px rgba(245,158,11,.22);
+    }
+    .header-actions .btn-create-school:hover{
+      color:#1f2937;
+      background:#d97706;
+      border-color:#d97706;
+      box-shadow:0 8px 22px rgba(217,119,6,.28);
+    }
     .menu-btn{display:none;margin-left:auto;align-items:center;justify-content:center;width:45px;height:45px;background:#f3f8fc;border:1px solid var(--line);border-radius:12px;color:var(--navy)}
     .mobile-nav{display:none}
     /* Hero */
@@ -1161,6 +1194,10 @@
       }
     }
 
+    /* Product choice: clear text, accessible on phone and desktop */
+    .product-choice-price{display:block;color:#246b33;font-size:14px;font-weight:850;margin-top:9px}
+    .product-choice-note{display:block;font-size:12px;font-weight:700;color:#526e82;margin-top:9px}
+
     /* Compact, optional House Points software comparison */
     .compare-section{padding:0 0 54px;background:#fff}
     .compare-details{border:1px solid #dce7ef;border-radius:19px;background:#f8fbfd;overflow:hidden}
@@ -1273,9 +1310,64 @@
         gap:5px;
       }
     }
+    /* Floating Book a Demo button */
+    .floating-demo-btn {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+      z-index: 1000;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 14px 22px;
+      border-radius: 50px;
+      background: #159b57;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .floating-demo-btn:hover {
+      background: #087a40;
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .floating-demo-btn:focus-visible {
+      outline: 3px solid #173651;
+      outline-offset: 4px;
+    }
+
+    @media (max-width: 650px) {
+      .floating-demo-btn {
+        right: 14px;
+        bottom: 14px;
+        bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+        min-height: 48px;
+        padding: 12px 17px;
+        font-size: 13px;
+      }
+    }
+
   </style>
 </head>
 <body>
+
+  <!-- Floating demo booking button -->
+  <a
+    class="floating-demo-btn"
+    href="https://cal.com/trackedu-a9dbpy/30min"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Book a free TrackEDU demo, opens in a new tab"
+  >
+    Book a Demo
+  </a>
   <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" style="position:absolute;overflow:hidden">
     <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
@@ -1304,25 +1396,25 @@
         <span>Track<span>EDU</span></span>
       </a>
       <nav class="nav-links" aria-label="Main navigation">
-        <a href="https://www.trackedu.net/housepoints.html" target="_blank" rel="noopener noreferrer">House Points</a>
-        <a href="#other-products">Other tools</a>
-        <a href="https://www.trackedu.net/housepoints.html#pricing">Pricing</a>
+        <a class="nav-incidents" href="https://www.trackedu.net/behavior.html" target="_blank" rel="noopener noreferrer">School Incident Tracker</a>
+        <a class="nav-housepoints" href="https://www.trackedu.net/housepoints.html">House Points, Incident Tracker &amp; More</a>
+
 
       </nav>
       <div class="header-actions">
-        <a class="btn btn-outline" href="#book-demo" data-demo-trigger>Book a demo</a>
-        <a class="btn btn-green" href="https://housepoint.trackedu.net/?action=create-school">Create your school for free <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+
+        <a class="btn btn-create-school" href="https://housepoint.trackedu.net/?action=create-school">Create your school for free <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
       <button type="button" id="menuButton" class="menu-btn" aria-label="Open navigation" aria-expanded="false" aria-controls="mobileNav">
         <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
       </button>
     </div>
     <nav id="mobileNav" class="mobile-nav" aria-label="Mobile navigation" aria-hidden="true" inert>
-      <a href="https://www.trackedu.net/housepoints.html" target="_blank" rel="noopener noreferrer">House Points <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-      <a href="#other-products">Other tools <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-      <a href="https://www.trackedu.net/housepoints.html#pricing">Pricing <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a href="https://www.trackedu.net/behavior.html" target="_blank" rel="noopener noreferrer" style="color:#1769aa">School Incident Tracker <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a href="https://www.trackedu.net/housepoints.html" style="color:#438522">House Points, Incident Tracker &amp; More <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
 
-      <a href="#book-demo" data-demo-trigger>Book a demo <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+
+
       <a class="btn" href="https://housepoint.trackedu.net/?action=create-school">Create your school for free <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     </nav>
   </header>
@@ -1330,7 +1422,7 @@
   <main>
     <!-- Edge-to-edge homepage hero. The original split hero remains as a backup. -->
     <section class="hero hero--wide" aria-labelledby="hero-title">
-      <h1 id="hero-title" class="sr-only">One platform for your school: House Points, recognition, incident recording and classroom tools</h1>
+      <h1 id="hero-title" class="sr-only">School incident tracking, student support and House Points software in one TrackEDU platform</h1>
 
       <div class="hero-wide-stage">
         <img
@@ -1344,7 +1436,7 @@
           onerror="this.closest('.hero--wide').classList.add('hero-image-failed')"
         >
         <div class="hero-wide-actions" aria-label="Explore TrackEDU">
-          <a class="btn btn-green" href="https://www.trackedu.net/housepoints.html" target="_blank" rel="noopener noreferrer">Explore TrackEDU House Points <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-green" href="#other-products">Explore TrackEDU Tools <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           <button class="btn btn-white" type="button" data-video-trigger><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg> See it in a real school</button>
         </div>
       </div>
@@ -1355,10 +1447,10 @@
           <div class="hero-copy">
             <span class="hero-kicker"><span class="dot" aria-hidden="true"></span> Move beyond spreadsheets.</span>
             <h2 class="hero-backup-title">One platform for <em>your school.</em></h2>
-            <p class="hero-description-full">House Points, student recognition, behaviour and incident recording and classroom tools. Bring everyday school workflows together and give staff more time to focus on students.</p>
-            <p class="hero-description-mobile">House Points, student recognition, incident recording and classroom tools in one place. Less admin for staff and more time for students.</p>
+            <p class="hero-description-full">Record student incidents, track support and manage House Points and classroom tools in one place. Less admin for staff and more time for students.</p>
+            <p class="hero-description-mobile">Record school incidents and manage House Points in one place. Less admin for staff.</p>
             <div class="hero-actions">
-              <a class="btn btn-green" href="https://www.trackedu.net/housepoints.html" target="_blank" rel="noopener noreferrer">Explore TrackEDU House Points <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              <a class="btn btn-green" href="#other-products">Explore TrackEDU Tools <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
               <button class="btn btn-white" type="button" data-video-trigger><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg> See it in a real school</button>
             </div>
             <div class="hero-badges" aria-label="Pilot benefits">
@@ -1382,6 +1474,117 @@
       </div>
     </section>
 
+
+    <!-- Main school choices directly below the hero -->
+    <!-- Main school choices directly below the hero -->
+<section class="more-section" id="other-products" aria-labelledby="other-title">
+  <div class="wrap">
+    <div class="more-top">
+      <div>
+        <span class="eyebrow">Choose what your school needs</span>
+        <h2 class="heading section-heading" id="other-title">One platform. Choose what works for your school.</h2>
+      </div>
+      <p>
+        Track student incidents, give House Points and manage school activities.
+        Start with what you need. Add more tools when you're ready.
+      </p>
+    </div>
+
+    <div class="more-grid">
+
+      <!-- School Incident Tracker -->
+      <a
+        class="other-card"
+        href="https://www.trackedu.net/behavior.html"
+        aria-label="Explore TrackEDU School Incident Tracker"
+      >
+        <span class="other-icon">
+          <svg class="icon" aria-hidden="true">
+            <use href="#i-clipboard"/>
+          </svg>
+        </span>
+
+        <div>
+          <h3>School Incident Tracker</h3>
+
+          <p>
+            Record student incidents, track behaviour, manage follow-ups
+            and keep school leaders informed.
+          </p>
+
+          <span class="product-choice-price">US$499 per year</span>
+
+          <span class="product-choice-note">
+            Explore Incident Tracker →
+          </span>
+        </div>
+
+        <svg class="icon other-arrow" aria-hidden="true">
+          <use href="#i-arrow"/>
+        </svg>
+      </a>
+
+      <!-- Whole-School TrackEDU Platform -->
+      <a
+        class="other-card"
+        href="https://www.trackedu.net/housepoints.html"
+        aria-label="Explore TrackEDU House Points, Incident Tracker and other school tools"
+      >
+        <span class="other-icon">
+          <svg class="icon" aria-hidden="true">
+            <use href="#i-trophy"/>
+          </svg>
+        </span>
+
+        <div>
+          <h3>House Points, Incident Tracker &amp; More</h3>
+
+          <p>
+            Give House Points, track incidents, take attendance,
+            manage rewards and view student reports.
+            All in one school platform.
+          </p>
+
+          <span class="product-choice-price">From US$750 per year</span>
+
+          <span class="product-choice-note">
+            Explore All School Tools →
+          </span>
+        </div>
+
+        <svg class="icon other-arrow" aria-hidden="true">
+          <use href="#i-arrow"/>
+        </svg>
+      </a>
+
+    </div>
+
+    <!-- Free Trial -->
+    <div class="school-bundle">
+      <div class="school-bundle-copy">
+        <span class="eyebrow">Try TrackEDU</span>
+
+        <h3>30 days free. No card needed.</h3>
+
+        <p>
+          One school account. Choose Incident Tracker, House Points
+          or both. No automatic payment.
+        </p>
+      </div>
+
+      <a
+        class="btn btn-green"
+        href="https://housepoint.trackedu.net/?action=create-school"
+      >
+        Create your school for free
+        <svg class="icon" aria-hidden="true">
+          <use href="#i-arrow"/>
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</section>
 
     <!-- Scrolling company and integration trust signals; duplicate track for continuous motion -->
     <section class="trust-ribbon" aria-label="Trusted, connected and school-ready">
@@ -1433,9 +1636,8 @@
             Less admin. More time for students.
           </h2>
           <p>
-            School days are busy. TrackEDU helps teachers
-            and school leaders save time, celebrate students
-            and stay organised.
+            School days are busy. TrackEDU helps staff
+            save time, give points and keep records in one place.
           </p>
         </div>
 
@@ -1449,8 +1651,8 @@
             </div>
             <h3>Too much to do?</h3>
             <p>
-              Tracking points, rewards and school
-              records can take up valuable time.
+              Counting points and writing reports
+              can take a lot of time.
             </p>
           </article>
 
@@ -1462,8 +1664,8 @@
             </div>
             <h3>Too many steps?</h3>
             <p>
-              Paper, spreadsheets and separate
-              tools can make school work harder.
+              Paper and lots of spreadsheets
+              can make school work hard.
             </p>
           </article>
 
@@ -1475,8 +1677,8 @@
             </div>
             <h3>Meet TrackEDU.</h3>
             <p>
-              Bring House Points, rewards, student progress,
-              behaviour tools and reports into one place.
+              Keep incident reports, House Points
+              and rewards in one place.
             </p>
           </article>
 
@@ -1501,8 +1703,8 @@
             From manual tracking to a more connected school.
           </h2>
           <p class="section-lead">
-            See how TrackEDU can simplify House Points and incident recording,
-            helping staff spend less time on admin and more time supporting students.
+            See how TrackEDU can help staff record incidents and give House Points.
+            Less paperwork. More time for students.
           </p>
         </div>
 
@@ -1555,7 +1757,7 @@
               decoding="async"
             >
           </a>
-          <p>House Points: from handwritten tallies to live standings and student recognition.</p>
+          <p>House Points: stop counting by hand. See House scores in one place.</p>
         </div>
 
         <div
@@ -1581,7 +1783,7 @@
               decoding="async"
             >
           </a>
-          <p>Incidents &amp; Support: from scattered spreadsheets to organised records and follow-up.</p>
+          <p>Incidents &amp; Support: keep reports and next steps in one place.</p>
         </div>
 
         <p class="before-after-note">
@@ -1607,22 +1809,20 @@
 
           <p class="launch-copy-desktop">
             <strong>No credit card. No commitment.</strong>
-            Apply for an extended free pilot until
-            <strong>31 July 2027</strong>, plus
-            <strong>20% off your first five paid years</strong>
-            if you start a paid subscription by
-            <strong>31 December 2028</strong>.
+           Eligible schools can apply to extend their free pilot until
+<strong>31 July 2027</strong>.
+Extended access is subject to approval and offer terms.
           </p>
 
           <p class="launch-copy-mobile">
             <strong>No credit card. No commitment.</strong>
-            Eligible schools can apply for a longer free pilot and get
-            <strong>20% off their first five paid years.</strong>
+            Eligible schools can apply for free access until
+<strong>31 July 2027.</strong>
           </p>
 
           <p class="launch-eligibility launch-eligibility-desktop">
             Priority for UK and US schools. Other countries welcome to apply.
-            Extended access and discounts require approval.
+            Extended free access requires approval.
           </p>
 
           <p class="launch-eligibility launch-eligibility-mobile">
@@ -1638,12 +1838,11 @@
                 until 31 July 2027. Extended access is subject to
                 eligibility, approval and applicable terms.
               </p>
-              <p>
-                Approved schools that start a paid annual subscription
-                by 31 December 2028 can receive 20% off their first
-                five paid years. Standard pricing applies from the
-                sixth paid year. Terms and eligibility apply.
-              </p>
+             <p>
+  When free access ends, schools can choose whether
+  to continue with a paid annual licence.
+  There is no obligation to subscribe.
+</p>
               <p>
                 No credit card or commitment is required for the free trial.
                 Free access does not automatically convert into a paid
@@ -1691,13 +1890,12 @@
           </h2>
 
           <p class="section-lead">
-            Explore House Points, student progress, rewards, behaviour and incident support,
-            classroom tools and clear reporting in one connected platform.
-            Try the interactive preview to see how it works.
+            Record incidents. Give House Points and rewards. See what is going on
+            at your school. Try the preview below.
           </p>
 
           <a class="btn btn-green" href="https://www.trackedu.net/housepoints.html" target="_blank" rel="noopener noreferrer">
-            Explore TrackEDU House Points
+            Explore the TrackEDU School Suite
             <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
           </a>
         </div>
@@ -1860,79 +2058,6 @@
     </section>
 
 
-    <!-- Separate standalone TrackEDU products -->
-    <section class="more-section" id="other-products" aria-labelledby="other-title">
-      <div class="wrap">
-        <div class="more-top">
-          <div>
-            <span class="eyebrow">More from TrackEDU · Separate Products</span>
-            <h2 class="heading section-heading" id="other-title">
-              More school software. Independent of House Points.
-            </h2>
-          </div>
-          <p>
-            Explore TrackEDU Facilities and Class Board, two standalone
-            products designed to make everyday school life easier.
-            Each can be used independently of TrackEDU House Points.
-          </p>
-        </div>
-
-        <div class="more-grid">
-          <a class="other-card"
-             href="https://www.trackedu.net/facilities.html"
-             aria-label="Explore TrackEDU Facilities, a separate standalone school room booking product">
-            <span class="other-icon">
-              <svg class="icon" aria-hidden="true">
-                <use href="#i-calendar"/>
-              </svg>
-            </span>
-            <div>
-              <h3>Facilities &amp; room booking</h3>
-              <p>Make it easier to book school spaces and manage shared facilities.</p>
-            </div>
-            <svg class="icon other-arrow" aria-hidden="true">
-              <use href="#i-arrow"/>
-            </svg>
-          </a>
-
-          <a class="other-card"
-             href="https://dailyteachertools.com/"
-             target="_blank"
-             rel="noopener noreferrer"
-             aria-label="Explore Class Board, a separate standalone classroom tool, opens in a new tab">
-            <span class="other-icon">
-              <svg class="icon" aria-hidden="true">
-                <use href="#i-board"/>
-              </svg>
-            </span>
-            <div>
-              <h3>Class Board &amp; teacher tools</h3>
-              <p>Classroom screen, timers, grouping, routines and teaching-day tools.</p>
-            </div>
-            <svg class="icon other-arrow" aria-hidden="true">
-              <use href="#i-arrow"/>
-            </svg>
-          </a>
-        </div>
-
-        <div class="school-bundle">
-          <div class="school-bundle-copy">
-            <span class="eyebrow">More together</span>
-            <h3>Interested in all three TrackEDU products?</h3>
-            <p>
-              Looking for House Points, Facilities and Class Board
-              for your school? Explore pricing and ask about
-              combined school options.
-            </p>
-          </div>
-          <a class="btn btn-green"
-             href="https://www.trackedu.net/housepoints.html#pricing">
-            Explore school pricing &amp; options
-            <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
-          </a>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="site-footer">
@@ -1940,13 +2065,12 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="https://www.trackedu.net/" class="brand" aria-label="TrackEDU home"><img src="https://trackedu.github.io/common-assets/trackedulogono.png" alt="" width="37" height="37" loading="lazy"><span>Track<span>EDU</span></span></a>
-          <p>TrackEDU offers a whole-school House Points and recognition platform, plus separate standalone Facilities and Class Board products for everyday school life.</p>
+          <p>TrackEDU helps schools record student incidents and manage House Points, rewards, attendance and classroom tools. Start with what your school needs.</p>
         </div>
         <nav class="footer-col" aria-label="Products"><h3>School software</h3>
-          <a href="https://www.trackedu.net/housepoints.html">House Points &amp; Recognition</a>
-          <a href="https://www.trackedu.net/facilities.html">Facilities &amp; Room Booking</a>
-          <a href="https://dailyteachertools.com/" target="_blank" rel="noopener noreferrer">Class Board &amp; Teacher Tools</a>
-          <a href="https://www.trackedu.net/behavior.html">Behaviour &amp; Pastoral Support</a>
+          <a href="https://www.trackedu.net/behavior.html" target="_blank" rel="noopener noreferrer">Incident Tracker</a>
+          <a href="https://www.trackedu.net/housepoints.html">House Points, Incident Tracker &amp; More</a>
+          <a href="#house-points">See all school tools</a>
         </nav>
         <nav class="footer-col" aria-label="Resources"><h3>Explore &amp; learn</h3>
           <a href="https://www.trackedu.net/resources.html">School resources</a>
@@ -1955,7 +2079,7 @@
           <a href="https://www.trackedu.net/help-center.html">Help &amp; support</a>
         </nav>
         <nav class="footer-col" aria-label="Company"><h3>TrackEDU</h3>
-          <a href="#book-demo" data-demo-trigger>Book a demo</a>
+          <a href="https://cal.com/trackedu-a9dbpy/30min" target="_blank" rel="noopener noreferrer">Book a demo</a>
           <a href="https://www.trackedu.net/dpa.html">Data Processing Agreement</a>
           <a href="https://www.trackedu.net/privacy.html">Privacy policy</a>
           <a href="https://www.trackedu.net/terms.html">Terms of use</a>
