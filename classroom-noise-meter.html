@@ -2385,6 +2385,47 @@
     }
 
 
+    /* Class Board promotion inside the control panel */
+    .classboard-panel-promo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding: 10px 12px;
+      border: 1px solid rgba(135, 194, 50, 0.35);
+      border-radius: 14px;
+      background: rgba(135, 194, 50, 0.10);
+      text-align: center;
+    }
+
+    .classboard-panel-title {
+      color: #bbf7d0;
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .classboard-panel-text {
+      color: #e2e8f0;
+      font-size: 11px;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    .classboard-panel-link {
+      display: inline-block;
+      margin-top: 3px;
+      color: #fbbf24;
+      font-size: 12px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .classboard-panel-link:hover {
+      color: #fde68a;
+      text-decoration: underline;
+    }
+
     .school-housepoints-promo {
       display: none;
       flex-direction: column;
@@ -3456,16 +3497,7 @@
             <img src="https://trackedu.github.io/common-assets/teacherappnewlogo.png" alt="TrackEDU Logo" class="trackedu-logo-icon">
             <span class="track-word">Track</span><span class="edu-word">EDU</span>
           </a>
-          <span>•</span>
-          <a
-  href="https://dailyteachertools.com/"
-  target="_blank"
-  rel="noopener noreferrer"
-  class="tools-link"
-  aria-label="Teachers: Try Class Board free"
->
-  Teachers: Try Class Board Free →
-</a>
+
         </div>
         <button class="settings-trigger" id="settingsTriggerBtn" aria-label="Open settings">
           <i class="fas fa-cog"></i>
@@ -3480,6 +3512,8 @@
             <span class="mobile-track">Track</span><span class="mobile-edu">EDU</span>
           </a>
         </div>
+
+   
 
     <div class="main-layout">
       <div class="character-area">
@@ -3575,9 +3609,26 @@
             <i class="fas fa-microphone-alt"></i> Ready to start. Click Start and allow microphone.
           </div>
 
-          <p class="seo-mini-copy">
-            <strong>Free online classroom noise meter</strong> for teachers, designed for smartboards, calm transitions and quick whole-class volume checks.
-          </p>
+          <div class="seo-mini-copy classboard-panel-promo">
+            <div class="classboard-panel-title">
+              🎯 Love this tool? Meet Class Board!
+            </div>
+
+            <div class="classboard-panel-text">
+              Get 30+ fun tools and games for your class.
+              <br>
+              Add your class once. Use it in every tool!
+            </div>
+
+            <a
+              href="https://dailyteachertools.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="classboard-panel-link"
+            >
+              Try Class Board Free →
+            </a>
+          </div>
 
           <div
             id="schoolHousePointsPromo"
@@ -6013,182 +6064,122 @@ Tip: Shortcuts work even when the meter is running!
     }
   </script>
 
-<!-- DAILY TEACHERTOOLS PROMO -->
+
+
+<!-- SHOW / HIDE HEADER AND CHARACTER BAR -->
 <style>
-  #dttPromo {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    z-index: 99990;
-    width: min(340px, calc(100vw - 32px));
-    padding: 22px;
-    background: #ffffff;
-    color: #1e293b;
-    border: 1px solid #e2e8f0;
-    border-radius: 18px;
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.16);
-    font-family: inherit;
+  #meterViewToggle {
     display: none;
-  }
-
-  #dttPromoClose {
-    position: absolute;
-    top: 10px;
-    right: 12px;
-    background: transparent;
-    border: 0;
-    color: #64748b;
-    font-size: 22px;
-    cursor: pointer;
-    padding: 5px;
-  }
-
-  #dttPromo h3 {
-    margin: 0 25px 10px 0;
-    font-size: 19px;
-    line-height: 1.3;
-    color: #0f172a;
-  }
-
-  #dttPromo p {
-    margin: 0 0 15px;
-    font-size: 14px;
-    line-height: 1.6;
-    color: #475569;
-  }
-
-  #dttPromoLink {
-    display: block;
-    padding: 12px;
-    text-align: center;
-    text-decoration: none;
-    background: #16a34a;
+    position: fixed;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    z-index: 10001;
+    width: 38px;
+    height: 38px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 12px;
+    background: rgba(7,17,31,0.85);
     color: #ffffff;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  }
+
+  #calmMeterApp.meter-running #meterViewToggle {
+    display: flex;
+  }
+
+  #calmMeterApp.show-meter-bars .calm-header.hidden {
+    position: relative !important;
+    transform: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  #calmMeterApp.show-meter-bars .milestone-rail.hidden {
+    position: fixed !important;
+    transform: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  /* Keep the advert hidden during monitoring. */
+  #calmMeterApp.meter-running .classboard-banner {
+    display: none !important;
+  }
+
+  /* Restore space for the visible bottom bar. */
+  #calmMeterApp.show-meter-bars .main-layout {
+    padding-bottom: 104px !important;
   }
 
   @media (max-width: 600px) {
-    #dttPromo {
-      right: 12px;
-      bottom: 12px;
-      padding: 18px;
+    #meterViewToggle {
+      right: 5px;
+      width: 34px;
+      height: 34px;
+      font-size: 16px;
     }
   }
 </style>
-
-<div id="dttPromo" role="complementary"
-     aria-label="Discover Daily TeacherTools">
-
-  <button id="dttPromoClose"
-          type="button"
-          aria-label="Close message">×</button>
-
-  <h3>Your classroom tools, all in one place! 👋</h3>
-
-  <p>
-    Meet Daily TeacherTools! Enjoy 30+ fun teaching
-    tools and games.
-    <br><br>
-    Add your class once and use it across all your tools.
-    Simple, quick and made for teachers!
-  </p>
-
-  <a
-    id="dttPromoLink"
-    href="https://dailyteachertools.com/"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Explore Daily TeacherTools →
-  </a>
-</div>
 
 <script>
 (function () {
   'use strict';
 
-  const VISITS_KEY = 'dtt_promo_visits_v1';
-  const HIDE_KEY = 'dtt_promo_hide_until_v1';
-  const SESSION_KEY = 'dtt_promo_session_v1';
+  const app = document.getElementById('calmMeterApp');
+  const stopBtn = document.getElementById('stopBtn');
 
-  const DAY = 24 * 60 * 60 * 1000;
-  const promo = document.getElementById('dttPromo');
-  const closeBtn = document.getElementById('dttPromoClose');
-  const promoLink = document.getElementById('dttPromoLink');
+  if (!app || !stopBtn) return;
 
-  if (!promo || !closeBtn || !promoLink) return;
+  const toggle = document.createElement('button');
 
-  let visits = 0;
+  toggle.id = 'meterViewToggle';
+  toggle.type = 'button';
+  toggle.textContent = '👁';
+  toggle.title = 'Show header and character bar';
+  toggle.setAttribute('aria-label', 'Show header and character bar');
+  toggle.setAttribute('aria-pressed', 'false');
 
-  try {
-    visits = Number(localStorage.getItem(VISITS_KEY)) || 0;
+  app.appendChild(toggle);
 
-    if (!sessionStorage.getItem(SESSION_KEY)) {
-      visits += 1;
-      localStorage.setItem(VISITS_KEY, String(visits));
-      sessionStorage.setItem(SESSION_KEY, '1');
-    }
-  } catch (error) {
-    return;
-  }
+  function syncMeterView() {
+    const running = getComputedStyle(stopBtn).display !== 'none';
 
-  function hideFor(days) {
-    promo.style.display = 'none';
+    app.classList.toggle('meter-running', running);
 
-    try {
-      localStorage.setItem(
-        HIDE_KEY,
-        String(Date.now() + days * DAY)
-      );
-    } catch (error) {
-      // The message will remain closed for this page.
+    if (!running) {
+      app.classList.remove('show-meter-bars');
+      toggle.textContent = '👁';
+      toggle.title = 'Show header and character bar';
+      toggle.setAttribute('aria-label', toggle.title);
+      toggle.setAttribute('aria-pressed', 'false');
     }
   }
 
-  closeBtn.addEventListener('click', function () {
-    hideFor(30);
+  toggle.addEventListener('click', function () {
+    const visible = app.classList.toggle('show-meter-bars');
+
+    toggle.textContent = visible ? '🙈' : '👁';
+    toggle.title = visible
+      ? 'Hide header and character bar'
+      : 'Show header and character bar';
+
+    toggle.setAttribute('aria-label', toggle.title);
+    toggle.setAttribute('aria-pressed', String(visible));
   });
 
-  promoLink.addEventListener('click', function () {
-    hideFor(60);
+  const observer = new MutationObserver(syncMeterView);
+
+  observer.observe(stopBtn, {
+    attributes: true,
+    attributeFilter: ['style']
   });
 
-  function tryShowPromo() {
-    let hideUntil = 0;
-
-    try {
-      hideUntil = Number(localStorage.getItem(HIDE_KEY)) || 0;
-    } catch (error) {
-      return true;
-    }
-
-    if (Date.now() < hideUntil) return true;
-
-    // Do not interrupt an active Noise Meter session.
-    const stopBtn = document.getElementById('stopBtn');
-
-    if (stopBtn && getComputedStyle(stopBtn).display !== 'none') {
-      return false;
-    }
-
-    promo.style.display = 'block';
-    return true;
-  }
-
-  if (visits >= 2) {
-    // Let teachers use the page before showing the message.
-    setTimeout(function () {
-      if (tryShowPromo()) return;
-
-      const retry = setInterval(function () {
-        if (tryShowPromo()) {
-          clearInterval(retry);
-        }
-      }, 5000);
-    }, 25000);
-  }
+  syncMeterView();
 })();
 </script>
 
