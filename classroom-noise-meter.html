@@ -6013,5 +6013,184 @@ Tip: Shortcuts work even when the meter is running!
     }
   </script>
 
+<!-- DAILY TEACHERTOOLS PROMO -->
+<style>
+  #dttPromo {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 99990;
+    width: min(340px, calc(100vw - 32px));
+    padding: 22px;
+    background: #ffffff;
+    color: #1e293b;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.16);
+    font-family: inherit;
+    display: none;
+  }
+
+  #dttPromoClose {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    background: transparent;
+    border: 0;
+    color: #64748b;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 5px;
+  }
+
+  #dttPromo h3 {
+    margin: 0 25px 10px 0;
+    font-size: 19px;
+    line-height: 1.3;
+    color: #0f172a;
+  }
+
+  #dttPromo p {
+    margin: 0 0 15px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #475569;
+  }
+
+  #dttPromoLink {
+    display: block;
+    padding: 12px;
+    text-align: center;
+    text-decoration: none;
+    background: #16a34a;
+    color: #ffffff;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  @media (max-width: 600px) {
+    #dttPromo {
+      right: 12px;
+      bottom: 12px;
+      padding: 18px;
+    }
+  }
+</style>
+
+<div id="dttPromo" role="complementary"
+     aria-label="Discover Daily TeacherTools">
+
+  <button id="dttPromoClose"
+          type="button"
+          aria-label="Close message">×</button>
+
+  <h3>Your classroom tools, all in one place! 👋</h3>
+
+  <p>
+    Meet Daily TeacherTools! Enjoy 30+ fun teaching
+    tools and games.
+    <br><br>
+    Add your class once and use it across all your tools.
+    Simple, quick and made for teachers!
+  </p>
+
+  <a
+    id="dttPromoLink"
+    href="https://dailyteachertools.com/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Explore Daily TeacherTools →
+  </a>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  const VISITS_KEY = 'dtt_promo_visits_v1';
+  const HIDE_KEY = 'dtt_promo_hide_until_v1';
+  const SESSION_KEY = 'dtt_promo_session_v1';
+
+  const DAY = 24 * 60 * 60 * 1000;
+  const promo = document.getElementById('dttPromo');
+  const closeBtn = document.getElementById('dttPromoClose');
+  const promoLink = document.getElementById('dttPromoLink');
+
+  if (!promo || !closeBtn || !promoLink) return;
+
+  let visits = 0;
+
+  try {
+    visits = Number(localStorage.getItem(VISITS_KEY)) || 0;
+
+    if (!sessionStorage.getItem(SESSION_KEY)) {
+      visits += 1;
+      localStorage.setItem(VISITS_KEY, String(visits));
+      sessionStorage.setItem(SESSION_KEY, '1');
+    }
+  } catch (error) {
+    return;
+  }
+
+  function hideFor(days) {
+    promo.style.display = 'none';
+
+    try {
+      localStorage.setItem(
+        HIDE_KEY,
+        String(Date.now() + days * DAY)
+      );
+    } catch (error) {
+      // The message will remain closed for this page.
+    }
+  }
+
+  closeBtn.addEventListener('click', function () {
+    hideFor(30);
+  });
+
+  promoLink.addEventListener('click', function () {
+    hideFor(60);
+  });
+
+  function tryShowPromo() {
+    let hideUntil = 0;
+
+    try {
+      hideUntil = Number(localStorage.getItem(HIDE_KEY)) || 0;
+    } catch (error) {
+      return true;
+    }
+
+    if (Date.now() < hideUntil) return true;
+
+    // Do not interrupt an active Noise Meter session.
+    const stopBtn = document.getElementById('stopBtn');
+
+    if (stopBtn && getComputedStyle(stopBtn).display !== 'none') {
+      return false;
+    }
+
+    promo.style.display = 'block';
+    return true;
+  }
+
+  if (visits >= 2) {
+    // Let teachers use the page before showing the message.
+    setTimeout(function () {
+      if (tryShowPromo()) return;
+
+      const retry = setInterval(function () {
+        if (tryShowPromo()) {
+          clearInterval(retry);
+        }
+      }, 5000);
+    }, 25000);
+  }
+})();
+</script>
+
 </body>
 </html>
