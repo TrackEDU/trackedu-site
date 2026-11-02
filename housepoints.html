@@ -12721,7 +12721,25 @@ html[dir="rtl"] .hero.hero-video-enabled .hero-copy .lead {
 <div class="hero-video-overlay"></div>
 </div>
 <div class="shell hero-grid"><div class="hero-copy reveal show"><p class="hero-brand-promise" data-i18n="hero_brand_promise">One platform. A more connected school.</p><h1 data-i18n-html="hero_title"><span class="blue">House Points, behaviour &amp; classroom tools.</span> <span class="green">All in one place.</span></h1><p class="lead" data-i18n-html="hero_lead">Move beyond spreadsheets. Celebrate student success, simplify incident reporting and save teachers time.</p><div class="hero-actions">
-<a class="btn btn-primary" href="https://housepoint.trackedu.net/"><span data-i18n="hero_pilot">Start your free 30-day pilot</span> <i class="fa-solid fa-arrow-right"></i></a><button class="btn btn-secondary hero-secondary" data-pilot-trigger="true" type="button"><i class="fa-solid fa-circle-info"></i> <span data-i18n="pilot_how_link">How does the free pilot work?</span></button></div>
+<a
+  class="btn btn-primary"
+  href="https://housepoint.trackedu.net/?action=create-school"
+>
+  <span data-i18n="hero_pilot">Start your free 30-day pilot</span>
+  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+</a>
+
+<button
+  class="btn btn-secondary hero-secondary"
+  data-trackedu-ai-open
+  type="button"
+  aria-haspopup="dialog"
+  aria-controls="te-ai-panel"
+>
+  <i class="fa-solid fa-sparkles" aria-hidden="true"></i>
+  <span data-i18n="pilot_how_link">Ask our AI School Adviser</span>
+</button>
+</div>
 <div class="hero-integrations hero-integrations-premium">
 <div class="hero-integrations-label">
 <span>Import students and classes from</span>
@@ -18290,7 +18308,7 @@ window.downloadTrustCentrePDF = downloadTrustCentrePDF;
       cta_book_demo: 'Book demo',
       cta_start_pilot: 'Start free pilot',
 
-      pilot_how_link: 'How does the free pilot work?',
+      pilot_how_link: 'Ask our AI School Adviser',
       outcomes_roles_toggle: 'Explore tools for teachers, students and school leaders',
       outcomes_explore: 'Explore',
       outcome1_title: 'Celebrate achievement',
@@ -19078,7 +19096,7 @@ hero_lead: 'Motiva al alumnado, reconoce sus logros, registra incidencias y ahor
       cta_book_demo: 'احجز عرضاً توضيحياً',
       cta_start_pilot: 'ابدأ تجربة مجانية',
 
-      pilot_how_link: 'كيف تعمل التجربة المجانية؟',
+      pilot_how_link: 'اسأل مستشار المدارس بالذكاء الاصطناعي',
       outcomes_roles_toggle: 'استكشف أدوات المعلمين والطلاب وقادة المدارس',
       outcomes_explore: 'استكشف',
       outcome1_title: 'احتفِ بالإنجازات',
@@ -19485,6 +19503,12 @@ hero_lead: 'عزّز مشاركة الطلاب، وقدّر إنجازاتهم،
       ar: 'أنشئ مدرستك مجاناً'
     };
 
+    const heroPilotText = {
+      en: 'Start your free 30-day pilot',
+      es: 'Empieza tu prueba gratis de 30 días',
+      ar: 'ابدأ تجربتك المجانية لمدة 30 يوماً'
+    };
+
     document.querySelectorAll('a[href="https://housepoint.trackedu.net/"], a[href="https://housepoint.trackedu.net/?action=create-school"]').forEach(link => {
 
       const isLogin =
@@ -19501,7 +19525,10 @@ hero_lead: 'عزّز مشاركة الطلاب، وقدّر إنجازاتهم،
       const newText = createSchoolText[lang];
 
       if (label) {
-        label.textContent = newText;
+        label.textContent =
+          label.getAttribute('data-i18n') === 'hero_pilot'
+            ? heroPilotText[lang]
+            : newText;
       } else {
         const textNode = Array.from(link.childNodes).find(
           node => node.nodeType === Node.TEXT_NODE && node.textContent.trim()
