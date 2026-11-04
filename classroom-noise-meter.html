@@ -2387,17 +2387,46 @@
 
     /* Class Board promotion inside the control panel */
     .classboard-panel-promo {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-      padding: 10px 12px;
-      border: 1px solid rgba(135, 194, 50, 0.35);
-      border-radius: 14px;
-      background: rgba(135, 194, 50, 0.10);
-      text-align: center;
-    }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 14px 12px;
+  border: 1px solid rgba(135, 194, 50, 0.25);
+  border-radius: 14px;
+  background: rgba(135, 194, 50, 0.07);
+  text-align: center;
+}
 
+.classboard-panel-title {
+  color: #bbf7d0;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.classboard-panel-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+  padding: 7px 16px;
+  background: #fbbf24;
+  color: #172b20;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.classboard-panel-link:hover {
+  background: #fde68a;
+  color: #172b20;
+  text-decoration: none;
+}
     .classboard-panel-title {
       color: #bbf7d0;
       font-size: 15px;
@@ -3618,13 +3647,7 @@
           
 <div class="seo-mini-copy classboard-panel-promo">
   <div class="classboard-panel-title">
-    🎯 Need more free classroom tools?
-  </div>
-
-  <div class="classboard-panel-text">
-    Noise Meter is just the start.
-    <br><br>
-    Explore 30+ classroom tools and games to help you teach, play and manage your class.
+    🎯 Love the Noise Meter? Discover 30+ more free classroom tools!
   </div>
 
   <a
@@ -3633,7 +3656,7 @@
     rel="noopener noreferrer"
     class="classboard-panel-link"
   >
-    Explore Free Class Board →
+    Explore Class Board →
   </a>
 </div>
 
