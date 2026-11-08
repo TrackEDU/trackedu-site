@@ -1474,7 +1474,112 @@
           </div>
         </div>
       </div>
+        </section>
+
+    <!-- FULL-SCREEN TRACKEDU VIDEO -->
+    <section class="trackedu-feature-video" aria-label="Watch TrackEDU video">
+
+      <style>
+        .trackedu-feature-video {
+          position: relative;
+          width: 100%;
+          height: 100vh;
+          height: 100svh;
+          min-height: 350px;
+          overflow: hidden;
+          background: #000;
+        }
+
+        .trackedu-feature-video iframe {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: max(100vw, 177.78svh);
+          height: max(100svh, 56.25vw);
+          border: 0;
+          transform: translate(-50%, -50%);
+        }
+
+        .trackedu-video-sound {
+          position: absolute;
+          z-index: 10;
+          right: 24px;
+          bottom: 24px;
+          padding: 14px 22px;
+          border: 1px solid rgba(255,255,255,.35);
+          border-radius: 50px;
+          background: rgba(0,0,0,.78);
+          color: white;
+          font-size: 15px;
+          font-weight: 700;
+          cursor: pointer;
+          backdrop-filter: blur(10px);
+          box-shadow: 0 4px 20px rgba(0,0,0,.25);
+        }
+
+        .trackedu-video-sound:hover {
+          background: #5d9d24;
+        }
+
+        @media (max-width: 600px) {
+          .trackedu-video-sound {
+            right: 15px;
+            bottom: 20px;
+            padding: 12px 18px;
+            font-size: 14px;
+          }
+        }
+      </style>
+
+      <iframe
+        id="trackeduFeatureVideo"
+        src="https://www.youtube-nocookie.com/embed/D1fsRLAlDgE?autoplay=1&mute=1&playsinline=1&controls=1&rel=0&enablejsapi=1"
+        title="Discover TrackEDU"
+        allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+        allowfullscreen
+        referrerpolicy="strict-origin-when-cross-origin">
+      </iframe>
+
+      <button
+        id="trackeduVideoSound"
+        class="trackedu-video-sound"
+        type="button"
+        aria-pressed="false">
+        🔊 Turn sound on
+      </button>
+
+      <script>
+        (function () {
+          const video = document.getElementById('trackeduFeatureVideo');
+          const button = document.getElementById('trackeduVideoSound');
+
+          let muted = true;
+
+          button.addEventListener('click', function () {
+            const command = muted ? 'unMute' : 'mute';
+
+            video.contentWindow.postMessage(
+              JSON.stringify({
+                event: 'command',
+                func: command,
+                args: []
+              }),
+              'https://www.youtube-nocookie.com'
+            );
+
+            muted = !muted;
+
+            button.textContent = muted
+              ? '🔊 Turn sound on'
+              : '🔇 Mute video';
+
+            button.setAttribute('aria-pressed', String(!muted));
+          });
+        })();
+      </script>
+
     </section>
+    <!-- END TRACKEDU VIDEO -->
 
 
    <section class="more-section" id="other-products" aria-labelledby="other-title">
