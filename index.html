@@ -142,6 +142,30 @@
     .brand img{width:37px;height:37px;object-fit:contain}
     .brand span span{color:#7db83d}
     .nav-links{display:flex;gap:25px;align-items:center;margin-left:auto}
+
+/* Header Watch Demo button */
+.header-watch-demo{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  border:0;
+  background:transparent;
+  color:#123650;
+  font-family:inherit;
+  font-size:13px;
+  font-weight:800;
+  white-space:nowrap;
+  cursor:pointer;
+  padding:8px;
+}
+
+.header-watch-demo:hover{
+  color:#5d9d24;
+}
+
+.header-watch-demo span{
+  font-size:11px;
+}
     .nav-links a{font-size:13px;color:#4e667b;font-weight:750;transition:color .15s,background .15s}
     .nav-links a:hover{color:#1168ab}
 
@@ -1225,15 +1249,71 @@
 
     /* Full-width homepage hero, with the original hero as a reliable fallback */
     .hero--wide{background:#f5fff1}
-    .hero-wide-stage{position:relative;width:100%;overflow:hidden}
-    .hero-wide-image{display:block;width:100%;height:auto;aspect-ratio:1672 / 941;object-fit:contain}
+    .hero-wide-stage{
+  position:relative;
+  width:100%;
+  height:calc(100vw * 941 / 1672 - 120px);
+  overflow:hidden;
+}
+
+.hero-wide-image{
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:1672 / 941;
+  object-fit:contain;
+}
     .hero-wide-actions{
-      position:absolute;left:6.35%;top:62%;z-index:2;
-      display:flex;align-items:center;gap:12px;
-    }
+  position:absolute;
+  left:5.9%;
+  top:72%;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
     .hero-wide-actions .btn{min-height:clamp(42px,3.6vw,62px);font-size:clamp(11px,1.05vw,15px);padding:10px clamp(12px,1.35vw,22px)}
     .hero-wide-actions .btn-white{background:#123650;color:#fff;border-color:#123650}
     .hero-wide-actions .btn-white:hover{background:#1d4b6c;border-color:#1d4b6c}
+
+/* Small centred Watch Demo button */
+.hero-watch-demo{
+  position:absolute;
+  bottom:14px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:5;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  padding:9px 16px;
+  border:1px solid rgba(255,255,255,.65);
+  border-radius:30px;
+  background:rgba(8,35,55,.82);
+  color:#fff;
+  font-family:inherit;
+  font-size:13px;
+  font-weight:700;
+  cursor:pointer;
+  white-space:nowrap;
+  backdrop-filter:blur(8px);
+  transition:background .2s ease;
+}
+
+.hero-watch-demo:hover{
+  background:#5d9d24;
+}
+
+.hero-watch-icon{
+  display:grid;
+  place-items:center;
+  width:24px;
+  height:24px;
+  border-radius:50%;
+  background:#fff;
+  color:#123650;
+  font-size:10px;
+}
     .hero-original-backup{display:none}
     .hero--wide.hero-image-failed .hero-wide-stage{display:none}
     .hero--wide.hero-image-failed .hero-original-backup{display:block}
@@ -1399,11 +1479,18 @@
       </a>
       <nav class="nav-links" aria-label="Main navigation">
         <a class="nav-incidents" href="https://www.trackedu.net/behavior.html" target="_blank" rel="noopener noreferrer">School Incident Tracker</a>
-        <a class="nav-housepoints" href="https://www.trackedu.net/housepoints.html">House Points, Incident Tracker &amp; More</a>
+        <a class="nav-housepoints" href="https://www.trackedu.net/housepoints.html">House Points Tracker</a>
 
 
       </nav>
       <div class="header-actions">
+
+        <button
+          type="button"
+          class="header-watch-demo"
+          onclick="document.querySelector('.trackedu-feature-video')?.scrollIntoView({behavior:'smooth'})">
+          <span aria-hidden="true">▶</span> Watch Demo
+        </button>
 
         <a class="btn btn-create-school" href="https://housepoint.trackedu.net/?action=create-school">Create your school for free <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
@@ -1413,11 +1500,11 @@
     </div>
     <nav id="mobileNav" class="mobile-nav" aria-label="Mobile navigation" aria-hidden="true" inert>
       <a href="https://www.trackedu.net/behavior.html" target="_blank" rel="noopener noreferrer" style="color:#1769aa">School Incident Tracker <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-      <a href="https://www.trackedu.net/housepoints.html" style="color:#438522">House Points, Incident Tracker &amp; More <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a href="https://www.trackedu.net/housepoints.html" style="color:#438522">House Points Tracker <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
 
 
 
-      <a class="btn" href="https://housepoint.trackedu.net/?action=create-school">Create your school for free <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="btn" href="https://housepoint.trackedu.net/?action=create-school">Start Free 30-Day Pilot <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     </nav>
   </header>
 
@@ -1441,6 +1528,9 @@
           <a class="btn btn-green" href="#other-products">Explore TrackEDU Tools <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           <button class="btn btn-white" type="button" data-video-trigger><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg> See it in a real school</button>
         </div>
+
+
+
       </div>
 
       <!-- Original hero retained for phones, smaller screens and image-load failures. -->
@@ -1500,17 +1590,35 @@
           transform: translate(-50%, -50%);
         }
 
+        /* MOBILE VIDEO FIX */
+        @media (max-width: 768px) {
+          .trackedu-feature-video {
+            height: auto;
+            min-height: 0;
+            aspect-ratio: 16 / 9;
+          }
+
+          .trackedu-feature-video iframe {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: none;
+          }
+        }
+
         .trackedu-video-sound {
           position: absolute;
           z-index: 10;
           right: 24px;
-          bottom: 24px;
-          padding: 14px 22px;
+          top: 24px;
+          bottom: auto;
+          padding: 9px 14px;
           border: 1px solid rgba(255,255,255,.35);
           border-radius: 50px;
           background: rgba(0,0,0,.78);
           color: white;
-          font-size: 15px;
+          font-size: 12px;
           font-weight: 700;
           cursor: pointer;
           backdrop-filter: blur(10px);
@@ -1521,62 +1629,29 @@
           background: #5d9d24;
         }
 
-        @media (max-width: 600px) {
+       @media (max-width: 600px) {
           .trackedu-video-sound {
             right: 15px;
-            bottom: 20px;
-            padding: 12px 18px;
-            font-size: 14px;
+            top: 20px;
+            bottom: auto;
+            padding: 8px 12px;
+            font-size: 12px;
           }
         }
       </style>
 
       <iframe
         id="trackeduFeatureVideo"
-        src="https://www.youtube-nocookie.com/embed/D1fsRLAlDgE?autoplay=1&mute=1&playsinline=1&controls=1&rel=0&enablejsapi=1"
+        src="https://www.youtube-nocookie.com/embed/D1fsRLAlDgE?autoplay=1&mute=1&playsinline=1&controls=1&rel=0&enablejsapi=1&cc_load_policy=0"
         title="Discover TrackEDU"
         allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
         allowfullscreen
         referrerpolicy="strict-origin-when-cross-origin">
       </iframe>
 
-      <button
-        id="trackeduVideoSound"
-        class="trackedu-video-sound"
-        type="button"
-        aria-pressed="false">
-        🔊 Turn sound on
-      </button>
+      
 
-      <script>
-        (function () {
-          const video = document.getElementById('trackeduFeatureVideo');
-          const button = document.getElementById('trackeduVideoSound');
-
-          let muted = true;
-
-          button.addEventListener('click', function () {
-            const command = muted ? 'unMute' : 'mute';
-
-            video.contentWindow.postMessage(
-              JSON.stringify({
-                event: 'command',
-                func: command,
-                args: []
-              }),
-              'https://www.youtube-nocookie.com'
-            );
-
-            muted = !muted;
-
-            button.textContent = muted
-              ? '🔊 Turn sound on'
-              : '🔇 Mute video';
-
-            button.setAttribute('aria-pressed', String(!muted));
-          });
-        })();
-      </script>
+      
 
     </section>
     <!-- END TRACKEDU VIDEO -->
@@ -1594,11 +1669,6 @@
         </h2>
       </div>
 
-      <p>
-        TrackEDU brings your school tools together in one place.
-        Use Incident Tracker, House Points or both.
-        You choose what works for your school.
-      </p>
     </div>
 
     <div class="more-grid">
