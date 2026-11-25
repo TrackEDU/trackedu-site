@@ -3651,39 +3651,40 @@
      style="padding:12px;gap:8px;margin-top:8px;">
 
   <div style="font-size:16px;font-weight:900;color:#bbf7d0;line-height:1.25;">
-    All your teaching tools in one place
+    Love the Noise Meter?
   </div>
 
   <div style="font-size:12px;font-weight:600;color:#e2e8f0;line-height:1.4;margin-bottom:4px;">
-    Save your classes. Plan your day. Use your favourite classroom tools.
+    Use it with 30+ teaching tools in one place.
   </div>
 
-  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;width:100%;">
+    <div id="classboardPromoTools"
+       style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;width:100%;">
 
-    <a href="https://dailyteachertools.com/classroom-board.html?tool=picker&utm_source=noise_meter&utm_medium=referral&utm_campaign=teacher_tools&utm_content=student_picker"
+    <a href="https://dailyteachertools.com/classroom-board.html?tool=noise&amp;utm_source=noise_meter&amp;utm_medium=referral&amp;utm_campaign=teacher_tools&amp;utm_content=noise_meter"
        target="_blank" rel="noopener noreferrer"
-       style="background:#1e293b;border:1px solid #64748b;border-radius:9px;padding:6px 4px;color:#ffffff;text-decoration:none;font-size:12px;font-weight:800;line-height:1.35;display:flex;flex-direction:column;align-items:center;gap:3px;">
-      <i class="fas fa-bullseye" style="font-size:18px;color:#87C232;"></i>
+       style="background:linear-gradient(180deg,#f0fdf4,#dcfce7);border:1px solid #87c232;border-radius:9px;padding:6px 4px;color:#17351f;text-decoration:none;font-size:12px;font-weight:800;line-height:1.35;display:flex;flex-direction:column;align-items:center;gap:3px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.45);">
+      <i class="fas fa-volume-up" style="font-size:18px;color:#4d7c0f;"></i>
+      Noise Meter
+    </a>
+
+    <a href="https://dailyteachertools.com/classroom-board.html?tool=picker&amp;utm_source=noise_meter&amp;utm_medium=referral&amp;utm_campaign=teacher_tools&amp;utm_content=student_picker"
+       target="_blank" rel="noopener noreferrer"
+       style="background:linear-gradient(180deg,#f0fdf4,#dcfce7);border:1px solid #87c232;border-radius:9px;padding:6px 4px;color:#17351f;text-decoration:none;font-size:12px;font-weight:800;line-height:1.35;display:flex;flex-direction:column;align-items:center;gap:3px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.45);">
+      <i class="fas fa-bullseye" style="font-size:18px;color:#4d7c0f;"></i>
       Pick students
     </a>
 
-    <a href="https://dailyteachertools.com/classroom-board.html?tool=timer&utm_source=noise_meter&utm_medium=referral&utm_campaign=teacher_tools&utm_content=class_timer"
+    <a href="https://dailyteachertools.com/classroom-board.html?tool=timer&amp;utm_source=noise_meter&amp;utm_medium=referral&amp;utm_campaign=teacher_tools&amp;utm_content=class_timer"
        target="_blank" rel="noopener noreferrer"
-       style="background:#1e293b;border:1px solid #64748b;border-radius:9px;padding:6px 4px;color:#ffffff;text-decoration:none;font-size:12px;font-weight:800;line-height:1.35;display:flex;flex-direction:column;align-items:center;gap:3px;">
-      <i class="fas fa-stopwatch" style="font-size:18px;color:#87C232;"></i>
-      Set timers
-    </a>
-
-    <a href="https://dailyteachertools.com/classroom-board.html?utm_source=noise_meter&utm_medium=referral&utm_campaign=teacher_tools&utm_content=lesson_planning"
-       target="_blank" rel="noopener noreferrer"
-       style="background:#1e293b;border:1px solid #64748b;border-radius:9px;padding:6px 4px;color:#ffffff;text-decoration:none;font-size:12px;font-weight:800;line-height:1.35;display:flex;flex-direction:column;align-items:center;gap:3px;">
-      <i class="fas fa-calendar-days" style="font-size:18px;color:#87C232;"></i>
-      Plan lessons
+       style="background:linear-gradient(180deg,#f0fdf4,#dcfce7);border:1px solid #87c232;border-radius:9px;padding:6px 4px;color:#17351f;text-decoration:none;font-size:12px;font-weight:800;line-height:1.35;display:flex;flex-direction:column;align-items:center;gap:3px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.45);">
+      <i class="fas fa-stopwatch" style="font-size:18px;color:#4d7c0f;"></i>
+      set timers
     </a>
 
   </div>
 
-  <a href="https://dailyteachertools.com/?utm_source=noise_meter&utm_medium=referral&utm_campaign=teacher_tools&utm_content=create_account"
+    <a href="https://dailyteachertools.com/login.html?mode=signup&amp;returnTo=classroom-board.html%3Ftool%3Dnoise&amp;utm_source=noise_meter&amp;utm_medium=referral&amp;utm_campaign=teacher_tools&amp;utm_content=create_account"
      target="_blank" rel="noopener noreferrer"
      style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;box-sizing:border-box;background:#fbbf24;color:#172b20;border-radius:999px;padding:11px 8px;margin-top:3px;font-size:13px;font-weight:900;text-decoration:none;line-height:1.3;">
     <i class="fas fa-user-plus"></i>
@@ -6241,6 +6242,175 @@ Tip: Shortcuts work even when the meter is running!
   });
 
   syncMeterView();
+})();
+</script>
+
+<script>
+(function () {
+  const promoGrid =
+    document.getElementById("classboardPromoTools");
+
+  if (!promoGrid) return;
+
+  const cards =
+    Array.from(promoGrid.querySelectorAll("a"));
+
+  if (cards.length !== 3) return;
+
+  const promoPanel =
+    promoGrid.closest(".classboard-panel-promo");
+
+  if (!promoPanel) return;
+
+  const rotatingTools = [
+    [
+      {
+        tool: "picker",
+        label: "Pick students",
+        icon: "fa-bullseye",
+        tracking: "student_picker"
+      },
+      {
+        tool: "timer",
+        label: "Set timers",
+        icon: "fa-stopwatch",
+        tracking: "class_timer"
+      }
+    ],
+    [
+      {
+        tool: "groups",
+        label: "Make groups",
+        icon: "fa-users",
+        tracking: "group_generator"
+      },
+      {
+        tool: "notes",
+        label: "Sticky notes",
+        icon: "fa-note-sticky",
+        tracking: "sticky_notes"
+      }
+    ],
+    [
+      {
+        tool: "spinner",
+        label: "Spin wheel",
+        icon: "fa-circle-notch",
+        tracking: "spinning_wheel"
+      },
+      {
+        tool: "dice",
+        label: "Roll dice",
+        icon: "fa-dice",
+        tracking: "classroom_dice"
+      }
+    ],
+    [
+      {
+        tool: "whiteboard",
+        label: "Whiteboard",
+        icon: "fa-chalkboard",
+        tracking: "whiteboard"
+      },
+      {
+        tool: "routines",
+        label: "Class routines",
+        icon: "fa-list-check",
+        tracking: "class_routines"
+      }
+    ],
+    [
+      {
+        tool: "seating",
+        label: "Seating plan",
+        icon: "fa-chair",
+        tracking: "seating_plan"
+      },
+      {
+        tool: "vote",
+        label: "Class vote",
+        icon: "fa-chart-simple",
+        tracking: "class_vote"
+      }
+    ]
+  ];
+
+  let rotationIndex = 0;
+
+  const reducedMotion =
+    window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    );
+
+  cards.forEach(card => {
+    card.style.height = "51px";
+    card.style.boxSizing = "border-box";
+    card.style.justifyContent = "center";
+    card.style.whiteSpace = "nowrap";
+    card.style.minWidth = "0";
+    card.style.fontSize = "clamp(9px, 1vw, 12px)";
+  });
+
+  function updatePromoCard(card, item) {
+    const url = new URL(
+      "https://dailyteachertools.com/classroom-board.html"
+    );
+
+    url.searchParams.set("tool", item.tool);
+    url.searchParams.set("utm_source", "noise_meter");
+    url.searchParams.set("utm_medium", "referral");
+    url.searchParams.set("utm_campaign", "teacher_tools");
+    url.searchParams.set("utm_content", item.tracking);
+
+    card.href = url.toString();
+
+    const icon = document.createElement("i");
+
+    icon.className = "fas " + item.icon;
+    icon.style.fontSize = "18px";
+    icon.style.color = "#87C232";
+    icon.setAttribute("aria-hidden", "true");
+
+    card.replaceChildren(
+      icon,
+      document.createTextNode(item.label)
+    );
+  }
+
+  updatePromoCard(cards[0], {
+    tool: "noise",
+    label: "Noise Meter",
+    icon: "fa-volume-up",
+    tracking: "noise_meter"
+  });
+
+  function renderPromoTools() {
+    const tools = rotatingTools[rotationIndex];
+
+    updatePromoCard(cards[1], tools[0]);
+    updatePromoCard(cards[2], tools[1]);
+  }
+
+  renderPromoTools();
+
+  window.setInterval(() => {
+    if (
+      document.hidden ||
+      promoPanel.matches(":hover") ||
+      promoPanel.contains(document.activeElement) ||
+      reducedMotion.matches ||
+      (typeof isMonitoring !== "undefined" && isMonitoring) ||
+      promoPanel.getClientRects().length === 0
+    ) {
+      return;
+    }
+
+    rotationIndex =
+      (rotationIndex + 1) % rotatingTools.length;
+
+    renderPromoTools();
+  }, 6000);
+
 })();
 </script>
 
